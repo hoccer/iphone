@@ -13,17 +13,22 @@
 
 @interface MyViewController : UIViewController <UITextFieldDelegate, MyCLControllerDelegate> {
 	UITextField *textField;
-	UILabel *label;
+	IBOutlet UILabel * greetingLabel;
 	NSString *string;
 	
-	IBOutlet UILabel *locationLabel;
+	IBOutlet UILabel * locationLabel;
+	IBOutlet UILabel * accuracyLabel;
+	IBOutlet UILabel * debugLog;
 	
 	MyCLController *locationController;
 
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *textField;
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UILabel *greetingLabel;
+@property (nonatomic, retain) IBOutlet UILabel *locationLabel;
+@property (nonatomic, retain) IBOutlet UILabel *accuracyLabel;
+
 @property (nonatomic, copy) NSString *string;
 
 - (IBAction)changeGreeting:(id)sender;

@@ -12,7 +12,10 @@
 @implementation MyViewController
 
 @synthesize textField;
-@synthesize label;
+@synthesize greetingLabel;
+@synthesize locationLabel;
+@synthesize accuracyLabel;
+
 @synthesize string;
 
 - (IBAction)changeGreeting:(id)sender {
@@ -22,9 +25,9 @@
     if ([nameString length] == 0) {
         nameString = @"World";
     }
-    NSString *greeting = [[NSString alloc] initWithFormat:@"Hello, %@!", nameString];
-    label.text = greeting;
-    [greeting release];
+    NSString *greetingText = [[NSString alloc] initWithFormat:@"Hello, %@!", nameString];
+    greetingLabel.text = greetingText;
+    [greetingText release];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -37,11 +40,18 @@
 
 
 - (void)locationUpdate:(CLLocation *)location {
-    locationLabel.text = [location description];
+	NSString * tmpString = [[NSString alloc] initWithFormat:@"Lon: %f Lat: %f", location.coordinate.longitude,
+							   location.coordinate.latitude];
+    locationLabel.text = tmpString;
+
+	[tmpString release];
+
+    tmpString = [[NSString alloc] initWithFormat: @"Accuracy: %f", location.horizontalAccuracy];
+    accuracyLabel.text = tmpString;
 }
 
 - (void)locationError:(NSError *)error {
-    locationLabel.text = [error description];
+    debugLog.text = [error description];
 }
 
 /*
@@ -91,7 +101,7 @@
 
 - (void)dealloc {
 	[textField release];
-    [label release];
+    [greetingLabel release];
     [string release];
 	
 	[locationController release];
