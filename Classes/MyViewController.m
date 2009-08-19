@@ -9,35 +9,11 @@
 #import "MyViewController.h"
 
 
+
 @implementation MyViewController
 
-@synthesize textField;
-@synthesize greetingLabel;
 @synthesize locationLabel;
 @synthesize accuracyLabel;
-
-@synthesize string;
-
-- (IBAction)changeGreeting:(id)sender {
-	self.string = textField.text;
-	
-    NSString *nameString = string;
-    if ([nameString length] == 0) {
-        nameString = @"World";
-    }
-    NSString *greetingText = [[NSString alloc] initWithFormat:@"Hello, %@!", nameString];
-    greetingLabel.text = greetingText;
-    [greetingText release];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-	NSLog(@"textFieldShouldReturn");
-    if (theTextField == textField) {
-        [textField resignFirstResponder];
-    }
-    return YES;
-}
-
 
 - (void)locationUpdate:(CLLocation *)location {
 	NSString * tmpString = [[NSString alloc] initWithFormat:@"Lon: %f Lat: %f", location.coordinate.longitude,
@@ -48,10 +24,17 @@
 
     tmpString = [[NSString alloc] initWithFormat: @"Accuracy: %f", location.horizontalAccuracy];
     accuracyLabel.text = tmpString;
+	
+	[tmpString release];
 }
 
 - (void)locationError:(NSError *)error {
     debugLog.text = [error description];
+}
+
+- (IBAction) testHTTPRequest:(id) sender {
+    NSLog(@"HTTP Request Test");
+	[downloadController fetchURL: [NSURL URLWithString: @"http://localhost/cgi-bin/dump_request.pl"]];
 }
 
 /*
@@ -68,10 +51,11 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	locationController = [[MyCLController alloc] init];
-	
 	locationController.delegate = self;
-	
     [locationController.locationManager startUpdatingLocation];
+	
+	downloadController = [[MyDownloadController alloc] init];
+	downloadController.delegate = self;
 	
     [super viewDidLoad];
 }
@@ -100,13 +84,28 @@
 
 
 - (void)dealloc {
-	[textField release];
-    [greetingLabel release];
-    [string release];
-	
+    [locationLabel release];	
+    [accuracyLabel release];	
 	[locationController release];
+	[downloadController release];
 	
     [super dealloc];
+}
+
+- (void) onDownloadDone: (NSMutableData*) theData {
+	NSLog(@"Got data");
+	
+	NSString * tmp  = [[NSString alloc] initWithData:theData encoding: NSUTF8StringEncoding];
+	debugLog.text = tmp;
+	[tmp release];
+	
+}
+
+- (void) onError: (NSError*) theError {
+	// inform the user
+    NSLog(@"Connection failed! Error - %@ %@",
+          [theError localizedDescription],
+          [[theError userInfo] objectForKey:NSErrorFailingURLStringKey]);
 }
 
 

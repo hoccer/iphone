@@ -9,30 +9,25 @@
 #import <UIKit/UIKit.h>
 
 #import "MyCLController.h"
+#import "MyDownloadController.h"
 
 
-@interface MyViewController : UIViewController <UITextFieldDelegate, MyCLControllerDelegate> {
-	UITextField *textField;
-	IBOutlet UILabel * greetingLabel;
-	NSString *string;
-	
+@interface MyViewController : UIViewController <MyCLControllerDelegate, DownloadControllerDelegate> {
 	IBOutlet UILabel * locationLabel;
 	IBOutlet UILabel * accuracyLabel;
-	IBOutlet UILabel * debugLog;
+	IBOutlet UITextView * debugLog;
 	
 	MyCLController *locationController;
+	MyDownloadController *downloadController;
 
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *textField;
-@property (nonatomic, retain) IBOutlet UILabel *greetingLabel;
 @property (nonatomic, retain) IBOutlet UILabel *locationLabel;
 @property (nonatomic, retain) IBOutlet UILabel *accuracyLabel;
 
-@property (nonatomic, copy) NSString *string;
+- (IBAction) testHTTPRequest:(id) sender;
 
-- (IBAction)changeGreeting:(id)sender;
-
+// protocol MyCLControllerDelegate
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 
