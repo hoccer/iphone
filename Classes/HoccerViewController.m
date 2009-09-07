@@ -8,6 +8,9 @@
 
 #import "HoccerViewController.h"
 
+#import <CoreLocation/CoreLocation.h>
+#import "PeerGroupRequest.h"
+
 @implementation HoccerViewController
 @synthesize catchButton;
 
@@ -60,6 +63,9 @@
 
 - (IBAction)onCatch: (id)sender {
 	NSLog(@"catched");
+	
+	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.121312 longitude:14.1123123];
+	request = [[PeerGroupRequest alloc] initWithLocation: location andGesture:@"distribute"];
 }
 
 - (void)dealloc {

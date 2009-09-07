@@ -1,0 +1,79 @@
+//
+//  PeerGroupRequest.m
+//  Hoccer
+//
+//  Created by Robert Palmer on 07.09.09.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//
+
+#import "PeerGroupRequest.h"
+
+const NSString *kHoccerServer = @"http://www.hoccer.com/";
+
+@interface PeerGroupRequest (private) 
+- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture;
+@end
+
+@implementation PeerGroupRequest
+
+- (id)initWithLocation: (CLLocation *)location andGesture: (NSString *)gesture {
+	self = [super init];
+	if (self != nil) {
+		if (connection == nil) {
+			receivedData = [[NSMutableData alloc] init];
+			
+			NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"peers"];
+			NSLog(@"sending request to: %@", urlString);
+			NSURL *url = [NSURL URLWithString: urlString];
+			
+			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+			[request setHTTPMethod: @"POST"];
+			[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
+			
+			connection = [NSURLConnection connectionWithRequest:request	delegate:self]; 
+			if (!connection)  {
+				NSLog(@"Error while executing url connection");
+			}
+			
+		}
+	}
+	return self;	
+}
+
+- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture {
+	NSMutableString *body = [NSMutableString string];
+	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
+	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
+	[body appendFormat:@"peer[accuracy]=%i&", location.horizontalAccuracy];
+	[body appendFormat:@"peer[gesture]=%@", gesture];
+
+	NSLog(@"sending body: %@", body);
+	
+	return [body dataUsingEncoding: NSUTF8StringEncoding];
+}
+
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+       [receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	NSLog(@"connection did finish");
+	
+	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
+	NSLog(@"received: %@", dataString);
+	
+	[dataString release];
+}
+
+
+- (void)dealloc {
+	[super dealloc];
+	[connection dealloc];
+}
+
+
+
+@end
