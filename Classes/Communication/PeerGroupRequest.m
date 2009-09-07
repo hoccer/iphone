@@ -7,7 +7,6 @@
 //
 
 #import "PeerGroupRequest.h"
-// #import <JSON/JSON.h>
 
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
@@ -42,7 +41,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture {
+- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
+{
 	NSMutableString *body = [NSMutableString string];
 	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
@@ -51,7 +51,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
-
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -69,7 +68,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[dataString release];
 	[connection release];
 	connection = nil;
-	
 }
 
 

@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -268,7 +266,6 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>223BC3411055320A00ABE5A2</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -310,6 +307,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -327,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>223BC4031055547C00ABE5A2</string>
+										<string>223BC40C1055554900ABE5A2</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -603,9 +602,9 @@
 		<string>223BC3AD10554A4E00ABE5A2</string>
 		<string>223BC3AE10554A4E00ABE5A2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>223BC31A10552FA600ABE5A2</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/Hoccer/Hoccer.xcodeproj</string>
-		<string>223BC31A10552FA600ABE5A2</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 133 1280 869 0 0 1280 1002 </string>
