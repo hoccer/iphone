@@ -7,6 +7,7 @@
 //
 
 #import "PeerGroupRequest.h"
+#import "JSON.h"
 
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
@@ -16,7 +17,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @implementation PeerGroupRequest
 
-- (id)initWithLocation: (CLLocation *)location andGesture: (NSString *)gesture {
+- (id)initWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
+{
 	self = [super init];
 	if (self != nil) {
 		if (connection == nil) {
@@ -61,9 +63,13 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
 	NSLog(@"connection did finish");
+	NSError *error;
 	
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	NSLog(@"received: %@", dataString);
+	SBJSON *json = [[SBJSON alloc] init];
+	id object = [json objectWithString: dataString error: &error];
+	
+	NSLog(@"received peer uri: %@", [object valueForKey:@"peer_uri"]);
 	
 	[dataString release];
 	[connection release];
