@@ -69,8 +69,6 @@
 }
 
 - (void)finishedRequest: (PeerGroupRequest *)aRequest {
-	NSLog(@"request abgeschlossen");
-	
 	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
 }
 

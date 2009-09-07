@@ -289,9 +289,9 @@
 	};
 	223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1316}}";
-			sepNavSelRange = "{1541, 0}";
-			sepNavVisRange = "{26, 1658}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1414}}";
+			sepNavSelRange = "{2541, 0}";
+			sepNavVisRange = "{288, 1854}";
 		};
 	};
 	223BC349105536EF00ABE5A2 /* PBXTextBookmark */ = {
@@ -506,7 +506,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -596,7 +596,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 14";
 		rLen = 0;
-		rLoc = 2739;
+		rLoc = 2735;
 		rType = 0;
 		vrLen = 217;
 		vrLoc = 0;
@@ -836,7 +836,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 64";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1695;
 		vrLoc = 174;
@@ -856,7 +856,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -1044,7 +1044,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 360;
@@ -1174,7 +1174,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2668;
+		rLoc = 2664;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 0;
@@ -1194,7 +1194,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2668;
+		rLoc = 2664;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 0;
@@ -1694,7 +1694,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2639;
+		rLoc = 2635;
 		rType = 0;
 		vrLen = 1214;
 		vrLoc = 1237;
@@ -1778,7 +1778,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 1197;
 		vrLoc = 1237;
@@ -1878,7 +1878,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 83";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 834;
 		vrLoc = 475;
@@ -1906,7 +1906,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 83";
 		rLen = 0;
-		rLoc = 2626;
+		rLoc = 2622;
 		rType = 0;
 		vrLen = 834;
 		vrLoc = 475;
@@ -1956,7 +1956,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 1934;
+		rLoc = 1898;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 579;
@@ -1966,7 +1966,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 1934;
+		rLoc = 1898;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 579;
@@ -1996,7 +1996,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 1934;
+		rLoc = 1898;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 579;
@@ -2096,7 +2096,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2623;
+		rLoc = 2619;
 		rType = 0;
 		vrLen = 1279;
 		vrLoc = 1278;
@@ -2116,7 +2116,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2578;
+		rLoc = 2574;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 1282;
@@ -2156,7 +2156,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2623;
+		rLoc = 2619;
 		rType = 0;
 		vrLen = 1279;
 		vrLoc = 1278;
@@ -2176,7 +2176,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2623;
+		rLoc = 2619;
 		rType = 0;
 		vrLen = 1273;
 		vrLoc = 1278;
@@ -2246,7 +2246,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 94";
 		rLen = 0;
-		rLoc = 2735;
+		rLoc = 2731;
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 1278;
@@ -2300,7 +2300,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1894;
+		rLoc = 1858;
 		rType = 0;
 		vrLen = 778;
 		vrLoc = 1205;
@@ -2320,7 +2320,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2568;
+		rLoc = 2564;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 1136;
@@ -2330,7 +2330,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2568;
+		rLoc = 2564;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 1136;
@@ -2350,7 +2350,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2605;
+		rLoc = 2601;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 1136;
@@ -2360,7 +2360,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1894;
+		rLoc = 1858;
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 1205;
@@ -2380,7 +2380,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1894;
+		rLoc = 1858;
 		rType = 0;
 		vrLen = 799;
 		vrLoc = 1205;
@@ -2400,7 +2400,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1894;
+		rLoc = 1858;
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 1205;
@@ -2420,10 +2420,17 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1894;
+		rLoc = 1858;
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 1205;
+	};
+	223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 305}";
+		};
 	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
@@ -2435,9 +2442,9 @@
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 1162}}";
-			sepNavSelRange = "{1894, 0}";
-			sepNavVisRange = "{1205, 798}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1134}}";
+			sepNavSelRange = "{802, 0}";
+			sepNavVisRange = "{318, 1602}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};

@@ -82,8 +82,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[connection release];
 	connection = nil;
 	
-	
-	
 	[delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
 }
 
