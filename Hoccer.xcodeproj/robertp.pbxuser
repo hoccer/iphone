@@ -289,9 +289,9 @@
 	};
 	223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1344}}";
-			sepNavSelRange = "{2381, 0}";
-			sepNavVisRange = "{1136, 1381}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1316}}";
+			sepNavSelRange = "{1541, 0}";
+			sepNavVisRange = "{26, 1658}";
 		};
 	};
 	223BC349105536EF00ABE5A2 /* PBXTextBookmark */ = {
@@ -506,7 +506,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -596,7 +596,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 14";
 		rLen = 0;
-		rLoc = 2515;
+		rLoc = 2739;
 		rType = 0;
 		vrLen = 217;
 		vrLoc = 0;
@@ -796,7 +796,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 52";
 		rLen = 0;
-		rLoc = 1883;
+		rLoc = 2103;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 0;
@@ -836,7 +836,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 64";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 1695;
 		vrLoc = 174;
@@ -856,7 +856,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -1044,7 +1044,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 360;
@@ -1074,7 +1074,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 65";
 		rLen = 0;
-		rLoc = 2265;
+		rLoc = 2485;
 		rType = 0;
 		vrLen = 1635;
 		vrLoc = 360;
@@ -1094,7 +1094,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 50";
 		rLen = 0;
-		rLoc = 1739;
+		rLoc = 1959;
 		rType = 0;
 		vrLen = 1700;
 		vrLoc = 399;
@@ -1104,7 +1104,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1654;
+		rLoc = 1874;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1114,7 +1114,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1654;
+		rLoc = 1874;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1134,7 +1134,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1654;
+		rLoc = 1874;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1174,7 +1174,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2444;
+		rLoc = 2668;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 0;
@@ -1194,7 +1194,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2444;
+		rLoc = 2668;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 0;
@@ -1383,7 +1383,7 @@
 		comments = "error: 'null' undeclared (first use in this function)";
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		rLen = 1;
-		rLoc = 77;
+		rLoc = 82;
 		rType = 1;
 	};
 	223BC4011055547C00ABE5A2 /* PBXTextBookmark */ = {
@@ -1411,7 +1411,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 71";
 		rLen = 0;
-		rLoc = 2313;
+		rLoc = 2533;
 		rType = 0;
 		vrLen = 1561;
 		vrLoc = 623;
@@ -1514,7 +1514,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 70";
 		rLen = 0;
-		rLoc = 2252;
+		rLoc = 2472;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 568;
@@ -1524,7 +1524,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2184;
+		rLoc = 2404;
 		rType = 0;
 		vrLen = 1408;
 		vrLoc = 809;
@@ -1554,7 +1554,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 69";
 		rLen = 0;
-		rLoc = 2149;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 1397;
 		vrLoc = 809;
@@ -1574,7 +1574,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 70";
 		rLen = 0;
-		rLoc = 2252;
+		rLoc = 2472;
 		rType = 0;
 		vrLen = 1577;
 		vrLoc = 616;
@@ -1594,7 +1594,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 70";
 		rLen = 0;
-		rLoc = 2252;
+		rLoc = 2472;
 		rType = 0;
 		vrLen = 1625;
 		vrLoc = 568;
@@ -1634,7 +1634,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 69";
 		rLen = 0;
-		rLoc = 2155;
+		rLoc = 2375;
 		rType = 0;
 		vrLen = 1702;
 		vrLoc = 568;
@@ -1664,7 +1664,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2313;
+		rLoc = 2533;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 0;
@@ -1674,7 +1674,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2313;
+		rLoc = 2533;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 0;
@@ -1694,7 +1694,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2415;
+		rLoc = 2639;
 		rType = 0;
 		vrLen = 1214;
 		vrLoc = 1237;
@@ -1778,7 +1778,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 1197;
 		vrLoc = 1237;
@@ -1878,7 +1878,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 83";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 834;
 		vrLoc = 475;
@@ -1906,7 +1906,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 83";
 		rLen = 0;
-		rLoc = 2402;
+		rLoc = 2626;
 		rType = 0;
 		vrLen = 834;
 		vrLoc = 475;
@@ -2096,7 +2096,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2399;
+		rLoc = 2623;
 		rType = 0;
 		vrLen = 1279;
 		vrLoc = 1278;
@@ -2116,7 +2116,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2354;
+		rLoc = 2578;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 1282;
@@ -2156,7 +2156,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2399;
+		rLoc = 2623;
 		rType = 0;
 		vrLen = 1279;
 		vrLoc = 1278;
@@ -2176,7 +2176,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2399;
+		rLoc = 2623;
 		rType = 0;
 		vrLen = 1273;
 		vrLoc = 1278;
@@ -2236,7 +2236,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 73";
 		rLen = 0;
-		rLoc = 2191;
+		rLoc = 2411;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 1285;
@@ -2246,7 +2246,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 94";
 		rLen = 0;
-		rLoc = 2511;
+		rLoc = 2735;
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 1278;
@@ -2270,7 +2270,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2254;
+		rLoc = 2474;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 1136;
@@ -2290,7 +2290,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 76";
 		rLen = 0;
-		rLoc = 2254;
+		rLoc = 2474;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 1136;
@@ -2320,7 +2320,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2344;
+		rLoc = 2568;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 1136;
@@ -2330,7 +2330,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2344;
+		rLoc = 2568;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 1136;
@@ -2350,12 +2350,72 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 80";
 		rLen = 0;
-		rLoc = 2381;
+		rLoc = 2605;
 		rType = 0;
 		vrLen = 1381;
 		vrLoc = 1136;
 	};
 	223BC4991055607C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 74";
+		rLen = 0;
+		rLoc = 1894;
+		rType = 0;
+		vrLen = 798;
+		vrLoc = 1205;
+	};
+	223BC49A105563D700ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 51";
+		rLen = 0;
+		rLoc = 1541;
+		rType = 0;
+		vrLen = 1762;
+		vrLoc = 26;
+	};
+	223BC49B105563D700ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 74";
+		rLen = 0;
+		rLoc = 1894;
+		rType = 0;
+		vrLen = 799;
+		vrLoc = 1205;
+	};
+	223BC49D1055654200ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 51";
+		rLen = 0;
+		rLoc = 1541;
+		rType = 0;
+		vrLen = 1666;
+		vrLoc = 26;
+	};
+	223BC49E1055654200ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 74";
+		rLen = 0;
+		rLoc = 1894;
+		rType = 0;
+		vrLen = 798;
+		vrLoc = 1205;
+	};
+	223BC4A01055659A00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 52";
+		rLen = 0;
+		rLoc = 1541;
+		rType = 0;
+		vrLen = 1658;
+		vrLoc = 26;
+	};
+	223BC4A11055659A00ABE5A2 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
@@ -2643,6 +2703,12 @@
 			223BC4971055607C00ABE5A2 /* PBXTextBookmark */ = 223BC4971055607C00ABE5A2 /* PBXTextBookmark */;
 			223BC4981055607C00ABE5A2 /* PBXTextBookmark */ = 223BC4981055607C00ABE5A2 /* PBXTextBookmark */;
 			223BC4991055607C00ABE5A2 /* PBXTextBookmark */ = 223BC4991055607C00ABE5A2 /* PBXTextBookmark */;
+			223BC49A105563D700ABE5A2 /* PBXTextBookmark */ = 223BC49A105563D700ABE5A2 /* PBXTextBookmark */;
+			223BC49B105563D700ABE5A2 /* PBXTextBookmark */ = 223BC49B105563D700ABE5A2 /* PBXTextBookmark */;
+			223BC49D1055654200ABE5A2 /* PBXTextBookmark */ = 223BC49D1055654200ABE5A2 /* PBXTextBookmark */;
+			223BC49E1055654200ABE5A2 /* PBXTextBookmark */ = 223BC49E1055654200ABE5A2 /* PBXTextBookmark */;
+			223BC4A01055659A00ABE5A2 /* PBXTextBookmark */ = 223BC4A01055659A00ABE5A2 /* PBXTextBookmark */;
+			223BC4A11055659A00ABE5A2 /* PBXTextBookmark */ = 223BC4A11055659A00ABE5A2 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {

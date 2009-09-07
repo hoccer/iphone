@@ -47,6 +47,11 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return self;	
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response {
+	NSLog(@"status code: %d", [response statusCode]);
+	NSLog(@"response length: %d", [response expectedContentLength]);
+}
+
 - (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
 {
 	NSMutableString *body = [NSMutableString string];
@@ -76,6 +81,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[dataString release];
 	[connection release];
 	connection = nil;
+	
+	
 	
 	[delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
 }
