@@ -8,6 +8,7 @@
 
 #import "PeerGroupRequest.h"
 #import "JSON.h"
+#import "NSObject+DelegateHelper.h"
 
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
@@ -16,11 +17,15 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 @end
 
 @implementation PeerGroupRequest
+@synthesize delegate;
+@synthesize result;
 
-- (id)initWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
+		delegate = aDelegate;
+		
 		if (connection == nil) {
 			receivedData = [[NSMutableData alloc] init];
 			
@@ -36,7 +41,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 			if (!connection)  {
 				NSLog(@"Error while executing url connection");
 			}
-			
 		}
 	}
 	
@@ -67,13 +71,13 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
 	SBJSON *json = [[SBJSON alloc] init];
-	id object = [json objectWithString: dataString error: &error];
-	
-	NSLog(@"received peer uri: %@", [object valueForKey:@"peer_uri"]);
+	self.result = [json objectWithString: dataString error: &error];
 	
 	[dataString release];
 	[connection release];
 	connection = nil;
+	
+	[delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
 }
 
 
@@ -83,6 +87,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	
 	[connection release];
 	[receivedData release];
+	[result release];
 }
 
 

@@ -65,7 +65,13 @@
 	NSLog(@"catched");
 	
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.121312 longitude:14.1123123];
-	request = [[PeerGroupRequest alloc] initWithLocation: location andGesture:@"distribute"];
+	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
+}
+
+- (void)finishedRequest: (PeerGroupRequest *)aRequest {
+	NSLog(@"request abgeschlossen");
+	
+	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
 }
 
 - (void)dealloc {

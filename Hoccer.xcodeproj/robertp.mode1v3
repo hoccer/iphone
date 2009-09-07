@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>223BC48D1055600C00ABE5A2</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>HoccerViewController.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>223BC48E1055600C00ABE5A2</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>HoccerViewController.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>223BC4991055607C00ABE5A2</string>
+						<key>history</key>
+						<array>
+							<string>223BC48A10555FEA00ABE5A2</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {750, 461}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>38 474 750 502 0 0 1280 1002 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -266,7 +307,7 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>223BC40D1055556200ABE5A2</string>
+								<string>223BC43C10555AD300ABE5A2</string>
 								<string>223BC3411055320A00ABE5A2</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
@@ -275,8 +316,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>18</integer>
-									<integer>16</integer>
+									<integer>8</integer>
+									<integer>6</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -331,20 +372,24 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>223BC4361055592F00ABE5A2</string>
+										<string>223BC4981055607C00ABE5A2</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
 											<string>223BC37C10554A0900ABE5A2</string>
 											<string>223BC3C610554B3000ABE5A2</string>
-											<string>223BC3D7105551F400ABE5A2</string>
-											<string>223BC3D8105551F400ABE5A2</string>
 											<string>223BC3FF1055547C00ABE5A2</string>
 											<string>223BC425105558C500ABE5A2</string>
 											<string>223BC426105558C500ABE5A2</string>
 											<string>223BC427105558C500ABE5A2</string>
 											<string>223BC428105558C500ABE5A2</string>
-											<string>223BC429105558C500ABE5A2</string>
+											<string>223BC44710555CB300ABE5A2</string>
+											<string>223BC44810555CB300ABE5A2</string>
+											<string>223BC46510555D7E00ABE5A2</string>
+											<string>223BC47210555E4100ABE5A2</string>
+											<string>223BC47E10555EFB00ABE5A2</string>
+											<string>223BC4941055607C00ABE5A2</string>
+											<string>223BC4951055607C00ABE5A2</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -426,6 +471,34 @@
 											<string>223BC432105558C500ABE5A2</string>
 											<string>223BC433105558C500ABE5A2</string>
 											<string>223BC434105558C500ABE5A2</string>
+											<string>223BC43910555A8300ABE5A2</string>
+											<string>223BC43A10555A8300ABE5A2</string>
+											<string>223BC44D10555CB300ABE5A2</string>
+											<string>223BC44E10555CB300ABE5A2</string>
+											<string>223BC44F10555CB300ABE5A2</string>
+											<string>223BC45010555CB300ABE5A2</string>
+											<string>223BC45110555CB300ABE5A2</string>
+											<string>223BC45210555CB300ABE5A2</string>
+											<string>223BC45310555CB300ABE5A2</string>
+											<string>223BC45410555CB300ABE5A2</string>
+											<string>223BC45F10555D2A00ABE5A2</string>
+											<string>223BC46810555D7E00ABE5A2</string>
+											<string>223BC46910555D7E00ABE5A2</string>
+											<string>223BC46A10555D7E00ABE5A2</string>
+											<string>223BC46B10555D7E00ABE5A2</string>
+											<string>223BC46C10555D7E00ABE5A2</string>
+											<string>223BC46D10555D7E00ABE5A2</string>
+											<string>223BC47510555E4100ABE5A2</string>
+											<string>223BC47610555E4100ABE5A2</string>
+											<string>223BC47710555E4100ABE5A2</string>
+											<string>223BC47810555E4100ABE5A2</string>
+											<string>223BC47910555E4100ABE5A2</string>
+											<string>223BC47A10555E4100ABE5A2</string>
+											<string>223BC47B10555E4100ABE5A2</string>
+											<string>223BC48010555EFB00ABE5A2</string>
+											<string>223BC48110555EFB00ABE5A2</string>
+											<string>223BC4961055607C00ABE5A2</string>
+											<string>223BC4971055607C00ABE5A2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -623,6 +696,7 @@
 		<string>223BC3AE10554A4E00ABE5A2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>223BC31A10552FA600ABE5A2</string>
+		<string>223BC48D1055600C00ABE5A2</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/Hoccer/Hoccer.xcodeproj</string>
 	</array>
@@ -650,7 +724,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PeerGroupRequest.m</string>
+								<string>HoccerViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -717,7 +791,7 @@
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

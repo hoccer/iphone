@@ -12,9 +12,16 @@
 @interface PeerGroupRequest : NSObject {
 	NSURLConnection *connection;
 	NSMutableData *receivedData;
+	
+	id delegate;
+	
+	id result;
 }
 
-- (id)initWithLocation: (CLLocation *)location andGesture: (NSString *)gesture;
+@property (assign, nonatomic) id delegate;
+@property (retain) id result;
+
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id) aDelegate;
 
 
 
