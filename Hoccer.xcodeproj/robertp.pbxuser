@@ -281,7 +281,7 @@
 	};
 	223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
 			sepNavSelRange = "{290, 13}";
 			sepNavVisRange = "{0, 411}";
 			sepNavWindowFrame = "{{61, 397}, {750, 558}}";
@@ -289,9 +289,9 @@
 	};
 	223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1120}}";
-			sepNavSelRange = "{1507, 0}";
-			sepNavVisRange = "{399, 1703}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1218}}";
+			sepNavSelRange = "{2114, 0}";
+			sepNavVisRange = "{623, 1561}";
 		};
 	};
 	223BC349105536EF00ABE5A2 /* PBXTextBookmark */ = {
@@ -506,7 +506,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2080;
+		rLoc = 2118;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -596,7 +596,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 14";
 		rLen = 0;
-		rLoc = 2146;
+		rLoc = 2212;
 		rType = 0;
 		vrLen = 217;
 		vrLoc = 0;
@@ -676,7 +676,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 17";
 		rLen = 0;
-		rLoc = 1157;
+		rLoc = 1184;
 		rType = 0;
 		vrLen = 387;
 		vrLoc = 0;
@@ -696,7 +696,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 17";
 		rLen = 0;
-		rLoc = 523;
+		rLoc = 548;
 		rType = 0;
 		vrLen = 387;
 		vrLoc = 0;
@@ -716,7 +716,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 31";
 		rLen = 0;
-		rLoc = 1153;
+		rLoc = 1180;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 0;
@@ -736,7 +736,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 34";
 		rLen = 0;
-		rLoc = 1153;
+		rLoc = 1180;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 0;
@@ -756,7 +756,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 11";
 		rLen = 0;
-		rLoc = 228;
+		rLoc = 253;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 0;
@@ -776,7 +776,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 11";
 		rLen = 0;
-		rLoc = 228;
+		rLoc = 253;
 		rType = 0;
 		vrLen = 1607;
 		vrLoc = 0;
@@ -796,7 +796,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 52";
 		rLen = 0;
-		rLoc = 1774;
+		rLoc = 1766;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 0;
@@ -816,7 +816,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 23";
 		rLen = 0;
-		rLoc = 597;
+		rLoc = 622;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 0;
@@ -836,7 +836,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 64";
 		rLen = 0;
-		rLoc = 2080;
+		rLoc = 2118;
 		rType = 0;
 		vrLen = 1695;
 		vrLoc = 174;
@@ -856,7 +856,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2080;
+		rLoc = 2118;
 		rType = 0;
 		vrLen = 1694;
 		vrLoc = 274;
@@ -1044,7 +1044,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 68";
 		rLen = 0;
-		rLoc = 2080;
+		rLoc = 2118;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 360;
@@ -1074,7 +1074,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 65";
 		rLen = 0;
-		rLoc = 2069;
+		rLoc = 2063;
 		rType = 0;
 		vrLen = 1635;
 		vrLoc = 360;
@@ -1084,7 +1084,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 26";
 		rLen = 0;
-		rLoc = 736;
+		rLoc = 761;
 		rType = 0;
 		vrLen = 1729;
 		vrLoc = 0;
@@ -1094,7 +1094,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 50";
 		rLen = 0;
-		rLoc = 1626;
+		rLoc = 1621;
 		rType = 0;
 		vrLen = 1700;
 		vrLoc = 399;
@@ -1104,7 +1104,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1507;
+		rLoc = 1536;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1114,7 +1114,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1507;
+		rLoc = 1536;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1134,7 +1134,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 47";
 		rLen = 0;
-		rLoc = 1507;
+		rLoc = 1536;
 		rType = 0;
 		vrLen = 1703;
 		vrLoc = 399;
@@ -1149,9 +1149,276 @@
 		vrLen = 1319;
 		vrLoc = 502;
 	};
+	223BC3D7105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 68";
+		rLen = 0;
+		rLoc = 1738;
+		rType = 0;
+		vrLen = 1319;
+		vrLoc = 502;
+	};
+	223BC3D8105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 14";
+		rLen = 13;
+		rLoc = 290;
+		rType = 0;
+		vrLen = 411;
+		vrLoc = 0;
+	};
+	223BC3D9105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 76";
+		rLen = 0;
+		rLoc = 2160;
+		rType = 0;
+		vrLen = 1689;
+		vrLoc = 0;
+	};
+	223BC3DA105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 68";
+		rLen = 0;
+		rLoc = 1738;
+		rType = 0;
+		vrLen = 1319;
+		vrLoc = 502;
+	};
+	223BC3DB105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 76";
+		rLen = 0;
+		rLoc = 2160;
+		rType = 0;
+		vrLen = 1689;
+		vrLoc = 0;
+	};
+	223BC3DC105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 14";
+		rLen = 13;
+		rLoc = 290;
+		rType = 0;
+		vrLen = 411;
+		vrLoc = 0;
+	};
+	223BC3DD105551F400ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1180;
+		rType = 0;
+		vrLen = 1657;
+		vrLoc = 0;
+	};
+	223BC3DE1055534300ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1180;
+		rType = 0;
+		vrLen = 1738;
+		vrLoc = 0;
+	};
+	223BC3E71055537C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1180;
+		rType = 0;
+		vrLen = 1738;
+		vrLoc = 0;
+	};
+	223BC3EA105553A000ABE5A2 /* UILocalizedIndexedCollation.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = UILocalizedIndexedCollation.h;
+		path = "/var/folders/jW/jWUu-9CKHAOLWZ-XYPlcnU+++TU/-Caches-/com.apple.Xcode.504/CompositeSDKs/iphonesimulator-iPhoneSimulator3.0-aunywfkprxmexmaxszmaaqqkucwm/System/Library/Frameworks/UIKit.framework/Headers/UILocalizedIndexedCollation.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {728, 756}}";
+			sepNavSelRange = "{224, 63}";
+			sepNavVisRange = "{0, 709}";
+			sepNavWindowFrame = "{{107, 355}, {750, 558}}";
+		};
+	};
+	223BC3ED105553B800ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 11";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	223BC3EE105553B800ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: syntax error before 'AT_NAME' token";
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		rLen = 1;
+		rLoc = 12;
+		rType = 1;
+	};
+	223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = UILocalizedIndexedCollation.h;
+		path = "/var/folders/jW/jWUu-9CKHAOLWZ-XYPlcnU+++TU/-Caches-/com.apple.Xcode.504/CompositeSDKs/iphonesimulator-iPhoneSimulator3.0-aunywfkprxmexmaxszmaaqqkucwm/System/Library/Frameworks/UIKit.framework/Headers/UILocalizedIndexedCollation.h";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavSelRange = "{224, 63}";
+			sepNavVisRange = "{0, 1618}";
+		};
+	};
+	223BC3F0105553B800ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 11";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	223BC3F1105553B800ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3EA105553A000ABE5A2 /* UILocalizedIndexedCollation.h */;
+		name = "UILocalizedIndexedCollation.h: 13";
+		rLen = 63;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 709;
+		vrLoc = 0;
+	};
+	223BC3F2105553BC00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 10";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 1758;
+		vrLoc = 0;
+	};
+	223BC3F41055540100ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 11";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	223BC3F51055540100ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: syntax error before 'AT_NAME' token";
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		rLen = 1;
+		rLoc = 12;
+		rType = 1;
+	};
+	223BC3F61055540100ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 11";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 402;
+		vrLoc = 0;
+	};
+	223BC3F71055540100ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		name = "UILocalizedIndexedCollation.h: 13";
+		rLen = 63;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 709;
+		vrLoc = 0;
+	};
+	223BC3F91055540E00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: syntax error before 'AT_NAME' token";
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		rLen = 1;
+		rLoc = 12;
+		rType = 1;
+	};
+	223BC3FA1055540E00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		name = "UILocalizedIndexedCollation.h: 13";
+		rLen = 63;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 709;
+		vrLoc = 0;
+	};
+	223BC3FF1055547C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		name = "UILocalizedIndexedCollation.h: 13";
+		rLen = 63;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 1618;
+		vrLoc = 0;
+	};
+	223BC4001055547C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'null' undeclared (first use in this function)";
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		rLen = 1;
+		rLoc = 70;
+		rType = 1;
+	};
+	223BC4011055547C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 10";
+		rLen = 0;
+		rLoc = 177;
+		rType = 0;
+		vrLen = 1761;
+		vrLoc = 0;
+	};
+	223BC4021055547C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3EF105553B800ABE5A2 /* UILocalizedIndexedCollation.h */;
+		name = "UILocalizedIndexedCollation.h: 13";
+		rLen = 63;
+		rLoc = 224;
+		rType = 0;
+		vrLen = 1618;
+		vrLoc = 0;
+	};
+	223BC4031055547C00ABE5A2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 71";
+		rLen = 0;
+		rLoc = 2114;
+		rType = 0;
+		vrLen = 1561;
+		vrLoc = 623;
+	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {728, 358}}";
+			sepNavIntBoundsRect = "{{0, 0}, {728, 381}}";
 			sepNavSelRange = "{198, 0}";
 			sepNavVisRange = "{0, 402}";
 			sepNavWindowFrame = "{{84, 376}, {750, 558}}";
@@ -1312,6 +1579,31 @@
 			223BC3D410554E7700ABE5A2 /* PBXTextBookmark */ = 223BC3D410554E7700ABE5A2 /* PBXTextBookmark */;
 			223BC3D510554E7700ABE5A2 /* PBXTextBookmark */ = 223BC3D510554E7700ABE5A2 /* PBXTextBookmark */;
 			223BC3D610554E7700ABE5A2 /* PBXTextBookmark */ = 223BC3D610554E7700ABE5A2 /* PBXTextBookmark */;
+			223BC3D7105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3D7105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3D8105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3D8105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3D9105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3D9105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3DA105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3DA105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3DB105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3DB105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3DC105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3DC105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3DD105551F400ABE5A2 /* PBXTextBookmark */ = 223BC3DD105551F400ABE5A2 /* PBXTextBookmark */;
+			223BC3DE1055534300ABE5A2 /* PBXTextBookmark */ = 223BC3DE1055534300ABE5A2 /* PBXTextBookmark */;
+			223BC3E71055537C00ABE5A2 /* PBXTextBookmark */ = 223BC3E71055537C00ABE5A2 /* PBXTextBookmark */;
+			223BC3ED105553B800ABE5A2 /* PBXTextBookmark */ = 223BC3ED105553B800ABE5A2 /* PBXTextBookmark */;
+			223BC3EE105553B800ABE5A2 /* PBXTextBookmark */ = 223BC3EE105553B800ABE5A2 /* PBXTextBookmark */;
+			223BC3F0105553B800ABE5A2 /* PBXTextBookmark */ = 223BC3F0105553B800ABE5A2 /* PBXTextBookmark */;
+			223BC3F1105553B800ABE5A2 /* PBXTextBookmark */ = 223BC3F1105553B800ABE5A2 /* PBXTextBookmark */;
+			223BC3F2105553BC00ABE5A2 /* PBXTextBookmark */ = 223BC3F2105553BC00ABE5A2 /* PBXTextBookmark */;
+			223BC3F41055540100ABE5A2 /* PBXTextBookmark */ = 223BC3F41055540100ABE5A2 /* PBXTextBookmark */;
+			223BC3F51055540100ABE5A2 /* PBXTextBookmark */ = 223BC3F51055540100ABE5A2 /* PBXTextBookmark */;
+			223BC3F61055540100ABE5A2 /* PBXTextBookmark */ = 223BC3F61055540100ABE5A2 /* PBXTextBookmark */;
+			223BC3F71055540100ABE5A2 /* PBXTextBookmark */ = 223BC3F71055540100ABE5A2 /* PBXTextBookmark */;
+			223BC3F91055540E00ABE5A2 /* PBXTextBookmark */ = 223BC3F91055540E00ABE5A2 /* PBXTextBookmark */;
+			223BC3FA1055540E00ABE5A2 /* PBXTextBookmark */ = 223BC3FA1055540E00ABE5A2 /* PBXTextBookmark */;
+			223BC3FF1055547C00ABE5A2 /* PBXTextBookmark */ = 223BC3FF1055547C00ABE5A2 /* PBXTextBookmark */;
+			223BC4001055547C00ABE5A2 /* PBXTextBookmark */ = 223BC4001055547C00ABE5A2 /* PBXTextBookmark */;
+			223BC4011055547C00ABE5A2 /* PBXTextBookmark */ = 223BC4011055547C00ABE5A2 /* PBXTextBookmark */;
+			223BC4021055547C00ABE5A2 /* PBXTextBookmark */ = 223BC4021055547C00ABE5A2 /* PBXTextBookmark */;
+			223BC4031055547C00ABE5A2 /* PBXTextBookmark */ = 223BC4031055547C00ABE5A2 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {

@@ -7,6 +7,7 @@
 //
 
 #import "PeerGroupRequest.h"
+// #import <JSON/JSON.h>
 
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
@@ -30,13 +31,14 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 			[request setHTTPMethod: @"POST"];
 			[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
 			
-			connection = [NSURLConnection connectionWithRequest:request	delegate:self]; 
+			connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; 
 			if (!connection)  {
 				NSLog(@"Error while executing url connection");
 			}
 			
 		}
 	}
+	
 	return self;	
 }
 
@@ -47,8 +49,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"peer[accuracy]=%i&", location.horizontalAccuracy];
 	[body appendFormat:@"peer[gesture]=%@", gesture];
 
-	NSLog(@"sending body: %@", body);
-	
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
@@ -59,19 +59,26 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
        [receivedData appendData:data];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
+{
 	NSLog(@"connection did finish");
 	
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
 	NSLog(@"received: %@", dataString);
 	
 	[dataString release];
+	[connection release];
+	connection = nil;
+	
 }
 
 
-- (void)dealloc {
+- (void)dealloc 
+{
 	[super dealloc];
-	[connection dealloc];
+	
+	[connection release];
+	[receivedData release];
 }
 
 
