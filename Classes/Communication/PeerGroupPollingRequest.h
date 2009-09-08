@@ -13,7 +13,7 @@
 	id delegate;
 }
 
-@property (assign)  
+@property (assign, nonatomic) id delegate;
 
 - (void)initWithObject: (id)aObject andDelegate: (id)delegate;
 
