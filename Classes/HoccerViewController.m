@@ -72,11 +72,18 @@
 - (IBAction)onCancel: (id)sender 
 {
 	[request cancel];
+	[request release];
+	
+	request = nil;
 }
 
 
 - (IBAction)onCatch: (id)sender {
 	NSLog(@"catched");
+	
+	if (request != nil) {
+		return;
+	}
 	
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];

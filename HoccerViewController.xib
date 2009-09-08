@@ -45,14 +45,14 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont" id="238979435">
+						<object class="NSFont" key="IBUIFont" id="801514226">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">1.500000e+01</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Catch</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="902613021">
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="64123980">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -60,12 +60,12 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MyAwLjMwOTgwMzkzIDAuNTIxNTY4NjYAA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor" id="783860426">
+						<object class="NSColor" key="IBUINormalTitleShadowColor" id="945048631">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
 					</object>
-					<object class="IBUIButton" id="1044522879">
+					<object class="IBUIButton" id="236417925">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 403}, {280, 37}}</string>
@@ -74,15 +74,15 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="238979435"/>
+						<reference key="IBUIFont" ref="801514226"/>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">Cancel</string>
-						<reference key="IBUIHighlightedTitleColor" ref="902613021"/>
+						<reference key="IBUIHighlightedTitleColor" ref="64123980"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MyAwLjMwOTgwMzkzIDAuNTIxNTY4NjYAA</bytes>
 						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="783860426"/>
+						<reference key="IBUINormalTitleShadowColor" ref="945048631"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -120,7 +120,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">onCancel:</string>
-						<reference key="source" ref="1044522879"/>
+						<reference key="source" ref="236417925"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">1</int>
 					</object>
@@ -163,7 +163,7 @@
 						<reference key="object" ref="774585933"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1044522879"/>
+							<reference ref="236417925"/>
 							<reference ref="1050786069"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
@@ -175,7 +175,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">16</int>
-						<reference key="object" ref="1044522879"/>
+						<reference key="object" ref="236417925"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
