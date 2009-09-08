@@ -7,20 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseHoccerRequest.h"
 
-
-@interface PeerGroupPollingRequest : NSObject {
+@interface PeerGroupPollingRequest : BaseHoccerRequest {
 	id delegate;
+	
 	NSURLRequest *request;
 	NSURLConnection *connection;
-	
-	NSHTTPURLResponse *response; 
-	
-	NSMutableData *receivedData;
 }
 
 @property (assign, nonatomic) id delegate;
 @property (retain) NSHTTPURLResponse *response;
+@property (retain) NSURLConnection *connection;
+
 
 - (id)initWithObject: (id)aObject andDelegate: (id)delegate;
 

@@ -21,7 +21,6 @@
 @property (assign, nonatomic) id delegate;
 @property (retain) id result;
 
-
 - (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id) aDelegate;
 
 @end

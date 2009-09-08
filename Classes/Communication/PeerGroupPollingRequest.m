@@ -12,6 +12,8 @@
 #import "JSON.h"
 
 @interface PeerGroupPollingRequest (private)
+
+
 - (void)startRequest;
 @end
 
@@ -20,6 +22,7 @@
 
 @synthesize delegate;
 @synthesize response;
+@synthesize connection;
 
 - (id)initWithObject: (id)aObject andDelegate: (id)aDelegate {
 	self = [super init];
@@ -27,8 +30,6 @@
 		self.delegate = delegate;
 		NSLog(@"verbinde mit %@", [aObject valueForKey:@"peer_uri"]);
 		
-		receivedData = [[NSMutableData alloc] init];
-
 		NSURL *url = [NSURL URLWithString: [aObject valueForKey:@"peer_uri"]];
 		request = [[NSMutableURLRequest requestWithURL:url] retain];
 
@@ -38,23 +39,11 @@
 	return self;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
-{
-	self.response = aResponse;
-	NSLog(@"status code: %d", [response statusCode]);
-	NSLog(@"response length: %d", [response expectedContentLength]);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-	[receivedData appendData:data];
-}
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
-	if ([response statusCode] == 202) {
+	if ([self.response statusCode] == 202) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
-		// [self startRequest];
 		return;
 	}
 	
@@ -72,9 +61,8 @@
 
 - (void)startRequest 
 {
-	[connection release];
-	connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] retain];
-	if (!connection)  {
+	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] retain];
+	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}
 	
@@ -86,8 +74,6 @@
 	[super dealloc];
 	[response release];	
 	[connection release];
-	
-	[receivedData release];
 }
 
 
