@@ -47,7 +47,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return self;	
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response {
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response 
+{
 	NSLog(@"status code: %d", [response statusCode]);
 	NSLog(@"response length: %d", [response expectedContentLength]);
 }
@@ -77,6 +78,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
 	SBJSON *json = [[SBJSON alloc] init];
 	self.result = [json objectWithString: dataString error: &error];
+	[json release];
 	
 	[dataString release];
 	[connection release];

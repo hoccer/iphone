@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class PeerGroupRequest;
+@class PeerGroupPollingRequest;
 
 @interface HoccerViewController : UIViewController {
 	IBOutlet UIButton *catchButton;
 	
 	PeerGroupRequest *request;
+	PeerGroupPollingRequest *pollingRequest;
 }
 
 @property (retain) UIButton *catchButton;

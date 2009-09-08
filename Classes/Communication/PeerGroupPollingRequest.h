@@ -11,10 +11,17 @@
 
 @interface PeerGroupPollingRequest : NSObject {
 	id delegate;
+	NSURLRequest *request;
+	NSURLConnection *connection;
+	
+	NSHTTPURLResponse *response; 
+	
+	NSMutableData *receivedData;
 }
 
 @property (assign, nonatomic) id delegate;
+@property (retain) NSHTTPURLResponse *response;
 
-- (void)initWithObject: (id)aObject andDelegate: (id)delegate;
+- (id)initWithObject: (id)aObject andDelegate: (id)delegate;
 
 @end

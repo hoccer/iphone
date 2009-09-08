@@ -10,6 +10,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "PeerGroupRequest.h"
+#import "PeerGroupPollingRequest.h"
 
 @implementation HoccerViewController
 @synthesize catchButton;
@@ -70,6 +71,11 @@
 
 - (void)finishedRequest: (PeerGroupRequest *)aRequest {
 	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
+
+	pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
+	
+	[request release];
+	request = nil;
 }
 
 - (void)dealloc {
