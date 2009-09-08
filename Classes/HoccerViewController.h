@@ -15,12 +15,11 @@
 @class HoccerBaseRequest;
 
 @interface HoccerViewController : UIViewController {
-	IBOutlet UIButton *catchButton;
+	IBOutlet UILabel *statusLabel;
 	
 	HoccerBaseRequest *request;
 }
 
-@property (retain) UIButton *catchButton;
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;

@@ -11,6 +11,9 @@
 
 @interface DownloadRequest : BaseHoccerRequest {
 	NSURLRequest *request;
+	
+	BOOL isDownloading;
+	NSInteger downloaded;
 }
 
 @property (retain) NSURLRequest *request;

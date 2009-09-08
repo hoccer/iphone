@@ -38,6 +38,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 		if (!connection)  {
 			NSLog(@"Error while executing url connection");
 		}
+		
+		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: @"Connecting..."];
 	}
 	
 	return self;	

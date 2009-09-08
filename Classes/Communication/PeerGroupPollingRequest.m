@@ -28,6 +28,10 @@
 		request = [[NSMutableURLRequest requestWithURL:url] retain];
 
 		[self startRequest];
+		
+		if ([aObject valueForKey:@"message"]) {
+			[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: [aObject valueForKey:@"message"]];
+		}
 	}
 	
 	return self;
@@ -37,6 +41,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
 	int statusCode = [self.response statusCode];
+	self.result = [self createJSONFromResult: receivedData];
 	
 	if (statusCode == 202) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
@@ -50,7 +55,7 @@
 	
 	[dataString release];
 	self.connection = nil;
-	self.result = [self createJSONFromResult: receivedData];
+	
 	
 	if (statusCode >= 400) {
 		NSError *error = [self createErrorFromResult: self.result];
@@ -72,6 +77,9 @@
 		NSLog(@"Error while executing url connection");
 	}
 	
+	NSString *expires = [NSString stringWithFormat:@"%d", [self.result valueForKey:@"expires"]];
+//	[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
+		//withObject: self withObject:expires];
 	[receivedData setLength:0];
 }
 

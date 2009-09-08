@@ -14,7 +14,6 @@
 #import "DownloadRequest.h"
 
 @implementation HoccerViewController
-@synthesize catchButton;
 
 
 /*
@@ -65,7 +64,7 @@
 - (void)dealloc {
 	[super dealloc];
 	
-    [catchButton release];
+    [statusLabel release];
 	[request release];
 }
 
@@ -89,7 +88,8 @@
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
 }
 
-- (void)finishedRequest: (PeerGroupRequest *)aRequest {
+- (void)finishedRequest: (PeerGroupRequest *)aRequest 
+{
 	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
 
 	HoccerBaseRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
@@ -98,11 +98,22 @@
 	request = pollingRequest;
 }
 
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
+- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest 
+{
 	HoccerBaseRequest *downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
 	
 	[request release];
 	request = downloadRequest;
+}
+
+- (void)finishedDownload: (BaseHoccerRequest *)aRequest 
+{
+	NSLog(@"result:  %@", aRequest.result);
+	
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: aRequest.result]];
+	
+	[request release];
+	request = nil;
 }
 
 
@@ -116,6 +127,9 @@
 	request = nil;
 }
 
-
+- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
+{
+	statusLabel.text = update;
+}
 
 @end

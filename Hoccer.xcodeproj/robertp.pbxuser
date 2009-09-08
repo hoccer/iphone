@@ -19,7 +19,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 738;
+		rLoc = 931;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -49,7 +49,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 738;
+		rLoc = 931;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -69,7 +69,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 2356;
+		rLoc = 2332;
 		rType = 0;
 		vrLen = 769;
 		vrLoc = 1204;
@@ -153,9 +153,9 @@
 	};
 	223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {633, 1106}}";
-			sepNavSelRange = "{2004, 0}";
-			sepNavVisRange = "{1717, 290}";
+			sepNavIntBoundsRect = "{{0, 0}, {633, 1204}}";
+			sepNavSelRange = "{2134, 0}";
+			sepNavVisRange = "{2011, 133}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -216,7 +216,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 16";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 402;
 		vrLoc = 0;
@@ -485,9 +485,9 @@
 	};
 	223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1260}}";
-			sepNavSelRange = "{1644, 29}";
-			sepNavVisRange = "{722, 1281}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1302}}";
+			sepNavSelRange = "{2258, 0}";
+			sepNavVisRange = "{722, 1607}";
 			sepNavWindowFrame = "{{61, 397}, {750, 558}}";
 		};
 	};
@@ -496,7 +496,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1882;
+		rLoc = 2012;
 		rType = 0;
 		vrLen = 1854;
 		vrLoc = 288;
@@ -506,7 +506,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 36";
 		rLen = 0;
-		rLoc = 866;
+		rLoc = 841;
 		rType = 0;
 		vrLen = 1602;
 		vrLoc = 318;
@@ -536,7 +536,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 2356;
+		rLoc = 2332;
 		rType = 0;
 		vrLen = 768;
 		vrLoc = 1205;
@@ -556,7 +556,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 2356;
+		rLoc = 2332;
 		rType = 0;
 		vrLen = 769;
 		vrLoc = 1204;
@@ -654,7 +654,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1882;
+		rLoc = 2012;
 		rType = 0;
 		vrLen = 1928;
 		vrLoc = 696;
@@ -664,7 +664,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 738;
+		rLoc = 931;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -684,7 +684,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 19";
 		rLen = 0;
-		rLoc = 738;
+		rLoc = 931;
 		rType = 0;
 		vrLen = 357;
 		vrLoc = 0;
@@ -704,7 +704,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1882;
+		rLoc = 2012;
 		rType = 0;
 		vrLen = 1684;
 		vrLoc = 0;
@@ -794,7 +794,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 19";
 		rLen = 0;
-		rLoc = 738;
+		rLoc = 931;
 		rType = 0;
 		vrLen = 357;
 		vrLoc = 0;
@@ -874,7 +874,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 2356;
+		rLoc = 2332;
 		rType = 0;
 		vrLen = 764;
 		vrLoc = 1204;
@@ -911,7 +911,7 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 21";
-		rLen = 228;
+		rLen = 381;
 		rLoc = 492;
 		rType = 0;
 		vrLen = 515;
@@ -942,7 +942,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1455;
 		vrLoc = 635;
@@ -952,7 +952,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1060;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 226;
@@ -980,7 +980,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 739;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 503;
 		vrLoc = 0;
@@ -1000,7 +1000,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 739;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 503;
 		vrLoc = 0;
@@ -1010,7 +1010,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 50";
 		rLen = 746;
-		rLoc = 1218;
+		rLoc = 1348;
 		rType = 0;
 		vrLen = 1912;
 		vrLoc = 228;
@@ -1020,7 +1020,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 32";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 33;
@@ -1040,7 +1040,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 32";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 3;
@@ -1060,7 +1060,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 0;
@@ -1080,7 +1080,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 0;
@@ -1100,7 +1100,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1952;
+		rLoc = 2364;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 0;
@@ -1140,7 +1140,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 45";
 		rLen = 0;
-		rLoc = 1198;
+		rLoc = 1328;
 		rType = 0;
 		vrLen = 1853;
 		vrLoc = 287;
@@ -1149,7 +1149,7 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 21";
-		rLen = 228;
+		rLen = 381;
 		rLoc = 492;
 		rType = 0;
 		vrLen = 1215;
@@ -1170,7 +1170,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 63";
 		rLen = 0;
-		rLoc = 1998;
+		rLoc = 2410;
 		rType = 0;
 		vrLen = 1004;
 		vrLoc = 496;
@@ -1190,7 +1190,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 45";
 		rLen = 0;
-		rLoc = 1060;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1287;
 		vrLoc = 0;
@@ -1220,7 +1220,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 45";
 		rLen = 0;
-		rLoc = 1198;
+		rLoc = 1328;
 		rType = 0;
 		vrLen = 1875;
 		vrLoc = 622;
@@ -1250,7 +1250,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 720;
+		rLoc = 873;
 		rType = 0;
 		vrLen = 1408;
 		vrLoc = 0;
@@ -1260,7 +1260,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 2356;
+		rLoc = 2332;
 		rType = 0;
 		vrLen = 1340;
 		vrLoc = 635;
@@ -1270,7 +1270,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 16";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 402;
 		vrLoc = 0;
@@ -1280,7 +1280,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 75";
 		rLen = 14;
-		rLoc = 2340;
+		rLoc = 2316;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 635;
@@ -1290,7 +1290,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 17";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 444;
 		vrLoc = 0;
@@ -1300,7 +1300,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1455;
 		vrLoc = 635;
@@ -1310,7 +1310,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 17";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 444;
 		vrLoc = 0;
@@ -1320,7 +1320,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1455;
 		vrLoc = 635;
@@ -1330,7 +1330,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1060;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 226;
@@ -1340,7 +1340,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -1350,7 +1350,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -1370,7 +1370,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1060;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1495;
 		vrLoc = 3;
@@ -1380,7 +1380,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -1390,7 +1390,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1060;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1495;
 		vrLoc = 3;
@@ -1450,7 +1450,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 75";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 789;
@@ -1500,7 +1500,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 75";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 789;
@@ -1530,7 +1530,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 54";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 311;
@@ -1540,7 +1540,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 1218;
@@ -1560,7 +1560,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 62";
 		rLen = 0;
-		rLoc = 1207;
+		rLoc = 1458;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 651;
@@ -1570,7 +1570,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1207;
+		rLoc = 1458;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 731;
@@ -1580,7 +1580,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 1218;
@@ -1590,7 +1590,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 62";
 		rLen = 0;
-		rLoc = 1207;
+		rLoc = 1458;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 651;
@@ -1610,7 +1610,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 67";
 		rLen = 0;
-		rLoc = 1207;
+		rLoc = 1458;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 897;
@@ -1630,7 +1630,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 329;
@@ -1640,7 +1640,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1512;
 		vrLoc = 307;
@@ -1660,7 +1660,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 329;
@@ -1680,7 +1680,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 58";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 329;
@@ -1690,7 +1690,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 67";
 		rLen = 0;
-		rLoc = 1207;
+		rLoc = 1458;
 		rType = 0;
 		vrLen = 1244;
 		vrLoc = 749;
@@ -1700,7 +1700,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 71";
 		rLen = 0;
-		rLoc = 1528;
+		rLoc = 1723;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 826;
@@ -1710,7 +1710,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 71";
 		rLen = 0;
-		rLoc = 1592;
+		rLoc = 1787;
 		rType = 0;
 		vrLen = 1224;
 		vrLoc = 771;
@@ -1740,7 +1740,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 56";
 		rLen = 0;
-		rLoc = 999;
+		rLoc = 1250;
 		rType = 0;
 		vrLen = 1342;
 		vrLoc = 816;
@@ -1750,7 +1750,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1345;
 		vrLoc = 816;
@@ -1760,14 +1760,14 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 816;
 	};
 	227334A31056603B004228B4 /* BaseHoccerRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{842, 0}";
 			sepNavVisRange = "{0, 850}";
 			sepNavWindowFrame = "{{378, 58}, {750, 558}}";
@@ -1776,8 +1776,8 @@
 	227334A41056603B004228B4 /* BaseHoccerRequest.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 1386}}";
-			sepNavSelRange = "{624, 0}";
-			sepNavVisRange = "{344, 1209}";
+			sepNavSelRange = "{1902, 248}";
+			sepNavVisRange = "{629, 1530}";
 		};
 	};
 	227334A81056615A004228B4 /* PBXTextBookmark */ = {
@@ -1785,7 +1785,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 720;
+		rLoc = 873;
 		rType = 0;
 		vrLen = 692;
 		vrLoc = 0;
@@ -1823,7 +1823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 720;
+		rLoc = 873;
 		rType = 0;
 		vrLen = 692;
 		vrLoc = 0;
@@ -1893,7 +1893,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 3;
@@ -1903,7 +1903,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1431;
 		vrLoc = 47;
@@ -1923,7 +1923,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 89;
@@ -1943,7 +1943,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1208;
 		vrLoc = 935;
@@ -1963,7 +1963,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -1983,7 +1983,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2003,7 +2003,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2023,7 +2023,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2043,7 +2043,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2063,7 +2063,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2083,7 +2083,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2103,7 +2103,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2123,7 +2123,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 0;
@@ -2163,7 +2163,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1000;
+		rLoc = 1251;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 0;
@@ -2183,7 +2183,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1325;
 		vrLoc = 3;
@@ -2203,7 +2203,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 3;
@@ -2263,7 +2263,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 0;
@@ -2303,7 +2303,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 42";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 225;
@@ -2313,7 +2313,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 0;
@@ -2333,7 +2333,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 225;
@@ -2373,7 +2373,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 741;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 225;
@@ -2393,7 +2393,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 42";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 225;
@@ -2413,7 +2413,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 77";
 		rLen = 0;
-		rLoc = 1998;
+		rLoc = 2410;
 		rType = 0;
 		vrLen = 1286;
 		vrLoc = 428;
@@ -2433,7 +2433,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 404;
@@ -2463,7 +2463,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 428;
@@ -2483,7 +2483,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 428;
@@ -2503,7 +2503,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 404;
@@ -2563,7 +2563,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2593,7 +2593,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2613,7 +2613,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2633,7 +2633,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2653,7 +2653,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2673,7 +2673,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2693,7 +2693,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2713,7 +2713,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2733,7 +2733,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2753,7 +2753,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 404;
@@ -2773,7 +2773,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2803,7 +2803,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2823,7 +2823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 404;
@@ -2843,7 +2843,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2863,7 +2863,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2903,7 +2903,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1536;
 		vrLoc = 783;
@@ -2913,7 +2913,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2943,7 +2943,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1330;
 		vrLoc = 382;
@@ -2963,7 +2963,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2983,7 +2983,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -3023,7 +3023,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 1330;
 		vrLoc = 382;
@@ -3360,7 +3360,7 @@
 		comments = "error: accessing unknown 'receivedData' getter method";
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		rLen = 1;
-		rLoc = 47;
+		rLoc = 52;
 		rType = 1;
 	};
 	22733564105666AA004228B4 /* PBXTextBookmark */ = {
@@ -3398,7 +3398,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 224;
@@ -3408,7 +3408,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 784;
 		vrLoc = 764;
@@ -3448,7 +3448,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -3468,7 +3468,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3528,7 +3528,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1474;
 		vrLoc = 727;
@@ -3548,7 +3548,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1639;
 		vrLoc = 562;
@@ -3598,7 +3598,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3618,7 +3618,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2004;
+		rLoc = 2134;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3628,7 +3628,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -3658,7 +3658,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 764;
@@ -3675,16 +3675,17 @@
 	};
 	2273358B10566826004228B4 /* DownloadRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
-			sepNavSelRange = "{275, 0}";
-			sepNavVisRange = "{0, 383}";
+			sepNavIntBoundsRect = "{{0, 0}, {728, 381}}";
+			sepNavSelRange = "{293, 0}";
+			sepNavVisRange = "{0, 429}";
+			sepNavWindowFrame = "{{153, 313}, {750, 558}}";
 		};
 	};
 	2273358C10566826004228B4 /* DownloadRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1134}}";
-			sepNavSelRange = "{1597, 0}";
-			sepNavVisRange = "{0, 1295}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1470}}";
+			sepNavSelRange = "{1200, 0}";
+			sepNavVisRange = "{0, 1365}";
 			sepNavWindowFrame = "{{107, 355}, {750, 558}}";
 		};
 	};
@@ -3693,7 +3694,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 764;
@@ -3703,7 +3704,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 57";
 		rLen = 273;
-		rLoc = 1692;
+		rLoc = 1822;
 		rType = 0;
 		vrLen = 1521;
 		vrLoc = 739;
@@ -3712,8 +3713,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 39";
-		rLen = 1173;
-		rLoc = 742;
+		rLen = 1392;
+		rLoc = 935;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -3733,7 +3734,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 316;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -3753,7 +3754,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 75";
 		rLen = 0;
-		rLoc = 2306;
+		rLoc = 2282;
 		rType = 0;
 		vrLen = 1364;
 		vrLoc = 787;
@@ -3793,7 +3794,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 59;
-		rLoc = 318;
+		rLoc = 364;
 		rType = 0;
 		vrLen = 288;
 		vrLoc = 0;
@@ -3803,7 +3804,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 19";
 		rLen = 0;
-		rLoc = 722;
+		rLoc = 747;
 		rType = 0;
 		vrLen = 362;
 		vrLoc = 0;
@@ -3822,7 +3823,7 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
-		rLen = 225;
+		rLen = 379;
 		rLoc = 494;
 		rType = 0;
 		vrLen = 1346;
@@ -3842,7 +3843,7 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
-		rLen = 225;
+		rLen = 379;
 		rLoc = 494;
 		rType = 0;
 		vrLen = 1346;
@@ -3863,7 +3864,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 57";
 		rLen = 273;
-		rLoc = 1692;
+		rLoc = 1822;
 		rType = 0;
 		vrLen = 1521;
 		vrLoc = 739;
@@ -3872,8 +3873,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 39";
-		rLen = 1173;
-		rLoc = 742;
+		rLen = 1392;
+		rLoc = 935;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -3893,7 +3894,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1796;
+		rLoc = 2433;
 		rType = 0;
 		vrLen = 1089;
 		vrLoc = 0;
@@ -3943,7 +3944,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 14";
 		rLen = 0;
-		rLoc = 272;
+		rLoc = 318;
 		rType = 0;
 		vrLen = 370;
 		vrLoc = 0;
@@ -3963,7 +3964,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 316;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -3983,7 +3984,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 0;
-		rLoc = 2359;
+		rLoc = 2335;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 891;
@@ -3993,7 +3994,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 0;
-		rLoc = 2359;
+		rLoc = 2335;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 794;
@@ -4013,7 +4014,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 0;
-		rLoc = 2359;
+		rLoc = 2335;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 794;
@@ -4043,7 +4044,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1798;
+		rLoc = 1928;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4053,7 +4054,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 383;
@@ -4083,7 +4084,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1206;
 		vrLoc = 468;
@@ -4093,7 +4094,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1434;
 		vrLoc = 577;
@@ -4143,7 +4144,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1434;
 		vrLoc = 577;
@@ -4153,7 +4154,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1206;
 		vrLoc = 468;
@@ -4163,7 +4164,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1798;
+		rLoc = 1928;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4173,7 +4174,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 383;
@@ -4203,7 +4204,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 382;
@@ -4233,7 +4234,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 577;
@@ -4253,7 +4254,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1798;
+		rLoc = 1928;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4263,7 +4264,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 383;
@@ -4283,7 +4284,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 382;
@@ -4293,7 +4294,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1477;
 		vrLoc = 579;
@@ -4313,7 +4314,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1856;
+		rLoc = 1986;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 577;
@@ -4333,7 +4334,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4343,7 +4344,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4353,7 +4354,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 0;
-		rLoc = 2359;
+		rLoc = 2335;
 		rType = 0;
 		vrLen = 1388;
 		vrLoc = 793;
@@ -4363,7 +4364,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4373,7 +4374,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 83";
 		rLen = 0;
-		rLoc = 2582;
+		rLoc = 2559;
 		rType = 0;
 		vrLen = 1468;
 		vrLoc = 787;
@@ -4403,7 +4404,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 474;
@@ -4413,7 +4414,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 15;
-		rLoc = 2367;
+		rLoc = 2343;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 891;
@@ -4433,7 +4434,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -4443,7 +4444,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 83";
 		rLen = 0;
-		rLoc = 2582;
+		rLoc = 2559;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 891;
@@ -4453,7 +4454,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -4523,7 +4524,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 474;
@@ -4533,7 +4534,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1205;
+		rLoc = 1456;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -4543,7 +4544,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 15;
-		rLoc = 2367;
+		rLoc = 2343;
 		rType = 0;
 		vrLen = 1417;
 		vrLoc = 891;
@@ -4563,7 +4564,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1592;
+		rLoc = 1787;
 		rType = 0;
 		vrLen = 1228;
 		vrLoc = 446;
@@ -4573,7 +4574,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1609;
+		rLoc = 1804;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -4583,7 +4584,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1526;
+		rLoc = 1721;
 		rType = 0;
 		vrLen = 1345;
 		vrLoc = 242;
@@ -4593,7 +4594,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 15;
-		rLoc = 2367;
+		rLoc = 2343;
 		rType = 0;
 		vrLen = 1511;
 		vrLoc = 797;
@@ -4603,7 +4604,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1526;
+		rLoc = 1721;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4613,7 +4614,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1526;
+		rLoc = 1721;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4623,7 +4624,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 15;
-		rLoc = 2367;
+		rLoc = 2343;
 		rType = 0;
 		vrLen = 1511;
 		vrLoc = 797;
@@ -4653,7 +4654,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 81";
 		rLen = 15;
-		rLoc = 2367;
+		rLoc = 2343;
 		rType = 0;
 		vrLen = 1511;
 		vrLoc = 797;
@@ -4673,7 +4674,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 82";
 		rLen = 0;
-		rLoc = 2581;
+		rLoc = 2558;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 789;
@@ -4683,7 +4684,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 82";
 		rLen = 0;
-		rLoc = 2581;
+		rLoc = 2558;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 789;
@@ -4703,7 +4704,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 82";
 		rLen = 0;
-		rLoc = 2581;
+		rLoc = 2558;
 		rType = 0;
 		vrLen = 1475;
 		vrLoc = 789;
@@ -4713,7 +4714,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 468;
@@ -4733,7 +4734,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1264;
 		vrLoc = 468;
@@ -4743,7 +4744,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 316;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -4753,7 +4754,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 82";
 		rLen = 15;
-		rLoc = 2442;
+		rLoc = 2419;
 		rType = 0;
 		vrLen = 1501;
 		vrLoc = 787;
@@ -4763,7 +4764,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 50";
 		rLen = 0;
-		rLoc = 1199;
+		rLoc = 1198;
 		rType = 0;
 		vrLen = 1355;
 		vrLoc = 264;
@@ -4781,7 +4782,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 468;
@@ -4801,7 +4802,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1264;
 		vrLoc = 468;
@@ -4821,7 +4822,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 316;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -4831,7 +4832,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 85";
 		rLen = 0;
-		rLoc = 2581;
+		rLoc = 2558;
 		rType = 0;
 		vrLen = 1499;
 		vrLoc = 789;
@@ -4841,7 +4842,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -4851,7 +4852,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 82";
 		rLen = 15;
-		rLoc = 2442;
+		rLoc = 2419;
 		rType = 0;
 		vrLen = 1501;
 		vrLoc = 787;
@@ -4861,7 +4862,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 511;
 		vrLoc = 0;
@@ -4871,7 +4872,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 50";
 		rLen = 0;
-		rLoc = 1199;
+		rLoc = 1198;
 		rType = 0;
 		vrLen = 1355;
 		vrLoc = 264;
@@ -4881,7 +4882,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -4891,7 +4892,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -4901,7 +4902,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -4911,7 +4912,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 517;
@@ -4921,7 +4922,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 0;
@@ -4931,7 +4932,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 517;
@@ -4971,7 +4972,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 83";
 		rLen = 15;
-		rLoc = 2442;
+		rLoc = 2419;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 708;
@@ -5001,7 +5002,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 971;
@@ -5011,7 +5012,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 971;
@@ -5021,7 +5022,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1433;
+		rLoc = 1362;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 264;
@@ -5041,7 +5042,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 971;
@@ -5051,7 +5052,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1433;
+		rLoc = 1362;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 264;
@@ -5111,7 +5112,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 58";
 		rLen = 147;
-		rLoc = 1298;
+		rLoc = 1227;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 344;
@@ -5121,7 +5122,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 488;
@@ -5141,7 +5142,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1525;
+		rLoc = 1720;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 488;
@@ -5151,7 +5152,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 58";
 		rLen = 147;
-		rLoc = 1298;
+		rLoc = 1227;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 344;
@@ -5161,7 +5162,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 488;
@@ -5171,7 +5172,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 766;
@@ -5181,7 +5182,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 972;
@@ -5211,7 +5212,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 766;
@@ -5221,7 +5222,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 972;
@@ -5251,7 +5252,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1389;
+		rLoc = 1318;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5261,7 +5262,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1374;
+		rLoc = 1303;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5271,7 +5272,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2769;
+		rLoc = 2975;
 		rType = 0;
 		vrLen = 1548;
 		vrLoc = 972;
@@ -5281,7 +5282,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1374;
+		rLoc = 1303;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5291,7 +5292,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 89";
 		rLen = 0;
-		rLoc = 2635;
+		rLoc = 2841;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 976;
@@ -5301,7 +5302,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 976;
@@ -5311,7 +5312,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1374;
+		rLoc = 1303;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5321,7 +5322,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 976;
@@ -5331,7 +5332,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1374;
+		rLoc = 1303;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5361,7 +5362,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 864;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1160;
 		vrLoc = 765;
@@ -5381,7 +5382,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1313;
+		rLoc = 1508;
 		rType = 0;
 		vrLen = 1233;
 		vrLoc = 721;
@@ -5395,7 +5396,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1467;
+		rLoc = 1662;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5405,7 +5406,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5415,7 +5416,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1467;
+		rLoc = 1662;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5435,7 +5436,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1467;
+		rLoc = 1662;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5455,7 +5456,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5485,7 +5486,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5515,7 +5516,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1364;
+		rLoc = 1559;
 		rType = 0;
 		vrLen = 1589;
 		vrLoc = 310;
@@ -5535,7 +5536,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1364;
+		rLoc = 1559;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 315;
@@ -5555,7 +5556,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1364;
+		rLoc = 1559;
 		rType = 0;
 		vrLen = 1536;
 		vrLoc = 310;
@@ -5565,7 +5566,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5575,7 +5576,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1313;
+		rLoc = 1508;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 310;
@@ -5595,7 +5596,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1313;
+		rLoc = 1508;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 310;
@@ -5615,7 +5616,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5655,7 +5656,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5685,7 +5686,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1424;
+		rLoc = 1353;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 925;
@@ -5695,7 +5696,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 60";
 		rLen = 62;
-		rLoc = 1339;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 1040;
@@ -5713,7 +5714,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1115;
+		rLoc = 1366;
 		rType = 0;
 		vrLen = 755;
 		vrLoc = 657;
@@ -5753,7 +5754,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1424;
+		rLoc = 1353;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 925;
@@ -5763,7 +5764,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 60";
 		rLen = 62;
-		rLoc = 1339;
+		rLoc = 1534;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 1040;
@@ -5813,7 +5814,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5873,7 +5874,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5893,7 +5894,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5913,7 +5914,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -5993,7 +5994,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -6033,7 +6034,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -6093,7 +6094,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -6113,7 +6114,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1809;
+		rLoc = 1939;
 		rType = 0;
 		vrLen = 1688;
 		vrLoc = 0;
@@ -6143,7 +6144,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -6163,7 +6164,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 86";
 		rLen = 5;
-		rLoc = 2005;
+		rLoc = 2417;
 		rType = 0;
 		vrLen = 695;
 		vrLoc = 0;
@@ -6201,7 +6202,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 86";
 		rLen = 5;
-		rLoc = 2005;
+		rLoc = 2417;
 		rType = 0;
 		vrLen = 695;
 		vrLoc = 0;
@@ -6301,7 +6302,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 14";
 		rLen = 0;
-		rLoc = 272;
+		rLoc = 318;
 		rType = 0;
 		vrLen = 431;
 		vrLoc = 0;
@@ -6381,7 +6382,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 14";
 		rLen = 0;
-		rLoc = 272;
+		rLoc = 318;
 		rType = 0;
 		vrLen = 431;
 		vrLoc = 0;
@@ -6401,7 +6402,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6411,7 +6412,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -6431,7 +6432,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6451,7 +6452,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6471,7 +6472,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6491,7 +6492,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6511,7 +6512,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6531,7 +6532,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6551,7 +6552,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 0;
-		rLoc = 275;
+		rLoc = 321;
 		rType = 0;
 		vrLen = 383;
 		vrLoc = 0;
@@ -6571,7 +6572,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 2718;
+		rLoc = 2924;
 		rType = 0;
 		vrLen = 806;
 		vrLoc = 1719;
@@ -6601,7 +6602,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 21";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -6611,7 +6612,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 65";
 		rLen = 0;
-		rLoc = 1656;
+		rLoc = 1631;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 0;
@@ -6641,7 +6642,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 65";
 		rLen = 0;
-		rLoc = 1656;
+		rLoc = 1631;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 0;
@@ -6651,7 +6652,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 21";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -6661,7 +6662,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 65";
 		rLen = 0;
-		rLoc = 1656;
+		rLoc = 1631;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 0;
@@ -6671,7 +6672,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 21";
 		rLen = 0;
-		rLoc = 400;
+		rLoc = 399;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -6681,7 +6682,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 87";
 		rLen = 0;
-		rLoc = 2556;
+		rLoc = 2533;
 		rType = 0;
 		vrLen = 1569;
 		vrLoc = 968;
@@ -6691,7 +6692,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2776;
+		rLoc = 2982;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 1268;
@@ -6701,7 +6702,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 0;
-		rLoc = 1754;
+		rLoc = 1729;
 		rType = 0;
 		vrLen = 1660;
 		vrLoc = 976;
@@ -6711,7 +6712,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1749;
+		rLoc = 1724;
 		rType = 0;
 		vrLen = 1533;
 		vrLoc = 976;
@@ -6721,7 +6722,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 34;
-		rLoc = 1657;
+		rLoc = 1632;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 976;
@@ -6731,7 +6732,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 34;
-		rLoc = 1657;
+		rLoc = 1632;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 976;
@@ -6741,7 +6742,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 26";
 		rLen = 0;
-		rLoc = 481;
+		rLoc = 438;
 		rType = 0;
 		vrLen = 520;
 		vrLoc = 0;
@@ -6751,7 +6752,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 34;
-		rLoc = 1657;
+		rLoc = 1632;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 976;
@@ -6761,7 +6762,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 26";
 		rLen = 0;
-		rLoc = 481;
+		rLoc = 438;
 		rType = 0;
 		vrLen = 520;
 		vrLoc = 0;
@@ -6771,7 +6772,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 26";
 		rLen = 0;
-		rLoc = 481;
+		rLoc = 438;
 		rType = 0;
 		vrLen = 520;
 		vrLoc = 0;
@@ -6781,7 +6782,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 72";
 		rLen = 34;
-		rLoc = 1657;
+		rLoc = 1632;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 976;
@@ -6791,7 +6792,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 25";
 		rLen = 0;
-		rLoc = 479;
+		rLoc = 436;
 		rType = 0;
 		vrLen = 521;
 		vrLoc = 0;
@@ -6801,7 +6802,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 25";
 		rLen = 0;
-		rLoc = 479;
+		rLoc = 436;
 		rType = 0;
 		vrLen = 521;
 		vrLoc = 0;
@@ -6811,7 +6812,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1707;
+		rLoc = 1682;
 		rType = 0;
 		vrLen = 1533;
 		vrLoc = 976;
@@ -6831,7 +6832,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 25";
 		rLen = 0;
-		rLoc = 479;
+		rLoc = 436;
 		rType = 0;
 		vrLen = 521;
 		vrLoc = 0;
@@ -6841,7 +6842,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1707;
+		rLoc = 1682;
 		rType = 0;
 		vrLen = 1533;
 		vrLoc = 976;
@@ -6941,7 +6942,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 65";
 		rLen = 0;
-		rLoc = 1709;
+		rLoc = 1904;
 		rType = 0;
 		vrLen = 1528;
 		vrLoc = 357;
@@ -6981,7 +6982,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 65";
 		rLen = 29;
-		rLoc = 1644;
+		rLoc = 1839;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 722;
@@ -7001,7 +7002,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 65";
 		rLen = 0;
-		rLoc = 1709;
+		rLoc = 1904;
 		rType = 0;
 		vrLen = 1339;
 		vrLoc = 0;
@@ -7061,7 +7062,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 65";
 		rLen = 29;
-		rLoc = 1644;
+		rLoc = 1839;
 		rType = 0;
 		vrLen = 1281;
 		vrLoc = 722;
@@ -7071,7 +7072,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 69";
 		rLen = 0;
-		rLoc = 1597;
+		rLoc = 1548;
 		rType = 0;
 		vrLen = 1416;
 		vrLoc = 380;
@@ -7081,7 +7082,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 69";
 		rLen = 0;
-		rLoc = 1597;
+		rLoc = 1548;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 0;
@@ -7101,7 +7102,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1707;
+		rLoc = 1682;
 		rType = 0;
 		vrLen = 1535;
 		vrLoc = 973;
@@ -7111,7 +7112,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 69";
 		rLen = 0;
-		rLoc = 1597;
+		rLoc = 1548;
 		rType = 0;
 		vrLen = 1295;
 		vrLoc = 0;
@@ -7121,7 +7122,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 74";
 		rLen = 0;
-		rLoc = 1707;
+		rLoc = 1682;
 		rType = 0;
 		vrLen = 1535;
 		vrLoc = 973;
@@ -7141,7 +7142,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 86";
 		rLen = 0;
-		rLoc = 1845;
+		rLoc = 1820;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 973;
@@ -7151,24 +7152,630 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 84";
 		rLen = 0;
-		rLoc = 1824;
+		rLoc = 1799;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 973;
 	};
+	2273374B10569898004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 121";
+		rLen = 0;
+		rLoc = 3132;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 0;
+	};
+	2273374C10569898004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 121";
+		rLen = 0;
+		rLoc = 3132;
+		rType = 0;
+		vrLen = 1394;
+		vrLoc = 0;
+	};
+	2273374D10569898004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 20";
+		rLen = 0;
+		rLoc = 371;
+		rType = 0;
+		vrLen = 520;
+		vrLoc = 0;
+	};
+	22733751105698FD004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 17";
+		rLen = 0;
+		rLoc = 352;
+		rType = 0;
+		vrLen = 1402;
+		vrLoc = 30;
+	};
+	22733752105698FD004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 20";
+		rLen = 0;
+		rLoc = 371;
+		rType = 0;
+		vrLen = 520;
+		vrLoc = 0;
+	};
+	22733753105698FD004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 20";
+		rLen = 0;
+		rLoc = 371;
+		rType = 0;
+		vrLen = 520;
+		vrLoc = 0;
+	};
+	22733754105698FD004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 17";
+		rLen = 0;
+		rLoc = 352;
+		rType = 0;
+		vrLen = 1402;
+		vrLoc = 30;
+	};
+	22733755105698FD004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 23";
+		rLen = 0;
+		rLoc = 402;
+		rType = 0;
+		vrLen = 478;
+		vrLoc = 0;
+	};
+	2273375A10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 23";
+		rLen = 0;
+		rLoc = 402;
+		rType = 0;
+		vrLen = 478;
+		vrLoc = 0;
+	};
+	2273375B10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 120";
+		rLen = 0;
+		rLoc = 3132;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 1609;
+	};
+	2273375C10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1056;
+		rType = 0;
+		vrLen = 1561;
+		vrLoc = 453;
+	};
+	2273375D10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 23";
+		rLen = 0;
+		rLoc = 402;
+		rType = 0;
+		vrLen = 478;
+		vrLoc = 0;
+	};
+	2273375E10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 120";
+		rLen = 0;
+		rLoc = 3132;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 1609;
+	};
+	2273375F10569A15004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 42";
+		rLen = 0;
+		rLoc = 1325;
+		rType = 0;
+		vrLen = 1837;
+		vrLoc = 174;
+	};
+	2273376110569AE4004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 42";
+		rLen = 127;
+		rLoc = 1199;
+		rType = 0;
+		vrLen = 1670;
+		vrLoc = 474;
+	};
+	2273376210569AE4004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 65";
+		rLen = 29;
+		rLoc = 1839;
+		rType = 0;
+		vrLen = 1284;
+		vrLoc = 719;
+	};
+	2273376310569AE4004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 42";
+		rLen = 127;
+		rLoc = 1199;
+		rType = 0;
+		vrLen = 1670;
+		vrLoc = 474;
+	};
+	2273376410569AE4004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 34";
+		rLen = 0;
+		rLoc = 911;
+		rType = 0;
+		vrLen = 1501;
+		vrLoc = 3;
+	};
+	2273376710569B99004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 81";
+		rLen = 0;
+		rLoc = 2293;
+		rType = 0;
+		vrLen = 1413;
+		vrLoc = 934;
+	};
+	2273376B10569C3C004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 82";
+		rLen = 0;
+		rLoc = 2293;
+		rType = 0;
+		vrLen = 1570;
+		vrLoc = 722;
+	};
+	2273376D10569C57004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 80";
+		rLen = 0;
+		rLoc = 2131;
+		rType = 0;
+		vrLen = 1603;
+		vrLoc = 722;
+	};
+	2273377210569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 82";
+		rLen = 0;
+		rLoc = 2258;
+		rType = 0;
+		vrLen = 1607;
+		vrLoc = 722;
+	};
+	2273377310569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 76";
+		rLen = 79;
+		rLoc = 1553;
+		rType = 0;
+		vrLen = 1493;
+		vrLoc = 666;
+	};
+	2273377410569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 15";
+		rLen = 0;
+		rLoc = 317;
+		rType = 0;
+		vrLen = 408;
+		vrLoc = 0;
+	};
+	2273377510569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 83";
+		rLen = 0;
+		rLoc = 2068;
+		rType = 0;
+		vrLen = 1369;
+		vrLoc = 721;
+	};
+	2273377610569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 82";
+		rLen = 0;
+		rLoc = 2258;
+		rType = 0;
+		vrLen = 1607;
+		vrLoc = 722;
+	};
+	2273377710569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 321;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	2273377810569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 66";
+		rLen = 0;
+		rLoc = 1495;
+		rType = 0;
+		vrLen = 1463;
+		vrLoc = 454;
+	};
+	2273377910569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 76";
+		rLen = 79;
+		rLoc = 1553;
+		rType = 0;
+		vrLen = 1493;
+		vrLoc = 666;
+	};
+	2273377A10569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 83";
+		rLen = 0;
+		rLoc = 2068;
+		rType = 0;
+		vrLen = 1369;
+		vrLoc = 721;
+	};
+	2273377B10569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 15";
+		rLen = 0;
+		rLoc = 317;
+		rType = 0;
+		vrLen = 408;
+		vrLoc = 0;
+	};
+	2273377C10569DD8004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 83";
+		rLen = 0;
+		rLoc = 1953;
+		rType = 0;
+		vrLen = 1470;
+		vrLoc = 758;
+	};
+	2273378010569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 15";
+		rLen = 0;
+		rLoc = 293;
+		rType = 0;
+		vrLen = 429;
+		vrLoc = 0;
+	};
+	2273378110569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 39";
+		rLen = 0;
+		rLoc = 842;
+		rType = 0;
+		vrLen = 850;
+		vrLoc = 0;
+	};
+	2273378210569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 89";
+		rLen = 248;
+		rLoc = 1902;
+		rType = 0;
+		vrLen = 1530;
+		vrLoc = 629;
+	};
+	2273378310569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 34";
+		rLen = 0;
+		rLoc = 745;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 0;
+	};
+	2273378410569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 83";
+		rLen = 0;
+		rLoc = 1953;
+		rType = 0;
+		vrLen = 1470;
+		vrLoc = 758;
+	};
+	2273378510569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 15";
+		rLen = 0;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 429;
+		vrLoc = 0;
+	};
+	2273378610569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 63";
+		rLen = 0;
+		rLoc = 1489;
+		rType = 0;
+		vrLen = 1434;
+		vrLoc = 540;
+	};
+	2273378710569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 15";
+		rLen = 0;
+		rLoc = 293;
+		rType = 0;
+		vrLen = 429;
+		vrLoc = 0;
+	};
+	2273378810569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 34";
+		rLen = 0;
+		rLoc = 745;
+		rType = 0;
+		vrLen = 1320;
+		vrLoc = 0;
+	};
+	2273378910569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 89";
+		rLen = 248;
+		rLoc = 1902;
+		rType = 0;
+		vrLen = 1513;
+		vrLoc = 646;
+	};
+	2273378A10569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 39";
+		rLen = 0;
+		rLoc = 842;
+		rType = 0;
+		vrLen = 850;
+		vrLoc = 0;
+	};
+	2273378B10569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 89";
+		rLen = 248;
+		rLoc = 1902;
+		rType = 0;
+		vrLen = 1530;
+		vrLoc = 629;
+	};
+	2273378C10569FCE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 102";
+		rLen = 0;
+		rLoc = 2429;
+		rType = 0;
+		vrLen = 1487;
+		vrLoc = 1041;
+	};
+	2273378E10569FFC004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 102";
+		rLen = 0;
+		rLoc = 2428;
+		rType = 0;
+		vrLen = 1377;
+		vrLoc = 236;
+	};
+	2273378F1056A0AB004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 102";
+		rLen = 0;
+		rLoc = 2428;
+		rType = 0;
+		vrLen = 1396;
+		vrLoc = 236;
+	};
+	227337901056A0AB004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 120";
+		rLen = 0;
+		rLoc = 3132;
+		rType = 0;
+		vrLen = 1330;
+		vrLoc = 1580;
+	};
+	227337911056A0AB004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 102";
+		rLen = 0;
+		rLoc = 2428;
+		rType = 0;
+		vrLen = 1396;
+		vrLoc = 236;
+	};
+	227337921056A0AB004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 111";
+		rLen = 0;
+		rLoc = 2661;
+		rType = 0;
+		vrLen = 1261;
+		vrLoc = 1609;
+	};
+	227337951056A128004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 111";
+		rLen = 0;
+		rLoc = 2659;
+		rType = 0;
+		vrLen = 1284;
+		vrLoc = 1609;
+	};
+	227337961056A128004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 102";
+		rLen = 0;
+		rLoc = 2428;
+		rType = 0;
+		vrLen = 1374;
+		vrLoc = 258;
+	};
+	227337971056A128004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 111";
+		rLen = 0;
+		rLoc = 2659;
+		rType = 0;
+		vrLen = 1284;
+		vrLoc = 1609;
+	};
+	227337981056A128004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 54";
+		rLen = 0;
+		rLoc = 1200;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 258;
+	};
+	2273379A1056A133004228B4 /* HoccerViewController.m:109 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		functionName = "-finishedDownload:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 109;
+		modificationTime = 274112855.890999;
+		state = 2;
+	};
+	2273379E1056A170004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 54";
+		rLen = 0;
+		rLoc = 1200;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 0;
+	};
+	2273379F1056A170004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 111";
+		rLen = 0;
+		rLoc = 2659;
+		rType = 0;
+		vrLen = 1206;
+		vrLoc = 1687;
+	};
+	227337A01056A170004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 54";
+		rLen = 0;
+		rLoc = 1200;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 0;
+	};
+	227337A11056A170004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 111";
+		rLen = 0;
+		rLoc = 2661;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 1707;
+	};
+	227337A31056A1C9004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 113";
+		rLen = 0;
+		rLoc = 2749;
+		rType = 0;
+		vrLen = 1396;
+		vrLoc = 1707;
+	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{479, 0}";
-			sepNavVisRange = "{0, 521}";
+			sepNavSelRange = "{402, 0}";
+			sepNavVisRange = "{0, 478}";
 			sepNavWindowFrame = "{{84, 376}, {750, 558}}";
 		};
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1638}}";
-			sepNavSelRange = "{1824, 0}";
-			sepNavVisRange = "{973, 1385}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1904}}";
+			sepNavSelRange = "{2749, 0}";
+			sepNavVisRange = "{1707, 1396}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -7178,6 +7785,9 @@
 		activeTarget = 1D6058900D05DD3D006BFB54 /* Hoccer */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* Hoccer */,
+		);
+		breakpoints = (
+			2273379A1056A133004228B4 /* HoccerViewController.m:109 */,
 		);
 		codeSenseManager = 223BC30A10552B0500ABE5A2 /* Code sense */;
 		executables = (
@@ -7910,6 +8520,65 @@
 			22733747105696A9004228B4 /* PBXTextBookmark */ = 22733747105696A9004228B4 /* PBXTextBookmark */;
 			22733748105696A9004228B4 /* PBXTextBookmark */ = 22733748105696A9004228B4 /* PBXTextBookmark */;
 			2273374A105696C3004228B4 /* PBXTextBookmark */ = 2273374A105696C3004228B4 /* PBXTextBookmark */;
+			2273374B10569898004228B4 /* PBXTextBookmark */ = 2273374B10569898004228B4 /* PBXTextBookmark */;
+			2273374C10569898004228B4 /* PBXTextBookmark */ = 2273374C10569898004228B4 /* PBXTextBookmark */;
+			2273374D10569898004228B4 /* PBXTextBookmark */ = 2273374D10569898004228B4 /* PBXTextBookmark */;
+			22733751105698FD004228B4 /* PBXTextBookmark */ = 22733751105698FD004228B4 /* PBXTextBookmark */;
+			22733752105698FD004228B4 /* PBXTextBookmark */ = 22733752105698FD004228B4 /* PBXTextBookmark */;
+			22733753105698FD004228B4 /* PBXTextBookmark */ = 22733753105698FD004228B4 /* PBXTextBookmark */;
+			22733754105698FD004228B4 /* PBXTextBookmark */ = 22733754105698FD004228B4 /* PBXTextBookmark */;
+			22733755105698FD004228B4 /* PBXTextBookmark */ = 22733755105698FD004228B4 /* PBXTextBookmark */;
+			2273375A10569A15004228B4 /* PBXTextBookmark */ = 2273375A10569A15004228B4 /* PBXTextBookmark */;
+			2273375B10569A15004228B4 /* PBXTextBookmark */ = 2273375B10569A15004228B4 /* PBXTextBookmark */;
+			2273375C10569A15004228B4 /* PBXTextBookmark */ = 2273375C10569A15004228B4 /* PBXTextBookmark */;
+			2273375D10569A15004228B4 /* PBXTextBookmark */ = 2273375D10569A15004228B4 /* PBXTextBookmark */;
+			2273375E10569A15004228B4 /* PBXTextBookmark */ = 2273375E10569A15004228B4 /* PBXTextBookmark */;
+			2273375F10569A15004228B4 /* PBXTextBookmark */ = 2273375F10569A15004228B4 /* PBXTextBookmark */;
+			2273376110569AE4004228B4 /* PBXTextBookmark */ = 2273376110569AE4004228B4 /* PBXTextBookmark */;
+			2273376210569AE4004228B4 /* PBXTextBookmark */ = 2273376210569AE4004228B4 /* PBXTextBookmark */;
+			2273376310569AE4004228B4 /* PBXTextBookmark */ = 2273376310569AE4004228B4 /* PBXTextBookmark */;
+			2273376410569AE4004228B4 /* PBXTextBookmark */ = 2273376410569AE4004228B4 /* PBXTextBookmark */;
+			2273376710569B99004228B4 /* PBXTextBookmark */ = 2273376710569B99004228B4 /* PBXTextBookmark */;
+			2273376B10569C3C004228B4 /* PBXTextBookmark */ = 2273376B10569C3C004228B4 /* PBXTextBookmark */;
+			2273376D10569C57004228B4 /* PBXTextBookmark */ = 2273376D10569C57004228B4 /* PBXTextBookmark */;
+			2273377210569DD8004228B4 /* PBXTextBookmark */ = 2273377210569DD8004228B4 /* PBXTextBookmark */;
+			2273377310569DD8004228B4 /* PBXTextBookmark */ = 2273377310569DD8004228B4 /* PBXTextBookmark */;
+			2273377410569DD8004228B4 /* PBXTextBookmark */ = 2273377410569DD8004228B4 /* PBXTextBookmark */;
+			2273377510569DD8004228B4 /* PBXTextBookmark */ = 2273377510569DD8004228B4 /* PBXTextBookmark */;
+			2273377610569DD8004228B4 /* PBXTextBookmark */ = 2273377610569DD8004228B4 /* PBXTextBookmark */;
+			2273377710569DD8004228B4 /* PBXTextBookmark */ = 2273377710569DD8004228B4 /* PBXTextBookmark */;
+			2273377810569DD8004228B4 /* PBXTextBookmark */ = 2273377810569DD8004228B4 /* PBXTextBookmark */;
+			2273377910569DD8004228B4 /* PBXTextBookmark */ = 2273377910569DD8004228B4 /* PBXTextBookmark */;
+			2273377A10569DD8004228B4 /* PBXTextBookmark */ = 2273377A10569DD8004228B4 /* PBXTextBookmark */;
+			2273377B10569DD8004228B4 /* PBXTextBookmark */ = 2273377B10569DD8004228B4 /* PBXTextBookmark */;
+			2273377C10569DD8004228B4 /* PBXTextBookmark */ = 2273377C10569DD8004228B4 /* PBXTextBookmark */;
+			2273378010569FCE004228B4 /* PBXTextBookmark */ = 2273378010569FCE004228B4 /* PBXTextBookmark */;
+			2273378110569FCE004228B4 /* PBXTextBookmark */ = 2273378110569FCE004228B4 /* PBXTextBookmark */;
+			2273378210569FCE004228B4 /* PBXTextBookmark */ = 2273378210569FCE004228B4 /* PBXTextBookmark */;
+			2273378310569FCE004228B4 /* PBXTextBookmark */ = 2273378310569FCE004228B4 /* PBXTextBookmark */;
+			2273378410569FCE004228B4 /* PBXTextBookmark */ = 2273378410569FCE004228B4 /* PBXTextBookmark */;
+			2273378510569FCE004228B4 /* PBXTextBookmark */ = 2273378510569FCE004228B4 /* PBXTextBookmark */;
+			2273378610569FCE004228B4 /* PBXTextBookmark */ = 2273378610569FCE004228B4 /* PBXTextBookmark */;
+			2273378710569FCE004228B4 /* PBXTextBookmark */ = 2273378710569FCE004228B4 /* PBXTextBookmark */;
+			2273378810569FCE004228B4 /* PBXTextBookmark */ = 2273378810569FCE004228B4 /* PBXTextBookmark */;
+			2273378910569FCE004228B4 /* PBXTextBookmark */ = 2273378910569FCE004228B4 /* PBXTextBookmark */;
+			2273378A10569FCE004228B4 /* PBXTextBookmark */ = 2273378A10569FCE004228B4 /* PBXTextBookmark */;
+			2273378B10569FCE004228B4 /* PBXTextBookmark */ = 2273378B10569FCE004228B4 /* PBXTextBookmark */;
+			2273378C10569FCE004228B4 /* PBXTextBookmark */ = 2273378C10569FCE004228B4 /* PBXTextBookmark */;
+			2273378E10569FFC004228B4 /* PBXTextBookmark */ = 2273378E10569FFC004228B4 /* PBXTextBookmark */;
+			2273378F1056A0AB004228B4 /* PBXTextBookmark */ = 2273378F1056A0AB004228B4 /* PBXTextBookmark */;
+			227337901056A0AB004228B4 /* PBXTextBookmark */ = 227337901056A0AB004228B4 /* PBXTextBookmark */;
+			227337911056A0AB004228B4 /* PBXTextBookmark */ = 227337911056A0AB004228B4 /* PBXTextBookmark */;
+			227337921056A0AB004228B4 /* PBXTextBookmark */ = 227337921056A0AB004228B4 /* PBXTextBookmark */;
+			227337951056A128004228B4 /* PBXTextBookmark */ = 227337951056A128004228B4 /* PBXTextBookmark */;
+			227337961056A128004228B4 /* PBXTextBookmark */ = 227337961056A128004228B4 /* PBXTextBookmark */;
+			227337971056A128004228B4 /* PBXTextBookmark */ = 227337971056A128004228B4 /* PBXTextBookmark */;
+			227337981056A128004228B4 /* PBXTextBookmark */ = 227337981056A128004228B4 /* PBXTextBookmark */;
+			2273379E1056A170004228B4 /* PBXTextBookmark */ = 2273379E1056A170004228B4 /* PBXTextBookmark */;
+			2273379F1056A170004228B4 /* PBXTextBookmark */ = 2273379F1056A170004228B4 /* PBXTextBookmark */;
+			227337A01056A170004228B4 /* PBXTextBookmark */ = 227337A01056A170004228B4 /* PBXTextBookmark */;
+			227337A11056A170004228B4 /* PBXTextBookmark */ = 227337A11056A170004228B4 /* PBXTextBookmark */;
+			227337A31056A1C9004228B4 /* PBXTextBookmark */ = 227337A31056A1C9004228B4 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {

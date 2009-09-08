@@ -330,7 +330,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2273374A105696C3004228B4</string>
+										<string>227337A31056A1C9004228B4</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -344,16 +344,16 @@
 											<string>223BC47210555E4100ABE5A2</string>
 											<string>2273368510568733004228B4</string>
 											<string>227336E110568E0D004228B4</string>
-											<string>227336E210568E0D004228B4</string>
-											<string>227336F210568EFE004228B4</string>
-											<string>2273371F10569434004228B4</string>
 											<string>22733734105695B1004228B4</string>
-											<string>22733735105695B1004228B4</string>
-											<string>22733736105695B1004228B4</string>
-											<string>22733737105695B1004228B4</string>
-											<string>22733742105696A9004228B4</string>
 											<string>22733743105696A9004228B4</string>
-											<string>22733744105696A9004228B4</string>
+											<string>2273375A10569A15004228B4</string>
+											<string>2273376110569AE4004228B4</string>
+											<string>2273377210569DD8004228B4</string>
+											<string>2273378010569FCE004228B4</string>
+											<string>2273378110569FCE004228B4</string>
+											<string>2273378210569FCE004228B4</string>
+											<string>2273379E1056A170004228B4</string>
+											<string>2273379F1056A170004228B4</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -715,6 +715,29 @@
 											<string>22733745105696A9004228B4</string>
 											<string>22733746105696A9004228B4</string>
 											<string>22733747105696A9004228B4</string>
+											<string>2273374C10569898004228B4</string>
+											<string>22733753105698FD004228B4</string>
+											<string>22733754105698FD004228B4</string>
+											<string>2273375D10569A15004228B4</string>
+											<string>2273375E10569A15004228B4</string>
+											<string>2273376310569AE4004228B4</string>
+											<string>2273377610569DD8004228B4</string>
+											<string>2273377710569DD8004228B4</string>
+											<string>2273377810569DD8004228B4</string>
+											<string>2273377910569DD8004228B4</string>
+											<string>2273377A10569DD8004228B4</string>
+											<string>2273377B10569DD8004228B4</string>
+											<string>2273378410569FCE004228B4</string>
+											<string>2273378510569FCE004228B4</string>
+											<string>2273378610569FCE004228B4</string>
+											<string>2273378710569FCE004228B4</string>
+											<string>2273378810569FCE004228B4</string>
+											<string>2273378910569FCE004228B4</string>
+											<string>2273378A10569FCE004228B4</string>
+											<string>2273378B10569FCE004228B4</string>
+											<string>227337911056A0AB004228B4</string>
+											<string>227337971056A128004228B4</string>
+											<string>227337A01056A170004228B4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -932,14 +955,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BaseHoccerRequest.m</string>
+								<string>HoccerViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -956,6 +977,8 @@
 							<string>413pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1006,7 +1029,7 @@
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

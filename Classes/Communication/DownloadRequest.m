@@ -30,6 +30,8 @@
 		request = [[NSMutableURLRequest requestWithURL:url] retain];
 		
 		[self startRequest];
+		
+		isDownloading = NO;
 	}
 	
 	return self;
@@ -47,21 +49,19 @@
 			
 	NSLog(@"download connection did finish");
 			
-	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	NSLog(@"download result: %@", dataString);
-			
-	[dataString release];
-	[connection release];
-	connection = nil;
+	self.result = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
+	
+	self.connection = nil;
 	
 	if (statusCode >= 400) {
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: nil];
 	} else {
 		[self.delegate checkAndPerformSelector:@selector(finishedDownload:) withObject: self];
 	}
+	
+	isDownloading = NO;
 }
 		
-
 - (void)startRequest 
 {
 	if (canceled) {
@@ -74,7 +74,31 @@
 	}
 			
 	[receivedData setLength:0];
+	downloaded = 0;
 }
+
+
+- (void)connection:(NSURLConnection *)aConnection didReceiveData:(NSData *)data {
+	[super connection: connection didReceiveData:data];
+	
+	if (isDownloading) {
+		downloaded += [data length]; 
+		NSString *update = [NSString stringWithFormat:@"%d / %d", downloaded, [self.response expectedContentLength]];
+	
+		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
+			withObject: self withObject:update];
+	}
+}
+
+- (void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
+{
+	[super connection: aConnection didReceiveResponse: aResponse];
+	
+	if ([aResponse statusCode] == 200) {
+		isDownloading = YES;
+	}
+}
+
 		
 
 @end
