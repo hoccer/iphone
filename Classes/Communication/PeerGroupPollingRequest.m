@@ -38,7 +38,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
-	if ([self.response statusCode] == 202) {
+	int statusCode = [self.response statusCode];
+	
+	if (statusCode == 202) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 		return;
 	}
@@ -53,7 +55,13 @@
 	connection = nil;
 
 	self.result = [self createJSONFromResult: receivedData];
-	[self.delegate checkAndPerformSelector:@selector(finishedPolling:) withObject: self];
+	
+	if (statusCode >= 400) {
+		NSError *error = [self createErrorFromResult: self.result];
+		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
+	} else {
+		[self.delegate checkAndPerformSelector:@selector(finishedPolling:) withObject: self];
+	}
 }
 
 - (void)startRequest 

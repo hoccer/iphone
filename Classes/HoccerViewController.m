@@ -86,6 +86,10 @@
 	pollingRequest = nil;
 }
 
+- (void)request:(BaseHoccerRequest *)request didFailWithError: (NSError *)error 
+{
+	NSLog(@"error: %@", [error localizedDescription]);
+}
 
 - (void)dealloc {
     [catchButton release];

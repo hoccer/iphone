@@ -39,7 +39,9 @@
 					  
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
-	if ([self.response statusCode] == 202) {
+	int statusCode = [self.response statusCode];
+	
+	if (statusCode == 202) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 		return;
 	}
@@ -52,8 +54,12 @@
 	[dataString release];
 	[connection release];
 	connection = nil;
-			
-	[delegate checkAndPerformSelector:@selector(finishedDownload:) withObject: self];
+	
+	if (statusCode >= 400) {
+		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: nil];
+	} else {
+		[self.delegate checkAndPerformSelector:@selector(finishedDownload:) withObject: self];
+	}
 }
 		
 

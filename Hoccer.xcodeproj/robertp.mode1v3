@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>22733670105681A2004228B4</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>HoccerViewController.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>22733671105681A2004228B4</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>HoccerViewController.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>22733698105687A4004228B4</string>
+						<key>history</key>
+						<array>
+							<string>2273366D10568183004228B4</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {750, 461}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>38 474 750 502 0 0 1280 1002 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -229,8 +270,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -277,7 +316,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>14</integer>
+									<integer>12</integer>
 									<integer>6</integer>
 									<integer>1</integer>
 									<integer>0</integer>
@@ -314,12 +353,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HoccerViewController.h</string>
+								<string>BaseHoccerRequest.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +368,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HoccerViewController.h</string>
+										<string>BaseHoccerRequest.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2273362310567A06004228B4</string>
+										<string>22733697105687A4004228B4</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -343,18 +384,18 @@
 											<string>223BC44710555CB300ABE5A2</string>
 											<string>223BC44810555CB300ABE5A2</string>
 											<string>223BC47210555E4100ABE5A2</string>
-											<string>223BC4941055607C00ABE5A2</string>
 											<string>227334711056581C004228B4</string>
 											<string>227335D210566DFD004228B4</string>
-											<string>227335E51056779D004228B4</string>
-											<string>227335E61056779D004228B4</string>
 											<string>227335E71056779D004228B4</string>
 											<string>2273360F105679B0004228B4</string>
-											<string>22733610105679B0004228B4</string>
 											<string>22733611105679B0004228B4</string>
-											<string>22733612105679B0004228B4</string>
-											<string>22733613105679B0004228B4</string>
-											<string>22733614105679B0004228B4</string>
+											<string>2273362510567B2C004228B4</string>
+											<string>2273366310568122004228B4</string>
+											<string>2273366410568122004228B4</string>
+											<string>2273368510568733004228B4</string>
+											<string>2273368E10568780004228B4</string>
+											<string>22733695105687A4004228B4</string>
+											<string>227336581056809B004228B4</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -634,6 +675,29 @@
 											<string>2273361C105679B0004228B4</string>
 											<string>2273361D105679B0004228B4</string>
 											<string>2273361E105679B0004228B4</string>
+											<string>2273362710567B2C004228B4</string>
+											<string>2273362810567B2C004228B4</string>
+											<string>2273363210567DF5004228B4</string>
+											<string>2273363310567DF5004228B4</string>
+											<string>2273363D10567F48004228B4</string>
+											<string>2273363E10567F48004228B4</string>
+											<string>227336501056806A004228B4</string>
+											<string>227336511056806A004228B4</string>
+											<string>227336521056806A004228B4</string>
+											<string>227336591056809B004228B4</string>
+											<string>2273365A1056809B004228B4</string>
+											<string>2273365B1056809B004228B4</string>
+											<string>2273365C1056809B004228B4</string>
+											<string>22733660105680CE004228B4</string>
+											<string>2273366510568122004228B4</string>
+											<string>2273366610568122004228B4</string>
+											<string>2273366B1056816F004228B4</string>
+											<string>22733679105681E2004228B4</string>
+											<string>2273368810568733004228B4</string>
+											<string>2273368910568733004228B4</string>
+											<string>2273368A10568733004228B4</string>
+											<string>2273369010568780004228B4</string>
+											<string>22733696105687A4004228B4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -827,13 +891,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>2273362410567A06004228B4</string>
 		<string>227334681056576A004228B4</string>
 		<string>227334691056576A004228B4</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>223BC31A10552FA600ABE5A2</string>
+		<string>22733670105681A2004228B4</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/Hoccer/Hoccer.xcodeproj</string>
+		<string>223BC31A10552FA600ABE5A2</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 133 1280 869 0 0 1280 1002 </string>
@@ -859,7 +923,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HoccerViewController.m</string>
+								<string>BaseHoccerRequest.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -868,7 +932,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {789, 413}}</string>
 								<key>RubberWindowFrame</key>
-								<string>437 216 789 695 0 0 1280 1002 </string>
+								<string>443 152 789 695 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -892,7 +956,7 @@
 								<key>Frame</key>
 								<string>{{0, 418}, {789, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>437 216 789 695 0 0 1280 1002 </string>
+								<string>443 152 789 695 0 0 1280 1002 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -922,7 +986,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.buildV3</string>
 			<key>WindowString</key>
-			<string>437 216 789 695 0 0 1280 1002 </string>
+			<string>443 152 789 695 0 0 1280 1002 </string>
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>

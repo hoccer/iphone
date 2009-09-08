@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class BaseHoccerRequest;
+
+@protocol BaseHoccerRequestDelegate
+@optional
+- (void)request:(BaseHoccerRequest *)request didFailWithError: (NSError *)error;
+- (void)requestDidFinish: (BaseHoccerRequest *)request;
+@end
+
+
+
 @interface BaseHoccerRequest : NSObject {
 	id delegate;
 
@@ -22,6 +32,7 @@
 @property (retain) id result;
 
 - (id) createJSONFromResult: (NSData *) resultData;
+- (NSError *) createErrorFromResult: (id)aResult;
 
 
 @end

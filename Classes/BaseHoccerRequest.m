@@ -43,7 +43,8 @@
 	[receivedData release];
 }
 
-- (id) createJSONFromResult: (NSData *) resultData {
+- (id) createJSONFromResult: (NSData *) resultData 
+{
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
@@ -53,6 +54,14 @@
 	[dataString release];
 	
 	return jsonResult;
+}
+
+- (NSError *)createErrorFromResult: (id)aResult {
+	NSInteger statusCode = [self.response statusCode];
+	
+	NSError *error = [NSError errorWithDomain:@"HoccerCommunicationError" code:statusCode userInfo:nil];
+	
+	return error;
 }
 
 

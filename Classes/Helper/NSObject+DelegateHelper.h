@@ -13,5 +13,6 @@
 
 - (BOOL)checkAndPerformSelector: (SEL)selector;
 - (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)aObject;
+- (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)firstObject withObject: (id)secondObject;
 
 @end
