@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface BaseHoccerRequest : NSObject {
+	id delegate;
+
 	NSMutableData *receivedData;
 
 	NSHTTPURLResponse *response; 
 	id result;
 }
 
+@property (assign, nonatomic) id delegate;
 @property (retain) NSHTTPURLResponse *response;
 @property (retain) id result;
 

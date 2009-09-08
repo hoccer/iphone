@@ -12,16 +12,12 @@
 #import "JSON.h"
 
 @interface PeerGroupPollingRequest (private)
-
-
 - (void)startRequest;
 @end
 
 
 @implementation PeerGroupPollingRequest
 
-@synthesize delegate;
-@synthesize response;
 @synthesize connection;
 
 - (id)initWithObject: (id)aObject andDelegate: (id)aDelegate {

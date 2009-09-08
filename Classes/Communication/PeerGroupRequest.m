@@ -17,40 +17,30 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 @end
 
 @implementation PeerGroupRequest
-@synthesize delegate;
+
 @synthesize result;
 
 - (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
-		delegate = aDelegate;
+		self.delegate = aDelegate;
 		
-		if (connection == nil) {
-			receivedData = [[NSMutableData alloc] init];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"peers"];
+		NSLog(@"sending request to: %@", urlString);
+		NSURL *url = [NSURL URLWithString: urlString];
 			
-			NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"peers"];
-			NSLog(@"sending request to: %@", urlString);
-			NSURL *url = [NSURL URLWithString: urlString];
+		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+		[request setHTTPMethod: @"POST"];
+		[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
 			
-			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-			[request setHTTPMethod: @"POST"];
-			[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
-			
-			connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; 
-			if (!connection)  {
-				NSLog(@"Error while executing url connection");
-			}
+		connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; 
+		if (!connection)  {
+			NSLog(@"Error while executing url connection");
 		}
 	}
 	
 	return self;	
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response 
-{
-	NSLog(@"status code: %d", [response statusCode]);
-	NSLog(@"response length: %d", [response expectedContentLength]);
 }
 
 - (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
@@ -62,12 +52,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"peer[gesture]=%@", gesture];
 
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
-}
-
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-       [receivedData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
@@ -91,10 +75,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 - (void)dealloc 
 {
 	[super dealloc];
-	
 	[connection release];
-	[receivedData release];
-	[result release];
 }
 
 

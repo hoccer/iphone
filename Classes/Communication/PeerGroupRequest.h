@@ -8,19 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "BaseHoccerRequest.h"
 
-@interface PeerGroupRequest : NSObject {
+@interface PeerGroupRequest : BaseHoccerRequest {
 	NSURLConnection *connection;
-	NSMutableData *receivedData;
-	
-	id delegate;
-	
-	id result;
 }
 
-@property (assign, nonatomic) id delegate;
-@property (retain) id result;
-
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id) aDelegate;
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate;
 
 @end

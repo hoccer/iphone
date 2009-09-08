@@ -11,6 +11,7 @@
 
 @implementation BaseHoccerRequest
 
+@synthesize delegate;
 @synthesize response;
 @synthesize result;
 
