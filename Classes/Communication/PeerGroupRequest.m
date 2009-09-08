@@ -57,14 +57,9 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
 	NSLog(@"connection did finish");
-	NSError *error;
 	
-	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	SBJSON *json = [[SBJSON alloc] init];
-	self.result = [json objectWithString: dataString error: &error];
-	[json release];
+	self.result = [self createJSONFromResult: receivedData];
 	
-	[dataString release];
 	[connection release];
 	connection = nil;
 	

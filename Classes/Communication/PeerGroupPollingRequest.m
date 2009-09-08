@@ -23,7 +23,7 @@
 - (id)initWithObject: (id)aObject andDelegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
-		self.delegate = delegate;
+		self.delegate = aDelegate;
 		NSLog(@"verbinde mit %@", [aObject valueForKey:@"peer_uri"]);
 		
 		NSURL *url = [NSURL URLWithString: [aObject valueForKey:@"peer_uri"]];
@@ -51,8 +51,9 @@
 	[dataString release];
 	[connection release];
 	connection = nil;
-	
-	[delegate checkAndPerformSelector:@selector(finishedPolling:) withObject: self];
+
+	self.result = [self createJSONFromResult: receivedData];
+	[self.delegate checkAndPerformSelector:@selector(finishedPolling:) withObject: self];
 }
 
 - (void)startRequest 

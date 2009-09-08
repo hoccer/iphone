@@ -10,12 +10,14 @@
 
 @class PeerGroupRequest;
 @class PeerGroupPollingRequest;
+@class DownloadRequest;
 
 @interface HoccerViewController : UIViewController {
 	IBOutlet UIButton *catchButton;
 	
 	PeerGroupRequest *request;
 	PeerGroupPollingRequest *pollingRequest;
+	DownloadRequest *downloadRequest;
 }
 
 @property (retain) UIButton *catchButton;

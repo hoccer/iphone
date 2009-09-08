@@ -10,7 +10,7 @@
 #import "NSObject+DelegateHelper.h"
 
 @interface DownloadRequest (private)
-- (void)sstartRequest;
+- (void)startRequest;
 @end
 
 
@@ -44,16 +44,16 @@
 		return;
 	}
 			
-	NSLog(@"polling connection did finish");
+	NSLog(@"download connection did finish");
 			
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	NSLog(@"polling result: %@", dataString);
+	NSLog(@"download result: %@", dataString);
 			
 	[dataString release];
 	[connection release];
 	connection = nil;
 			
-	[delegate checkAndPerformSelector:@selector(finishedPolling:) withObject: self];
+	[delegate checkAndPerformSelector:@selector(finishedDownload:) withObject: self];
 }
 		
 

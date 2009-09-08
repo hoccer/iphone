@@ -7,7 +7,7 @@
 //
 
 #import "BaseHoccerRequest.h"
-
+#import "JSON.h"
 
 @implementation BaseHoccerRequest
 
@@ -43,8 +43,16 @@
 	[receivedData release];
 }
 
-- (id) createJSONFromResult: (NSData *) result {
+- (id) createJSONFromResult: (NSData *) resultData {
+	NSError *error;
+
+	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
+	SBJSON *json = [[SBJSON alloc] init];
+	id jsonResult = [json objectWithString: dataString error: &error];
+	[json release];
+	[dataString release];
 	
+	return jsonResult;
 }
 
 

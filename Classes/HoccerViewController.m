@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "PeerGroupRequest.h"
 #import "PeerGroupPollingRequest.h"
+#import "DownloadRequest.h"
 
 @implementation HoccerViewController
 @synthesize catchButton;
@@ -78,7 +79,12 @@
 	request = nil;
 }
 
-//- (void)finishedPolling: (
+- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
+	downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
+	
+	[pollingRequest release];
+	pollingRequest = nil;
+}
 
 
 - (void)dealloc {

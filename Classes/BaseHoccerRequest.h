@@ -21,4 +21,7 @@
 @property (retain) NSHTTPURLResponse *response;
 @property (retain) id result;
 
+- (id) createJSONFromResult: (NSData *) resultData;
+
+
 @end
