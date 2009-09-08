@@ -43,5 +43,9 @@
 	[receivedData release];
 }
 
+- (id) createJSONFromResult: (NSData *) result {
+	
+}
+
 
 @end

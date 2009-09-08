@@ -65,7 +65,7 @@
 - (IBAction)onCatch: (id)sender {
 	NSLog(@"catched");
 	
-	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.121312 longitude:14.1123123];
+	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
 }
 
@@ -77,6 +77,9 @@
 	[request release];
 	request = nil;
 }
+
+//- (void)finishedPolling: (
+
 
 - (void)dealloc {
     [catchButton release];

@@ -275,7 +275,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
+									<integer>12</integer>
 									<integer>6</integer>
 									<integer>1</integer>
 									<integer>0</integer>
@@ -319,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PeerGroupRequest.m</string>
+								<string>BaseHoccerRequest.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PeerGroupRequest.m</string>
+										<string>BaseHoccerRequest.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2273358A1056674B004228B4</string>
+										<string>227335BB10566C6D004228B4</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -345,14 +345,16 @@
 											<string>223BC47210555E4100ABE5A2</string>
 											<string>223BC4941055607C00ABE5A2</string>
 											<string>227334711056581C004228B4</string>
-											<string>227334721056581C004228B4</string>
-											<string>2273354F1056661E004228B4</string>
-											<string>2273357110566735004228B4</string>
-											<string>2273357210566735004228B4</string>
 											<string>2273357310566735004228B4</string>
 											<string>2273357410566735004228B4</string>
 											<string>2273357510566735004228B4</string>
-											<string>2273357610566735004228B4</string>
+											<string>2273359B10566BED004228B4</string>
+											<string>2273359C10566BED004228B4</string>
+											<string>2273359D10566BED004228B4</string>
+											<string>2273359E10566BED004228B4</string>
+											<string>2273359F10566BED004228B4</string>
+											<string>227335B810566C6D004228B4</string>
+											<string>227335B910566C6D004228B4</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -562,6 +564,29 @@
 											<string>2273358510566735004228B4</string>
 											<string>2273358610566735004228B4</string>
 											<string>2273358710566735004228B4</string>
+											<string>227335A110566BED004228B4</string>
+											<string>227335A210566BED004228B4</string>
+											<string>227335A310566BED004228B4</string>
+											<string>227335A410566BED004228B4</string>
+											<string>227335A510566BED004228B4</string>
+											<string>227335A610566BED004228B4</string>
+											<string>227335A710566BED004228B4</string>
+											<string>227335A810566BED004228B4</string>
+											<string>227335A910566BED004228B4</string>
+											<string>227335AA10566BED004228B4</string>
+											<string>227335AB10566BED004228B4</string>
+											<string>227335AC10566BED004228B4</string>
+											<string>227335AD10566BED004228B4</string>
+											<string>227335AE10566BED004228B4</string>
+											<string>227335AF10566BED004228B4</string>
+											<string>227335B010566BED004228B4</string>
+											<string>227335B110566BED004228B4</string>
+											<string>227335B210566BED004228B4</string>
+											<string>227335B310566BED004228B4</string>
+											<string>227335B410566BED004228B4</string>
+											<string>227335B510566BED004228B4</string>
+											<string>227335B610566BED004228B4</string>
+											<string>227335BA10566C6D004228B4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -757,9 +782,9 @@
 	<array>
 		<string>227334681056576A004228B4</string>
 		<string>227334691056576A004228B4</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>223BC31A10552FA600ABE5A2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>223BC31A10552FA600ABE5A2</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/Hoccer/Hoccer.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -977,7 +1002,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -1142,7 +1167,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
