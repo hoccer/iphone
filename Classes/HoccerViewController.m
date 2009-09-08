@@ -62,6 +62,18 @@
 	// e.g. self.myOutlet = nil;
 }
 
+- (void)dealloc {
+	[super dealloc];
+	
+    [catchButton release];
+	[request release];
+}
+
+- (IBAction)onCancel: (id)sender 
+{
+	[request cancel];
+}
+
 
 - (IBAction)onCatch: (id)sender {
 	NSLog(@"catched");
@@ -73,27 +85,30 @@
 - (void)finishedRequest: (PeerGroupRequest *)aRequest {
 	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
 
-	pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
+	HoccerBaseRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
+	
+	[request release];
+	request = pollingRequest;
+}
+
+- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
+	HoccerBaseRequest *downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
+	
+	[request release];
+	request = downloadRequest;
+}
+
+
+#pragma mark BaseHoccerRequest delegate methods
+
+- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
+{
+	NSLog(@"error: %@", [error localizedDescription]);
 	
 	[request release];
 	request = nil;
 }
 
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
-	downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
-	
-	[pollingRequest release];
-	pollingRequest = nil;
-}
 
-- (void)request:(BaseHoccerRequest *)request didFailWithError: (NSError *)error 
-{
-	NSLog(@"error: %@", [error localizedDescription]);
-}
-
-- (void)dealloc {
-    [catchButton release];
-	[super dealloc];
-}
 
 @end

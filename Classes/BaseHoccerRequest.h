@@ -26,6 +26,8 @@
 	NSURLConnection *connection;
 	NSHTTPURLResponse *response; 
 	id result;
+	
+	BOOL canceled;
 }
 
 @property (assign, nonatomic) id delegate;

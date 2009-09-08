@@ -64,6 +64,10 @@
 
 - (void)startRequest 
 {
+	if (canceled) {
+		return;
+	}
+	
 	self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");

@@ -49,9 +49,7 @@
 	NSLog(@"polling result: %@", dataString);
 	
 	[dataString release];
-	[connection release];
-	connection = nil;
-
+	self.connection = nil;
 	self.result = [self createJSONFromResult: receivedData];
 	
 	if (statusCode >= 400) {
@@ -64,6 +62,11 @@
 
 - (void)startRequest 
 {
+	if (canceled) {
+		return;
+	}
+	
+	NSLog(@"restarting connection");
 	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] retain];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");

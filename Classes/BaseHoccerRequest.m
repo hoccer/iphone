@@ -23,13 +23,19 @@
 	self = [super init];
 	if (self != nil) {
 		receivedData = [[NSMutableData alloc] init]; 
+		
+		canceled = NO;
 	}
 	return self;
 }
 
 - (void)cancel 
 {
+	NSLog(@"canceling connection: %@", connection);
 	[self.connection cancel];
+	self.connection = nil;
+	
+	canceled = YES;
 }
 
 

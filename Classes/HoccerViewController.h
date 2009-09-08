@@ -12,16 +12,17 @@
 @class PeerGroupPollingRequest;
 @class DownloadRequest;
 
+@class HoccerBaseRequest;
+
 @interface HoccerViewController : UIViewController {
 	IBOutlet UIButton *catchButton;
 	
-	PeerGroupRequest *request;
-	PeerGroupPollingRequest *pollingRequest;
-	DownloadRequest *downloadRequest;
+	HoccerBaseRequest *request;
 }
 
 @property (retain) UIButton *catchButton;
 
+- (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;
 
 @end
