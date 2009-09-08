@@ -49,7 +49,7 @@
 			
 	NSLog(@"download connection did finish");
 			
-	self.result = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
+	self.result = receivedData; //[[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
 	
 	self.connection = nil;
 	

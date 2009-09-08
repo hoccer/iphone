@@ -77,7 +77,8 @@
 }
 
 
-- (IBAction)onCatch: (id)sender {
+- (IBAction)onCatch: (id)sender 
+{
 	NSLog(@"catched");
 	
 	if (request != nil) {
@@ -87,6 +88,8 @@
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
 }
+
+#pragma mark Communication delegate methods
 
 - (void)finishedRequest: (PeerGroupRequest *)aRequest 
 {
@@ -108,9 +111,12 @@
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
-	NSLog(@"result:  %@", aRequest.result);
+	//NSLog(@"result:  %@", aRequest.result);
+	//[[UIApplication sharedApplication] openURL: [NSURL URLWithString: aRequest.result]];
 	
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: aRequest.result]];
+	UIImage *image = [UIImage imageWithData:aRequest.result];
+	imageView.image = image; 
+	
 	
 	[request release];
 	request = nil;
@@ -121,7 +127,7 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	NSLog(@"error: %@", [error localizedDescription]);
+	statusLabel.text = [error localizedDescription];
 	
 	[request release];
 	request = nil;
