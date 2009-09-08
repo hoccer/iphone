@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>22733698105687A4004228B4</string>
+						<string>227336C110568C31004228B4</string>
 						<key>history</key>
 						<array>
 							<string>2273366D10568183004228B4</string>
@@ -360,7 +360,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BaseHoccerRequest.h</string>
+								<string>BaseHoccerRequest.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -368,11 +368,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BaseHoccerRequest.h</string>
+										<string>BaseHoccerRequest.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>22733697105687A4004228B4</string>
+										<string>227336C010568C31004228B4</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -393,9 +393,9 @@
 											<string>2273366310568122004228B4</string>
 											<string>2273366410568122004228B4</string>
 											<string>2273368510568733004228B4</string>
-											<string>2273368E10568780004228B4</string>
-											<string>22733695105687A4004228B4</string>
-											<string>227336581056809B004228B4</string>
+											<string>227336AC10568A64004228B4</string>
+											<string>227336BA10568C31004228B4</string>
+											<string>227336BB10568C31004228B4</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -698,6 +698,13 @@
 											<string>2273368A10568733004228B4</string>
 											<string>2273369010568780004228B4</string>
 											<string>22733696105687A4004228B4</string>
+											<string>227336A71056884D004228B4</string>
+											<string>227336AE10568A64004228B4</string>
+											<string>227336AF10568A64004228B4</string>
+											<string>227336BC10568C31004228B4</string>
+											<string>227336BD10568C31004228B4</string>
+											<string>227336BE10568C31004228B4</string>
+											<string>227336BF10568C31004228B4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -894,10 +901,10 @@
 		<string>227334681056576A004228B4</string>
 		<string>227334691056576A004228B4</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>223BC31A10552FA600ABE5A2</string>
 		<string>22733670105681A2004228B4</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/Hoccer/Hoccer.xcodeproj</string>
-		<string>223BC31A10552FA600ABE5A2</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 133 1280 869 0 0 1280 1002 </string>
@@ -990,7 +997,7 @@
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

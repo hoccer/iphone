@@ -7,7 +7,9 @@
 //
 
 #import "BaseHoccerRequest.h"
+#import "NSObject+DelegateHelper.h"
 #import "JSON.h"
+
 
 @implementation BaseHoccerRequest
 
@@ -37,6 +39,16 @@
 	[receivedData appendData:data];
 }
 
+
+- (void)connection:(NSURLConnection *)connection didFailWithError: (NSError *)error 
+{
+	[connection release];
+	connection = nil;
+	
+	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
+}
+	 
+
 - (void)dealloc 
 {
 	[super dealloc];
@@ -57,12 +69,18 @@
 }
 
 - (NSError *)createErrorFromResult: (id)aResult {
+	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+	if ([aResult valueForKey:@"message"]) {
+		[userInfo setObject:[aResult valueForKey:@"message"] forKey:NSLocalizedDescriptionKey];
+	}
+	
 	NSInteger statusCode = [self.response statusCode];
 	
-	NSError *error = [NSError errorWithDomain:@"HoccerCommunicationError" code:statusCode userInfo:nil];
+	NSError *error = [NSError errorWithDomain:@"HoccerCommunicationError" code:statusCode userInfo:userInfo];
 	
 	return error;
 }
+
 
 
 @end
