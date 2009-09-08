@@ -11,10 +11,8 @@
 
 @interface DownloadRequest : BaseHoccerRequest {
 	NSURLRequest *request;
-	NSURLConnection *connection;
 }
 
-@property (retain) NSURLConnection *connection;
 @property (retain) NSURLRequest *request;
 
 - (id)initWithObject: (id)aObject delegate: (id)aDelegate;

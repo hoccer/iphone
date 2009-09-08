@@ -19,7 +19,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 763;
+		rLoc = 738;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -29,7 +29,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -39,7 +39,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -49,7 +49,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 763;
+		rLoc = 738;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -59,7 +59,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -146,16 +146,16 @@
 	223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{331, 0}";
-			sepNavVisRange = "{0, 441}";
+			sepNavSelRange = "{298, 0}";
+			sepNavVisRange = "{0, 411}";
 			sepNavWindowFrame = "{{61, 397}, {750, 558}}";
 		};
 	};
 	223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {633, 1162}}";
-			sepNavSelRange = "{2044, 0}";
-			sepNavVisRange = "{1896, 152}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1064}}";
+			sepNavSelRange = "{1056, 0}";
+			sepNavVisRange = "{473, 1541}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -175,7 +175,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 16";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 346;
 		vrLoc = 0;
@@ -461,7 +461,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 23";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 540;
 		vrLoc = 0;
@@ -478,16 +478,16 @@
 	};
 	223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{443, 0}";
-			sepNavVisRange = "{0, 449}";
+			sepNavIntBoundsRect = "{{0, 0}, {728, 381}}";
+			sepNavSelRange = "{298, 0}";
+			sepNavVisRange = "{0, 368}";
 		};
 	};
 	223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1246}}";
-			sepNavSelRange = "{548, 0}";
-			sepNavVisRange = "{288, 1493}";
+			sepNavIntBoundsRect = "{{0, 0}, {732, 1258}}";
+			sepNavSelRange = "{1958, 5}";
+			sepNavVisRange = "{0, 695}";
 			sepNavWindowFrame = "{{61, 397}, {750, 558}}";
 		};
 	};
@@ -496,7 +496,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1899;
+		rLoc = 1882;
 		rType = 0;
 		vrLen = 1854;
 		vrLoc = 288;
@@ -526,7 +526,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 422;
+		rLoc = 341;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -546,7 +546,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -566,7 +566,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 27";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 609;
 		vrLoc = 26;
@@ -575,8 +575,8 @@
 		isa = PBXTextBookmark;
 		comments = "error: expected specifier-qualifier-list before 'NSHTTPURLRequest'";
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
-		rLen = 1;
-		rLoc = 13;
+		rLen = 0;
+		rLoc = 12;
 		rType = 1;
 	};
 	227333F8105643B6004228B4 /* PBXTextBookmark */ = {
@@ -584,7 +584,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 27";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 609;
 		vrLoc = 26;
@@ -593,8 +593,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
-		rLen = 54;
-		rLoc = 276;
+		rLen = 23;
+		rLoc = 275;
 		rType = 0;
 		vrLen = 384;
 		vrLoc = 0;
@@ -604,7 +604,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -624,7 +624,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 16";
 		rLen = 0;
-		rLoc = 388;
+		rLoc = 363;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -634,7 +634,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 291;
+		rLoc = 289;
 		rType = 0;
 		vrLen = 392;
 		vrLoc = 0;
@@ -644,7 +644,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -654,7 +654,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1899;
+		rLoc = 1882;
 		rType = 0;
 		vrLen = 1928;
 		vrLoc = 696;
@@ -664,7 +664,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 15";
 		rLen = 0;
-		rLoc = 763;
+		rLoc = 738;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -674,7 +674,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 449;
+		rLoc = 368;
 		rType = 0;
 		vrLen = 366;
 		vrLoc = 0;
@@ -684,7 +684,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 19";
 		rLen = 0;
-		rLoc = 763;
+		rLoc = 738;
 		rType = 0;
 		vrLen = 357;
 		vrLoc = 0;
@@ -694,7 +694,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 384;
 		vrLoc = 0;
@@ -704,7 +704,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 85";
 		rLen = 0;
-		rLoc = 1899;
+		rLoc = 1882;
 		rType = 0;
 		vrLen = 1684;
 		vrLoc = 0;
@@ -714,7 +714,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 27";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 550;
 		vrLoc = 0;
@@ -734,7 +734,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 28";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 635;
 		vrLoc = 0;
@@ -754,7 +754,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 28";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 635;
 		vrLoc = 0;
@@ -774,7 +774,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -794,7 +794,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 19";
 		rLen = 0;
-		rLoc = 763;
+		rLoc = 738;
 		rType = 0;
 		vrLen = 357;
 		vrLoc = 0;
@@ -804,7 +804,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 382;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 393;
 		vrLoc = 0;
@@ -814,7 +814,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 16";
 		rLen = 0;
-		rLoc = 388;
+		rLoc = 363;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -824,7 +824,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 387;
+		rLoc = 306;
 		rType = 0;
 		vrLen = 391;
 		vrLoc = 0;
@@ -834,7 +834,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 16";
 		rLen = 0;
-		rLoc = 388;
+		rLoc = 363;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -844,7 +844,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 291;
+		rLoc = 289;
 		rType = 0;
 		vrLen = 392;
 		vrLoc = 0;
@@ -854,7 +854,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 16";
 		rLen = 0;
-		rLoc = 388;
+		rLoc = 363;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -864,7 +864,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 279;
+		rLoc = 277;
 		rType = 0;
 		vrLen = 388;
 		vrLoc = 0;
@@ -884,7 +884,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 469;
 		vrLoc = 0;
@@ -894,7 +894,7 @@
 		comments = "error: 'object' undeclared (first use in this function)";
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		rLen = 1;
-		rLoc = 26;
+		rLoc = 24;
 		rType = 1;
 	};
 	22733426105653FB004228B4 /* PBXTextBookmark */ = {
@@ -902,7 +902,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 469;
 		vrLoc = 0;
@@ -912,7 +912,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 21";
 		rLen = 228;
-		rLoc = 517;
+		rLoc = 492;
 		rType = 0;
 		vrLen = 515;
 		vrLoc = 0;
@@ -922,7 +922,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -932,7 +932,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 41";
 		rLen = 73;
-		rLoc = 1118;
+		rLoc = 1121;
 		rType = 0;
 		vrLen = 1816;
 		vrLoc = 327;
@@ -952,7 +952,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1060;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 226;
@@ -970,7 +970,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 279;
+		rLoc = 277;
 		rType = 0;
 		vrLen = 388;
 		vrLoc = 0;
@@ -980,7 +980,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 764;
+		rLoc = 739;
 		rType = 0;
 		vrLen = 503;
 		vrLoc = 0;
@@ -990,7 +990,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 14";
 		rLen = 0;
-		rLoc = 279;
+		rLoc = 277;
 		rType = 0;
 		vrLen = 388;
 		vrLoc = 0;
@@ -1000,7 +1000,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 764;
+		rLoc = 739;
 		rType = 0;
 		vrLen = 503;
 		vrLoc = 0;
@@ -1009,8 +1009,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 50";
-		rLen = 766;
-		rLoc = 1215;
+		rLen = 746;
+		rLoc = 1218;
 		rType = 0;
 		vrLen = 1912;
 		vrLoc = 228;
@@ -1020,7 +1020,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 32";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 33;
@@ -1030,7 +1030,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 407;
 		vrLoc = 0;
@@ -1040,7 +1040,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 32";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 3;
@@ -1050,7 +1050,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 407;
 		vrLoc = 0;
@@ -1060,7 +1060,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 0;
@@ -1070,7 +1070,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -1080,7 +1080,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 0;
@@ -1090,7 +1090,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 16";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 421;
 		vrLoc = 0;
@@ -1100,7 +1100,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1930;
+		rLoc = 1905;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 0;
@@ -1110,7 +1110,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 469;
 		vrLoc = 0;
@@ -1120,7 +1120,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 21";
 		rLen = 0;
-		rLoc = 706;
+		rLoc = 681;
 		rType = 0;
 		vrLen = 1215;
 		vrLoc = 0;
@@ -1130,7 +1130,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 469;
 		vrLoc = 0;
@@ -1140,7 +1140,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 45";
 		rLen = 0;
-		rLoc = 1195;
+		rLoc = 1198;
 		rType = 0;
 		vrLen = 1853;
 		vrLoc = 287;
@@ -1150,7 +1150,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 21";
 		rLen = 228;
-		rLoc = 517;
+		rLoc = 492;
 		rType = 0;
 		vrLen = 1215;
 		vrLoc = 0;
@@ -1160,7 +1160,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 494;
 		vrLoc = 0;
@@ -1170,7 +1170,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 63";
 		rLen = 0;
-		rLoc = 1976;
+		rLoc = 1951;
 		rType = 0;
 		vrLen = 1004;
 		vrLoc = 496;
@@ -1180,7 +1180,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 524;
 		vrLoc = 0;
@@ -1190,7 +1190,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 45";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1060;
 		rType = 0;
 		vrLen = 1287;
 		vrLoc = 0;
@@ -1200,7 +1200,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1210,7 +1210,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 723;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 1373;
 		vrLoc = 0;
@@ -1220,7 +1220,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 45";
 		rLen = 0;
-		rLoc = 1195;
+		rLoc = 1198;
 		rType = 0;
 		vrLen = 1875;
 		vrLoc = 622;
@@ -1230,7 +1230,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 723;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 1418;
 		vrLoc = 0;
@@ -1240,7 +1240,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 41";
 		rLen = 73;
-		rLoc = 1118;
+		rLoc = 1121;
 		rType = 0;
 		vrLen = 1816;
 		vrLoc = 327;
@@ -1250,7 +1250,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 745;
+		rLoc = 720;
 		rType = 0;
 		vrLen = 1408;
 		vrLoc = 0;
@@ -1330,7 +1330,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1060;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 226;
@@ -1360,7 +1360,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1370,7 +1370,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1060;
 		rType = 0;
 		vrLen = 1495;
 		vrLoc = 3;
@@ -1390,7 +1390,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 51";
 		rLen = 0;
-		rLoc = 1085;
+		rLoc = 1060;
 		rType = 0;
 		vrLen = 1495;
 		vrLoc = 3;
@@ -1400,7 +1400,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1410,7 +1410,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 19";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1406;
 		vrLoc = 0;
@@ -1420,7 +1420,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 23";
 		rLen = 0;
-		rLoc = 723;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 1416;
 		vrLoc = 0;
@@ -1430,7 +1430,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1460,7 +1460,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 23";
 		rLen = 0;
-		rLoc = 723;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 0;
@@ -1470,7 +1470,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 23";
 		rLen = 0;
-		rLoc = 723;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 1481;
 		vrLoc = 0;
@@ -1480,7 +1480,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1510,7 +1510,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 22";
 		rLen = 0;
-		rLoc = 656;
+		rLoc = 631;
 		rType = 0;
 		vrLen = 1465;
 		vrLoc = 0;
@@ -1520,7 +1520,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 593;
+		rLoc = 568;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 0;
@@ -1530,7 +1530,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 54";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1492;
 		vrLoc = 311;
@@ -1540,7 +1540,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 1218;
@@ -1550,7 +1550,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1560,7 +1560,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 62";
 		rLen = 0;
-		rLoc = 1232;
+		rLoc = 1207;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 651;
@@ -1570,7 +1570,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1232;
+		rLoc = 1207;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 731;
@@ -1580,7 +1580,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1488;
 		vrLoc = 1218;
@@ -1590,7 +1590,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 62";
 		rLen = 0;
-		rLoc = 1232;
+		rLoc = 1207;
 		rType = 0;
 		vrLen = 1370;
 		vrLoc = 651;
@@ -1600,7 +1600,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1610,7 +1610,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 67";
 		rLen = 0;
-		rLoc = 1232;
+		rLoc = 1207;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 897;
@@ -1630,7 +1630,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 329;
@@ -1640,7 +1640,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1512;
 		vrLoc = 307;
@@ -1650,7 +1650,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 19";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -1660,7 +1660,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 329;
@@ -1680,7 +1680,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 58";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 329;
@@ -1690,7 +1690,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 67";
 		rLen = 0;
-		rLoc = 1232;
+		rLoc = 1207;
 		rType = 0;
 		vrLen = 1244;
 		vrLoc = 749;
@@ -1700,7 +1700,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 71";
 		rLen = 0;
-		rLoc = 1572;
+		rLoc = 1547;
 		rType = 0;
 		vrLen = 1172;
 		vrLoc = 826;
@@ -1710,7 +1710,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 71";
 		rLen = 0;
-		rLoc = 1636;
+		rLoc = 1611;
 		rType = 0;
 		vrLen = 1224;
 		vrLoc = 771;
@@ -1720,7 +1720,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 31";
 		rLen = 0;
-		rLoc = 721;
+		rLoc = 696;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 0;
@@ -1740,7 +1740,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 56";
 		rLen = 0;
-		rLoc = 1024;
+		rLoc = 999;
 		rType = 0;
 		vrLen = 1342;
 		vrLoc = 816;
@@ -1750,7 +1750,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1345;
 		vrLoc = 816;
@@ -1760,24 +1760,24 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1320;
 		vrLoc = 816;
 	};
 	227334A31056603B004228B4 /* BaseHoccerRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 754}";
+			sepNavIntBoundsRect = "{{0, 0}, {728, 574}}";
+			sepNavSelRange = "{824, 0}";
+			sepNavVisRange = "{170, 655}";
 			sepNavWindowFrame = "{{378, 58}, {750, 558}}";
 		};
 	};
 	227334A41056603B004228B4 /* BaseHoccerRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1246}}";
-			sepNavSelRange = "{1906, 0}";
-			sepNavVisRange = "{575, 1339}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1302}}";
+			sepNavSelRange = "{467, 0}";
+			sepNavVisRange = "{0, 962}";
 		};
 	};
 	227334A81056615A004228B4 /* PBXTextBookmark */ = {
@@ -1785,7 +1785,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 745;
+		rLoc = 720;
 		rType = 0;
 		vrLen = 692;
 		vrLoc = 0;
@@ -1815,7 +1815,7 @@
 		comments = "error: expected specifier-qualifier-list before 'NSHTTPURLRestponse'";
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		rLen = 1;
-		rLoc = 30;
+		rLoc = 31;
 		rType = 1;
 	};
 	227334AC1056615A004228B4 /* PBXTextBookmark */ = {
@@ -1823,7 +1823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 29";
 		rLen = 0;
-		rLoc = 745;
+		rLoc = 720;
 		rType = 0;
 		vrLen = 692;
 		vrLoc = 0;
@@ -1853,7 +1853,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 19";
 		rLen = 0;
-		rLoc = 597;
+		rLoc = 627;
 		rType = 0;
 		vrLen = 375;
 		vrLoc = 0;
@@ -1883,7 +1883,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 15";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 619;
 		vrLoc = 0;
@@ -1893,7 +1893,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 3;
@@ -1903,7 +1903,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1431;
 		vrLoc = 47;
@@ -1923,7 +1923,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 89;
@@ -1943,7 +1943,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1208;
 		vrLoc = 935;
@@ -1963,7 +1963,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -1983,7 +1983,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2003,7 +2003,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2023,7 +2023,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2043,7 +2043,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2063,7 +2063,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2083,7 +2083,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2103,7 +2103,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1210;
 		vrLoc = 933;
@@ -2123,7 +2123,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 0;
@@ -2133,7 +2133,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 17";
 		rLen = 0;
-		rLoc = 329;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 531;
 		vrLoc = 0;
@@ -2153,7 +2153,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 15";
 		rLen = 0;
-		rLoc = 519;
+		rLoc = 549;
 		rType = 0;
 		vrLen = 285;
 		vrLoc = 0;
@@ -2163,7 +2163,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 57";
 		rLen = 0;
-		rLoc = 1025;
+		rLoc = 1000;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 0;
@@ -2183,7 +2183,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1325;
 		vrLoc = 3;
@@ -2193,7 +2193,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 27";
 		rLen = 0;
-		rLoc = 1909;
+		rLoc = 2042;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 0;
@@ -2203,7 +2203,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 3;
@@ -2213,7 +2213,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 27";
 		rLen = 0;
-		rLoc = 1909;
+		rLoc = 2042;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 0;
@@ -2223,7 +2223,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 17";
 		rLen = 0;
-		rLoc = 519;
+		rLoc = 549;
 		rType = 0;
 		vrLen = 379;
 		vrLoc = 0;
@@ -2233,7 +2233,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 27";
 		rLen = 0;
-		rLoc = 1909;
+		rLoc = 2042;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 0;
@@ -2253,7 +2253,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 15";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 619;
 		vrLoc = 0;
@@ -2263,7 +2263,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 0;
@@ -2283,7 +2283,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 41";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 553;
 		rType = 0;
 		vrLen = 792;
 		vrLoc = 0;
@@ -2293,7 +2293,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -2303,7 +2303,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 42";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 225;
@@ -2313,7 +2313,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1307;
 		vrLoc = 0;
@@ -2323,7 +2323,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 15";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 619;
 		vrLoc = 0;
@@ -2333,7 +2333,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 225;
@@ -2343,7 +2343,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 41";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 553;
 		rType = 0;
 		vrLen = 792;
 		vrLoc = 0;
@@ -2363,7 +2363,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 41";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 553;
 		rType = 0;
 		vrLen = 792;
 		vrLoc = 0;
@@ -2373,7 +2373,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 41";
 		rLen = 0;
-		rLoc = 766;
+		rLoc = 741;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 225;
@@ -2393,7 +2393,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 42";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1356;
 		vrLoc = 225;
@@ -2403,7 +2403,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 506;
 		vrLoc = 0;
@@ -2413,7 +2413,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 77";
 		rLen = 0;
-		rLoc = 1976;
+		rLoc = 1951;
 		rType = 0;
 		vrLen = 1286;
 		vrLoc = 428;
@@ -2423,7 +2423,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -2433,7 +2433,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 404;
@@ -2453,7 +2453,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 809;
 		vrLoc = 0;
@@ -2463,7 +2463,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 428;
@@ -2473,7 +2473,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -2483,7 +2483,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 428;
@@ -2493,7 +2493,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 41";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 553;
 		rType = 0;
 		vrLen = 792;
 		vrLoc = 0;
@@ -2503,7 +2503,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 404;
@@ -2513,7 +2513,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 809;
 		vrLoc = 0;
@@ -2533,7 +2533,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 809;
 		vrLoc = 0;
@@ -2543,7 +2543,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -2553,7 +2553,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -2563,7 +2563,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2573,7 +2573,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2583,7 +2583,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -2593,7 +2593,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2603,7 +2603,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2613,7 +2613,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2623,7 +2623,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2633,7 +2633,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2643,7 +2643,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2653,7 +2653,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2663,7 +2663,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2673,7 +2673,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2683,7 +2683,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2693,7 +2693,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2703,7 +2703,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2713,7 +2713,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2723,7 +2723,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 26";
 		rLen = 0;
-		rLoc = 435;
+		rLoc = 405;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -2733,7 +2733,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2743,7 +2743,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 24";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 537;
 		vrLoc = 0;
@@ -2753,7 +2753,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 404;
@@ -2763,7 +2763,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -2773,7 +2773,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2783,7 +2783,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 544;
 		vrLoc = 0;
@@ -2793,7 +2793,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 24";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 537;
 		vrLoc = 0;
@@ -2803,7 +2803,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2823,7 +2823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1308;
 		vrLoc = 404;
@@ -2833,7 +2833,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -2843,7 +2843,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 79";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1546;
 		vrLoc = 0;
@@ -2853,7 +2853,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 544;
 		vrLoc = 0;
@@ -2863,7 +2863,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2873,7 +2873,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -2883,7 +2883,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -2893,7 +2893,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -2903,7 +2903,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1536;
 		vrLoc = 783;
@@ -2913,7 +2913,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2923,7 +2923,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -2943,7 +2943,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1330;
 		vrLoc = 382;
@@ -2953,7 +2953,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -2963,7 +2963,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2973,7 +2973,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -2983,7 +2983,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 82";
 		rLen = 0;
-		rLoc = 2044;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 0;
@@ -2993,7 +2993,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 532;
 		vrLoc = 0;
@@ -3003,7 +3003,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -3023,7 +3023,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 52";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 1330;
 		vrLoc = 382;
@@ -3033,7 +3033,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 20";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 502;
 		vrLoc = 0;
@@ -3043,7 +3043,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 21";
 		rLen = 0;
-		rLoc = 424;
+		rLoc = 394;
 		rType = 0;
 		vrLen = 501;
 		vrLoc = 0;
@@ -3053,7 +3053,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -3073,7 +3073,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -3083,7 +3083,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 21";
 		rLen = 0;
-		rLoc = 424;
+		rLoc = 394;
 		rType = 0;
 		vrLen = 501;
 		vrLoc = 0;
@@ -3103,7 +3103,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -3113,7 +3113,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -3133,7 +3133,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 20";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 507;
 		vrLoc = 0;
@@ -3143,7 +3143,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 551;
 		vrLoc = 0;
@@ -3152,7 +3152,7 @@
 		isa = PBXTextBookmark;
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		rLen = 0;
-		rLoc = 2147484026;
+		rLoc = 2147484104;
 		rType = 0;
 	};
 	2273354910566588004228B4 /* PBXTextBookmark */ = {
@@ -3160,7 +3160,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 551;
 		vrLoc = 0;
@@ -3180,7 +3180,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 21";
 		rLen = 0;
-		rLoc = 565;
+		rLoc = 595;
 		rType = 0;
 		vrLen = 433;
 		vrLoc = 0;
@@ -3200,7 +3200,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -3210,7 +3210,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -3220,7 +3220,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 15";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 485;
 		vrLoc = 0;
@@ -3250,7 +3250,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 21";
 		rLen = 0;
-		rLoc = 408;
+		rLoc = 432;
 		rType = 0;
 		vrLen = 808;
 		vrLoc = 0;
@@ -3260,7 +3260,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 21";
 		rLen = 0;
-		rLoc = 565;
+		rLoc = 595;
 		rType = 0;
 		vrLen = 433;
 		vrLoc = 0;
@@ -3280,7 +3280,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -3290,7 +3290,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -3310,7 +3310,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 15";
 		rLen = 0;
-		rLoc = 328;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 485;
 		vrLoc = 0;
@@ -3340,7 +3340,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 19";
 		rLen = 0;
-		rLoc = 597;
+		rLoc = 627;
 		rType = 0;
 		vrLen = 375;
 		vrLoc = 0;
@@ -3350,7 +3350,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 22";
 		rLen = 0;
-		rLoc = 381;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -3360,7 +3360,7 @@
 		comments = "error: accessing unknown 'receivedData' getter method";
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		rLen = 1;
-		rLoc = 49;
+		rLoc = 47;
 		rType = 1;
 	};
 	22733564105666AA004228B4 /* PBXTextBookmark */ = {
@@ -3368,7 +3368,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 19";
 		rLen = 0;
-		rLoc = 597;
+		rLoc = 627;
 		rType = 0;
 		vrLen = 375;
 		vrLoc = 0;
@@ -3388,7 +3388,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 22";
 		rLen = 0;
-		rLoc = 381;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 555;
 		vrLoc = 0;
@@ -3398,7 +3398,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 542;
 		vrLoc = 224;
@@ -3408,7 +3408,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 784;
 		vrLoc = 764;
@@ -3418,7 +3418,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 0;
@@ -3428,7 +3428,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 16";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 830;
 		vrLoc = 0;
@@ -3438,7 +3438,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 441;
 		vrLoc = 0;
@@ -3468,7 +3468,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2022;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3518,7 +3518,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -3528,7 +3528,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2022;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1474;
 		vrLoc = 727;
@@ -3538,7 +3538,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 16";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 830;
 		vrLoc = 0;
@@ -3548,7 +3548,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2022;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1639;
 		vrLoc = 562;
@@ -3558,7 +3558,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 441;
 		vrLoc = 0;
@@ -3568,7 +3568,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 24";
 		rLen = 0;
-		rLoc = 446;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 0;
@@ -3578,7 +3578,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 16";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 830;
 		vrLoc = 0;
@@ -3598,7 +3598,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2022;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3608,7 +3608,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 441;
 		vrLoc = 0;
@@ -3618,7 +3618,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 77";
 		rLen = 0;
-		rLoc = 2022;
+		rLoc = 2004;
 		rType = 0;
 		vrLen = 1699;
 		vrLoc = 0;
@@ -3658,7 +3658,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 764;
@@ -3675,16 +3675,16 @@
 	};
 	2273358B10566826004228B4 /* DownloadRequest.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{394, 0}";
-			sepNavVisRange = "{0, 461}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavSelRange = "{275, 0}";
+			sepNavVisRange = "{0, 383}";
 		};
 	};
 	2273358C10566826004228B4 /* DownloadRequest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {732, 1132}}";
-			sepNavSelRange = "{1448, 0}";
-			sepNavVisRange = "{925, 667}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1050}}";
+			sepNavSelRange = "{298, 0}";
+			sepNavVisRange = "{0, 1323}";
 			sepNavWindowFrame = "{{107, 355}, {750, 558}}";
 		};
 	};
@@ -3693,7 +3693,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 779;
 		vrLoc = 764;
@@ -3702,8 +3702,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 57";
-		rLen = 293;
-		rLoc = 1689;
+		rLen = 273;
+		rLoc = 1692;
 		rType = 0;
 		vrLen = 1521;
 		vrLoc = 739;
@@ -3713,7 +3713,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 39";
 		rLen = 1126;
-		rLoc = 767;
+		rLoc = 742;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -3723,7 +3723,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 443;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -3733,7 +3733,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 316;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -3793,7 +3793,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 16";
 		rLen = 59;
-		rLoc = 396;
+		rLoc = 318;
 		rType = 0;
 		vrLen = 288;
 		vrLoc = 0;
@@ -3803,7 +3803,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 19";
 		rLen = 0;
-		rLoc = 746;
+		rLoc = 722;
 		rType = 0;
 		vrLen = 362;
 		vrLoc = 0;
@@ -3823,7 +3823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 225;
-		rLoc = 519;
+		rLoc = 494;
 		rType = 0;
 		vrLen = 1346;
 		vrLoc = 3;
@@ -3833,7 +3833,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 18";
 		rLen = 0;
-		rLoc = 333;
+		rLoc = 300;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -3843,7 +3843,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 225;
-		rLoc = 519;
+		rLoc = 494;
 		rType = 0;
 		vrLen = 1346;
 		vrLoc = 3;
@@ -3853,7 +3853,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 21";
 		rLen = 0;
-		rLoc = 652;
+		rLoc = 628;
 		rType = 0;
 		vrLen = 624;
 		vrLoc = 0;
@@ -3862,8 +3862,8 @@
 		isa = PBXTextBookmark;
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 57";
-		rLen = 293;
-		rLoc = 1689;
+		rLen = 273;
+		rLoc = 1692;
 		rType = 0;
 		vrLen = 1521;
 		vrLoc = 739;
@@ -3873,7 +3873,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 39";
 		rLen = 1126;
-		rLoc = 767;
+		rLoc = 742;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -3883,7 +3883,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 443;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -3893,7 +3893,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1799;
+		rLoc = 1764;
 		rType = 0;
 		vrLen = 1089;
 		vrLoc = 0;
@@ -3913,7 +3913,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 21";
 		rLen = 0;
-		rLoc = 654;
+		rLoc = 630;
 		rType = 0;
 		vrLen = 1253;
 		vrLoc = 0;
@@ -3963,7 +3963,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 316;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -4003,7 +4003,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 16";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 343;
 		rType = 0;
 		vrLen = 830;
 		vrLoc = 0;
@@ -4023,7 +4023,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 47";
 		rLen = 0;
-		rLoc = 1183;
+		rLoc = 673;
 		rType = 0;
 		vrLen = 884;
 		vrLoc = 0;
@@ -4033,7 +4033,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4043,7 +4043,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1795;
+		rLoc = 1798;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4053,7 +4053,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 383;
@@ -4063,7 +4063,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 46";
 		rLen = 54;
-		rLoc = 1129;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 1117;
 		vrLoc = 38;
@@ -4073,7 +4073,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 47";
 		rLen = 0;
-		rLoc = 1183;
+		rLoc = 673;
 		rType = 0;
 		vrLen = 884;
 		vrLoc = 0;
@@ -4083,7 +4083,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1206;
 		vrLoc = 468;
@@ -4093,7 +4093,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1434;
 		vrLoc = 577;
@@ -4103,7 +4103,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 49";
 		rLen = 0;
-		rLoc = 1341;
+		rLoc = 831;
 		rType = 0;
 		vrLen = 1128;
 		vrLoc = 27;
@@ -4123,7 +4123,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 46";
 		rLen = 54;
-		rLoc = 1129;
+		rLoc = 619;
 		rType = 0;
 		vrLen = 1117;
 		vrLoc = 38;
@@ -4133,7 +4133,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4143,7 +4143,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1855;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1434;
 		vrLoc = 577;
@@ -4153,7 +4153,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1206;
 		vrLoc = 468;
@@ -4163,7 +4163,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1795;
+		rLoc = 1798;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4173,7 +4173,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 383;
@@ -4203,7 +4203,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 382;
@@ -4213,7 +4213,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 441;
 		vrLoc = 0;
@@ -4233,7 +4233,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1853;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 577;
@@ -4253,7 +4253,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1795;
+		rLoc = 1798;
 		rType = 0;
 		vrLen = 1596;
 		vrLoc = 452;
@@ -4263,7 +4263,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 383;
@@ -4283,7 +4283,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1285;
 		vrLoc = 382;
@@ -4293,7 +4293,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1853;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1477;
 		vrLoc = 579;
@@ -4303,7 +4303,7 @@
 		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
 		name = "PeerGroupRequest.h: 17";
 		rLen = 0;
-		rLoc = 331;
+		rLoc = 301;
 		rType = 0;
 		vrLen = 441;
 		vrLoc = 0;
@@ -4313,7 +4313,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 62";
 		rLen = 0;
-		rLoc = 1853;
+		rLoc = 1856;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 577;
@@ -4333,7 +4333,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1809;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4343,7 +4343,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1809;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4363,7 +4363,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1809;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 474;
@@ -4393,7 +4393,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4403,7 +4403,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1809;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 474;
@@ -4433,7 +4433,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -4453,7 +4453,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -4473,7 +4473,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4493,7 +4493,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4513,7 +4513,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 24";
 		rLen = 0;
-		rLoc = 696;
+		rLoc = 774;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -4523,7 +4523,7 @@
 		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
 		name = "PeerGroupRequest.m: 61";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1809;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 474;
@@ -4533,7 +4533,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 50";
 		rLen = 0;
-		rLoc = 1230;
+		rLoc = 1205;
 		rType = 0;
 		vrLen = 1186;
 		vrLoc = 488;
@@ -4563,7 +4563,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1636;
+		rLoc = 1611;
 		rType = 0;
 		vrLen = 1228;
 		vrLoc = 446;
@@ -4573,7 +4573,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1653;
+		rLoc = 1628;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 0;
@@ -4583,7 +4583,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1570;
+		rLoc = 1545;
 		rType = 0;
 		vrLen = 1345;
 		vrLoc = 242;
@@ -4603,7 +4603,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1570;
+		rLoc = 1545;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4613,7 +4613,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1570;
+		rLoc = 1545;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4633,7 +4633,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 26";
 		rLen = 0;
-		rLoc = 508;
+		rLoc = 483;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4643,7 +4643,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 26";
 		rLen = 0;
-		rLoc = 508;
+		rLoc = 483;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4663,7 +4663,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 26";
 		rLen = 0;
-		rLoc = 508;
+		rLoc = 483;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4693,7 +4693,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 26";
 		rLen = 0;
-		rLoc = 508;
+		rLoc = 483;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 242;
@@ -4713,7 +4713,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 468;
@@ -4723,7 +4723,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 443;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -4733,7 +4733,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1264;
 		vrLoc = 468;
@@ -4743,7 +4743,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 316;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -4763,7 +4763,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 50";
 		rLen = 0;
-		rLoc = 1223;
+		rLoc = 1199;
 		rType = 0;
 		vrLen = 1355;
 		vrLoc = 264;
@@ -4781,7 +4781,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 468;
@@ -4791,7 +4791,7 @@
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 21";
 		rLen = 0;
-		rLoc = 443;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 449;
 		vrLoc = 0;
@@ -4801,7 +4801,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1264;
 		vrLoc = 468;
@@ -4821,7 +4821,7 @@
 		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
 		name = "DownloadRequest.h: 18";
 		rLen = 0;
-		rLoc = 394;
+		rLoc = 316;
 		rType = 0;
 		vrLen = 461;
 		vrLoc = 0;
@@ -4871,7 +4871,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 50";
 		rLen = 0;
-		rLoc = 1223;
+		rLoc = 1199;
 		rType = 0;
 		vrLen = 1355;
 		vrLoc = 264;
@@ -4911,7 +4911,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 517;
@@ -4931,7 +4931,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 517;
@@ -4941,7 +4941,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 47";
 		rLen = 0;
-		rLoc = 1181;
+		rLoc = 671;
 		rType = 0;
 		vrLen = 1161;
 		vrLoc = 0;
@@ -5021,7 +5021,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1457;
+		rLoc = 1433;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 264;
@@ -5051,7 +5051,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1457;
+		rLoc = 1433;
 		rType = 0;
 		vrLen = 1531;
 		vrLoc = 264;
@@ -5111,7 +5111,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 58";
 		rLen = 147;
-		rLoc = 1322;
+		rLoc = 1298;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 344;
@@ -5121,7 +5121,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 488;
@@ -5141,7 +5141,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 55";
 		rLen = 0;
-		rLoc = 1569;
+		rLoc = 1544;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 488;
@@ -5151,7 +5151,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 58";
 		rLen = 147;
-		rLoc = 1322;
+		rLoc = 1298;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 344;
@@ -5161,7 +5161,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 488;
@@ -5171,7 +5171,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 766;
@@ -5211,7 +5211,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1159;
 		vrLoc = 766;
@@ -5251,7 +5251,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1413;
+		rLoc = 1389;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5261,7 +5261,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1398;
+		rLoc = 1374;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5281,7 +5281,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1398;
+		rLoc = 1374;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5311,7 +5311,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1398;
+		rLoc = 1374;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5331,7 +5331,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 24;
-		rLoc = 1398;
+		rLoc = 1374;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 344;
@@ -5361,7 +5361,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 43";
 		rLen = 0;
-		rLoc = 889;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 1160;
 		vrLoc = 765;
@@ -5381,7 +5381,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1357;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 1233;
 		vrLoc = 721;
@@ -5395,7 +5395,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1511;
+		rLoc = 1486;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5415,7 +5415,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1511;
+		rLoc = 1486;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5435,7 +5435,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 0;
-		rLoc = 1511;
+		rLoc = 1486;
 		rType = 0;
 		vrLen = 1515;
 		vrLoc = 317;
@@ -5505,7 +5505,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 62";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1391;
 		rType = 0;
 		vrLen = 1216;
 		vrLoc = 183;
@@ -5515,7 +5515,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1408;
+		rLoc = 1383;
 		rType = 0;
 		vrLen = 1589;
 		vrLoc = 310;
@@ -5535,7 +5535,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1408;
+		rLoc = 1383;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 315;
@@ -5545,7 +5545,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 62";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1391;
 		rType = 0;
 		vrLen = 1216;
 		vrLoc = 183;
@@ -5555,7 +5555,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 61";
 		rLen = 21;
-		rLoc = 1408;
+		rLoc = 1383;
 		rType = 0;
 		vrLen = 1536;
 		vrLoc = 310;
@@ -5575,7 +5575,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1357;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 310;
@@ -5585,7 +5585,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 62";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1391;
 		rType = 0;
 		vrLen = 1174;
 		vrLoc = 218;
@@ -5595,7 +5595,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 59";
 		rLen = 0;
-		rLoc = 1357;
+		rLoc = 1332;
 		rType = 0;
 		vrLen = 1378;
 		vrLoc = 310;
@@ -5605,7 +5605,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 64";
 		rLen = 0;
-		rLoc = 1903;
+		rLoc = 1391;
 		rType = 0;
 		vrLen = 1175;
 		vrLoc = 241;
@@ -5625,7 +5625,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 59";
 		rLen = 253;
-		rLoc = 1473;
+		rLoc = 963;
 		rType = 0;
 		vrLen = 1175;
 		vrLoc = 241;
@@ -5635,7 +5635,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 59";
 		rLen = 253;
-		rLoc = 1473;
+		rLoc = 963;
 		rType = 0;
 		vrLen = 1175;
 		vrLoc = 241;
@@ -5645,7 +5645,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 35";
 		rLen = 0;
-		rLoc = 711;
+		rLoc = 789;
 		rType = 0;
 		vrLen = 754;
 		vrLoc = 0;
@@ -5685,7 +5685,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1448;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 925;
@@ -5695,7 +5695,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 60";
 		rLen = 62;
-		rLoc = 1383;
+		rLoc = 1358;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 1040;
@@ -5705,7 +5705,7 @@
 		comments = "error: expected ';' before '{' token";
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		rLen = 1;
-		rLoc = 34;
+		rLoc = 36;
 		rType = 1;
 	};
 	2273369E105687A5004228B4 /* PBXTextBookmark */ = {
@@ -5713,7 +5713,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 48";
 		rLen = 0;
-		rLoc = 1140;
+		rLoc = 1115;
 		rType = 0;
 		vrLen = 755;
 		vrLoc = 657;
@@ -5753,7 +5753,7 @@
 		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
 		name = "DownloadRequest.m: 59";
 		rLen = 0;
-		rLoc = 1448;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 760;
 		vrLoc = 925;
@@ -5763,7 +5763,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 60";
 		rLen = 62;
-		rLoc = 1383;
+		rLoc = 1358;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 1040;
@@ -5773,7 +5773,7 @@
 		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
 		name = "BaseHoccerRequest.h: 35";
 		rLen = 0;
-		rLoc = 746;
+		rLoc = 824;
 		rType = 0;
 		vrLen = 578;
 		vrLoc = 170;
@@ -5803,7 +5803,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 65";
 		rLen = 0;
-		rLoc = 1884;
+		rLoc = 1372;
 		rType = 0;
 		vrLen = 1267;
 		vrLoc = 219;
@@ -5823,7 +5823,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 548;
+		rLoc = 523;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 288;
@@ -5833,7 +5833,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 61";
 		rLen = 0;
-		rLoc = 1604;
+		rLoc = 1094;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 27;
@@ -5843,7 +5843,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 61";
 		rLen = 0;
-		rLoc = 1604;
+		rLoc = 1094;
 		rType = 0;
 		vrLen = 1146;
 		vrLoc = 38;
@@ -5853,7 +5853,7 @@
 		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
 		name = "PeerGroupPollingRequest.m: 27";
 		rLen = 0;
-		rLoc = 548;
+		rLoc = 523;
 		rType = 0;
 		vrLen = 1493;
 		vrLoc = 288;
@@ -5863,7 +5863,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 63";
 		rLen = 0;
-		rLoc = 1723;
+		rLoc = 1213;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 283;
@@ -5883,7 +5883,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 47";
 		rLen = 0;
-		rLoc = 1058;
+		rLoc = 468;
 		rType = 0;
 		vrLen = 1392;
 		vrLoc = 297;
@@ -5933,7 +5933,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 84";
 		rLen = 0;
-		rLoc = 1906;
+		rLoc = 2039;
 		rType = 0;
 		vrLen = 1126;
 		vrLoc = 0;
@@ -5943,7 +5943,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 84";
 		rLen = 0;
-		rLoc = 1906;
+		rLoc = 2039;
 		rType = 0;
 		vrLen = 1365;
 		vrLoc = 547;
@@ -5963,7 +5963,7 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 84";
 		rLen = 0;
-		rLoc = 1906;
+		rLoc = 2039;
 		rType = 0;
 		vrLen = 1126;
 		vrLoc = 0;
@@ -5983,12 +5983,590 @@
 		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
 		name = "BaseHoccerRequest.m: 83";
 		rLen = 0;
-		rLoc = 1906;
+		rLoc = 2039;
 		rType = 0;
 		vrLen = 1339;
 		vrLoc = 575;
 	};
 	227336C110568C31004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 90";
+		rLen = 0;
+		rLoc = 2398;
+		rType = 0;
+		vrLen = 806;
+		vrLoc = 1719;
+	};
+	227336C210568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 21";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 449;
+		vrLoc = 0;
+	};
+	227336C310568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 27";
+		rLen = 0;
+		rLoc = 523;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 0;
+	};
+	227336C410568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 17";
+		rLen = 0;
+		rLoc = 301;
+		rType = 0;
+		vrLen = 441;
+		vrLoc = 0;
+	};
+	227336C510568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 61";
+		rLen = 0;
+		rLoc = 1809;
+		rType = 0;
+		vrLen = 1688;
+		vrLoc = 0;
+	};
+	227336C610568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 78";
+		rLen = 0;
+		rLoc = 1269;
+		rType = 0;
+		vrLen = 1126;
+		vrLoc = 0;
+	};
+	227336C710568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 78";
+		rLen = 0;
+		rLoc = 1269;
+		rType = 0;
+		vrLen = 1365;
+		vrLoc = 547;
+	};
+	227336C810568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 27";
+		rLen = 0;
+		rLoc = 523;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 0;
+	};
+	227336C910568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 21";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 449;
+		vrLoc = 0;
+	};
+	227336CA10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 27";
+		rLen = 0;
+		rLoc = 523;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 0;
+	};
+	227336CB10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 61";
+		rLen = 0;
+		rLoc = 1809;
+		rType = 0;
+		vrLen = 1688;
+		vrLoc = 0;
+	};
+	227336CC10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 17";
+		rLen = 0;
+		rLoc = 301;
+		rType = 0;
+		vrLen = 441;
+		vrLoc = 0;
+	};
+	227336CD10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 61";
+		rLen = 0;
+		rLoc = 1809;
+		rType = 0;
+		vrLen = 1688;
+		vrLoc = 0;
+	};
+	227336CE10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 78";
+		rLen = 0;
+		rLoc = 1269;
+		rType = 0;
+		vrLen = 1126;
+		vrLoc = 0;
+	};
+	227336CF10568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 26";
+		rLen = 0;
+		rLoc = 506;
+		rType = 0;
+		vrLen = 784;
+		vrLoc = 0;
+	};
+	227336D010568D17004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 90";
+		rLen = 0;
+		rLoc = 2398;
+		rType = 0;
+		vrLen = 806;
+		vrLoc = 1719;
+	};
+	227336D410568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 37";
+		rLen = 0;
+		rLoc = 824;
+		rType = 0;
+		vrLen = 655;
+		vrLoc = 170;
+	};
+	227336D510568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 86";
+		rLen = 5;
+		rLoc = 1958;
+		rType = 0;
+		vrLen = 695;
+		vrLoc = 0;
+	};
+	227336D610568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 14";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	227336D710568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: local declaration of 'connection' hides instance variable";
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		rLen = 0;
+		rLoc = 29;
+		rType = 1;
+	};
+	227336D810568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 37";
+		rLen = 0;
+		rLoc = 824;
+		rType = 0;
+		vrLen = 655;
+		vrLoc = 170;
+	};
+	227336D910568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 86";
+		rLen = 5;
+		rLoc = 1958;
+		rType = 0;
+		vrLen = 695;
+		vrLoc = 0;
+	};
+	227336DA10568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 14";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	227336DB10568E0B004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 47";
+		rLen = 0;
+		rLoc = 468;
+		rType = 0;
+		vrLen = 638;
+		vrLoc = 569;
+	};
+	227336DD10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 33";
+		rLen = 0;
+		rLoc = 691;
+		rType = 0;
+		vrLen = 832;
+		vrLoc = 0;
+	};
+	227336DE10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 19";
+		rLen = 0;
+		rLoc = 343;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 0;
+	};
+	227336DF10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 19";
+		rLen = 1;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 417;
+		vrLoc = 0;
+	};
+	227336E010568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 21";
+		rLen = 0;
+		rLoc = 358;
+		rType = 0;
+		vrLen = 1330;
+		vrLoc = 0;
+	};
+	227336E110568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 14";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 411;
+		vrLoc = 0;
+	};
+	227336E210568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1056;
+		rType = 0;
+		vrLen = 1541;
+		vrLoc = 473;
+	};
+	227336E310568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 0;
+	};
+	227336E410568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 14";
+		rLen = 0;
+		rLoc = 272;
+		rType = 0;
+		vrLen = 431;
+		vrLoc = 0;
+	};
+	227336E510568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A31056603B004228B4 /* BaseHoccerRequest.h */;
+		name = "BaseHoccerRequest.h: 33";
+		rLen = 0;
+		rLoc = 691;
+		rType = 0;
+		vrLen = 832;
+		vrLoc = 0;
+	};
+	227336E610568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 19";
+		rLen = 0;
+		rLoc = 343;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 0;
+	};
+	227336E710568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 21";
+		rLen = 0;
+		rLoc = 358;
+		rType = 0;
+		vrLen = 1330;
+		vrLoc = 0;
+	};
+	227336E810568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 19";
+		rLen = 1;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 417;
+		vrLoc = 0;
+	};
+	227336E910568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */;
+		name = "PeerGroupPollingRequest.m: 21";
+		rLen = 0;
+		rLoc = 358;
+		rType = 0;
+		vrLen = 1330;
+		vrLoc = 0;
+	};
+	227336EA10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */;
+		name = "PeerGroupRequest.h: 14";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 411;
+		vrLoc = 0;
+	};
+	227336EB10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */;
+		name = "PeerGroupRequest.m: 37";
+		rLen = 0;
+		rLoc = 1056;
+		rType = 0;
+		vrLen = 1541;
+		vrLoc = 473;
+	};
+	227336EC10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 14";
+		rLen = 0;
+		rLoc = 272;
+		rType = 0;
+		vrLen = 431;
+		vrLoc = 0;
+	};
+	227336ED10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 0;
+	};
+	227336EE10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336EF10568E0D004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 90";
+		rLen = 0;
+		rLoc = 2398;
+		rType = 0;
+		vrLen = 806;
+		vrLoc = 1719;
+	};
+	227336F110568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336F210568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336F310568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 19";
+		rLen = 0;
+		rLoc = 343;
+		rType = 0;
+		vrLen = 1136;
+		vrLoc = 0;
+	};
+	227336F410568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336F510568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336F610568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336F710568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336F810568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336F910568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336FA10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336FB10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336FC10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336FD10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358C10566826004228B4 /* DownloadRequest.m */;
+		name = "DownloadRequest.m: 19";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1323;
+		vrLoc = 0;
+	};
+	227336FE10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2273358B10566826004228B4 /* DownloadRequest.h */;
+		name = "DownloadRequest.h: 16";
+		rLen = 0;
+		rLoc = 275;
+		rType = 0;
+		vrLen = 383;
+		vrLoc = 0;
+	};
+	227336FF10568EFE004228B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 227334A41056603B004228B4 /* BaseHoccerRequest.m */;
+		name = "BaseHoccerRequest.m: 29";
+		rLen = 0;
+		rLoc = 467;
+		rType = 0;
+		vrLen = 962;
+		vrLoc = 0;
+	};
+	2273370010568EFE004228B4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
@@ -6636,6 +7214,64 @@
 			227336BF10568C31004228B4 /* PBXTextBookmark */ = 227336BF10568C31004228B4 /* PBXTextBookmark */;
 			227336C010568C31004228B4 /* PBXTextBookmark */ = 227336C010568C31004228B4 /* PBXTextBookmark */;
 			227336C110568C31004228B4 /* PBXTextBookmark */ = 227336C110568C31004228B4 /* PBXTextBookmark */;
+			227336C210568D17004228B4 /* PBXTextBookmark */ = 227336C210568D17004228B4 /* PBXTextBookmark */;
+			227336C310568D17004228B4 /* PBXTextBookmark */ = 227336C310568D17004228B4 /* PBXTextBookmark */;
+			227336C410568D17004228B4 /* PBXTextBookmark */ = 227336C410568D17004228B4 /* PBXTextBookmark */;
+			227336C510568D17004228B4 /* PBXTextBookmark */ = 227336C510568D17004228B4 /* PBXTextBookmark */;
+			227336C610568D17004228B4 /* PBXTextBookmark */ = 227336C610568D17004228B4 /* PBXTextBookmark */;
+			227336C710568D17004228B4 /* PBXTextBookmark */ = 227336C710568D17004228B4 /* PBXTextBookmark */;
+			227336C810568D17004228B4 /* PBXTextBookmark */ = 227336C810568D17004228B4 /* PBXTextBookmark */;
+			227336C910568D17004228B4 /* PBXTextBookmark */ = 227336C910568D17004228B4 /* PBXTextBookmark */;
+			227336CA10568D17004228B4 /* PBXTextBookmark */ = 227336CA10568D17004228B4 /* PBXTextBookmark */;
+			227336CB10568D17004228B4 /* PBXTextBookmark */ = 227336CB10568D17004228B4 /* PBXTextBookmark */;
+			227336CC10568D17004228B4 /* PBXTextBookmark */ = 227336CC10568D17004228B4 /* PBXTextBookmark */;
+			227336CD10568D17004228B4 /* PBXTextBookmark */ = 227336CD10568D17004228B4 /* PBXTextBookmark */;
+			227336CE10568D17004228B4 /* PBXTextBookmark */ = 227336CE10568D17004228B4 /* PBXTextBookmark */;
+			227336CF10568D17004228B4 /* PBXTextBookmark */ = 227336CF10568D17004228B4 /* PBXTextBookmark */;
+			227336D010568D17004228B4 /* PBXTextBookmark */ = 227336D010568D17004228B4 /* PBXTextBookmark */;
+			227336D410568E0B004228B4 /* PBXTextBookmark */ = 227336D410568E0B004228B4 /* PBXTextBookmark */;
+			227336D510568E0B004228B4 /* PBXTextBookmark */ = 227336D510568E0B004228B4 /* PBXTextBookmark */;
+			227336D610568E0B004228B4 /* PBXTextBookmark */ = 227336D610568E0B004228B4 /* PBXTextBookmark */;
+			227336D710568E0B004228B4 /* PBXTextBookmark */ = 227336D710568E0B004228B4 /* PBXTextBookmark */;
+			227336D810568E0B004228B4 /* PBXTextBookmark */ = 227336D810568E0B004228B4 /* PBXTextBookmark */;
+			227336D910568E0B004228B4 /* PBXTextBookmark */ = 227336D910568E0B004228B4 /* PBXTextBookmark */;
+			227336DA10568E0B004228B4 /* PBXTextBookmark */ = 227336DA10568E0B004228B4 /* PBXTextBookmark */;
+			227336DB10568E0B004228B4 /* PBXTextBookmark */ = 227336DB10568E0B004228B4 /* PBXTextBookmark */;
+			227336DD10568E0D004228B4 /* PBXTextBookmark */ = 227336DD10568E0D004228B4 /* PBXTextBookmark */;
+			227336DE10568E0D004228B4 /* PBXTextBookmark */ = 227336DE10568E0D004228B4 /* PBXTextBookmark */;
+			227336DF10568E0D004228B4 /* PBXTextBookmark */ = 227336DF10568E0D004228B4 /* PBXTextBookmark */;
+			227336E010568E0D004228B4 /* PBXTextBookmark */ = 227336E010568E0D004228B4 /* PBXTextBookmark */;
+			227336E110568E0D004228B4 /* PBXTextBookmark */ = 227336E110568E0D004228B4 /* PBXTextBookmark */;
+			227336E210568E0D004228B4 /* PBXTextBookmark */ = 227336E210568E0D004228B4 /* PBXTextBookmark */;
+			227336E310568E0D004228B4 /* PBXTextBookmark */ = 227336E310568E0D004228B4 /* PBXTextBookmark */;
+			227336E410568E0D004228B4 /* PBXTextBookmark */ = 227336E410568E0D004228B4 /* PBXTextBookmark */;
+			227336E510568E0D004228B4 /* PBXTextBookmark */ = 227336E510568E0D004228B4 /* PBXTextBookmark */;
+			227336E610568E0D004228B4 /* PBXTextBookmark */ = 227336E610568E0D004228B4 /* PBXTextBookmark */;
+			227336E710568E0D004228B4 /* PBXTextBookmark */ = 227336E710568E0D004228B4 /* PBXTextBookmark */;
+			227336E810568E0D004228B4 /* PBXTextBookmark */ = 227336E810568E0D004228B4 /* PBXTextBookmark */;
+			227336E910568E0D004228B4 /* PBXTextBookmark */ = 227336E910568E0D004228B4 /* PBXTextBookmark */;
+			227336EA10568E0D004228B4 /* PBXTextBookmark */ = 227336EA10568E0D004228B4 /* PBXTextBookmark */;
+			227336EB10568E0D004228B4 /* PBXTextBookmark */ = 227336EB10568E0D004228B4 /* PBXTextBookmark */;
+			227336EC10568E0D004228B4 /* PBXTextBookmark */ = 227336EC10568E0D004228B4 /* PBXTextBookmark */;
+			227336ED10568E0D004228B4 /* PBXTextBookmark */ = 227336ED10568E0D004228B4 /* PBXTextBookmark */;
+			227336EE10568E0D004228B4 /* PBXTextBookmark */ = 227336EE10568E0D004228B4 /* PBXTextBookmark */;
+			227336EF10568E0D004228B4 /* PBXTextBookmark */ = 227336EF10568E0D004228B4 /* PBXTextBookmark */;
+			227336F110568EFE004228B4 /* PBXTextBookmark */ = 227336F110568EFE004228B4 /* PBXTextBookmark */;
+			227336F210568EFE004228B4 /* PBXTextBookmark */ = 227336F210568EFE004228B4 /* PBXTextBookmark */;
+			227336F310568EFE004228B4 /* PBXTextBookmark */ = 227336F310568EFE004228B4 /* PBXTextBookmark */;
+			227336F410568EFE004228B4 /* PBXTextBookmark */ = 227336F410568EFE004228B4 /* PBXTextBookmark */;
+			227336F510568EFE004228B4 /* PBXTextBookmark */ = 227336F510568EFE004228B4 /* PBXTextBookmark */;
+			227336F610568EFE004228B4 /* PBXTextBookmark */ = 227336F610568EFE004228B4 /* PBXTextBookmark */;
+			227336F710568EFE004228B4 /* PBXTextBookmark */ = 227336F710568EFE004228B4 /* PBXTextBookmark */;
+			227336F810568EFE004228B4 /* PBXTextBookmark */ = 227336F810568EFE004228B4 /* PBXTextBookmark */;
+			227336F910568EFE004228B4 /* PBXTextBookmark */ = 227336F910568EFE004228B4 /* PBXTextBookmark */;
+			227336FA10568EFE004228B4 /* PBXTextBookmark */ = 227336FA10568EFE004228B4 /* PBXTextBookmark */;
+			227336FB10568EFE004228B4 /* PBXTextBookmark */ = 227336FB10568EFE004228B4 /* PBXTextBookmark */;
+			227336FC10568EFE004228B4 /* PBXTextBookmark */ = 227336FC10568EFE004228B4 /* PBXTextBookmark */;
+			227336FD10568EFE004228B4 /* PBXTextBookmark */ = 227336FD10568EFE004228B4 /* PBXTextBookmark */;
+			227336FE10568EFE004228B4 /* PBXTextBookmark */ = 227336FE10568EFE004228B4 /* PBXTextBookmark */;
+			227336FF10568EFE004228B4 /* PBXTextBookmark */ = 227336FF10568EFE004228B4 /* PBXTextBookmark */;
+			2273370010568EFE004228B4 /* PBXTextBookmark */ = 2273370010568EFE004228B4 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {

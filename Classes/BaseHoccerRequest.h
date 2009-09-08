@@ -23,12 +23,14 @@
 
 	NSMutableData *receivedData;
 
+	NSURLConnection *connection;
 	NSHTTPURLResponse *response; 
 	id result;
 }
 
 @property (assign, nonatomic) id delegate;
 @property (retain) NSHTTPURLResponse *response;
+@property (retain) NSURLConnection *connection;
 @property (retain) id result;
 
 - (id) createJSONFromResult: (NSData *) resultData;

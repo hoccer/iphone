@@ -18,8 +18,6 @@
 
 @implementation PeerGroupPollingRequest
 
-@synthesize connection;
-
 - (id)initWithObject: (id)aObject andDelegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {

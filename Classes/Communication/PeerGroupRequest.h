@@ -11,7 +11,6 @@
 #import "BaseHoccerRequest.h"
 
 @interface PeerGroupRequest : BaseHoccerRequest {
-	NSURLConnection *connection;
 }
 
 - (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate;

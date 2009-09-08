@@ -34,7 +34,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 		[request setHTTPMethod: @"POST"];
 		[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
 			
-		connection = [[NSURLConnection alloc] initWithRequest:request delegate:self]; 
+		self.connection = [NSURLConnection connectionWithRequest:request delegate:self]; 
 		if (!connection)  {
 			NSLog(@"Error while executing url connection");
 		}
@@ -59,9 +59,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	NSLog(@"connection did finish");
 	
 	self.result = [self createJSONFromResult: receivedData];
-	
-	[connection release];
-	connection = nil;
+	self.connection = nil;
 	
 	[delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
 }
@@ -70,7 +68,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 - (void)dealloc 
 {
 	[super dealloc];
-	[connection release];
 }
 
 

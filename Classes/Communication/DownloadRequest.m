@@ -16,7 +16,6 @@
 
 @implementation DownloadRequest
 
-@synthesize connection;
 @synthesize request;
 
 - (id)initWithObject: (id)aObject delegate: (id)aDelegate
@@ -65,7 +64,7 @@
 
 - (void)startRequest 
 {
-	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] retain];
+	self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}

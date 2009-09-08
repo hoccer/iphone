@@ -16,6 +16,7 @@
 @synthesize delegate;
 @synthesize response;
 @synthesize result;
+@synthesize connection;
 
 - (id)init
 {
@@ -26,34 +27,19 @@
 	return self;
 }
 
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
+- (void)cancel 
 {
-	self.response = aResponse;
-	NSLog(@"status code: %d", [response statusCode]);
-	NSLog(@"response length: %d", [response expectedContentLength]);
+	[self.connection cancel];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-	[receivedData appendData:data];
-}
-
-
-- (void)connection:(NSURLConnection *)connection didFailWithError: (NSError *)error 
-{
-	[connection release];
-	connection = nil;
-	
-	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
-}
-	 
 
 - (void)dealloc 
 {
 	[super dealloc];
 	[receivedData release];
 }
+
+#pragma mark private helper methods
 
 - (id) createJSONFromResult: (NSData *) resultData 
 {
@@ -75,10 +61,30 @@
 	}
 	
 	NSInteger statusCode = [self.response statusCode];
-	
 	NSError *error = [NSError errorWithDomain:@"HoccerCommunicationError" code:statusCode userInfo:userInfo];
 	
 	return error;
+}
+
+#pragma mark NSURLConnection delegate methods
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+	[receivedData appendData:data];
+}
+
+
+- (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error 
+{
+	[aConnection release];
+	
+	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
+{
+	self.response = aResponse;
+	NSLog(@"status code: %d", [response statusCode]);
+	NSLog(@"response length: %d", [response expectedContentLength]);
 }
 
 
