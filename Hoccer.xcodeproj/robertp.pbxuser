@@ -46,7 +46,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 120";
 		rLen = 0;
-		rLoc = 3000;
+		rLoc = 3017;
 		rType = 0;
 		vrLen = 1512;
 		vrLoc = 1784;
@@ -56,7 +56,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 23";
 		rLen = 0;
-		rLoc = 511;
+		rLoc = 477;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -86,7 +86,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 23";
 		rLen = 0;
-		rLoc = 511;
+		rLoc = 477;
 		rType = 0;
 		vrLen = 538;
 		vrLoc = 0;
@@ -96,7 +96,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 128";
 		rLen = 0;
-		rLoc = 3000;
+		rLoc = 3017;
 		rType = 0;
 		vrLen = 1489;
 		vrLoc = 1789;
@@ -126,7 +126,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 29";
 		rLen = 0;
-		rLoc = 622;
+		rLoc = 588;
 		rType = 0;
 		vrLen = 577;
 		vrLoc = 0;
@@ -136,7 +136,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 451;
+		rLoc = 417;
 		rType = 0;
 		vrLen = 607;
 		vrLoc = 0;
@@ -146,7 +146,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 451;
+		rLoc = 417;
 		rType = 0;
 		vrLen = 607;
 		vrLoc = 0;
@@ -166,7 +166,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 451;
+		rLoc = 417;
 		rType = 0;
 		vrLen = 607;
 		vrLoc = 0;
@@ -196,7 +196,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 132";
 		rLen = 0;
-		rLoc = 2998;
+		rLoc = 3015;
 		rType = 0;
 		vrLen = 1513;
 		vrLoc = 1869;
@@ -1247,8 +1247,8 @@
 	};
 	2205A6E41057C2D6005C5036 /* HoccerImage.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
-			sepNavSelRange = "{304, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavSelRange = "{432, 6}";
 			sepNavVisRange = "{0, 622}";
 		};
 	};
@@ -1495,7 +1495,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 451;
+		rLoc = 417;
 		rType = 0;
 		vrLen = 607;
 		vrLoc = 0;
@@ -1545,7 +1545,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 24";
 		rLen = 0;
-		rLoc = 510;
+		rLoc = 476;
 		rType = 0;
 		vrLen = 610;
 		vrLoc = 0;
@@ -1554,8 +1554,8 @@
 		isa = PBXTextBookmark;
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 124";
-		rLen = 17;
-		rLoc = 2920;
+		rLen = 0;
+		rLoc = 2901;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 2073;
@@ -1565,7 +1565,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 24";
 		rLen = 0;
-		rLoc = 510;
+		rLoc = 476;
 		rType = 0;
 		vrLen = 610;
 		vrLoc = 0;
@@ -1585,7 +1585,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 124";
 		rLen = 0;
-		rLoc = 2937;
+		rLoc = 2901;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 2071;
@@ -1595,7 +1595,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 24";
 		rLen = 0;
-		rLoc = 510;
+		rLoc = 476;
 		rType = 0;
 		vrLen = 610;
 		vrLoc = 0;
@@ -1635,7 +1635,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 124";
 		rLen = 0;
-		rLoc = 2937;
+		rLoc = 2901;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 2071;
@@ -1665,7 +1665,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 24";
 		rLen = 0;
-		rLoc = 510;
+		rLoc = 476;
 		rType = 0;
 		vrLen = 610;
 		vrLoc = 0;
@@ -1711,6 +1711,126 @@
 		vrLoc = 0;
 	};
 	2205A71F1057C808005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
+		name = "PeerGroupPollingRequest.h: 13";
+		rLen = 0;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 0;
+	};
+	2205A7231057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 20";
+		rLen = 0;
+		rLoc = 388;
+		rType = 0;
+		vrLen = 596;
+		vrLoc = 0;
+	};
+	2205A7241057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2205A6E41057C2D6005C5036 /* HoccerImage.m */;
+		name = "HoccerImage.m: 30";
+		rLen = 6;
+		rLoc = 432;
+		rType = 0;
+		vrLen = 622;
+		vrLoc = 0;
+	};
+	2205A7251057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 127";
+		rLen = 0;
+		rLoc = 2911;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 2097;
+	};
+	2205A7261057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2205A6E41057C2D6005C5036 /* HoccerImage.m */;
+		name = "HoccerImage.m: 18";
+		rLen = 0;
+		rLoc = 304;
+		rType = 0;
+		vrLen = 622;
+		vrLoc = 0;
+	};
+	2205A7271057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 16";
+		rLen = 0;
+		rLoc = 338;
+		rType = 0;
+		vrLen = 1288;
+		vrLoc = 2098;
+	};
+	2205A7281057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2205A6E41057C2D6005C5036 /* HoccerImage.m */;
+		name = "HoccerImage.m: 18";
+		rLen = 0;
+		rLoc = 304;
+		rType = 0;
+		vrLen = 622;
+		vrLoc = 0;
+	};
+	2205A7291057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 127";
+		rLen = 0;
+		rLoc = 2901;
+		rType = 0;
+		vrLen = 1389;
+		vrLoc = 1880;
+	};
+	2205A72A1057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
+		name = "HoccerViewController.h: 20";
+		rLen = 0;
+		rLoc = 388;
+		rType = 0;
+		vrLen = 596;
+		vrLoc = 0;
+	};
+	2205A72B1057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 127";
+		rLen = 0;
+		rLoc = 2911;
+		rType = 0;
+		vrLen = 1292;
+		vrLoc = 2098;
+	};
+	2205A72C1057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2205A6E41057C2D6005C5036 /* HoccerImage.m */;
+		name = "HoccerImage.m: 30";
+		rLen = 6;
+		rLoc = 432;
+		rType = 0;
+		vrLen = 622;
+		vrLoc = 0;
+	};
+	2205A72D1057CCC5005C5036 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 127";
+		rLen = 0;
+		rLoc = 2954;
+		rType = 0;
+		vrLen = 1301;
+		vrLoc = 2097;
+	};
+	2205A72E1057CCC5005C5036 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */;
 		name = "PeerGroupPollingRequest.h: 13";
@@ -2642,7 +2762,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 16";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 402;
 		vrLoc = 0;
@@ -2662,7 +2782,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 17";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 444;
 		vrLoc = 0;
@@ -2682,7 +2802,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 17";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 444;
 		vrLoc = 0;
@@ -2712,7 +2832,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -4007,7 +4127,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -4703,7 +4823,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 18";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 476;
 		vrLoc = 0;
@@ -4723,7 +4843,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 511;
 		vrLoc = 0;
@@ -4743,7 +4863,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -4783,7 +4903,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 3172;
+		rLoc = 3189;
 		rType = 0;
 		vrLen = 1550;
 		vrLoc = 971;
@@ -4843,7 +4963,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 3172;
+		rLoc = 3189;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 972;
@@ -4883,7 +5003,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 90";
 		rLen = 0;
-		rLoc = 3171;
+		rLoc = 3188;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 976;
@@ -5373,7 +5493,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 21";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -5393,7 +5513,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 21";
 		rLen = 0;
-		rLoc = 512;
+		rLoc = 478;
 		rType = 0;
 		vrLen = 486;
 		vrLoc = 0;
@@ -5413,7 +5533,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 26";
 		rLen = 0;
-		rLoc = 551;
+		rLoc = 517;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5433,7 +5553,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 25";
 		rLen = 0;
-		rLoc = 549;
+		rLoc = 515;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5603,7 +5723,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 121";
 		rLen = 0;
-		rLoc = 3377;
+		rLoc = 3394;
 		rType = 0;
 		vrLen = 1394;
 		vrLoc = 0;
@@ -5613,7 +5733,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 20";
 		rLen = 0;
-		rLoc = 455;
+		rLoc = 421;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5633,7 +5753,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 23";
 		rLen = 0;
-		rLoc = 515;
+		rLoc = 481;
 		rType = 0;
 		vrLen = 478;
 		vrLoc = 0;
@@ -5643,7 +5763,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 120";
 		rLen = 0;
-		rLoc = 3377;
+		rLoc = 3394;
 		rType = 0;
 		vrLen = 1296;
 		vrLoc = 1609;
@@ -5919,7 +6039,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 451;
+		rLoc = 417;
 		rType = 0;
 		vrLen = 504;
 		vrLoc = 0;
@@ -5939,7 +6059,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 420;
+		rLoc = 388;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5959,7 +6079,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 420;
+		rLoc = 388;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5969,7 +6089,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 118";
 		rLen = 0;
-		rLoc = 2938;
+		rLoc = 2901;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 1729;
@@ -5979,7 +6099,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 420;
+		rLoc = 388;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -5999,7 +6119,7 @@
 		fRef = 28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */;
 		name = "HoccerViewController.h: 19";
 		rLen = 0;
-		rLoc = 420;
+		rLoc = 388;
 		rType = 0;
 		vrLen = 512;
 		vrLoc = 0;
@@ -6009,7 +6129,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 118";
 		rLen = 0;
-		rLoc = 2938;
+		rLoc = 2901;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 1729;
@@ -6027,16 +6147,16 @@
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
-			sepNavSelRange = "{301, 0}";
-			sepNavVisRange = "{0, 630}";
+			sepNavSelRange = "{388, 0}";
+			sepNavVisRange = "{0, 596}";
 			sepNavWindowFrame = "{{84, 376}, {750, 558}}";
 		};
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 2142}}";
-			sepNavSelRange = "{338, 0}";
-			sepNavVisRange = "{2098, 1288}";
+			sepNavSelRange = "{2954, 0}";
+			sepNavVisRange = "{2097, 1301}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -6250,6 +6370,18 @@
 			2205A71D1057C808005C5036 /* PBXTextBookmark */ = 2205A71D1057C808005C5036 /* PBXTextBookmark */;
 			2205A71E1057C808005C5036 /* PBXTextBookmark */ = 2205A71E1057C808005C5036 /* PBXTextBookmark */;
 			2205A71F1057C808005C5036 /* PBXTextBookmark */ = 2205A71F1057C808005C5036 /* PBXTextBookmark */;
+			2205A7231057CCC5005C5036 /* PBXTextBookmark */ = 2205A7231057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7241057CCC5005C5036 /* PBXTextBookmark */ = 2205A7241057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7251057CCC5005C5036 /* PBXTextBookmark */ = 2205A7251057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7261057CCC5005C5036 /* PBXTextBookmark */ = 2205A7261057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7271057CCC5005C5036 /* PBXTextBookmark */ = 2205A7271057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7281057CCC5005C5036 /* PBXTextBookmark */ = 2205A7281057CCC5005C5036 /* PBXTextBookmark */;
+			2205A7291057CCC5005C5036 /* PBXTextBookmark */ = 2205A7291057CCC5005C5036 /* PBXTextBookmark */;
+			2205A72A1057CCC5005C5036 /* PBXTextBookmark */ = 2205A72A1057CCC5005C5036 /* PBXTextBookmark */;
+			2205A72B1057CCC5005C5036 /* PBXTextBookmark */ = 2205A72B1057CCC5005C5036 /* PBXTextBookmark */;
+			2205A72C1057CCC5005C5036 /* PBXTextBookmark */ = 2205A72C1057CCC5005C5036 /* PBXTextBookmark */;
+			2205A72D1057CCC5005C5036 /* PBXTextBookmark */ = 2205A72D1057CCC5005C5036 /* PBXTextBookmark */;
+			2205A72E1057CCC5005C5036 /* PBXTextBookmark */ = 2205A72E1057CCC5005C5036 /* PBXTextBookmark */;
 			223BC32710552FAD00ABE5A2 = 223BC32710552FAD00ABE5A2 /* PBXTextBookmark */;
 			223BC32810552FAD00ABE5A2 = 223BC32810552FAD00ABE5A2 /* PBXTextBookmark */;
 			223BC32910552FAD00ABE5A2 = 223BC32910552FAD00ABE5A2 /* PBXTextBookmark */;

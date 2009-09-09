@@ -124,7 +124,7 @@
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
 	hoccerImage = [[HoccerImage alloc] initWithData:aRequest.result];
-	imageView.image = hoccerImage.image; 
+	[self.view insertSubview: hoccerImage.view atIndex:0];
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];

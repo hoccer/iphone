@@ -17,7 +17,6 @@
 
 @interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
-	IBOutlet UIImageView *imageView;
 	IBOutlet UIToolbar *toolbar;
 	
 	HoccerBaseRequest *request;

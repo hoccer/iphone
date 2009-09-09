@@ -102,18 +102,7 @@
 						<float key="IBUIMinimumFontSize">1.000000e+01</float>
 						<int key="IBUITextAlignment">1</int>
 					</object>
-					<object class="IBUIImageView" id="931329162">
-						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 33}, {240, 186}}</string>
-						<reference key="NSSuperview" ref="774585933"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIAutoresizesSubviews">NO</bool>
-						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<int key="IBUIContentMode">2</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-					</object>
-					<object class="IBUIToolbar" id="165651121">
+					<object class="IBUIToolbar" id="206392668">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">-2147483382</int>
 						<string key="NSFrame">{{0, 416}, {320, 44}}</string>
@@ -122,17 +111,17 @@
 						<float key="IBUIAlpha">7.500000e-01</float>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIBarButtonItem" id="304903505">
+							<object class="IBUIBarButtonItem" id="236522690">
 								<string key="IBUITitle">Dismiss</string>
 								<float key="IBUIWidth">1.460000e+02</float>
 								<int key="IBUIStyle">1</int>
-								<reference key="IBUIToolbar" ref="165651121"/>
+								<reference key="IBUIToolbar" ref="206392668"/>
 							</object>
-							<object class="IBUIBarButtonItem" id="651828563">
+							<object class="IBUIBarButtonItem" id="659991073">
 								<string key="IBUITitle">Save to Gallery</string>
 								<float key="IBUIWidth">1.510000e+02</float>
 								<int key="IBUIStyle">1</int>
-								<reference key="IBUIToolbar" ref="165651121"/>
+								<reference key="IBUIToolbar" ref="206392668"/>
 							</object>
 						</object>
 					</object>
@@ -188,17 +177,9 @@
 					<int key="connectionID">20</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">imageView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="931329162"/>
-					</object>
-					<int key="connectionID">24</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">saveToGallery:</string>
-						<reference key="source" ref="651828563"/>
+						<reference key="source" ref="659991073"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">28</int>
@@ -207,7 +188,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">toolbar</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="165651121"/>
+						<reference key="destination" ref="206392668"/>
 					</object>
 					<int key="connectionID">29</int>
 				</object>
@@ -242,8 +223,7 @@
 							<reference ref="869145556"/>
 							<reference ref="1050786069"/>
 							<reference ref="1024507351"/>
-							<reference ref="931329162"/>
-							<reference ref="165651121"/>
+							<reference ref="206392668"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
 					</object>
@@ -263,29 +243,24 @@
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">23</int>
-						<reference key="object" ref="931329162"/>
-						<reference key="parent" ref="774585933"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
-						<reference key="object" ref="165651121"/>
+						<reference key="object" ref="206392668"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="304903505"/>
-							<reference ref="651828563"/>
+							<reference ref="236522690"/>
+							<reference ref="659991073"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">26</int>
-						<reference key="object" ref="304903505"/>
-						<reference key="parent" ref="165651121"/>
+						<reference key="object" ref="236522690"/>
+						<reference key="parent" ref="206392668"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
-						<reference key="object" ref="651828563"/>
-						<reference key="parent" ref="165651121"/>
+						<reference key="object" ref="659991073"/>
+						<reference key="parent" ref="206392668"/>
 					</object>
 				</object>
 			</object>
@@ -297,7 +272,6 @@
 					<string>-2.CustomClassName</string>
 					<string>16.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
-					<string>23.IBPluginDependency</string>
 					<string>25.IBPluginDependency</string>
 					<string>26.IBPluginDependency</string>
 					<string>27.IBPluginDependency</string>
@@ -309,7 +283,6 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>HoccerViewController</string>
 					<string>UIResponder</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
