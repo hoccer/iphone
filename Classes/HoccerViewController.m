@@ -121,16 +121,12 @@
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
-	//NSLog(@"result:  %@", aRequest.result);
-	//[[UIApplication sharedApplication] openURL: [NSURL URLWithString: aRequest.result]];
-	
 	catchedImage = [UIImage imageWithData:aRequest.result];
 	imageView.image = catchedImage; 
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
 
-	
 	[request release];
 	request = nil;
 }

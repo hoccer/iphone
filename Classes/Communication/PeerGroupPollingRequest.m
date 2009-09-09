@@ -86,8 +86,6 @@
 
 - (void)dealloc {
 	[super dealloc];
-	[response release];	
-	[connection release];
 }
 
 

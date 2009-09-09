@@ -43,6 +43,13 @@
 {
 	[super dealloc];
 	[receivedData release];
+	
+	// TODO: check why releaseing connectio crashes?
+	//NSLog(@"connection: %@", connection);
+	//[connection release];
+	[response release]; 
+	[result release];
+	
 }
 
 #pragma mark private helper methods
@@ -81,7 +88,7 @@
 
 - (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error 
 {
-	[aConnection release];
+	self.connection = nil;
 	
 	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 }
