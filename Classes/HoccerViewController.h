@@ -13,6 +13,7 @@
 @class DownloadRequest;
 
 @class HoccerBaseRequest;
+@class HoccerImage;
 
 @interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
@@ -21,7 +22,7 @@
 	
 	HoccerBaseRequest *request;
 	
-	UIImage *catchedImage;
+	HoccerImage *hoccerImage;
 }
 
 

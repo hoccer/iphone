@@ -11,6 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2205A6E51057C2D6005C5036 /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205A6E41057C2D6005C5036 /* HoccerImage.m */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -36,6 +37,8 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2205A6E31057C2D6005C5036 /* HoccerImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerImage.h; sourceTree = "<group>"; };
+		2205A6E41057C2D6005C5036 /* HoccerImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerImage.m; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -89,9 +92,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2205A6E21057C27F005C5036 /* Content */,
+				223BC3411055320A00ABE5A2 /* Communication */,
 				223BC43C10555AD300ABE5A2 /* Helper */,
 				223BC40D1055556200ABE5A2 /* JSON */,
-				223BC3411055320A00ABE5A2 /* Communication */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
@@ -106,6 +110,15 @@
 				1D6058910D05DD3D006BFB54 /* Hoccer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2205A6E21057C27F005C5036 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				2205A6E31057C2D6005C5036 /* HoccerImage.h */,
+				2205A6E41057C2D6005C5036 /* HoccerImage.m */,
+			);
+			name = Content;
 			sourceTree = "<group>";
 		};
 		223BC3411055320A00ABE5A2 /* Communication */ = {
@@ -264,6 +277,7 @@
 				223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */,
 				227334A51056603B004228B4 /* BaseHoccerRequest.m in Sources */,
 				2273358D10566826004228B4 /* DownloadRequest.m in Sources */,
+				2205A6E51057C2D6005C5036 /* HoccerImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

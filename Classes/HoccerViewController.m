@@ -13,6 +13,8 @@
 #import "PeerGroupPollingRequest.h"
 #import "DownloadRequest.h"
 
+#import "HoccerImage.h"
+
 @implementation HoccerViewController
 
 
@@ -66,7 +68,7 @@
 	
     [statusLabel release];
 	[request release];
-	[catchedImage release];
+	[hoccerImage release];
 	
 	[toolbar release];
 }
@@ -94,9 +96,9 @@
 
 - (IBAction)saveToGallery: (id)sender 
 {
+	[hoccerImage save];
 	NSLog(@"saving to gallery");
-	UIImageWriteToSavedPhotosAlbum(catchedImage, nil, nil, nil);
-	}
+}
 
 
 #pragma mark Communication delegate methods
@@ -121,8 +123,8 @@
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
-	catchedImage = [UIImage imageWithData:aRequest.result];
-	imageView.image = catchedImage; 
+	hoccerImage = [[HoccerImage alloc] initWithData:aRequest.result];
+	imageView.image = hoccerImage.image; 
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
