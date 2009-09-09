@@ -17,13 +17,17 @@
 @interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIImageView *imageView;
+	IBOutlet UIToolbar *toolbar;
 	
 	HoccerBaseRequest *request;
+	
+	UIImage *catchedImage;
 }
 
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;
+- (IBAction)saveToGallery: (id)sender;
 
 @end
 

@@ -66,6 +66,9 @@
 	
     [statusLabel release];
 	[request release];
+	[catchedImage release];
+	
+	[toolbar release];
 }
 
 - (IBAction)onCancel: (id)sender 
@@ -88,6 +91,13 @@
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
 }
+
+- (IBAction)saveToGallery: (id)sender 
+{
+	NSLog(@"saving to gallery");
+	UIImageWriteToSavedPhotosAlbum(catchedImage, nil, nil, nil);
+	}
+
 
 #pragma mark Communication delegate methods
 
@@ -114,9 +124,12 @@
 	//NSLog(@"result:  %@", aRequest.result);
 	//[[UIApplication sharedApplication] openURL: [NSURL URLWithString: aRequest.result]];
 	
-	UIImage *image = [UIImage imageWithData:aRequest.result];
-	imageView.image = image; 
+	catchedImage = [UIImage imageWithData:aRequest.result];
+	imageView.image = catchedImage; 
 	
+	[toolbar setHidden: NO];
+	[self.view setNeedsDisplay];
+
 	
 	[request release];
 	request = nil;
