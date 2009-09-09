@@ -32,11 +32,6 @@
 	return [[[UIImageView alloc] initWithImage:image] autorelease]; 
 }
 
-- (UIImage *)image 
-{
-	return image;
-}	
-
 -(void) dealloc 
 {
 	[super dealloc];
