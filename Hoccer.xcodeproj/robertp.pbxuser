@@ -4058,8 +4058,8 @@
 	};
 	22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 630}}";
-			sepNavSelRange = "{719, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 644}}";
+			sepNavSelRange = "{1181, 0}";
 			sepNavVisRange = "{0, 1181}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
@@ -4363,38 +4363,6 @@
 		rType = 0;
 		vrLen = 1001;
 		vrLoc = 0;
-	};
-	22762E0A105E586E003BF968 /* HoccerTesting */ = {
-		activeExec = 0;
-		executables = (
-			22762E29105E586E003BF968 /* HoccerTesting */,
-		);
-	};
-	22762E29105E586E003BF968 /* HoccerTesting */ = {
-		isa = PBXExecutable;
-		activeArgIndices = (
-		);
-		argumentStrings = (
-		);
-		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
-		configStateDict = {
-		};
-		customDataFormattersEnabled = 1;
-		debuggerPlugin = GDBDebugging;
-		disassemblyDisplayState = 0;
-		dylibVariantSuffix = "";
-		enableDebugStr = 1;
-		environmentEntries = (
-		);
-		executableSystemSymbolLevel = 0;
-		executableUserSymbolLevel = 0;
-		libgmallocEnabled = 0;
-		name = HoccerTesting;
-		savedGlobals = {
-		};
-		sourceDirectories = (
-		);
 	};
 	22762E2C105E5887003BF968 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -6880,10 +6848,10 @@
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
-		activeExecutable = 22762E29105E586E003BF968 /* HoccerTesting */;
+		activeExecutable = 223BC30010552AE600ABE5A2 /* Hoccer */;
 		activeTarget = 22762D02105E412A003BF968 /* Test */;
 		addToTargets = (
-			22762D02105E412A003BF968 /* Test */,
+			1D6058900D05DD3D006BFB54 /* Hoccer */,
 		);
 		breakpoints = (
 			2273379A1056A133004228B4 /* HoccerViewController.m:72 */,
@@ -6892,7 +6860,6 @@
 		codeSenseManager = 223BC30A10552B0500ABE5A2 /* Code sense */;
 		executables = (
 			223BC30010552AE600ABE5A2 /* Hoccer */,
-			22762E29105E586E003BF968 /* HoccerTesting */,
 		);
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
