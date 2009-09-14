@@ -27,11 +27,14 @@
 - (void)testAccelerometerPlayback 
 {
 	MockedAccelerometerDelegate *delegate = [[MockedAccelerometerDelegate alloc] init];
-	NSString *file = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"];
+
+	NSString *file = [[NSBundle bundleForClass:[self class]] pathForResource:@"test" ofType:@"txt"];
+	STAssertNotNil(file, @"filepath should not be null");
+	
 	[accelerometer setDelegate: delegate];
 	[accelerometer playFile: file];
 	
-	STAssertEquals(10, delegate.accelerationsCount, @"all accelerations should be send to delegate"); 
+	STAssertEquals(70, delegate.accelerationsCount, @"all accelerations should be send to delegate"); 
 	
 	[delegate release];
 }	

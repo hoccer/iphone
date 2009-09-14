@@ -85,6 +85,9 @@
 
 - (IBAction)onCatch: (id)sender 
 {
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"];
+	NSLog(@"path: %@", path);
+	
 	NSLog(@"catched");
 	
 	if (request != nil) {

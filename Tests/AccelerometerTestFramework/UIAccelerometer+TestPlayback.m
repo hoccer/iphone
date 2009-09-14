@@ -13,7 +13,9 @@
 
 - (void)playFile: (NSString *)file 
 {
-	for (int i = 0; i < 10; i++) {
+	NSArray *recordedData = [[NSString stringWithContentsOfFile: file] componentsSeparatedByString:@"\n"];
+	
+	for (int i = 0; i < [recordedData count]; i++) {
 		[self.delegate accelerometer:self didAccelerate:nil];
 	}
 }
