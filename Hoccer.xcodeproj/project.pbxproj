@@ -31,7 +31,7 @@
 		22762DDD105E541D003BF968 /* UIAccelerometer+TestPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */; };
 		22762F62105E78AF003BF968 /* 2_values.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22762F61105E78AF003BF968 /* 2_values.txt */; };
 		22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */; };
-		22762FB2105E7FD8003BF968 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB1105E7FD8003BF968 /* GesturesInterpreter.m */; };
+		22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -96,9 +96,9 @@
 		22762F61105E78AF003BF968 /* 2_values.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 2_values.txt; path = Resources/fixtures/2_values.txt; sourceTree = "<group>"; };
 		22762FA6105E7D88003BF968 /* UIAcceleration+TestSetters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAcceleration+TestSetters.h"; path = "Tests/AccelerometerTestFramework/UIAcceleration+TestSetters.h"; sourceTree = "<group>"; };
 		22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAcceleration+TestSetters.m"; path = "Tests/AccelerometerTestFramework/UIAcceleration+TestSetters.m"; sourceTree = "<group>"; };
-		22762FB0105E7FD8003BF968 /* GesturesInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturesInterpreter.h; sourceTree = "<group>"; };
-		22762FB1105E7FD8003BF968 /* GesturesInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GesturesInterpreter.m; sourceTree = "<group>"; };
-		22762FB3105E82D3003BF968 /* GesturesInterpretedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GesturesInterpretedDelegate.h; sourceTree = "<group>"; };
+		22762FB5105E84B5003BF968 /* GesturesInterpretedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpretedDelegate.h; path = GesturesInterpreter/GesturesInterpretedDelegate.h; sourceTree = "<group>"; };
+		22762FB6105E84B5003BF968 /* GesturesInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpreter.h; path = GesturesInterpreter/GesturesInterpreter.h; sourceTree = "<group>"; };
+		22762FB7105E84B5003BF968 /* GesturesInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GesturesInterpreter.m; path = GesturesInterpreter/GesturesInterpreter.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -246,9 +246,9 @@
 		22762FA9105E7E27003BF968 /* GesturesInterpreter */ = {
 			isa = PBXGroup;
 			children = (
-				22762FB0105E7FD8003BF968 /* GesturesInterpreter.h */,
-				22762FB1105E7FD8003BF968 /* GesturesInterpreter.m */,
-				22762FB3105E82D3003BF968 /* GesturesInterpretedDelegate.h */,
+				22762FB5105E84B5003BF968 /* GesturesInterpretedDelegate.h */,
+				22762FB6105E84B5003BF968 /* GesturesInterpreter.h */,
+				22762FB7105E84B5003BF968 /* GesturesInterpreter.m */,
 			);
 			name = GesturesInterpreter;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 				2273358D10566826004228B4 /* DownloadRequest.m in Sources */,
 				2205A6E51057C2D6005C5036 /* HoccerImage.m in Sources */,
 				22762C57105E315E003BF968 /* HoccerUrl.m in Sources */,
-				22762FB2105E7FD8003BF968 /* GesturesInterpreter.m in Sources */,
+				22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

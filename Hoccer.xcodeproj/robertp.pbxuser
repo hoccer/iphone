@@ -6830,20 +6830,6 @@
 		vrLen = 592;
 		vrLoc = 1704;
 	};
-	22762FB0105E7FD8003BF968 /* GesturesInterpreter.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 521}}";
-			sepNavSelRange = "{246, 0}";
-			sepNavVisRange = "{0, 288}";
-		};
-	};
-	22762FB1105E7FD8003BF968 /* GesturesInterpreter.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 521}}";
-			sepNavSelRange = "{380, 0}";
-			sepNavVisRange = "{0, 547}";
-		};
-	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 476}}";
@@ -6865,6 +6851,7 @@
 		activeExecutable = 223BC30010552AE600ABE5A2 /* Hoccer */;
 		activeTarget = 22762D02105E412A003BF968 /* Test */;
 		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* Hoccer */,
 		);
 		breakpoints = (
 			2273379A1056A133004228B4 /* HoccerViewController.m:72 */,
