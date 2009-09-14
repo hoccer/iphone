@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HoccerContent.h"
 
 @class PeerGroupRequest;
 @class PeerGroupPollingRequest;
 @class DownloadRequest;
 
 @class HoccerBaseRequest;
-@class HoccerImage;
 
 @interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
@@ -21,7 +21,7 @@
 	
 	HoccerBaseRequest *request;
 	
-	HoccerImage *hoccerImage;
+	id <HoccerContent> hoccerContent;
 }
 
 

@@ -14,6 +14,7 @@
 #import "DownloadRequest.h"
 
 #import "HoccerImage.h"
+#import "HoccerUrl.h"
 
 @implementation HoccerViewController
 
@@ -68,7 +69,7 @@
 	
     [statusLabel release];
 	[request release];
-	[hoccerImage release];
+	[hoccerContent release];
 	
 	[toolbar release];
 }
@@ -96,7 +97,7 @@
 
 - (IBAction)saveToGallery: (id)sender 
 {
-	[hoccerImage save];
+	[hoccerContent save];
 	NSLog(@"saving to gallery");
 }
 
@@ -123,8 +124,16 @@
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
-	hoccerImage = [[HoccerImage alloc] initWithData:aRequest.result];
-	[self.view insertSubview: hoccerImage.view atIndex:0];
+	NSString *mimeType = [[aRequest.response allHeaderFields] objectForKey:@"Content-Type"];
+	NSLog(@"mime: %@", mimeType);
+	
+	if ([mimeType rangeOfString:@"image/"].location == 0) {
+		hoccerContent = [[HoccerImage alloc] initWithData:aRequest.result];
+	} else {
+		hoccerContent = [[HoccerUrl alloc] initWithData:aRequest.result];
+	}
+	
+	[self.view insertSubview: hoccerContent.view atIndex:0];
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];

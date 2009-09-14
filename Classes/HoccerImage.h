@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerContent.h"
 
 
-@interface HoccerImage : NSObject {
+@interface HoccerImage : NSObject <HoccerContent> {
 	UIImage *image;
 }
 
@@ -17,6 +18,5 @@
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
-- (UIImage *)image;
 
 @end
