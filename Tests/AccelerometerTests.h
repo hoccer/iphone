@@ -16,10 +16,10 @@
 //#import "application_headers" as required
 
 
-@interface AccelerometerTests : SenTestCase {
-
+@interface AccelerometerTests : SenTestCase <UIAccelerometerDelegate> {
+	UIAccelerometer *accelerometer;
 }
 
--(void) testFail;
+- (void)testAccelerometerPlayback;
 
 @end
