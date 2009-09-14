@@ -12,5 +12,6 @@
 @interface UIAccelerometer (TestPlayback)
 
 - (void)playFile: (NSString *)file;
+- (NSArray *)splitLine: (NSString *)line;
 
 @end

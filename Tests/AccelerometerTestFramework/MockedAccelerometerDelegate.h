@@ -10,11 +10,12 @@
 
 
 @interface MockedAccelerometerDelegate : NSObject <UIAccelerometerDelegate> {
-	NSInteger accelerationsCount;
+	NSMutableArray *receivedAccelarations;
 }
 
-@property (readonly) NSInteger accelerationsCount;
+@property (readonly) NSMutableArray* receivedAccelarations;
 
+- (NSInteger)accelerationsCount;
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration;
 
 @end

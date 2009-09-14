@@ -11,22 +11,27 @@
 
 @implementation MockedAccelerometerDelegate
 
-@synthesize accelerationsCount;
+@synthesize receivedAccelarations;
 
 - (id) init
 {
 	self = [super init];
 	if (self != nil) {
-		accelerationsCount = 0;
+		receivedAccelarations = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
 
-
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
+- (NSInteger) accelerationsCount 
 {
-	accelerationsCount += 1;
+	return [receivedAccelarations count];
 }
 
+
+#pragma mark UIAcceleratorDelegate Methods
+- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
+{
+	[receivedAccelarations addObject:acceleration];
+}
 
 @end
