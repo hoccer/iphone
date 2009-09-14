@@ -11,6 +11,7 @@
 
 @implementation HoccerUrl
 
+
 - (id)initWithData: (NSData *)data 
 {
 	self = [super init];
@@ -22,12 +23,15 @@
 	return self;
 }
 
+
 - (void)save 
 {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
 }
 
+
 - (void)dismiss {}
+
 
 - (UIView *)view 
 {
