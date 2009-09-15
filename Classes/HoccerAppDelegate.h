@@ -12,11 +12,11 @@
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    HoccerViewController *viewController;
+    UITabBarController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet HoccerViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITabBarController *viewController;
 
 @end
 

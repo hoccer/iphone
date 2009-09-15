@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>22798EF4105F95790035C643</string>
+						<string>22798F4F105FABCA0035C643</string>
 						<key>history</key>
 						<array>
 							<string>22762E84105E5DBB003BF968</string>
@@ -276,6 +276,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -313,11 +315,7 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>22762FA9105E7E27003BF968</string>
-								<string>22762D17105E4408003BF968</string>
-								<string>22762D7E105E4F98003BF968</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>22762DE5105E5688003BF968</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
@@ -326,8 +324,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>14</integer>
-									<integer>1</integer>
+									<integer>19</integer>
+									<integer>16</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -362,14 +360,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HoccerViewController.m</string>
+								<string>2_values.txt</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -377,11 +373,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HoccerViewController.m</string>
+										<string>2_values.txt</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>22798EF3105F95790035C643</string>
+										<string>22798F4E105FABCA0035C643</string>
 										<key>history</key>
 										<array>
 											<string>223BC355105538F400ABE5A2</string>
@@ -408,7 +404,6 @@
 											<string>22762CED105E3AFC003BF968</string>
 											<string>22762D93105E513C003BF968</string>
 											<string>22762F1E105E73E4003BF968</string>
-											<string>22762F86105E7C25003BF968</string>
 											<string>22762F98105E7C4C003BF968</string>
 											<string>22762FD2105E90F0003BF968</string>
 											<string>22763031105E9225003BF968</string>
@@ -426,7 +421,9 @@
 											<string>22798EE1105F95170035C643</string>
 											<string>22798EE2105F95170035C643</string>
 											<string>22798EF0105F95790035C643</string>
-											<string>22798EF1105F95790035C643</string>
+											<string>22798F49105FABCA0035C643</string>
+											<string>22798F4A105FABCA0035C643</string>
+											<string>22798F4B105FABCA0035C643</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -502,6 +499,8 @@
 											<string>22798EE6105F95170035C643</string>
 											<string>22798EE7105F95170035C643</string>
 											<string>22798EF2105F95790035C643</string>
+											<string>22798F4C105FABCA0035C643</string>
+											<string>22798F4D105FABCA0035C643</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
