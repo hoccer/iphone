@@ -10,14 +10,18 @@
 #import "HoccerContent.h"
 #import "HoccerImage.h"
 #import "HoccerUrl.h"
+#import "HoccerText.h"
 
 @implementation HoccerContentFactory
 
 + (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	id <HoccerContent> hoccerContent = nil;
 	
-	NSString *mimeType = [[response allHeaderFields] objectForKey:@"Content-Type"];
+//	NSString *mimeType = [[response allHeaderFields] objectForKey:@"Content-Type"];
+	NSString *mimeType = [response MIMEType];
+
 	NSLog(@"mime: %@", mimeType);
+	
 	
 	if ([mimeType isEqual: @"text/vcard"]) {
 		// TODO: create vcard object; 
@@ -28,8 +32,7 @@
 		if ([HoccerUrl isDataAUrl: data]) {
 			hoccerContent = [[HoccerUrl alloc] initWithData: data];
 		} else {
-			// TODO: create Hoccer Text object
-			// hoccerContent = [[HoccerText]initWithData: data];
+			hoccerContent = [[HoccerText alloc] initWithData: data];
 		}
 	}
 

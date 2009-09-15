@@ -6,7 +6,7 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-
+#import <UIKit/UIKit.h>
 
 @protocol HoccerContent <NSObject>
 

@@ -7,12 +7,14 @@
 //
 
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "HoccerContent.h"
+#import "HoccerText.h"
 
-
-@interface HoccerUrl : NSObject <HoccerContent> {
+@interface HoccerUrl : HoccerText {
 	NSString *url;
 }
+
++ (BOOL) isDataAUrl: (NSData *)data;
 
 @end
