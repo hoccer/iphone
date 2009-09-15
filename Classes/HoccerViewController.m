@@ -13,8 +13,7 @@
 #import "PeerGroupPollingRequest.h"
 #import "DownloadRequest.h"
 
-#import "HoccerImage.h"
-#import "HoccerUrl.h"
+#import "HoccerContentFactory.h"
 
 #import "AccelerationRecorder.h"
 
@@ -125,15 +124,10 @@
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {
-	NSString *mimeType = [[aRequest.response allHeaderFields] objectForKey:@"Content-Type"];
-	NSLog(@"mime: %@", mimeType);
-	
-	if ([mimeType rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData:aRequest.result];
-	} else {
-		hoccerContent = [[HoccerUrl alloc] initWithData:aRequest.result];
-	}
-	
+		
+	hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
+														   withData: aRequest.result];
+
 	[self.view insertSubview: hoccerContent.view atIndex:0];
 	saveButton.title = [hoccerContent saveButtonDescription];
 	
