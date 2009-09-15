@@ -72,6 +72,12 @@
 		vrLoc = 134;
 	};
 	2205A6E31057C2D6005C5036 /* HoccerImage.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = HoccerImage.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerImage.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{350, 0}";
@@ -79,6 +85,12 @@
 		};
 	};
 	2205A6E41057C2D6005C5036 /* HoccerImage.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = HoccerImage.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerImage.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{640, 0}";
@@ -615,6 +627,12 @@
 		state = 2;
 	};
 	22762C52105E300A003BF968 /* HoccerContent.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = HoccerContent.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerContent.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{256, 37}";
@@ -622,6 +640,12 @@
 		};
 	};
 	22762C55105E315E003BF968 /* HoccerUrl.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = HoccerUrl.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerUrl.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{266, 0}";
@@ -629,6 +653,12 @@
 		};
 	};
 	22762C56105E315E003BF968 /* HoccerUrl.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = HoccerUrl.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerUrl.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 798}}";
 			sepNavSelRange = "{614, 67}";
@@ -1937,7 +1967,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {728, 1498}}";
 			sepNavSelRange = "{1563, 0}";
-			sepNavVisRange = "{1111, 505}";
+			sepNavVisRange = "{1111, 550}";
 			sepNavWindowFrame = "{{199, 271}, {750, 558}}";
 		};
 	};
@@ -5199,7 +5229,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {756, 2380}}";
 			sepNavSelRange = "{1918, 0}";
-			sepNavVisRange = "{1819, 578}";
+			sepNavVisRange = "{1819, 702}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
