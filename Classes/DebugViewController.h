@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class AccelerationRecorder;
 
 @interface DebugViewController : UIViewController {
 
+	BOOL recording;
+	AccelerationRecorder *recorder;
+	
+	IBOutlet UIButton *recordingButton;
 }
+
+@property BOOL recording;
+
+- (IBAction) record: (id)sender;
 
 @end

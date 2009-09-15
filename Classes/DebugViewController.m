@@ -7,26 +7,26 @@
 //
 
 #import "DebugViewController.h"
+#import "AccelerationRecorder.h"
+
+@interface DebugViewController (Private) 
+- (void)turnRecordingOn;
+- (void)turnRecordingOff;
+
+@end
+
 
 
 @implementation DebugViewController
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize recording;
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	recorder = [[AccelerationRecorder alloc] init];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -51,6 +51,37 @@
 
 - (void)dealloc {
     [super dealloc];
+	
+	[recorder release];
+	[recordingButton release];
+}
+
+
+- (IBAction) record: (id)sender
+{
+	if (self.recording) {
+		[self turnRecordingOff];
+	} else {
+		[self turnRecordingOn];
+	}
+}
+
+
+- (void)turnRecordingOn
+{
+	NSLog(@"starting recording: %@", recorder);
+	[recorder startRecording];
+	[recordingButton setTitle: @"Record Acceleration" forState: UIControlStateNormal ];
+	self.recording = YES;
+}
+
+- (void)turnRecordingOff
+{
+	NSLog(@"stoping recording");
+	[recorder stopRecording];
+	[recordingButton setTitle: @"Stop Recording" forState: UIControlStateNormal ];
+
+	self.recording = NO;
 }
 
 
