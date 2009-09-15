@@ -38,8 +38,8 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIButton" id="1050786069">
 						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 358}, {280, 37}}</string>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{20, 323}, {280, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -67,8 +67,8 @@
 					</object>
 					<object class="IBUIButton" id="869145556">
 						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 403}, {280, 37}}</string>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{20, 368}, {280, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -87,7 +87,7 @@
 					<object class="IBUILabel" id="1024507351">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{92, 329}, {136, 21}}</string>
+						<string key="NSFrame">{{92, 68}, {136, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -222,8 +222,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="869145556"/>
 							<reference ref="1050786069"/>
-							<reference ref="1024507351"/>
 							<reference ref="206392668"/>
+							<reference ref="1024507351"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
 					</object>
@@ -340,13 +340,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>imageView</string>
+							<string>hoccerContent</string>
 							<string>statusLabel</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIImageView</string>
+							<string>id</string>
 							<string>UILabel</string>
 							<string>UIToolbar</string>
 						</object>
