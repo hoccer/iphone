@@ -32,6 +32,9 @@
 		22762F62105E78AF003BF968 /* 2_values.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22762F61105E78AF003BF968 /* 2_values.txt */; };
 		22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */; };
 		22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
+		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
+		22763108105E9A70003BF968 /* AccelerationRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */; };
+		22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -39,7 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		22762D08105E41A2003BF968 /* PBXContainerItemProxy */ = {
+		22798DFF105F7DBD0035C643 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -92,13 +95,17 @@
 		22762DD9105E541D003BF968 /* MockedAccelerometerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockedAccelerometerDelegate.m; path = Tests/AccelerometerTestFramework/MockedAccelerometerDelegate.m; sourceTree = "<group>"; };
 		22762DDA105E541D003BF968 /* UIAccelerometer+TestPlayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAccelerometer+TestPlayback.h"; path = "Tests/AccelerometerTestFramework/UIAccelerometer+TestPlayback.h"; sourceTree = "<group>"; };
 		22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAccelerometer+TestPlayback.m"; path = "Tests/AccelerometerTestFramework/UIAccelerometer+TestPlayback.m"; sourceTree = "<group>"; };
-		22762E2A105E586E003BF968 /* Hoccer-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hoccer-Info copy.plist"; sourceTree = "<group>"; };
 		22762F61105E78AF003BF968 /* 2_values.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 2_values.txt; path = Resources/fixtures/2_values.txt; sourceTree = "<group>"; };
 		22762FA6105E7D88003BF968 /* UIAcceleration+TestSetters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAcceleration+TestSetters.h"; path = "Tests/AccelerometerTestFramework/UIAcceleration+TestSetters.h"; sourceTree = "<group>"; };
 		22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAcceleration+TestSetters.m"; path = "Tests/AccelerometerTestFramework/UIAcceleration+TestSetters.m"; sourceTree = "<group>"; };
 		22762FB5105E84B5003BF968 /* GesturesInterpretedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpretedDelegate.h; path = GesturesInterpreter/GesturesInterpretedDelegate.h; sourceTree = "<group>"; };
 		22762FB6105E84B5003BF968 /* GesturesInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpreter.h; path = GesturesInterpreter/GesturesInterpreter.h; sourceTree = "<group>"; };
 		22762FB7105E84B5003BF968 /* GesturesInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GesturesInterpreter.m; path = GesturesInterpreter/GesturesInterpreter.m; sourceTree = "<group>"; };
+		22762FBA105E8589003BF968 /* AccelerationRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerationRecorder.h; path = AccelerationRecorder/AccelerationRecorder.h; sourceTree = "<group>"; };
+		22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerationRecorder.m; path = AccelerationRecorder/AccelerationRecorder.m; sourceTree = "<group>"; };
+		22762FC6105E8D39003BF968 /* AccelerationRecorderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationRecorderTests.h; sourceTree = "<group>"; };
+		22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationRecorderTests.m; sourceTree = "<group>"; };
+		227630E1105E99E5003BF968 /* HoccerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoccerTests-Info.plist"; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -134,6 +141,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22762FB9105E8512003BF968 /* AccelerationRecorder */,
 				2205A6E21057C27F005C5036 /* Content */,
 				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
 				223BC3411055320A00ABE5A2 /* Communication */,
@@ -218,6 +226,8 @@
 				22762D7E105E4F98003BF968 /* AcceletometerTestFramework */,
 				22762D76105E4A24003BF968 /* AccelerometerTestFrameworkTests.h */,
 				22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */,
+				22762FC6105E8D39003BF968 /* AccelerationRecorderTests.h */,
+				22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -253,6 +263,15 @@
 			name = GesturesInterpreter;
 			sourceTree = "<group>";
 		};
+		22762FB9105E8512003BF968 /* AccelerationRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				22762FBA105E8589003BF968 /* AccelerationRecorder.h */,
+				22762FBB105E8589003BF968 /* AccelerationRecorder.m */,
+			);
+			name = AccelerationRecorder;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +282,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				22762D04105E412A003BF968 /* Test-Info.plist */,
+				227630E1105E99E5003BF968 /* HoccerTests-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -284,7 +304,6 @@
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
-				22762E2A105E586E003BF968 /* Hoccer-Info copy.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -332,7 +351,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				22762D09105E41A2003BF968 /* PBXTargetDependency */,
+				22798E00105F7DBD0035C643 /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -416,6 +435,7 @@
 				2205A6E51057C2D6005C5036 /* HoccerImage.m in Sources */,
 				22762C57105E315E003BF968 /* HoccerUrl.m in Sources */,
 				22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */,
+				22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,16 +447,18 @@
 				22762DDC105E541D003BF968 /* MockedAccelerometerDelegate.m in Sources */,
 				22762DDD105E541D003BF968 /* UIAccelerometer+TestPlayback.m in Sources */,
 				22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */,
+				22763108105E9A70003BF968 /* AccelerationRecorderTests.m in Sources */,
+				22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		22762D09105E41A2003BF968 /* PBXTargetDependency */ = {
+		22798E00105F7DBD0035C643 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1D6058900D05DD3D006BFB54 /* Hoccer */;
-			targetProxy = 22762D08105E41A2003BF968 /* PBXContainerItemProxy */;
+			targetProxy = 22798DFF105F7DBD0035C643 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -481,9 +503,9 @@
 				INFOPLIST_FILE = "Test-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
-					"-framework",
 					SenTestingKit,
+					"-framework",
+					Foundation,
 					"-framework",
 					UIKit,
 				);
@@ -507,9 +529,9 @@
 				INFOPLIST_FILE = "Test-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Foundation,
-					"-framework",
 					SenTestingKit,
+					"-framework",
+					Foundation,
 					"-framework",
 					UIKit,
 				);

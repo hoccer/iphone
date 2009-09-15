@@ -16,6 +16,9 @@
 #import "HoccerImage.h"
 #import "HoccerUrl.h"
 
+#import "AccelerationRecorder.h"
+
+
 @implementation HoccerViewController
 
 
@@ -85,8 +88,10 @@
 
 - (IBAction)onCatch: (id)sender 
 {
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"txt"];
-	NSLog(@"path: %@", path);
+	AccelerationRecorder *recorder = [[AccelerationRecorder alloc] init];
+	[recorder startRecording];
+	[recorder stopRecording];
+	[recorder release];
 	
 	NSLog(@"catched");
 	
@@ -101,7 +106,6 @@
 - (IBAction)saveToGallery: (id)sender 
 {
 	[hoccerContent save];
-	NSLog(@"saving to gallery");
 }
 
 

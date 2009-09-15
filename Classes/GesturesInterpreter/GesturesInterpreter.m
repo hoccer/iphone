@@ -7,6 +7,7 @@
 //
 
 #import "GesturesInterpreter.h"
+#import "NSObject+DelegateHelper.h"
 
 @implementation GesturesInterpreter
 
