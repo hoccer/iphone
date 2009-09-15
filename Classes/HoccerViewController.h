@@ -18,6 +18,7 @@
 @interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
+	IBOutlet UIBarButtonItem *saveButton;
 	
 	HoccerBaseRequest *request;
 	
@@ -27,7 +28,7 @@
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;
-- (IBAction)saveToGallery: (id)sender;
+- (IBAction)save: (id)sender;
 
 @end
 

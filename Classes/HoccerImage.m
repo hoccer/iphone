@@ -38,4 +38,10 @@
 	[image release];
 }
 
+- (NSString *)saveButtonDescription 
+{
+	return @"Save to Gallery";
+}
+
+
 @end

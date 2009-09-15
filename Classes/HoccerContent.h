@@ -14,5 +14,6 @@
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
+- (NSString *)saveButtonDescription;
 
 @end

@@ -41,6 +41,12 @@
 	return label;
 }
 
+- (NSString *)saveButtonDescription 
+{
+	return @"Open in Safari";
+}
+
+
 - (void)dealloc
 {
 	[super dealloc];

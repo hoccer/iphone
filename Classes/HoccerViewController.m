@@ -73,6 +73,7 @@
     [statusLabel release];
 	[request release];
 	[hoccerContent release];
+	[saveButton release];
 	
 	[toolbar release];
 }
@@ -96,7 +97,7 @@
 	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
 }
 
-- (IBAction)saveToGallery: (id)sender 
+- (IBAction)save: (id)sender 
 {
 	[hoccerContent save];
 }
@@ -134,6 +135,7 @@
 	}
 	
 	[self.view insertSubview: hoccerContent.view atIndex:0];
+	saveButton.title = [hoccerContent saveButtonDescription];
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
