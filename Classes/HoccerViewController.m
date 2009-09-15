@@ -88,13 +88,6 @@
 
 - (IBAction)onCatch: (id)sender 
 {
-	AccelerationRecorder *recorder = [[AccelerationRecorder alloc] init];
-	[recorder startRecording];
-	[recorder stopRecording];
-	[recorder release];
-	
-	NSLog(@"catched");
-	
 	if (request != nil) {
 		return;
 	}

@@ -11,6 +11,7 @@
 @interface AccelerationRecorder (private)
 - (NSString *)directoryForAccelerationData;
 - (NSString *)filenameFromCurrentTime;
+- (NSString *)formatAccelerationData: (UIAcceleration *)accelertion;
 @end
 
 
@@ -59,7 +60,7 @@
 #pragma mark UIAccelerationDelegate methods
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
 {
-	[file writeData: [[acceleration description] dataUsingEncoding: NSUTF8StringEncoding]];
+	[file writeData: [[self formatAccelerationData:acceleration] dataUsingEncoding: NSUTF8StringEncoding]];
 }
 
 
@@ -92,7 +93,11 @@
 	return [date stringByAppendingPathExtension:@"txt"];
 }
 
-	
+- (NSString *)formatAccelerationData: (UIAcceleration *)accelertion
+{
+	return [NSString stringWithFormat:@"%d,%f,%f,%f", accelertion.timestamp, accelertion.x, 
+													  accelertion.y, accelertion.z];
+}
 
 	
 @end

@@ -881,7 +881,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 126";
 		rLen = 0;
-		rLoc = 3036;
+		rLoc = 2865;
 		rType = 0;
 		vrLen = 1292;
 		vrLoc = 2141;
@@ -1413,7 +1413,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 88";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 701;
 		vrLoc = 1629;
@@ -1935,15 +1935,15 @@
 	};
 	22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1386}}";
-			sepNavSelRange = "{931, 0}";
-			sepNavVisRange = "{0, 1018}";
+			sepNavIntBoundsRect = "{{0, 0}, {931, 1582}}";
+			sepNavSelRange = "{366, 0}";
+			sepNavVisRange = "{0, 1298}";
 			sepNavWindowFrame = "{{199, 271}, {750, 558}}";
 		};
 	};
 	22762FC6105E8D39003BF968 /* AccelerationRecorderTests.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1008, 521}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 544}}";
 			sepNavSelRange = "{665, 0}";
 			sepNavVisRange = "{0, 705}";
 		};
@@ -2070,7 +2070,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 18";
 		rLen = 0;
-		rLoc = 2329;
+		rLoc = 2414;
 		rType = 0;
 		vrLen = 327;
 		vrLoc = 0;
@@ -2090,7 +2090,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 19";
 		rLen = 0;
-		rLoc = 999;
+		rLoc = 1068;
 		rType = 0;
 		vrLen = 562;
 		vrLoc = 0;
@@ -2110,7 +2110,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 35";
 		rLen = 0;
-		rLoc = 1245;
+		rLoc = 1314;
 		rType = 0;
 		vrLen = 957;
 		vrLoc = 0;
@@ -2130,7 +2130,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 50";
 		rLen = 0;
-		rLoc = 1479;
+		rLoc = 1564;
 		rType = 0;
 		vrLen = 1291;
 		vrLoc = 304;
@@ -2142,7 +2142,7 @@
 		rLen = 0;
 		rLoc = 699;
 		rType = 0;
-		vrLen = 810;
+		vrLen = 705;
 		vrLoc = 0;
 	};
 	22762FEA105E90F0003BF968 /* PBXTextBookmark */ = {
@@ -2200,7 +2200,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 37";
 		rLen = 0;
-		rLoc = 1134;
+		rLoc = 1203;
 		rType = 0;
 		vrLen = 1268;
 		vrLoc = 138;
@@ -2299,7 +2299,7 @@
 		isa = PBXTextBookmark;
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 11";
-		rLen = 129;
+		rLen = 198;
 		rLoc = 173;
 		rType = 0;
 		vrLen = 879;
@@ -2320,7 +2320,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 879;
 		vrLoc = 0;
@@ -2410,7 +2410,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 879;
 		vrLoc = 0;
@@ -2568,7 +2568,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 881;
 		vrLoc = 0;
@@ -2600,7 +2600,7 @@
 		rLen = 0;
 		rLoc = 665;
 		rType = 0;
-		vrLen = 729;
+		vrLen = 705;
 		vrLoc = 0;
 	};
 	227630F1105E9A44003BF968 /* PBXTextBookmark */ = {
@@ -2608,7 +2608,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 881;
 		vrLoc = 0;
@@ -2658,7 +2658,7 @@
 		rLen = 0;
 		rLoc = 665;
 		rType = 0;
-		vrLen = 730;
+		vrLen = 705;
 		vrLoc = 0;
 	};
 	2276311C105E9AA1003BF968 /* PBXTextBookmark */ = {
@@ -3056,7 +3056,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3076,7 +3076,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3096,7 +3096,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3146,7 +3146,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 29";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 1002;
 		rType = 0;
 		vrLen = 774;
 		vrLoc = 264;
@@ -3186,7 +3186,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 828;
 		vrLoc = 0;
@@ -3206,7 +3206,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 16";
 		rLen = 20;
-		rLoc = 321;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 879;
 		vrLoc = 0;
@@ -3226,7 +3226,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 52";
 		rLen = 0;
-		rLoc = 1228;
+		rLoc = 1297;
 		rType = 0;
 		vrLen = 788;
 		vrLoc = 173;
@@ -3246,7 +3246,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 50";
 		rLen = 0;
-		rLoc = 1228;
+		rLoc = 1297;
 		rType = 0;
 		vrLen = 878;
 		vrLoc = 918;
@@ -3266,7 +3266,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 50";
 		rLen = 0;
-		rLoc = 1228;
+		rLoc = 1297;
 		rType = 0;
 		vrLen = 895;
 		vrLoc = 901;
@@ -3316,7 +3316,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 50";
 		rLen = 0;
-		rLoc = 1228;
+		rLoc = 1297;
 		rType = 0;
 		vrLen = 896;
 		vrLoc = 900;
@@ -3336,7 +3336,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 55";
 		rLen = 0;
-		rLoc = 1391;
+		rLoc = 1460;
 		rType = 0;
 		vrLen = 820;
 		vrLoc = 139;
@@ -3356,7 +3356,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 29";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 1002;
 		rType = 0;
 		vrLen = 774;
 		vrLoc = 264;
@@ -3366,7 +3366,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 2019;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 839;
 		vrLoc = 1798;
@@ -3376,7 +3376,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 96";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1739;
@@ -3386,7 +3386,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3396,7 +3396,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3406,7 +3406,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3426,7 +3426,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3446,7 +3446,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 28";
 		rLen = 0;
-		rLoc = 630;
+		rLoc = 699;
 		rType = 0;
 		vrLen = 815;
 		vrLoc = 264;
@@ -3456,7 +3456,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3466,7 +3466,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 82";
 		rLen = 0;
-		rLoc = 2188;
+		rLoc = 2273;
 		rType = 0;
 		vrLen = 1024;
 		vrLoc = 1069;
@@ -3476,7 +3476,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3486,7 +3486,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 81";
 		rLen = 0;
-		rLoc = 2184;
+		rLoc = 2269;
 		rType = 0;
 		vrLen = 1071;
 		vrLoc = 1066;
@@ -3496,7 +3496,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3506,7 +3506,7 @@
 		comments = "error: expected ':' before ']' token";
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		rLen = 1;
-		rLoc = 26;
+		rLoc = 27;
 		rType = 1;
 	};
 	22798E76105F8E300035C643 /* PBXTextBookmark */ = {
@@ -3514,7 +3514,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 27";
 		rLen = 0;
-		rLoc = 626;
+		rLoc = 695;
 		rType = 0;
 		vrLen = 869;
 		vrLoc = 135;
@@ -3524,7 +3524,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3534,7 +3534,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 81";
 		rLen = 0;
-		rLoc = 2082;
+		rLoc = 2167;
 		rType = 0;
 		vrLen = 865;
 		vrLoc = 1336;
@@ -3544,7 +3544,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3554,7 +3554,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2287;
+		rLoc = 2372;
 		rType = 0;
 		vrLen = 951;
 		vrLoc = 1242;
@@ -3564,7 +3564,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3574,7 +3574,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2287;
+		rLoc = 2372;
 		rType = 0;
 		vrLen = 917;
 		vrLoc = 970;
@@ -3584,7 +3584,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 701;
 		vrLoc = 1644;
@@ -3594,7 +3594,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2287;
+		rLoc = 2372;
 		rType = 0;
 		vrLen = 917;
 		vrLoc = 970;
@@ -3604,7 +3604,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 2019;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3614,7 +3614,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3624,7 +3624,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 2019;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3634,7 +3634,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2287;
+		rLoc = 2372;
 		rType = 0;
 		vrLen = 936;
 		vrLoc = 951;
@@ -3644,7 +3644,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 2019;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3654,7 +3654,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 33";
 		rLen = 0;
-		rLoc = 999;
+		rLoc = 1068;
 		rType = 0;
 		vrLen = 811;
 		vrLoc = 259;
@@ -3664,7 +3664,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3674,7 +3674,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 33";
 		rLen = 0;
-		rLoc = 925;
+		rLoc = 994;
 		rType = 0;
 		vrLen = 1049;
 		vrLoc = 173;
@@ -3684,7 +3684,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3694,7 +3694,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 33";
 		rLen = 0;
-		rLoc = 925;
+		rLoc = 994;
 		rType = 0;
 		vrLen = 1049;
 		vrLoc = 173;
@@ -3704,7 +3704,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 30";
 		rLen = 0;
-		rLoc = 755;
+		rLoc = 824;
 		rType = 0;
 		vrLen = 997;
 		vrLoc = 173;
@@ -3714,7 +3714,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3724,7 +3724,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 32";
 		rLen = 0;
-		rLoc = 828;
+		rLoc = 897;
 		rType = 0;
 		vrLen = 993;
 		vrLoc = 173;
@@ -3734,7 +3734,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3744,7 +3744,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 37";
 		rLen = 0;
-		rLoc = 999;
+		rLoc = 1068;
 		rType = 0;
 		vrLen = 996;
 		vrLoc = 173;
@@ -3754,7 +3754,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 2042;
+		rLoc = 1895;
 		rType = 0;
 		vrLen = 621;
 		vrLoc = 1798;
@@ -3764,7 +3764,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2230;
+		rLoc = 2315;
 		rType = 0;
 		vrLen = 516;
 		vrLoc = 714;
@@ -3782,7 +3782,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 88";
 		rLen = 0;
-		rLoc = 2230;
+		rLoc = 2315;
 		rType = 0;
 		vrLen = 516;
 		vrLoc = 714;
@@ -3815,6 +3815,204 @@
 		vrLen = 882;
 		vrLoc = 324;
 	};
+	22798EE1105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC6105E8D39003BF968 /* AccelerationRecorderTests.h */;
+		name = "AccelerationRecorderTests.h: 23";
+		rLen = 0;
+		rLoc = 665;
+		rType = 0;
+		vrLen = 705;
+		vrLoc = 0;
+	};
+	22798EE2105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */;
+		name = "AccelerationRecorderTests.m: 38";
+		rLen = 126;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 1122;
+		vrLoc = 91;
+	};
+	22798EE3105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 35";
+		rLen = 0;
+		rLoc = 1000;
+		rType = 0;
+		vrLen = 1018;
+		vrLoc = 0;
+	};
+	22798EE4105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 35";
+		rLen = 0;
+		rLoc = 1000;
+		rType = 0;
+		vrLen = 1018;
+		vrLoc = 0;
+	};
+	22798EE5105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */;
+		name = "AccelerationRecorderTests.m: 38";
+		rLen = 126;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 1073;
+		vrLoc = 140;
+	};
+	22798EE6105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC6105E8D39003BF968 /* AccelerationRecorderTests.h */;
+		name = "AccelerationRecorderTests.h: 23";
+		rLen = 0;
+		rLoc = 665;
+		rType = 0;
+		vrLen = 705;
+		vrLoc = 0;
+	};
+	22798EE7105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */;
+		name = "AccelerationRecorderTests.m: 38";
+		rLen = 126;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 1122;
+		vrLoc = 91;
+	};
+	22798EE8105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 14";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1083;
+		vrLoc = 0;
+	};
+	22798EE9105F95170035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 95";
+		rLen = 0;
+		rLoc = 1895;
+		rType = 0;
+		vrLen = 576;
+		vrLoc = 1798;
+	};
+	22798EEA105F951F0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */;
+		name = "AccelerationRecorderTests.m: 38";
+		rLen = 126;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 884;
+		vrLoc = 324;
+	};
+	22798EEB105F951F0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "warning: 'NSFileHandle' may not respond to '-writeData:dataUsingEncoding:'";
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		rLen = 1;
+		rLoc = 62;
+		rType = 1;
+	};
+	22798EEC105F951F0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FC7105E8D39003BF968 /* AccelerationRecorderTests.m */;
+		name = "AccelerationRecorderTests.m: 38";
+		rLen = 126;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 884;
+		vrLoc = 324;
+	};
+	22798EED105F951F0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 63";
+		rLen = 0;
+		rLoc = 1563;
+		rType = 0;
+		vrLen = 550;
+		vrLoc = 1111;
+	};
+	22798EEE105F953C0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 14";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1298;
+		vrLoc = 0;
+	};
+	22798EEF105F953C0035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 95";
+		rLen = 0;
+		rLoc = 1895;
+		rType = 0;
+		vrLen = 621;
+		vrLoc = 1798;
+	};
+	22798EF0105F95790035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 14";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1298;
+		vrLoc = 0;
+	};
+	22798EF1105F95790035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 93";
+		rLen = 0;
+		rLoc = 1895;
+		rType = 0;
+		vrLen = 1139;
+		vrLoc = 1414;
+	};
+	22798EF2105F95790035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
+		name = "AccelerationRecorder.m: 14";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1298;
+		vrLoc = 0;
+	};
+	22798EF3105F95790035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 91";
+		rLen = 0;
+		rLoc = 1895;
+		rType = 0;
+		vrLen = 1432;
+		vrLoc = 1739;
+	};
+	22798EF4105F95790035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 91";
+		rLen = 0;
+		rLoc = 1895;
+		rType = 0;
+		vrLen = 729;
+		vrLoc = 1798;
+	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 476}}";
@@ -3825,9 +4023,9 @@
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 2492}}";
-			sepNavSelRange = "{2042, 0}";
-			sepNavVisRange = "{1798, 621}";
+			sepNavIntBoundsRect = "{{0, 0}, {756, 2338}}";
+			sepNavSelRange = "{1895, 0}";
+			sepNavVisRange = "{1798, 729}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -4263,6 +4461,26 @@
 			22798ED2105F92980035C643 /* PBXTextBookmark */ = 22798ED2105F92980035C643 /* PBXTextBookmark */;
 			22798ED4105F92A30035C643 /* PBXTextBookmark */ = 22798ED4105F92A30035C643 /* PBXTextBookmark */;
 			22798ED5105F92A30035C643 /* PBXTextBookmark */ = 22798ED5105F92A30035C643 /* PBXTextBookmark */;
+			22798EE1105F95170035C643 /* PBXTextBookmark */ = 22798EE1105F95170035C643 /* PBXTextBookmark */;
+			22798EE2105F95170035C643 /* PBXTextBookmark */ = 22798EE2105F95170035C643 /* PBXTextBookmark */;
+			22798EE3105F95170035C643 /* PBXTextBookmark */ = 22798EE3105F95170035C643 /* PBXTextBookmark */;
+			22798EE4105F95170035C643 /* PBXTextBookmark */ = 22798EE4105F95170035C643 /* PBXTextBookmark */;
+			22798EE5105F95170035C643 /* PBXTextBookmark */ = 22798EE5105F95170035C643 /* PBXTextBookmark */;
+			22798EE6105F95170035C643 /* PBXTextBookmark */ = 22798EE6105F95170035C643 /* PBXTextBookmark */;
+			22798EE7105F95170035C643 /* PBXTextBookmark */ = 22798EE7105F95170035C643 /* PBXTextBookmark */;
+			22798EE8105F95170035C643 /* PBXTextBookmark */ = 22798EE8105F95170035C643 /* PBXTextBookmark */;
+			22798EE9105F95170035C643 /* PBXTextBookmark */ = 22798EE9105F95170035C643 /* PBXTextBookmark */;
+			22798EEA105F951F0035C643 /* PBXTextBookmark */ = 22798EEA105F951F0035C643 /* PBXTextBookmark */;
+			22798EEB105F951F0035C643 /* PBXTextBookmark */ = 22798EEB105F951F0035C643 /* PBXTextBookmark */;
+			22798EEC105F951F0035C643 /* PBXTextBookmark */ = 22798EEC105F951F0035C643 /* PBXTextBookmark */;
+			22798EED105F951F0035C643 /* PBXTextBookmark */ = 22798EED105F951F0035C643 /* PBXTextBookmark */;
+			22798EEE105F953C0035C643 /* PBXTextBookmark */ = 22798EEE105F953C0035C643 /* PBXTextBookmark */;
+			22798EEF105F953C0035C643 /* PBXTextBookmark */ = 22798EEF105F953C0035C643 /* PBXTextBookmark */;
+			22798EF0105F95790035C643 /* PBXTextBookmark */ = 22798EF0105F95790035C643 /* PBXTextBookmark */;
+			22798EF1105F95790035C643 /* PBXTextBookmark */ = 22798EF1105F95790035C643 /* PBXTextBookmark */;
+			22798EF2105F95790035C643 /* PBXTextBookmark */ = 22798EF2105F95790035C643 /* PBXTextBookmark */;
+			22798EF3105F95790035C643 /* PBXTextBookmark */ = 22798EF3105F95790035C643 /* PBXTextBookmark */;
+			22798EF4105F95790035C643 /* PBXTextBookmark */ = 22798EF4105F95790035C643 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {
