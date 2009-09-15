@@ -610,7 +610,7 @@
 		vrLen = 886;
 		vrLoc = 0;
 	};
-	2273379A1056A133004228B4 /* HoccerViewController.m:74 */ = {
+	2273379A1056A133004228B4 /* HoccerViewController.m:49 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -622,7 +622,7 @@
 		functionName = "-finishedDownload:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 74;
+		lineNumber = 49;
 		modificationTime = 274712420.142357;
 		state = 2;
 	};
@@ -821,7 +821,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 128";
 		rLen = 0;
-		rLoc = 1706;
+		rLoc = 1112;
 		rType = 0;
 		vrLen = 1268;
 		vrLoc = 2139;
@@ -871,7 +871,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 126";
 		rLen = 0;
-		rLoc = 1706;
+		rLoc = 1112;
 		rType = 0;
 		vrLen = 1270;
 		vrLoc = 2137;
@@ -911,7 +911,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 126";
 		rLen = 0;
-		rLoc = 2845;
+		rLoc = 2251;
 		rType = 0;
 		vrLen = 1292;
 		vrLoc = 2141;
@@ -1403,7 +1403,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 68";
 		rLen = 0;
-		rLoc = 1643;
+		rLoc = 1049;
 		rType = 0;
 		vrLen = 767;
 		vrLoc = 994;
@@ -1413,7 +1413,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 68";
 		rLen = 0;
-		rLoc = 1643;
+		rLoc = 1049;
 		rType = 0;
 		vrLen = 767;
 		vrLoc = 994;
@@ -1443,7 +1443,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 88";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 701;
 		vrLoc = 1629;
@@ -3086,7 +3086,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3106,7 +3106,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3126,7 +3126,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 661;
 		vrLoc = 1739;
@@ -3396,7 +3396,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 839;
 		vrLoc = 1798;
@@ -3406,7 +3406,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 96";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1739;
@@ -3416,7 +3416,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3426,7 +3426,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3436,7 +3436,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3456,7 +3456,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 719;
 		vrLoc = 1626;
@@ -3486,7 +3486,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3506,7 +3506,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3526,7 +3526,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3554,7 +3554,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3574,7 +3574,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 649;
 		vrLoc = 1798;
@@ -3594,7 +3594,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 593;
 		vrLoc = 1798;
@@ -3614,7 +3614,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 94";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 701;
 		vrLoc = 1644;
@@ -3634,7 +3634,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3644,7 +3644,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3654,7 +3654,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3674,7 +3674,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 726;
 		vrLoc = 1644;
@@ -3694,7 +3694,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3714,7 +3714,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3744,7 +3744,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3764,7 +3764,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3784,7 +3784,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 621;
 		vrLoc = 1798;
@@ -3930,7 +3930,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 576;
 		vrLoc = 1798;
@@ -3988,7 +3988,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 95";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 621;
 		vrLoc = 1798;
@@ -4008,7 +4008,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 93";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1139;
 		vrLoc = 1414;
@@ -4028,7 +4028,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1432;
 		vrLoc = 1739;
@@ -4038,7 +4038,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4062,7 +4062,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1432;
 		vrLoc = 1739;
@@ -4092,7 +4092,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 1432;
 		vrLoc = 1739;
@@ -4122,7 +4122,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4352,7 +4352,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 707;
 		vrLoc = 1798;
@@ -4412,7 +4412,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 707;
 		vrLoc = 1798;
@@ -4522,7 +4522,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 707;
 		vrLoc = 1798;
@@ -4542,7 +4542,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 707;
 		vrLoc = 1798;
@@ -4562,7 +4562,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4642,7 +4642,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4702,7 +4702,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4762,7 +4762,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 729;
 		vrLoc = 1798;
@@ -4782,7 +4782,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 707;
 		vrLoc = 1798;
@@ -4812,7 +4812,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 99";
 		rLen = 0;
-		rLoc = 2161;
+		rLoc = 1567;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 1798;
@@ -4822,7 +4822,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 720;
 		vrLoc = 1798;
@@ -4882,7 +4882,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 132";
 		rLen = 0;
-		rLoc = 2845;
+		rLoc = 2251;
 		rType = 0;
 		vrLen = 1503;
 		vrLoc = 2238;
@@ -4892,7 +4892,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 99";
 		rLen = 0;
-		rLoc = 2161;
+		rLoc = 1567;
 		rType = 0;
 		vrLen = 1485;
 		vrLoc = 1798;
@@ -4912,7 +4912,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 99";
 		rLen = 0;
-		rLoc = 2161;
+		rLoc = 1567;
 		rType = 0;
 		vrLen = 1231;
 		vrLoc = 1541;
@@ -4952,7 +4952,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1439;
 		vrLoc = 2238;
@@ -4972,7 +4972,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1435;
 		vrLoc = 2238;
@@ -4992,7 +4992,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 132";
 		rLen = 0;
-		rLoc = 2845;
+		rLoc = 2251;
 		rType = 0;
 		vrLen = 1503;
 		vrLoc = 2238;
@@ -5012,7 +5012,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 2192;
@@ -5022,7 +5022,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 720;
 		vrLoc = 1798;
@@ -5032,7 +5032,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 76";
 		rLen = 0;
-		rLoc = 1746;
+		rLoc = 1152;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 1025;
@@ -5052,7 +5052,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 2192;
@@ -5072,7 +5072,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 2192;
@@ -5092,7 +5092,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 137";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 2192;
@@ -5112,7 +5112,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 76";
 		rLen = 0;
-		rLoc = 1746;
+		rLoc = 1152;
 		rType = 0;
 		vrLen = 1156;
 		vrLoc = 1414;
@@ -5132,7 +5132,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 76";
 		rLen = 0;
-		rLoc = 1746;
+		rLoc = 1152;
 		rType = 0;
 		vrLen = 1191;
 		vrLoc = 1025;
@@ -5152,7 +5152,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 76";
 		rLen = 0;
-		rLoc = 1746;
+		rLoc = 1152;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 1025;
@@ -5172,7 +5172,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 702;
 		vrLoc = 1819;
@@ -5202,7 +5202,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 139";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1483;
 		vrLoc = 2262;
@@ -5212,7 +5212,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 92";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 578;
 		vrLoc = 1819;
@@ -5256,7 +5256,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 128";
 		rLen = 0;
-		rLoc = 2845;
+		rLoc = 2251;
 		rType = 0;
 		vrLen = 1235;
 		vrLoc = 2188;
@@ -5266,7 +5266,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 139";
 		rLen = 0;
-		rLoc = 3095;
+		rLoc = 2501;
 		rType = 0;
 		vrLen = 1118;
 		vrLoc = 1453;
@@ -5296,7 +5296,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 128";
 		rLen = 0;
-		rLoc = 2845;
+		rLoc = 2251;
 		rType = 0;
 		vrLen = 1233;
 		vrLoc = 2190;
@@ -5316,7 +5316,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 129";
 		rLen = 0;
-		rLoc = 2975;
+		rLoc = 2381;
 		rType = 0;
 		vrLen = 1341;
 		vrLoc = 2200;
@@ -5326,10 +5326,30 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 91";
 		rLen = 0;
-		rLoc = 1905;
+		rLoc = 1311;
 		rType = 0;
 		vrLen = 535;
 		vrLoc = 1769;
+	};
+	22799002105FCCE40035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 24";
+		rLen = 0;
+		rLoc = 423;
+		rType = 0;
+		vrLen = 1163;
+		vrLoc = 145;
+	};
+	22799003105FCCE40035C643 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
+		name = "HoccerViewController.m: 66";
+		rLen = 0;
+		rLoc = 1311;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 1790;
 	};
 	28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {
 		uiCtxt = {
@@ -5341,9 +5361,9 @@
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {756, 2282}}";
-			sepNavSelRange = "{1905, 0}";
-			sepNavVisRange = "{1769, 535}";
+			sepNavIntBoundsRect = "{{0, 0}, {756, 1764}}";
+			sepNavSelRange = "{1311, 0}";
+			sepNavVisRange = "{1790, 858}";
 			sepNavWindowFrame = "{{38, 418}, {750, 558}}";
 		};
 	};
@@ -5356,7 +5376,7 @@
 			1D6058900D05DD3D006BFB54 /* Hoccer */,
 		);
 		breakpoints = (
-			2273379A1056A133004228B4 /* HoccerViewController.m:74 */,
+			2273379A1056A133004228B4 /* HoccerViewController.m:49 */,
 			22762E3D105E593B003BF968 /* AccelerometerTestFrameworkTests.m:25 */,
 		);
 		codeSenseManager = 223BC30A10552B0500ABE5A2 /* Code sense */;
@@ -5926,6 +5946,8 @@
 			22798FFF105FCBE90035C643 /* PBXTextBookmark */ = 22798FFF105FCBE90035C643 /* PBXTextBookmark */;
 			22799000105FCBE90035C643 /* PBXTextBookmark */ = 22799000105FCBE90035C643 /* PBXTextBookmark */;
 			22799001105FCBE90035C643 /* PBXTextBookmark */ = 22799001105FCBE90035C643 /* PBXTextBookmark */;
+			22799002105FCCE40035C643 /* PBXTextBookmark */ = 22799002105FCCE40035C643 /* PBXTextBookmark */;
+			22799003105FCCE40035C643 /* PBXTextBookmark */ = 22799003105FCCE40035C643 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 223BC30910552B0500ABE5A2 /* Source Control */;
 		userBuildSettings = {
