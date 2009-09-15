@@ -12,6 +12,18 @@
 @implementation HoccerUrl
 
 
++ (BOOL) isDataAUrl: (NSData *)data
+{
+	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	if ([NSURL URLWithString: url]) {
+		return YES;
+	} else {
+		return NO;
+	}
+	
+	
+}
+
 - (id)initWithData: (NSData *)data 
 {
 	self = [super init];

@@ -19,10 +19,18 @@
 	NSString *mimeType = [[response allHeaderFields] objectForKey:@"Content-Type"];
 	NSLog(@"mime: %@", mimeType);
 	
-	if ([mimeType rangeOfString:@"image/"].location == 0) {
+	if ([mimeType isEqual: @"text/vcard"]) {
+		// TODO: create vcard object; 
+		// hoccerContent = [[HoccerVcard alloc] initWithData: data];
+	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithData: data];
-	} else {
-		hoccerContent = [[HoccerUrl alloc] initWithData: data];
+	} else if ([mimeType isEqual: @"text/plain"]) {
+		if ([HoccerUrl isDataAUrl: data]) {
+			hoccerContent = [[HoccerUrl alloc] initWithData: data];
+		} else {
+			// TODO: create Hoccer Text object
+			// hoccerContent = [[HoccerText]initWithData: data];
+		}
 	}
 
 	return hoccerContent;
