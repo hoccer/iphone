@@ -17,5 +17,8 @@
 
 @property (nonatomic, assign) id delegate;
 
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;
+- (void)cancel;
+
 
 @end

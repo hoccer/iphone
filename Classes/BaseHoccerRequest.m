@@ -59,6 +59,7 @@
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
+	NSLog(@"received: %@", dataString);
 	SBJSON *json = [[SBJSON alloc] init];
 	id jsonResult = [json objectWithString: dataString error: &error];
 	[json release];

@@ -32,12 +32,23 @@
 		self.delegate = aDelegate;
 		request = [[PeerGroupRequest alloc] initWithLocation: location 
 													 gesture: gesture 
-												 andDelegate: self];
+													isSeeder: NO
+													delegate: self];
 	}
 	
 	
 	return self;
 }
+
+- (void)cancel 
+{
+	[request cancel];
+	[request release];
+	
+	request = nil;
+}
+
+
 
 - (void)dealloc
 {

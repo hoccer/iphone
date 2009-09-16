@@ -13,6 +13,6 @@
 @interface PeerGroupRequest : BaseHoccerRequest {
 }
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate;
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate;
 
 @end

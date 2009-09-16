@@ -28,6 +28,7 @@
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;
+- (void)onThrow: (id)sender;
 - (IBAction)save: (id)sender;
 
 @end

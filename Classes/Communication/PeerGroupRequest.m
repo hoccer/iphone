@@ -13,14 +13,14 @@
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
-- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture;
+- (NSData *)bodyWithLocation: (CLLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder;
 @end
 
 @implementation PeerGroupRequest
 
 @synthesize result;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture andDelegate: (id)aDelegate
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
@@ -32,7 +32,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 			
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 		[request setHTTPMethod: @"POST"];
-		[request setHTTPBody: [self bodyWithLocation: location andGesture: gesture]];	
+		[request setHTTPBody: [self bodyWithLocation: location gesture: gesture seeder: seeder]];	
 			
 		self.connection = [NSURLConnection connectionWithRequest:request delegate:self]; 
 		if (!connection)  {
@@ -45,14 +45,16 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (CLLocation *)location andGesture: (NSString *)gesture 
+- (NSData *)bodyWithLocation: (CLLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder
 {
 	NSMutableString *body = [NSMutableString string];
 	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
 	[body appendFormat:@"peer[accuracy]=%i&", location.horizontalAccuracy];
-	[body appendFormat:@"peer[gesture]=%@", gesture];
+	[body appendFormat:@"peer[gesture]=%@&", gesture];
+	[body appendFormat:@"peer[seeder]=%d", seeder];
 
+	NSLog(@"body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

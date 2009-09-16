@@ -10,8 +10,17 @@
 
 #import "HoccerViewController.h"
 #import "HoccerDownloadRequest.h"
+#import "HoccerUploadRequest.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerContentFactory.h"
+
+@interface HoccerViewController (Private)
+
+- (CLLocation *)currentLocation;
+
+@end
+
+
 
 @implementation HoccerViewController
 
@@ -55,8 +64,19 @@
 		return;
 	}
 	
-	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
+	CLLocation *location = [self currentLocation];
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
+}
+
+
+- (void)onThrow: (id)sender 
+{
+	if (request != nil) {
+		return;
+	}
+	
+	CLLocation *location = [self currentLocation];
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: nil delegate:self];
 }
 
 - (IBAction)save: (id)sender 
@@ -65,13 +85,20 @@
 }
 
 
+- (CLLocation *) currentLocation
+{
+	return [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
+}
+
+
+
 #pragma mark -
 #pragma mark Download Communication Delegate Methods
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
 	hoccerContent = [[HoccerContentFactory createContentFromResponse: aRequest.response 
-														   withData: aRequest.result] retain];
+														    withData: aRequest.result] retain];
 	
 	[self.view insertSubview: hoccerContent.view atIndex:0];
 	saveButton.title = [hoccerContent saveButtonDescription];
@@ -85,10 +112,15 @@
 
 
 #pragma mark -
-#pragma mark Upload Communication Methods
+#pragma mark Upload Communication 
 
-
-
+- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest
+{
+	[request release];
+	request = nil;
+	
+	NSLog(@"finished upload");
+}
 
 
 

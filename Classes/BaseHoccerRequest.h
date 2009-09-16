@@ -38,5 +38,6 @@
 - (id) createJSONFromResult: (NSData *) resultData;
 - (NSError *) createErrorFromResult: (id)aResult;
 
+- (void)cancel;
 
 @end
