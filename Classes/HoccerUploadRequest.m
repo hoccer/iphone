@@ -13,6 +13,7 @@
 
 #import "PeerGroupRequest.h"
 #import "PeerGroupPollingRequest.h"
+#import "UploadRequest.h"
 
 
 @implementation HoccerUploadRequest
@@ -37,6 +38,14 @@
 	return self;
 }
 
+- (void)dealloc 
+{
+	[super dealloc];
+	
+	[data release];
+	[upload release];
+}
+
 
 - (void)cancel 
 {
@@ -52,10 +61,13 @@
 
 - (void)finishedRequest: (BaseHoccerRequest *) aRequest
 {
-	NSLog(@"download uri %@", [aRequest.result valueForKey: @"download_uri"]);
+	NSLog(@"download uri %@", [aRequest.result valueForKey: @"upload_uri"]);
 
 	request = [[PeerGroupPollingRequest alloc] initWithObject:aRequest.result 
 																	 andDelegate:self];
+	
+	upload = [[UploadRequest alloc] initWithResult:aRequest.result data:self.data delegate: self];
+	
 }
 
 - (void)finishedPolling: (PeerGroupPollingRequest *)aRequest 
@@ -73,16 +85,17 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
+	NSLog(@"error");
 	[self.delegate checkAndPerformSelector: @selector(request:didFailWithError:) 
-	 withObject: self 
-	 withObject: error];
+								withObject: self 
+								withObject: error];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
 {
 	[self.delegate checkAndPerformSelector:@selector(request:didPublishUpdate:)
-	 withObject: self
-	 withObject: update];
+								withObject: self
+								withObject: update];
 }
 
 

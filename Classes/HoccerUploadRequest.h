@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic, assign) id delegate;
-@property (nonatomic, retain) NSData *data;
+@property (retain) NSData *data;
 
 - (id) initWithLocation: (CLLocation *)location gesture: (NSString *)gesture data: (NSData *)aData delegate: (id)aDelegate;
 - (void)cancel;
