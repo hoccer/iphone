@@ -6,28 +6,15 @@
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
 
-#import "HoccerViewController.h"
-
 #import <CoreLocation/CoreLocation.h>
-#import "PeerGroupRequest.h"
-#import "PeerGroupPollingRequest.h"
-#import "DownloadRequest.h"
 
+#import "HoccerViewController.h"
+#import "HoccerDownloadRequest.h"
+#import "BaseHoccerRequest.h"
 #import "HoccerContentFactory.h"
-
-#import "AccelerationRecorder.h"
-
 
 @implementation HoccerViewController
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -43,14 +30,15 @@
 
 - (void)dealloc {
 	[super dealloc];
-	
-    [statusLabel release];
 	[request release];
+	
 	[hoccerContent release];
 	[saveButton release];
-	
 	[toolbar release];
+    [statusLabel release];
+
 }
+
 
 - (IBAction)onCancel: (id)sender 
 {
@@ -68,7 +56,7 @@
 	}
 	
 	CLLocation *location = [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
-	request = [[PeerGroupRequest alloc] initWithLocation: location gesture: @"distribute" andDelegate: self];
+	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
 }
 
 - (IBAction)save: (id)sender 
@@ -77,44 +65,35 @@
 }
 
 
-#pragma mark Communication delegate methods
+#pragma mark -
+#pragma mark Download Communication Delegate Methods
 
-- (void)finishedRequest: (PeerGroupRequest *)aRequest 
+- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
-	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
-
-	HoccerBaseRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
+	hoccerContent = [[HoccerContentFactory createContentFromResponse: aRequest.response 
+														   withData: aRequest.result] retain];
 	
-	[request release];
-	request = pollingRequest;
-}
-
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest 
-{
-	HoccerBaseRequest *downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
-	
-	[request release];
-	request = downloadRequest;
-}
-
-- (void)finishedDownload: (BaseHoccerRequest *)aRequest 
-{
-		
-	hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
-														   withData: aRequest.result];
-
 	[self.view insertSubview: hoccerContent.view atIndex:0];
 	saveButton.title = [hoccerContent saveButtonDescription];
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
-
+	
 	[request release];
 	request = nil;
 }
 
 
-#pragma mark BaseHoccerRequest delegate methods
+#pragma mark -
+#pragma mark Upload Communication Methods
+
+
+
+
+
+
+#pragma mark -
+#pragma mark BaseHoccerRequest Delegate Methods
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {

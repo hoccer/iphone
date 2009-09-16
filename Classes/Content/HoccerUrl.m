@@ -13,6 +13,7 @@
 + (BOOL)isDataAUrl: (NSData *)data
 {
 	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	
 	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
 		return NO;
 	}
@@ -22,7 +23,8 @@
 
 - (void)save 
 {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+	NSLog(@"opening: %@", content);
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: content]];
 }
 
 - (void)dismiss {}

@@ -44,7 +44,7 @@
 	[super dealloc];
 	[receivedData release];
 	
-	// TODO: check why releaseing connectio crashes?
+	// TODO: check why releaseing connection crashes?
 	//NSLog(@"connection: %@", connection);
 	//[connection release];
 	[response release]; 

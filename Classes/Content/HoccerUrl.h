@@ -12,7 +12,6 @@
 #import "HoccerText.h"
 
 @interface HoccerUrl : HoccerText {
-	NSString *url;
 }
 
 + (BOOL) isDataAUrl: (NSData *)data;
