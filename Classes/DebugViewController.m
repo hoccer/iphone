@@ -71,7 +71,7 @@
 {
 	NSLog(@"starting recording: %@", recorder);
 	[recorder startRecording];
-	[recordingButton setTitle: @"Record Acceleration" forState: UIControlStateNormal ];
+	[recordingButton setTitle: @"Stop Recording" forState: UIControlStateNormal ];
 	self.recording = YES;
 }
 
@@ -79,7 +79,7 @@
 {
 	NSLog(@"stoping recording");
 	[recorder stopRecording];
-	[recordingButton setTitle: @"Stop Recording" forState: UIControlStateNormal ];
+	[recordingButton setTitle: @"Record Acceleration" forState: UIControlStateNormal ];
 
 	self.recording = NO;
 }

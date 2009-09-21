@@ -22,7 +22,7 @@
 - (void)startRecording
 {
 	[UIAccelerometer sharedAccelerometer].delegate = self;
-	[UIAccelerometer sharedAccelerometer].updateInterval = 0.01;
+	[UIAccelerometer sharedAccelerometer].updateInterval = 0.02;
 	
 	NSString *gesturesDirectory = [self directoryForAccelerationData];
 	self.filename = [self filenameFromCurrentTime];
@@ -60,6 +60,9 @@
 #pragma mark UIAccelerationDelegate methods
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
 {
+	NSLog(@"%f,%f,%f,%f\n", acceleration.timestamp, acceleration.x, 
+		  acceleration.y, acceleration.z);
+
 	[file writeData: [[self formatAccelerationData:acceleration] dataUsingEncoding: NSUTF8StringEncoding]];
 }
 
@@ -93,10 +96,10 @@
 	return [date stringByAppendingPathExtension:@"txt"];
 }
 
-- (NSString *)formatAccelerationData: (UIAcceleration *)accelertion
+- (NSString *)formatAccelerationData: (UIAcceleration *)acceleration
 {
-	return [NSString stringWithFormat:@"%d,%f,%f,%f", accelertion.timestamp, accelertion.x, 
-													  accelertion.y, accelertion.z];
+	return [NSString stringWithFormat:@"%f,%f,%f,%f\n", acceleration.timestamp, acceleration.x, 
+													  acceleration.y, acceleration.z];
 }
 
 	

@@ -126,7 +126,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {804, 994}}";
 			sepNavSelRange = "{751, 0}";
-			sepNavVisRange = "{828, 1057}";
+			sepNavVisRange = "{828, 1140}";
 			sepNavWindowFrame = "{{315, 312}, {750, 558}}";
 		};
 	};
@@ -527,7 +527,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 56;
-		modificationTime = 275233181.564773;
+		modificationTime = 275235845.653663;
 		state = 2;
 	};
 	22762D02105E412A003BF968 /* Test */ = {
@@ -639,7 +639,7 @@
 		ignoreCount = 0;
 		lineNumber = 25;
 		location = Test;
-		modificationTime = 275233181.564931;
+		modificationTime = 275235845.653681;
 		state = 2;
 	};
 	22762F1E105E73E4003BF968 /* PBXTextBookmark */ = {
@@ -712,16 +712,16 @@
 	};
 	22762FBA105E8589003BF968 /* AccelerationRecorder.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 544}}";
 			sepNavSelRange = "{378, 0}";
 			sepNavVisRange = "{0, 383}";
 		};
 	};
 	22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {728, 1498}}";
-			sepNavSelRange = "{1563, 0}";
-			sepNavVisRange = "{1111, 505}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 1498}}";
+			sepNavSelRange = "{2592, 0}";
+			sepNavVisRange = "{1672, 1071}";
 			sepNavWindowFrame = "{{199, 271}, {750, 558}}";
 		};
 	};
@@ -1836,9 +1836,9 @@
 	};
 	22798F44105FABAD0035C643 /* DebugViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 1246}}";
-			sepNavSelRange = "{1729, 20}";
-			sepNavVisRange = "{564, 1221}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 1246}}";
+			sepNavSelRange = "{1718, 0}";
+			sepNavVisRange = "{560, 817}";
 		};
 	};
 	22798F4D105FABCA0035C643 /* PBXTextBookmark */ = {
@@ -1886,7 +1886,7 @@
 		fRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */;
 		name = "AccelerationRecorder.m: 80";
 		rLen = 0;
-		rLoc = 2089;
+		rLoc = 2193;
 		rType = 0;
 		vrLen = 1284;
 		vrLoc = 30;
@@ -2362,6 +2362,20 @@
 		vrLen = 1004;
 		vrLoc = 3096;
 	};
+	228989621067CA1900FB3E5D /* LineFeatureTests.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 544}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 766}";
+		};
+	};
+	228989631067CA1900FB3E5D /* LineFeatureTests.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 546}}";
+			sepNavSelRange = "{555, 340}";
+			sepNavVisRange = "{0, 904}";
+		};
+	};
 	22A2E6B91060D24A0025FFA4 /* HoccerDownloadRequest.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
@@ -2546,14 +2560,14 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 2646}}";
 			sepNavSelRange = "{3947, 0}";
-			sepNavVisRange = "{3096, 1009}";
+			sepNavVisRange = "{3145, 967}";
 			sepNavWindowFrame = "{{438, 136}, {750, 558}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Release;
 		activeExecutable = 223BC30010552AE600ABE5A2 /* Hoccer */;
-		activeSDKPreference = iphoneos3.1;
+		activeSDKPreference = iphonesimulator3.1;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* Hoccer */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* Hoccer */,

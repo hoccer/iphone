@@ -47,6 +47,9 @@
 		227990F5105FE97D0035C643 /* ContentFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F4105FE97D0035C643 /* ContentFactoryTests.m */; };
 		227990FB105FEA140035C643 /* ReceivedContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentView.m */; };
 		227990FC105FEA140035C643 /* ReceivedContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227990FA105FEA140035C643 /* ReceivedContentView.xib */; };
+		228989641067CA1900FB3E5D /* LineFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989631067CA1900FB3E5D /* LineFeatureTests.m */; };
+		228989671067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
+		228989681067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		22A2E6BB1060D24A0025FFA4 /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2E6BA1060D24A0025FFA4 /* HoccerDownloadRequest.m */; };
 		22A2E7421060DA9E0025FFA4 /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2E7411060DA9E0025FFA4 /* HoccerUploadRequest.m */; };
 		22A2E8371060ECCB0025FFA4 /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2E8361060ECCB0025FFA4 /* UploadRequest.m */; };
@@ -132,6 +135,10 @@
 		227990F8105FEA140035C643 /* ReceivedContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedContentView.h; sourceTree = "<group>"; };
 		227990F9105FEA140035C643 /* ReceivedContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedContentView.m; sourceTree = "<group>"; };
 		227990FA105FEA140035C643 /* ReceivedContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReceivedContentView.xib; path = Classes/ReceivedContentView.xib; sourceTree = "<group>"; };
+		228989621067CA1900FB3E5D /* LineFeatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineFeatureTests.h; sourceTree = "<group>"; };
+		228989631067CA1900FB3E5D /* LineFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineFeatureTests.m; sourceTree = "<group>"; };
+		228989651067CB9200FB3E5D /* LineFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineFeature.h; path = GesturesInterpreter/LineFeature.h; sourceTree = "<group>"; };
+		228989661067CB9200FB3E5D /* LineFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineFeature.m; path = GesturesInterpreter/LineFeature.m; sourceTree = "<group>"; };
 		22A2E6B91060D24A0025FFA4 /* HoccerDownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerDownloadRequest.h; sourceTree = "<group>"; };
 		22A2E6BA1060D24A0025FFA4 /* HoccerDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerDownloadRequest.m; sourceTree = "<group>"; };
 		22A2E7401060DA9E0025FFA4 /* HoccerUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerUploadRequest.h; sourceTree = "<group>"; };
@@ -275,6 +282,8 @@
 				22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */,
 				227990F3105FE97D0035C643 /* ContentFactoryTests.h */,
 				227990F4105FE97D0035C643 /* ContentFactoryTests.m */,
+				228989621067CA1900FB3E5D /* LineFeatureTests.h */,
+				228989631067CA1900FB3E5D /* LineFeatureTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -306,6 +315,8 @@
 				22762FB5105E84B5003BF968 /* GesturesInterpretedDelegate.h */,
 				22762FB6105E84B5003BF968 /* GesturesInterpreter.h */,
 				22762FB7105E84B5003BF968 /* GesturesInterpreter.m */,
+				228989651067CB9200FB3E5D /* LineFeature.h */,
+				228989661067CB9200FB3E5D /* LineFeature.m */,
 			);
 			name = GesturesInterpreter;
 			sourceTree = "<group>";
@@ -504,6 +515,7 @@
 				22A2E6BB1060D24A0025FFA4 /* HoccerDownloadRequest.m in Sources */,
 				22A2E7421060DA9E0025FFA4 /* HoccerUploadRequest.m in Sources */,
 				22A2E8371060ECCB0025FFA4 /* UploadRequest.m in Sources */,
+				228989671067CB9200FB3E5D /* LineFeature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +533,8 @@
 				22799027105FD8870035C643 /* HoccerContentFactory.m in Sources */,
 				22799046105FDCEB0035C643 /* HoccerText.m in Sources */,
 				227990F5105FE97D0035C643 /* ContentFactoryTests.m in Sources */,
+				228989641067CA1900FB3E5D /* LineFeatureTests.m in Sources */,
+				228989681067CB9200FB3E5D /* LineFeature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
