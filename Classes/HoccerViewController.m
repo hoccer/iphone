@@ -7,6 +7,7 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 #import "HoccerViewController.h"
 #import "HoccerDownloadRequest.h"
@@ -17,13 +18,11 @@
 @interface HoccerViewController (Private)
 
 - (CLLocation *)currentLocation;
+- (void)updateLocation;
 
 @end
 
-
-
 @implementation HoccerViewController
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -32,7 +31,22 @@
 	// Release any cached data, images, etc that aren't in use.
 }
 
+
+- (void)viewDidLoad {
+	locationManager = [[CLLocationManager alloc] init];
+	[locationManager startUpdatingLocation];
+	
+	[self updateLocation];
+	[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
+}
+
+
+
 - (void)viewDidUnload {
+	[locationManager stopUpdatingLocation];
+	[locationManager release];
+	locationManager = nil;
+	
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
@@ -44,6 +58,9 @@
 	[saveButton release];
 	[toolbar release];
     [statusLabel release];
+	[locationLabel release];
+	
+	[locationManager release];
 
 	[super dealloc];
 }
@@ -94,7 +111,8 @@
 
 - (CLLocation *) currentLocation
 {
-	return [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
+	return locationManager.location;
+	//return [[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116];
 }
 
 
@@ -130,7 +148,6 @@
 }
 
 
-
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegate Methods
 
@@ -146,5 +163,28 @@
 {
 	statusLabel.text = update;
 }
+
+#pragma mark -
+#pragma mark Reverse Geocoding Methods
+
+- (void)updateLocation
+{
+	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: [self currentLocation].coordinate];
+	geocoder.delegate = self;
+	
+	[geocoder start];
+}
+
+
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
+{
+	[geocoder release];
+	locationLabel.text = placemark.locality;
+}
+
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error
+{
+}
+
 
 @end

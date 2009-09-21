@@ -64,8 +64,11 @@
 {
 	[request cancel];
 	[request release];
-	
 	request = nil;
+	
+	[upload cancel];
+	[upload release];
+	upload = nil;
 }
 
 
@@ -127,6 +130,7 @@
 
 - (void) didFinishUpload
 {
+	NSLog(@"upload did finish");
 	if (uploadDidFinish && pollingDidFinish) {
 		[self.delegate checkAndPerformSelector:@selector(requestDidFinishUpload:) withObject: self];
 	}

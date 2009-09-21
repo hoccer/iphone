@@ -50,6 +50,7 @@
 	[super dealloc];
 }
 
+#pragma mark -
 #pragma mark private helper methods
 
 - (id) createJSONFromResult: (NSData *) resultData 
@@ -78,6 +79,7 @@
 	return error;
 }
 
+#pragma mark -
 #pragma mark NSURLConnection delegate methods
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {

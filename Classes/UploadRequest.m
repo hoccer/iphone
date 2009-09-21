@@ -7,6 +7,8 @@
 //
 
 #import "UploadRequest.h"
+#import "NSObject+DelegateHelper.h"
+
 
 @interface UploadRequest (Private)
 
@@ -43,6 +45,23 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	
 	return self;
 }
+
+
+#pragma mark -
+#pragma mark BaseHoccerRequest Delegate Methods
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
+{
+	
+	
+	NSLog(@"upload connection did finish");
+	
+	self.result = [self createJSONFromResult: receivedData];
+	self.connection = nil;
+	
+	[delegate checkAndPerformSelector:@selector(finishedUpload:) withObject: self];
+}
+
 
 
 #pragma mark -

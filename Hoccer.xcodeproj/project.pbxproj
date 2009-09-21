@@ -31,6 +31,8 @@
 		22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */; };
 		22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
+		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
+		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22798F46105FABAD0035C643 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
 		22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22798F45105FABAD0035C643 /* DebugViewController.xib */; };
@@ -112,6 +114,7 @@
 		22762FBA105E8589003BF968 /* AccelerationRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerationRecorder.h; path = AccelerationRecorder/AccelerationRecorder.h; sourceTree = "<group>"; };
 		22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerationRecorder.m; path = AccelerationRecorder/AccelerationRecorder.m; sourceTree = "<group>"; };
 		227630E1105E99E5003BF968 /* HoccerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoccerTests-Info.plist"; sourceTree = "<group>"; };
+		22783D881067ABBB00B244F7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22798F43105FABAD0035C643 /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
 		22798F44105FABAD0035C643 /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugViewController.m; sourceTree = "<group>"; };
 		22798F45105FABAD0035C643 /* DebugViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DebugViewController.xib; path = Classes/DebugViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */,
+				22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,11 +270,11 @@
 		22762D17105E4408003BF968 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				227990F3105FE97D0035C643 /* ContentFactoryTests.h */,
-				227990F4105FE97D0035C643 /* ContentFactoryTests.m */,
 				22762D7E105E4F98003BF968 /* AcceletometerTestFramework */,
 				22762D76105E4A24003BF968 /* AccelerometerTestFrameworkTests.h */,
 				22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */,
+				227990F3105FE97D0035C643 /* ContentFactoryTests.h */,
+				227990F4105FE97D0035C643 /* ContentFactoryTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22783D881067ABBB00B244F7 /* MapKit.framework */,
 				223BC35E10553B2400ABE5A2 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -561,7 +567,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Resources\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -589,7 +599,11 @@
 				BUNDLE_LOADER = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Resources\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Test-Info.plist";

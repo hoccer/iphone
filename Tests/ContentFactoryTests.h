@@ -19,6 +19,8 @@
 }
 
 - (void)testHoccerURLCreation;
+- (void)testHoccerTextCreation;
 
+- (void)testHoccerUrlDetection;
 
 @end
