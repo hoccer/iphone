@@ -52,8 +52,8 @@
 
 - (void)dealloc
 {
-	[super dealloc];
 	[request release];
+	[super dealloc];
 }
 
 

@@ -69,11 +69,4 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 }
 
 
-- (void)dealloc 
-{
-	[super dealloc];
-}
-
-
-
 @end

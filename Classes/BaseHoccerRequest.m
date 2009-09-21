@@ -41,15 +41,13 @@
 
 - (void)dealloc 
 {
-	[super dealloc];
 	[receivedData release];
 	
-	// TODO: check why releaseing connection crashes?
-	//NSLog(@"connection: %@", connection);
-	//[connection release];
+	[connection release];
 	[response release]; 
 	[result release];
 	
+	[super dealloc];
 }
 
 #pragma mark private helper methods

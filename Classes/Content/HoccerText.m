@@ -40,8 +40,9 @@
 	
 - (void)dealloc
 {
-	[super dealloc];
 	[content release];
+
+	[super dealloc];
 }
 
 

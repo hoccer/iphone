@@ -83,13 +83,4 @@
 	[receivedData setLength:0];
 }
 
-
-- (void)dealloc {
-	[super dealloc];
-}
-
-
-
-
-
 @end

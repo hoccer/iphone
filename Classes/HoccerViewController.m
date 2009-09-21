@@ -38,7 +38,6 @@
 }
 
 - (void)dealloc {
-	[super dealloc];
 	[request release];
 	
 	[hoccerContent release];
@@ -46,6 +45,7 @@
 	[toolbar release];
     [statusLabel release];
 
+	[super dealloc];
 }
 
 

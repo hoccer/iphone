@@ -17,12 +17,8 @@
 + (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	id <HoccerContent> hoccerContent = nil;
 	
-//	NSString *mimeType = [[response allHeaderFields] objectForKey:@"Content-Type"];
 	NSString *mimeType = [response MIMEType];
 
-	NSLog(@"mime: %@", mimeType);
-	
-	
 	if ([mimeType isEqual: @"text/vcard"]) {
 		// TODO: create vcard object; 
 		// hoccerContent = [[HoccerVcard alloc] initWithData: data];
