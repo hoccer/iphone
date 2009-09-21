@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -273,13 +271,14 @@
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
-								<string>22762D03105E412A003BF968</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>21</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -314,6 +313,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -331,10 +332,9 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>228988F41067B27D00FB3E5D</string>
+										<string>2289892C1067B86300FB3E5D</string>
 										<key>history</key>
 										<array>
-											<string>223BC355105538F400ABE5A2</string>
 											<string>223BC426105558C500ABE5A2</string>
 											<string>223BC427105558C500ABE5A2</string>
 											<string>223BC428105558C500ABE5A2</string>
@@ -380,7 +380,6 @@
 											<string>22783C87106777E200B244F7</string>
 											<string>22783D031067806F00B244F7</string>
 											<string>22783D081067813700B244F7</string>
-											<string>22783D0A1067813700B244F7</string>
 											<string>22783D161067818F00B244F7</string>
 											<string>22783D2D1067841900B244F7</string>
 											<string>22783D2E1067841900B244F7</string>
@@ -389,7 +388,10 @@
 											<string>22783D611067A79C00B244F7</string>
 											<string>22783D641067A79C00B244F7</string>
 											<string>22783D911067AC9200B244F7</string>
-											<string>22783DA11067AE0F00B244F7</string>
+											<string>228989241067B86300FB3E5D</string>
+											<string>228989251067B86300FB3E5D</string>
+											<string>228989261067B86300FB3E5D</string>
+											<string>228989271067B86300FB3E5D</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -449,6 +451,10 @@
 											<string>22783C89106777E200B244F7</string>
 											<string>22783C8A106777E200B244F7</string>
 											<string>22783D671067A79C00B244F7</string>
+											<string>228989281067B86300FB3E5D</string>
+											<string>228989291067B86300FB3E5D</string>
+											<string>2289892A1067B86300FB3E5D</string>
+											<string>2289892B1067B86300FB3E5D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -642,8 +648,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
+		<string>2289892D1067B86300FB3E5D</string>
+		<string>2289892E1067B86300FB3E5D</string>
+		<string>2289892F1067B86300FB3E5D</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>223BC31A10552FA600ABE5A2</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/robertp/workspace/hoccer-iphone/Hoccer.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -663,12 +673,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>PeerGroupRequest.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -685,8 +697,6 @@
 							<string>413pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -737,7 +747,7 @@
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -861,7 +871,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -979,8 +989,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1016,7 +1024,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>22783BF91067664F00B244F7</string>
+				<string>228989021067B38A00FB3E5D</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -1026,7 +1034,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

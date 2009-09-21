@@ -179,7 +179,9 @@
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
 	[geocoder release];
-	locationLabel.text = placemark.locality;
+	CLLocation *location = [self currentLocation];
+	if (placemark.thoroughfare != nil)
+		locationLabel.text = [NSString stringWithFormat:@"%@ (~ %4.2fm)", placemark.thoroughfare, location.horizontalAccuracy];
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error

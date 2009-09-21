@@ -18,7 +18,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @implementation PeerGroupRequest
 
-@synthesize result;
+// @synthesize result;
 
 - (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate
 {

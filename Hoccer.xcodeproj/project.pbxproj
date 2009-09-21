@@ -628,12 +628,13 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Palmer (8U2BPZDBL2)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F56111A-C1DD-4190-ACA1-454688048DAF";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
@@ -643,12 +644,13 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Palmer (8U2BPZDBL2)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F56111A-C1DD-4190-ACA1-454688048DAF";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
