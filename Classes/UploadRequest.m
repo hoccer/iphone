@@ -10,7 +10,7 @@
 
 @interface UploadRequest (Private)
 
-- (NSData  *)bodyWithData: (NSData *) data;
+- (NSData  *)bodyWithData: (NSData *) data type: (NSString *)type filename: (NSString *)filename;
 
 @end
 
@@ -18,7 +18,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 
 @implementation UploadRequest
 
-- (id)initWithResult: (id) aResult data: (NSData *)bodyData delegate: (id)aDelegate
+- (id)initWithResult: (id) aResult data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
@@ -33,7 +33,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 		[request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
 				 forHTTPHeaderField:@"Content-Type"];
 		
-		[request setHTTPBody: [self bodyWithData: bodyData]];
+		[request setHTTPBody: [self bodyWithData: bodyData type: type filename: filename]];
 		
 		self.connection = [NSURLConnection connectionWithRequest:request delegate:self]; 
 		if (!connection)  {
@@ -49,30 +49,22 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 #pragma mark Private Methods
 
 
-- (NSData  *)bodyWithData: (NSData *) data 
+- (NSData  *)bodyWithData: (NSData *) data type: (NSString *)type filename: (NSString *)filename
 {
-		
-	NSString *filename = @"woo.txt";
-	NSString *mime = @"text/plain";
 	NSString *name = @"upload[attachment]";
 	
-	NSMutableString *bodyData = [NSMutableString string];
+	NSMutableData *bodyData = [NSMutableData data];
 	
-	[bodyData appendFormat: @"--%@\r\n", kBorder]; 
-	[bodyData appendFormat: @"Content-Disposition: form-data; name=\"%@\"", name];
-	[bodyData appendFormat: @"filename=\"%@\"\r\n", filename];
-	[bodyData appendFormat: @"Content-Type: %@\r\n", mime];
-	[bodyData appendString: @"Content-Transfer-Encoding: binary\r\n\r\n"];
+	[bodyData appendData: [[NSString stringWithFormat: @"--%@\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]]; 
+	[bodyData appendData: [[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"", name] dataUsingEncoding: NSUTF8StringEncoding]];
+	[bodyData appendData: [[NSString stringWithFormat: @" filename=\"%@\"\r\n", filename] dataUsingEncoding: NSUTF8StringEncoding]];
+	[bodyData appendData: [[NSString stringWithFormat: @"Content-Type: %@\r\n", type] dataUsingEncoding: NSUTF8StringEncoding]];
+	[bodyData appendData: [[NSString stringWithFormat: @"Content-Transfer-Encoding: binary\r\n\r\n"] dataUsingEncoding: NSUTF8StringEncoding]];
 	
-	[bodyData appendString: @"http://www.artcom.de"];
-	
-	[bodyData appendFormat: @"\r\n--%@--\r\n", kBorder];
-	
-	NSLog(bodyData);
-	
-	
-	return [bodyData dataUsingEncoding: NSUTF8StringEncoding];
-	
+	[bodyData appendData: data];
+	[bodyData appendData: [[NSString stringWithFormat: @"\r\n--%@--\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]];
+		
+	return bodyData;
 }
 
 

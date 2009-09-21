@@ -76,7 +76,14 @@
 	}
 	
 	CLLocation *location = [self currentLocation];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: nil delegate:self];
+
+	NSString *type = @"type";
+	NSString *filename = @"text.txt";
+	NSData *data = [[NSString stringWithString:@"http://www.artcom.de"] dataUsingEncoding: NSUTF8StringEncoding];
+	
+	
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: data 
+													   type: type filename: filename delegate:self];
 }
 
 - (IBAction)save: (id)sender 

@@ -14,6 +14,5 @@
 	NSMutableURLRequest *request;
 }
 
-- (id)initWithResult: (id) aResult data: (NSData *)bodyData delegate: (id)aDelegate;
-
+- (id)initWithResult: (id) aResult data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate;
 @end

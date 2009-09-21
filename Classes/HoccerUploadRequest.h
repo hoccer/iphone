@@ -15,14 +15,21 @@
 	BaseHoccerRequest *upload;
 	
 	NSData *data;
+	NSString *type;
+	NSString *filename;
 	
 	id delegate;
+	
+	BOOL uploadDidFinish, pollingDidFinish;
 }
 
 @property (nonatomic, assign) id delegate;
 @property (retain) NSData *data;
+@property (retain) NSString *type;
+@property (retain) NSString *filename;
 
-- (id) initWithLocation: (CLLocation *)location gesture: (NSString *)gesture data: (NSData *)aData delegate: (id)aDelegate;
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture data: (NSData *)aData 
+				  type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate;
 - (void)cancel;
 
 @end
