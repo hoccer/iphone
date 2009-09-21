@@ -434,6 +434,12 @@
 		vrLoc = 0;
 	};
 	227334A31056603B004228B4 /* BaseHoccerRequest.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = BaseHoccerRequest.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/BaseHoccerRequest.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 791}}";
 			sepNavSelRange = "{859, 0}";
@@ -442,6 +448,12 @@
 		};
 	};
 	227334A41056603B004228B4 /* BaseHoccerRequest.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = BaseHoccerRequest.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/BaseHoccerRequest.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 1498}}";
 			sepNavSelRange = "{1625, 0}";
@@ -2362,21 +2374,20 @@
 		vrLen = 1004;
 		vrLoc = 3096;
 	};
-	228989621067CA1900FB3E5D /* LineFeatureTests.h */ = {
+	228989651067CB9200FB3E5D /* LineFeature.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1008, 544}}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 544}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 766}";
-		};
-	};
-	228989631067CA1900FB3E5D /* LineFeatureTests.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 546}}";
-			sepNavSelRange = "{555, 340}";
-			sepNavVisRange = "{0, 904}";
+			sepNavVisRange = "{0, 211}";
 		};
 	};
 	22A2E6B91060D24A0025FFA4 /* HoccerDownloadRequest.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = HoccerDownloadRequest.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerDownloadRequest.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {931, 768}}";
 			sepNavSelRange = "{459, 0}";
@@ -2384,6 +2395,12 @@
 		};
 	};
 	22A2E6BA1060D24A0025FFA4 /* HoccerDownloadRequest.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = HoccerDownloadRequest.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerDownloadRequest.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 1624}}";
 			sepNavSelRange = "{930, 0}";
@@ -2431,6 +2448,12 @@
 		vrLoc = 0;
 	};
 	22A2E7401060DA9E0025FFA4 /* HoccerUploadRequest.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = HoccerUploadRequest.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerUploadRequest.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
 			sepNavSelRange = "{414, 0}";
@@ -2438,6 +2461,12 @@
 		};
 	};
 	22A2E7411060DA9E0025FFA4 /* HoccerUploadRequest.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = HoccerUploadRequest.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/HoccerUploadRequest.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {882, 1932}}";
 			sepNavSelRange = "{1116, 0}";
@@ -2505,6 +2534,12 @@
 		vrLoc = 0;
 	};
 	22A2E8351060ECCB0025FFA4 /* UploadRequest.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = UploadRequest.h;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/UploadRequest.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
 			sepNavSelRange = "{417, 0}";
@@ -2512,6 +2547,12 @@
 		};
 	};
 	22A2E8361060ECCB0025FFA4 /* UploadRequest.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = UploadRequest.m;
+		path = "/Users/robertp/workspace/hoccer-iphone/Classes/UploadRequest.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 1260}}";
 			sepNavSelRange = "{1419, 0}";
@@ -2571,7 +2612,6 @@
 		activeTarget = 1D6058900D05DD3D006BFB54 /* Hoccer */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* Hoccer */,
-			22762D02105E412A003BF968 /* Test */,
 		);
 		breakpoints = (
 			2273379A1056A133004228B4 /* HoccerViewController.m:56 */,
