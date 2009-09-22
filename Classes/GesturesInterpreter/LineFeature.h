@@ -6,11 +6,21 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface LineFeature : NSObject {
-
+	NSMutableArray *points;
 }
+
+@property (readonly) float slope;
+@property (readonly) float length;
+@property (readonly) float yIntersection;
+@property (readonly) CGPoint center;
+
+- (id)initWithPoint: (CGPoint)point;
+- (BOOL)addPoint: (CGPoint)point;
+
+- (BOOL)isValid: (CGPoint) point;
 
 @end

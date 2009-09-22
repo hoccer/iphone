@@ -7,31 +7,54 @@
 //
 
 #import "LineFeatureTests.h"
-
+#import "LineFeature.h"
 
 @implementation LineFeatureTests
 
 - (void)testAddingPoints 
 {
-	LineFeature line = [[LineFeature alloc] initWithPoint: CGMakePoint(0, 0)]:
-	STAssertEquals(0, line.slope, @"slope");
-	STAssertEquals(0, line.length, @"length");
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertEquals(0.0f, line.slope, @"slope");
+	STAssertEquals(0.0f, line.length, @"length");
 	
+	STAssertEquals(0.0f, line.center.x, @"center x");
 	
+	STAssertTrue([line addPoint: CGPointMake(20, -0.5f)], @"adding points should be possible");
 	
-	// LineFeature line = new LineFeature(new Vec2D(0, 0));
+	STAssertEquals(-0.025f, line.slope, @"slope");
+	STAssertEquals(20.0f, line.length, @"length");
 	
-	// assertEquals("slope", 0f, line.getSlope());
-	// assertEquals("length", 0f, line.getLength());
+	STAssertTrue([line addPoint: CGPointMake(40, 0.5f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, 0.0f)], @"adding points should be possible");
+
+	STAssertEquals(0.0f, line.slope, @"slope");
+	STAssertEquals(60.0f, line.length, @"length");
 	
-//	assertTrue(line.add(new Vec2D(20, -0.5f)));
-//	assertEquals("slope", -0.025f, line.getSlope());
-//	assertEquals("length", 20f, line.getLength());
-//	assertTrue(line.add(new Vec2D(40, 0.5f)));
-//	assertTrue(line.add(new Vec2D(60, 0f)));
-//	
-//	assertEquals("slope", 0f, line.getSlope());
-//	assertEquals("length", 60f, line.getLength());
+	[line release];
+}
+
+- (void)testAddingPointsWithRejection 
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+
+	STAssertTrue([line addPoint: CGPointMake(20, 1.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, 2.0f)], @"adding points should be possible");
+	STAssertFalse([line addPoint: CGPointMake(60, -1.0f)], @"adding points should be possible");
+
+	STAssertEquals( 1 / 20.0f, line.slope, @"slope");
+	STAssertEquals(40.0f, line.length, @"length");
+	
+	[line release];
+}
+
+- (void)testAddingManyPoints
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	
+	for (int i = 1; i < 50; i++) {
+		STAssertTrue([line addPoint: CGPointMake(i * 20, 0)], @"should add this point");
+		STAssertFalse([line isValid:  CGPointMake((i + 1) * 20, 3)], @"should not add this point");
+	}
 }
 
 
