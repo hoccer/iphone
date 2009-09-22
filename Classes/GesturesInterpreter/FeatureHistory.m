@@ -13,6 +13,7 @@
 
 - (void) addPoint: (CGPoint) newPoint toLine: (NSMutableArray *)lineFeatures;
 - (NSString *)chartDataFor: (NSArray *)lineFeatures;
+- (NSArray *)featuresOnAxis: (NSInteger)axis;
 
 @end
 
@@ -115,9 +116,37 @@
 	return [NSString stringWithFormat:@"%@|%@", xValues, yValues]; 
 }
 
-
-
-
+- (NSString *)featurePatternOnAxis: (NSInteger) axis inTimeInterval: (NSTimeInterval) timeInterval
+{
+	NSArray *lineFeatures = [self featuresOnAxis:axis];
+	NSMutableArray *featureTypeArray= [NSMutableArray array];
+		
+	for (int i = [lineFeatures count]-1; i >= 0 && timeInterval > 0; i--) {
+		LineFeature *feature = [lineFeatures objectAtIndex:i];
+		[featureTypeArray insertObject:[feature type]
+							   atIndex:0];
+		
+		timeInterval -= feature.length;
+	}
+	
+	return [featureTypeArray componentsJoinedByString:@""];
+}
+- (NSArray *)featuresOnAxis: (NSInteger)axis 
+{
+	switch (axis) {
+		case kXAxis:
+			return self.xLineFeatures;
+			break;
+		case kYAxis:
+			return self.yLineFeatures;
+			break;
+		case kZAxis:
+			return self.zLineFeatures;
+			break;
+		default:
+			return nil;
+	}
+}
 
 
 

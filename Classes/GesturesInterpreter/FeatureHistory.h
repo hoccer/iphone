@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define kXAxis 0
+#define kYAxis 1
+#define kZAxis 2
+
 @interface FeatureHistory : NSObject {
 
 	NSMutableArray *xLineFeatures;
@@ -22,5 +26,6 @@
 - (void)addAcceleration : (UIAcceleration *)acceleration;
 
 - (UIImage *)chart;
+- (NSString *)featurePatternOnAxis: (NSInteger)axis inTimeInterval: (NSTimeInterval)timeInterval;
 
 @end

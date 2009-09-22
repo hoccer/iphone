@@ -287,7 +287,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 37}, {266, 810}}</string>
+							<string>{{0, 0}, {266, 810}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -336,7 +336,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>22D4A035106928C700B03B61</string>
+										<string>22D4A0901069330300B03B61</string>
 										<key>history</key>
 										<array>
 											<string>223BC426105558C500ABE5A2</string>
@@ -390,16 +390,16 @@
 											<string>22D49F1E1069017900B03B61</string>
 											<string>22D49F3E1069022600B03B61</string>
 											<string>22D49F571069045500B03B61</string>
-											<string>22D49F8E10690B5700B03B61</string>
 											<string>22D49FC21069139B00B03B61</string>
 											<string>22D49FC41069139B00B03B61</string>
 											<string>22D49FCC106915E600B03B61</string>
-											<string>22D4A023106928C700B03B61</string>
-											<string>22D4A024106928C700B03B61</string>
-											<string>22D4A025106928C700B03B61</string>
-											<string>22D4A026106928C700B03B61</string>
-											<string>22D4A027106928C700B03B61</string>
-											<string>22D4A028106928C700B03B61</string>
+											<string>22D4A04F10692F4200B03B61</string>
+											<string>22D4A05010692F4200B03B61</string>
+											<string>22D4A05210692F4200B03B61</string>
+											<string>22D4A05310692F4200B03B61</string>
+											<string>22D4A0731069312A00B03B61</string>
+											<string>22D4A0821069320100B03B61</string>
+											<string>22D4A0741069312A00B03B61</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -631,6 +631,33 @@
 											<string>22D4A032106928C700B03B61</string>
 											<string>22D4A033106928C700B03B61</string>
 											<string>22D4A034106928C700B03B61</string>
+											<string>22D4A03D10692A2D00B03B61</string>
+											<string>22D4A03E10692A2D00B03B61</string>
+											<string>22D4A05610692F4200B03B61</string>
+											<string>22D4A05710692F4200B03B61</string>
+											<string>22D4A05810692F4200B03B61</string>
+											<string>22D4A05910692F4200B03B61</string>
+											<string>22D4A05A10692F4200B03B61</string>
+											<string>22D4A05B10692F4200B03B61</string>
+											<string>22D4A05C10692F4200B03B61</string>
+											<string>22D4A05D10692F4200B03B61</string>
+											<string>22D4A05E10692F4200B03B61</string>
+											<string>22D4A05F10692F4200B03B61</string>
+											<string>22D4A06010692F4200B03B61</string>
+											<string>22D4A06110692F4200B03B61</string>
+											<string>22D4A06210692F4200B03B61</string>
+											<string>22D4A06310692F4200B03B61</string>
+											<string>22D4A06410692F4200B03B61</string>
+											<string>22D4A06510692F4200B03B61</string>
+											<string>22D4A06610692F4200B03B61</string>
+											<string>22D4A06710692F4200B03B61</string>
+											<string>22D4A06810692F4200B03B61</string>
+											<string>22D4A0751069312A00B03B61</string>
+											<string>22D4A0761069312A00B03B61</string>
+											<string>22D4A0771069312A00B03B61</string>
+											<string>22D4A0781069312A00B03B61</string>
+											<string>22D4A0791069312A00B03B61</string>
+											<string>22D4A0831069320100B03B61</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -824,12 +851,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>22D4A0911069330300B03B61</string>
 		<string>22D49EF81068F2C500B03B61</string>
 		<string>22D49EFA1068F2C500B03B61</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>223BC31A10552FA600ABE5A2</string>
 		<string>/Users/robertp/workspace/hoccer-iphone/Hoccer.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>-3 133 1276 869 0 0 1280 1002 </string>
@@ -848,14 +876,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>LineFeature.m</string>
+								<string>RunPlatformUnitTests.include</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -872,6 +898,8 @@
 							<string>410pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

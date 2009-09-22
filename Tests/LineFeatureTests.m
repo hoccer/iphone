@@ -40,6 +40,8 @@
 	STAssertTrue([line addPoint: CGPointMake(3, 0)], @"adding points should be possible");
 	STAssertTrue([line addPoint: CGPointMake(4, 0)], @"adding points should be possible");
 	STAssertFalse([line addPoint: CGPointMake(5, 5)], @"adding points should be possible");
+	
+	[line release];
 }
 
 - (void)testAddingPoints3 
@@ -55,6 +57,8 @@
 	
 	STAssertTrue([line addPoint: CGPointMake(60, 15)], @"adding points should be possible");
 	STAssertFalse([line addPoint: CGPointMake(80, 10)], @"adding points should be possible");
+	
+	[line release];
 }
 
 - (void)testAddingPointsWithRejection 
@@ -79,6 +83,8 @@
 		STAssertTrue([line addPoint: CGPointMake(i * 20, 0)], @"should add this point");
 		STAssertFalse([line isValid:  CGPointMake((i + 1) * 20, 3)], @"should not add this point");
 	}
+	
+	[line release];
 }
 
 - (void)testIsDescending
@@ -93,6 +99,8 @@
 	STAssertFalse([line isAscending], @"should be ascending");
 	
 	STAssertEquals(line.type, @"<down>", @"type should be down");
+	
+	[line release];
 }
 
 - (void)testIsAscending
@@ -107,6 +115,8 @@
 	STAssertTrue([line isAscending], @"should be ascending");
 	
 	STAssertEquals(line.type, @"<up>", @"should be up");
+	
+	[line release];
 }
 
 -  (void)testIsFlat
@@ -121,6 +131,8 @@
 	STAssertFalse([line isAscending], @"should be ascending");
 	
 	STAssertEquals(line.type, @"<flat>", @"should be flat");
+	
+	[line release];
 }
 
 
@@ -132,6 +144,8 @@
 	STAssertTrue([line addPoint: CGPointMake(60, 6.0f)], @"adding points should be possible");
 	
 	STAssertEquals(line.type, @"<fastup>", @"should be flat");
+	
+	[line release];
 }
 
 
@@ -143,6 +157,8 @@
 	STAssertTrue([line addPoint: CGPointMake(60, -6.0f)], @"adding points should be possible");
 	
 	STAssertEquals(line.type, @"<fastdown>", @"should be flat");
+
+	[line release];
 }
 
 @end
