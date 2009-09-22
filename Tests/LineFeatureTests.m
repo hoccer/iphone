@@ -33,6 +33,30 @@
 	[line release];
 }
 
+- (void)testAddingPoints2 
+{
+	LineFeature *line =  [LineFeature lineFeatureWithPoint:CGPointMake(1, 0)];
+	STAssertTrue([line addPoint: CGPointMake(2, 0)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(3, 0)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(4, 0)], @"adding points should be possible");
+	STAssertFalse([line addPoint: CGPointMake(5, 5)], @"adding points should be possible");
+}
+
+- (void)testAddingPoints3 
+{
+	LineFeature *line =  [LineFeature lineFeatureWithPoint:CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20, 5)], @"adding points should be possible");
+	STAssertEquals(line.slope, 5/20.0f, @"slope");
+	
+	STAssertEquals(line.center.x, 10.0f, @"center x");
+	STAssertEquals(line.yIntersection, 0.0f, @"y intersection");
+	
+	STAssertTrue([line addPoint: CGPointMake(40, 10)], @"adding points should be possible");
+	
+	STAssertTrue([line addPoint: CGPointMake(60, 15)], @"adding points should be possible");
+	STAssertFalse([line addPoint: CGPointMake(80, 10)], @"adding points should be possible");
+}
+
 - (void)testAddingPointsWithRejection 
 {
 	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];

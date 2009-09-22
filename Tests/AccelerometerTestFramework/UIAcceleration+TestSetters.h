@@ -11,6 +11,8 @@
 
 @interface UIAcceleration (TestSetters) 
 
++ (UIAcceleration *) accelerationWithX: (float) x y:(float)y z:(float)z timestamp: (float) timestamp;
+
 - (void)setTimestamp: (double)timestamp;
 - (void)setX: (double)aX;
 - (void)setY: (double)aY;

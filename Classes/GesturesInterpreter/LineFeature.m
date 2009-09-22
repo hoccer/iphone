@@ -20,6 +20,19 @@
 
 @implementation LineFeature
 
++ (LineFeature *)lineFeatureWithPoint: (CGPoint)point
+{
+	return [[[LineFeature alloc] initWithPoint: point] autorelease];
+}
+
++ (LineFeature *)lineFeatureWithPoint: (CGPoint)pointA  andPoint: (CGPoint)pointB
+{
+	LineFeature *feature =  [[LineFeature  alloc] initWithPoint:pointA];
+	[feature  addPoint: pointB];
+	
+	return [feature autorelease];
+}
+
 
 - (id)initWithPoint: (CGPoint)point
 {
@@ -70,6 +83,11 @@
 	return last.x - first.x;
 }
 
+- (CGPoint) newestPoint
+{
+	return [[points lastObject] CGPointValue];
+}
+
 
 #pragma mark -
 #pragma mark Private Helper Methods
@@ -109,7 +127,7 @@
 	avarageY /= [points count];
 	CGPoint first = [[points objectAtIndex:0] CGPointValue];
 	
-	return CGPointMake(first.x + self.length, avarageY);
+	return CGPointMake((first.x + self.length / 2), avarageY);
 }
 
 - (void)compress

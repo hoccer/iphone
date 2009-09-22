@@ -11,6 +11,17 @@
 
 @implementation UIAcceleration (TestSetters)
 
++ (UIAcceleration *) accelerationWithX: (float) x y:(float)y z:(float)z timestamp: (float) timestamp
+{
+	UIAcceleration *acceleration = [[UIAcceleration alloc] init];
+	acceleration.x = x;
+	acceleration.y = y;
+	acceleration.z = z;
+	acceleration.timestamp = timestamp;
+	
+	return [acceleration autorelease];
+}
+
 - (void)setTimestamp: (double)aTimestamp 
 {
 	timestamp = aTimestamp;

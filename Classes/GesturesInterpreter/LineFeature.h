@@ -18,6 +18,11 @@
 @property (readonly) float yIntersection;
 @property (readonly) CGPoint center;
 
+@property (readonly) CGPoint newestPoint;
+
++ (LineFeature *)lineFeatureWithPoint: (CGPoint)point;
++ (LineFeature *)lineFeatureWithPoint: (CGPoint)pointA  andPoint: (CGPoint)pointB;
+
 - (id)initWithPoint: (CGPoint)point;
 - (BOOL)addPoint: (CGPoint)point;
 
