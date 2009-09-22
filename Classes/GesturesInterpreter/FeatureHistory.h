@@ -14,6 +14,7 @@
 	NSMutableArray *yLineFeatures;
 	NSMutableArray *zLineFeatures;
 	
+	double starttime;
 }
 
 @property (readonly) NSMutableArray *xLineFeatures, *yLineFeatures, *zLineFeatures;

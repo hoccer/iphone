@@ -29,6 +29,7 @@
 		yLineFeatures =[[NSMutableArray alloc] init]; 
 		zLineFeatures =[[NSMutableArray alloc] init]; 
 		
+		starttime = -1;
 	}
 	return self;
 }
@@ -44,13 +45,19 @@
 
 - (void)addAcceleration : (UIAcceleration *)acceleration 
 {
-	[self addPoint: CGPointMake(acceleration.timestamp, acceleration.x) 
+	if (starttime == -1) {
+		starttime = acceleration.timestamp;
+	}
+
+	NSTimeInterval time = acceleration.timestamp - starttime; 
+	
+	[self addPoint: CGPointMake(time, acceleration.x * 9.81) 
 			toLine: xLineFeatures]; 
 	
-	[self addPoint: CGPointMake(acceleration.timestamp, acceleration.y) 
+	[self addPoint: CGPointMake(time, acceleration.y * 9.81) 
 			toLine: yLineFeatures]; 
 	
-	[self addPoint: CGPointMake(acceleration.timestamp, acceleration.z) 
+	[self addPoint: CGPointMake(time, acceleration.z * 9.81) 
 			toLine: zLineFeatures]; 
 }
 
@@ -81,11 +88,10 @@
 	
 	
 	NSLog(@"image from %@", url);
-	NSError *error;
+	NSError *error = nil;
 	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:  NSUTF8StringEncoding]] 
 											  options: NSUncachedRead error: &error];
 	
-	NSLog(@"received data: %@", imageData);
 	NSLog(@"error: %@", error);
 	
 	return [UIImage imageWithData: imageData];
@@ -100,8 +106,8 @@
 		CGPoint firstPoint = [feature firstPoint];
 		CGPoint lastPoint  = [feature newestPoint];
 		
-		[xValues appendFormat: @"%d,%d,", (int)firstPoint.x, (int)lastPoint.x];
-		[yValues appendFormat: @"%d,%d,", (int)firstPoint.y, (int)lastPoint.y];
+		[xValues appendFormat: @"%2.2f,%2.2f,", firstPoint.x, lastPoint.x];
+		[yValues appendFormat: @"%2.2f,%2.2f,", firstPoint.y, lastPoint.y];
 	}
 	
 	[xValues deleteCharactersInRange: NSMakeRange([xValues length]-1, 1)];

@@ -92,7 +92,13 @@
 
 - (void)showImage
 {
-	imageView.image = [recorder.featureHistory chart];
+	UIImage *chart = [recorder.featureHistory chart];
+	
+	imageView.frame = CGRectMake(0, 0, chart.size.width, chart.size.height);
+	((UIScrollView *)imageView.superview).contentSize = CGSizeMake(chart.size.width, chart.size.height);
+	imageView.image = chart;
+	
+	[imageView.superview setNeedsLayout]; 
 }
 
 
