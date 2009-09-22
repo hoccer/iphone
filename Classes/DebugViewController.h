@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class AccelerationRecorder;
+@class FeatureHistory;
 
 @interface DebugViewController : UIViewController {
 

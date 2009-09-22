@@ -20,4 +20,6 @@
 
 - (void)addAcceleration : (UIAcceleration *)acceleration;
 
+- (UIImage *)chart;
+
 @end

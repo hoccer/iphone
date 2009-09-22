@@ -8,10 +8,13 @@
 
 #import "DebugViewController.h"
 #import "AccelerationRecorder.h"
+#import "FeatureHistory.h"
 
 @interface DebugViewController (Private) 
 - (void)turnRecordingOn;
 - (void)turnRecordingOff;
+
+- (void)showImage;
 
 @end
 
@@ -82,6 +85,13 @@
 	[recordingButton setTitle: @"Record Acceleration" forState: UIControlStateNormal ];
 
 	self.recording = NO;
+	
+	[self showImage];
+}
+
+- (void)showImage
+{
+	[recorder.featureHistory chart];
 }
 
 

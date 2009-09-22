@@ -7,6 +7,7 @@
 //
 
 #import "AccelerationRecorder.h"
+#import "FeatureHistory.h"
 
 @interface AccelerationRecorder (private)
 - (NSString *)directoryForAccelerationData;
@@ -14,15 +15,17 @@
 - (NSString *)formatAccelerationData: (UIAcceleration *)accelertion;
 @end
 
-
 @implementation AccelerationRecorder
 
 @synthesize filename;
+@synthesize featureHistory;
 
 - (void)startRecording
 {
 	[UIAccelerometer sharedAccelerometer].delegate = self;
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.02;
+	
+	self.featureHistory = [[FeatureHistory alloc] init]; 
 	
 	NSString *gesturesDirectory = [self directoryForAccelerationData];
 	self.filename = [self filenameFromCurrentTime];
@@ -50,10 +53,12 @@
 
 - (void)dealloc 
 {
-	[super dealloc];
+	self.featureHistory = nil;
 	
 	[file closeFile];
 	[file release];
+
+	[super dealloc];
 }
 
 #pragma mark -
@@ -64,6 +69,8 @@
 		  acceleration.y, acceleration.z);
 
 	[file writeData: [[self formatAccelerationData:acceleration] dataUsingEncoding: NSUTF8StringEncoding]];
+	
+	[featureHistory addAcceleration: acceleration];
 }
 
 

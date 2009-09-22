@@ -88,6 +88,11 @@
 	return [[points lastObject] CGPointValue];
 }
 
+- (CGPoint) firstPoint
+{
+	return [[points objectAtIndex:0] CGPointValue];
+}
+
 
 #pragma mark -
 #pragma mark Private Helper Methods

@@ -19,6 +19,7 @@
 @property (readonly) CGPoint center;
 
 @property (readonly) CGPoint newestPoint;
+@property (readonly) CGPoint firstPoint;
 
 + (LineFeature *)lineFeatureWithPoint: (CGPoint)point;
 + (LineFeature *)lineFeatureWithPoint: (CGPoint)pointA  andPoint: (CGPoint)pointB;
