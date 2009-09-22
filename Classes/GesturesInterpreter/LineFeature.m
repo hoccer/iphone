@@ -12,8 +12,8 @@
 @interface LineFeature (Private)
 
 - (float)calculateSlopeBetween: (CGPoint) firstPoint and: (CGPoint) secondPoint;
-
 - (float)expectedYValueForX: (float)x;
+- (void)compress;
 
 @end
 
@@ -36,7 +36,8 @@
 {
 	if (![self isValid: point])
 		return NO;
-		
+	
+	[self compress];
 	[points addObject:[NSValue valueWithCGPoint: point]];
 	return YES;
 }	
@@ -111,5 +112,21 @@
 	return CGPointMake(first.x + self.length, avarageY);
 }
 
+- (void)compress
+{
+	if ([points count] < 20)
+		return;
+	
+	NSMutableArray *compressedPoints = [[NSMutableArray alloc] init];
+	
+	for (int i = 0; i < [points count]; i++) {
+		if (i % 3 == 0) {
+			[compressedPoints addObject:[points objectAtIndex:i]];
+		}
+	}
+	
+	[points release];
+	points = compressedPoints;
+}
 
 @end
