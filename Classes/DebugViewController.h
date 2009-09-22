@@ -17,6 +17,7 @@
 	AccelerationRecorder *recorder;
 	
 	IBOutlet UIButton *recordingButton;
+	IBOutlet UIImageView *imageView;
 }
 
 @property BOOL recording;

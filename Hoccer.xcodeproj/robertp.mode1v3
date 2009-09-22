@@ -287,7 +287,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {266, 810}}</string>
+							<string>{{0, 30}, {266, 810}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -336,7 +336,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>22D49F46106902B500B03B61</string>
+										<string>22D49F721069067A00B03B61</string>
 										<key>history</key>
 										<array>
 											<string>223BC426105558C500ABE5A2</string>
@@ -393,12 +393,12 @@
 											<string>22D49F1A1069017900B03B61</string>
 											<string>22D49F1B1069017900B03B61</string>
 											<string>22D49F1C1069017900B03B61</string>
-											<string>22D49F1D1069017900B03B61</string>
 											<string>22D49F1E1069017900B03B61</string>
-											<string>22D49F1F1069017900B03B61</string>
-											<string>22D49F201069017900B03B61</string>
 											<string>22D49F3E1069022600B03B61</string>
-											<string>22D49F3F1069022600B03B61</string>
+											<string>22D49F4A1069041800B03B61</string>
+											<string>22D49F571069045500B03B61</string>
+											<string>22D49F65106905EF00B03B61</string>
+											<string>22D49F66106905EF00B03B61</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -568,6 +568,14 @@
 											<string>22D49F381069017900B03B61</string>
 											<string>22D49F391069017900B03B61</string>
 											<string>22D49F401069022600B03B61</string>
+											<string>22D49F4E1069041800B03B61</string>
+											<string>22D49F4F1069041800B03B61</string>
+											<string>22D49F501069041800B03B61</string>
+											<string>22D49F511069041800B03B61</string>
+											<string>22D49F521069041800B03B61</string>
+											<string>22D49F531069041800B03B61</string>
+											<string>22D49F581069045500B03B61</string>
+											<string>22D49F67106905EF00B03B61</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -761,13 +769,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>22D49F47106902B500B03B61</string>
+		<string>22D49F701069064B00B03B61</string>
 		<string>22D49EF81068F2C500B03B61</string>
 		<string>22D49EFA1068F2C500B03B61</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>223BC31A10552FA600ABE5A2</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/hoccer-iphone/Hoccer.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>-3 133 1276 869 0 0 1280 1002 </string>
@@ -786,8 +794,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -810,6 +816,8 @@
 							<string>410pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

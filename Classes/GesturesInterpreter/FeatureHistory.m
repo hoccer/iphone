@@ -79,8 +79,15 @@
 										   [self chatDataFor: yLineFeatures], 
 										   [self chatDataFor: zLineFeatures]];
 	
+	
 	NSLog(@"image from %@", url);
-	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString:  url]];
+	NSError *error;
+	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:  NSUTF8StringEncoding]] 
+											  options: NSUncachedRead error: &error];
+	
+	NSLog(@"received data: %@", imageData);
+	NSLog(@"error: %@", error);
+	
 	return [UIImage imageWithData: imageData];
 }
 

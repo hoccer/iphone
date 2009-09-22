@@ -57,6 +57,7 @@
 	
 	[recorder release];
 	[recordingButton release];
+	[imageView release];
 }
 
 
@@ -91,7 +92,7 @@
 
 - (void)showImage
 {
-	[recorder.featureHistory chart];
+	imageView.image = [recorder.featureHistory chart];
 }
 
 
