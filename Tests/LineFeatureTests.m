@@ -81,5 +81,68 @@
 	}
 }
 
+- (void)testIsDescending
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20, -0.5f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, -1.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, -1.5f)], @"adding points should be possible");
+
+	STAssertTrue([line isDescending], @"should be descending");
+	STAssertFalse([line isFlat],  @"should not be flat");
+	STAssertFalse([line isAscending], @"should be ascending");
+	
+	STAssertEquals(line.type, @"<down>", @"type should be down");
+}
+
+- (void)testIsAscending
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20, 0.5f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, 1.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, 1.5f)], @"adding points should be possible");
+	
+	STAssertFalse([line isDescending], @"should be descending");
+	STAssertFalse([line isFlat],  @"should not be flat");
+	STAssertTrue([line isAscending], @"should be ascending");
+	
+	STAssertEquals(line.type, @"<up>", @"should be up");
+}
+
+-  (void)testIsFlat
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20,  0.03f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, 0.01f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, -0.02f)], @"adding points should be possible");
+	
+	STAssertFalse([line isDescending], @"should be descending");
+	STAssertTrue([line isFlat],  @"should not be flat");
+	STAssertFalse([line isAscending], @"should be ascending");
+	
+	STAssertEquals(line.type, @"<flat>", @"should be flat");
+}
+
+
+-  (void)testIsFastAscendiong
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20, 2.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, 4.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, 6.0f)], @"adding points should be possible");
+	
+	STAssertEquals(line.type, @"<fastup>", @"should be flat");
+}
+
+
+-  (void)testIsFastDescending
+{
+	LineFeature *line = [[LineFeature alloc] initWithPoint: CGPointMake(0, 0)];
+	STAssertTrue([line addPoint: CGPointMake(20, -2.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(40, -4.0f)], @"adding points should be possible");
+	STAssertTrue([line addPoint: CGPointMake(60, -6.0f)], @"adding points should be possible");
+	
+	STAssertEquals(line.type, @"<fastdown>", @"should be flat");
+}
 
 @end

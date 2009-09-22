@@ -12,7 +12,7 @@
 @interface FeatureHistory (Private)
 
 - (void) addPoint: (CGPoint) newPoint toLine: (NSMutableArray *)lineFeatures;
-- (NSString *)chatDataFor: (NSArray *)lineFeatures;
+- (NSString *)chartDataFor: (NSArray *)lineFeatures;
 
 @end
 
@@ -61,15 +61,6 @@
 			toLine: zLineFeatures]; 
 }
 
-- (void) addPoint: (CGPoint)newPoint toLine: (NSMutableArray *)lineFeatures 
-{
-	if ([lineFeatures count] == 0) {
-		[lineFeatures addObject: [LineFeature lineFeatureWithPoint: newPoint]]; 
-	} else if (![[lineFeatures lastObject] addPoint: newPoint]) {
-		CGPoint lastPoint = [[lineFeatures lastObject] newestPoint];
-		[lineFeatures addObject:[LineFeature lineFeatureWithPoint: lastPoint andPoint: newPoint]]; 
-	} 
-}
 
 - (UIImage *)chart
 {
@@ -82,12 +73,10 @@
 	[url appendFormat: @"&chxt=x,y&chxr=0,0,%f|1,-30,30", length];
 	[url appendFormat: @"&chds=%@,%@,%@", minMax, minMax, minMax];
 	
-	[url appendFormat: @"&chd=t:%@|%@|%@", [self chatDataFor: xLineFeatures], 
-										   [self chatDataFor: yLineFeatures], 
-										   [self chatDataFor: zLineFeatures]];
+	[url appendFormat: @"&chd=t:%@|%@|%@", [self chartDataFor: xLineFeatures], 
+    [self chartDataFor: yLineFeatures], 
+	[self chartDataFor: zLineFeatures]];
 	
-	
-	NSLog(@"image from %@", url);
 	NSError *error = nil;
 	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:  NSUTF8StringEncoding]] 
 											  options: NSUncachedRead error: &error];
@@ -97,7 +86,17 @@
 	return [UIImage imageWithData: imageData];
 }
 
-- (NSString *)chatDataFor: (NSArray *)lineFeatures
+- (void) addPoint: (CGPoint)newPoint toLine: (NSMutableArray *)lineFeatures 
+{
+	if ([lineFeatures count] == 0) {
+		[lineFeatures addObject: [LineFeature lineFeatureWithPoint: newPoint]]; 
+	} else if (![[lineFeatures lastObject] addPoint: newPoint]) {
+		CGPoint lastPoint = [[lineFeatures lastObject] newestPoint];
+		[lineFeatures addObject:[LineFeature lineFeatureWithPoint: lastPoint andPoint: newPoint]]; 
+	} 
+}
+
+- (NSString *)chartDataFor: (NSArray *)lineFeatures
 {
 	NSMutableString *xValues = [NSMutableString string];
 	NSMutableString *yValues = [NSMutableString string];
@@ -115,6 +114,8 @@
 	
 	return [NSString stringWithFormat:@"%@|%@", xValues, yValues]; 
 }
+
+
 
 
 

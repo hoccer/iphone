@@ -17,6 +17,8 @@
 @property (readonly) float length;
 @property (readonly) float yIntersection;
 @property (readonly) CGPoint center;
+@property (readonly) NSString *type;
+
 
 @property (readonly) CGPoint newestPoint;
 @property (readonly) CGPoint firstPoint;
@@ -28,5 +30,10 @@
 - (BOOL)addPoint: (CGPoint)point;
 
 - (BOOL)isValid: (CGPoint) point;
+
+- (BOOL)isFlat;
+- (BOOL)isDescending;
+- (BOOL)isAscending;
+
 
 @end

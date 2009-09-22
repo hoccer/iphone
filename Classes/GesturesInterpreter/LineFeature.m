@@ -94,6 +94,56 @@
 }
 
 
+- (BOOL)isFlat
+{
+	return (fabsf(self.slope) < 0.5 / 20.0f);
+}
+
+
+- (BOOL)isDescending
+{
+	return (self.slope <  -0.5/20.0); 
+}
+
+
+- (BOOL)isAscending
+{
+	return (self.slope > 0.5/20.0);
+}
+
+
+- (BOOL)isFastDescending
+{
+	return (self.slope < -2.0/20.0);
+}
+
+
+- (BOOL)isFastAscending
+{
+	return (self.slope > 2.0/20.0);
+}
+
+
+- (NSString *)type
+{
+	if ([self isFastDescending])
+		return @"<fastdown>";
+	
+	if ([self isFastAscending])
+		return @"<fastup>";
+	
+	if ([self isDescending])
+		return  @"<down>";
+	
+	if ([self isAscending])
+		return @"<up>";
+	
+	if ([self isFlat])
+		return @"<flat>";
+	
+	return nil;
+}
+
 #pragma mark -
 #pragma mark Private Helper Methods
 
