@@ -22,5 +22,14 @@
 }
 
 - (void)testAddingPoints;
+- (void)testAddingPoints2;
+- (void)testAddingPoints3;
+- (void)testAddingPointsWithRejection;
+- (void)testAddingManyPoints;
+- (void)testIsDescending;
+- (void)testIsAscending;
+- (void)testIsFlat;
+- (void)testIsFastAscendiong;
+- (void)testIsFastDescending;
 
 @end

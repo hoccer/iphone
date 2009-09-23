@@ -40,8 +40,6 @@
 	STAssertTrue([line addPoint: CGPointMake(3, 0)], @"adding points should be possible");
 	STAssertTrue([line addPoint: CGPointMake(4, 0)], @"adding points should be possible");
 	STAssertFalse([line addPoint: CGPointMake(5, 5)], @"adding points should be possible");
-	
-	[line release];
 }
 
 - (void)testAddingPoints3 
@@ -57,8 +55,6 @@
 	
 	STAssertTrue([line addPoint: CGPointMake(60, 15)], @"adding points should be possible");
 	STAssertFalse([line addPoint: CGPointMake(80, 10)], @"adding points should be possible");
-	
-	[line release];
 }
 
 - (void)testAddingPointsWithRejection 

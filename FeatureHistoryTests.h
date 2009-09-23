@@ -22,5 +22,6 @@
 }
 
 - (void)testDetectingLineFeature;
+- (void) testFeaturePatternCreator;
 
 @end
