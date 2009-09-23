@@ -19,7 +19,7 @@
 	const char* regex = [pattern UTF8String];
 	const char* string = [self UTF8String];
 	
-	if (regcomp(&reg, regex, 0) != 0) {
+	if (regcomp(&reg, regex, REG_EXTENDED | REG_NOSUB) != 0) {
 		return NO;
 	}
 	
@@ -28,5 +28,29 @@
 	
 	return (result == 0) ? YES : NO;
 }
+
+- (BOOL)matchesFeaturePattern: (NSString *)featurePattern
+{
+	NSMutableString *string = [NSMutableString stringWithString: featurePattern];
+
+	[string replaceOccurrencesOfString:@"<*" withString:@"<[a-zA-Z]*"
+							   options:0 range:NSMakeRange(0, [string length])];
+	
+	[string replaceOccurrencesOfString:@"*>" withString:@"[a-zA-Z]*>"
+							   options:0 range:NSMakeRange(0, [string length])];
+	
+	[string replaceOccurrencesOfString:@">*<" withString:@">.+<"
+							   options:0 range:NSMakeRange(0, [string length])];
+	
+	[string replaceOccurrencesOfString:@"*<" withString:@".+<"
+							   options:0 range:NSMakeRange(0, [string length])];
+
+	[string replaceOccurrencesOfString:@">*" withString:@">.+"
+							   options:0 range:NSMakeRange(0, [string length])];
+
+	return [self matches: string];
+}
+
+
 
 @end

@@ -12,5 +12,6 @@
 @interface NSString (Regexp) 
 
 - (BOOL)matches: (NSString *)pattern;
+- (BOOL)matchesFeaturePattern: (NSString *)featurePattern;
 
 @end
