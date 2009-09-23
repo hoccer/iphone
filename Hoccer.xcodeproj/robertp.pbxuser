@@ -454,7 +454,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 56;
-		modificationTime = 275329828.999355;
+		modificationTime = 275386141.226219;
 		state = 2;
 	};
 	22762D02105E412A003BF968 /* Test */ = {
@@ -467,9 +467,9 @@
 		path = /Developer/Tools/RunPlatformUnitTests.include;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1170, 5712}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1020, 5866}}";
 			sepNavSelRange = "{13540, 135}";
-			sepNavVisRange = "{12005, 1989}";
+			sepNavVisRange = "{13222, 772}";
 		};
 	};
 	22762D76105E4A24003BF968 /* AccelerometerTestFrameworkTests.h */ = {
@@ -571,7 +571,7 @@
 		ignoreCount = 0;
 		lineNumber = 25;
 		location = Test;
-		modificationTime = 275329828.999393;
+		modificationTime = 275386141.226243;
 		state = 2;
 	};
 	22762F1E105E73E4003BF968 /* PBXTextBookmark */ = {
@@ -644,9 +644,9 @@
 	};
 	22762FB6105E84B5003BF968 /* GesturesInterpreter.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {931, 521}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 288}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavSelRange = "{162, 17}";
+			sepNavVisRange = "{0, 306}";
 		};
 	};
 	22762FB7105E84B5003BF968 /* GesturesInterpreter.m */ = {
@@ -1266,6 +1266,88 @@
 		vrLen = 841;
 		vrLoc = 13154;
 	};
+	228275BF106A107A00AAC17E /* RegExpTests.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 768}}";
+			sepNavSelRange = "{718, 0}";
+			sepNavVisRange = "{0, 728}";
+		};
+	};
+	228275C0106A107A00AAC17E /* RegExpTests.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavSelRange = "{514, 0}";
+			sepNavVisRange = "{0, 514}";
+		};
+	};
+	228275C6106A11C400AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	228275C7106A11C400AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 13154;
+	};
+	228275DA106A14E600AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	228275DB106A14E600AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 13154;
+	};
+	228275DD106A14F900AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	228275DE106A14F900AAC17E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 840;
+		vrLoc = 13154;
+	};
+	228275E3106A157A00AAC17E /* NSString+Regexp.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavSelRange = "{238, 0}";
+			sepNavVisRange = "{0, 245}";
+		};
+	};
+	228275E4106A157A00AAC17E /* NSString+Regexp.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavSelRange = "{315, 0}";
+			sepNavVisRange = "{0, 528}";
+		};
+	};
 	228989241067B86300FB3E5D /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 227630E1105E99E5003BF968 /* HoccerTests-Info.plist */;
@@ -1327,16 +1409,16 @@
 	};
 	228989691067CC1C00FB3E5D /* LineFeatureTests.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1008, 378}}";
-			sepNavSelRange = "{759, 0}";
-			sepNavVisRange = "{0, 766}";
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 791}}";
+			sepNavSelRange = "{986, 0}";
+			sepNavVisRange = "{0, 1020}";
 		};
 	};
 	2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 2310}}";
-			sepNavSelRange = "{5832, 0}";
-			sepNavVisRange = "{3900, 1937}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 2254}}";
+			sepNavSelRange = "{5321, 0}";
+			sepNavVisRange = "{3575, 2218}";
 		};
 	};
 	2289898F1067CF9C00FB3E5D /* PBXTextBookmark */ = {
@@ -1374,7 +1456,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 16";
 		rLen = 0;
-		rLoc = 319;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 773;
 		vrLoc = 0;
@@ -1473,8 +1555,8 @@
 		isa = PBXTextBookmark;
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 20";
-		rLen = 93;
-		rLoc = 475;
+		rLen = 0;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 968;
 		vrLoc = 422;
@@ -1514,7 +1596,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 20";
 		rLen = 0;
-		rLoc = 472;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 864;
 		vrLoc = 222;
@@ -1544,7 +1626,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 58";
 		rLen = 0;
-		rLoc = 2891;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 971;
 		vrLoc = 852;
@@ -1564,7 +1646,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 58";
 		rLen = 0;
-		rLoc = 2891;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1063;
 		vrLoc = 760;
@@ -1613,9 +1695,9 @@
 	};
 	22D49E311068D09700B03B61 /* FeatureHistoryTests.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 854}}";
-			sepNavSelRange = "{1503, 35}";
-			sepNavVisRange = "{40, 2403}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 892}}";
+			sepNavSelRange = "{293, 2142}";
+			sepNavVisRange = "{29, 2413}";
 		};
 	};
 	22D49E441068DF0100B03B61 /* PBXTextBookmark */ = {
@@ -1680,7 +1762,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 15";
 		rLen = 0;
-		rLoc = 2438;
+		rLoc = 2437;
 		rType = 0;
 		vrLen = 215;
 		vrLoc = 0;
@@ -1700,7 +1782,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 14";
 		rLen = 0;
-		rLoc = 2437;
+		rLoc = 2436;
 		rType = 0;
 		vrLen = 215;
 		vrLoc = 0;
@@ -1746,7 +1828,7 @@
 		isa = PBXTextBookmark;
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 14";
-		rLen = 33;
+		rLen = 0;
 		rLoc = 293;
 		rType = 0;
 		vrLen = 1006;
@@ -2207,7 +2289,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 34";
 		rLen = 0;
-		rLoc = 1476;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 29;
@@ -2277,7 +2359,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 35";
 		rLen = 0;
-		rLoc = 1371;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 1517;
 		vrLoc = 137;
@@ -2297,7 +2379,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 45";
 		rLen = 0;
-		rLoc = 2443;
+		rLoc = 2442;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 0;
@@ -2307,7 +2389,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 51";
 		rLen = 0;
-		rLoc = 2035;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2027;
 		vrLoc = 82;
@@ -2347,7 +2429,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 45";
 		rLen = 0;
-		rLoc = 2443;
+		rLoc = 2442;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 0;
@@ -2357,7 +2439,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 51";
 		rLen = 0;
-		rLoc = 1728;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1889;
 		vrLoc = 82;
@@ -2377,7 +2459,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 51";
 		rLen = 0;
-		rLoc = 1728;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2078;
 		vrLoc = 26;
@@ -2387,7 +2469,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 28";
 		rLen = 0;
-		rLoc = 1011;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 1491;
 		vrLoc = 0;
@@ -2457,7 +2539,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 51";
 		rLen = 0;
-		rLoc = 1728;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2036;
 		vrLoc = 26;
@@ -3007,7 +3089,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 28";
 		rLen = 0;
-		rLoc = 1011;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 1491;
 		vrLoc = 0;
@@ -3071,7 +3153,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 38";
 		rLen = 0;
-		rLoc = 2437;
+		rLoc = 2436;
 		rType = 0;
 		vrLen = 1491;
 		vrLoc = 0;
@@ -3081,7 +3163,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 91";
 		rLen = 0;
-		rLoc = 3610;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1910;
 		vrLoc = 2062;
@@ -3101,7 +3183,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 93";
 		rLen = 0;
-		rLoc = 3523;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1767;
 		vrLoc = 2064;
@@ -3130,8 +3212,8 @@
 		isa = PBXTextBookmark;
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 91";
-		rLen = 12;
-		rLoc = 3370;
+		rLen = 0;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 1767;
 		vrLoc = 2064;
@@ -3211,7 +3293,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 105";
 		rLen = 0;
-		rLoc = 4124;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2034;
 		vrLoc = 2463;
@@ -3241,7 +3323,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 118";
 		rLen = 0;
-		rLoc = 4885;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2322;
 		vrLoc = 2276;
@@ -3261,7 +3343,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 118";
 		rLen = 0;
-		rLoc = 4885;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2136;
 		vrLoc = 2462;
@@ -3281,7 +3363,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 95";
 		rLen = 0;
-		rLoc = 3588;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2111;
 		vrLoc = 2368;
@@ -3311,7 +3393,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 38";
 		rLen = 0;
-		rLoc = 2437;
+		rLoc = 2436;
 		rType = 0;
 		vrLen = 1491;
 		vrLoc = 0;
@@ -3341,7 +3423,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 145";
 		rLen = 0;
-		rLoc = 5787;
+		rLoc = 223;
 		rType = 0;
 		vrLen = 2215;
 		vrLoc = 3471;
@@ -3391,7 +3473,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 164";
 		rLen = 0;
-		rLoc = 5832;
+		rLoc = 5794;
 		rType = 0;
 		vrLen = 1937;
 		vrLoc = 3900;
@@ -3441,7 +3523,7 @@
 		fRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */;
 		name = "LineFeatureTests.m: 164";
 		rLen = 0;
-		rLoc = 5832;
+		rLoc = 5794;
 		rType = 0;
 		vrLen = 1937;
 		vrLoc = 3900;
@@ -3451,7 +3533,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 57";
 		rLen = 0;
-		rLoc = 2436;
+		rLoc = 2435;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 0;
@@ -3471,7 +3553,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 57";
 		rLen = 0;
-		rLoc = 2436;
+		rLoc = 2435;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 0;
@@ -3491,7 +3573,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 51";
 		rLen = 0;
-		rLoc = 1975;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 2281;
 		vrLoc = 134;
@@ -3621,7 +3703,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 51";
 		rLen = 0;
-		rLoc = 1975;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 2354;
 		vrLoc = 137;
@@ -3651,7 +3733,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 51";
 		rLen = 0;
-		rLoc = 1975;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 2283;
 		vrLoc = 137;
@@ -3671,7 +3753,7 @@
 		fRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */;
 		name = "FeatureHistoryTests.m: 51";
 		rLen = 0;
-		rLoc = 1975;
+		rLoc = 293;
 		rType = 0;
 		vrLen = 2354;
 		vrLoc = 137;
@@ -3739,6 +3821,7 @@
 		activeTarget = 22762D02105E412A003BF968 /* Test */;
 		addToTargets = (
 			22762D02105E412A003BF968 /* Test */,
+			1D6058900D05DD3D006BFB54 /* Hoccer */,
 		);
 		breakpoints = (
 			2273379A1056A133004228B4 /* HoccerViewController.m:56 */,
@@ -3904,6 +3987,12 @@
 			22799106105FEE550035C643 = 22799106105FEE550035C643 /* PBXTextBookmark */;
 			228275A8106A09D200AAC17E /* PBXTextBookmark */ = 228275A8106A09D200AAC17E /* PBXTextBookmark */;
 			228275A9106A09D200AAC17E /* PBXTextBookmark */ = 228275A9106A09D200AAC17E /* PBXTextBookmark */;
+			228275C6106A11C400AAC17E /* PBXTextBookmark */ = 228275C6106A11C400AAC17E /* PBXTextBookmark */;
+			228275C7106A11C400AAC17E /* PBXTextBookmark */ = 228275C7106A11C400AAC17E /* PBXTextBookmark */;
+			228275DA106A14E600AAC17E /* PBXTextBookmark */ = 228275DA106A14E600AAC17E /* PBXTextBookmark */;
+			228275DB106A14E600AAC17E /* PBXTextBookmark */ = 228275DB106A14E600AAC17E /* PBXTextBookmark */;
+			228275DD106A14F900AAC17E /* PBXTextBookmark */ = 228275DD106A14F900AAC17E /* PBXTextBookmark */;
+			228275DE106A14F900AAC17E /* PBXTextBookmark */ = 228275DE106A14F900AAC17E /* PBXTextBookmark */;
 			228989241067B86300FB3E5D = 228989241067B86300FB3E5D /* PlistBookmark */;
 			228989251067B86300FB3E5D = 228989251067B86300FB3E5D /* PlistBookmark */;
 			228989261067B86300FB3E5D = 228989261067B86300FB3E5D /* PBXTextBookmark */;

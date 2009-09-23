@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <regex.h>
 
 @interface GesturesInterpreter : NSObject <UIAccelerometerDelegate> {
 	id delegate;
