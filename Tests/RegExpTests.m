@@ -30,8 +30,6 @@
 	NSString *pattern = @"<up><fastdown><fastup><up><fastdown>";
 
 	STAssertTrue([pattern matches:@"<[a-zA-Z]*>"], @"should match");
-
-//	STAssertTrue([pattern matches:@".+<.*up><\\D*down>"], @"should match");
 }
 
 
