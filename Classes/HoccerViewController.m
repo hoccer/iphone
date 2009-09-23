@@ -14,6 +14,7 @@
 #import "HoccerUploadRequest.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerContentFactory.h"
+#import "GesturesInterpreter.h"
 
 @interface HoccerViewController (Private)
 
@@ -35,6 +36,9 @@
 - (void)viewDidLoad {
 	locationManager = [[CLLocationManager alloc] init];
 	[locationManager startUpdatingLocation];
+	
+	gesturesInterpreter = [[GesturesInterpreter alloc] init];
+	gesturesInterpreter.delegate = self;
 	
 	[self updateLocation];
 	[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
@@ -143,8 +147,6 @@
 {
 	[request release];
 	request = nil;
-	
-	NSLog(@"finished upload");
 }
 
 

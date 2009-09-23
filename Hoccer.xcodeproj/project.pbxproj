@@ -49,6 +49,8 @@
 		228275C1106A107A00AAC17E /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
 		228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
+		228276E6106A374300AAC17E /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
+		228276E7106A374300AAC17E /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		228989671067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		228989681067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		2289896B1067CC1C00FB3E5D /* LineFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */; };
@@ -143,6 +145,8 @@
 		228275C0106A107A00AAC17E /* RegExpTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegExpTests.m; path = Tests/RegExpTests.m; sourceTree = "<group>"; };
 		228275E3106A157A00AAC17E /* NSString+Regexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Regexp.h"; path = "Helper/NSString+Regexp.h"; sourceTree = "<group>"; };
 		228275E4106A157A00AAC17E /* NSString+Regexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Regexp.m"; path = "Helper/NSString+Regexp.m"; sourceTree = "<group>"; };
+		228276E4106A374300AAC17E /* CatchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchDetector.h; path = GesturesInterpreter/CatchDetector.h; sourceTree = "<group>"; };
+		228276E5106A374300AAC17E /* CatchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchDetector.m; path = GesturesInterpreter/CatchDetector.m; sourceTree = "<group>"; };
 		228989651067CB9200FB3E5D /* LineFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineFeature.h; path = GesturesInterpreter/LineFeature.h; sourceTree = "<group>"; };
 		228989661067CB9200FB3E5D /* LineFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineFeature.m; path = GesturesInterpreter/LineFeature.m; sourceTree = "<group>"; };
 		228989691067CC1C00FB3E5D /* LineFeatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineFeatureTests.h; path = Tests/LineFeatureTests.h; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 				228989661067CB9200FB3E5D /* LineFeature.m */,
 				22D49E2C1068D07C00B03B61 /* FeatureHistory.h */,
 				22D49E2D1068D07C00B03B61 /* FeatureHistory.m */,
+				228276E4106A374300AAC17E /* CatchDetector.h */,
+				228276E5106A374300AAC17E /* CatchDetector.m */,
 			);
 			name = GesturesInterpreter;
 			sourceTree = "<group>";
@@ -540,6 +546,7 @@
 				228989771067CC4200FB3E5D /* UploadRequest.m in Sources */,
 				22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */,
 				228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */,
+				228276E7106A374300AAC17E /* CatchDetector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +570,7 @@
 				22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */,
 				228275C1106A107A00AAC17E /* RegExpTests.m in Sources */,
 				228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */,
+				228276E6106A374300AAC17E /* CatchDetector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

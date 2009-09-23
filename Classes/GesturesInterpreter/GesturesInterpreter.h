@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <regex.h>
+
+@class CatchDetector;
+@class FeatureHistory;
+
 
 @interface GesturesInterpreter : NSObject <UIAccelerometerDelegate> {
+	CatchDetector *catchDetector;
+	FeatureHistory *featureHistory;
+	
 	id delegate;
 }
 

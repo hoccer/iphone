@@ -8,15 +8,46 @@
 
 #import "GesturesInterpreter.h"
 #import "NSObject+DelegateHelper.h"
+#import "CatchDetector.h"
+#import "FeatureHistory.h"
+
 
 @implementation GesturesInterpreter
 
+
 @synthesize delegate;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		catchDetector = [[CatchDetector alloc] init];
+		featureHistory = [[FeatureHistory alloc] init];
+		
+		[UIAccelerometer sharedAccelerometer].delegate = self;
+		[UIAccelerometer sharedAccelerometer].updateInterval = 0.02;
+
+		
+		
+	}
+	return self;
+}
+
+- (void)dealloc 
+{
+	[UIAccelerometer sharedAccelerometer].delegate = nil;
+	
+	[featureHistory release];
+	[catchDetector release];
+
+	[super dealloc];
+}
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
 {
-	// TODO: insert gesture detection magic here!
-	if (false) {
+	[featureHistory addAcceleration:acceleration];
+	
+	if ([catchDetector detect:featureHistory]) {
 		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreter:didDetectGesture:) 
 									withObject: self withObject: @"catch"];
 	}

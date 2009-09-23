@@ -51,6 +51,15 @@
 	return [self matches: string];
 }
 
+- (BOOL)startsWith: (NSString *)startString
+{
+	return [self matches: [NSString stringWithFormat: @"^%@", startString]];
+}
+
+- (BOOL)endsWith: (NSString *)endString
+{
+	return [self matches: [NSString stringWithFormat: @"%@$", endString]];
+}
 
 
 @end

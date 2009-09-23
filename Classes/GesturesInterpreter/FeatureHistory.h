@@ -27,5 +27,7 @@
 
 - (UIImage *)chart;
 - (NSString *)featurePatternOnAxis: (NSInteger)axis inTimeInterval: (NSTimeInterval)timeInterval;
+- (BOOL)hasValueAt: (float)targetValue withVariance: (float)variance onAxis: (NSInteger)axis;
+- (BOOL)wasLowerThan: (float)targetValue onAxis: (NSInteger)axis inLast: (NSTimeInterval) seconds;
 
 @end

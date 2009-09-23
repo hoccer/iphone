@@ -37,7 +37,7 @@
 	[history release];
 }	
 
-- (void) testFeaturePatternCreator
+- (void)testFeaturePatternCreator
 {
 	FeatureHistory *history = [[FeatureHistory alloc] init];
 	
@@ -55,5 +55,37 @@
 
 	STAssertEqualObjects(@"<down><up>", [history featurePatternOnAxis: kYAxis inTimeInterval:200], @"pattern should match");
 }
+
+- (void)testIsValueAt
+{
+	FeatureHistory *history = [[FeatureHistory alloc] init];
+	
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:0 z:0 timestamp:  1]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:0 z:0 timestamp:  2]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:1.0 z:0 timestamp:  3]];
+	
+	STAssertTrue([history hasValueAt:10.0 withVariance:2 onAxis:kYAxis], @"should be around 10");
+	STAssertFalse([history hasValueAt:10.0 withVariance:2 onAxis:kZAxis], @"should not be around 10");
+}
+
+- (void)testWasLowerThan
+{
+	FeatureHistory *history = [[FeatureHistory alloc] init];
+	
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:    0 z:0 timestamp:  10]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y: -0.3 z:0 timestamp:  20]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  3 z:0 timestamp:  30]];
+	
+	STAssertTrue([history wasLowerThan: -0.2 onAxis: kYAxis inLast: 30], @"should be lower than -1.5");
+	
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  0 z:0 timestamp:  60]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  0 z:0 timestamp:  70]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  0 z:0 timestamp:  80]];
+	
+	STAssertEquals((int)[history.yLineFeatures count], 4, @"should be cool"); 
+
+	STAssertFalse([history wasLowerThan: -0.2 onAxis: kYAxis inLast: 20], @"should be lower than -1.5");
+}
+
 
 @end

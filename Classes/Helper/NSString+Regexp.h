@@ -14,4 +14,7 @@
 - (BOOL)matches: (NSString *)pattern;
 - (BOOL)matchesFeaturePattern: (NSString *)featurePattern;
 
+- (BOOL)startsWith: (NSString *)startString;
+- (BOOL)endsWith: (NSString *)endString;
+
 @end

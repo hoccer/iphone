@@ -14,6 +14,7 @@
 @class PeerGroupRequest;
 @class PeerGroupPollingRequest;
 @class DownloadRequest;
+@class GesturesInterpreter;
 
 @class HoccerBaseRequest;
 
@@ -24,6 +25,7 @@
 	IBOutlet UILabel *locationLabel;
 	
 	CLLocationManager *locationManager;
+	GesturesInterpreter *gesturesInterpreter;
 
 	HoccerBaseRequest *request;
 	

@@ -59,6 +59,20 @@
 	STAssertTrue([pattern matchesFeaturePattern:@"*<fast*><fast*>*<fast*>"], @"should match");
 }
 
+- (void)testStringStartsWith
+{
+	NSString *pattern = @"<up><up><away>";
 
+	STAssertTrue([pattern startsWith: @"<up>"], @"should start with <up>");
+	STAssertFalse([pattern startsWith: @"<away>"], @"should not stat with <away>");
+}
+
+- (void)testStringEndsWith
+{
+	NSString *pattern = @"<up><up><down>";
+	
+	STAssertTrue([pattern endsWith: @"<down>"], @"should start with <up>");
+	STAssertFalse([pattern endsWith: @"<up>"], @"should not stat with <away>");
+}
 
 @end
