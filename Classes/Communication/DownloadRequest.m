@@ -49,8 +49,7 @@
 			
 	NSLog(@"download connection did finish");
 			
-	self.result = receivedData; //[[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	
+	self.result = receivedData;	
 	self.connection = nil;
 	
 	if (statusCode >= 400) {

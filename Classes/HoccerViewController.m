@@ -79,6 +79,12 @@
 }
 
 
+-  (IBAction)onSelectPhoto: (id)sender
+{
+	
+}
+
+
 - (IBAction)onCatch: (id)sender 
 {
 	if (request != nil) {

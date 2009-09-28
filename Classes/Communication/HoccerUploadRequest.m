@@ -112,6 +112,8 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
+	[request release];
+	request = nil;
 	NSLog(@"error");
 	[self.delegate checkAndPerformSelector: @selector(request:didFailWithError:) 
 								withObject: self 
