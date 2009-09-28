@@ -45,10 +45,9 @@
 	[featureHistory addAcceleration:acceleration];
 	
 	if ([catchDetector detect:featureHistory]) {
-		NSLog(@"catched");
-		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreter:didDetectGesture:) 
-									withObject: self withObject: @"catch"];
-	}
+		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectCatch:) 
+									withObject: self];
+	} // else 
 }
 
 @end

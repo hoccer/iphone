@@ -194,7 +194,7 @@
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
-- (void)gesturesInterpreter: (GesturesInterpreter *)aGestureInterpreter didDetectGesture: (NSString *)aGesture 
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
 	NSLog(@"im catching, wooo");
 

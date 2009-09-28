@@ -8,9 +8,9 @@
 
 @class GesturesInterpreter;
 
-@protocol GesturesInterpreterDelegate
+@protocol GesturesInterpreterDelegate <NSObject>
 
 @optional
-- (void)gesturesInterpreter: (GesturesInterpreter *)aGestureInterpreter didDetectGesture: (NSString *)aGesture;
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter;
 
 @end

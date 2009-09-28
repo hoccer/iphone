@@ -22,8 +22,6 @@
 			
 			if ([featurePattern startsWith: @"<down>"] || [featurePattern startsWith:@"<fastdown>"]) {
 				if ([featurePattern endsWith: @"<flat>"] || [featurePattern endsWith: @"<up>"]) {
-				
-					NSLog(@"catched");
 					return YES;
 				}
 			}

@@ -52,7 +52,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 1;
+		breakpointsEnabled = 0;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -1325,7 +1325,7 @@
 		fRef = 228276E5106A374300AAC17E /* CatchDetector.m */;
 		name = "CatchDetector.m: 26";
 		rLen = 0;
-		rLoc = 743;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 805;
 		vrLoc = 0;
@@ -1355,7 +1355,7 @@
 		fRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */;
 		name = "GesturesInterpreter.m: 48";
 		rLen = 0;
-		rLoc = 989;
+		rLoc = 971;
 		rType = 0;
 		vrLen = 1142;
 		vrLoc = 0;
@@ -1435,7 +1435,7 @@
 		fRef = 228276E5106A374300AAC17E /* CatchDetector.m */;
 		name = "CatchDetector.m: 26";
 		rLen = 0;
-		rLoc = 743;
+		rLoc = 719;
 		rType = 0;
 		vrLen = 805;
 		vrLoc = 0;
@@ -1455,7 +1455,7 @@
 		fRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */;
 		name = "GesturesInterpreter.m: 48";
 		rLen = 0;
-		rLoc = 989;
+		rLoc = 971;
 		rType = 0;
 		vrLen = 1142;
 		vrLoc = 0;
@@ -1475,7 +1475,7 @@
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpretedDelegate.h: 13";
 		rLen = 0;
-		rLoc = 305;
+		rLoc = 320;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -1515,7 +1515,7 @@
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpretedDelegate.h: 13";
 		rLen = 0;
-		rLoc = 305;
+		rLoc = 320;
 		rType = 0;
 		vrLen = 305;
 		vrLoc = 0;
@@ -1545,7 +1545,7 @@
 		fRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */;
 		name = "GesturesInterpreter.m: 48";
 		rLen = 0;
-		rLoc = 989;
+		rLoc = 971;
 		rType = 0;
 		vrLen = 1142;
 		vrLoc = 0;
@@ -1623,7 +1623,7 @@
 		ignoreCount = 0;
 		lineNumber = 209;
 		location = Hoccer;
-		modificationTime = 275827654.844388;
+		modificationTime = 275828529.657036;
 		state = 1;
 	};
 	226495FC1070CBBF006D33E2 /* PBXTextBookmark */ = {
@@ -1650,8 +1650,8 @@
 		isa = PBXTextBookmark;
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpreterDelegate.h: 13";
-		rLen = 112;
-		rLoc = 224;
+		rLen = 87;
+		rLoc = 235;
 		rType = 0;
 		vrLen = 332;
 		vrLoc = 0;
@@ -1700,8 +1700,8 @@
 		isa = PBXTextBookmark;
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpreterDelegate.h: 13";
-		rLen = 112;
-		rLoc = 224;
+		rLen = 87;
+		rLoc = 235;
 		rType = 0;
 		vrLen = 332;
 		vrLoc = 0;
@@ -1711,7 +1711,7 @@
 		fRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */;
 		name = "HoccerViewController.m: 198";
 		rLen = 0;
-		rLoc = 4615;
+		rLoc = 4589;
 		rType = 0;
 		vrLen = 1347;
 		vrLoc = 3079;
@@ -1730,8 +1730,8 @@
 		isa = PBXTextBookmark;
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpreterDelegate.h: 13";
-		rLen = 112;
-		rLoc = 224;
+		rLen = 87;
+		rLoc = 235;
 		rType = 0;
 		vrLen = 332;
 		vrLoc = 0;
@@ -1751,7 +1751,7 @@
 		fRef = 22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */;
 		name = "GesturesInterpreterDelegate.h: 13";
 		rLen = 0;
-		rLoc = 223;
+		rLoc = 234;
 		rType = 0;
 		vrLen = 342;
 		vrLoc = 0;
@@ -1815,7 +1815,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 60;
-		modificationTime = 275827654.844127;
+		modificationTime = 275828529.65698;
 		state = 2;
 	};
 	22762D02105E412A003BF968 /* Test */ = {
@@ -1932,7 +1932,7 @@
 		ignoreCount = 0;
 		lineNumber = 25;
 		location = Test;
-		modificationTime = 275827654.844362;
+		modificationTime = 275828529.65702;
 		state = 2;
 	};
 	22762F1E105E73E4003BF968 /* PBXTextBookmark */ = {
@@ -2000,7 +2000,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
 			sepNavSelRange = "{223, 0}";
-			sepNavVisRange = "{0, 342}";
+			sepNavVisRange = "{0, 328}";
 		};
 	};
 	22762FB6105E84B5003BF968 /* GesturesInterpreter.h */ = {
@@ -2012,9 +2012,9 @@
 	};
 	22762FB7105E84B5003BF968 /* GesturesInterpreter.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 770}}";
-			sepNavSelRange = "{989, 0}";
-			sepNavVisRange = "{0, 1142}";
+			sepNavIntBoundsRect = "{{0, 0}, {843, 784}}";
+			sepNavSelRange = "{1058, 28}";
+			sepNavVisRange = "{599, 499}";
 		};
 	};
 	22762FBA105E8589003BF968 /* AccelerationRecorder.h */ = {
@@ -2926,9 +2926,9 @@
 	};
 	228276E5106A374300AAC17E /* CatchDetector.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 791}}";
-			sepNavSelRange = "{743, 0}";
-			sepNavVisRange = "{0, 805}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavSelRange = "{720, 0}";
+			sepNavVisRange = "{0, 776}";
 		};
 	};
 	2282774D106A597C00AAC17E /* PBXTextBookmark */ = {
@@ -3421,9 +3421,9 @@
 	};
 	28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 2940}}";
-			sepNavSelRange = "{4274, 0}";
-			sepNavVisRange = "{3246, 1377}";
+			sepNavIntBoundsRect = "{{0, 0}, {843, 2898}}";
+			sepNavSelRange = "{4257, 0}";
+			sepNavVisRange = "{3555, 719}";
 			sepNavWindowFrame = "{{438, 136}, {750, 558}}";
 		};
 	};
