@@ -166,6 +166,24 @@
 }
 
 
+- (BOOL)wasHigherThan: (float)targetValue onAxis: (NSInteger)axis inLast: (NSTimeInterval) timeInterval
+{
+	NSArray *lineFeatures = [self featuresOnAxis: axis];
+	
+	for (int i = [lineFeatures count]-1; i >= 0; i--) {
+		LineFeature *lineFeature = [lineFeatures objectAtIndex:i];
+		if (lineFeature.newestPoint.y > targetValue || lineFeature.firstPoint.y > targetValue)
+			return YES;
+		
+		timeInterval -= lineFeature.length;
+		if (timeInterval < 0)
+			return NO;
+	}
+	
+	return NO;
+}
+
+
 - (NSString *)chartDataFor: (NSArray *)lineFeatures
 {
 	NSMutableString *xValues = [NSMutableString string];

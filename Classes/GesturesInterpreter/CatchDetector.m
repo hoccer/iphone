@@ -16,7 +16,7 @@
 {
 	
 	if ([featureHistory hasValueAt:-9.81 withVariance:2 onAxis:kYAxis]) {
-		if ([featureHistory wasLowerThan:-2 onAxis:kYAxis inLast:400]) {
+		if ([featureHistory wasHigherThan:-2 onAxis:kYAxis inLast:400]) {
 			NSString *featurePattern = [featureHistory featurePatternOnAxis:kYAxis inTimeInterval:400];
 			NSLog(featurePattern);
 			

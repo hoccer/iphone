@@ -206,4 +206,22 @@
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
 }
 
+
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
+{
+	NSLog(@"im throwing, wooo");
+	
+	if (request != nil) {
+		return;
+	}
+	
+	NSString *type = @"type";
+	NSString *filename = @"text.txt";
+	NSData *data = [[NSString stringWithString:@"http://www.artcom.de"] dataUsingEncoding: NSUTF8StringEncoding];
+	
+	CLLocation *location = [self currentLocation];
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: data 
+													   type: type filename: filename delegate:self];
+}
+
 @end

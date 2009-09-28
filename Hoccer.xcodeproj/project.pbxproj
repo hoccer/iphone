@@ -21,6 +21,8 @@
 		223BC4201055556200ABE5A2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
 		223BC44010555B2700ABE5A2 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
 		223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
+		226496261070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
+		226496271070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -103,6 +105,8 @@
 		223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DelegateHelper.m"; path = "Helper/NSObject+DelegateHelper.m"; sourceTree = "<group>"; };
 		223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupPollingRequest.h; path = Communication/PeerGroupPollingRequest.h; sourceTree = "<group>"; };
 		223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupPollingRequest.m; path = Communication/PeerGroupPollingRequest.m; sourceTree = "<group>"; };
+		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
+		226496251070DD56006D33E2 /* ThrowDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThrowDetector.m; path = GesturesInterpreter/ThrowDetector.m; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 				22D49E2D1068D07C00B03B61 /* FeatureHistory.m */,
 				228276E4106A374300AAC17E /* CatchDetector.h */,
 				228276E5106A374300AAC17E /* CatchDetector.m */,
+				226496241070DD56006D33E2 /* ThrowDetector.h */,
+				226496251070DD56006D33E2 /* ThrowDetector.m */,
 			);
 			name = GesturesInterpreter;
 			sourceTree = "<group>";
@@ -547,6 +553,7 @@
 				22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */,
 				228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */,
 				228276E7106A374300AAC17E /* CatchDetector.m in Sources */,
+				226496261070DD56006D33E2 /* ThrowDetector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +578,7 @@
 				228275C1106A107A00AAC17E /* RegExpTests.m in Sources */,
 				228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */,
 				228276E6106A374300AAC17E /* CatchDetector.m in Sources */,
+				226496271070DD56006D33E2 /* ThrowDetector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "GesturesInterpreter.h"
 #import "NSObject+DelegateHelper.h"
 #import "CatchDetector.h"
+#import "ThrowDetector.h"
 #import "FeatureHistory.h"
 
 
@@ -22,6 +23,8 @@
 	self = [super init];
 	if (self != nil) {
 		catchDetector = [[CatchDetector alloc] init];
+		throwDetector = [[ThrowDetector alloc] init];
+		
 		featureHistory = [[FeatureHistory alloc] init];
 		
 		[UIAccelerometer sharedAccelerometer].delegate = self;
@@ -35,7 +38,9 @@
 	[UIAccelerometer sharedAccelerometer].delegate = nil;
 	
 	[featureHistory release];
+	
 	[catchDetector release];
+	[throwDetector release];
 
 	[super dealloc];
 }
@@ -47,7 +52,10 @@
 	if ([catchDetector detect:featureHistory]) {
 		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectCatch:) 
 									withObject: self];
-	} // else 
+	} else if ([throwDetector detect: featureHistory]) {
+		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) 
+									withObject: self];
+	}
 }
 
 @end

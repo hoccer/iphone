@@ -10,11 +10,14 @@
 #import "GesturesInterpreterDelegate.h"
 
 @class CatchDetector;
+@class ThrowDetector;
 @class FeatureHistory;
 
 
 @interface GesturesInterpreter : NSObject <UIAccelerometerDelegate> {
 	CatchDetector *catchDetector;
+	ThrowDetector *throwDetector;
+	
 	FeatureHistory *featureHistory;
 	
 	id <GesturesInterpreterDelegate> delegate;
