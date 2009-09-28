@@ -66,7 +66,7 @@
 - (UIImage *)chart
 {
 	float length = [[yLineFeatures lastObject] newestPoint].x;
-	NSString *minMax = [NSString stringWithFormat: @"0,%f,30,-30", length];
+	NSString *minMax = [NSString stringWithFormat: @"0,%f,-30,30", length];
 	
 	NSMutableString *url = [NSMutableString string];
 	[url appendString: @"http://chart.apis.google.com/chart?"];
@@ -74,15 +74,18 @@
 	[url appendFormat: @"&chxt=x,y&chxr=0,0,%f|1,-30,30", length];
 	[url appendFormat: @"&chds=%@,%@,%@", minMax, minMax, minMax];
 	
-	[url appendFormat: @"&chd=t:%@|%@|%@", [self chartDataFor: xLineFeatures], 
-    [self chartDataFor: yLineFeatures], 
-	[self chartDataFor: zLineFeatures]];
+	[url appendFormat: @"&chd=t:%@|%@|%@", 
+			[self chartDataFor: xLineFeatures], 
+			[self chartDataFor: yLineFeatures], 
+			[self chartDataFor: zLineFeatures]];
+
+	NSLog(@"url: %@", url);
+
 	
 	NSError *error = nil;
 	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:  NSUTF8StringEncoding]] 
 											  options: NSUncachedRead error: &error];
 	
-	NSLog(@"error: %@", error);
 	
 	return [UIImage imageWithData: imageData];
 }
@@ -137,6 +140,8 @@
 	LineFeature *newestFeature = [[self featuresOnAxis:axis] lastObject];
 	if (newestFeature == nil)
 		return NO;
+	
+	NSLog(@"value: %f targetValue: %f, result: %f", newestFeature.newestPoint.y, targetValue, newestFeature.newestPoint.y - targetValue);
 	
 	if (fabsf(newestFeature.newestPoint.y - targetValue) < variance)
 		return YES;

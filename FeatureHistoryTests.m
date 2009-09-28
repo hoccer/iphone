@@ -82,8 +82,6 @@
 	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  0 z:0 timestamp:  70]];
 	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:  0 z:0 timestamp:  80]];
 	
-	STAssertEquals((int)[history.yLineFeatures count], 4, @"should be cool"); 
-
 	STAssertFalse([history wasLowerThan: -0.2 onAxis: kYAxis inLast: 20], @"should be lower than -1.5");
 }
 
