@@ -14,6 +14,8 @@
 @synthesize window;
 @synthesize viewController;
 
+@synthesize dataToSend;
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	// Override point for customization after app launch    
@@ -29,9 +31,14 @@
     [super dealloc];
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)aViewController
+{
+	NSLog(@"selected class: %@", aViewController);
+}
 
-
-
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	self.dataToSend =  UIImagePNGRepresentation([info objectForKey: UIImagePickerControllerOriginalImage]);
+}
 
 @end

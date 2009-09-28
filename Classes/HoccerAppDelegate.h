@@ -10,13 +10,18 @@
 
 @class HoccerViewController;
 
-@interface HoccerAppDelegate : NSObject <UIApplicationDelegate> {
+@interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
+											UIImagePickerControllerDelegate> {
     UIWindow *window;
     UITabBarController *viewController;
+												
+	NSData *dataToSend;										
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *viewController;
+
+@property (nonatomic, retain) NSData *dataToSend;
 
 @end
 

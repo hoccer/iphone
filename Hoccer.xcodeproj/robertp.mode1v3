@@ -273,7 +273,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
+									<integer>14</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -316,7 +316,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HoccerAppDelegate.m</string>
+								<string>HoccerViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,11 +324,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HoccerAppDelegate.m</string>
+										<string>HoccerViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>226496E0107109E0006D33E2</string>
+										<string>2264971E10711457006D33E2</string>
 										<key>history</key>
 										<array>
 											<string>223BC426105558C500ABE5A2</string>
@@ -351,7 +351,6 @@
 											<string>2279907B105FE2DD0035C643</string>
 											<string>22A2E6E31060D7A50025FFA4</string>
 											<string>22A2E7431060DE710025FFA4</string>
-											<string>22A2E79F1060E1470025FFA4</string>
 											<string>22783C691067760B00B244F7</string>
 											<string>22783C6A1067760B00B244F7</string>
 											<string>22783C6B1067760B00B244F7</string>
@@ -401,9 +400,10 @@
 											<string>226496A91070F8C4006D33E2</string>
 											<string>226496AA1070F8C4006D33E2</string>
 											<string>226496AB1070F8C4006D33E2</string>
+											<string>2264971610711457006D33E2</string>
+											<string>2264971710711457006D33E2</string>
+											<string>2264971810711457006D33E2</string>
 											<string>226496D6107109E0006D33E2</string>
-											<string>226496D7107109E0006D33E2</string>
-											<string>226496D8107109E0006D33E2</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -612,6 +612,20 @@
 											<string>226496DD107109E0006D33E2</string>
 											<string>226496DE107109E0006D33E2</string>
 											<string>226496DF107109E0006D33E2</string>
+											<string>226496E610710D73006D33E2</string>
+											<string>226496E710710D73006D33E2</string>
+											<string>226496F910710EF6006D33E2</string>
+											<string>226496FA10710EF6006D33E2</string>
+											<string>226496FE10710F78006D33E2</string>
+											<string>2264970110710FBE006D33E2</string>
+											<string>2264971010711319006D33E2</string>
+											<string>2264971110711319006D33E2</string>
+											<string>2264971210711319006D33E2</string>
+											<string>2264971910711457006D33E2</string>
+											<string>2264971A10711457006D33E2</string>
+											<string>2264971B10711457006D33E2</string>
+											<string>2264971C10711457006D33E2</string>
+											<string>2264971D10711457006D33E2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -805,14 +819,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>226496E1107109E0006D33E2</string>
+		<string>2264971F10711457006D33E2</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>2264959C1070C681006D33E2</string>
 		<string>2264959D1070C681006D33E2</string>
 		<string>223BC31A10552FA600ABE5A2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/robertp/workspace/hoccer-iphone/Hoccer.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>-3 133 1276 869 0 0 1280 1002 </string>
