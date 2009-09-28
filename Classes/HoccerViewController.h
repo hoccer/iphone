@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+
 #import "HoccerContent.h"
+#import "GesturesInterpreterDelegate.h"
 
 @class PeerGroupRequest;
 @class PeerGroupPollingRequest;
@@ -18,7 +20,7 @@
 
 @class HoccerBaseRequest;
 
-@interface HoccerViewController : UIViewController <MKReverseGeocoderDelegate> {
+@interface HoccerViewController : UIViewController <MKReverseGeocoderDelegate, GesturesInterpreterDelegate> {
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
 	IBOutlet UIBarButtonItem *saveButton;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GesturesInterpreterDelegate.h"
 
 @class CatchDetector;
 @class FeatureHistory;
@@ -16,9 +17,9 @@
 	CatchDetector *catchDetector;
 	FeatureHistory *featureHistory;
 	
-	id delegate;
+	id <GesturesInterpreterDelegate> delegate;
 }
 
-@property (retain) id delegate;
+@property (retain) id <GesturesInterpreterDelegate>  delegate;
 
 @end

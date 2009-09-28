@@ -96,31 +96,31 @@
 
 - (BOOL)isFlat
 {
-	return (fabsf(self.slope) < 0.5 / 20.0f);
+	return (fabsf(self.slope) < 0.5 /20.0f);
 }
 
 
 - (BOOL)isDescending
 {
-	return (self.slope <  -0.5/20.0); 
+	return (self.slope <  -0.5/20.0f); 
 }
 
 
 - (BOOL)isAscending
 {
-	return (self.slope > 0.5/20.0);
+	return (self.slope > 0.5/20.0f);
 }
 
 
 - (BOOL)isFastDescending
 {
-	return (self.slope < -2.0/20.0);
+	return (self.slope < -2.0/20.0f);
 }
 
 
 - (BOOL)isFastAscending
 {
-	return (self.slope > 2.0/20.0);
+	return (self.slope > 2.0/20.0f);
 }
 
 

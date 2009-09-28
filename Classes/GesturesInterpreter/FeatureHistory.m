@@ -50,7 +50,7 @@
 		starttime = acceleration.timestamp;
 	}
 
-	NSTimeInterval time = acceleration.timestamp - starttime; 
+	NSTimeInterval time = (acceleration.timestamp - starttime) * 1000; 
 	
 	[self addPoint: CGPointMake(time, acceleration.x * 9.81) 
 			toLine: xLineFeatures]; 
@@ -140,8 +140,6 @@
 	LineFeature *newestFeature = [[self featuresOnAxis:axis] lastObject];
 	if (newestFeature == nil)
 		return NO;
-	
-	NSLog(@"value: %f targetValue: %f, result: %f", newestFeature.newestPoint.y, targetValue, newestFeature.newestPoint.y - targetValue);
 	
 	if (fabsf(newestFeature.newestPoint.y - targetValue) < variance)
 		return YES;

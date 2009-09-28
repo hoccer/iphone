@@ -26,9 +26,6 @@
 		
 		[UIAccelerometer sharedAccelerometer].delegate = self;
 		[UIAccelerometer sharedAccelerometer].updateInterval = 0.02;
-
-		
-		
 	}
 	return self;
 }
@@ -48,6 +45,7 @@
 	[featureHistory addAcceleration:acceleration];
 	
 	if ([catchDetector detect:featureHistory]) {
+		NSLog(@"catched");
 		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreter:didDetectGesture:) 
 									withObject: self withObject: @"catch"];
 	}

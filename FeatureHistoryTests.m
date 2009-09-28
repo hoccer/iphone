@@ -41,17 +41,17 @@
 {
 	FeatureHistory *history = [[FeatureHistory alloc] init];
 	
-	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:   0 z:0 timestamp:   1]];
-	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y: 0.5 z:0 timestamp:  10]];
-	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:   0 z:0 timestamp:  30]];
-	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:-1.0 z:0 timestamp: 200]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:   0 z:0 timestamp:   0]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y: 0.5 z:0 timestamp: 0.01]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:   0 z:0 timestamp: 0.03]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:-1.0 z:0 timestamp: 0.2]];
 
-	NSString *pattern = [history featurePatternOnAxis: kYAxis inTimeInterval:200];
+	NSString *pattern = [history featurePatternOnAxis: kYAxis inTimeInterval:200.0];
 	
 	STAssertEquals((int)[history.yLineFeatures count], 3, @"should be cool"); 
 	STAssertEqualObjects(@"<fastup><fastdown><down>", pattern, @"pattern should match");
 	
-	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:0.4 z:0 timestamp: 350]];
+	[history addAcceleration: [UIAcceleration accelerationWithX: 0 y:0.4 z:0 timestamp: 0.35]];
 
 	STAssertEqualObjects(@"<down><up>", [history featurePatternOnAxis: kYAxis inTimeInterval:200], @"pattern should match");
 }

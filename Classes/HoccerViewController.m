@@ -84,7 +84,7 @@
 	if (request != nil) {
 		return;
 	}
-	
+		
 	CLLocation *location = [self currentLocation];
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
 }
@@ -190,5 +190,20 @@
 {
 }
 
+
+#pragma mark -
+#pragma mark GesturesInterpreter Delegate Methods
+
+- (void)gesturesInterpreter: (GesturesInterpreter *)aGestureInterpreter didDetectGesture: (NSString *)aGesture 
+{
+	NSLog(@"im catching, wooo");
+
+	if (request != nil) {
+		return;
+	}
+	
+	CLLocation *location = [self currentLocation];
+	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
+}
 
 @end
