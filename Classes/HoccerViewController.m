@@ -70,7 +70,13 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content
 {
-	[previewBox addSubview: content.view];
+	UIView *contentView = content.view;
+	contentView.contentMode = UIViewContentModeScaleAspectFit; 
+	contentView.frame = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
+	contentView.bounds = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
+	
+	[previewBox addSubview: contentView];
+	[previewBox layoutSubviews];
 }
 
 

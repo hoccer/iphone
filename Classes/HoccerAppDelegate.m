@@ -72,9 +72,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-	self.dataToSend =  UIImagePNGRepresentation(image);
+	self.dataToSend =  UIImageJPEGRepresentation(image, 1.0);
 	
 	[hoccerViewController setContentPreview: [[[HoccerImage alloc] initWithUIImage:image] autorelease]];
+	viewController.selectedViewController = hoccerViewController;
 	
 }
 
@@ -102,8 +103,8 @@
 		return;
 	}
 	
-	NSString *type = @"image/png";
-	NSString *filename = @"test.png";
+	NSString *type = @"image/jpeg";
+	NSString *filename = @"test.jpeg";
 	
 	CLLocation *location = [self currentLocation];
 	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: self.dataToSend 
@@ -127,7 +128,6 @@
 	receivedContentView.delegate = self;
 	[receivedContentView setHoccerContent: hoccerContent];
 	
-	NSLog(@"setze: %@", receivedContentView);
 	[window addSubview: receivedContentView.view];
 	[window makeKeyAndVisible];
 
