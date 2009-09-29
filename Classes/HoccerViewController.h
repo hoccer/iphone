@@ -13,32 +13,22 @@
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
 
-@class PeerGroupRequest;
-@class PeerGroupPollingRequest;
-@class DownloadRequest;
-@class GesturesInterpreter;
-
-@class HoccerBaseRequest;
-
-@interface HoccerViewController : UIViewController <MKReverseGeocoderDelegate, GesturesInterpreterDelegate> {
+@interface HoccerViewController : UIViewController {
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UILabel *locationLabel;
 	
-	CLLocationManager *locationManager;
-	GesturesInterpreter *gesturesInterpreter;
-
-	HoccerBaseRequest *request;
-	
-	id <HoccerContent> hoccerContent;
-	
+	id delegate;
 }
 
+@property (assign) id delegate;
+
 - (IBAction)onCancel: (id)sender; 
-- (IBAction)onCatch: (id)sender;
-- (void)onThrow: (id)sender;
 - (IBAction)save: (id)sender;
+
+- (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
+- (void)setUpdate: (NSString *)update;
 
 @end
 

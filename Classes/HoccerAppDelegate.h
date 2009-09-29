@@ -7,21 +7,40 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @class HoccerViewController;
+@class GesturesInterpreter;
+@class BaseHoccerRequest;
+
+#import "GesturesInterpreterDelegate.h"
+#import "HoccerContent.h"
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
-											UIImagePickerControllerDelegate> {
+											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, MKReverseGeocoderDelegate> {
     UIWindow *window;
     UITabBarController *viewController;
+	IBOutlet HoccerViewController *hoccerViewController;
 												
-	NSData *dataToSend;										
+	NSData *dataToSend;				
+											
+	CLLocationManager *locationManager;
+	GesturesInterpreter *gesturesInterpreter;
+	BaseHoccerRequest *request;
+
+	id <HoccerContent> hoccerContent;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *viewController;
 
 @property (nonatomic, retain) NSData *dataToSend;
+
+- (CLLocation *) currentLocation;
+
+- (IBAction)userDidCancelRequest;
+
 
 @end
 
