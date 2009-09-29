@@ -71,7 +71,7 @@
 }
 
 - (void)setHoccerContent: (id <HoccerContent>) content 
-{
+{	
 	[self.view insertSubview: content.view atIndex:0];
 	saveButton.title = [content saveButtonDescription];
 	

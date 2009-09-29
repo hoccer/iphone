@@ -24,7 +24,7 @@
 @synthesize window;
 @synthesize viewController;
 
-@synthesize dataToSend;
+@synthesize contentToSend;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
@@ -50,6 +50,7 @@
 	locationManager = nil;
 	
 	[hoccerContent release];
+	[contentToSend release];
 	[request release];
 	
     [viewController release];
@@ -71,10 +72,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-	self.dataToSend =  UIImageJPEGRepresentation(image, 1.0);
+	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:[info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
-	[hoccerViewController setContentPreview: [[[HoccerImage alloc] initWithUIImage:image] autorelease]];
+	[hoccerViewController setContentPreview: self.contentToSend];
 	viewController.selectedViewController = hoccerViewController;
 	
 }
@@ -103,12 +103,11 @@
 		return;
 	}
 	
-	NSString *type = @"image/jpeg";
-	NSString *filename = @"test.jpeg";
+	[hoccerViewController setUpdate: @"preparing"];
 	
 	CLLocation *location = [self currentLocation];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: self.dataToSend 
-													   type: type filename: filename delegate:self];
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: [contentToSend data] 
+													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 }
 
 
@@ -122,14 +121,15 @@
 	hoccerContent = [[HoccerContentFactory createContentFromResponse: aRequest.response 
 														    withData: aRequest.result] retain];
 	
-	[viewController.view removeFromSuperview];
-
-	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+	if (!receivedContentView) {
+		receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+	}
+	
 	receivedContentView.delegate = self;
 	[receivedContentView setHoccerContent: hoccerContent];
 	
-	[window addSubview: receivedContentView.view];
-	[window makeKeyAndVisible];
+	
+	[viewController presentModalViewController: receivedContentView animated:YES];
 
 	[request release];
 	request = nil;
@@ -209,17 +209,13 @@
 	NSLog(@"speichern");
 
 	[hoccerContent save];
+	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 
 - (void)userDidDismissContent
 {
-	[self setMainView];
-}
-
-- (void)setMainView
-{
-	[window addSubview: viewController.view];
+	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 

@@ -16,16 +16,19 @@
 	self = [super init];
 	if (self != nil) {
 		image = [aImage retain];
+		data = 	UIImageJPEGRepresentation(image, 1.0);
+		[data retain];
 	}
 	return self;
 }
 
 
 
-- (id)initWithData: (NSData *)data 
+- (id)initWithData: (NSData *)aData 
 {
 	self = [super init];
 	if (self != nil) {
+		data = [aData retain];
 		image = [[UIImage imageWithData:data] retain];
 	}
 	return self;
@@ -44,10 +47,28 @@
 }
 
 
+- (NSString *)filename
+{
+	return @"test.jpg";
+}
+
+- (NSString *)mimeType
+{
+	return @"image/jpeg";
+}
+
+- (NSData *)data
+{
+	return data;
+}
+
+
 -(void) dealloc 
 {
-	[super dealloc];
 	[image release];
+	[data release];
+	
+	[super dealloc];
 }
 
 - (NSString *)saveButtonDescription 

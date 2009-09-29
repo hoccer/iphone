@@ -25,19 +25,19 @@
 	ReceivedContentView *receivedContentView;
 												
 	IBOutlet HoccerViewController *hoccerViewController;
-	NSData *dataToSend;				
 											
 	CLLocationManager *locationManager;
 	GesturesInterpreter *gesturesInterpreter;
 	BaseHoccerRequest *request;
 
 	id <HoccerContent> hoccerContent;
+	id <HoccerContent> contentToSend;							
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *viewController;
 
-@property (nonatomic, retain) NSData *dataToSend;
+@property (nonatomic, retain) id <HoccerContent> contentToSend;
 
 - (CLLocation *) currentLocation;
 

@@ -14,6 +14,12 @@
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
+
+- (NSString *)filename;
+- (NSString *)mimeType;
+
+- (NSData *)data;
+
 - (NSString *)saveButtonDescription;
 
 @end

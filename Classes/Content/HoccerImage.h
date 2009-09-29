@@ -12,12 +12,16 @@
 
 @interface HoccerImage : NSObject <HoccerContent> {
 	UIImage *image;
+	NSData *data;
 }
 
 - (id) initWithUIImage: (UIImage *)aImage;
 - (id) initWithData: (NSData *)data;
 - (void)save;
 - (void)dismiss;
+
+
+
 - (UIView *)view;
 
 @end
