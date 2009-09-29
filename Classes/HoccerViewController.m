@@ -54,10 +54,6 @@
 	[self.delegate checkAndPerformSelector:@selector(userDidCancelRequest)];
 }
 
-- (IBAction)save: (id)sender 
-{
-	[self.delegate checkAndPerformSelector:@selector(userDidSaveRequest)];
-}
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {

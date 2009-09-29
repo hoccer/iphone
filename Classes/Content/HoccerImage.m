@@ -11,6 +11,17 @@
 
 @implementation HoccerImage
 
+- (id) initWithUIImage: (UIImage *)aImage
+{
+	self = [super init];
+	if (self != nil) {
+		image = aImage;
+	}
+	return self;
+}
+
+
+
 - (id) initWithData: (NSData *)data 
 {
 	self = [super init];
@@ -31,6 +42,10 @@
 {
 	return [[[UIImageView alloc] initWithImage:image] autorelease]; 
 }
+
+- 
+
+
 
 -(void) dealloc 
 {

@@ -13,6 +13,7 @@
 @class HoccerViewController;
 @class GesturesInterpreter;
 @class BaseHoccerRequest;
+@class ReceivedContentView;
 
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
@@ -21,8 +22,9 @@
 											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, MKReverseGeocoderDelegate> {
     UIWindow *window;
     UITabBarController *viewController;
-	IBOutlet HoccerViewController *hoccerViewController;
+	ReceivedContentView *receivedContentView;
 												
+	IBOutlet HoccerViewController *hoccerViewController;
 	NSData *dataToSend;				
 											
 	CLLocationManager *locationManager;
@@ -39,7 +41,10 @@
 
 - (CLLocation *) currentLocation;
 
-- (IBAction)userDidCancelRequest;
+- (void)userDidCancelRequest;
+- (void)userDidDismissContent;
+- (void)userDidSaveContent;
+
 
 
 @end

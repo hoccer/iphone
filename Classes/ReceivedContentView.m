@@ -7,9 +7,13 @@
 //
 
 #import "ReceivedContentView.h"
-
+#import "NSObject+DelegateHelper.h"
+#import "HoccerContent.h"
 
 @implementation ReceivedContentView
+
+@synthesize delegate;
+
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -50,7 +54,29 @@
 
 
 - (void)dealloc {
-    [super dealloc];
+	[saveButton release];
+	[toolbar release];
+
+	[super dealloc];
+}
+
+- (IBAction)onSave: (id)sender
+{
+	[self.delegate checkAndPerformSelector:@selector(userDidSaveContent)];
+}
+
+- (IBAction)onDismiss: (id)sender
+{
+	[self.delegate checkAndPerformSelector:@selector(userDidDismissContent)];
+}
+
+- (void)setHoccerContent: (id <HoccerContent>) content 
+{
+	[self.view insertSubview: content.view atIndex:0];
+	saveButton.title = [content saveButtonDescription];
+	
+	[toolbar setHidden: NO];
+	[self.view setNeedsDisplay];
 }
 
 

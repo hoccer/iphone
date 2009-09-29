@@ -8,6 +8,7 @@
 
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
+#import "ReceivedContentView.h"
 
 #import "BaseHoccerRequest.h"
 
@@ -36,6 +37,8 @@
 
 	[request release];
 
+	
+	
 	// Override point for customization after app launch    
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
@@ -53,9 +56,7 @@
     [viewController release];
     [window release];
 	
-	
-
-    [super dealloc];
+	[super dealloc];
 }
 
 #pragma mark -
@@ -112,15 +113,21 @@
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
+	NSLog(@"request did finish, showing picture");
+	
 	hoccerContent = [[HoccerContentFactory createContentFromResponse: aRequest.response 
 														    withData: aRequest.result] retain];
 	
-	[viewController.view insertSubview: hoccerContent.view atIndex:0];
-	// saveButton.title = [hoccerContent saveButtonDescription];
+	[viewController.view removeFromSuperview];
+
+	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+	receivedContentView.delegate = self;
+	[receivedContentView setHoccerContent: hoccerContent];
 	
-	// [viewController.toolbar setHidden: NO];
-	// [viewController.view setNeedsDisplay];
-	
+	NSLog(@"setze: %@", receivedContentView);
+	[window addSubview: receivedContentView.view];
+	[window makeKeyAndVisible];
+
 	[request release];
 	request = nil;
 }
@@ -184,7 +191,7 @@
 #pragma mark -
 #pragma mark Interaction Delegate Methods
 
-- (IBAction)userDidCancelRequest
+- (void)userDidCancelRequest
 {
 	NSLog(@"canceling..");
 	[request cancel];
@@ -194,9 +201,24 @@
 }
 
 
-- (IBAction)userDidSaveContent
+- (void)userDidSaveContent
 {
+	NSLog(@"speichern");
+
 	[hoccerContent save];
 }
+
+
+- (void)userDidDismissContent
+{
+	[self setMainView];
+}
+
+- (void)setMainView
+{
+	[window addSubview: viewController.view];
+}
+
+
 
 @end
