@@ -104,7 +104,7 @@
 						<int key="IBUITextAlignment">1</int>
 						<int key="IBUILineBreakMode">5</int>
 					</object>
-					<object class="IBUIView" id="863975465">
+					<object class="IBUIView" id="351106567">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 46}, {280, 161}}</string>
@@ -112,7 +112,7 @@
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="947259298">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="894017236">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -124,7 +124,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC43NQA</bytes>
-					<reference key="NSCustomColorSpace" ref="947259298"/>
+					<reference key="NSCustomColorSpace" ref="894017236"/>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -166,6 +166,14 @@
 					</object>
 					<int key="connectionID">43</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">previewBox</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="351106567"/>
+					</object>
+					<int key="connectionID">46</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -196,7 +204,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="869145556"/>
 							<reference ref="1024507351"/>
-							<reference ref="863975465"/>
+							<reference ref="351106567"/>
 							<reference ref="708138701"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
@@ -218,7 +226,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">45</int>
-						<reference key="object" ref="863975465"/>
+						<reference key="object" ref="351106567"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
@@ -268,7 +276,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">46</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -277,17 +285,8 @@
 					<string key="className">HoccerViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSMutableArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>onCancel:</string>
-							<string>save:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-						</object>
+						<string key="NS.key.0">onCancel:</string>
+						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -295,6 +294,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>delegate</string>
 							<string>locationLabel</string>
+							<string>previewBox</string>
 							<string>saveButton</string>
 							<string>statusLabel</string>
 							<string>toolbar</string>
@@ -303,6 +303,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIBarButtonItem</string>
 							<string>UILabel</string>
 							<string>UIToolbar</string>

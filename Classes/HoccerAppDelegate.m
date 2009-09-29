@@ -17,6 +17,7 @@
 #import "GesturesInterpreter.h"
 
 #import "HoccerContentFactory.h"
+#import "HoccerImage.h"
 
 @implementation HoccerAppDelegate
 
@@ -37,8 +38,6 @@
 
 	[request release];
 
-	
-	
 	// Override point for customization after app launch    
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
@@ -72,7 +71,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	self.dataToSend =  UIImagePNGRepresentation([info objectForKey: UIImagePickerControllerOriginalImage]);
+	UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
+	self.dataToSend =  UIImagePNGRepresentation(image);
+	
+	[hoccerViewController setContentPreview: [[[HoccerImage alloc] initWithUIImage:image] autorelease]];
+	
 }
 
 #pragma mark -

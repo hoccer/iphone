@@ -44,6 +44,8 @@
     [statusLabel release];
 	[locationLabel release];
 	
+	[previewBox release];
+	
 	[super dealloc];
 }
 
@@ -59,12 +61,17 @@
 {
 	if (placemark.thoroughfare != nil)
 		locationLabel.text = [NSString stringWithFormat:@"%@ (~ %4.2fm)", placemark.thoroughfare, accuracy];
-
 }	
 	
 - (void)setUpdate: (NSString *)update
 {
 	statusLabel.text = update;
 }	
+
+- (void)setContentPreview: (id <HoccerContent>)content
+{
+	[previewBox addSubview: content.view];
+}
+
 
 @end

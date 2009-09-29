@@ -19,16 +19,22 @@
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UILabel *locationLabel;
 	
+	IBOutlet UIView *previewBox;
+	
 	id delegate;
 }
 
 @property (assign) id delegate;
 
 - (IBAction)onCancel: (id)sender; 
-- (IBAction)save: (id)sender;
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setUpdate: (NSString *)update;
+
+- (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
+- (void)setUpdate: (NSString *)update;
+
+- (void)setContentPreview: (id <HoccerContent>)content;
 
 @end
 

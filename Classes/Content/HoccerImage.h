@@ -14,6 +14,7 @@
 	UIImage *image;
 }
 
+- (id) initWithUIImage: (UIImage *)aImage;
 - (id) initWithData: (NSData *)data;
 - (void)save;
 - (void)dismiss;

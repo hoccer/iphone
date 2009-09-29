@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,6 +269,7 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>22762FB9105E8512003BF968</string>
+								<string>2205A6E21057C27F005C5036</string>
 								<string>223BC3411055320A00ABE5A2</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -274,13 +277,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
-									<integer>1</integer>
+									<integer>46</integer>
+									<integer>42</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {266, 810}}</string>
+							<string>{{0, 86}, {266, 810}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -310,14 +313,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>HoccerAppDelegate.m</string>
+								<string>HoccerViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>HoccerAppDelegate.m</string>
+										<string>HoccerViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>228D6A4C1072219F00FF1E2B</string>
+										<string>228D6A75107229D400FF1E2B</string>
 										<key>history</key>
 										<array>
 											<string>223BC426105558C500ABE5A2</string>
@@ -355,7 +356,6 @@
 											<string>22783C691067760B00B244F7</string>
 											<string>22783C6A1067760B00B244F7</string>
 											<string>22783C6B1067760B00B244F7</string>
-											<string>22783C6C1067760B00B244F7</string>
 											<string>22783C87106777E200B244F7</string>
 											<string>22783D031067806F00B244F7</string>
 											<string>22783D611067A79C00B244F7</string>
@@ -395,16 +395,17 @@
 											<string>226496A51070F8C4006D33E2</string>
 											<string>226496A91070F8C4006D33E2</string>
 											<string>226496AA1070F8C4006D33E2</string>
-											<string>226496AB1070F8C4006D33E2</string>
 											<string>228D68871071FB0800FF1E2B</string>
 											<string>228D68881071FB0800FF1E2B</string>
 											<string>228D68DB1071FE3600FF1E2B</string>
-											<string>228D696F1072091100FF1E2B</string>
-											<string>228D69E81072176200FF1E2B</string>
-											<string>228D6A1E10721F4000FF1E2B</string>
-											<string>228D6A431072219F00FF1E2B</string>
-											<string>228D6A441072219F00FF1E2B</string>
-											<string>228D6A451072219F00FF1E2B</string>
+											<string>228D6A52107228DC00FF1E2B</string>
+											<string>228D6A53107228DC00FF1E2B</string>
+											<string>228D6A54107228DC00FF1E2B</string>
+											<string>228D6A55107228DC00FF1E2B</string>
+											<string>228D6A56107228DC00FF1E2B</string>
+											<string>228D6A57107228DC00FF1E2B</string>
+											<string>228D6A71107229D400FF1E2B</string>
+											<string>228D6A72107229D400FF1E2B</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -630,6 +631,26 @@
 											<string>228D6A491072219F00FF1E2B</string>
 											<string>228D6A4A1072219F00FF1E2B</string>
 											<string>228D6A4B1072219F00FF1E2B</string>
+											<string>228D6A5A107228DC00FF1E2B</string>
+											<string>228D6A5B107228DC00FF1E2B</string>
+											<string>228D6A5C107228DC00FF1E2B</string>
+											<string>228D6A5D107228DC00FF1E2B</string>
+											<string>228D6A5E107228DC00FF1E2B</string>
+											<string>228D6A5F107228DC00FF1E2B</string>
+											<string>228D6A60107228DC00FF1E2B</string>
+											<string>228D6A61107228DC00FF1E2B</string>
+											<string>228D6A62107228DC00FF1E2B</string>
+											<string>228D6A63107228DC00FF1E2B</string>
+											<string>228D6A64107228DC00FF1E2B</string>
+											<string>228D6A65107228DC00FF1E2B</string>
+											<string>228D6A66107228DC00FF1E2B</string>
+											<string>228D6A67107228DC00FF1E2B</string>
+											<string>228D6A68107228DC00FF1E2B</string>
+											<string>228D6A69107228DC00FF1E2B</string>
+											<string>228D6A6A107228DC00FF1E2B</string>
+											<string>228D6A6B107228DC00FF1E2B</string>
+											<string>228D6A73107229D400FF1E2B</string>
+											<string>228D6A74107229D400FF1E2B</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -823,11 +844,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>228D6A6D107228DC00FF1E2B</string>
 		<string>228D68C41071FB0800FF1E2B</string>
 		<string>228D68C61071FB0800FF1E2B</string>
-		<string>223BC31A10552FA600ABE5A2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>223BC31A10552FA600ABE5A2</string>
 		<string>/Users/robertp/workspace/hoccer-iphone/Hoccer.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -854,7 +876,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ReceivedContentView.m</string>
+								<string>HoccerImage.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -921,7 +943,7 @@
 			<key>WindowToolGUID</key>
 			<string>223BC31A10552FA600ABE5A2</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
