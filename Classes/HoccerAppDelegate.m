@@ -192,4 +192,11 @@
 	
 	request = nil;
 }
+
+
+- (IBAction)userDidSaveContent
+{
+	[hoccerContent save];
+}
+
 @end
