@@ -36,7 +36,16 @@
 	
 	return self;
 }
-					  
+					
+- (void) dealloc
+{
+	[request release];
+	
+	[super dealloc];
+}
+
+
+
 					  
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
