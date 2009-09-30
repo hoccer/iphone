@@ -25,6 +25,7 @@
 @synthesize viewController;
 
 @synthesize contentToSend;
+@synthesize hoccerContent;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
@@ -118,15 +119,13 @@
 {
 	NSLog(@"request did finish, showing picture");
 	
-	hoccerContent = [[HoccerContentFactory createContentFromResponse: aRequest.response 
-														    withData: aRequest.result] retain];
+	self.hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
+														    withData: aRequest.result];
 	
-	if (!receivedContentView) {
-		receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
-	}
+	receivedContentView = [[[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil] autorelease];
 	
 	receivedContentView.delegate = self;
-	[receivedContentView setHoccerContent: hoccerContent];
+	[receivedContentView setHoccerContent: self.hoccerContent];
 	
 	
 	[viewController presentModalViewController: receivedContentView animated:YES];

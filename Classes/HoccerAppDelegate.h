@@ -37,6 +37,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *viewController;
 
+@property (nonatomic, retain) id <HoccerContent> hoccerContent;
 @property (nonatomic, retain) id <HoccerContent> contentToSend;
 
 - (CLLocation *) currentLocation;

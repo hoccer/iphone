@@ -23,7 +23,6 @@
 }
 
 
-
 - (id)initWithData: (NSData *)aData 
 {
 	self = [super init];

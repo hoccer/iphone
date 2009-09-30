@@ -32,6 +32,7 @@
 		}
 	}
 
+	[hoccerContent autorelease];
 	return hoccerContent;
 }
 
