@@ -164,7 +164,8 @@
 
 - (CLLocation *) currentLocation
 {
-	return locationManager.location;
+	return [[[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116] autorelease];
+//	return locationManager.location;
 }
 
 #pragma mark -

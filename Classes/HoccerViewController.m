@@ -49,6 +49,11 @@
 	[super dealloc];
 }
 
+- (IBAction)onCatch: (id)sender
+{
+	[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectCatch:) withObject: nil]; 
+}
+
 
 - (IBAction)onCancel: (id)sender 
 {

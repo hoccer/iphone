@@ -27,6 +27,7 @@
 @property (assign) id delegate;
 
 - (IBAction)onCancel: (id)sender; 
+- (IBAction)onCatch: (id)sender;
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setUpdate: (NSString *)update;

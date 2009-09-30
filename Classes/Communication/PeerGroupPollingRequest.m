@@ -37,6 +37,12 @@
 	return self;
 }
 
+- (void) dealloc
+{
+	[request  release];
+	[super dealloc];
+}
+
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
@@ -72,7 +78,7 @@
 	}
 	
 	NSLog(@"restarting connection");
-	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] retain];
+	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}
