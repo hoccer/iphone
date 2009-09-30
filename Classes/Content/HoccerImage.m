@@ -29,13 +29,15 @@
 	self = [super init];
 	if (self != nil) {
 		data = [aData retain];
-		image = [[UIImage imageWithData:data] retain];
+		image = [[UIImage imageWithData:aData] retain];
 	}
 	return self;
 }
 
-- (void)save 
+- (void)saveWithSelector: (SEL)selector target: (id)target
 {
+	NSLog(@"image: %@", image);
+	//UIImageWriteToSavedPhotosAlbum(image, target, selector, nil);
 	UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 

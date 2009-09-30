@@ -196,7 +196,6 @@
 
 - (void)userDidCancelRequest
 {
-	NSLog(@"canceling..");
 	[request cancel];
 	[request release];
 	
@@ -206,10 +205,9 @@
 
 - (void)userDidSaveContent
 {
-	NSLog(@"speichern");
-
-	[hoccerContent save];
-	[viewController dismissModalViewControllerAnimated:YES];
+	NSLog(@"save");
+	
+	[hoccerContent saveWithSelector: @selector(image:didFinishSavingWithError:contextInfo:) target: self];
 }
 
 
@@ -218,6 +216,14 @@
 	[viewController dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark -
+#pragma mark Saving Delegate Methods
 
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+	NSLog(@"did save: error: %@", error);
+
+	[viewController dismissModalViewControllerAnimated:YES];
+}
 
 @end
