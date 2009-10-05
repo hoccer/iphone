@@ -9,20 +9,54 @@
 #import "HoccerImage.h"
 #import "ACResizeImage.h"
 
+@interface MyThreadClass : NSObject
+{
+	BOOL isReady;
+}
+
+@property (assign) BOOL isReady;
+
+- (void)createDataRepresentaion: (HoccerImage *)content;
+@end
+
+@implementation MyThreadClass
+@synthesize isReady;
+
+- (void)createDataRepresentaion: (HoccerImage *)content
+{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	NSLog(@"creating jpeg representation");
+	content.data = UIImageJPEGRepresentation(content.image, 1.0);
+	
+	if (![[NSThread currentThread] isCancelled]) {
+		self.isReady = YES;
+		NSLog(@"finished jpeg represenation");
+	}
+	
+	[pool drain];
+}	
+
+@end
+
 
 @implementation HoccerImage
+
+@synthesize data;
+@synthesize image;
 
 - (id)initWithUIImage: (UIImage *)aImage
 {
 	self = [super init];
 	if (self != nil) {
+		image = [aImage retain];
 		isDataReady = NO;
 		
-		image = [aImage retain];
-		secondThread = [[NSThread alloc] 
-						initWithTarget:self selector:@selector(createDataRepresentaion) 
-												 object:nil];	
-		[secondThread start];
+		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
+		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
+								 toTarget:threadClass withObject:self];
+		
+		
 	}
 	
 	return self;
@@ -70,10 +104,7 @@
 
 - (void) dealloc 
 {
-	NSLog(@"canceling thread");
-	[secondThread cancel];
-	[secondThread release];
-	
+	NSLog(@"dealloc of HoccerImage");
 	[image release];
 	[data release];
 	
@@ -87,24 +118,7 @@
 
 - (BOOL)isDataReady
 {
-	return isDataReady;
+	return (data != nil);
 }
-
-- (void)createDataRepresentaion
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	NSLog(@"creating jpeg representation");
-	data = UIImageJPEGRepresentation(image, 1.0);
-
-	if (![[NSThread currentThread] isCancelled]) {
-		[data retain];
-		isDataReady = YES;
-		NSLog(@"finished jpeg represenation");
-	}
-
-	[pool drain];
-}	
-	
 
 @end

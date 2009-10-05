@@ -151,7 +151,6 @@
 
 - (void) startDownloadWhenDataIsReady: (NSTimer *)theTimer
 {
-	NSLog(@"checking if data is ready");
 	if (isCanceled) 
 	{
 		[timer invalidate];

@@ -18,6 +18,9 @@
 	BOOL isDataReady;
 }
 
+@property (nonatomic, retain) NSData* data;
+@property (nonatomic, readonly) UIImage* image;
+
 - (id)initWithUIImage: (UIImage *)aImage;
 - (id)initWithData: (NSData *)data;
 - (void)dismiss;
