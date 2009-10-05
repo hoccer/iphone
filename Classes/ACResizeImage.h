@@ -12,6 +12,7 @@
 @interface UIImage  (ACResizeImage) 
 
 - (UIImage *)acImageScaledToSize: (CGRect)rect;
+- (UIImage *)acImageScaledToWidth: (NSInteger)width;
 
 
 

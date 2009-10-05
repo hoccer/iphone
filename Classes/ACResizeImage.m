@@ -29,4 +29,12 @@
 	return result;
 }
 
+- (UIImage *)acImageScaledToWidth: (NSInteger)width
+{
+	float ratio = self.size.width / width;
+	
+	return [self acImageScaledToSize: CGRectMake(0, 0, width, self.size.height / ratio)];
+}
+
+
 @end

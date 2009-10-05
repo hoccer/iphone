@@ -82,9 +82,10 @@
 	}
 
 	UIView *contentView = content.view;
-	contentView.contentMode = UIViewContentModeScaleAspectFit; 
 	contentView.frame = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
 	contentView.bounds = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
+
+	contentView.contentMode = UIViewContentModeScaleAspectFill; 
 	
 	[previewBox addSubview: contentView];
 }

@@ -48,7 +48,7 @@
 {
 	NSLog(@"image height: %f, width:  %f", image.size.height, image.size.width);
 	
-	UIImage *scaledImage = [image acImageScaledToSize: CGRectMake(0, 0, 400, 300)];
+	UIImage *scaledImage = [image acImageScaledToWidth: 400];
 	NSLog(@"scaled image: %@", scaledImage);
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
