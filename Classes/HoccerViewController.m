@@ -75,10 +75,12 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content
 {
+	NSLog(@"in %s with content %@", _cmd, content);
+	
 	if ([previewBox.subviews count] > 0) {
 		[[previewBox.subviews objectAtIndex:0] removeFromSuperview];
 	}
-		
+
 	UIView *contentView = content.view;
 	contentView.contentMode = UIViewContentModeScaleAspectFit; 
 	contentView.frame = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);

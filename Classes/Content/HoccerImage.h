@@ -15,9 +15,8 @@
 	NSData *data;
 }
 
-- (id) initWithUIImage: (UIImage *)aImage;
-- (id) initWithData: (NSData *)data;
-- (void)saveWithSelector: (SEL)selector target: (id)target;
+- (id)initWithUIImage: (UIImage *)aImage;
+- (id)initWithData: (NSData *)data;
 - (void)dismiss;
 
 

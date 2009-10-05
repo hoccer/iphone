@@ -7,6 +7,7 @@
 //
 
 #import "HoccerImage.h"
+#import "ACResizeImage.h"
 
 
 @implementation HoccerImage
@@ -29,11 +30,12 @@
 	if (self != nil) {
 		data = [aData retain];
 		image = [[UIImage imageWithData:aData] retain];
+		NSLog(@"image height: %f, width:  %f", image.size.height, image.size.width);
 	}
 	return self;
 }
 
-- (void)saveWithSelector: (SEL)selector target: (id)target
+- (void)save
 {
 	NSLog(@"image: %@", image);
 	//UIImageWriteToSavedPhotosAlbum(image, target, selector, nil);
@@ -44,7 +46,11 @@
 
 - (UIView *)view 
 {
-	return [[[UIImageView alloc] initWithImage:image] autorelease]; 
+	NSLog(@"image height: %f, width:  %f", image.size.height, image.size.width);
+	
+	UIImage *scaledImage = [ACResizeImage acImage:(UIImage *)image scaledToSize: CGRectMake(0, 0, 400, 300)];
+	NSLog(@"scaled image: %@", scaledImage);
+	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
 

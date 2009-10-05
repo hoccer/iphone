@@ -73,6 +73,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+	NSLog(@"in %s", _cmd);
 	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:[info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
 	[hoccerViewController setContentPreview: self.contentToSend];
@@ -127,7 +128,6 @@
 	receivedContentView.delegate = self;
 	[receivedContentView setHoccerContent: self.hoccerContent];
 	
-	
 	[viewController presentModalViewController: receivedContentView animated:YES];
 
 	[request release];
@@ -163,8 +163,8 @@
 
 - (CLLocation *) currentLocation
 {
-	return [[[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116] autorelease];
-//	return locationManager.location;
+//	return [[[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116] autorelease];
+	return locationManager.location;
 }
 
 #pragma mark -
@@ -207,7 +207,7 @@
 {
 	NSLog(@"save");
 	
-	[hoccerContent saveWithSelector: @selector(image:didFinishSavingWithError:contextInfo:) target: self];
+	[hoccerContent save];
 }
 
 

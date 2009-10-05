@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		220563561079FA9300BC5C31 /* ACResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 220563551079FA9300BC5C31 /* ACResizeImage.m */; };
+		220563571079FA9300BC5C31 /* ACResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 220563551079FA9300BC5C31 /* ACResizeImage.m */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -63,6 +65,8 @@
 		22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E2F1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */; };
+		22F3E78B107364A8004A30EA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22F3E78A107364A8004A30EA /* 1.jpg */; };
+		22F3E78C107364A8004A30EA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22F3E78A107364A8004A30EA /* 1.jpg */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -85,6 +89,8 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		220563541079FA9300BC5C31 /* ACResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACResizeImage.h; sourceTree = "<group>"; };
+		220563551079FA9300BC5C31 /* ACResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACResizeImage.m; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -167,6 +173,7 @@
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D49E301068D09700B03B61 /* FeatureHistoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureHistoryTests.h; sourceTree = "<group>"; };
 		22D49E311068D09700B03B61 /* FeatureHistoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureHistoryTests.m; sourceTree = "<group>"; };
+		22F3E78A107364A8004A30EA /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../Desktop/1.jpg; sourceTree = SOURCE_ROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -294,6 +301,8 @@
 				223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */,
 				228275E3106A157A00AAC17E /* NSString+Regexp.h */,
 				228275E4106A157A00AAC17E /* NSString+Regexp.m */,
+				220563541079FA9300BC5C31 /* ACResizeImage.h */,
+				220563551079FA9300BC5C31 /* ACResizeImage.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -402,6 +411,7 @@
 			children = (
 				22762DE5105E5688003BF968 /* fixtures */,
 				227333ED1056426D004228B4 /* icon.png */,
+				22F3E78A107364A8004A30EA /* 1.jpg */,
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,
@@ -490,6 +500,7 @@
 				227333EE1056426D004228B4 /* icon.png in Resources */,
 				22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */,
 				227990FC105FEA140035C643 /* ReceivedContentView.xib in Resources */,
+				22F3E78B107364A8004A30EA /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22762F62105E78AF003BF968 /* 2_values.txt in Resources */,
+				22F3E78C107364A8004A30EA /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +566,7 @@
 				228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */,
 				228276E7106A374300AAC17E /* CatchDetector.m in Sources */,
 				226496261070DD56006D33E2 /* ThrowDetector.m in Sources */,
+				220563561079FA9300BC5C31 /* ACResizeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +592,7 @@
 				228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */,
 				228276E6106A374300AAC17E /* CatchDetector.m in Sources */,
 				226496271070DD56006D33E2 /* ThrowDetector.m in Sources */,
+				220563571079FA9300BC5C31 /* ACResizeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
