@@ -17,9 +17,13 @@
 	self = [super init];
 	if (self != nil) {
 		image = [aImage retain];
-		//data = 	UIImageJPEGRepresentation(image, 1.0);
+		// data = UIImageJPEGRepresentation(image, 1.0);
 		[data retain];
+		
+		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion) 
+								 toTarget:self withObject:nil];
 	}
+	
 	return self;
 }
 
@@ -63,8 +67,7 @@
 	return data;
 }
 
-
--(void) dealloc 
+- (void) dealloc 
 {
 	[image release];
 	[data release];
@@ -77,5 +80,17 @@
 	return @"Save to Gallery";
 }
 
+- (void)createDataRepresentaion
+{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
+	NSLog(@"creating jpeg representation");
+	data = UIImageJPEGRepresentation(image, 1.0);
+	[data retain];
+	NSLog(@"finished jpeg represenation");
+	
+	[pool drain];
+}	
+	
 
 @end
