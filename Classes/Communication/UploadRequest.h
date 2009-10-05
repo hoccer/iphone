@@ -11,7 +11,6 @@
 
 
 @interface UploadRequest : BaseHoccerRequest {
-	NSMutableURLRequest *request;
 }
 
 - (id)initWithResult: (id) aResult data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate;

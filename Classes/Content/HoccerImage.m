@@ -27,7 +27,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	NSLog(@"creating jpeg representation");
-	content.data = UIImageJPEGRepresentation(content.image, 1.0);
+	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	
 	if (![[NSThread currentThread] isCancelled]) {
 		self.isReady = YES;
