@@ -17,7 +17,7 @@
 	self = [super init];
 	if (self != nil) {
 		image = [aImage retain];
-		data = 	UIImageJPEGRepresentation(image, 1.0);
+		//data = 	UIImageJPEGRepresentation(image, 1.0);
 		[data retain];
 	}
 	return self;
@@ -30,26 +30,20 @@
 	if (self != nil) {
 		data = [aData retain];
 		image = [[UIImage imageWithData:aData] retain];
-		NSLog(@"image height: %f, width:  %f", image.size.height, image.size.width);
 	}
 	return self;
 }
 
 - (void)save
 {
-	NSLog(@"image: %@", image);
-	//UIImageWriteToSavedPhotosAlbum(image, target, selector, nil);
 	UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 - (void)dismiss {}
 
 - (UIView *)view 
-{
-	NSLog(@"image height: %f, width:  %f", image.size.height, image.size.width);
-	
+{	
 	UIImage *scaledImage = [image acImageScaledToWidth: 400];
-	NSLog(@"scaled image: %@", scaledImage);
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 

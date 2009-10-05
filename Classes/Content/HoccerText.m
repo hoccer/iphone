@@ -46,4 +46,22 @@
 }
 
 
+- (NSString *)filename 
+{
+	return @"text.txt";
+}
+
+- (NSString *)mimeType
+{
+	return @"tex/plain";
+}
+
+- (NSData *)data 
+{
+	return [content dataUsingEncoding: NSUTF8StringEncoding];
+}
+
+
+
+
 @end

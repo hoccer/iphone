@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HoccerContent.h"
 
-
-@interface HoccerText : NSObject {
+@interface HoccerText : NSObject <HoccerContent> {
 	NSString *content;
 }
 
