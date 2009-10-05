@@ -7,28 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerContent.h"
 
 @class BaseHoccerRequest;
+
 
 @interface HoccerUploadRequest : NSObject {
 	BaseHoccerRequest *request;
 	BaseHoccerRequest *upload;
 	
-	NSData *data;
+	id <HoccerContent> content;
 	NSString *type;
 	NSString *filename;
 	
 	id delegate;
 	
 	BOOL uploadDidFinish, pollingDidFinish;
+	BOOL isCanceled;
+	
+	NSTimer *timer;
 }
 
 @property (nonatomic, assign) id delegate;
-@property (retain) NSData *data;
+@property (retain) id <HoccerContent> content;
 @property (retain) NSString *type;
 @property (retain) NSString *filename;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture data: (NSData *)aData 
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
 				  type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate;
 - (void)cancel;
 

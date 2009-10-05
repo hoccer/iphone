@@ -41,7 +41,6 @@
 - (void)dealloc
 {
 	[content release];
-
 	[super dealloc];
 }
 
@@ -53,7 +52,7 @@
 
 - (NSString *)mimeType
 {
-	return @"tex/plain";
+	return @"text/plain";
 }
 
 - (NSData *)data 
@@ -61,7 +60,9 @@
 	return [content dataUsingEncoding: NSUTF8StringEncoding];
 }
 
-
+- (BOOL)isDataReady {
+	return YES;
+}
 
 
 @end

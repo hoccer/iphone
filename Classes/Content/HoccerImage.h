@@ -13,6 +13,9 @@
 @interface HoccerImage : NSObject <HoccerContent> {
 	UIImage *image;
 	NSData *data;
+
+	NSThread *secondThread;
+	BOOL isDataReady;
 }
 
 - (id)initWithUIImage: (UIImage *)aImage;

@@ -19,6 +19,7 @@
 - (NSString *)mimeType;
 
 - (NSData *)data;
+- (BOOL)isDataReady;
 
 - (NSString *)saveButtonDescription;
 

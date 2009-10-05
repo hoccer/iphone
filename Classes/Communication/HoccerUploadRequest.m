@@ -27,17 +27,18 @@
 @implementation HoccerUploadRequest
 
 @synthesize delegate;
-@synthesize data;
+@synthesize content;
 @synthesize type, filename;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture data: (NSData *)aData 
+- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
+		isCanceled = NO;
 		self.delegate = aDelegate;
 		
-		self.data = aData;
+		self.content = theContent;
 		self.type = aType;
 		self.filename = aFilename;
 		
@@ -54,7 +55,7 @@
 - (void)dealloc 
 {
 	[upload release];
-	[data release];
+	[content release];
 
 	[super dealloc];
 }
@@ -62,6 +63,8 @@
 
 - (void)cancel 
 {
+	isCanceled = YES;
+	
 	[request cancel];
 	[request release];
 	request = nil;
@@ -80,10 +83,15 @@
 	NSLog(@"download uri %@", [aRequest.result valueForKey: @"upload_uri"]);
 
 	request = [[PeerGroupPollingRequest alloc] initWithObject:aRequest.result 
-																	 andDelegate:self];
+												  andDelegate:self];
 	
-	upload = [[UploadRequest alloc] initWithResult:aRequest.result data:self.data type: self.type 
-										  filename: self.filename delegate: self];
+	timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self
+										   selector:@selector(startDownloadWhenDataIsReady:) 
+										   userInfo: [NSDictionary dictionaryWithObject:aRequest forKey:@"request"]
+											repeats:YES];
+	
+	
+	
 	
 }
 
@@ -112,9 +120,12 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
+	[self cancel];
+	
+	NSLog(@"error: %@", error);
+	
 	[request release];
 	request = nil;
-	NSLog(@"error");
 	[self.delegate checkAndPerformSelector: @selector(request:didFailWithError:) 
 								withObject: self 
 								withObject: error];
@@ -135,6 +146,26 @@
 	NSLog(@"upload did finish");
 	if (uploadDidFinish && pollingDidFinish) {
 		[self.delegate checkAndPerformSelector:@selector(requestDidFinishUpload:) withObject: self];
+	}
+}
+
+- (void) startDownloadWhenDataIsReady: (NSTimer *)theTimer
+{
+	NSLog(@"checking if data is ready");
+	if (isCanceled) 
+	{
+		[timer invalidate];
+		return;
+	}
+	
+	if ([content isDataReady]) {
+		BaseHoccerRequest *aRequest = [[theTimer userInfo] valueForKey:@"request"];
+		
+		[timer invalidate];
+		
+		upload = [[UploadRequest alloc] initWithResult:aRequest.result 
+												  data:self.content.data type: self.type 
+											  filename: self.filename delegate: self];
 	}
 }
 

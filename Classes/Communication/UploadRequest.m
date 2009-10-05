@@ -52,8 +52,6 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
-	
-	
 	NSLog(@"upload connection did finish");
 	
 	self.result = [self createJSONFromResult: receivedData];

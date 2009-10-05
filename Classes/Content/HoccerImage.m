@@ -16,12 +16,13 @@
 {
 	self = [super init];
 	if (self != nil) {
-		image = [aImage retain];
-		// data = UIImageJPEGRepresentation(image, 1.0);
-		[data retain];
+		isDataReady = NO;
 		
-		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion) 
-								 toTarget:self withObject:nil];
+		image = [aImage retain];
+		secondThread = [[NSThread alloc] 
+						initWithTarget:self selector:@selector(createDataRepresentaion) 
+												 object:nil];	
+		[secondThread start];
 	}
 	
 	return self;
@@ -69,6 +70,10 @@
 
 - (void) dealloc 
 {
+	NSLog(@"canceling thread");
+	[secondThread cancel];
+	[secondThread release];
+	
 	[image release];
 	[data release];
 	
@@ -80,15 +85,24 @@
 	return @"Save to Gallery";
 }
 
+- (BOOL)isDataReady
+{
+	return isDataReady;
+}
+
 - (void)createDataRepresentaion
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	NSLog(@"creating jpeg representation");
 	data = UIImageJPEGRepresentation(image, 1.0);
-	[data retain];
-	NSLog(@"finished jpeg represenation");
-	
+
+	if (![[NSThread currentThread] isCancelled]) {
+		[data retain];
+		isDataReady = YES;
+		NSLog(@"finished jpeg represenation");
+	}
+
 	[pool drain];
 }	
 	

@@ -108,7 +108,7 @@
 	[hoccerViewController setUpdate: @"preparing"];
 	
 	CLLocation *location = [self currentLocation];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" data: [contentToSend data] 
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 }
 
