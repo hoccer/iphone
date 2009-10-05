@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ACResizeImage : NSObject
-{
-}
+@interface UIImage  (ACResizeImage) 
 
-+ (UIImage *)acImage:(UIImage*) image scaledToSize: (CGRect)rect;
+- (UIImage *)acImageScaledToSize: (CGRect)rect;
 
 
 

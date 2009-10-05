@@ -9,11 +9,11 @@
 #import "ACResizeImage.h"
 
 
-@implementation ACResizeImage
+@implementation UIImage (ACResizeImage)
 
-+ (UIImage* )acImage: (UIImage *)image scaledToSize: (CGRect)rect 
+- (UIImage* )acImageScaledToSize: (CGRect)rect 
 {
-	CGImageRef imageRef = [image CGImage];
+	CGImageRef imageRef = [self CGImage];
 	CGContextRef bitmapContext = CGBitmapContextCreate(NULL, rect.size.width, rect.size.height, 
 													   CGImageGetBitsPerComponent(imageRef), 
 													   rect.size.width * 4, 
@@ -25,7 +25,6 @@
 	CGImageRef ref = CGBitmapContextCreateImage(bitmapContext);
 	
 	UIImage *result = [UIImage imageWithCGImage: ref];
-	NSLog(@"result: %@", result);
 	
 	return result;
 }
