@@ -82,6 +82,7 @@
 {
 	NSLog(@"download uri %@", [aRequest.result valueForKey: @"upload_uri"]);
 
+	[request release];
 	request = [[PeerGroupPollingRequest alloc] initWithObject:aRequest.result 
 												  andDelegate:self];
 	
@@ -121,7 +122,6 @@
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
 	[self cancel];
-	
 	NSLog(@"error: %@", error);
 	
 	[request release];

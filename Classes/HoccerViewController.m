@@ -51,7 +51,7 @@
 
 - (IBAction)onCatch: (id)sender
 {
-	[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectCatch:) withObject: nil]; 
+	[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
 }
 
 

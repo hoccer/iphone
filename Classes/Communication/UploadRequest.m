@@ -30,7 +30,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 		
 		NSLog(@"uploading to %@", uploadUrl);
 
-		request = [[NSMutableURLRequest requestWithURL: uploadUrl] retain];
+		request = [NSMutableURLRequest requestWithURL: uploadUrl];
 		[request setHTTPMethod: @"PUT"];
 		[request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
 				 forHTTPHeaderField:@"Content-Type"];
