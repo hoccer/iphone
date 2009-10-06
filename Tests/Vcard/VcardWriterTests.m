@@ -91,21 +91,26 @@
 	ABRecordSetValue(person, kABPersonOrganizationProperty, @"Art+Com Technologies", &errorRef);
 	ABRecordSetValue(person, kABPersonJobTitleProperty, @"Developer", &errorRef);
 	
-	NSArray *emailAddresses = [NSArray arrayWithObjects: @"foo.bar@artcom.de", @"foo@artcom.de", nil];
-	ABRecordSetValue(person, kABPersonEmailProperty, emailAddresses, &errorRef);
+	
+	ABMutableMultiValueRef email= ABMultiValueCreateMutable(kABMultiStringPropertyType);
+	//ABMultiValueAddValueAndLabel(email, @"foo.bar@artcom.de", kABWorkLabel, NULL);
+	ABMultiValueAddValueAndLabel(email, @"foo@artcom.de", kABWorkLabel, NULL);
+	ABRecordSetValue(person, kABPersonEmailProperty, email, &errorRef);
+	CFRelease(email);
 	
 	ABMutableMultiValueRef multi = ABMultiValueCreateMutable(kABMultiStringPropertyType);
 	ABMultiValueAddValueAndLabel(multi, @"555", kABPersonPhoneMobileLabel, NULL);
 	ABMultiValueAddValueAndLabel(multi, @"666", kABPersonPhoneMainLabel, NULL);
 	
 	ABRecordSetValue(person, kABPersonPhoneProperty, multi, &errorRef);
+	CFRelease(multi);
 	
 	NSData *vcardData  = [ABPersonVCardCreator vcardWithABPerson: person];
 	STAssertNotNil(vcardData, @"should not be nil");
 	
 	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
 	
-	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEND:VCARD", 
+	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEMAIL;TYPE=work:foo@artcom.de\r\nEND:VCARD", 
 						 @"vcards should match");
 	
 	CFRelease(person);	

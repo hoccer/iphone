@@ -950,8 +950,8 @@
 		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1020, 5866}}";
-			sepNavSelRange = "{13373, 110}";
-			sepNavVisRange = "{13005, 956}";
+			sepNavSelRange = "{13540, 135}";
+			sepNavVisRange = "{13024, 961}";
 			sepNavWindowFrame = "{{15, 270}, {1088, 727}}";
 		};
 	};
@@ -1935,7 +1935,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {927, 1036}}";
 			sepNavSelRange = "{825, 45}";
-			sepNavVisRange = "{241, 974}";
+			sepNavVisRange = "{199, 1016}";
 		};
 	};
 	229DAF2B107B389100B47ABE /* PBXTextBookmark */ = {
@@ -2077,9 +2077,9 @@
 	};
 	229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {852, 1652}}";
-			sepNavSelRange = "{3082, 32}";
-			sepNavVisRange = "{2127, 1021}";
+			sepNavIntBoundsRect = "{{0, 0}, {1050, 1762}}";
+			sepNavSelRange = "{2458, 0}";
+			sepNavVisRange = "{1324, 2026}";
 		};
 	};
 	229DAF61107B3C2000B47ABE /* PBXTextBookmark */ = {
@@ -2365,7 +2365,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 14";
 		rLen = 0;
-		rLoc = 3142;
+		rLoc = 3350;
 		rType = 0;
 		vrLen = 206;
 		vrLoc = 0;
@@ -2385,7 +2385,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 14";
 		rLen = 0;
-		rLoc = 3142;
+		rLoc = 3350;
 		rType = 0;
 		vrLen = 206;
 		vrLoc = 0;
@@ -2405,7 +2405,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 18";
 		rLen = 0;
-		rLoc = 3140;
+		rLoc = 3348;
 		rType = 0;
 		vrLen = 245;
 		vrLoc = 0;
@@ -2425,7 +2425,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 18";
 		rLen = 0;
-		rLoc = 3140;
+		rLoc = 3348;
 		rType = 0;
 		vrLen = 245;
 		vrLoc = 0;
@@ -2991,7 +2991,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {720, 9744}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{1869, 218}";
+			sepNavVisRange = "{1869, 300}";
 		};
 	};
 	22BC5D57107B481400497EF4 /* PBXTextBookmark */ = {
@@ -3050,7 +3050,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 56";
 		rLen = 0;
-		rLoc = 3147;
+		rLoc = 3355;
 		rType = 0;
 		vrLen = 1032;
 		vrLoc = 0;
@@ -3110,7 +3110,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 61";
 		rLen = 0;
-		rLoc = 3137;
+		rLoc = 3345;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 0;
@@ -3130,7 +3130,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 61";
 		rLen = 0;
-		rLoc = 3137;
+		rLoc = 3345;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 0;
@@ -3140,7 +3140,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 61";
 		rLen = 0;
-		rLoc = 3137;
+		rLoc = 3345;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 0;
@@ -3180,7 +3180,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 64";
 		rLen = 0;
-		rLoc = 2016;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 217;
@@ -3190,7 +3190,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 65";
 		rLen = 0;
-		rLoc = 2112;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1584;
 		vrLoc = 217;
@@ -3200,7 +3200,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 66";
 		rLen = 0;
-		rLoc = 2191;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 217;
@@ -3210,7 +3210,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 67";
 		rLen = 0;
-		rLoc = 2358;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 217;
@@ -3220,7 +3220,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 67";
 		rLen = 0;
-		rLoc = 2358;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1601;
 		vrLoc = 217;
@@ -3250,7 +3250,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 62";
 		rLen = 0;
-		rLoc = 1824;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1544;
 		vrLoc = 278;
@@ -3260,7 +3260,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 62";
 		rLen = 0;
-		rLoc = 1824;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1542;
 		vrLoc = 280;
@@ -3280,7 +3280,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 62";
 		rLen = 0;
-		rLoc = 1824;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1544;
 		vrLoc = 278;
@@ -3300,23 +3300,23 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 69";
 		rLen = 0;
-		rLoc = 2309;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1541;
 		vrLoc = 278;
 	};
 	22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 768}}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 791}}";
 			sepNavSelRange = "{280, 0}";
 			sepNavVisRange = "{0, 449}";
 		};
 	};
 	22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {927, 2114}}";
-			sepNavSelRange = "{1547, 10}";
-			sepNavVisRange = "{1042, 1525}";
+			sepNavIntBoundsRect = "{{0, 0}, {927, 2506}}";
+			sepNavSelRange = "{1341, 0}";
+			sepNavVisRange = "{947, 1479}";
 		};
 	};
 	22BC5D93107B52BE00497EF4 /* PBXTextBookmark */ = {
@@ -3334,7 +3334,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 31";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 839;
 		vrLoc = 0;
@@ -3364,7 +3364,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 71";
 		rLen = 0;
-		rLoc = 3134;
+		rLoc = 3342;
 		rType = 0;
 		vrLen = 1543;
 		vrLoc = 278;
@@ -3424,7 +3424,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 14";
 		rLen = 0;
-		rLoc = 2222;
+		rLoc = 2592;
 		rType = 0;
 		vrLen = 219;
 		vrLoc = 0;
@@ -3444,7 +3444,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 14";
 		rLen = 0;
-		rLoc = 2222;
+		rLoc = 2592;
 		rType = 0;
 		vrLen = 219;
 		vrLoc = 0;
@@ -3464,7 +3464,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 14";
 		rLen = 0;
-		rLoc = 2222;
+		rLoc = 2592;
 		rType = 0;
 		vrLen = 219;
 		vrLoc = 0;
@@ -3484,7 +3484,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 16";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 266;
 		vrLoc = 0;
@@ -3504,7 +3504,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 16";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 282;
 		vrLoc = 0;
@@ -3524,7 +3524,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 16";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 282;
 		vrLoc = 0;
@@ -3544,7 +3544,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 16";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 282;
 		vrLoc = 0;
@@ -3564,7 +3564,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 17";
 		rLen = 0;
-		rLoc = 935;
+		rLoc = 1029;
 		rType = 0;
 		vrLen = 313;
 		vrLoc = 0;
@@ -3584,7 +3584,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 35";
 		rLen = 0;
-		rLoc = 1376;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 521;
 		vrLoc = 0;
@@ -3604,7 +3604,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 31";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 839;
 		vrLoc = 0;
@@ -3754,7 +3754,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 45";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 0;
@@ -3834,7 +3834,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 21";
 		rLen = 0;
-		rLoc = 813;
+		rLoc = 907;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -3854,7 +3854,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 40";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 877;
 		vrLoc = 86;
@@ -3874,7 +3874,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 40";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 971;
 		vrLoc = 0;
@@ -3904,7 +3904,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 45";
 		rLen = 0;
-		rLoc = 1161;
+		rLoc = 1448;
 		rType = 0;
 		vrLen = 1051;
 		vrLoc = 0;
@@ -3924,7 +3924,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 30";
 		rLen = 0;
-		rLoc = 933;
+		rLoc = 1027;
 		rType = 0;
 		vrLen = 1005;
 		vrLoc = 0;
@@ -3944,7 +3944,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 26";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 714;
 		rType = 0;
 		vrLen = 857;
 		vrLoc = 0;
@@ -3964,7 +3964,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 14";
 		rLen = 0;
-		rLoc = 378;
+		rLoc = 472;
 		rType = 0;
 		vrLen = 759;
 		vrLoc = 486;
@@ -3984,7 +3984,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 24";
 		rLen = 0;
-		rLoc = 618;
+		rLoc = 712;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 0;
@@ -4004,7 +4004,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 26";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 714;
 		rType = 0;
 		vrLen = 857;
 		vrLoc = 0;
@@ -4054,7 +4054,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 26";
 		rLen = 0;
-		rLoc = 620;
+		rLoc = 714;
 		rType = 0;
 		vrLen = 857;
 		vrLoc = 0;
@@ -4074,7 +4074,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 62";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 998;
 		vrLoc = 267;
@@ -4093,8 +4093,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 92";
-		rLen = 17;
-		rLoc = 2748;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1701;
 		vrLoc = 943;
@@ -4104,7 +4104,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 62";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 993;
 		vrLoc = 272;
@@ -4114,7 +4114,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 62";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 998;
 		vrLoc = 267;
@@ -4124,7 +4124,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 94";
 		rLen = 0;
-		rLoc = 3111;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 0;
@@ -4143,8 +4143,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 92";
-		rLen = 17;
-		rLoc = 2748;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1701;
 		vrLoc = 943;
@@ -4154,7 +4154,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 67";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 986;
 		vrLoc = 480;
@@ -4174,7 +4174,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 66";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 935;
 		vrLoc = 484;
@@ -4183,8 +4183,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 92";
-		rLen = 17;
-		rLoc = 2748;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1841;
 		vrLoc = 826;
@@ -4194,7 +4194,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 51";
 		rLen = 0;
-		rLoc = 865;
+		rLoc = 959;
 		rType = 0;
 		vrLen = 943;
 		vrLoc = 0;
@@ -4214,7 +4214,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 66";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 935;
 		vrLoc = 484;
@@ -4224,7 +4224,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 91";
 		rLen = 0;
-		rLoc = 2307;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1777;
 		vrLoc = 986;
@@ -4234,7 +4234,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 95";
 		rLen = 0;
-		rLoc = 2816;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1780;
 		vrLoc = 986;
@@ -4244,7 +4244,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 95";
 		rLen = 0;
-		rLoc = 2816;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 1083;
@@ -4254,7 +4254,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 66";
 		rLen = 0;
-		rLoc = 1137;
+		rLoc = 1424;
 		rType = 0;
 		vrLen = 937;
 		vrLoc = 482;
@@ -4264,7 +4264,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 95";
 		rLen = 0;
-		rLoc = 2816;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 1083;
@@ -4274,7 +4274,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 85";
 		rLen = 0;
-		rLoc = 2220;
+		rLoc = 2590;
 		rType = 0;
 		vrLen = 939;
 		vrLoc = 515;
@@ -4284,7 +4284,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 85";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 996;
 		vrLoc = 560;
@@ -4294,7 +4294,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 86";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 994;
 		vrLoc = 560;
@@ -4304,7 +4304,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 87";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 1156;
 		vrLoc = 560;
@@ -4314,7 +4314,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 88";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 1239;
 		vrLoc = 560;
@@ -4324,7 +4324,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 89";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 1126;
 		vrLoc = 713;
@@ -4334,7 +4334,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 86";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 1088;
 		vrLoc = 713;
@@ -4344,7 +4344,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 83";
 		rLen = 0;
-		rLoc = 2083;
+		rLoc = 2453;
 		rType = 0;
 		vrLen = 1208;
 		vrLoc = 713;
@@ -4354,7 +4354,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 83";
 		rLen = 0;
-		rLoc = 2083;
+		rLoc = 2453;
 		rType = 0;
 		vrLen = 1223;
 		vrLoc = 710;
@@ -4364,7 +4364,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 26";
 		rLen = 0;
-		rLoc = 593;
+		rLoc = 687;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4374,7 +4374,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 26";
 		rLen = 0;
-		rLoc = 593;
+		rLoc = 687;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 0;
@@ -4384,7 +4384,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 1684;
+		rLoc = 2060;
 		rType = 0;
 		vrLen = 971;
 		vrLoc = 636;
@@ -4394,7 +4394,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 2079;
+		rLoc = 2449;
 		rType = 0;
 		vrLen = 888;
 		vrLoc = 719;
@@ -4404,7 +4404,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 95";
 		rLen = 0;
-		rLoc = 2816;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1754;
 		vrLoc = 1020;
@@ -4414,7 +4414,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 2079;
+		rLoc = 2449;
 		rType = 0;
 		vrLen = 888;
 		vrLoc = 719;
@@ -4424,7 +4424,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 94";
 		rLen = 0;
-		rLoc = 2420;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1804;
 		vrLoc = 1083;
@@ -4434,7 +4434,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 96";
 		rLen = 0;
-		rLoc = 2517;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1957;
 		vrLoc = 1083;
@@ -4444,7 +4444,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
 		rLen = 0;
-		rLoc = 2634;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1265;
 		vrLoc = 198;
@@ -4454,7 +4454,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 2079;
+		rLoc = 2449;
 		rType = 0;
 		vrLen = 902;
 		vrLoc = 705;
@@ -4464,7 +4464,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
 		rLen = 0;
-		rLoc = 2634;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1265;
 		vrLoc = 198;
@@ -4474,7 +4474,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 1690;
+		rLoc = 2066;
 		rType = 0;
 		vrLen = 893;
 		vrLoc = 719;
@@ -4484,7 +4484,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 82";
 		rLen = 0;
-		rLoc = 1711;
+		rLoc = 2087;
 		rType = 0;
 		vrLen = 961;
 		vrLoc = 705;
@@ -4494,7 +4494,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 83";
 		rLen = 0;
-		rLoc = 2054;
+		rLoc = 2425;
 		rType = 0;
 		vrLen = 1007;
 		vrLoc = 675;
@@ -4504,7 +4504,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 84";
 		rLen = 0;
-		rLoc = 2054;
+		rLoc = 2425;
 		rType = 0;
 		vrLen = 1063;
 		vrLoc = 675;
@@ -4534,7 +4534,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 84";
 		rLen = 0;
-		rLoc = 1776;
+		rLoc = 2151;
 		rType = 0;
 		vrLen = 1075;
 		vrLoc = 675;
@@ -4544,7 +4544,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 84";
 		rLen = 0;
-		rLoc = 1776;
+		rLoc = 2151;
 		rType = 0;
 		vrLen = 1075;
 		vrLoc = 675;
@@ -4574,7 +4574,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 90";
 		rLen = 0;
-		rLoc = 2054;
+		rLoc = 2425;
 		rType = 0;
 		vrLen = 1249;
 		vrLoc = 741;
@@ -4584,7 +4584,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 84";
 		rLen = 0;
-		rLoc = 1586;
+		rLoc = 1944;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 721;
@@ -4614,7 +4614,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
 		rLen = 0;
-		rLoc = 2657;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1319;
 		vrLoc = 1787;
@@ -4624,7 +4624,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 83";
 		rLen = 0;
-		rLoc = 1561;
+		rLoc = 1920;
 		rType = 0;
 		vrLen = 843;
 		vrLoc = 1081;
@@ -4652,7 +4652,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 59";
 		rLen = 48;
-		rLoc = 1067;
+		rLoc = 1161;
 		rType = 0;
 		vrLen = 262;
 		vrLoc = 700;
@@ -4672,7 +4672,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 68";
 		rLen = 0;
-		rLoc = 1088;
+		rLoc = 1182;
 		rType = 0;
 		vrLen = 431;
 		vrLoc = 366;
@@ -4682,7 +4682,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 94";
 		rLen = 0;
-		rLoc = 2727;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 983;
 		vrLoc = 1786;
@@ -4692,7 +4692,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 100";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 753;
 		vrLoc = 1029;
@@ -4702,7 +4702,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
 		rLen = 0;
-		rLoc = 2657;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1319;
 		vrLoc = 1787;
@@ -4712,7 +4712,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 83";
 		rLen = 0;
-		rLoc = 1561;
+		rLoc = 1920;
 		rType = 0;
 		vrLen = 843;
 		vrLoc = 1081;
@@ -4742,7 +4742,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 62";
 		rLen = 0;
-		rLoc = 1122;
+		rLoc = 1246;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 721;
@@ -4751,8 +4751,8 @@
 		isa = PBXTextBookmark;
 		comments = "error: -[VcardWriterTests testABPersonToVCard] : 'BEGIN:VCARD\n";
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
-		rLen = 1;
-		rLoc = 107;
+		rLen = 0;
+		rLoc = 85;
 		rType = 1;
 	};
 	22BC5E50107B75E800497EF4 /* PBXTextBookmark */ = {
@@ -4760,7 +4760,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 62";
 		rLen = 0;
-		rLoc = 1122;
+		rLoc = 1246;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 721;
@@ -4770,7 +4770,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 106";
 		rLen = 0;
-		rLoc = 3069;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1916;
 		vrLoc = 1223;
@@ -4780,7 +4780,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 105";
 		rLen = 0;
-		rLoc = 3069;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1898;
 		vrLoc = 1222;
@@ -4810,7 +4810,7 @@
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 106";
 		rLen = 0;
-		rLoc = 3089;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 722;
 		vrLoc = 574;
@@ -4870,7 +4870,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 115";
 		rLen = 0;
-		rLoc = 3765;
+		rLoc = 4135;
 		rType = 0;
 		vrLen = 1089;
 		vrLoc = 1047;
@@ -4890,7 +4890,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 113";
 		rLen = 0;
-		rLoc = 2239;
+		rLoc = 2609;
 		rType = 0;
 		vrLen = 1214;
 		vrLoc = 762;
@@ -4900,7 +4900,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 113";
 		rLen = 0;
-		rLoc = 2239;
+		rLoc = 2609;
 		rType = 0;
 		vrLen = 1214;
 		vrLoc = 762;
@@ -4920,7 +4920,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 113";
 		rLen = 0;
-		rLoc = 2277;
+		rLoc = 2647;
 		rType = 0;
 		vrLen = 1224;
 		vrLoc = 927;
@@ -4930,7 +4930,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 117";
 		rLen = 0;
-		rLoc = 2868;
+		rLoc = 3238;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 1947;
@@ -4950,7 +4950,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 115";
 		rLen = 0;
-		rLoc = 2814;
+		rLoc = 3184;
 		rType = 0;
 		vrLen = 1225;
 		vrLoc = 924;
@@ -4980,7 +4980,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 115";
 		rLen = 0;
-		rLoc = 2814;
+		rLoc = 3184;
 		rType = 0;
 		vrLen = 1225;
 		vrLoc = 924;
@@ -5010,7 +5010,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 120";
 		rLen = 6;
-		rLoc = 3012;
+		rLoc = 3382;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 1480;
@@ -5019,8 +5019,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
-		rLen = 23;
-		rLoc = 2599;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1951;
 		vrLoc = 993;
@@ -5039,8 +5039,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 99";
-		rLen = 23;
-		rLoc = 2599;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 2067;
 		vrLoc = 993;
@@ -5050,7 +5050,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 120";
 		rLen = 6;
-		rLoc = 3012;
+		rLoc = 3382;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 1480;
@@ -5059,8 +5059,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 98";
-		rLen = 25;
-		rLoc = 2520;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 2027;
 		vrLoc = 1112;
@@ -5069,8 +5069,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 98";
-		rLen = 25;
-		rLoc = 2520;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 2027;
 		vrLoc = 1112;
@@ -5089,8 +5089,8 @@
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 98";
-		rLen = 25;
-		rLoc = 2520;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 2027;
 		vrLoc = 1112;
@@ -5110,7 +5110,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 122";
 		rLen = 0;
-		rLoc = 2972;
+		rLoc = 3342;
 		rType = 0;
 		vrLen = 1343;
 		vrLoc = 1558;
@@ -5119,16 +5119,16 @@
 		isa = PBXTextBookmark;
 		comments = "error: -[VcardWriterTests testABPersonToVCard] : 'BEGIN:VCARD\n";
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
-		rLen = 1;
-		rLoc = 108;
+		rLen = 0;
+		rLoc = 85;
 		rType = 1;
 	};
 	22BC5E8A107B7CA500497EF4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
 		name = "VcardWriterTests.m: 109";
-		rLen = 32;
-		rLoc = 3082;
+		rLen = 0;
+		rLoc = 1823;
 		rType = 0;
 		vrLen = 1016;
 		vrLoc = 2127;
@@ -5148,7 +5148,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 119";
 		rLen = 0;
-		rLoc = 2796;
+		rLoc = 3166;
 		rType = 0;
 		vrLen = 1345;
 		vrLoc = 1558;
@@ -5158,7 +5158,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 135";
 		rLen = 0;
-		rLoc = 3680;
+		rLoc = 4050;
 		rType = 0;
 		vrLen = 1606;
 		vrLoc = 1995;
@@ -5168,7 +5168,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 139";
 		rLen = 0;
-		rLoc = 3765;
+		rLoc = 4135;
 		rType = 0;
 		vrLen = 1600;
 		vrLoc = 1684;
@@ -5178,7 +5178,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 109";
 		rLen = 0;
-		rLoc = 2207;
+		rLoc = 2577;
 		rType = 0;
 		vrLen = 1734;
 		vrLoc = 1538;
@@ -5188,7 +5188,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 135";
 		rLen = 0;
-		rLoc = 3763;
+		rLoc = 4133;
 		rType = 0;
 		vrLen = 1800;
 		vrLoc = 1535;
@@ -5218,7 +5218,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 104";
 		rLen = 0;
-		rLoc = 2082;
+		rLoc = 2452;
 		rType = 0;
 		vrLen = 1019;
 		vrLoc = 619;
@@ -5228,7 +5228,7 @@
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 104";
 		rLen = 0;
-		rLoc = 2082;
+		rLoc = 2452;
 		rType = 0;
 		vrLen = 1019;
 		vrLoc = 619;
@@ -5257,11 +5257,533 @@
 		isa = PBXTextBookmark;
 		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
 		name = "ABPersonVCardCreator.m: 86";
-		rLen = 10;
-		rLoc = 1547;
+		rLen = 0;
+		rLoc = 1834;
 		rType = 0;
 		vrLen = 1525;
 		vrLoc = 1042;
+	};
+	22BC5EA4107B814200497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 86";
+		rLen = 0;
+		rLoc = 1909;
+		rType = 0;
+		vrLen = 1533;
+		vrLoc = 1042;
+	};
+	22BC5EB1107B85FC00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 114";
+		rLen = 0;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 1434;
+		vrLoc = 1823;
+	};
+	22BC5EB2107B85FC00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	22BC5EB3107B85FC00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 114";
+		rLen = 0;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 1434;
+		vrLoc = 1823;
+	};
+	22BC5EB4107B85FC00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 1007;
+		vrLoc = 12963;
+	};
+	22BC5EB5107B85FC00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D56107B481400497EF4 /* SenTestCase_Macros.h */;
+		name = "SenTestCase_Macros.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 300;
+		vrLoc = 1869;
+	};
+	22BC5EB7107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	22BC5EB8107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 1007;
+		vrLoc = 12963;
+	};
+	22BC5EB9107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D56107B481400497EF4 /* SenTestCase_Macros.h */;
+		name = "SenTestCase_Macros.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 300;
+		vrLoc = 1869;
+	};
+	22BC5EBA107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */;
+		name = "ABPersonVCardCreator.h: 15";
+		rLen = 0;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 419;
+		vrLoc = 30;
+	};
+	22BC5EBB107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 121";
+		rLen = 12;
+		rLoc = 2678;
+		rType = 0;
+		vrLen = 643;
+		vrLoc = 2213;
+	};
+	22BC5EBC107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D56107B481400497EF4 /* SenTestCase_Macros.h */;
+		name = "SenTestCase_Macros.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 300;
+		vrLoc = 1869;
+	};
+	22BC5EBD107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */;
+		name = "ABPersonVCardCreator.h: 15";
+		rLen = 0;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 419;
+		vrLoc = 30;
+	};
+	22BC5EBE107B862300497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 121";
+		rLen = 12;
+		rLoc = 2678;
+		rType = 0;
+		vrLen = 889;
+		vrLoc = 1476;
+	};
+	22BC5EC2107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */;
+		name = "VcardWriter.m: 43";
+		rLen = 45;
+		rLoc = 825;
+		rType = 0;
+		vrLen = 1021;
+		vrLoc = 199;
+	};
+	22BC5EC3107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 121";
+		rLen = 12;
+		rLoc = 2678;
+		rType = 0;
+		vrLen = 1903;
+		vrLoc = 2213;
+	};
+	22BC5EC4107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 108";
+		rLen = 17;
+		rLoc = 2923;
+		rType = 0;
+		vrLen = 2017;
+		vrLoc = 1324;
+	};
+	22BC5EC5107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */;
+		name = "ABPersonVCardCreator.h: 15";
+		rLen = 0;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 449;
+		vrLoc = 0;
+	};
+	22BC5EC6107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 107";
+		rLen = 0;
+		rLoc = 2447;
+		rType = 0;
+		vrLen = 1377;
+		vrLoc = 1048;
+	};
+	22BC5EC7107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 96";
+		rLen = 0;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 2109;
+		vrLoc = 1258;
+	};
+	22BC5EC8107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */;
+		name = "VcardWriter.m: 43";
+		rLen = 45;
+		rLoc = 825;
+		rType = 0;
+		vrLen = 1021;
+		vrLoc = 199;
+	};
+	22BC5EC9107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 121";
+		rLen = 12;
+		rLoc = 2678;
+		rType = 0;
+		vrLen = 1903;
+		vrLoc = 2213;
+	};
+	22BC5ECA107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 98";
+		rLen = 0;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 2060;
+		vrLoc = 1256;
+	};
+	22BC5ECB107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 1952;
+		vrLoc = 12088;
+	};
+	22BC5ECC107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 108";
+		rLen = 17;
+		rLoc = 2923;
+		rType = 0;
+		vrLen = 2017;
+		vrLoc = 1324;
+	};
+	22BC5ECD107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */;
+		name = "ABPersonVCardCreator.h: 15";
+		rLen = 0;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 449;
+		vrLoc = 0;
+	};
+	22BC5ECE107B862B00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 2036;
+		vrLoc = 12005;
+	};
+	22BC5ED3107B872D00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: Test rig '/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.sdk/Developer/usr/bin/otest' exited abnormally with code 138 (it may have crashed).";
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		rLen = 1;
+		rLoc = 392;
+		rType = 1;
+	};
+	22BC5ED4107B872D00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 1007;
+		vrLoc = 12963;
+	};
+	22BC5ED5107B872D00497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 121";
+		rLen = 12;
+		rLoc = 2678;
+		rType = 0;
+		vrLen = 754;
+		vrLoc = 1340;
+	};
+	22BC5EDA107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 2036;
+		vrLoc = 12005;
+	};
+	22BC5EDB107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 95";
+		rLen = 0;
+		rLoc = 2013;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 1028;
+	};
+	22BC5EDC107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: -[VcardWriterTests testABPersonToVCard] : 'BEGIN:VCARD\n";
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		rLen = 1;
+		rLoc = 113;
+		rType = 1;
+	};
+	22BC5EDD107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22762D2E105E46EA003BF968 /* RunPlatformUnitTests.include */;
+		name = "RunPlatformUnitTests.include: 393";
+		rLen = 135;
+		rLoc = 13540;
+		rType = 0;
+		vrLen = 2036;
+		vrLoc = 12005;
+	};
+	22BC5EDE107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 108";
+		rLen = 17;
+		rLoc = 2923;
+		rType = 0;
+		vrLen = 2018;
+		vrLoc = 1323;
+	};
+	22BC5EDF107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 71";
+		rLen = 0;
+		rLoc = 1341;
+		rType = 0;
+		vrLen = 1397;
+		vrLoc = 1030;
+	};
+	22BC5EE0107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 106";
+		rLen = 0;
+		rLoc = 2790;
+		rType = 0;
+		vrLen = 2101;
+		vrLoc = 1227;
+	};
+	22BC5EE1107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 95";
+		rLen = 0;
+		rLoc = 2013;
+		rType = 0;
+		vrLen = 1425;
+		vrLoc = 1028;
+	};
+	22BC5EE2107B877600497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 114";
+		rLen = 32;
+		rLoc = 3290;
+		rType = 0;
+		vrLen = 2015;
+		vrLoc = 1300;
+	};
+	22BC5EEB107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF21107B385B00B47ABE /* VcardWriter.h */;
+		name = "VcardWriter.h: 23";
+		rLen = 0;
+		rLoc = 444;
+		rType = 0;
+		vrLen = 490;
+		vrLoc = 0;
+	};
+	22BC5EEC107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */;
+		name = "VcardWriter.m: 43";
+		rLen = 45;
+		rLoc = 825;
+		rType = 0;
+		vrLen = 1016;
+		vrLoc = 199;
+	};
+	22BC5EED107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 98";
+		rLen = 0;
+		rLoc = 2455;
+		rType = 0;
+		vrLen = 2028;
+		vrLoc = 1324;
+	};
+	22BC5EEE107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF56107B3BF400B47ABE /* VcardWriterTests.h */;
+		name = "VcardWriterTests.h: 16";
+		rLen = 0;
+		rLoc = 639;
+		rType = 0;
+		vrLen = 868;
+		vrLoc = 0;
+	};
+	22BC5EEF107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 71";
+		rLen = 0;
+		rLoc = 1341;
+		rType = 0;
+		vrLen = 1199;
+		vrLoc = 861;
+	};
+	22BC5EF0107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 113";
+		rLen = 0;
+		rLoc = 3273;
+		rType = 0;
+		vrLen = 1958;
+		vrLoc = 1393;
+	};
+	22BC5EF1107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 95";
+		rLen = 0;
+		rLoc = 2013;
+		rType = 0;
+		vrLen = 1202;
+		vrLoc = 861;
+	};
+	22BC5EF2107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF21107B385B00B47ABE /* VcardWriter.h */;
+		name = "VcardWriter.h: 23";
+		rLen = 0;
+		rLoc = 444;
+		rType = 0;
+		vrLen = 490;
+		vrLoc = 0;
+	};
+	22BC5EF3107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */;
+		name = "VcardWriter.m: 43";
+		rLen = 45;
+		rLoc = 825;
+		rType = 0;
+		vrLen = 1016;
+		vrLoc = 199;
+	};
+	22BC5EF4107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 113";
+		rLen = 0;
+		rLoc = 3273;
+		rType = 0;
+		vrLen = 1957;
+		vrLoc = 1393;
+	};
+	22BC5EF5107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 71";
+		rLen = 0;
+		rLoc = 1341;
+		rType = 0;
+		vrLen = 1199;
+		vrLoc = 861;
+	};
+	22BC5EF6107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */;
+		name = "VcardWriterTests.m: 98";
+		rLen = 0;
+		rLoc = 2455;
+		rType = 0;
+		vrLen = 2028;
+		vrLoc = 1324;
+	};
+	22BC5EF7107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 229DAF56107B3BF400B47ABE /* VcardWriterTests.h */;
+		name = "VcardWriterTests.h: 16";
+		rLen = 0;
+		rLoc = 639;
+		rType = 0;
+		vrLen = 868;
+		vrLoc = 0;
+	};
+	22BC5EF8107B896100497EF4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */;
+		name = "ABPersonVCardCreator.m: 71";
+		rLen = 0;
+		rLoc = 1341;
+		rType = 0;
+		vrLen = 1479;
+		vrLoc = 947;
 	};
 	22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {
 		uiCtxt = {
@@ -5507,7 +6029,7 @@
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = 223BC30010552AE600ABE5A2 /* Hoccer */;
 		activeSDKPreference = iphonesimulator3.1;
 		activeTarget = 22762D02105E412A003BF968 /* Test */;
@@ -6055,6 +6577,59 @@
 			22BC5EA1107B80BE00497EF4 /* PBXTextBookmark */ = 22BC5EA1107B80BE00497EF4 /* PBXTextBookmark */;
 			22BC5EA2107B80BE00497EF4 /* PBXTextBookmark */ = 22BC5EA2107B80BE00497EF4 /* PBXTextBookmark */;
 			22BC5EA3107B80BE00497EF4 /* PBXTextBookmark */ = 22BC5EA3107B80BE00497EF4 /* PBXTextBookmark */;
+			22BC5EA4107B814200497EF4 /* PBXTextBookmark */ = 22BC5EA4107B814200497EF4 /* PBXTextBookmark */;
+			22BC5EB1107B85FC00497EF4 /* PBXTextBookmark */ = 22BC5EB1107B85FC00497EF4 /* PBXTextBookmark */;
+			22BC5EB2107B85FC00497EF4 /* PBXTextBookmark */ = 22BC5EB2107B85FC00497EF4 /* PBXTextBookmark */;
+			22BC5EB3107B85FC00497EF4 /* PBXTextBookmark */ = 22BC5EB3107B85FC00497EF4 /* PBXTextBookmark */;
+			22BC5EB4107B85FC00497EF4 /* PBXTextBookmark */ = 22BC5EB4107B85FC00497EF4 /* PBXTextBookmark */;
+			22BC5EB5107B85FC00497EF4 /* PBXTextBookmark */ = 22BC5EB5107B85FC00497EF4 /* PBXTextBookmark */;
+			22BC5EB7107B862300497EF4 /* PBXTextBookmark */ = 22BC5EB7107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EB8107B862300497EF4 /* PBXTextBookmark */ = 22BC5EB8107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EB9107B862300497EF4 /* PBXTextBookmark */ = 22BC5EB9107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EBA107B862300497EF4 /* PBXTextBookmark */ = 22BC5EBA107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EBB107B862300497EF4 /* PBXTextBookmark */ = 22BC5EBB107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EBC107B862300497EF4 /* PBXTextBookmark */ = 22BC5EBC107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EBD107B862300497EF4 /* PBXTextBookmark */ = 22BC5EBD107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EBE107B862300497EF4 /* PBXTextBookmark */ = 22BC5EBE107B862300497EF4 /* PBXTextBookmark */;
+			22BC5EC2107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC2107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC3107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC3107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC4107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC4107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC5107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC5107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC6107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC6107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC7107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC7107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC8107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC8107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5EC9107B862B00497EF4 /* PBXTextBookmark */ = 22BC5EC9107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ECA107B862B00497EF4 /* PBXTextBookmark */ = 22BC5ECA107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ECB107B862B00497EF4 /* PBXTextBookmark */ = 22BC5ECB107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ECC107B862B00497EF4 /* PBXTextBookmark */ = 22BC5ECC107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ECD107B862B00497EF4 /* PBXTextBookmark */ = 22BC5ECD107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ECE107B862B00497EF4 /* PBXTextBookmark */ = 22BC5ECE107B862B00497EF4 /* PBXTextBookmark */;
+			22BC5ED3107B872D00497EF4 /* PBXTextBookmark */ = 22BC5ED3107B872D00497EF4 /* PBXTextBookmark */;
+			22BC5ED4107B872D00497EF4 /* PBXTextBookmark */ = 22BC5ED4107B872D00497EF4 /* PBXTextBookmark */;
+			22BC5ED5107B872D00497EF4 /* PBXTextBookmark */ = 22BC5ED5107B872D00497EF4 /* PBXTextBookmark */;
+			22BC5EDA107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDA107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EDB107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDB107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EDC107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDC107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EDD107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDD107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EDE107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDE107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EDF107B877600497EF4 /* PBXTextBookmark */ = 22BC5EDF107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EE0107B877600497EF4 /* PBXTextBookmark */ = 22BC5EE0107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EE1107B877600497EF4 /* PBXTextBookmark */ = 22BC5EE1107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EE2107B877600497EF4 /* PBXTextBookmark */ = 22BC5EE2107B877600497EF4 /* PBXTextBookmark */;
+			22BC5EEB107B896100497EF4 /* PBXTextBookmark */ = 22BC5EEB107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EEC107B896100497EF4 /* PBXTextBookmark */ = 22BC5EEC107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EED107B896100497EF4 /* PBXTextBookmark */ = 22BC5EED107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EEE107B896100497EF4 /* PBXTextBookmark */ = 22BC5EEE107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EEF107B896100497EF4 /* PBXTextBookmark */ = 22BC5EEF107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF0107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF0107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF1107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF1107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF2107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF2107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF3107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF3107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF4107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF4107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF5107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF5107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF6107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF6107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF7107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF7107B896100497EF4 /* PBXTextBookmark */;
+			22BC5EF8107B896100497EF4 /* PBXTextBookmark */ = 22BC5EF8107B896100497EF4 /* PBXTextBookmark */;
 			22D49E441068DF0100B03B61 = 22D49E441068DF0100B03B61 /* PBXTextBookmark */;
 			22D49E501068DF0100B03B61 = 22D49E501068DF0100B03B61 /* PBXTextBookmark */;
 			22D49E511068DF0100B03B61 = 22D49E511068DF0100B03B61 /* PBXTextBookmark */;

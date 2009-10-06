@@ -13,8 +13,8 @@
 - (void)generateVcard; 
 
 - (NSString *)nameString;
-- (void)writePhone;
-
+// - (void)writePhone;
+- (void)createMultiValueWithID: (ABPropertyID)propertyID toVcardProperty: (NSString *)name;
 - (NSArray *)propertiesFromLabel: (CFStringRef)label;
 
 @end
@@ -64,7 +64,12 @@
 {
 	[writer writeHeader];
 	[writer writeFormattedName: [self nameString]];
-	[self writePhone];
+	
+	//kABPersonPhoneProperty
+	//[self writePhone];
+	[self createMultiValueWithID: kABPersonPhoneProperty toVcardProperty: @"TEL"];
+	[self createMultiValueWithID: kABPersonEmailProperty toVcardProperty: @"EMAIL"];
+
 	
 	[writer writeFooter];
 }
@@ -83,23 +88,25 @@
 }
 
 
-- (void)writePhone
+- (void)createMultiValueWithID: (ABPropertyID)propertyID toVcardProperty: (NSString *)name
 {
-	ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty); 
+	ABMultiValueRef multi = ABRecordCopyValue(person, propertyID); 
+	
+	if (multi == NULL) return;
 	
 	CFStringRef phoneNumber, phoneNumberLabel;
-	for (CFIndex i = 0; i < ABMultiValueGetCount(phones); i++) {
-		phoneNumber		 = ABMultiValueCopyValueAtIndex(phones, i);
-		phoneNumberLabel = ABMultiValueCopyLabelAtIndex(phones, i);
+	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
+		phoneNumber		 = ABMultiValueCopyValueAtIndex(multi, i);
+		phoneNumberLabel = ABMultiValueCopyLabelAtIndex(multi, i);
 		
-		[writer writeProperty:@"TEL" value:(NSString *)phoneNumber paramater:
+		[writer writeProperty:name value:(NSString *)phoneNumber paramater:
 					[self propertiesFromLabel:phoneNumberLabel]];		
 		
 		CFRelease(phoneNumber);
 		CFRelease(phoneNumberLabel);
 	}
 	
-	CFRelease(phones);
+	CFRelease(multi);
 }
 
 
