@@ -29,6 +29,7 @@
 
 	NSString *result = @"FN:Robert Palmer\r\n";
 	[writer writeProperty:@"FN" value:@"Robert Palmer" paramater:nil];
+	
 	STAssertEqualObjects([writer vcardRepresentation], result, 
 						 @"should be equal");
 }
@@ -41,6 +42,7 @@
 		[NSArray arrayWithObjects: @"voice", @"work", @"pref", nil]];
 	
 	NSString *calculatedString = [writer vcardRepresentation];
+	
 	STAssertEqualObjects(calculatedString,  expectedResult,
 						 @"should equal expected result");
 	
@@ -75,6 +77,7 @@
 	CFStringRef name = (CFStringRef) ABRecordCopyValue(person, kABPersonFirstNameProperty);
 	
 	STAssertEqualObjects((NSString *)name, @"foo", @"names should match");
+	
 	CFRelease(name);
 }
 
@@ -91,12 +94,19 @@
 	NSArray *emailAddresses = [NSArray arrayWithObjects: @"foo.bar@artcom.de", @"foo@artcom.de", nil];
 	ABRecordSetValue(person, kABPersonEmailProperty, emailAddresses, &errorRef);
 	
+	ABMutableMultiValueRef multi = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+	ABMultiValueAddValueAndLabel(multi, @"555", kABPersonPhoneMobileLabel, NULL);
+	ABMultiValueAddValueAndLabel(multi, @"666", kABPersonPhoneMainLabel, NULL);
+	
+	ABRecordSetValue(person, kABPersonPhoneProperty, multi, &errorRef);
+	
 	NSData *vcardData  = [ABPersonVCardCreator vcardWithABPerson: person];
 	STAssertNotNil(vcardData, @"should not be nil");
 	
 	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
 	
-	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nEND:VCARD", @"vcards should match");
+	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEND:VCARD", 
+						 @"vcards should match");
 	
 	CFRelease(person);	
 }
