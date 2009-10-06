@@ -15,7 +15,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-		vcardString = [[NSMutableArray alloc] init];
+		vcardString = [[NSMutableString alloc] init];
 	}
 	
 	return self;
@@ -23,11 +23,38 @@
 
 
 - (void)writeProperty: (NSString *)propertyName 
-				value: (NSString *)valueName
+				value: (NSString *)value
 			paramater: (NSArray *)parameter 
 {
-	NSString *line = [NSString stringWithFormat: @"%@:%@", propertyName,  valueName];
+	NSString *line = nil;
+	
+	if (!parameter) {
+		line = [NSString stringWithFormat: @"%@:%@\r\n", propertyName,  value];
+	} else {
+		NSString *parameterString = [NSString stringWithFormat:  @"TYPE=%@", 
+									[parameter componentsJoinedByString: @","]];
+		
+		line = [NSString stringWithFormat: @"%@;%@:%@\r\n",  propertyName, 
+				parameterString, value];
+	}
+	[vcardString appendString: line];
 }
+
+- (void)writeFormattedName: (NSString *)name
+{
+	[self writeProperty:@"FN" value:name paramater:nil];
+}
+
+- (void)writeHeader
+{
+	[vcardString appendString: @"BEGIN:VCARD\r\nVERSION:3.0\r\n"];
+}
+
+- (void)writeFooter
+{
+	[vcardString appendString: @"END:VCARD"];
+}
+
 
 - (void) dealloc
 {

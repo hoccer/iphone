@@ -13,11 +13,16 @@
 	NSMutableString  *vcardString;
 }
 
+- (void)writeHeader;
+- (void)writeFooter;
+- (void)writeFormattedName: (NSString *)name;
 - (void)writeProperty: (NSString *)propertyName 
 				value: (NSString *)valueName
 			paramater: (NSArray *)parameter;
 
 - (NSString *)vcardRepresentation;  
+
+
 
 
 @end
