@@ -107,15 +107,21 @@
 - (NSString *)addressString
 {
 	// ABRecordRef address = (ABRecordRef) ABRecordCopyValue(person, kABPersonAddressProperty);
-	
-	
-		
 	return nil;
 }
 
 
 - (NSArray *)propertiesFromLabel: (CFStringRef)label
 {
+	if (CFStringCompare(label, kABWorkLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
+		return [NSArray arrayWithObjects:@"work", nil];
+	
+	if (CFStringCompare(label, kABHomeLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
+		return [NSArray arrayWithObjects:@"work", nil];
+
+	if (CFStringCompare(label, kABOtherLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
+		return [NSArray arrayWithObjects:@"other", nil];
+	
 	if (CFStringCompare(label, kABPersonPhoneMainLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
 			return [NSArray arrayWithObjects:@"home", nil];
 	
@@ -135,7 +141,7 @@
 		return [NSArray arrayWithObjects:@"pager", nil];
 	
 	
-	return  nil;
+	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label]];
 }
 
 
