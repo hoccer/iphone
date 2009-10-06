@@ -50,12 +50,6 @@
 			<object class="IBUITabBarController" id="903877622">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUIViewController" key="IBUISelectedViewController" id="360764612">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="740087752">
-						<string key="IBUITitle">Debug</string>
-					</object>
-					<reference key="IBUIParentViewController" ref="903877622"/>
-				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="958155834">
@@ -96,7 +90,20 @@
 						</object>
 						<bool key="IBUINavigationBarHidden">YES</bool>
 					</object>
-					<reference ref="360764612"/>
+					<object class="IBUIViewController" id="672352411">
+						<string key="IBUITitle">Contacts</string>
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="686548345">
+							<string key="IBUITitle">Item</string>
+						</object>
+						<reference key="IBUIParentViewController" ref="903877622"/>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+					</object>
+					<object class="IBUIViewController" id="360764612">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="740087752">
+							<string key="IBUITitle">Debug</string>
+						</object>
+						<reference key="IBUIParentViewController" ref="903877622"/>
+					</object>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="263755404">
 					<nil key="NSNextResponder"/>
@@ -220,6 +227,7 @@
 							<reference ref="958155834"/>
 							<reference ref="360764612"/>
 							<reference ref="780685209"/>
+							<reference ref="672352411"/>
 						</object>
 						<reference key="parent" ref="377036087"/>
 					</object>
@@ -287,6 +295,20 @@
 						<reference key="object" ref="84156477"/>
 						<reference key="parent" ref="377036087"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">46</int>
+						<reference key="object" ref="672352411"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="686548345"/>
+						</object>
+						<reference key="parent" ref="903877622"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">47</int>
+						<reference key="object" ref="686548345"/>
+						<reference key="parent" ref="672352411"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -314,6 +336,8 @@
 					<string>44.CustomClassName</string>
 					<string>44.IBEditorWindowLastContentRect</string>
 					<string>44.IBPluginDependency</string>
+					<string>46.CustomClassName</string>
+					<string>46.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -338,6 +362,8 @@
 					<string>ReceivedContentView</string>
 					<string>{{0, 467}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>ABPeoplePickerNavigationController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -360,7 +386,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">45</int>
+			<int key="maxID">47</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -393,14 +419,11 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">HoccerAppDelegate</string>
 					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">userDidCancelRequest</string>
-						<string key="NS.object.0">id</string>
-					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>contentToSend</string>
 							<string>hoccerContent</string>
 							<string>hoccerViewController</string>
 							<string>viewController</string>
@@ -408,6 +431,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>HoccerViewController</string>
 							<string>UITabBarController</string>
@@ -435,7 +459,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>onCancel:</string>
-							<string>save:</string>
+							<string>onCatch:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -449,6 +473,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>delegate</string>
 							<string>locationLabel</string>
+							<string>previewBox</string>
 							<string>saveButton</string>
 							<string>statusLabel</string>
 							<string>toolbar</string>
@@ -457,6 +482,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIBarButtonItem</string>
 							<string>UILabel</string>
 							<string>UIToolbar</string>
@@ -491,6 +517,34 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">ReceivedContentView</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>onDismiss:</string>
+							<string>onSave:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>delegate</string>
+							<string>saveButton</string>
+							<string>toolbar</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>UIBarButtonItem</string>
+							<string>UIToolbar</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/ReceivedContentView.h</string>

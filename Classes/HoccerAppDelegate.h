@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @class HoccerViewController;
 @class GesturesInterpreter;
@@ -19,7 +20,8 @@
 #import "HoccerContent.h"
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
-											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, MKReverseGeocoderDelegate> {
+											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, MKReverseGeocoderDelegate> 
+{
     UIWindow *window;
     UITabBarController *viewController;
 	ReceivedContentView *receivedContentView;

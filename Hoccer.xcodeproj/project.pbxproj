@@ -62,6 +62,10 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
+		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
+		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E2F1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */; };
@@ -169,6 +173,10 @@
 		228989711067CC4200FB3E5D /* HoccerUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadRequest.m; path = Communication/HoccerUploadRequest.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
+		229DAF11107B331F00B47ABE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
+		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
 		22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureHistory.h; path = GesturesInterpreter/FeatureHistory.h; sourceTree = "<group>"; };
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D49E301068D09700B03B61 /* FeatureHistoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureHistoryTests.h; sourceTree = "<group>"; };
@@ -194,6 +202,8 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */,
 				22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */,
+				229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */,
+				229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +221,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				229DAF1C107B377C00B47ABE /* AddressBook */,
 				227990C3105FE2F20035C643 /* Debug */,
 				22762FB9105E8512003BF968 /* AccelerationRecorder */,
 				2205A6E21057C27F005C5036 /* Content */,
@@ -382,6 +393,15 @@
 			name = Debug;
 			sourceTree = "<group>";
 		};
+		229DAF1C107B377C00B47ABE /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				229DAF21107B385B00B47ABE /* VcardWriter.h */,
+				229DAF22107B385B00B47ABE /* VcardWriter.m */,
+			);
+			name = AddressBook;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +444,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				229DAF11107B331F00B47ABE /* AddressBook.framework */,
+				229DAF12107B331F00B47ABE /* AddressBookUI.framework */,
 				22783D881067ABBB00B244F7 /* MapKit.framework */,
 				223BC35E10553B2400ABE5A2 /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -567,6 +589,7 @@
 				228276E7106A374300AAC17E /* CatchDetector.m in Sources */,
 				226496261070DD56006D33E2 /* ThrowDetector.m in Sources */,
 				220563561079FA9300BC5C31 /* ACResizeImage.m in Sources */,
+				229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +616,7 @@
 				228276E6106A374300AAC17E /* CatchDetector.m in Sources */,
 				226496271070DD56006D33E2 /* ThrowDetector.m in Sources */,
 				220563571079FA9300BC5C31 /* ACResizeImage.m in Sources */,
+				229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
