@@ -113,8 +113,6 @@
 
 - (NSString *)addressString
 {
-	// ABRecordRef address = (ABRecordRef) ABRecordCopyValue(person, kABPersonAddressProperty);
-	return nil;
 }
 
 

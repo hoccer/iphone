@@ -69,6 +69,8 @@
 		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
+		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
 		22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E2F1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */; };
@@ -184,6 +186,8 @@
 		229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriterTests.m; path = Tests/Vcard/VcardWriterTests.m; sourceTree = "<group>"; };
 		22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonVCardCreator.h; path = AddressBook/ABPersonVCardCreator.h; sourceTree = "<group>"; };
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
+		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
+		22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
 		22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureHistory.h; path = GesturesInterpreter/FeatureHistory.h; sourceTree = "<group>"; };
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D49E301068D09700B03B61 /* FeatureHistoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureHistoryTests.h; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				228275E4106A157A00AAC17E /* NSString+Regexp.m */,
 				220563541079FA9300BC5C31 /* ACResizeImage.h */,
 				220563551079FA9300BC5C31 /* ACResizeImage.m */,
+				22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */,
+				22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				220563561079FA9300BC5C31 /* ACResizeImage.m in Sources */,
 				229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */,
 				22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
+				22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +646,7 @@
 				229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */,
 				229DAF58107B3BF400B47ABE /* VcardWriterTests.m in Sources */,
 				22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
+				22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

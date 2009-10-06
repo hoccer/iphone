@@ -9,7 +9,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+#import "ABPersonVCardCreator.h"
 #import "NSObject+DelegateHelper.h"
+#import  "NSString+StringWithData.h"
 
 #import "HoccerViewController.h"
 #import "HoccerDownloadRequest.h"
@@ -52,6 +54,20 @@
 - (IBAction)onCatch: (id)sender
 {
 	[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
+}
+
+- (IBAction)parse: (id)sender
+{
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	
+	CFArrayRef addresses = ABAddressBookCopyPeopleWithName(addressBook, CFSTR("Appleseed"));
+	if (CFArrayGetCount(addresses) < 1) {
+		NSLog(@"nobody found");
+		return;
+	}
+	
+	NSData *vcard = [ABPersonVCardCreator vcardWithABPerson: CFArrayGetValueAtIndex(addresses, 0)];
+	NSLog(@"vcard: %@", [NSString stringWithData:vcard usingEncoding: NSUTF8StringEncoding]);
 }
 
 

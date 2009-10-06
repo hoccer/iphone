@@ -28,6 +28,7 @@
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)onCatch: (id)sender;
+- (IBAction)parse: (id)sender;
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setUpdate: (NSString *)update;
