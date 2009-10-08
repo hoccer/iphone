@@ -64,6 +64,7 @@
 	
 	STAssertEqualObjects(mockedParserDelegate.foundProperty, @"TEL", @"should be TEL");
 	STAssertEqualObjects(mockedParserDelegate.value, @"12345", @"should be the give value");
+	STAssertEqualObjects(mockedParserDelegate.attributes, [NSArray arrayWithObject:@"home"], @"should be given value");
 }
 
 - (void)testParserDetectsAddress

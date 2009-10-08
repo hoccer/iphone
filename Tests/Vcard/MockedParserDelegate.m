@@ -14,7 +14,7 @@
 
 @synthesize foundProperty;
 @synthesize value;
-
+@synthesize attributes;
 
 - (void)parserDidFoundProperty: (NSString *)property
 	 withValue: (NSString *)value attributes: (NSArray *)attributes
@@ -27,6 +27,7 @@
 {
 	self.foundProperty = @"FN";
 	self.value = name;
+	self.attributes = attributes;
 }
 
 - (void)parser: (VcardParser *)parser didFoundPhoneNumber: (NSString *)number 
@@ -34,6 +35,7 @@
 {
 	self.foundProperty = @"TEL";
 	self.value = number;
+	self.attributes = attributes;
 }
 
 - (void)parser: (VcardParser *)parser didFoundEmail: (NSString *)email
@@ -41,12 +43,14 @@
 {
 	self.foundProperty = @"EMAIL";
 	self.value = email;
+	self.attributes = attributes;
 }
 
 - (void)parser: (VcardParser *)parser didFoundAddress: (NSString *)email
 withAttributes: (NSArray *) attributes 
 {
 	self.foundProperty = @"ADR";
+	self.attributes = attributes;
 }
 
 @end
