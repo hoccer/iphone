@@ -9,6 +9,7 @@
 #import "VcardParserTests.h"
 #import "VcardParser.h"
 
+#import "MockedParserDelegate.h"
 
 @implementation VcardParserTests
 
@@ -18,6 +19,7 @@
 	STAssertNotNil(parser, @"should not be nil");
 	[parser release];
 }
+
 
 - (void)testIsValidVcard
 {
@@ -43,10 +45,28 @@
 - (void)testParserDetectsName
 {
 	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Robert Palmer\r\nEND:VCARD"];
-
+	MockedParserDelegate *mockedParserDelegate = [[MockedParserDelegate alloc] init];
+	parser.delegate = mockedParserDelegate;
 	
+	[parser parse];
+	
+	STAssertEqualObjects(mockedParserDelegate.foundProperty, @"FN", @"should be FN");
 	
 }
+
+
+- (void)testParserDetectsTel
+{
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Robert Palmer\r\nEND:VCARD"];
+	MockedParserDelegate *mockedParserDelegate = [[MockedParserDelegate alloc] init];
+	parser.delegate = mockedParserDelegate;
+	
+	[parser parse];
+	
+	STAssertEqualObjects(mockedParserDelegate.foundProperty, @"FN", @"should be FN");
+	
+}
+
 
 
 @end

@@ -11,9 +11,16 @@
 
 @interface VcardParser : NSObject {
 	NSArray *vcardLines;
+	
+	id delegate;
 }
+
+@property (nonatomic, retain) id delegate;
 
 - (id)initWithString: (NSString *)vcard;
 - (BOOL)isValidVcard;
+
+- (void)parse;
+
 
 @end

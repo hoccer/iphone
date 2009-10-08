@@ -11,11 +11,14 @@
 
 @implementation VcardParser
 
+
+@synthesize delegate;
+
 - (id)initWithString: (NSString *)vcard
 {
 	self = [super init];
 	if (self != nil) {
-		vcardLines = [vcard componentsSeparatedByString:@"\r\n"];
+		vcardLines = [[vcard componentsSeparatedByString:@"\r\n"] retain];
 	}
 	return self;
 }
@@ -40,7 +43,12 @@
 
 - (void)parse
 {
-	
+	for (int i = 2; i < [vcardLines count]; i++) {
+		
+		
+		[delegate parser: self didFoundFormattedName: @"Robert Palmer"];
+ 
+	}
 }
 
 

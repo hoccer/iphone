@@ -53,6 +53,7 @@
 		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
+		227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */; };
 		228275C1106A107A00AAC17E /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
 		228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
@@ -167,6 +168,8 @@
 		227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParserTests.m; path = Tests/VcardParserTests.m; sourceTree = "<group>"; };
 		227B5CE3107DE3D30012BBA6 /* VcardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParser.h; path = AddressBook/VcardParser.h; sourceTree = "<group>"; };
 		227B5CE4107DE3D30012BBA6 /* VcardParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParser.m; path = AddressBook/VcardParser.m; sourceTree = "<group>"; };
+		227B5E3A107DF4F70012BBA6 /* MockedParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockedParserDelegate.h; path = Tests/Vcard/MockedParserDelegate.h; sourceTree = "<group>"; };
+		227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockedParserDelegate.m; path = Tests/Vcard/MockedParserDelegate.m; sourceTree = "<group>"; };
 		228275BF106A107A00AAC17E /* RegExpTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegExpTests.h; path = Tests/RegExpTests.h; sourceTree = "<group>"; };
 		228275C0106A107A00AAC17E /* RegExpTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegExpTests.m; path = Tests/RegExpTests.m; sourceTree = "<group>"; };
 		228275E3106A157A00AAC17E /* NSString+Regexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Regexp.h"; path = "Helper/NSString+Regexp.h"; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 				229DAF57107B3BF400B47ABE /* VcardWriterTests.m */,
 				227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */,
 				227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */,
+				227B5E3A107DF4F70012BBA6 /* MockedParserDelegate.h */,
+				227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */,
 			);
 			name = vcard;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */,
 				227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */,
 				227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */,
+				227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
