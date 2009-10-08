@@ -14,10 +14,31 @@
 
 - (void)testParserCreation
 {
-	//VcardParser *parser = [[VcardParser alloc] initWithString:@""];
-//	STAssertNotNil(parser, @"should not be nil");
-//	[parser release];
+	VcardParser *parser = [[VcardParser alloc] initWithString:@""];
+	STAssertNotNil(parser, @"should not be nil");
+	[parser release];
+}
 
+- (void)testIsValidVcard
+{
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nEND:VCARD"];
+	STAssertNotNil(parser, @"should not be nil");
+	STAssertTrue([parser isValidVcard], @"vcard should be valid");
+	[parser release];
+}
+
+- (void)testIsInvalidVcard
+{
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:BLAAA\r\nVERSION:3.0\r\nEND:VCARD"];
+	STAssertFalse([parser isValidVcard], @"vcard should not be valid");	
+}
+
+- (void)testParserDetectsName
+{
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Robert Palmer\r\nEND:VCARD"];
+
+	
+	
 }
 
 

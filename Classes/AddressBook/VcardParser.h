@@ -10,9 +10,10 @@
 
 
 @interface VcardParser : NSObject {
-	
+	NSArray *vcardLines;
 }
 
-// - (id)initWithString: (NSString *)vcard;
+- (id)initWithString: (NSString *)vcard;
+- (BOOL)isValidVcard;
 
 @end

@@ -50,6 +50,9 @@
 		227990FB105FEA140035C643 /* ReceivedContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentView.m */; };
 		227990FC105FEA140035C643 /* ReceivedContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227990FA105FEA140035C643 /* ReceivedContentView.xib */; };
 		227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */; };
+		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
+		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
+		227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		228275C1106A107A00AAC17E /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
 		228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
@@ -626,6 +629,7 @@
 				229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */,
 				22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
 				22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
+				227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +659,8 @@
 				22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
 				22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
 				227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */,
+				227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */,
+				227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
