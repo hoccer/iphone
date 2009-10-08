@@ -160,6 +160,10 @@
 		227990F8105FEA140035C643 /* ReceivedContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedContentView.h; sourceTree = "<group>"; };
 		227990F9105FEA140035C643 /* ReceivedContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceivedContentView.m; sourceTree = "<group>"; };
 		227990FA105FEA140035C643 /* ReceivedContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReceivedContentView.xib; path = Classes/ReceivedContentView.xib; sourceTree = "<group>"; };
+		227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParserTests.h; path = Tests/VcardParserTests.h; sourceTree = "<group>"; };
+		227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParserTests.m; path = Tests/VcardParserTests.m; sourceTree = "<group>"; };
+		227B5CE3107DE3D30012BBA6 /* VcardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParser.h; path = AddressBook/VcardParser.h; sourceTree = "<group>"; };
+		227B5CE4107DE3D30012BBA6 /* VcardParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParser.m; path = AddressBook/VcardParser.m; sourceTree = "<group>"; };
 		228275BF106A107A00AAC17E /* RegExpTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegExpTests.h; path = Tests/RegExpTests.h; sourceTree = "<group>"; };
 		228275C0106A107A00AAC17E /* RegExpTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegExpTests.m; path = Tests/RegExpTests.m; sourceTree = "<group>"; };
 		228275E3106A157A00AAC17E /* NSString+Regexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Regexp.h"; path = "Helper/NSString+Regexp.h"; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 				229DAF22107B385B00B47ABE /* VcardWriter.m */,
 				22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */,
 				22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */,
+				227B5CE3107DE3D30012BBA6 /* VcardParser.h */,
+				227B5CE4107DE3D30012BBA6 /* VcardParser.m */,
 			);
 			name = AddressBook;
 			sourceTree = "<group>";
@@ -424,6 +430,8 @@
 			children = (
 				229DAF56107B3BF400B47ABE /* VcardWriterTests.h */,
 				229DAF57107B3BF400B47ABE /* VcardWriterTests.m */,
+				227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */,
+				227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */,
 			);
 			name = vcard;
 			sourceTree = "<group>";
