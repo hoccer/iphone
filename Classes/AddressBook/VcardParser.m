@@ -20,9 +20,19 @@
 	return self;
 }
 
+- (void) dealloc
+{
+	[vcardLines release];
+	[super dealloc];
+}
+
+
 
 - (BOOL)isValidVcard
 {
+	if ([vcardLines count] < 2)
+		return NO;
+	
 	return [[vcardLines objectAtIndex:0] isEqual: @"BEGIN:VCARD"] && 
 				[[vcardLines objectAtIndex:1] isEqual: @"VERSION:3.0"] &&
 				[[vcardLines lastObject] isEqual: @"END:VCARD"];

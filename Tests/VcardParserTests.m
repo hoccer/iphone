@@ -33,6 +33,13 @@
 	STAssertFalse([parser isValidVcard], @"vcard should not be valid");	
 }
 
+- (void)testIsInvalidVcardWhenToShort
+{
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:BLAAA"];
+	STAssertFalse([parser isValidVcard], @"vcard should not be valid");	
+}
+
+
 - (void)testParserDetectsName
 {
 	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Robert Palmer\r\nEND:VCARD"];
