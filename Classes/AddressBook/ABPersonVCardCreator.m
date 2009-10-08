@@ -15,6 +15,8 @@
 - (NSString *)nameString;
 // - (void)writePhone;
 - (void)createMultiValueWithID: (ABPropertyID)propertyID toVcardProperty: (NSString *)name;
+- (void)createAddress;
+- (NSString *)createAddressLineFromDictonary: (CFDictionaryRef) address;
 - (NSArray *)propertiesFromLabel: (CFStringRef)label;
 
 @end
@@ -65,10 +67,9 @@
 	[writer writeHeader];
 	[writer writeFormattedName: [self nameString]];
 	
-	//kABPersonPhoneProperty
-	//[self writePhone];
 	[self createMultiValueWithID: kABPersonPhoneProperty toVcardProperty: @"TEL"];
 	[self createMultiValueWithID: kABPersonEmailProperty toVcardProperty: @"EMAIL"];
+	[self createAddress];
 
 	
 	[writer writeFooter];
@@ -110,9 +111,41 @@
 }
 
 
-
-- (NSString *)addressString
+- (void)createAddress
 {
+	ABMultiValueRef multi = ABRecordCopyValue(person, kABPersonAddressProperty);
+	
+	CFStringRef label;
+	CFDictionaryRef address;
+	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
+		address = ABMultiValueCopyValueAtIndex(multi, i);
+		label = ABMultiValueCopyLabelAtIndex(multi, i);
+		
+		[self createAddressLineFromDictonary: address];
+		[writer writeProperty: @"ADR" value: [self createAddressLineFromDictonary: address]
+					paramater:[[self propertiesFromLabel: label] arrayByAddingObject: @"postal"]];
+		
+		CFRelease(label);
+		CFRelease(address);
+	}
+		
+	CFRelease(multi);
+}
+
+
+- (NSString *)createAddressLineFromDictonary: (CFDictionaryRef) address
+{
+	int size = CFDictionaryGetCount(address);
+	
+	CFStringRef values[size];
+	CFDictionaryGetKeysAndValues(address, NULL, (void *)&values);
+	
+	NSMutableString *addressLine = [NSMutableString stringWithString: (NSString *)values[0]];
+	for (int i = 1; i < size; i++) {
+		[addressLine appendFormat: @";%@", (NSString *)values[i]];
+	}
+		
+	return addressLine;
 }
 
 
@@ -122,7 +155,7 @@
 		return [NSArray arrayWithObjects:@"work", nil];
 	
 	if (CFStringCompare(label, kABHomeLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
-		return [NSArray arrayWithObjects:@"work", nil];
+		return [NSArray arrayWithObjects:@"home", nil];
 
 	if (CFStringCompare(label, kABOtherLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
 		return [NSArray arrayWithObjects:@"other", nil];
@@ -144,7 +177,6 @@
 	
 	if (CFStringCompare(label, kABPersonPhoneWorkFAXLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
 		return [NSArray arrayWithObjects:@"pager", nil];
-	
 	
 	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label]];
 }
