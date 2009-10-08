@@ -25,8 +25,14 @@
 - (void)parser: (VcardParser *)parser didFoundFormattedName: (NSString *)name 
 {
 	self.foundProperty = @"FN";
-	
 }
+
+- (void)parser: (VcardParser *)parser didFoundPhoneNumber: (NSString *)number 
+										   withAttributes: (NSArray *) attributes
+{
+	self.foundProperty = @"TEL";
+};
+
 
 
 @end

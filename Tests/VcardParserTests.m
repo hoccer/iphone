@@ -57,14 +57,13 @@
 
 - (void)testParserDetectsTel
 {
-	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Robert Palmer\r\nEND:VCARD"];
+	VcardParser *parser = [[VcardParser alloc] initWithString:@"BEGIN:VCARD\r\nVERSION:3.0\r\nTEL;TYPE=home:123456\r\nEND:VCARD"];
 	MockedParserDelegate *mockedParserDelegate = [[MockedParserDelegate alloc] init];
 	parser.delegate = mockedParserDelegate;
 	
 	[parser parse];
 	
-	STAssertEqualObjects(mockedParserDelegate.foundProperty, @"FN", @"should be FN");
-	
+	STAssertEqualObjects(mockedParserDelegate.foundProperty, @"TEL", @"should be TEL");
 }
 
 

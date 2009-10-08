@@ -29,8 +29,6 @@
 	[super dealloc];
 }
 
-
-
 - (BOOL)isValidVcard
 {
 	if ([vcardLines count] < 2)
@@ -44,9 +42,16 @@
 - (void)parse
 {
 	for (int i = 2; i < [vcardLines count]; i++) {
+		NSArray *propertyWithAttributesAndValue = [[vcardLines objectAtIndex:i] componentsSeparatedByString: @":"];
+		NSString *propertyWithAttributes = [propertyWithAttributesAndValue objectAtIndex:0];
 		
+		NSArray *propertyAndAttributes = [propertyWithAttributes componentsSeparatedByString: @";"];
+		NSString *property = [propertyAndAttributes objectAtIndex:0];
 		
-		[delegate parser: self didFoundFormattedName: @"Robert Palmer"];
+		if ([property isEqual: @"FN"])
+			[delegate parser: self didFoundFormattedName: @"Robert Palmer"];
+		else if ([property isEqual: @"TEL"])
+			[delegate parser: self didFoundPhoneNumber: @"123" withAttributes: nil];
  
 	}
 }
