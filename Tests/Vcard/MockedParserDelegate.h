@@ -11,8 +11,10 @@
 
 @interface MockedParserDelegate : NSObject {
 	NSString *foundProperty;
+	NSString *value;
 }
 
 @property (copy) NSString* foundProperty;
+@property (copy) NSString* value;
 
 @end

@@ -106,14 +106,14 @@
 	CFRelease(multi);
 	
 	NSData *vcardData  = [ABPersonVCardCreator vcardWithABPerson: person];
-//	STAssertNotNil(vcardData, @"should not be nil");
-//	
-//	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
-//	
-//	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEMAIL;TYPE=work:foo@artcom.de\r\nEND:VCARD", 
-//						 @"vcards should match");
-//	
-//	CFRelease(person);	
+    STAssertNotNil(vcardData, @"should not be nil");
+	
+	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
+	
+	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEMAIL;TYPE=work:foo@artcom.de\r\nEND:VCARD", 
+						 @"vcards should match");
+	
+	CFRelease(person);	
 }
 
 

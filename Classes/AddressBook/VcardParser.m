@@ -42,19 +42,31 @@
 - (void)parse
 {
 	for (int i = 2; i < [vcardLines count]; i++) {
-		NSArray *propertyWithAttributesAndValue = [[vcardLines objectAtIndex:i] componentsSeparatedByString: @":"];
+		NSArray *propertyWithAttributesAndValue = [[vcardLines objectAtIndex:i] 
+												   componentsSeparatedByString: @":"];
 		NSString *propertyWithAttributes = [propertyWithAttributesAndValue objectAtIndex:0];
 		
 		NSArray *propertyAndAttributes = [propertyWithAttributes componentsSeparatedByString: @";"];
+		
+		NSString *value = [propertyWithAttributesAndValue objectAtIndex:1];
 		NSString *property = [propertyAndAttributes objectAtIndex:0];
 		
 		if ([property isEqual: @"FN"])
-			[delegate parser: self didFoundFormattedName: @"Robert Palmer"];
+			[delegate parser: self didFoundFormattedName: value];
 		else if ([property isEqual: @"TEL"])
-			[delegate parser: self didFoundPhoneNumber: @"123" withAttributes: nil];
- 
+			[delegate parser: self didFoundPhoneNumber: value withAttributes: nil];
+		else if ([property isEqual: @"EMAIL"])
+			[delegate parser: self didFoundEmail: value withAttributes: nil];
+		else if ([property isEqual: @"ADR"])
+			[delegate parser: self didFoundAddress: value withAttributes: nil];
 	}
 }
 
+- (NSArray *)attributesFromString: (NSString *) string
+{
+	
+	
+	return nil;
+}
 
 @end

@@ -13,6 +13,7 @@
 @implementation MockedParserDelegate
 
 @synthesize foundProperty;
+@synthesize value;
 
 
 - (void)parserDidFoundProperty: (NSString *)property
@@ -25,14 +26,27 @@
 - (void)parser: (VcardParser *)parser didFoundFormattedName: (NSString *)name 
 {
 	self.foundProperty = @"FN";
+	self.value = name;
 }
 
 - (void)parser: (VcardParser *)parser didFoundPhoneNumber: (NSString *)number 
 										   withAttributes: (NSArray *) attributes
 {
 	self.foundProperty = @"TEL";
-};
+	self.value = number;
+}
 
+- (void)parser: (VcardParser *)parser didFoundEmail: (NSString *)email
+									 withAttributes: (NSArray *) attributes 
+{
+	self.foundProperty = @"EMAIL";
+	self.value = email;
+}
 
+- (void)parser: (VcardParser *)parser didFoundAddress: (NSString *)email
+withAttributes: (NSArray *) attributes 
+{
+	self.foundProperty = @"ADR";
+}
 
 @end
