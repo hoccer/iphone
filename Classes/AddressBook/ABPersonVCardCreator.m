@@ -114,7 +114,8 @@
 - (void)createAddress
 {
 	ABMultiValueRef multi = ABRecordCopyValue(person, kABPersonAddressProperty);
-	
+	if (multi == NULL) return;
+
 	CFStringRef label;
 	CFDictionaryRef address;
 	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
@@ -129,7 +130,7 @@
 		CFRelease(address);
 	}
 		
-	CFRelease(multi);
+    CFRelease(multi);
 }
 
 

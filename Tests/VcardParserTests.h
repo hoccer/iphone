@@ -14,7 +14,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
-//#import "application_headers" as required
 #import "VcardParser.h"
 
 
