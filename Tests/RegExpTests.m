@@ -75,4 +75,11 @@
 	STAssertFalse([pattern endsWith: @"<up>"], @"should not stat with <away>");
 }
 
+- (void)testStringContains
+{
+	NSString *string = @"yoo";
+	STAssertTrue([string contains:@"oo"], @"should contain 'oo'");
+	STAssertFalse([string contains:@"abc"], @"should not contain 'abc'");
+}
+
 @end

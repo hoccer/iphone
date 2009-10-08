@@ -61,5 +61,9 @@
 	return [self matches: [NSString stringWithFormat: @"%@$", endString]];
 }
 
+- (BOOL)contains: (NSString *)substring
+{
+	return ([self rangeOfString:substring].location != NSNotFound);
+}
 
 @end

@@ -17,4 +17,6 @@
 - (BOOL)startsWith: (NSString *)startString;
 - (BOOL)endsWith: (NSString *)endString;
 
+- (BOOL)contains: (NSString *)substring;
+
 @end
