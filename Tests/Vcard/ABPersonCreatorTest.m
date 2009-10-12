@@ -52,13 +52,13 @@
 	
 	CFStringRef phoneNumber		 = (CFStringRef) ABMultiValueCopyValueAtIndex(multi, 0);
 	CFStringRef phoneNumberLabel = (CFStringRef) ABMultiValueCopyLabelAtIndex(multi, 0);
-	STAssertEqualObjects((NSString *)phoneNumber, @"12345", @"");
-	STAssertEqualObjects(phoneNumberLabel, kABHomeLabel, @"");
+	STAssertEqualObjects((NSString *) phoneNumber, @"12345", @"");
+	STAssertEqualObjects((NSString *) phoneNumberLabel, (NSString *) kABHomeLabel, @"");
 	
 	CFStringRef phoneNumber2		 = (CFStringRef) ABMultiValueCopyValueAtIndex(multi, 1);
 	CFStringRef phoneNumberLabel2 = (CFStringRef) ABMultiValueCopyLabelAtIndex(multi, 1);
-	STAssertEqualObjects((NSString *)phoneNumber2, @"55555", @"");
-	STAssertEqualObjects(phoneNumberLabel2, kABPersonPhoneWorkFAXLabel, @"");
+	STAssertEqualObjects((NSString *) phoneNumber2, @"55555", @"");
+	STAssertEqualObjects((NSString *) phoneNumberLabel2, (NSString *) kABPersonPhoneWorkFAXLabel, @"");
 }
 
 - (void)testVCardParsingWithEmail
@@ -77,14 +77,13 @@
 	
 	CFStringRef email		 = (CFStringRef) ABMultiValueCopyValueAtIndex(multi, 0);
 	CFStringRef emailLabel   = (CFStringRef) ABMultiValueCopyLabelAtIndex(multi, 0);
-	STAssertEqualObjects((NSString *)email, @"foo@artcom.de", @"");
-	STAssertEqualObjects(emailLabel, kABHomeLabel, @"");
+	STAssertEqualObjects((NSString *) email, @"foo@artcom.de", @"");
+	STAssertEqualObjects((NSString *) emailLabel, (NSString *) kABHomeLabel, @"");
 	
 	CFStringRef email2		 = (CFStringRef) ABMultiValueCopyValueAtIndex(multi, 1);
 	CFStringRef emailLabel2  = (CFStringRef) ABMultiValueCopyLabelAtIndex(multi, 1);
-	STAssertEqualObjects((NSString *)email2, @"foo.bar@artcom.de", @"");
-	STAssertEqualObjects(emailLabel2, kABWorkLabel, @"");
-	
+	STAssertEqualObjects((NSString *) email2, @"foo.bar@artcom.de", @"");
+	STAssertEqualObjects((NSString *) emailLabel2, (NSString *) kABWorkLabel, @"");
 }
 
 

@@ -12,6 +12,7 @@
 @interface ABPersonCreator (Private)
 
 - (CFStringRef)labelFromAttributes: (NSArray *)attributes;
+- (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address;
 
 @end
 
@@ -111,11 +112,16 @@
 	if (currentMultiValue == NULL) {
 		addresses = ABMultiValueCreateMutable(kABMultiStringPropertyType);
 	} else {
-		emails = ABMultiValueCreateMutableCopy(currentMultiValue);
+		addresses = ABMultiValueCreateMutableCopy(currentMultiValue);
 	}
 	
-
+	CFDictionaryRef addressDict = [self createDirectoryFromAddressString: address];
+	ABMultiValueAddValueAndLabel(address, addressDict,
+								 [self labelFromAttributes: attributes], NULL);
+								 
+	CFRelease(addressDict);
 	
+	ABRecordSetValue(person, kABPersonAddressProperty, addresses, &errorRef);
 }
 
 
@@ -148,6 +154,41 @@
 		return kABPersonPhonePagerLabel;
 	
 	return kABOtherLabel;
+}
+
+
+- (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address
+{
+	NSArray *addressParts = [address componentsSeparatedByString:@","];
+	if (!addressParts)
+		return nil;
+	
+	CFStringRef keys[5];
+	CFStringRef values[5];
+	keys[0]      = kABPersonAddressStreetKey;
+	keys[1]      = kABPersonAddressCityKey;
+	keys[2]      = kABPersonAddressStateKey;
+	keys[3]      = kABPersonAddressZIPKey;
+	keys[4]      = kABPersonAddressCountryKey;
+
+	values[0]    = (CFStringRef) [addressParts objectAtIndex:0];
+	
+	if ([addressParts count] > 2)
+		values[1]  = (CFStringRef) [addressParts objectAtIndex:1];
+	if ([addressParts count] > 3)
+		values[2]  = (CFStringRef) [addressParts objectAtIndex:2];
+	if ([addressParts count] > 4)
+		values[3]  = (CFStringRef) [addressParts objectAtIndex:3];
+	if ([addressParts count] > 5)
+		values[4]  = (CFStringRef) [addressParts objectAtIndex:4];
+	
+	CFDictionaryRef aDict = CFDictionaryCreate(NULL,
+											   (void *)keys,
+											   (void *)values,
+											   5,
+											   &kCFCopyStringDictionaryKeyCallBacks,
+											   &kCFTypeDictionaryValueCallBacks);
+	return aDict;	
 }
 
 
