@@ -74,8 +74,6 @@
 		} else if ([property isEqual: @"ADR"]) {
 			[delegate parser: self didFoundAddress: value 
 			  withAttributes: [self attributesFromString: attributs]];
-			
-			NSLog(@"attributes in %s: %@", _cmd, [self attributesFromString: attributs]);
 		}
 	}
 }

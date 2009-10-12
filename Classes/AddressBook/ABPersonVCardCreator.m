@@ -176,7 +176,7 @@
 	if (CFStringCompare(label, kABPersonPhoneWorkFAXLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
 		return [NSArray arrayWithObjects:@"work", @"fax", nil];
 	
-	if (CFStringCompare(label, kABPersonPhoneWorkFAXLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
+	if (CFStringCompare(label, kABPersonPhonePagerLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
 		return [NSArray arrayWithObjects:@"pager", nil];
 	
 	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label]];

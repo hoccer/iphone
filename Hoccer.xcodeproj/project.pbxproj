@@ -24,6 +24,9 @@
 		223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		226496261070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		226496271070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
+		22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
+		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
+		22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E9A108321C600F84755 /* ABPersonCreatorTest.m */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -127,6 +130,10 @@
 		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
 		226496251070DD56006D33E2 /* ThrowDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThrowDetector.m; path = GesturesInterpreter/ThrowDetector.m; sourceTree = "<group>"; };
 		22719D7B1083149D00F84755 /* VcardParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardParserDelegate.h; sourceTree = "<group>"; };
+		22719E8D1083207700F84755 /* ABPersonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonCreator.h; path = AddressBook/ABPersonCreator.h; sourceTree = "<group>"; };
+		22719E8E1083207700F84755 /* ABPersonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonCreator.m; path = AddressBook/ABPersonCreator.m; sourceTree = "<group>"; };
+		22719E99108321C600F84755 /* ABPersonCreatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonCreatorTest.h; path = Tests/Vcard/ABPersonCreatorTest.h; sourceTree = "<group>"; };
+		22719E9A108321C600F84755 /* ABPersonCreatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonCreatorTest.m; path = Tests/Vcard/ABPersonCreatorTest.m; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -429,6 +436,8 @@
 				227B5CE3107DE3D30012BBA6 /* VcardParser.h */,
 				227B5CE4107DE3D30012BBA6 /* VcardParser.m */,
 				22719D7B1083149D00F84755 /* VcardParserDelegate.h */,
+				22719E8D1083207700F84755 /* ABPersonCreator.h */,
+				22719E8E1083207700F84755 /* ABPersonCreator.m */,
 			);
 			name = AddressBook;
 			sourceTree = "<group>";
@@ -442,6 +451,8 @@
 				227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */,
 				227B5E3A107DF4F70012BBA6 /* MockedParserDelegate.h */,
 				227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */,
+				22719E99108321C600F84755 /* ABPersonCreatorTest.h */,
+				22719E9A108321C600F84755 /* ABPersonCreatorTest.m */,
 			);
 			name = vcard;
 			sourceTree = "<group>";
@@ -637,6 +648,7 @@
 				22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
 				22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
 				227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */,
+				22719E901083207700F84755 /* ABPersonCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +681,8 @@
 				227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */,
 				227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */,
 				227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */,
+				22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */,
+				22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
