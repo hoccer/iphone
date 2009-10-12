@@ -35,7 +35,7 @@
 {
 	self.foundProperty = @"TEL";
 	self.value = number;
-	self.attributes = attributes;
+	self.attributes = theAttributes;
 }
 
 - (void)parser: (VcardParser *)parser didFoundEmail: (NSString *)email
