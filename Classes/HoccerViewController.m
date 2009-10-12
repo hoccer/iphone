@@ -63,12 +63,14 @@
 	ABAddressBookRef addressBook = ABAddressBookCreate();
 	
 	CFArrayRef addresses = ABAddressBookCopyPeopleWithName(addressBook, CFSTR("Appleseed"));
-	if (CFArrayGetCount(addresses) < 1) {
-		return;
+	if (CFArrayGetCount(addresses) > 0 ) {
+		NSData *vcard = [ABPersonVCardCreator vcardWithABPerson: CFArrayGetValueAtIndex(addresses, 0)];
+		NSLog(@"vcard: %@", [NSString stringWithData:vcard usingEncoding: NSUTF8StringEncoding]);
+
 	}
 	
-	NSData *vcard = [ABPersonVCardCreator vcardWithABPerson: CFArrayGetValueAtIndex(addresses, 0)];
-	NSLog(@"vcard: %@", [NSString stringWithData:vcard usingEncoding: NSUTF8StringEncoding]);
+	CFRelease(addressBook);
+	CFRelease(addresses);
 }
 
 

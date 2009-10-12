@@ -27,6 +27,7 @@
 	UIImage *result = [UIImage imageWithCGImage: ref];
 	
 	CGContextRelease(bitmapContext);
+	CFRelease(ref);
 	
 	return result;
 }

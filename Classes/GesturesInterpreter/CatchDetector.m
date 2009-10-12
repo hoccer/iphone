@@ -18,7 +18,7 @@
 	if ([featureHistory hasValueAt:-9.81 withVariance:2 onAxis:kYAxis]) {
 		if ([featureHistory wasHigherThan:-2 onAxis:kYAxis inLast:400]) {
 			NSString *featurePattern = [featureHistory featurePatternOnAxis:kYAxis inTimeInterval:400];
-			NSLog(featurePattern);
+			NSLog(@"%@", featurePattern);
 			
 			if ([featurePattern startsWith: @"<down>"] || [featurePattern startsWith:@"<fastdown>"]) {
 				if ([featurePattern endsWith: @"<flat>"] || [featurePattern endsWith: @"<up>"]) {

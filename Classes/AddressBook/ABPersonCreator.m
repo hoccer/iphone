@@ -33,6 +33,7 @@
 		parser.delegate = self;
 		
 		[parser parse];
+		[parser release];
 	}
 	return self;
 }
@@ -69,36 +70,43 @@
 - (void)parser: (VcardParser*)parser didFoundPhoneNumber: (NSString*)number 
 										  withAttributes: (NSArray *)attributes
 {
-	ABMultiValueRef currentMultiValue = ABRecordCopyValue(person, kABPersonPhoneProperty);
+	ABMultiValueRef currentPhoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
 	CFErrorRef errorRef;
 
 	ABMutableMultiValueRef numbers = NULL;
-	if (currentMultiValue == NULL) {
+	if (currentPhoneNumbers == NULL) {
 		numbers= ABMultiValueCreateMutable(kABMultiStringPropertyType);
 	} else {
-		numbers = ABMultiValueCreateMutableCopy(currentMultiValue);
+		numbers = ABMultiValueCreateMutableCopy(currentPhoneNumbers);
 	}
+
 	
 	ABMultiValueAddValueAndLabel(numbers, number, [self labelFromAttributes: attributes], NULL);
 	ABRecordSetValue(person, kABPersonPhoneProperty, numbers, &errorRef);
+	
+	CFRelease(numbers);
+	CFRelease(currentPhoneNumbers);
 }
 
 
 - (void)parser: (VcardParser*)parser didFoundEmail: (NSString*)email 
 									withAttributes: (NSArray *)attributes 
 {
-	ABMultiValueRef currentMultiValue = ABRecordCopyValue(person, kABPersonEmailProperty);
+	ABMultiValueRef currentEmaiAddresses = ABRecordCopyValue(person, kABPersonEmailProperty);
 	CFErrorRef errorRef;
 
 	ABMutableMultiValueRef emails = NULL;
-	if (currentMultiValue == NULL) {
+	if (currentEmaiAddresses == NULL) {
 		emails = ABMultiValueCreateMutable(kABMultiStringPropertyType);
 	} else {
-		emails = ABMultiValueCreateMutableCopy(currentMultiValue);
+		emails = ABMultiValueCreateMutableCopy(currentEmaiAddresses);
 	}
 	
 	ABMultiValueAddValueAndLabel(emails, email, [self labelFromAttributes: attributes], NULL);
 	ABRecordSetValue(person, kABPersonEmailProperty, emails, &errorRef);
+
+	CFRelease(emails);
+	CFRelease(currentEmaiAddresses);
 }
 
 
@@ -122,6 +130,7 @@
 	CFRelease(addressDict);
 	
 	ABRecordSetValue(person, kABPersonAddressProperty, addresses, &errorRef);
+	CFRelease(currentMultiValue);
 }
 
 

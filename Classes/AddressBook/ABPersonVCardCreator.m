@@ -179,7 +179,7 @@
 	if (CFStringCompare(label, kABPersonPhonePagerLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
 		return [NSArray arrayWithObjects:@"pager", nil];
 	
-	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label]];
+	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label], nil];
 }
 
 @end

@@ -83,9 +83,9 @@
 		NSLog(@"Error while executing url connection");
 	}
 	
-	NSString *expires = [NSString stringWithFormat:@"%d", [self.result valueForKey:@"expires"]];
-//	[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
-		//withObject: self withObject:expires];
+	// NSString *expires = [NSString stringWithFormat:@"%d", [self.result valueForKey:@"expires"]];
+	// [self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
+	// withObject: self withObject:expires];
 	[receivedData setLength:0];
 }
 
