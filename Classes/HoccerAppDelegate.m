@@ -19,6 +19,8 @@
 #import "HoccerContentFactory.h"
 #import "HoccerImage.h"
 
+#import "FeedbackProvider.h"
+
 @implementation HoccerAppDelegate
 
 @synthesize window;
@@ -91,7 +93,9 @@
 	if (request != nil) {
 		return;
 	}
-	
+
+	[FeedbackProvider  playCatchFeedback];
+
 	CLLocation *location = [self currentLocation];
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
 }
@@ -105,6 +109,7 @@
 		return;
 	}
 	
+	[FeedbackProvider playThrowFeedback];
 	[hoccerViewController setUpdate: @"preparing"];
 	
 	CLLocation *location = [self currentLocation];
