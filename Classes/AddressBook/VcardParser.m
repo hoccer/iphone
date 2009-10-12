@@ -66,7 +66,7 @@
 			[delegate parser: self didFoundFormattedName: value];
 		} else if ([property isEqual: @"TEL"]) {
 			[delegate parser: self didFoundPhoneNumber: value 
-			  withAttributes: [NSArray arrayWithObject: attributs]];
+			  withAttributes: [self attributesFromString: attributs]];
 		} else if ([property isEqual: @"EMAIL"]) {
 			[delegate parser: self didFoundEmail: value 
 			  withAttributes: [self attributesFromString: attributs]];
@@ -89,17 +89,19 @@
 		attributs = [string componentsSeparatedByString:@";"];
 	}
 	
-	
+		
 	
 	NSMutableArray *mutableAttributes = [NSMutableArray arrayWithArray:attributs];
 	for (int i = 0; i < [attributs count]; i++) {
 		if ([[mutableAttributes objectAtIndex:i] startsWith: @"TYPE="]) {
 			NSString *attributString = [mutableAttributes objectAtIndex:i];
 			
-			[mutableAttributes insertObject:[attributString substringFromIndex:6] atIndex:i];
+			[mutableAttributes replaceObjectAtIndex:i 
+										 withObject: [attributString substringFromIndex:5]];
 		}
 	}
-	
+	NSLog(@"attributes: %@", mutableAttributes);
+
 	return mutableAttributes;
 }
 
