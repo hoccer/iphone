@@ -33,6 +33,7 @@
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271A01A10835B8900F84755 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
 		2271A01B10835B8900F84755 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
+		2271A0471083647F00F84755 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A0461083647F00F84755 /* tap_sound.wav */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -145,6 +146,7 @@
 		2271A00B108347C800F84755 /* FeedbackProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackProvider.m; sourceTree = "<group>"; };
 		2271A01810835B8900F84755 /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = catch_sound.wav; path = Resources/catch_sound.wav; sourceTree = "<group>"; };
 		2271A01910835B8900F84755 /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = throw_sound.wav; path = Resources/throw_sound.wav; sourceTree = "<group>"; };
+		2271A0461083647F00F84755 /* tap_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap_sound.wav; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			children = (
 				22762DE5105E5688003BF968 /* fixtures */,
 				2271A01810835B8900F84755 /* catch_sound.wav */,
+				2271A0461083647F00F84755 /* tap_sound.wav */,
 				2271A01910835B8900F84755 /* throw_sound.wav */,
 				227333ED1056426D004228B4 /* icon.png */,
 				22F3E78A107364A8004A30EA /* 1.jpg */,
@@ -598,6 +601,7 @@
 				22F3E78B107364A8004A30EA /* 1.jpg in Resources */,
 				2271A01A10835B8900F84755 /* catch_sound.wav in Resources */,
 				2271A01B10835B8900F84755 /* throw_sound.wav in Resources */,
+				2271A0471083647F00F84755 /* tap_sound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

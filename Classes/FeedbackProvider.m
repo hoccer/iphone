@@ -30,8 +30,7 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 	NSLog(@"initialize");
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("catch_sound"), &catchId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("throw_sound"), &throwId);
-	// CreateSystemSoundIDFromWAVInRessources(CFSTR("tap_sound"), &tapId);
-
+	CreateSystemSoundIDFromWAVInRessources(CFSTR("tap_sound"), &tapId);
 }
 
 
@@ -50,7 +49,7 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 + (void)playTapFeedback
 {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-//	AudioServicesPlaySystemSound(tapId);
+	AudioServicesPlaySystemSound(tapId);
 }
 
 @end
