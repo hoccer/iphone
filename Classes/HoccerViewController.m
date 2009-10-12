@@ -53,7 +53,14 @@
 
 - (IBAction)onCatch: (id)sender
 {
-	[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
+	BaseHoccerRequest *request = [[BaseHoccerRequest alloc] init];
+	request.result = [@"http://www.artcom.de" dataUsingEncoding:NSUTF8StringEncoding];
+	request.response = [[NSHTTPURLResponse alloc] initWithURL:nil MIMEType:@"text/plain"
+										expectedContentLength:40 textEncodingName: @"UTF-8"];
+	
+	[self.delegate requestDidFinishDownload: request];
+
+	//[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
 }
 
 - (IBAction)parse: (id)sender
@@ -62,7 +69,6 @@
 	
 	CFArrayRef addresses = ABAddressBookCopyPeopleWithName(addressBook, CFSTR("Appleseed"));
 	if (CFArrayGetCount(addresses) < 1) {
-		NSLog(@"nobody found");
 		return;
 	}
 	

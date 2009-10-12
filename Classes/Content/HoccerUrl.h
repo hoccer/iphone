@@ -12,8 +12,10 @@
 #import "HoccerText.h"
 
 @interface HoccerUrl : HoccerText {
+	UIWebView  *webView;
 }
 
 + (BOOL) isDataAUrl: (NSData *)data;
+
 
 @end

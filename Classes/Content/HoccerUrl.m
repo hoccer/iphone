@@ -24,7 +24,16 @@
 - (void)save 
 {
 	NSLog(@"opening: %@", content);
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString: content]];
+	
+	NSURL *url = nil;
+	if (webView) {
+		NSURLRequest *request = webView.request;
+		url = [request URL];
+	} else {
+		url = [NSURL URLWithString: content];
+	}
+		
+	[[UIApplication sharedApplication] openURL: url];
 }
 
 - (void)dismiss {}
@@ -32,6 +41,14 @@
 - (NSString *)saveButtonDescription 
 {
 	return @"Open in Safari";
+}
+
+- (UIView *)view {
+	webView = [[UIWebView alloc] initWithFrame: CGRectMake(10, 60, 300, 350)];
+	webView.scalesPageToFit = YES;
+	
+	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:content]]];	
+	return [webView  autorelease];
 }
 
 @end
