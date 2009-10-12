@@ -25,13 +25,21 @@
 
 - (void)dismiss {}
 
-- (UIView *)view {
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 300, 20)];
+- (UIView *)view 
+{
+	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 50, 300, 20)];
 	label.text = content;
 	
-	return label;
+	return [label autorelease];
 }
 
+-  (UIView *)preview 
+{
+	textView =  [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 300, 60)];
+	textView.delegate = self;
+	
+	return [textView autorelease];
+}
 
 - (NSString *)saveButtonDescription 
 {
@@ -40,6 +48,7 @@
 	
 - (void)dealloc
 {
+	[textView release];
 	[content release];
 	[super dealloc];
 }
@@ -57,7 +66,8 @@
 
 - (NSData *)data 
 {
-	return [content dataUsingEncoding: NSUTF8StringEncoding];
+	[textView resignFirstResponder];
+	return [textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 - (BOOL)isDataReady {

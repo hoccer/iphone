@@ -51,4 +51,9 @@
 	return [webView  autorelease];
 }
 
+- (UIView *)preview
+{
+	return [self view];
+}
+
 @end

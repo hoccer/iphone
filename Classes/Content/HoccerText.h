@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
 
-@interface HoccerText : NSObject <HoccerContent> {
+@interface HoccerText : NSObject <HoccerContent, UITextViewDelegate> {
 	NSString *content;
+	
+	UITextView *textView;
 }
 
 @end

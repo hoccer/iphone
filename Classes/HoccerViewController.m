@@ -53,12 +53,7 @@
 
 - (IBAction)onCatch: (id)sender
 {
-	BaseHoccerRequest *request = [[BaseHoccerRequest alloc] init];
-	request.result = [@"http://www.artcom.de" dataUsingEncoding:NSUTF8StringEncoding];
-	request.response = [[NSHTTPURLResponse alloc] initWithURL:nil MIMEType:@"text/plain"
-										expectedContentLength:40 textEncodingName: @"UTF-8"];
-	
-	[self.delegate requestDidFinishDownload: request];
+	[self.delegate didPickText];
 
 	//[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
 }
@@ -103,9 +98,9 @@
 		[[previewBox.subviews objectAtIndex:0] removeFromSuperview];
 	}
 
-	UIView *contentView = content.view;
-	contentView.frame = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
-	contentView.bounds = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
+	UIView *contentView = content.preview;
+	contentView.frame   = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
+	contentView.bounds  = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
 
 	contentView.contentMode = UIViewContentModeScaleAspectFill; 
 	

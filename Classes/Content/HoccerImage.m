@@ -55,8 +55,6 @@
 		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
 		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
 								 toTarget:threadClass withObject:self];
-		
-		
 	}
 	
 	return self;
@@ -86,6 +84,10 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
+- (UIView *)preview
+{
+	return [self view];
+}
 
 - (NSString *)filename
 {

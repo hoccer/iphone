@@ -18,6 +18,7 @@
 
 #import "HoccerContentFactory.h"
 #import "HoccerImage.h"
+#import "HoccerText.h"
 
 #import "FeedbackProvider.h"
 
@@ -31,6 +32,8 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	application.applicationSupportsShakeToEdit = NO;
+	
 	[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
 
 	gesturesInterpreter = [[GesturesInterpreter alloc] init];
@@ -72,7 +75,6 @@
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	NSLog(@"in %s", _cmd);
@@ -82,6 +84,16 @@
 	viewController.selectedViewController = hoccerViewController;
 	
 }
+
+#pragma mark -
+#pragma mark ContentPicker Delegate Methods
+- (void)didPickText
+{
+	self.contentToSend = [[[HoccerText alloc] init] autorelease];
+	
+	[hoccerViewController  setContentPreview: self.contentToSend];
+}
+
 
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods

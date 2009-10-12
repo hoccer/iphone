@@ -26,7 +26,6 @@
 
 - (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate
 {
-	
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
@@ -35,7 +34,6 @@
 													isSeeder: NO
 													delegate: self];
 	}
-	
 	
 	return self;
 }
@@ -47,8 +45,6 @@
 	
 	request = nil;
 }
-
-
 
 - (void)dealloc
 {
