@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VcardParserDelegate.h"
 
-
-@interface MockedParserDelegate : NSObject {
+@interface MockedParserDelegate : NSObject <VcardParserDelegate> {
 	NSString *foundProperty;
 	NSString *value;
 	NSArray  *attributes;

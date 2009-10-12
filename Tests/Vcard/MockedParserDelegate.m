@@ -31,7 +31,7 @@
 }
 
 - (void)parser: (VcardParser *)parser didFoundPhoneNumber: (NSString *)number 
-										   withAttributes: (NSArray *) attributes
+										   withAttributes: (NSArray *) theAttributes
 {
 	self.foundProperty = @"TEL";
 	self.value = number;
@@ -39,18 +39,18 @@
 }
 
 - (void)parser: (VcardParser *)parser didFoundEmail: (NSString *)email
-									 withAttributes: (NSArray *) attributes 
+									 withAttributes: (NSArray *) theAttributes 
 {
 	self.foundProperty = @"EMAIL";
 	self.value = email;
-	self.attributes = attributes;
+	self.attributes = theAttributes;
 }
 
 - (void)parser: (VcardParser *)parser didFoundAddress: (NSString *)email
-withAttributes: (NSArray *) attributes 
+withAttributes: (NSArray *) theAttributes 
 {
 	self.foundProperty = @"ADR";
-	self.attributes = attributes;
+	self.attributes = theAttributes;
 }
 
 @end

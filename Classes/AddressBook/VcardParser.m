@@ -9,6 +9,14 @@
 #import "VcardParser.h"
 #import "NSString+Regexp.h"
 
+@interface VcardParser (Private) 
+
+- (NSArray *)attributesFromString: (NSString *) string;
+
+@end
+
+
+
 @implementation VcardParser
 
 
@@ -45,7 +53,6 @@
 		NSArray *propertyWithAttributesAndValue = [[vcardLines objectAtIndex:i] 
 												   componentsSeparatedByString: @":"];
 		NSString *propertyWithAttributes = [propertyWithAttributesAndValue objectAtIndex:0];
-		
 		NSArray *propertyAndAttributes = [propertyWithAttributes componentsSeparatedByString: @";"];
 		
 		NSString *attributs = nil;
@@ -55,17 +62,18 @@
 		if ([propertyAndAttributes count] > 1) 
 			attributs = [propertyAndAttributes objectAtIndex:1];
 		
-		if ([property isEqual: @"FN"])
+		if ([property isEqual: @"FN"]) {
 			[delegate parser: self didFoundFormattedName: value];
-		else if ([property isEqual: @"TEL"])
+		} else if ([property isEqual: @"TEL"]) {
 			[delegate parser: self didFoundPhoneNumber: value 
-			  withAttributes: [self attributesFromString: attributs]];
-		else if ([property isEqual: @"EMAIL"])
+			  withAttributes: [NSArray arrayWithObject: attributs]];
+		} else if ([property isEqual: @"EMAIL"]) {
 			[delegate parser: self didFoundEmail: value 
 			  withAttributes: [self attributesFromString: attributs]];
-		else if ([property isEqual: @"ADR"])
+		} else if ([property isEqual: @"ADR"]) {
 			[delegate parser: self didFoundAddress: value 
 			  withAttributes: [self attributesFromString: attributs]];
+		}
 	}
 }
 
@@ -80,6 +88,8 @@
 	} else if ([string contains:@";"]) {
 		attributs = [string componentsSeparatedByString:@";"];
 	}
+	
+	
 	
 	NSMutableArray *mutableAttributes = [NSMutableArray arrayWithArray:attributs];
 	for (int i = 0; i < [attributs count]; i++) {

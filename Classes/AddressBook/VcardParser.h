@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VcardParserDelegate.h"
 
 
 @interface VcardParser : NSObject {
 	NSArray *vcardLines;
 	
-	id delegate;
+	id <VcardParserDelegate> delegate;
 }
 
 @property (nonatomic, retain) id delegate;
@@ -21,6 +22,5 @@
 - (BOOL)isValidVcard;
 
 - (void)parse;
-
 
 @end
