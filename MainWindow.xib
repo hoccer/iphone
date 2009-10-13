@@ -50,6 +50,13 @@
 			<object class="IBUITabBarController" id="903877622">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="360764612">
+					<string key="IBUITitle">Debug</string>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="740087752">
+						<string key="IBUITitle">Debug</string>
+					</object>
+					<reference key="IBUIParentViewController" ref="903877622"/>
+				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="958155834">
@@ -66,6 +73,9 @@
 						</object>
 						<object class="NSArray" key="IBUIToolbarItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
+						<object class="IBUINavigationItem" key="IBUINavigationItem" id="682485422">
+							<string key="IBUITitle">Item</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="903877622"/>
 						<object class="IBUINavigationBar" key="IBUINavigationBar" id="387154048">
@@ -90,12 +100,7 @@
 						</object>
 						<bool key="IBUINavigationBarHidden">YES</bool>
 					</object>
-					<object class="IBUIViewController" id="360764612">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="740087752">
-							<string key="IBUITitle">Debug</string>
-						</object>
-						<reference key="IBUIParentViewController" ref="903877622"/>
-					</object>
+					<reference ref="360764612"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="263755404">
 					<nil key="NSNextResponder"/>
@@ -217,8 +222,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="263755404"/>
 							<reference ref="958155834"/>
-							<reference ref="360764612"/>
 							<reference ref="780685209"/>
+							<reference ref="360764612"/>
 						</object>
 						<reference key="parent" ref="377036087"/>
 					</object>
@@ -256,15 +261,26 @@
 						<reference key="parent" ref="958155834"/>
 					</object>
 					<object class="IBObjectRecord">
+						<int key="objectID">44</int>
+						<reference key="object" ref="84156477"/>
+						<reference key="parent" ref="377036087"/>
+					</object>
+					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="780685209"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="682485422"/>
 							<reference ref="283884449"/>
 							<reference ref="387154048"/>
 							<reference ref="684357757"/>
 						</object>
 						<reference key="parent" ref="903877622"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">63</int>
+						<reference key="object" ref="682485422"/>
+						<reference key="parent" ref="780685209"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">36</int>
@@ -280,11 +296,6 @@
 						<int key="objectID">38</int>
 						<reference key="object" ref="684357757"/>
 						<reference key="parent" ref="780685209"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">44</int>
-						<reference key="object" ref="84156477"/>
-						<reference key="parent" ref="377036087"/>
 					</object>
 				</object>
 			</object>
@@ -359,7 +370,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">47</int>
+			<int key="maxID">65</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -399,6 +410,7 @@
 							<string>contentToSend</string>
 							<string>hoccerContent</string>
 							<string>hoccerViewController</string>
+							<string>navigationController</string>
 							<string>viewController</string>
 							<string>window</string>
 						</object>
@@ -407,6 +419,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>HoccerViewController</string>
+							<string>UINavigationController</string>
 							<string>UITabBarController</string>
 							<string>UIWindow</string>
 						</object>
@@ -432,7 +445,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>onCancel:</string>
-							<string>onCatch:</string>
+							<string>parse:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>

@@ -44,11 +44,9 @@
 
 	[request release];
 
-	// Override point for customization after app launch    
-    [window addSubview:viewController.view];
-    [window makeKeyAndVisible];
+	[window addSubview:viewController.view];
+	[window makeKeyAndVisible];
 }
-
 
 - (void)dealloc {
 	[locationManager stopUpdatingLocation];
@@ -60,6 +58,7 @@
 	[request release];
 	
     [viewController release];
+	[navigationController release];
     [window release];
 	
 	[super dealloc];
@@ -70,23 +69,33 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)aViewController
 {
+	if ([[aViewController class] isEqual: [UINavigationController class]]) {
+		HoccerViewController *controller = [[HoccerViewController alloc] init];
+		[aViewController.view addSubview:controller.view];
+		 
+		// [aViewController pushViewController:controller animated:YES];
+		[controller release];
+	}
+	
 	NSLog(@"selected class: %@", aViewController);
+
 }
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	NSLog(@"in %s", _cmd);
-	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:[info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
+	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:
+						   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
 	[hoccerViewController setContentPreview: self.contentToSend];
 	viewController.selectedViewController = hoccerViewController;
-	
 }
 
 #pragma mark -
 #pragma mark ContentPicker Delegate Methods
+
 - (void)didPickText
 {
 	self.contentToSend = [[[HoccerText alloc] init] autorelease];

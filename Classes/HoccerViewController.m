@@ -51,13 +51,6 @@
 	[super dealloc];
 }
 
-- (IBAction)onCatch: (id)sender
-{
-	[self.delegate didPickText];
-
-	//[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) withObject: nil]; 
-}
-
 - (IBAction)parse: (id)sender
 {
 	ABAddressBookRef addressBook = ABAddressBookCreate();
