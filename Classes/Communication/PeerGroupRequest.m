@@ -50,7 +50,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	NSMutableString *body = [NSMutableString string];
 	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
-	[body appendFormat:@"peer[accuracy]=%i&", location.horizontalAccuracy];
+	[body appendFormat:@"peer[accuracy]=%f&", location.horizontalAccuracy];
 	[body appendFormat:@"peer[gesture]=%@&", gesture];
 	[body appendFormat:@"peer[seeder]=%d", seeder];
 
