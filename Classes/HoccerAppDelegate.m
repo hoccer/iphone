@@ -212,16 +212,18 @@
 
 - (void)updateLocation
 {
+	
 	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: [self currentLocation].coordinate];
 	geocoder.delegate = self;
 	
 	[geocoder start];
-	[geocoder release];
+	// [geocoder release];
 }
 
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
+	[geocoder release];
 	CLLocation *location = [self currentLocation];
 	
 	[hoccerViewController setLocation:placemark withAccuracy: location.horizontalAccuracy];
