@@ -49,5 +49,9 @@
 - (void)userDidDismissContent;
 - (void)userDidSaveContent;
 
+
+- (void)didDissmissContentToThrow;
+
+
 @end
 

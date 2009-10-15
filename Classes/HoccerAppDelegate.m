@@ -81,6 +81,14 @@
 
 }
 
+- (void)didDissmissContentToThrow
+{
+	self.contentToSend = nil;
+	[hoccerViewController setContentPreview: nil];
+}
+
+
+
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
 
@@ -109,6 +117,9 @@
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
+	if (self.contentToSend)
+		return;
+	
 	NSLog(@"im catching, wooo");
 	
 	if (request != nil) {
@@ -124,6 +135,9 @@
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
 {
+	if (!self.contentToSend)
+		return;
+	
 	NSLog(@"im throwing, wooo");
 	
 	if (request != nil) {

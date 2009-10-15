@@ -74,6 +74,13 @@
 }
 
 
+- (IBAction)didDissmissContentToThrow: (id)sender
+{
+	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
+}
+
+
+
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {
 	if (placemark.thoroughfare != nil)

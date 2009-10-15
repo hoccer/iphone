@@ -37,5 +37,7 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content;
 
+- (IBAction)didDissmissContentToThrow: (id)sender;
+
 @end
 

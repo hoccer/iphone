@@ -35,8 +35,8 @@
 	// picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 	picker.delegate = self;
 	
-	[self.view addSubview: picker.view];
-	[self.view setNeedsDisplay];
+	//[self.view addSubview: picker.view];
+	//[self.view setNeedsDisplay];
 	
 	// [picker release];
 }
@@ -67,6 +67,27 @@
 	[imagePicker release];
     [super dealloc];
 }
+
+#pragma mark -
+
+- (void)viewWillAppear: (BOOL)animated
+{
+	NSLog(@"view will appear");
+	
+	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+	
+	// ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+	// picker.peoplePickerDelegate = self;
+	picker.delegate = self;
+	
+	[self.view addSubview: picker.view];
+	[self.view setNeedsDisplay];
+	
+}
+
+
 
 
 #pragma mark -
