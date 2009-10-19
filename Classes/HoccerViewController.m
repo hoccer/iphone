@@ -33,6 +33,7 @@
 
 
 - (void)viewDidLoad {
+	
 }
 
 - (void)viewDidUnload {
@@ -78,8 +79,6 @@
 {
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
-
-
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {

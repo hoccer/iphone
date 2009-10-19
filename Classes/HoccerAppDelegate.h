@@ -20,7 +20,8 @@
 #import "HoccerContent.h"
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
-											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, MKReverseGeocoderDelegate> 
+											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, 
+											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate> 
 {
     UIWindow *window;
     UITabBarController *viewController;

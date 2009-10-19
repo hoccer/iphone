@@ -15,7 +15,11 @@
 		  UINavigationControllerDelegate> {
 
 	IBOutlet UIImagePickerController *imagePicker;
+			  
+	IBOutlet id delegate;
 }
+
+@property (retain) id delegate;
 
 
 

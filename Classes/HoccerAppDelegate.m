@@ -22,6 +22,15 @@
 
 #import "FeedbackProvider.h"
 
+#import "SelectViewController.h"
+
+@interface HoccerAppDelegate (Private)
+
+- (void)updateLocation;
+@end
+
+
+
 @implementation HoccerAppDelegate
 
 @synthesize window;
@@ -29,7 +38,6 @@
 
 @synthesize contentToSend;
 @synthesize hoccerContent;
-
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	application.applicationSupportsShakeToEdit = NO;
@@ -46,6 +54,8 @@
 
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
+	
+	[self updateLocation];
 }
 
 - (void)dealloc {
@@ -69,16 +79,7 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)aViewController
 {
-	if ([[aViewController class] isEqual: [UINavigationController class]]) {
-		HoccerViewController *controller = [[HoccerViewController alloc] init];
-		[aViewController.view addSubview:controller.view];
-		 
-		// [aViewController pushViewController:controller animated:YES];
-		[controller release];
-	}
-	
 	NSLog(@"selected class: %@", aViewController);
-
 }
 
 - (void)didDissmissContentToThrow
@@ -100,6 +101,32 @@
 	[hoccerViewController setContentPreview: self.contentToSend];
 	viewController.selectedViewController = hoccerViewController;
 }
+
+
+#pragma mark -
+#pragma mark ABPeoplePickerNavigationController delegate
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
+	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+	NSLog(@"selected person");
+	
+	return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
+	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
+								property:(ABPropertyID)property 
+							  identifier:(ABMultiValueIdentifier)identifier
+{
+	return NO;
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
+{
+	
+}
+
+
 
 #pragma mark -
 #pragma mark ContentPicker Delegate Methods
@@ -158,8 +185,6 @@
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
-	NSLog(@"request did finish, showing picture");
-	
 	self.hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
 														    withData: aRequest.result];
 	

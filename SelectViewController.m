@@ -10,45 +10,15 @@
 #import "HoccerViewController.h"
 
 
-
 @implementation SelectViewController
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize delegate;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	NSLog(@"view did load");
     [super viewDidLoad];
-	
-	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-	// UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-	// picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-	picker.delegate = self;
-	
-	//[self.view addSubview: picker.view];
-	//[self.view setNeedsDisplay];
-	
-	// [picker release];
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -72,19 +42,15 @@
 
 - (void)viewWillAppear: (BOOL)animated
 {
-	NSLog(@"view will appear");
+	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+	picker.peoplePickerDelegate = self.delegate;
 	
-	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
-	
-	// ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	// picker.peoplePickerDelegate = self;
-	picker.delegate = self;
+	[self presentModalViewController:picker animated:YES];
 	
 	[self.view addSubview: picker.view];
-	[self.view setNeedsDisplay];
+	[self.view removeFromSuperview];
 	
+	[self.view setNeedsDisplay];
 }
 
 
@@ -106,6 +72,9 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 
+	
+	
+	
 	HoccerViewController *shareView = [[HoccerViewController alloc] init];
 	[self.view addSubview: shareView.view];
 	
@@ -122,8 +91,33 @@
 
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
 {
+	
 }
 
+
+#pragma mark -
+#pragma mark UITableViewDataSource Delegate Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+	return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString *MyIdentifier = @"MyIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
+    }
+
+    cell.textLabel.text =@"test";
+    return cell;
+}
+
+
+#pragma mark -
+#pragma mark UITableViewCell Delegate Methods
 
 
 
