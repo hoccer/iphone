@@ -8,6 +8,8 @@
 
 #import "HoccerImage.h"
 #import "ACResizeImage.h"
+#import "PreviewView.h"
+
 
 @interface MyThreadClass : NSObject
 {
@@ -86,7 +88,10 @@
 
 - (UIView *)preview
 {
-	return [self view];
+	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	
+	[view setImage:image];
+	return [view autorelease];
 }
 
 - (NSString *)filename

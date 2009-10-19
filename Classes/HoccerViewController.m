@@ -68,9 +68,6 @@
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
 
-
-
-
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {
 	if (placemark.thoroughfare != nil)
@@ -81,7 +78,6 @@
 {
 	statusLabel.text = update;
 }	
-
 
 - (void)showConnectionActivity
 {
@@ -101,8 +97,6 @@
 	[alertView show];
 	[alertView release];
 }
-
-
 
 - (IBAction)showActions: (id)sender
 {
@@ -126,11 +120,15 @@
 	
 	contentView.contentMode = UIViewContentModeScaleAspectFill; 
 	
-	[previewBox addSubview: contentView];
+	[self.view addSubview: contentView];
 }
+
+// - (void)
+
 
 #pragma mark -
 #pragma mark UIActionSheetDelegate Methods
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex 
 {
 	switch (buttonIndex) {
