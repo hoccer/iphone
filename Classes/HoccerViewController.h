@@ -13,31 +13,38 @@
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
 
-@interface HoccerViewController : UIViewController {
+@class HoccerAppDelegate;
+
+@interface HoccerViewController : UIViewController <UIActionSheetDelegate> {
+		
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UILabel *locationLabel;
 	
+	IBOutlet UIActivityIndicatorView *activitySpinner;
+	
 	IBOutlet UIView *previewBox;
 	
-	id delegate;
+	IBOutlet HoccerAppDelegate* delegate;
 }
 
-@property (assign) id delegate;
+@property (assign) HoccerAppDelegate* delegate;
 
+- (IBAction)showActions: (id)sender;
 - (IBAction)onCancel: (id)sender; 
-- (IBAction)parse: (id)sender;
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setUpdate: (NSString *)update;
 
-- (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
-- (void)setUpdate: (NSString *)update;
+- (void)showError: (NSString *)message;
 
 - (void)setContentPreview: (id <HoccerContent>)content;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
+
+- (void)showConnectionActivity;
+- (void)hideConnectionActivity;
 
 @end
 

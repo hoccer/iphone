@@ -26,7 +26,8 @@
 {
 	self = [super init];
 	if (self != nil) {
-	
+		person = aPerson;
+		CFRetain(person);
 	}
 	
 	return self;
@@ -77,6 +78,12 @@
 - (NSString *)saveButtonDescription
 {
 	return @"Save Contact";
+}
+
+- (void) dealloc
+{
+	[super dealloc];
+	CFRelease(person);
 }
 
 

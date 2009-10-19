@@ -24,7 +24,7 @@
 											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate> 
 {
     UIWindow *window;
-    UITabBarController *viewController;
+    UIViewController *viewController;
 	ReceivedContentView *receivedContentView;
 												
 	IBOutlet HoccerViewController *hoccerViewController;
@@ -39,7 +39,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *viewController;
+@property (nonatomic, retain) IBOutlet UIViewController *viewController;
 
 @property (nonatomic, retain) id <HoccerContent> hoccerContent;
 @property (nonatomic, retain) id <HoccerContent> contentToSend;

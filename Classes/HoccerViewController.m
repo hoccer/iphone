@@ -8,6 +8,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <AddressBook/AddressBook.h>
+
 
 #import "ABPersonVCardCreator.h"
 #import "NSObject+DelegateHelper.h"
@@ -19,16 +22,17 @@
 #import "BaseHoccerRequest.h"
 #import "HoccerContentFactory.h"
 #import "GesturesInterpreter.h"
+#import "HoccerAppDelegate.h"
+
+#import "HoccerVcard.h"
+
 
 @implementation HoccerViewController
 
 @synthesize delegate; 
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
 
@@ -37,8 +41,6 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
@@ -48,37 +50,26 @@
 	[locationLabel release];
 	
 	[previewBox release];
+	[activitySpinner release];
 	
 	[super dealloc];
 }
 
-- (IBAction)parse: (id)sender
-{
-	ABAddressBookRef addressBook = ABAddressBookCreate();
-	
-	CFArrayRef addresses = ABAddressBookCopyPeopleWithName(addressBook, CFSTR("Appleseed"));
-	if (CFArrayGetCount(addresses) > 0 ) {
-		NSData *vcard = [ABPersonVCardCreator vcardWithABPerson: CFArrayGetValueAtIndex(addresses, 0)];
-		NSLog(@"vcard: %@", [NSString stringWithData:vcard usingEncoding: NSUTF8StringEncoding]);
 
-	}
-	
-	CFRelease(addressBook);
-	CFRelease(addresses);
-}
-
-
+#pragma mark -
+#pragma mark User Interaction
 - (IBAction)onCancel: (id)sender 
 {
-	NSLog(@"canceling: %@", self.delegate);
 	[self.delegate checkAndPerformSelector:@selector(userDidCancelRequest)];
 }
-
 
 - (IBAction)didDissmissContentToThrow: (id)sender
 {
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
+
+
+
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {
@@ -91,22 +82,85 @@
 	statusLabel.text = update;
 }	
 
+
+- (void)showConnectionActivity
+{
+	[activitySpinner startAnimating];
+}
+
+- (void)hideConnectionActivity
+{
+	[activitySpinner stopAnimating];
+}
+
+- (void)showError: (NSString *)message
+{
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil 
+											  cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
+	
+	[alertView show];
+	[alertView release];
+}
+
+
+
+- (IBAction)showActions: (id)sender
+{
+	UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel"
+				  destructiveButtonTitle:nil otherButtonTitles: @"Contact", @"Image", nil];
+	
+	[sheet showFromToolbar: toolbar];
+	[sheet autorelease];
+}
+
+
 - (void)setContentPreview: (id <HoccerContent>)content
 {
-	NSLog(@"in %s with content %@", _cmd, content);
-	
 	if ([previewBox.subviews count] > 0) {
 		[[previewBox.subviews objectAtIndex:0] removeFromSuperview];
 	}
-
+	
 	UIView *contentView = content.preview;
 	contentView.frame   = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
 	contentView.bounds  = CGRectMake(0, 0, previewBox.frame.size.width, previewBox.frame.size.height);
-
+	
 	contentView.contentMode = UIViewContentModeScaleAspectFill; 
 	
 	[previewBox addSubview: contentView];
 }
+
+#pragma mark -
+#pragma mark UIActionSheetDelegate Methods
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex 
+{
+	switch (buttonIndex) {
+		case 0:
+			NSLog(@"image");
+
+			ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+			picker.peoplePickerDelegate = self.delegate;
+			
+			[self presentModalViewController:picker animated:YES];
+			[picker release];
+			break;
+		case 1:
+			NSLog(@"image");
+
+			UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+			
+			imagePicker.delegate = self.delegate;
+			[self presentModalViewController:imagePicker animated:YES];
+			[imagePicker release];
+
+			
+			break;
+		default:
+			break;
+	}
+}
+
+
+
 
 
 @end

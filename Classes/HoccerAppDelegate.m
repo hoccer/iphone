@@ -93,14 +93,14 @@
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:
 						   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
 	[hoccerViewController setContentPreview: self.contentToSend];
-	viewController.selectedViewController = hoccerViewController;
+	
+	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -112,11 +112,10 @@
 	
 	NSLog(@"did select contact");
 	
-	self.contentToSend = [[HoccerVcard alloc] initWitPerson:person];
-	
+	self.contentToSend = [[[HoccerVcard alloc] initWitPerson:person] autorelease];
 	[hoccerViewController setContentPreview: self.contentToSend];
-	viewController.selectedViewController = hoccerViewController;
-		
+	
+	[viewController dismissModalViewControllerAnimated:YES];
 	return NO;
 }
 
@@ -130,9 +129,8 @@
 
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
 {
-	
+	[viewController dismissModalViewControllerAnimated:YES];
 }
-
 
 
 #pragma mark -
@@ -164,6 +162,8 @@
 
 	CLLocation *location = [self currentLocation];
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
+	
+	[hoccerViewController showConnectionActivity];
 }
 
 
@@ -184,6 +184,8 @@
 	CLLocation *location = [self currentLocation];
 	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	
+	[hoccerViewController showConnectionActivity];
 }
 
 
@@ -204,6 +206,8 @@
 
 	[request release];
 	request = nil;
+	
+	[hoccerViewController hideConnectionActivity];
 }
 
 
@@ -214,6 +218,8 @@
 {
 	[request release];
 	request = nil;
+	
+	[hoccerViewController hideConnectionActivity];
 }
 
 
@@ -222,10 +228,12 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	[hoccerViewController setUpdate: [error localizedDescription]];
+	[hoccerViewController showError: [error localizedDescription]];
 	
 	[request release];
 	request = nil;
+	
+	[hoccerViewController hideConnectionActivity];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
@@ -238,6 +246,10 @@
 //	return [[[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116] autorelease];
 	return locationManager.location;
 }
+
+
+
+
 
 #pragma mark -
 #pragma mark Reverse Geocoding Methods
