@@ -11,19 +11,13 @@
 
 
 @interface SelectViewController : UIViewController 
-		<ABPeoplePickerNavigationControllerDelegate, UIImagePickerControllerDelegate, 
+		<UIImagePickerControllerDelegate, 
 		  UINavigationControllerDelegate> {
 
 	IBOutlet UIImagePickerController *imagePicker;
-			  
 	IBOutlet id delegate;
 }
 
 @property (retain) id delegate;
-
-
-
-
-
 
 @end

@@ -45,53 +45,8 @@
 	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
 	picker.peoplePickerDelegate = self.delegate;
 	
-	[self presentModalViewController:picker animated:YES];
-	
 	[self.view addSubview: picker.view];
-	[self.view removeFromSuperview];
-	
 	[self.view setNeedsDisplay];
-}
-
-
-
-
-#pragma mark -
-#pragma mark UIImagePickerController Delegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	NSLog(@"Picked a image");
-}
-
-
-
-#pragma mark -
-#pragma mark ABPeoplePickerNavigationController delegate
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-
-	
-	
-	
-	HoccerViewController *shareView = [[HoccerViewController alloc] init];
-	[self.view addSubview: shareView.view];
-	
-	return NO;
-}
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	shouldContinueAfterSelectingPerson:(ABRecordRef)person 
-							  property:(ABPropertyID)property 
-							identifier:(ABMultiValueIdentifier)identifier
-{
-	return NO;
-}
-
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
-{
-	
 }
 
 

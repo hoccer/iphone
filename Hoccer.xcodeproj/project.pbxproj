@@ -45,6 +45,7 @@
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
+		22791C59108C570F00059D05 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22798F46105FABAD0035C643 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
 		22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22798F45105FABAD0035C643 /* DebugViewController.xib */; };
@@ -168,6 +169,8 @@
 		22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerationRecorder.m; path = AccelerationRecorder/AccelerationRecorder.m; sourceTree = "<group>"; };
 		227630E1105E99E5003BF968 /* HoccerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoccerTests-Info.plist"; sourceTree = "<group>"; };
 		22783D881067ABBB00B244F7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22791C57108C570F00059D05 /* HoccerVcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerVcard.h; path = Content/HoccerVcard.h; sourceTree = "<group>"; };
+		22791C58108C570F00059D05 /* HoccerVcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerVcard.m; path = Content/HoccerVcard.m; sourceTree = "<group>"; };
 		22798F43105FABAD0035C643 /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
 		22798F44105FABAD0035C643 /* DebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugViewController.m; sourceTree = "<group>"; };
 		22798F45105FABAD0035C643 /* DebugViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DebugViewController.xib; path = Classes/DebugViewController.xib; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 				22798FED105FCA1E0035C643 /* HoccerContentFactory.m */,
 				22799044105FDCEB0035C643 /* HoccerText.h */,
 				22799045105FDCEB0035C643 /* HoccerText.m */,
+				22791C57108C570F00059D05 /* HoccerVcard.h */,
+				22791C58108C570F00059D05 /* HoccerVcard.m */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 				22719E901083207700F84755 /* ABPersonCreator.m in Sources */,
 				2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */,
 				22CAB7121084BC59001C184D /* SelectViewController.m in Sources */,
+				22791C59108C570F00059D05 /* HoccerVcard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

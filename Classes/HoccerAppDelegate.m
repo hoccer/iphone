@@ -19,6 +19,7 @@
 #import "HoccerContentFactory.h"
 #import "HoccerImage.h"
 #import "HoccerText.h"
+#import "HoccerVcard.h"
 
 #import "FeedbackProvider.h"
 
@@ -108,8 +109,14 @@
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-	NSLog(@"selected person");
 	
+	NSLog(@"did select contact");
+	
+	self.contentToSend = [[HoccerVcard alloc] initWitPerson:person];
+	
+	[hoccerViewController setContentPreview: self.contentToSend];
+	viewController.selectedViewController = hoccerViewController;
+		
 	return NO;
 }
 
