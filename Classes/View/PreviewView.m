@@ -14,22 +14,31 @@
 
 - (void) setImage: (UIImage *)image
 {
-	UIImage *thumb = nil;
+	
+	NSInteger padding = 15;
+	NSInteger width =  self.frame.size.width - (2 * padding);
+	
 	if (image.size.width < image.size.height) {
-		thumb = [image acImageScaledToWidth: self.frame.size.width];
+		;
 	} else {
-		thumb = [image acImageScaledToWidth: self.frame.size.width];
+		;
 	}
 	
-	[self addSubview:[[[UIImageView alloc] initWithImage:thumb] autorelease]];
+	UIImage *thumb = [image acImageScaledToWidth: width];
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(padding, padding, thumb.size.width, thumb.size.height)];
+	imageView.image = thumb;
+	
+	[self addSubview: imageView];
+	[imageView release];
 }
 
 - (void)drawRect: (CGRect)rect
 {
-    [super drawRect:rect];
+    // [super drawRect:rect];
+	NSLog(@"drawing rect");
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
+	CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
 	
 	CGContextFillRect(context, rect);
 }

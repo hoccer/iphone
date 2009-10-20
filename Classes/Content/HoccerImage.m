@@ -88,7 +88,7 @@
 
 - (UIView *)preview
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
 	
 	[view setImage:image];
 	return [view autorelease];

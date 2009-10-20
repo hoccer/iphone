@@ -109,19 +109,6 @@
 						<int key="IBUITextAlignment">1</int>
 						<int key="IBUILineBreakMode">5</int>
 					</object>
-					<object class="IBUIView" id="594539966">
-						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{73, 49}, {174, 153}}</string>
-						<reference key="NSSuperview" ref="774585933"/>
-						<object class="NSColor" key="IBUIBackgroundColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC45NzI4MjYwNiAwLjk3MjgyNjA2IDAuOTcyODI2MDYAA</bytes>
-						</object>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<int key="IBUIContentMode">4</int>
-					</object>
 					<object class="IBUIToolbar" id="254254771">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">266</int>
@@ -232,14 +219,6 @@
 					<int key="connectionID">43</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">previewBox</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="594539966"/>
-					</object>
-					<int key="connectionID">46</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">didDissmissContentToThrow:</string>
 						<reference key="source" ref="629020016"/>
@@ -306,7 +285,6 @@
 							<reference ref="1010486336"/>
 							<reference ref="869145556"/>
 							<reference ref="629020016"/>
-							<reference ref="594539966"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
 					</object>
@@ -323,14 +301,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="708138701"/>
-						<reference key="parent" ref="774585933"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">45</int>
-						<reference key="object" ref="594539966"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -380,8 +350,6 @@
 					<string>16.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>35.IBPluginDependency</string>
-					<string>45.CustomClassName</string>
-					<string>45.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>59.IBPluginDependency</string>
@@ -397,8 +365,6 @@
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>PreviewView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -529,14 +495,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/JSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">PreviewView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/View/PreviewView.h</string>
 					</object>
 				</object>
 			</object>
