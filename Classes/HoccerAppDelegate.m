@@ -295,9 +295,8 @@
 
 - (void)userDidSaveContent
 {
-	NSLog(@"save");
-	
 	[hoccerContent save];
+	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 
