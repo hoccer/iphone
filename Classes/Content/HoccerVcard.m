@@ -16,7 +16,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-		
+	//	person = 
 	}
 	
 	return self;

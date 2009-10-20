@@ -25,6 +25,7 @@
 #import "HoccerAppDelegate.h"
 
 #import "HoccerVcard.h"
+#import "PreviewView.h"
 
 
 @implementation HoccerViewController
@@ -114,12 +115,14 @@
 {
 	[currentPreview removeFromSuperview];
 	
-	UIView *contentView = content.preview;
+	PreviewView *contentView = content.preview;
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	originalFrame = CGRectMake(xOrigin, 40, contentView.frame.size.width, contentView.frame.size.height);
-	contentView.frame = originalFrame;
 	
-	[self.view addSubview: contentView];
+	contentView.frame = originalFrame;
+	contentView.delegate = self.delegate;
+	
+	[self.view insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	currentPreview = contentView;

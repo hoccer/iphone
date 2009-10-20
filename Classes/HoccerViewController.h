@@ -14,6 +14,7 @@
 #import "GesturesInterpreterDelegate.h"
 
 @class HoccerAppDelegate;
+@class PreviewView;
 
 @interface HoccerViewController : UIViewController <UIActionSheetDelegate> {
 		
@@ -28,7 +29,7 @@
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	
-	UIView *currentPreview;
+	PreviewView *currentPreview;
 	CGRect originalFrame;
 }
 

@@ -10,8 +10,10 @@
 
 
 @interface PreviewView : UIView {
-
+	id delegate;
 }
+
+@property (nonatomic, retain) id delegate;
 
 - (void) setImage: (UIImage *)image;
 
