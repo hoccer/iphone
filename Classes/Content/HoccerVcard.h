@@ -12,6 +12,7 @@
 
 @interface HoccerVcard : NSObject <HoccerContent> {
 	ABRecordRef person;
+	ABUnknownPersonViewController *unknownPersonController;
 }
 
 - (id)initWitPerson: (ABRecordRef) Person;

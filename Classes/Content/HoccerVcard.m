@@ -8,6 +8,10 @@
 
 #import "HoccerVcard.h"
 #import "ABPersonVCardCreator.h"
+#import "NSString+StringWithData.h"
+
+#import "PreviewView.h"
+#import "ABPersonCreator.h"
 
 
 @implementation HoccerVcard
@@ -16,7 +20,13 @@
 {
 	self = [super init];
 	if (self != nil) {
-	//	person = 
+		NSString *vcardString = [NSString stringWithData:data usingEncoding:NSUTF8StringEncoding]; 
+		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
+		
+		person = creator.person;
+		CFRetain(person);
+		
+		[creator release];
 	}
 	
 	return self;
@@ -27,6 +37,7 @@
 	self = [super init];
 	if (self != nil) {
 		person = aPerson;
+		
 		CFRetain(person);
 	}
 	
@@ -35,6 +46,14 @@
 
 - (void)save 
 {
+	CFErrorRef error = NULL;
+	
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	ABAddressBookAddRecord(addressBook, person, &error);
+	
+	ABAddressBookSave(addressBook, &error);
+	CFRelease(addressBook);
+	NSLog(@"error: %@", error);
 }
 
 - (void)dismiss 
@@ -43,16 +62,23 @@
 
 - (UIView *)view 
 {
-	return nil;
+	unknownPersonController = [[ABUnknownPersonViewController alloc] init];
+	unknownPersonController.displayedPerson = person;
+	
+	return unknownPersonController.view;
 }
 
 - (UIView *)preview
 {
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 50, 300, 20)];
+	PreviewView *previewView = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
+	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 10, 165, 20)];
+	
+	[previewView addSubview: label];
 	
 	label.text = @"bla"; //content;
+	[label release];
 	
-	return [label autorelease];
+	return [previewView autorelease];
 }
 
 - (NSString *)filename
@@ -82,10 +108,10 @@
 
 - (void) dealloc
 {
-	[super dealloc];
 	CFRelease(person);
+	[unknownPersonController release];
+	
+	[super dealloc];
 }
-
-
 
 @end

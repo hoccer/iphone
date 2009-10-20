@@ -93,7 +93,10 @@
 {
 	ABMultiValueRef multi = ABRecordCopyValue(person, propertyID); 
 	
-	if (multi == NULL) return;
+	if (multi == NULL) {
+		NSLog(@"multivalue is null"); 
+		return;
+	}
 	
 	CFStringRef phoneNumber, phoneNumberLabel;
 	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {

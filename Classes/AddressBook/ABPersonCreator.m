@@ -28,6 +28,7 @@
 	self = [super init];
 	if (self != nil) {
 		person = ABPersonCreate();
+		NSLog(@"vcard: %@", vcard);
 		
 		VcardParser *parser = [[VcardParser alloc] initWithString:vcard];
 		parser.delegate = self;
@@ -85,7 +86,9 @@
 	ABRecordSetValue(person, kABPersonPhoneProperty, numbers, &errorRef);
 	
 	CFRelease(numbers);
-	CFRelease(currentPhoneNumbers);
+	
+	if (currentPhoneNumbers != NULL)
+		CFRelease(currentPhoneNumbers);
 }
 
 
@@ -106,7 +109,9 @@
 	ABRecordSetValue(person, kABPersonEmailProperty, emails, &errorRef);
 
 	CFRelease(emails);
-	CFRelease(currentEmaiAddresses);
+	
+	if (currentEmaiAddresses != NULL)
+		CFRelease(currentEmaiAddresses);
 }
 
 
@@ -124,13 +129,16 @@
 	}
 	
 	CFDictionaryRef addressDict = [self createDirectoryFromAddressString: address];
-	ABMultiValueAddValueAndLabel(address, addressDict,
+	ABMultiValueAddValueAndLabel(addresses, addressDict,
 								 [self labelFromAttributes: attributes], NULL);
 								 
 	CFRelease(addressDict);
 	
 	ABRecordSetValue(person, kABPersonAddressProperty, addresses, &errorRef);
-	CFRelease(currentMultiValue);
+	
+	CFRelease(addresses);
+	if (currentMultiValue != NULL)
+		CFRelease(currentMultiValue);
 }
 
 
@@ -168,7 +176,7 @@
 
 - (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address
 {
-	NSArray *addressParts = [address componentsSeparatedByString:@","];
+	NSArray *addressParts = [address componentsSeparatedByString:@";"];
 	if (!addressParts)
 		return nil;
 	
@@ -182,19 +190,19 @@
 
 	values[0]    = (CFStringRef) [addressParts objectAtIndex:0];
 	
-	if ([addressParts count] > 2)
+	if ([addressParts count] > 1)
 		values[1]  = (CFStringRef) [addressParts objectAtIndex:1];
-	if ([addressParts count] > 3)
+	if ([addressParts count] > 2)
 		values[2]  = (CFStringRef) [addressParts objectAtIndex:2];
-	if ([addressParts count] > 4)
+	if ([addressParts count] > 3)
 		values[3]  = (CFStringRef) [addressParts objectAtIndex:3];
-	if ([addressParts count] > 5)
+	if ([addressParts count] > 4)
 		values[4]  = (CFStringRef) [addressParts objectAtIndex:4];
 	
 	CFDictionaryRef aDict = CFDictionaryCreate(NULL,
 											   (void *)keys,
 											   (void *)values,
-											   5,
+											   [addressParts count],
 											   &kCFCopyStringDictionaryKeyCallBacks,
 											   &kCFTypeDictionaryValueCallBacks);
 	return aDict;	

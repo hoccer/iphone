@@ -110,9 +110,12 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	
-	NSLog(@"did select contact");
+	ABRecordID id = ABRecordGetRecordID(person);
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, id);
 	
-	self.contentToSend = [[[HoccerVcard alloc] initWitPerson:person] autorelease];
+	
+	self.contentToSend = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
 	[hoccerViewController setContentPreview: self.contentToSend];
 	
 	[viewController dismissModalViewControllerAnimated:YES];

@@ -26,6 +26,7 @@
 				value: (NSString *)value
 			paramater: (NSArray *)parameter 
 {
+	NSLog(@"writing property: %@", propertyName);
 	NSString *line = nil;
 	
 	if (!parameter) {

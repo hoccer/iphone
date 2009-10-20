@@ -11,6 +11,7 @@
 #import "HoccerImage.h"
 #import "HoccerUrl.h"
 #import "HoccerText.h"
+#import "HoccerVcard.h"
 
 @implementation HoccerContentFactory
 
@@ -19,9 +20,8 @@
 	
 	NSString *mimeType = [response MIMEType];
 
-	if ([mimeType isEqual: @"text/vcard"]) {
-		// TODO: create vcard object; 
-		// hoccerContent = [[HoccerVcard alloc] initWithData: data];
+	if ([mimeType isEqual: @"text/x-vcard"]) {
+		hoccerContent = [[HoccerVcard alloc] initWithData: data];
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithData: data];
 	} else if ([mimeType isEqual: @"text/plain"]) {
@@ -32,8 +32,7 @@
 		}
 	}
 
-	[hoccerContent autorelease];
-	return hoccerContent;
+	return [hoccerContent autorelease];
 }
 
 
