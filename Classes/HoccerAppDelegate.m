@@ -135,17 +135,15 @@
 	[viewController dismissModalViewControllerAnimated:YES];
 }
 
-
 #pragma mark -
-#pragma mark ContentPicker Delegate Methods
+#pragma mark Text Delegate Methods 
 
-- (void)didPickText
+- (void)userDidPickText
 {
 	self.contentToSend = [[[HoccerText alloc] init] autorelease];
 	
 	[hoccerViewController  setContentPreview: self.contentToSend];
 }
-
 
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods

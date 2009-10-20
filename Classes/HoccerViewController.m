@@ -104,7 +104,7 @@
 - (IBAction)showActions: (id)sender
 {
 	UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel"
-				  destructiveButtonTitle:nil otherButtonTitles: @"Contact", @"Image", nil];
+				  destructiveButtonTitle:nil otherButtonTitles: @"Contact", @"Image", @"Text", nil];
 	
 	[sheet showFromToolbar: toolbar];
 	[sheet autorelease];
@@ -118,19 +118,24 @@
 	PreviewView *contentView = content.preview;
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	originalFrame = CGRectMake(xOrigin, 40, contentView.frame.size.width, contentView.frame.size.height);
-	
-	contentView.frame = originalFrame;
+		
 	contentView.delegate = self.delegate;
 	
 	[self.view insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	currentPreview = contentView;
+	[self resetPreview];
 }
 
 - (void)resetPreview
 {
-	currentPreview.frame =  originalFrame;
+	// currentPreview.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+	
+	[UIView beginAnimations:@"showPreviewAnimation" context:NULL];
+	[UIView setAnimationDuration: 1];
+	currentPreview.frame = originalFrame;
+	[UIView commitAnimations];
 }
 
 #pragma mark -
@@ -167,6 +172,10 @@
 			[self presentModalViewController:imagePicker animated:YES];
 			[imagePicker release];
 
+			
+			break;
+		case 2:
+			[self.delegate checkAndPerformSelector: @selector(userDidPickText)];
 			
 			break;
 		default:

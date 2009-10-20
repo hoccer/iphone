@@ -7,6 +7,7 @@
 //
 
 #import "HoccerText.h"
+#import "PreviewView.h"
 
 
 @implementation HoccerText
@@ -35,10 +36,15 @@
 
 -  (UIView *)preview 
 {
-	textView =  [[UITextView alloc] initWithFrame:CGRectMake(10, 50, 300, 60)];
+	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];	
+	
+	textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
 	textView.delegate = self;
 	
-	return [textView autorelease];
+	[view addSubview: textView];
+	[textView release];
+	
+	return [view autorelease];
 }
 
 - (NSString *)saveButtonDescription 
@@ -48,7 +54,6 @@
 	
 - (void)dealloc
 {
-	[textView release];
 	[content release];
 	[super dealloc];
 }
