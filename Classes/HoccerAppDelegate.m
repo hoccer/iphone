@@ -178,7 +178,9 @@
 		return;
 	}
 	
+	
 	[FeedbackProvider playThrowFeedback];
+	[hoccerViewController startPreviewFlyOutAniamation];
 	[hoccerViewController setUpdate: @"preparing"];
 	
 	CLLocation *location = [self currentLocation];
@@ -229,6 +231,7 @@
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
 	[hoccerViewController showError: [error localizedDescription]];
+	[hoccerViewController resetPreview];
 	
 	[request release];
 	request = nil;
@@ -243,13 +246,8 @@
 
 - (CLLocation *) currentLocation
 {
-//	return [[[CLLocation alloc] initWithLatitude:52.501077 longitude:13.345116] autorelease];
 	return locationManager.location;
 }
-
-
-
-
 
 #pragma mark -
 #pragma mark Reverse Geocoding Methods
@@ -282,6 +280,9 @@
 
 - (void)userDidCancelRequest
 {
+	[hoccerViewController resetPreview];
+	[hoccerViewController hideConnectionActivity];
+	
 	[request cancel];
 	[request release];
 	

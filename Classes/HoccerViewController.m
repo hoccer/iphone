@@ -48,8 +48,8 @@
 	[toolbar release];
     [statusLabel release];
 	[locationLabel release];
+	[infoView release];
 	
-	[previewBox release];
 	[activitySpinner release];
 	
 	[super dealloc];
@@ -81,11 +81,13 @@
 
 - (void)showConnectionActivity
 {
+	infoView.hidden = NO;
 	[activitySpinner startAnimating];
 }
 
 - (void)hideConnectionActivity
 {
+	infoView.hidden = YES;
 	[activitySpinner stopAnimating];
 }
 
@@ -110,17 +112,31 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content
 {
+	[currentPreview removeFromSuperview];
+	
 	UIView *contentView = content.preview;
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	contentView.frame = CGRectMake(xOrigin, 40, contentView.frame.size.width, contentView.frame.size.height);
+	originalFrame = CGRectMake(xOrigin, 40, contentView.frame.size.width, contentView.frame.size.height);
+	contentView.frame = originalFrame;
 	
 	[self.view addSubview: contentView];
 	[self.view setNeedsDisplay];
+	
+	currentPreview = contentView;
 }
 
+- (void)resetPreview
+{
+	currentPreview.frame =  originalFrame;
+}
+
+#pragma mark -
+#pragma mark animations
  - (void)startPreviewFlyOutAniamation
 {
-	
+	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
+	currentPreview.frame = CGRectMake(currentPreview.frame.origin.x, -200, 20, 20);
+	[UIView commitAnimations];
 }
 
 

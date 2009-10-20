@@ -22,11 +22,14 @@
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UILabel *locationLabel;
 	
+	IBOutlet UIView *infoView;
+	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
-	
-	IBOutlet UIView *previewBox;
-	
+		
 	IBOutlet HoccerAppDelegate* delegate;
+	
+	UIView *currentPreview;
+	CGRect originalFrame;
 }
 
 @property (assign) HoccerAppDelegate* delegate;
@@ -40,6 +43,8 @@
 - (void)showError: (NSString *)message;
 
 - (void)setContentPreview: (id <HoccerContent>)content;
+- (void)startPreviewFlyOutAniamation;
+- (void)resetPreview;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
 
