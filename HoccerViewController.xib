@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="69"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -44,7 +44,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Your position</string>
+						<string key="IBUIText">ART+COM Technologies</string>
 						<object class="NSFont" key="IBUIFont" id="907765535">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">1.200000e+01</double>
@@ -144,7 +144,7 @@
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
-							<object class="IBUIProgressView" id="167497983">
+							<object class="IBUIProgressView" id="589880091">
 								<reference key="NSNextResponder" ref="781236131"/>
 								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{56, 55}, {155, 9}}</string>
@@ -250,7 +250,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="167497983"/>
+						<reference key="destination" ref="589880091"/>
 					</object>
 					<int key="connectionID">73</int>
 				</object>
@@ -327,7 +327,7 @@
 							<reference ref="869145556"/>
 							<reference ref="1010486336"/>
 							<reference ref="1024507351"/>
-							<reference ref="167497983"/>
+							<reference ref="589880091"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -348,7 +348,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">72</int>
-						<reference key="object" ref="167497983"/>
+						<reference key="object" ref="589880091"/>
 						<reference key="parent" ref="781236131"/>
 					</object>
 				</object>

@@ -41,7 +41,7 @@
 	textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
 	textView.delegate = self;
 	
-	[view addSubview: textView];
+	[view insertSubview: textView atIndex: 0];
 	[textView release];
 	
 	return [view autorelease];
@@ -55,6 +55,7 @@
 - (void)dealloc
 {
 	[content release];
+	
 	[super dealloc];
 }
 

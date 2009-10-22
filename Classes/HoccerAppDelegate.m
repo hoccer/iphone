@@ -25,7 +25,8 @@
 
 #import "SelectViewController.h"
 
-@interface HoccerAppDelegate (Private)
+@interface HoccerAppDelegate ()
+@property (retain) NSDate *lastLocationUpdate;
 
 - (void)updateLocation;
 @end
@@ -40,23 +41,22 @@
 @synthesize contentToSend;
 @synthesize hoccerContent;
 
+@synthesize lastLocationUpdate;
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	application.applicationSupportsShakeToEdit = NO;
 	
-	[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateLocation) userInfo:nil repeats:YES];
-
 	gesturesInterpreter = [[GesturesInterpreter alloc] init];
 	gesturesInterpreter.delegate = self;
 	
 	locationManager = [[CLLocationManager alloc] init];
+	locationManager.delegate = self;
 	[locationManager startUpdatingLocation];
 
 	[request release];
 
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
-	
-	[self updateLocation];
 }
 
 - (void)dealloc {
@@ -71,6 +71,8 @@
     [viewController release];
 	[navigationController release];
     [window release];
+	
+	[lastLocationUpdate release];
 	
 	[super dealloc];
 }
@@ -259,6 +261,21 @@
 
 #pragma mark -
 #pragma mark Reverse Geocoding Methods
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
+		   fromLocation:(CLLocation *)oldLocation {
+	
+	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
+		return;
+	
+	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: newLocation.coordinate];
+	geocoder.delegate = self;
+	
+	[geocoder start];
+	
+	self.lastLocationUpdate = [NSDate date];
+}
 
 - (void)updateLocation
 {

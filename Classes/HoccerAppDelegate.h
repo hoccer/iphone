@@ -21,7 +21,8 @@
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
 											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, 
-											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate> 
+											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate,
+											CLLocationManagerDelegate> 
 {
     UIWindow *window;
     UIViewController *viewController;
@@ -35,7 +36,9 @@
 	BaseHoccerRequest *request;
 
 	id <HoccerContent> hoccerContent;
-	id <HoccerContent> contentToSend;							
+	id <HoccerContent> contentToSend;					
+	
+	NSDate *lastLocationUpdate;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
