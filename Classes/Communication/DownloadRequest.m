@@ -93,8 +93,15 @@
 		downloaded += [data length]; 
 		NSString *update = [NSString stringWithFormat:@"%d / %d", downloaded, [self.response expectedContentLength]];
 	
-		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
-			withObject: self withObject:update];
+		// [self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
+		//	withObject: self withObject:update];
+		
+		float percentage =  (float)downloaded / (float)[self.response expectedContentLength];
+		
+		NSLog(@"downloaded: %f", percentage);
+		[self.delegate checkAndPerformSelector: @selector(request:didPublishDownloadedPercentageUpdate:)
+			withObject: self withObject: [NSNumber numberWithFloat:  percentage]];
+		
 	}
 }
 

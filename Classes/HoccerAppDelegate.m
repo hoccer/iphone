@@ -245,6 +245,13 @@
 	[hoccerViewController setUpdate: update];
 }
 
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
+{
+	NSLog(@"progress");
+	[hoccerViewController setProgressUpdate:[progress floatValue]];
+}
+
+
 - (CLLocation *) currentLocation
 {
 	return locationManager.location;

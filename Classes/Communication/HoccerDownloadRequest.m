@@ -109,6 +109,12 @@
 }
 
 
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress 
+{
+	[self.delegate checkAndPerformSelector:@selector(request:didPublishDownloadedPercentageUpdate:)
+	 withObject: self
+	 withObject: progress];
+}
 
 
 @end

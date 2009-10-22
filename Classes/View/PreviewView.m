@@ -39,7 +39,7 @@
 	NSInteger thumbWidth = 0;
 	
 	if (frameHeight < image.size.height) {
-		float ratio = image.size.height / image.size.width;
+		CGFloat ratio = image.size.height / image.size.width;
 		thumbWidth = frameHeight / ratio;
 	} else {
 		thumbWidth = frameWidth;

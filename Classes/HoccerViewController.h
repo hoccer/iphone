@@ -24,7 +24,7 @@
 	IBOutlet UILabel *locationLabel;
 	
 	IBOutlet UIView *infoView;
-	
+	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 		
 	IBOutlet HoccerAppDelegate* delegate;
@@ -39,6 +39,7 @@
 - (IBAction)onCancel: (id)sender; 
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
+- (void)setProgressUpdate: (CGFloat) percentage;
 - (void)setUpdate: (NSString *)update;
 
 - (void)showError: (NSString *)message;

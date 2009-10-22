@@ -52,6 +52,7 @@
 	[infoView release];
 	
 	[activitySpinner release];
+	[progressView release];
 	
 	[super dealloc];
 }
@@ -77,8 +78,22 @@
 	
 - (void)setUpdate: (NSString *)update
 {
+	progressView.hidden = YES;
+
+	activitySpinner.hidden = NO;
+	statusLabel.hidden = NO;
 	statusLabel.text = update;
-}	
+}
+
+- (void)setProgressUpdate: (CGFloat) percentage
+{
+	statusLabel.hidden = YES;
+	activitySpinner.hidden = YES;
+	
+	progressView.hidden = NO;
+	progressView.progress = percentage;
+}
+
 
 - (void)showConnectionActivity
 {
