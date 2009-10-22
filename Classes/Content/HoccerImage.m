@@ -75,6 +75,7 @@
 
 - (void)save
 {
+	NSLog(@"saving image");
 	UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
