@@ -24,6 +24,7 @@
 	IBOutlet UILabel *locationLabel;
 	
 	IBOutlet UIView *infoView;
+	IBOutlet UILabel *modeLabel;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 		

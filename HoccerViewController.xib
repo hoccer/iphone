@@ -144,7 +144,7 @@
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
-							<object class="IBUIProgressView" id="589880091">
+							<object class="IBUIProgressView" id="300074322">
 								<reference key="NSNextResponder" ref="781236131"/>
 								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{56, 55}, {155, 9}}</string>
@@ -165,6 +165,24 @@
 							</object>
 						</object>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+					</object>
+					<object class="IBUILabel" id="142962529">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{127, 9}, {65, 21}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Receive</string>
+						<object class="NSColor" key="IBUITextColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4zNTMyNjA4NyAwLjM1MzI2MDg3IDAuMzUzMjYwODcAA</bytes>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
+						<int key="IBUITextAlignment">1</int>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -250,9 +268,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="589880091"/>
+						<reference key="destination" ref="300074322"/>
 					</object>
 					<int key="connectionID">73</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">modeLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="142962529"/>
+					</object>
+					<int key="connectionID">75</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -285,6 +311,7 @@
 							<reference ref="254254771"/>
 							<reference ref="781236131"/>
 							<reference ref="708138701"/>
+							<reference ref="142962529"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
 					</object>
@@ -327,7 +354,7 @@
 							<reference ref="869145556"/>
 							<reference ref="1010486336"/>
 							<reference ref="1024507351"/>
-							<reference ref="589880091"/>
+							<reference ref="300074322"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -348,8 +375,13 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">72</int>
-						<reference key="object" ref="589880091"/>
+						<reference key="object" ref="300074322"/>
 						<reference key="parent" ref="781236131"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">74</int>
+						<reference key="object" ref="142962529"/>
+						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
 			</object>
@@ -370,6 +402,7 @@
 					<string>61.IBPluginDependency</string>
 					<string>64.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
+					<string>74.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -380,7 +413,8 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{215, 424}, {320, 480}}</string>
+					<string>{{293, 429}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -408,7 +442,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">73</int>
+			<int key="maxID">75</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -468,6 +502,7 @@
 							<string>delegate</string>
 							<string>infoView</string>
 							<string>locationLabel</string>
+							<string>modeLabel</string>
 							<string>progressView</string>
 							<string>saveButton</string>
 							<string>statusLabel</string>
@@ -478,6 +513,7 @@
 							<string>UIActivityIndicatorView</string>
 							<string>HoccerAppDelegate</string>
 							<string>UIView</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIProgressView</string>
 							<string>UIBarButtonItem</string>

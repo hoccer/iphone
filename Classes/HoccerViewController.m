@@ -53,6 +53,7 @@
 	
 	[activitySpinner release];
 	[progressView release];
+	[modeLabel release];
 	
 	[super dealloc];
 }
@@ -95,6 +96,21 @@
 }
 
 
+- (void)showReceiveMode
+{
+	modeLabel.text = @"Receive";
+}
+
+- (void)showSendMode
+{
+	modeLabel.text = @"Share";
+}
+
+- (void)showSuccessMode
+{
+}
+
+
 - (void)showConnectionActivity
 {
 	infoView.hidden = NO;
@@ -128,6 +144,12 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content
 {
+	if (content == nil) {
+		[self showReceiveMode];
+	} else {
+		[self showSendMode];
+	}
+	
 	[currentPreview removeFromSuperview];
 	
 	PreviewView *contentView = content.preview;

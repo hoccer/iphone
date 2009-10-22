@@ -26,9 +26,9 @@
 #import "SelectViewController.h"
 
 @interface HoccerAppDelegate ()
+
 @property (retain) NSDate *lastLocationUpdate;
 
-- (void)updateLocation;
 @end
 
 
@@ -224,6 +224,9 @@
 	[request release];
 	request = nil;
 	
+	self.contentToSend = nil;
+	[hoccerViewController setContentPreview: nil];
+
 	[hoccerViewController hideConnectionActivity];
 }
 
@@ -249,7 +252,6 @@
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
-	NSLog(@"progress");
 	[hoccerViewController setProgressUpdate:[progress floatValue]];
 }
 
@@ -276,17 +278,6 @@
 	
 	self.lastLocationUpdate = [NSDate date];
 }
-
-- (void)updateLocation
-{
-	
-	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: [self currentLocation].coordinate];
-	geocoder.delegate = self;
-	
-	[geocoder start];
-	// [geocoder release];
-}
-
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
