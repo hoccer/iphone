@@ -54,6 +54,7 @@
 	[activitySpinner release];
 	[progressView release];
 	[modeLabel release];
+	[successView release];
 	
 	[super dealloc];
 }
@@ -108,6 +109,13 @@
 
 - (void)showSuccessMode
 {
+	successView.hidden = NO;
+	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideSuccessMode) userInfo:nil repeats:NO];
+}
+
+- (void)hideSuccessMode 
+{
+	successView.hidden = YES;
 }
 
 

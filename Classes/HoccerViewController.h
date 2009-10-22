@@ -27,6 +27,8 @@
 	IBOutlet UILabel *modeLabel;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
+	
+	IBOutlet UIView *successView;
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	
@@ -44,6 +46,7 @@
 - (void)setUpdate: (NSString *)update;
 
 - (void)showError: (NSString *)message;
+- (void)showSuccessMode;
 
 - (void)setContentPreview: (id <HoccerContent>)content;
 - (void)startPreviewFlyOutAniamation;

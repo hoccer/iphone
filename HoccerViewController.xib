@@ -144,7 +144,7 @@
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
-							<object class="IBUIProgressView" id="300074322">
+							<object class="IBUIProgressView" id="74671301">
 								<reference key="NSNextResponder" ref="781236131"/>
 								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{56, 55}, {155, 9}}</string>
@@ -166,7 +166,7 @@
 						</object>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 					</object>
-					<object class="IBUILabel" id="142962529">
+					<object class="IBUILabel" id="3747964">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{127, 9}, {65, 21}}</string>
@@ -183,6 +183,25 @@
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">1.000000e+01</float>
 						<int key="IBUITextAlignment">1</int>
+					</object>
+					<object class="IBUILabel" id="646765086">
+						<reference key="NSNextResponder" ref="774585933"/>
+						<int key="NSvFlags">-2147483356</int>
+						<string key="NSFrame">{{82, 30}, {345, 27}}</string>
+						<reference key="NSSuperview" ref="774585933"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="IBUIText">Your hoc was successful</string>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">1.500000e+01</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<reference key="IBUITextColor" ref="334209876"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">1</int>
+						<float key="IBUIMinimumFontSize">1.000000e+01</float>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -268,7 +287,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="300074322"/>
+						<reference key="destination" ref="74671301"/>
 					</object>
 					<int key="connectionID">73</int>
 				</object>
@@ -276,9 +295,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">modeLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="142962529"/>
+						<reference key="destination" ref="3747964"/>
 					</object>
 					<int key="connectionID">75</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">successView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="646765086"/>
+					</object>
+					<int key="connectionID">77</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -311,7 +338,8 @@
 							<reference ref="254254771"/>
 							<reference ref="781236131"/>
 							<reference ref="708138701"/>
-							<reference ref="142962529"/>
+							<reference ref="3747964"/>
+							<reference ref="646765086"/>
 						</object>
 						<reference key="parent" ref="60948154"/>
 					</object>
@@ -354,7 +382,7 @@
 							<reference ref="869145556"/>
 							<reference ref="1010486336"/>
 							<reference ref="1024507351"/>
-							<reference ref="300074322"/>
+							<reference ref="74671301"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -375,12 +403,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">72</int>
-						<reference key="object" ref="300074322"/>
+						<reference key="object" ref="74671301"/>
 						<reference key="parent" ref="781236131"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">74</int>
-						<reference key="object" ref="142962529"/>
+						<reference key="object" ref="3747964"/>
+						<reference key="parent" ref="774585933"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">76</int>
+						<reference key="object" ref="646765086"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</object>
@@ -403,6 +436,7 @@
 					<string>64.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>74.IBPluginDependency</string>
+					<string>76.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -414,6 +448,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{293, 429}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -442,7 +477,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">75</int>
+			<int key="maxID">77</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -506,6 +541,7 @@
 							<string>progressView</string>
 							<string>saveButton</string>
 							<string>statusLabel</string>
+							<string>successView</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -518,6 +554,7 @@
 							<string>UIProgressView</string>
 							<string>UIBarButtonItem</string>
 							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIToolbar</string>
 						</object>
 					</object>

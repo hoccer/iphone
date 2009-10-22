@@ -228,6 +228,8 @@
 	[hoccerViewController setContentPreview: nil];
 
 	[hoccerViewController hideConnectionActivity];
+	[hoccerViewController showSuccessMode];
+
 }
 
 
