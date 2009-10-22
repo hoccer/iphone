@@ -111,7 +111,6 @@
 
 - (void) dealloc 
 {
-	NSLog(@"dealloc of HoccerImage");
 	[image release];
 	[data release];
 	

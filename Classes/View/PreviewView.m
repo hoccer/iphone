@@ -31,17 +31,21 @@
 
 - (void) setImage: (UIImage *)image
 {
-	
 	NSInteger padding = 15;
-	NSInteger width =  self.frame.size.width - (2 * padding);
 	
-	if (image.size.width < image.size.height) {
-		;
+	CGFloat frameWidth = self.frame.size.width - (2 * padding);
+	CGFloat frameHeight = self.frame.size.height - (2 * padding);
+	
+	NSInteger thumbWidth = 0;
+	
+	if (frameHeight < image.size.height) {
+		float ratio = image.size.height / image.size.width;
+		thumbWidth = frameHeight / ratio;
 	} else {
-		;
+		thumbWidth = frameWidth;
 	}
-	
-	UIImage *thumb = [image acImageScaledToWidth: width];
+		
+	UIImage *thumb = [image acImageScaledToWidth: thumbWidth];
 	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(padding, padding, thumb.size.width, thumb.size.height)];
 	imageView.image = thumb;
 	
@@ -52,7 +56,6 @@
 - (void)drawRect: (CGRect)rect
 {
     [super drawRect:rect];
-	NSLog(@"drawing rect");
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
