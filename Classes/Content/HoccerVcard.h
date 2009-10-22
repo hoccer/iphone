@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <AddressBookUI/AddressBookUI.h>
+
 #import "HoccerContent.h"
+#import "ACPerson.h"
 
 @interface HoccerVcard : NSObject <HoccerContent> {
 	ABRecordRef person;
+	ACPerson *acPerson;
+	
 	ABUnknownPersonViewController *unknownPersonController;
 }
 
-- (id)initWitPerson: (ABRecordRef) Person;
+- (id)initWitPerson: (ABRecordRef) aPerson;
 
 @end

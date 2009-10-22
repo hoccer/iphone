@@ -130,12 +130,13 @@
 
 - (void)resetPreview
 {
-	// currentPreview.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
 	
-	[UIView beginAnimations:@"showPreviewAnimation" context:NULL];
-	[UIView setAnimationDuration: 1];
+	// currentPreview.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, 0, 0)
+	
+	// [UIView beginAnimations:@"showPreviewAnimation" context:NULL];
+	// [UIView setAnimationDuration: 1];
 	currentPreview.frame = originalFrame;
-	[UIView commitAnimations];
+	// [UIView commitAnimations];
 }
 
 #pragma mark -

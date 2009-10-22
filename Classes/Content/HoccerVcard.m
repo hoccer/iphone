@@ -32,11 +32,12 @@
 	return self;
 }
 
-- (id)initWitPerson: (ABRecordRef) aPerson
+- (id)initWitPerson: (ABRecordRef)aPerson
 {
 	self = [super init];
 	if (self != nil) {
 		person = aPerson;
+		acPerson = [[ACPerson alloc] initWithPerson:person];
 		
 		CFRetain(person);
 	}
@@ -75,7 +76,7 @@
 	
 	[previewView addSubview: label];
 	
-	label.text = @"bla"; //content;
+	label.text = [acPerson name]; 
 	[label release];
 	
 	return [previewView autorelease];
@@ -109,6 +110,7 @@
 - (void) dealloc
 {
 	CFRelease(person);
+	[acPerson release];
 	[unknownPersonController release];
 	
 	[super dealloc];
