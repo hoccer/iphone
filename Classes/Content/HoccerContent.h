@@ -24,4 +24,6 @@
 
 - (NSString *)saveButtonDescription;
 
+- (void)contentWillBeDismissed;
+
 @end

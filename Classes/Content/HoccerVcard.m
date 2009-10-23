@@ -116,4 +116,9 @@
 	[super dealloc];
 }
 
+- (void)contentWillBeDismissed 
+{
+	
+}
+
 @end

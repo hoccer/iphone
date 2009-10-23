@@ -56,4 +56,8 @@
 	return [self view];
 }
 
+- (void)contentWillBeDismissed 
+{
+}
+
 @end

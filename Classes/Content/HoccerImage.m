@@ -128,4 +128,8 @@
 	return (data != nil);
 }
 
+- (void)contentWillBeDismissed
+{
+}
+
 @end

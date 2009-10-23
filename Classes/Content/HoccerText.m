@@ -37,15 +37,12 @@
 -  (UIView *)preview 
 {
 	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];	
-	
 	textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
-	textView.delegate = self;
-	
 	[view insertSubview: textView atIndex: 0];
-	[textView release];
 	
 	return [view autorelease];
 }
+
 
 - (NSString *)saveButtonDescription 
 {
@@ -54,6 +51,7 @@
 	
 - (void)dealloc
 {
+	[textView release];
 	[content release];
 	
 	[super dealloc];
@@ -76,9 +74,14 @@
 	return [textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
-- (BOOL)isDataReady {
+- (BOOL)isDataReady 
+{
 	return YES;
 }
 
+- (void) contentWillBeDismissed 
+{
+	[textView resignFirstResponder];
+}
 
 @end

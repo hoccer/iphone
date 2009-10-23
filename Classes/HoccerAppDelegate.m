@@ -87,6 +87,7 @@
 
 - (void)didDissmissContentToThrow
 {
+	[contentToSend contentWillBeDismissed];
 	self.contentToSend = nil;
 	[hoccerViewController setContentPreview: nil];
 }
