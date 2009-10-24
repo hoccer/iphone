@@ -94,7 +94,6 @@
 
 		float percentage =  (float)downloaded / (float)[self.response expectedContentLength];
 		
-		NSLog(@"downloaded: %f", percentage);
 		[self.delegate checkAndPerformSelector: @selector(request:didPublishDownloadedPercentageUpdate:)
 			withObject: self withObject: [NSNumber numberWithFloat:  percentage]];
 		

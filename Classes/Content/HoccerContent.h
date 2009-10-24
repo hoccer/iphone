@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PreviewView;
 
 @protocol HoccerContent <NSObject>
 
@@ -14,7 +15,7 @@
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
-- (UIView *)preview;
+- (PreviewView *)preview;
 
 - (NSString *)filename;
 - (NSString *)mimeType;

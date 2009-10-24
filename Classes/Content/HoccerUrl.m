@@ -51,9 +51,9 @@
 	return [webView  autorelease];
 }
 
-- (UIView *)preview
+- (PreviewView *)preview
 {
-	return [self view];
+	return nil;
 }
 
 - (void)contentWillBeDismissed 

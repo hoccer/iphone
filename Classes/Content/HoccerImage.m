@@ -87,7 +87,7 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (UIView *)preview
+- (PreviewView *)preview
 {
 	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
 	
@@ -110,7 +110,7 @@
 	return data;
 }
 
-- (void) dealloc 
+- (void)dealloc 
 {
 	[image release];
 	[data release];

@@ -69,7 +69,7 @@
 	return unknownPersonController.view;
 }
 
-- (UIView *)preview
+- (PreviewView *)preview
 {
 	PreviewView *previewView = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
 	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 10, 165, 20)];
