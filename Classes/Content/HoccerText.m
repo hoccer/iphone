@@ -9,8 +9,17 @@
 #import "HoccerText.h"
 #import "PreviewView.h"
 
+@interface HoccerText ()
+
+@property (retain) UITextView* textView;
+
+@end
+
+
 
 @implementation HoccerText
+
+@synthesize textView;
 
 - (id) initWithData: (NSData *)data {
 	self = [super init];
@@ -37,7 +46,7 @@
 -  (UIView *)preview 
 {
 	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];	
-	textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
+	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
 	[view insertSubview: textView atIndex: 0];
 	
 	return [view autorelease];
