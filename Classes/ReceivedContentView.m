@@ -79,5 +79,13 @@
 	[self.view setNeedsDisplay];
 }
 
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event
+{
+	for (UIView* view in self.view.subviews) {
+		if ([view isKindOfClass:[UITextView class]])
+			[view resignFirstResponder];
+	}
+}
+
 
 @end
