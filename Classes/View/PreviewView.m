@@ -40,9 +40,7 @@
 
 	CGFloat imageRatio = image.size.height / image.size.width;
 	CGFloat frameRatio = frameHeight / frameWidth;
-	
-	NSLog(@"frameRatio: %f, imageRatio: %f", frameRatio, imageRatio);
-	
+		
 	if (imageRatio > frameRatio) {
 		thumbWidth = frameHeight / imageRatio;
 	} else {

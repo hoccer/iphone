@@ -247,7 +247,7 @@
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		E64B77FE109491AA0005ACA3 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		E64B77FF109491AA0005ACA3 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		E64B7800109491AA0005ACA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		E64B7800109491AA0005ACA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,7 +303,6 @@
 				22CAB7101084BC59001C184D /* SelectViewController.m */,
 				E64B77FE109491AA0005ACA3 /* AboutViewController.h */,
 				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
-				E64B7800109491AA0005ACA3 /* AboutViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -544,6 +543,7 @@
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,
+				E64B7800109491AA0005ACA3 /* AboutViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				22CAB7111084BC59001C184D /* SelectViewController.xib */,
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,

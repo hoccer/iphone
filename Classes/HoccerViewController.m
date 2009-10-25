@@ -202,8 +202,7 @@
 {
 	switch (buttonIndex) {
 		case 0:
-			NSLog(@"image");
-
+			;
 			ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
 			picker.peoplePickerDelegate = self.delegate;
 			
@@ -211,8 +210,7 @@
 			[picker release];
 			break;
 		case 1:
-			NSLog(@"image");
-
+			;
 			UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 			
 			imagePicker.delegate = self.delegate;
@@ -233,6 +231,11 @@
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
 	[currentPreview dismissKeyboard];
+}
+
+- (IBAction)showAbout: (id)sender 
+{
+	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
 
 

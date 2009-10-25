@@ -53,9 +53,12 @@
 - (void)resetPreview;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
+- (IBAction)showAbout: (id)sender;
 
 - (void)showConnectionActivity;
 - (void)hideConnectionActivity;
+
+
 
 @end
 

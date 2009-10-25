@@ -10,7 +10,11 @@
 
 
 @interface AboutViewController : UIViewController {
-
+	id delegate;
 }
+
+@property (nonatomic, retain) id delegate;
+
+- (IBAction)hideView;
 
 @end

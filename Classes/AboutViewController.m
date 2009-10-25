@@ -7,9 +7,12 @@
 //
 
 #import "AboutViewController.h"
+#import "NSObject+DelegateHelper.h";
 
 
 @implementation AboutViewController
+
+@synthesize delegate;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -53,5 +56,10 @@
     [super dealloc];
 }
 
+
+- (IBAction)hideView
+{
+	[self.delegate checkAndPerformSelector:@selector(userDidCloseAboutView)];
+}
 
 @end

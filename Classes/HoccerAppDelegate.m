@@ -24,6 +24,7 @@
 #import "FeedbackProvider.h"
 
 #import "SelectViewController.h"
+#import "AboutViewController.h"
 
 @interface HoccerAppDelegate ()
 
@@ -320,6 +321,25 @@
 {
 	[viewController dismissModalViewControllerAnimated:YES];
 }
+
+
+- (void)userDidChoseAboutView
+{
+	AboutViewController *aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+	aboutViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	aboutViewController.delegate = self;
+	
+	[viewController presentModalViewController:aboutViewController animated:YES];
+	
+	[aboutViewController release];	
+}
+
+
+- (void)userDidCloseAboutView
+{
+	[viewController dismissModalViewControllerAnimated:YES];
+}
+
 
 #pragma mark -
 #pragma mark Saving Delegate Methods
