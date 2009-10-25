@@ -73,8 +73,15 @@
 - (void)setHoccerContent: (id <HoccerContent>) content 
 {	
 	[self.view insertSubview: content.view atIndex:0];
-	saveButton.title = [content saveButtonDescription];
 	
+	if ([content saveButtonDescription] == nil) {
+		NSMutableArray *items = [NSMutableArray arrayWithArray: toolbar.items];
+		[items removeObject: saveButton];
+		
+		[toolbar setItems:items animated: NO];
+	} else {
+		saveButton.title = [content saveButtonDescription];
+	}
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
 }

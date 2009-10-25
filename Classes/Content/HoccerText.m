@@ -56,7 +56,7 @@
 
 - (NSString *)saveButtonDescription 
 {
-	return @"OK";
+	return nil;
 }
 	
 - (void)dealloc
