@@ -17,12 +17,20 @@
 @synthesize response;
 @synthesize result;
 @synthesize connection;
+@synthesize request;
 
 - (id)init
 {
 	self = [super init];
 	if (self != nil) {
 		receivedData = [[NSMutableData alloc] init]; 
+		request = [[NSMutableURLRequest alloc] init];
+		
+		
+		NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
+		NSString *userAgent = [NSString stringWithFormat: @"Hoccer %@/iPhone", version];
+		
+		[request setValue: userAgent forHTTPHeaderField:@"User-Agent"];
 		
 		canceled = NO;
 	}
@@ -46,6 +54,8 @@
 	[connection release];
 	[response release]; 
 	[result release];
+	
+	[request release];
 	
 	[super dealloc];
 }

@@ -10,13 +10,10 @@
 #import "BaseHoccerRequest.h"
 
 @interface DownloadRequest : BaseHoccerRequest {
-	NSURLRequest *request;
-	
 	BOOL isDownloading;
 	NSInteger downloaded;
 }
 
-@property (retain) NSURLRequest *request;
 
 - (id)initWithObject: (id)aObject delegate: (id)aDelegate;
 

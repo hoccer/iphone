@@ -10,7 +10,6 @@
 #import "BaseHoccerRequest.h"
 
 @interface PeerGroupPollingRequest : BaseHoccerRequest {
-	NSURLRequest *request;
 }
 
 - (id)initWithObject: (id)aObject andDelegate: (id)delegate;

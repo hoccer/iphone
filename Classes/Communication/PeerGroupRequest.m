@@ -30,11 +30,11 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 		NSLog(@"sending request to: %@", urlString);
 		NSURL *url = [NSURL URLWithString: urlString];
 			
-		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-		[request setHTTPMethod: @"POST"];
-		[request setHTTPBody: [self bodyWithLocation: location gesture: gesture seeder: seeder]];	
+		[self.request setURL: url];
+		[self.request setHTTPMethod: @"POST"];
+		[self.request setHTTPBody: [self bodyWithLocation: location gesture: gesture seeder: seeder]];	
 			
-		self.connection = [NSURLConnection connectionWithRequest:request delegate:self]; 
+		self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self]; 
 		if (!connection)  {
 			NSLog(@"Error while executing url connection");
 		}

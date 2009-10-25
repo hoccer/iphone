@@ -25,8 +25,8 @@
 		NSLog(@"verbinde mit %@", [aObject valueForKey:@"peer_uri"]);
 		
 		NSURL *url = [NSURL URLWithString: [aObject valueForKey:@"peer_uri"]];
-		request = [[NSMutableURLRequest requestWithURL:url] retain];
-
+		
+		[self.request setURL: url];
 		[self startRequest];
 		
 		if ([aObject valueForKey:@"message"]) {
@@ -39,7 +39,6 @@
 
 - (void) dealloc
 {
-	[request  release];
 	[super dealloc];
 }
 
@@ -78,7 +77,7 @@
 	}
 	
 	NSLog(@"restarting connection");
-	self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}

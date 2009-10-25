@@ -21,6 +21,7 @@
 @interface BaseHoccerRequest : NSObject {
 	id delegate;
 
+	NSMutableURLRequest *request;
 	NSMutableData *receivedData;
 
 	NSURLConnection *connection;
@@ -34,6 +35,8 @@
 @property (retain) NSHTTPURLResponse *response;
 @property (retain) NSURLConnection *connection;
 @property (retain) id result;
+
+@property (retain) NSMutableURLRequest *request;
 
 - (id) createJSONFromResult: (NSData *) resultData;
 - (NSError *) createErrorFromResult: (id)aResult;

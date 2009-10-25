@@ -30,14 +30,14 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 		
 		NSLog(@"uploading to %@", uploadUrl);
 
-		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: uploadUrl];
-		[request setHTTPMethod: @"PUT"];
-		[request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
+		[self.request setURL: uploadUrl];
+		[self.request setHTTPMethod: @"PUT"];
+		[self.request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
 				 forHTTPHeaderField:@"Content-Type"];
 		
-		[request setHTTPBody: [self bodyWithData: bodyData type: type filename: filename]];
+		[self.request setHTTPBody: [self bodyWithData: bodyData type: type filename: filename]];
 		
-		self.connection = [NSURLConnection connectionWithRequest:request delegate:self]; 
+		self.connection = [NSURLConnection connectionWithRequest: self.request delegate:self]; 
 		if (!connection)  {
 			NSLog(@"Error while executing url connection");
 		}

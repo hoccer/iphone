@@ -16,8 +16,6 @@
 
 @implementation DownloadRequest
 
-@synthesize request;
-
 - (id)initWithObject: (id)aObject delegate: (id)aDelegate
 {
 	self = [super init];
@@ -27,8 +25,8 @@
 		NSLog(@"verbinde mit %@", [[aObject valueForKey:@"resources"] objectAtIndex:0]);
 		
 		NSURL *url = [NSURL URLWithString: [[aObject valueForKey:@"resources"] objectAtIndex:0]];
-		request = [[NSMutableURLRequest requestWithURL:url] retain];
-		
+
+		[self.request setURL: url];
 		[self startRequest];
 		
 		isDownloading = NO;
@@ -39,8 +37,6 @@
 					
 - (void) dealloc
 {
-	[request release];
-	
 	[super dealloc];
 }
 
@@ -76,7 +72,7 @@
 		return;
 	}
 	
-	self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
+	self.connection = [NSURLConnection connectionWithRequest: self.request delegate:self];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}
