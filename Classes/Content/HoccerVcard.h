@@ -10,11 +10,11 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 #import "HoccerContent.h"
-#import "ACPerson.h"
+#import "ABPersonVCardCreator.h"
 
 @interface HoccerVcard : NSObject <HoccerContent> {
 	ABRecordRef person;
-	ACPerson *acPerson;
+	ABPersonVCardCreator *acPerson;
 	
 	ABUnknownPersonViewController *unknownPersonController;
 }

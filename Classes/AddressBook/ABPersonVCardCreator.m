@@ -12,8 +12,9 @@
 @interface ABPersonVCardCreator (Private) 
 - (void)generateVcard; 
 
+- (NSString *)stringPropertyWithId: (ABPropertyID) propertyId;
+
 - (NSString *)nameString;
-// - (void)writePhone;
 - (void)createMultiValueWithID: (ABPropertyID)propertyID toVcardProperty: (NSString *)name;
 - (void)createAddress;
 - (NSString *)createAddressLineFromDictonary: (CFDictionaryRef) address;
@@ -66,6 +67,7 @@
 {
 	[writer writeHeader];
 	[writer writeFormattedName: [self nameString]];
+	[writer writeOrgaization: [self organization]];
 	
 	[self createMultiValueWithID: kABPersonPhoneProperty toVcardProperty: @"TEL"];
 	[self createMultiValueWithID: kABPersonEmailProperty toVcardProperty: @"EMAIL"];
@@ -75,28 +77,41 @@
 	[writer writeFooter];
 }
 
+
+- (NSString *)organization
+{
+	return [self stringPropertyWithId:kABPersonOrganizationProperty];
+}
+
 - (NSString *)nameString
 {
-	CFStringRef firstName = (CFStringRef) ABRecordCopyValue(person, kABPersonFirstNameProperty);
-	CFStringRef lastName = (CFStringRef) ABRecordCopyValue(person, kABPersonLastNameProperty);
+	NSString *firstName = [self stringPropertyWithId: kABPersonFirstNameProperty];
+	NSString *lastName = [self stringPropertyWithId: kABPersonLastNameProperty];
 	
-	if (lastName == NULL && firstName == NULL) {
+	if (lastName == nil && firstName == nil) {
 		return nil;
 	}
 	
-	if (lastName != NULL && firstName == NULL) {
-		return (NSString *)lastName;
-		CFRelease(lastName);
+	if (lastName != nil && firstName == nil) {
+		return lastName;
 	}
 	
-	if (lastName == NULL && firstName != NULL) {
-		return (NSString *)firstName;
-		CFRelease(firstName);
+	if (lastName == nil && firstName != nil) {
+		return firstName;
 	}
 	
-	NSString *combinedName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-	return combinedName;
+	return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
 }
+
+- (NSString *)previewName 
+{
+	NSString *name = [self nameString];
+	if (name != nil)
+		return name;
+	
+	return [self organization];
+}
+
 
 
 - (void)createMultiValueWithID: (ABPropertyID)propertyID toVcardProperty: (NSString *)name
@@ -136,7 +151,7 @@
 		
 		[self createAddressLineFromDictonary: address];
 		[writer writeProperty: @"ADR" value: [self createAddressLineFromDictonary: address]
-					paramater:[[self propertiesFromLabel: label] arrayByAddingObject: @"postal"]];
+					paramater:[[self propertiesFromLabel: label] arrayByAddingObject: @"POSTAL"]];
 		
 		CFRelease(label);
 		CFRelease(address);
@@ -162,36 +177,55 @@
 }
 
 
+
+#pragma mark -
+#pragma mark Private Methods
+
+
+- (NSString *)stringPropertyWithId: (ABPropertyID) propertyId
+{
+	CFStringRef propertyValue = (CFStringRef) ABRecordCopyValue(person, propertyId);
+	if (propertyValue == NULL)
+		return nil;
+	
+	NSString *propertyString = [NSString stringWithString: (NSString *)propertyValue];
+	
+	CFRelease(propertyValue);
+	return propertyString;
+}
+
+
+
 - (NSArray *)propertiesFromLabel: (CFStringRef)label
 {
 	if (CFStringCompare(label, kABWorkLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
-		return [NSArray arrayWithObjects:@"work", nil];
+		return [NSArray arrayWithObjects:@"WORK", nil];
 	
 	if (CFStringCompare(label, kABHomeLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
-		return [NSArray arrayWithObjects:@"home", nil];
+		return [NSArray arrayWithObjects:@"HOME", nil];
 
 	if (CFStringCompare(label, kABOtherLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
-		return [NSArray arrayWithObjects:@"other", nil];
+		return [NSArray arrayWithObjects:@"OTHER", nil];
 	
 	if (CFStringCompare(label, kABPersonPhoneMainLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
-			return [NSArray arrayWithObjects:@"home", nil];
+			return [NSArray arrayWithObjects:@"HOME", nil];
 	
 	if (CFStringCompare(label, kABPersonPhoneMobileLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
-		return [NSArray arrayWithObjects:@"mobile", nil];
+		return [NSArray arrayWithObjects:@"MOBILE", nil];
 	
 	if (CFStringCompare(label, kABPersonPhoneIPhoneLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
-		return [NSArray arrayWithObjects:@"mobile", nil];
+		return [NSArray arrayWithObjects:@"MOBILE", nil];
 	
 	if (CFStringCompare(label, kABPersonPhoneHomeFAXLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
-		return [NSArray arrayWithObjects:@"home", @"fax", nil];
+		return [NSArray arrayWithObjects:@"HOME", @"FAX", nil];
 	
 	if (CFStringCompare(label, kABPersonPhoneWorkFAXLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
-		return [NSArray arrayWithObjects:@"work", @"fax", nil];
+		return [NSArray arrayWithObjects:@"WORK", @"FAX", nil];
 	
 	if (CFStringCompare(label, kABPersonPhonePagerLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo) 
-		return [NSArray arrayWithObjects:@"pager", nil];
+		return [NSArray arrayWithObjects:@"PAGER", nil];
 	
-	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"x-%@", label], nil];
+	return  [NSArray arrayWithObjects:[NSString stringWithFormat:@"X-%@", label], nil];
 }
 
 @end

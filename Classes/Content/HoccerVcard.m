@@ -37,7 +37,7 @@
 	self = [super init];
 	if (self != nil) {
 		person = aPerson;
-		acPerson = [[ACPerson alloc] initWithPerson:person];
+		acPerson = [[ABPersonVCardCreator alloc] initWithPerson:person];
 		
 		CFRetain(person);
 	}
@@ -76,7 +76,7 @@
 	
 	[previewView addSubview: label];
 	
-	label.text = [acPerson name]; 
+	label.text = [acPerson previewName]; 
 	[label release];
 	
 	return [previewView autorelease];

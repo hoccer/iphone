@@ -13,6 +13,8 @@
 
 @optional
 - (void)parser: (VcardParser*)parser didFoundFormattedName: (NSString *)name;
+- (void)parser: (VcardParser*)parser didFoundOrganization: (NSString *)name;
+
 - (void)parser: (VcardParser*)parser didFoundPhoneNumber: (NSString*)name 
 										  withAttributes: (NSArray *)attributes;
 

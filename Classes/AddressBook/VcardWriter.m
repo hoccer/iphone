@@ -26,6 +26,9 @@
 				value: (NSString *)value
 			paramater: (NSArray *)parameter 
 {
+	if (value == nil)
+		return;
+	
 	NSLog(@"writing property: %@", propertyName);
 	NSString *line = nil;
 	
@@ -45,6 +48,13 @@
 {
 	[self writeProperty:@"FN" value:name paramater:nil];
 }
+
+- (void)writeOrgaization: (NSString *)organization
+{
+	[self writeProperty:@"ORG" value:organization paramater:nil];
+	
+}
+
 
 - (void)writeHeader
 {

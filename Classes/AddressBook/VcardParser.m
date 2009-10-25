@@ -74,6 +74,8 @@
 		} else if ([property isEqual: @"ADR"]) {
 			[delegate parser: self didFoundAddress: value 
 			  withAttributes: [self attributesFromString: attributs]];
+		} else if ([property isEqual: @"ORG"]) {
+			[delegate parser: self didFoundOrganization: value];
 		}
 	}
 }

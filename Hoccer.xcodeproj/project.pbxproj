@@ -99,6 +99,8 @@
 		28D7ACF80DDB3853001CB0EB /* HoccerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */; };
 		E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
 		E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64B7800109491AA0005ACA3 /* AboutViewController.xib */; };
+		E64B788E1094EA6B0005ACA3 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B788C1094EA6B0005ACA3 /* HelpViewController.m */; };
+		E64B788F1094EA6B0005ACA3 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64B788D1094EA6B0005ACA3 /* HelpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +250,9 @@
 		E64B77FE109491AA0005ACA3 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		E64B77FF109491AA0005ACA3 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		E64B7800109491AA0005ACA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = "<group>"; };
+		E64B788B1094EA6B0005ACA3 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpViewController.h; path = ../HelpViewController.h; sourceTree = "<group>"; };
+		E64B788C1094EA6B0005ACA3 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpViewController.m; path = ../HelpViewController.m; sourceTree = "<group>"; };
+		E64B788D1094EA6B0005ACA3 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +298,8 @@
 				224F8A88108CB80400F69B53 /* View */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
+				E64B788B1094EA6B0005ACA3 /* HelpViewController.h */,
+				E64B788C1094EA6B0005ACA3 /* HelpViewController.m */,
 				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
 				227990F8105FEA140035C643 /* ReceivedContentView.h */,
@@ -542,6 +549,7 @@
 				227333ED1056426D004228B4 /* icon.png */,
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
+				E64B788D1094EA6B0005ACA3 /* HelpViewController.xib */,
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,
 				E64B7800109491AA0005ACA3 /* AboutViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -638,6 +646,7 @@
 				2271A04B1083665E00F84755 /* tap_sound.wav in Resources */,
 				22CAB7131084BC59001C184D /* SelectViewController.xib in Resources */,
 				E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */,
+				E64B788F1094EA6B0005ACA3 /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +723,7 @@
 				224F8A9C108CBB4300F69B53 /* PreviewView.m in Sources */,
 				227687C2109047E4000528E8 /* ACPerson.m in Sources */,
 				E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */,
+				E64B788E1094EA6B0005ACA3 /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

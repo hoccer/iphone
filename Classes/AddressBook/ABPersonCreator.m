@@ -67,6 +67,14 @@
 	}
 }
 
+- (void)parser: (VcardParser*)parser didFoundOrganization: (NSString *)name
+{	
+	CFErrorRef error;
+	
+	ABRecordSetValue(person, kABPersonOrganizationProperty, 
+					 name, &error);
+}
+
 
 - (void)parser: (VcardParser*)parser didFoundPhoneNumber: (NSString*)number 
 										  withAttributes: (NSArray *)attributes
@@ -148,26 +156,25 @@
 
 - (CFStringRef)labelFromAttributes: (NSArray *)attributes
 {
-	NSLog(@"attributes: %@", attributes);
-	if([attributes isEqualToArray: [NSArray arrayWithObjects:@"work", nil]])
+	if([attributes isEqualToArray: [NSArray arrayWithObjects:@"WORK", nil]])
 		return kABWorkLabel;
 	
-	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"home", nil]])
+	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"HOME", nil]])
 		 return kABHomeLabel;
 	
-	if  ([attributes isEqualToArray:[NSArray arrayWithObjects:@"other", nil]])
+	if  ([attributes isEqualToArray:[NSArray arrayWithObjects:@"OTHER", nil]])
 		return kABOtherLabel;
 	
-	if([attributes isEqualToArray: [NSArray arrayWithObjects:@"mobile", nil]])
+	if([attributes isEqualToArray: [NSArray arrayWithObjects:@"MOBILE", nil]])
 		return kABPersonPhoneMobileLabel;
 
-	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"home", @"fax", nil]])
+	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"HOME", @"FAX", nil]])
 		return kABPersonPhoneHomeFAXLabel;
 	
-	if ([attributes isEqualToArray:[NSArray arrayWithObjects:@"work", @"fax", nil]])
+	if ([attributes isEqualToArray:[NSArray arrayWithObjects:@"WORK", @"FAX", nil]])
 		return kABPersonPhoneWorkFAXLabel;
 	
-	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"pager", nil]])
+	if ([attributes isEqualToArray: [NSArray arrayWithObjects:@"PAGER", nil]])
 		return kABPersonPhonePagerLabel;
 	
 	return kABOtherLabel;
