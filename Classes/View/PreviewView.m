@@ -21,7 +21,7 @@
 	if (self != nil) {
 		UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[button setTitle: @"Dismiss" forState:UIControlStateNormal];
-		[button setFrame: CGRectMake(frame.size.width - 40, frame.size.height - 20, 60, 40)];
+		[button setFrame: CGRectMake(frame.size.width - 60, frame.size.height - 40, 60, 40)];
 		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];
@@ -65,7 +65,6 @@
 
 - (void)userDismissedContent: (id)sender
 {
-	NSLog(@"dismiss");
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
 

@@ -37,11 +37,9 @@
 
 - (UIView *)view 
 {
-	UITextView *label = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 300, 20)];
+	UITextView *label = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 270, 60)];
 	label.text = content;
 	label.editable = YES;
-	
-	
 	
 	return [label autorelease];
 }
