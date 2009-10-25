@@ -232,7 +232,6 @@
 
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	NSLog(@"touch ended");
 	[currentPreview dismissKeyboard];
 }
 
