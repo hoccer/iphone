@@ -37,10 +37,14 @@
 	CGFloat frameHeight = self.frame.size.height - (2 * padding);
 	
 	NSInteger thumbWidth = 0;
+
+	CGFloat imageRatio = image.size.height / image.size.width;
+	CGFloat frameRatio = frameHeight / frameWidth;
 	
-	if (frameHeight < image.size.height) {
-		CGFloat ratio = image.size.height / image.size.width;
-		thumbWidth = frameHeight / ratio;
+	NSLog(@"frameRatio: %f, imageRatio: %f", frameRatio, imageRatio);
+	
+	if (imageRatio > frameRatio) {
+		thumbWidth = frameHeight / imageRatio;
 	} else {
 		thumbWidth = frameWidth;
 	}
