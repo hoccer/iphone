@@ -16,6 +16,7 @@
 @property (nonatomic, retain) id delegate;
 
 - (void) setImage: (UIImage *)image;
+- (void)dismissKeyboard;
 
 
 @end

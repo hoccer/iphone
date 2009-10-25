@@ -25,6 +25,7 @@
 #import "HoccerAppDelegate.h"
 
 #import "HoccerVcard.h"
+#import "HoccerText.h"
 #import "PreviewView.h"
 
 
@@ -229,6 +230,11 @@
 	}
 }
 
+
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
+	NSLog(@"touch ended");
+	[currentPreview dismissKeyboard];
+}
 
 
 

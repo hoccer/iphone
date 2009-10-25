@@ -69,4 +69,12 @@
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
 
+- (void)dismissKeyboard
+{
+	for (UIView* view in self.subviews) {
+		if ([view isKindOfClass:[UITextView class]])
+			[view resignFirstResponder];
+	}
+}
+
 @end

@@ -37,8 +37,11 @@
 
 - (UIView *)view 
 {
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 50, 300, 20)];
+	UITextView *label = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 300, 20)];
 	label.text = content;
+	label.editable = YES;
+	
+	
 	
 	return [label autorelease];
 }
@@ -89,6 +92,12 @@
 }
 
 - (void) contentWillBeDismissed 
+{
+	[textView resignFirstResponder];
+}
+
+
+- (void)dismissKeyboard
 {
 	[textView resignFirstResponder];
 }

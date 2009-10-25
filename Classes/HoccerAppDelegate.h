@@ -22,7 +22,7 @@
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
 											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, 
 											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate,
-											CLLocationManagerDelegate> 
+											CLLocationManagerDelegate, UINavigationControllerDelegate> 
 {
     UIWindow *window;
     UIViewController *viewController;
