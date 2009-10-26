@@ -7,7 +7,6 @@
 //
 
 #import "PreviewView.h"
-#import "ACResizeImage.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
@@ -36,23 +35,10 @@
 	
 	CGFloat frameWidth = self.frame.size.width - (2 * padding);
 	CGFloat frameHeight = self.frame.size.height - (2 * padding);
-	
-	NSInteger thumbWidth = 0;
-
-	CGFloat imageRatio = image.size.height / image.size.width;
-	CGFloat frameRatio = frameHeight / frameWidth;
 		
-	if (imageRatio > frameRatio) {
-		thumbWidth = frameHeight / imageRatio;
-	} else {
-		thumbWidth = frameWidth;
-	}
-		
-	// UIImage *thumb = [image acImageScaledToWidth: thumbWidth];
-	
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
 	UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES
-											trimToFit:NO];
+											trimToFit: YES];
 	
 	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(padding, padding, thumb.size.width, thumb.size.height)];
 	imageView.image = thumb;

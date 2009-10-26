@@ -7,7 +7,6 @@
 //
 
 #import "HoccerImage.h"
-#import "ACResizeImage.h"
 #import "PreviewView.h"
 
 #import "NSObject+DelegateHelper.h"
