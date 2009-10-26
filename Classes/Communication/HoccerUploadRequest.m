@@ -102,6 +102,10 @@
 	request = nil;
 	
 	pollingDidFinish = YES;
+	
+	[self checkAndPerformSelector: @selector(request:didPublishUpdate:)
+					   withObject: self withObject: [aRequest.result valueForKey:@"message"]];
+	
 	[self didFinishUpload];
 }
 

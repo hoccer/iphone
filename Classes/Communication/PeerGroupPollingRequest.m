@@ -30,7 +30,8 @@
 		[self startRequest];
 		
 		if ([aObject valueForKey:@"message"]) {
-			[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: [aObject valueForKey:@"message"]];
+			[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:)
+										withObject: self withObject: [aObject valueForKey:@"message"]];
 		}
 	}
 	

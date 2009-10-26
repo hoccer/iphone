@@ -69,6 +69,9 @@
 
 - (void)finishedPolling: (PeerGroupPollingRequest *)aRequest 
 {
+	[self checkAndPerformSelector: @selector(request:didPublishUpdate:)
+					   withObject: self withObject: [aRequest.result valueForKey:@"message"]];
+	
 	BaseHoccerRequest *downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
 	
 	[request release];
