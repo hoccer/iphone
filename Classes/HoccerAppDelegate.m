@@ -312,12 +312,15 @@
 
 - (void)userDidSaveContent
 {
-	[hoccerContent save];
 	if ([hoccerContent needsWaiting])  {
 		[receivedContentView setWaiting];
 		[hoccerContent whenReadyCallTarget: self selector: @selector(hideReceivedContentView)];
+
+		[hoccerContent save];
 	} else {
 		[self hideReceivedContentView];
+
+		[hoccerContent save];
 	}
 }
 
