@@ -88,6 +88,7 @@
 		22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
 		22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
 		22CAB7121084BC59001C184D /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAB7101084BC59001C184D /* SelectViewController.m */; };
 		22CAB7131084BC59001C184D /* SelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CAB7111084BC59001C184D /* SelectViewController.xib */; };
 		22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
@@ -233,6 +234,8 @@
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
 		22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
+		22C72D091096036B00CB3BD8 /* GTMUIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMUIImage+Resize.h"; sourceTree = "<group>"; };
+		22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMUIImage+Resize.m"; sourceTree = "<group>"; };
 		22CAB70F1084BC59001C184D /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectViewController.h; path = ../SelectViewController.h; sourceTree = "<group>"; };
 		22CAB7101084BC59001C184D /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectViewController.m; path = ../SelectViewController.m; sourceTree = "<group>"; };
 		22CAB7111084BC59001C184D /* SelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectViewController.xib; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 		223BC43C10555AD300ABE5A2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				22C72D091096036B00CB3BD8 /* GTMUIImage+Resize.h */,
+				22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */,
 				223BC43E10555B2700ABE5A2 /* NSObject+DelegateHelper.h */,
 				223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */,
 				228275E3106A157A00AAC17E /* NSString+Regexp.h */,
@@ -726,6 +731,7 @@
 				224F8A9C108CBB4300F69B53 /* PreviewView.m in Sources */,
 				227687C2109047E4000528E8 /* ACPerson.m in Sources */,
 				E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */,
+				22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "PreviewView.h"
 
 #import "NSObject+DelegateHelper.h"
+#import "GTMUIImage+Resize.h"
 
 @interface MyThreadClass : NSObject
 {
@@ -84,7 +85,12 @@
 
 - (UIView *)view 
 {	
-	UIImage *scaledImage = [image acImageScaledToWidth: 400];
+	CGSize size = CGSizeMake(320, 480);
+	
+	UIImage *scaledImage = [image gtm_imageByResizingToSize: size
+										 preserveAspectRatio: YES
+												   trimToFit: YES];
+
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 

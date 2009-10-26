@@ -10,6 +10,7 @@
 #import "ACResizeImage.h"
 
 #import "NSObject+DelegateHelper.h"
+#import "GTMUIImage+Resize.h"
 
 @implementation PreviewView
 @synthesize delegate;
@@ -47,7 +48,12 @@
 		thumbWidth = frameWidth;
 	}
 		
-	UIImage *thumb = [image acImageScaledToWidth: thumbWidth];
+	// UIImage *thumb = [image acImageScaledToWidth: thumbWidth];
+	
+	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+	UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES
+											trimToFit:NO];
+	
 	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(padding, padding, thumb.size.width, thumb.size.height)];
 	imageView.image = thumb;
 	
