@@ -15,6 +15,8 @@
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UIToolbar *toolbar;
 	
+	IBOutlet UIActivityIndicatorView *activity;
+	
 }
 
 @property (assign) id delegate;
@@ -23,6 +25,6 @@
 - (IBAction)onDismiss: (id)sender;
 
 - (void)setHoccerContent: (id <HoccerContent>) content;
-
+-  (void)setWaiting;
 
 @end

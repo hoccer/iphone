@@ -11,8 +11,8 @@
 
 @interface NSObject (DelegateHelper)
 
-- (BOOL)checkAndPerformSelector: (SEL)selector;
-- (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)aObject;
-- (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)firstObject withObject: (id)secondObject;
+- (id)checkAndPerformSelector: (SEL)selector;
+- (id)checkAndPerformSelector: (SEL)aSelector withObject: (id)aObject;
+- (id)checkAndPerformSelector: (SEL)aSelector withObject: (id)firstObject withObject: (id)secondObject;
 
 @end

@@ -60,4 +60,13 @@
 {
 }
 
+- (BOOL)needsWaiting 
+{
+	return NO;
+}
+
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
+{}
+
+
 @end

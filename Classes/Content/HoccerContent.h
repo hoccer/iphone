@@ -26,5 +26,8 @@
 - (NSString *)saveButtonDescription;
 
 - (void)contentWillBeDismissed;
+- (BOOL)needsWaiting;
+
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector;
 
 @end

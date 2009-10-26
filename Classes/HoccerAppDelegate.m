@@ -204,7 +204,7 @@
 	self.hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
 														    withData: aRequest.result];
 	
-	receivedContentView = [[[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil] autorelease];
+	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
 	
 	receivedContentView.delegate = self;
 	[receivedContentView setHoccerContent: self.hoccerContent];
@@ -313,13 +313,24 @@
 - (void)userDidSaveContent
 {
 	[hoccerContent save];
-	[viewController dismissModalViewControllerAnimated:YES];
+	if ([hoccerContent needsWaiting])  {
+		[receivedContentView setWaiting];
+		[hoccerContent whenReadyCallTarget: self selector: @selector(hideReceivedContentView)];
+	} else {
+		[self hideReceivedContentView];
+	}
 }
 
 
 - (void)userDidDismissContent
 {
+	[self hideReceivedContentView];
+}
+
+-  (void)hideReceivedContentView 
+{
 	[viewController dismissModalViewControllerAnimated:YES];
+	[receivedContentView release];
 }
 
 

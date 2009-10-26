@@ -10,6 +10,7 @@
 #import "ACResizeImage.h"
 #import "PreviewView.h"
 
+#import "NSObject+DelegateHelper.h"
 
 @interface MyThreadClass : NSObject
 {
@@ -76,7 +77,7 @@
 - (void)save
 {
 	NSLog(@"saving image");
-	UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 - (void)dismiss {}
@@ -112,6 +113,7 @@
 
 - (void)dealloc 
 {
+	NSLog(@"deallocation image");
 	[image release];
 	[data release];
 	
@@ -130,6 +132,25 @@
 
 - (void)contentWillBeDismissed
 {
+}
+
+-(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 
+				contextInfo: (void *) contextInfo 
+{
+	NSLog(@"saved %@, error: %@", aImage, error);
+	
+	[target checkAndPerformSelector: selector];
+}
+
+- (BOOL)needsWaiting
+{
+	return YES;
+}
+
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
+{
+	target = aTarget;
+	selector  = aSelector;
 }
 
 @end

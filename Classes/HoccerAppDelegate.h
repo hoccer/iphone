@@ -55,5 +55,7 @@
 
 - (void)didDissmissContentToThrow;
 
+-  (void)hideReceivedContentView;
+
 @end
 

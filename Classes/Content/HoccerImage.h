@@ -16,6 +16,9 @@
 
 	NSThread *secondThread;
 	BOOL isDataReady;
+	
+	id target;
+	SEL selector;
 }
 
 @property (nonatomic, retain) NSData* data;
@@ -24,8 +27,6 @@
 - (id)initWithUIImage: (UIImage *)aImage;
 - (id)initWithData: (NSData *)data;
 - (void)dismiss;
-
-
 
 - (UIView *)view;
 

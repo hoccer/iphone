@@ -56,6 +56,7 @@
 - (void)dealloc {
 	[saveButton release];
 	[toolbar release];
+	[activity release];
 
 	[super dealloc];
 }
@@ -82,6 +83,7 @@
 	} else {
 		saveButton.title = [content saveButtonDescription];
 	}
+	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
 }
@@ -92,6 +94,15 @@
 		if ([view isKindOfClass:[UITextView class]])
 			[view resignFirstResponder];
 	}
+}
+
+
+-  (void)setWaiting
+{
+	activity.hidden = NO;
+	[activity startAnimating];
+	
+	toolbar.hidden = YES;
 }
 
 

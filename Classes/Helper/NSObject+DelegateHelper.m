@@ -11,34 +11,31 @@
 
 @implementation NSObject (DelegateHelper)
 
-- (BOOL)checkAndPerformSelector: (SEL)aSelector  
+- (id)checkAndPerformSelector: (SEL)aSelector  
 {
 	if (![self respondsToSelector:aSelector]) {
-		return NO;
+		return nil;
 	}
 	
-	[self performSelector:aSelector];
-	return YES;
+	return [self performSelector:aSelector];
 }
 
-- (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)aObject  
+- (id)checkAndPerformSelector: (SEL)aSelector withObject: (id)aObject  
 {
 	if (![self respondsToSelector:aSelector]) {
-		return NO;
+		return nil;
 	}
 	
-	[self performSelector:aSelector withObject:aObject];
-	return YES;
+	return [self performSelector:aSelector withObject:aObject];
 }
 
-- (BOOL)checkAndPerformSelector: (SEL)aSelector withObject: (id)firstObject withObject: (id)secondObject  
+- (id)checkAndPerformSelector: (SEL)aSelector withObject: (id)firstObject withObject: (id)secondObject  
 {
 	if (![self respondsToSelector:aSelector]) {
-		return NO;
+		return nil;
 	}
 	
-	[self performSelector:aSelector withObject:firstObject withObject: secondObject];
-	return YES;
+	return [self performSelector:aSelector withObject:firstObject withObject: secondObject];
 }
 
 
