@@ -10,7 +10,12 @@
 
 
 @interface HelpScrollView : UIViewController {
-
+	id delegate;
 }
+
+@property (nonatomic, assign) id delegate;
+
+- (IBAction)hideView: (id)sender;
+
 
 @end

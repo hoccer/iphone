@@ -7,9 +7,11 @@
 //
 
 #import "HelpScrollView.h"
-
+#import "NSObject+DelegateHelper.h"
 
 @implementation HelpScrollView
+
+@synthesize delegate;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -52,6 +54,12 @@
 - (void)dealloc {
     [super dealloc];
 }
+
+- (IBAction)hideView: (id)sender
+{
+	[self.delegate checkAndPerformSelector:@selector(userDidCloseHelpView)];
+}
+
 
 
 @end

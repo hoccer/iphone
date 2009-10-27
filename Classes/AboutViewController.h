@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) id delegate;
 
-- (IBAction)hideView;
+- (IBAction)hideView: (id)sender;
 
 @end

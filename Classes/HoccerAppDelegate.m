@@ -359,7 +359,7 @@
 - (void)userDidChoseHelpView
 {
 	HelpScrollView  *help = [[HelpScrollView alloc] init];
-	//help.delegate = self;
+	help.delegate = self;
 	help.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[viewController presentModalViewController:help animated:YES];
 
@@ -368,7 +368,7 @@
 
 - (void)userDidCloseHelpView
 {
-	
+	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -377,8 +377,6 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
-	NSLog(@"did save: error: %@", error);
-
 	[viewController dismissModalViewControllerAnimated:YES];
 }
 

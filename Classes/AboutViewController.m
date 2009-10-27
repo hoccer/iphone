@@ -57,7 +57,7 @@
 }
 
 
-- (IBAction)hideView
+- (IBAction)hideView: (id)sender
 {
 	[self.delegate checkAndPerformSelector:@selector(userDidCloseAboutView)];
 }
