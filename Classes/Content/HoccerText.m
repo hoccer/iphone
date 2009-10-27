@@ -37,11 +37,12 @@
 
 - (UIView *)view 
 {
-	UITextView *label = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 270, 60)];
-	label.text = content;
-	label.editable = YES;
+	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 270, 60)];
+	text.text = content;
+	text.editable = YES;
 	
-	return [label autorelease];
+	
+	return [text autorelease];
 }
 
 - (PreviewView *)previewWithFrame: (CGRect)frame
@@ -50,6 +51,7 @@
 
 	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
 	[view insertSubview: textView atIndex: 0];
+	[self.textView becomeFirstResponder];
 	
 	return [view autorelease];
 }
