@@ -101,6 +101,7 @@
 - (void)showReceiveMode
 {
 	modeLabel.title = @"Receive";
+	descriptionImage.hidden = NO;
 }
 
 - (void)showSendMode

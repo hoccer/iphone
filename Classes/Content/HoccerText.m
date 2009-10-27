@@ -41,7 +41,6 @@
 	text.text = content;
 	text.editable = YES;
 	
-	
 	return [text autorelease];
 }
 
