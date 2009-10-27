@@ -46,7 +46,7 @@
 }
 
 - (void)dealloc {
-	[saveButton release];
+	[cancelButton release];
 	[toolbar release];
     [statusLabel release];
 	[locationLabel release];
@@ -100,12 +100,14 @@
 
 - (void)showReceiveMode
 {
-	modeLabel.text = @"Receive";
+	modeLabel.title = @"Receive";
 }
 
 - (void)showSendMode
 {
-	modeLabel.text = @"Share";
+	modeLabel.title = @"Share";
+	descriptionImage.hidden = YES;
+	
 }
 
 - (void)showSuccessMode
@@ -123,12 +125,17 @@
 - (void)showConnectionActivity
 {
 	infoView.hidden = NO;
+	
+	// cancelButton.hidden = NO;
 	[activitySpinner startAnimating];
 }
 
 - (void)hideConnectionActivity
 {
 	infoView.hidden = YES;
+	// cancelButton.hidden = YES;
+
+	
 	[activitySpinner stopAnimating];
 }
 

@@ -20,15 +20,16 @@
 		
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
-	IBOutlet UIBarButtonItem *saveButton;
+	IBOutlet UIBarButtonItem *cancelButton;
 	IBOutlet UILabel *locationLabel;
 	
 	IBOutlet UIView *infoView;
-	IBOutlet UILabel *modeLabel;
+	IBOutlet UINavigationItem *modeLabel;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	
 	IBOutlet UIView *successView;
+	IBOutlet UIImageView *descriptionImage;
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	
@@ -57,8 +58,6 @@
 
 - (void)showConnectionActivity;
 - (void)hideConnectionActivity;
-
-
 
 @end
 
