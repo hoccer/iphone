@@ -73,6 +73,12 @@
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
 
+-  (IBAction)didSelectHelp: (id)sender
+{
+	[self.delegate checkAndPerformSelector: @selector(userDidChoseHelpView)];
+}
+
+
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
 {
 	if (placemark.thoroughfare != nil)

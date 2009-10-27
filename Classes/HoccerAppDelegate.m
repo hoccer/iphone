@@ -25,6 +25,7 @@
 
 #import "SelectViewController.h"
 #import "AboutViewController.h"
+#import "HelpScrollView.h"
 
 @interface HoccerAppDelegate ()
 
@@ -352,6 +353,22 @@
 - (void)userDidCloseAboutView
 {
 	[viewController dismissModalViewControllerAnimated:YES];
+}
+
+
+- (void)userDidChoseHelpView
+{
+	HelpScrollView  *help = [[HelpScrollView alloc] init];
+	//help.delegate = self;
+	help.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[viewController presentModalViewController:help animated:YES];
+
+	[help release];
+}
+
+- (void)userDidCloseHelpView
+{
+	
 }
 
 

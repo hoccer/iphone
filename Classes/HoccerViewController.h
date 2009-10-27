@@ -41,6 +41,8 @@
 
 - (IBAction)showActions: (id)sender;
 - (IBAction)onCancel: (id)sender; 
+- (IBAction)didSelectHelp: (id)sender;
+
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setProgressUpdate: (CGFloat) percentage;
