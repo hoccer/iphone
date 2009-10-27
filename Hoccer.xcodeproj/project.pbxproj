@@ -68,6 +68,8 @@
 		227A95EC10973B89008CE547 /* bump_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95E910973B89008CE547 /* bump_180.mov */; };
 		227A95ED10973B89008CE547 /* throw_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95EA10973B89008CE547 /* throw_180.mov */; };
 		227A95EE10973B89008CE547 /* catch_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95EB10973B89008CE547 /* catch_180.mov */; };
+		227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A960810973CED008CE547 /* MediaPlayer.framework */; };
+		227A963710974BD3008CE547 /* HelpContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A963610974BD3008CE547 /* HelpContent.m */; };
 		227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */; };
 		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
@@ -213,6 +215,9 @@
 		227A95E910973B89008CE547 /* bump_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = bump_180.mov; sourceTree = "<group>"; };
 		227A95EA10973B89008CE547 /* throw_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = throw_180.mov; sourceTree = "<group>"; };
 		227A95EB10973B89008CE547 /* catch_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = catch_180.mov; sourceTree = "<group>"; };
+		227A960810973CED008CE547 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		227A963510974BD3008CE547 /* HelpContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpContent.h; path = Help/HelpContent.h; sourceTree = "<group>"; };
+		227A963610974BD3008CE547 /* HelpContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpContent.m; path = Help/HelpContent.m; sourceTree = "<group>"; };
 		227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParserTests.h; path = Tests/VcardParserTests.h; sourceTree = "<group>"; };
 		227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParserTests.m; path = Tests/VcardParserTests.m; sourceTree = "<group>"; };
 		227B5CE3107DE3D30012BBA6 /* VcardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParser.h; path = AddressBook/VcardParser.h; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 				229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */,
 				229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */,
 				22719FF1108346DF00F84755 /* AudioToolbox.framework in Frameworks */,
+				227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +513,8 @@
 				227A94F510971A9C008CE547 /* HelpScrollView.h */,
 				227A94F610971A9C008CE547 /* HelpScrollView.m */,
 				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
+				227A963510974BD3008CE547 /* HelpContent.h */,
+				227A963610974BD3008CE547 /* HelpContent.m */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -604,6 +612,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227A960810973CED008CE547 /* MediaPlayer.framework */,
 				22719FEF108346DF00F84755 /* AudioToolbox.framework */,
 				229DAF11107B331F00B47ABE /* AddressBook.framework */,
 				229DAF12107B331F00B47ABE /* AddressBookUI.framework */,
@@ -774,6 +783,7 @@
 				22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */,
 				227A94D7109713AB008CE547 /* HelpScreen.m in Sources */,
 				227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */,
+				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

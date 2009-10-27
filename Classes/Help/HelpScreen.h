@@ -13,13 +13,11 @@
 	IBOutlet UILabel *header;
 	
 	NSString *name;
-
 }
 
 @property (nonatomic, copy) NSString *name;
 
 - (id)initWithName: (NSString *)name;
-
-
+- (IBAction)playVideo: (id)sender;
 
 @end

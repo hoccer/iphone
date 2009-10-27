@@ -6,6 +6,7 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
+#import <MediaPlayer/MediaPlayer.h>
 #import "HelpScreen.h"
 
 
@@ -51,6 +52,16 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+}
+
+
+- (IBAction)playVideo: (id)sender
+{
+	NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"bump_180" ofType:@"mov"];
+	MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:
+								[NSURL fileURLWithPath:moviePath]];
+	
+	[player play];
 }
 
 
