@@ -19,9 +19,11 @@
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[button setTitle: @"Dismiss" forState:UIControlStateNormal];
-		[button setFrame: CGRectMake(frame.size.width - 60, frame.size.height - 40, 60, 40)];
+		UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+		
+		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"close" ofType:@"png"];
+		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
+		[button setFrame: CGRectMake(frame.size.width - 40, 0, 40, 40)];
 		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];
