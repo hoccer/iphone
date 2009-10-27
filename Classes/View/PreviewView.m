@@ -51,11 +51,11 @@
 
 - (void)drawRect: (CGRect)rect
 {
-    [super drawRect:rect];
-	
+	[super drawRect:rect];
 	CGContextRef context = UIGraphicsGetCurrentContext();
+
+	// CGContextSetShadow(context, CGSizeMake(-15.0, 20.0), 5.0f);
 	CGContextSetRGBFillColor(context, 0.9, 0.9, 0.9, 1.0);
-	
 	CGContextFillRect(context, rect);
 }
 
