@@ -128,12 +128,16 @@
 	infoView.hidden = NO;
 	
 	// cancelButton.hidden = NO;
+	statusLabel.hidden = NO;
+	
+	
 	[activitySpinner startAnimating];
 }
 
 - (void)hideConnectionActivity
 {
 	infoView.hidden = YES;
+	statusLabel .hidden = YES;
 	// cancelButton.hidden = YES;
 
 	
