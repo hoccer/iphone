@@ -8,16 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class HelpContent;
+
 
 @interface HelpScreen : UIViewController {
 	IBOutlet UILabel *header;
+	IBOutlet UITextView *description;
+	IBOutlet UIImageView *imageView;
 	
-	NSString *name;
+	
+	HelpContent *content;
+	
 }
 
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, retain) HelpContent *content;
 
-- (id)initWithName: (NSString *)name;
+- (id)initWithHelpContent: (HelpContent *)helpContent;
 - (IBAction)playVideo: (id)sender;
 
 @end

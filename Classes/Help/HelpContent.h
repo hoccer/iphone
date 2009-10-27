@@ -23,6 +23,7 @@
 
 + (HelpContent *)catchHelp;
 + (HelpContent *)throwHelp;
++ (HelpContent *)tabHelp;
 
 
 @end

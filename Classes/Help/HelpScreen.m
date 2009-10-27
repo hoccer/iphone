@@ -9,16 +9,17 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "HelpScreen.h"
 
+#import "HelpContent.h"
 
 @implementation HelpScreen
 
-@synthesize name;
+@synthesize content;
 
-- (id) initWithName: (NSString *)aName;
+- (id)initWithHelpContent: (HelpContent *)helpContent;
 {
 	self = [super initWithNibName:@"HelpScreen" bundle:nil];
 	if (self != nil) {
-		self.name = aName;
+		self.content = helpContent;
 
 	}
 	
@@ -30,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-	header.text = self.name;
+	header.text = self.content.name;
+	description.text = self.content.description;
+	imageView.image = [UIImage imageWithContentsOfFile: self.content.imagePath];
 }
 
 
@@ -57,16 +60,23 @@
 
 - (IBAction)playVideo: (id)sender
 {
-	NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"bump_180" ofType:@"mov"];
+
 	MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:
-								[NSURL fileURLWithPath:moviePath]];
+								[NSURL fileURLWithPath:self.content.videoPath]];
 	
 	[player play];
 }
 
 
 - (void)dealloc {
-    [super dealloc];
+    [description release];
+	[header release];
+	[imageView release];
+	
+	self.content = nil;
+	
+	[super dealloc];
+	
 }
 
 

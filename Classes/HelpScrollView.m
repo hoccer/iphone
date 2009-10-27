@@ -10,6 +10,7 @@
 #import "NSObject+DelegateHelper.h"
 
 #import "HelpScreen.h"
+#import "HelpContent.h"
 
 @interface HelpScrollView ()
 
@@ -39,9 +40,9 @@
     [super viewDidLoad];
 	
 	pages = [[NSArray arrayWithObjects: 
-			  [[[HelpScreen  alloc] initWithName:@"throw"] autorelease],
-			  [[[HelpScreen  alloc] initWithName:@"catch"] autorelease],
-			  [[[HelpScreen  alloc] initWithName:@"tab"] autorelease],
+			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
+			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
+			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent tabHelp]] autorelease],
 			  nil] retain];
 	
 	
