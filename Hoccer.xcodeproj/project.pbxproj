@@ -65,6 +65,9 @@
 		227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A94D6109713AB008CE547 /* HelpScreen.xib */; };
 		227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94F610971A9C008CE547 /* HelpScrollView.m */; };
 		227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A94F710971A9C008CE547 /* HelpScrollView.xib */; };
+		227A95EC10973B89008CE547 /* bump_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95E910973B89008CE547 /* bump_180.mov */; };
+		227A95ED10973B89008CE547 /* throw_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95EA10973B89008CE547 /* throw_180.mov */; };
+		227A95EE10973B89008CE547 /* catch_180.mov in Resources */ = {isa = PBXBuildFile; fileRef = 227A95EB10973B89008CE547 /* catch_180.mov */; };
 		227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */; };
 		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
@@ -207,6 +210,9 @@
 		227A94F510971A9C008CE547 /* HelpScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScrollView.h; sourceTree = "<group>"; };
 		227A94F610971A9C008CE547 /* HelpScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScrollView.m; sourceTree = "<group>"; };
 		227A94F710971A9C008CE547 /* HelpScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpScrollView.xib; sourceTree = "<group>"; };
+		227A95E910973B89008CE547 /* bump_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = bump_180.mov; sourceTree = "<group>"; };
+		227A95EA10973B89008CE547 /* throw_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = throw_180.mov; sourceTree = "<group>"; };
+		227A95EB10973B89008CE547 /* catch_180.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = catch_180.mov; sourceTree = "<group>"; };
 		227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParserTests.h; path = Tests/VcardParserTests.h; sourceTree = "<group>"; };
 		227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParserTests.m; path = Tests/VcardParserTests.m; sourceTree = "<group>"; };
 		227B5CE3107DE3D30012BBA6 /* VcardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParser.h; path = AddressBook/VcardParser.h; sourceTree = "<group>"; };
@@ -505,6 +511,16 @@
 			name = Help;
 			sourceTree = "<group>";
 		};
+		227A95EF10973B90008CE547 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				227A95E910973B89008CE547 /* bump_180.mov */,
+				227A95EA10973B89008CE547 /* throw_180.mov */,
+				227A95EB10973B89008CE547 /* catch_180.mov */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
 		229DAF1C107B377C00B47ABE /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +581,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				227A95EF10973B90008CE547 /* Video */,
 				28D161B51095F72B00858642 /* close.png */,
 				28D161961095F27B00858642 /* receive.png */,
 				28D1618F1095EE1200858642 /* myicon.png */,
@@ -676,6 +693,9 @@
 				28D161B61095F72B00858642 /* close.png in Resources */,
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
+				227A95EC10973B89008CE547 /* bump_180.mov in Resources */,
+				227A95ED10973B89008CE547 /* throw_180.mov in Resources */,
+				227A95EE10973B89008CE547 /* catch_180.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

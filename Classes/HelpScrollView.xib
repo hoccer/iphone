@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="13"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -54,7 +54,7 @@
 								<reference key="NSNextResponder" ref="534386319"/>
 								<int key="NSvFlags">1316</int>
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
-								<string key="NSFrame">{{114, 4}, {38, 36}}</string>
+								<string key="NSFrame">{{137, 4}, {38, 36}}</string>
 								<reference key="NSSuperview" ref="534386319"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -80,8 +80,9 @@
 								<reference key="IBUIToolbar" ref="534386319"/>
 							</object>
 							<object class="IBUIBarButtonItem" id="908974777">
+								<float key="IBUIWidth">7.900000e+01</float>
 								<reference key="IBUIToolbar" ref="534386319"/>
-								<int key="IBUISystemItemIdentifier">5</int>
+								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="852125052">
 								<string key="IBUITitle">Done</string>
