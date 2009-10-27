@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HelpScrollView : UIViewController {
+@interface HelpScrollView : UIViewController <UIScrollViewDelegate> {
+	IBOutlet UIScrollView *scrollView;
+	IBOutlet UIPageControl *pageControl;
+	NSArray *pages;
+	
 	id delegate;
 }
 

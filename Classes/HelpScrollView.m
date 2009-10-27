@@ -9,6 +9,16 @@
 #import "HelpScrollView.h"
 #import "NSObject+DelegateHelper.h"
 
+#import "HelpScreen.h"
+
+@interface HelpScrollView ()
+
+- (void)setUpPages;
+
+@end
+
+
+
 @implementation HelpScrollView
 
 @synthesize delegate;
@@ -23,12 +33,46 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	pages = [[NSArray arrayWithObjects: 
+			  [[[HelpScreen  alloc] initWithName:@"throw"] autorelease],
+			  [[[HelpScreen  alloc] initWithName:@"catch"] autorelease],
+			  [[[HelpScreen  alloc] initWithName:@"tab"] autorelease],
+			  nil] retain];
+	
+	
+	CGSize scrollViewSize = scrollView.frame.size;
+	
+	scrollView.pagingEnabled = YES;
+	scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.scrollsToTop = NO;
+	
+	scrollView.contentSize = CGSizeMake(scrollViewSize.width  * [pages count], scrollViewSize.height);
+
+	
+	[self setUpPages];
 }
-*/
+
+- (void)setUpPages
+{
+	for (int i = 0; i < [pages count]; i++) {
+		UIViewController *pageController = [pages objectAtIndex:i]; 
+		
+		CGRect frame = pageController.view.frame;
+		frame.origin.x = scrollView.frame.size.width * i;
+		frame.origin.y = 0; 
+		
+		pageController.view.frame = frame;
+		[scrollView  addSubview:pageController.view];
+	}
+}
+
+	
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -52,6 +96,11 @@
 
 
 - (void)dealloc {
+	[scrollView release];
+	[pageControl release];
+	
+	[pages release];
+	
     [super dealloc];
 }
 
@@ -60,6 +109,14 @@
 	[self.delegate checkAndPerformSelector:@selector(userDidCloseHelpView)];
 }
 
+- (void)scrollViewDidScroll: (UIScrollView *)theScrollView {	
+	CGFloat pageWidth = theScrollView.frame.size.width;
+	int page = floor((theScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+	NSLog(@"on page: %d", page);
+	
+	pageControl.currentPage = page;
+
+}
 
 
 @end
