@@ -15,7 +15,7 @@
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
-- (PreviewView *)preview;
+- (PreviewView *)previewWithFrame: (CGRect)frame;
 
 - (NSString *)filename;
 - (NSString *)mimeType;

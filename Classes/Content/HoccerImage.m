@@ -93,14 +93,15 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (PreviewView *)preview
+- (PreviewView *)previewWithFrame: (CGRect)frame
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
-	
+	PreviewView *view = [[PreviewView alloc] initWithFrame: frame];
+
 	[view setImage:image];
 	return [view autorelease];
 }
-
+	
+	
 - (NSString *)filename
 {
 	return @"test.jpg";

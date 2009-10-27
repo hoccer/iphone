@@ -51,7 +51,7 @@
 	return [webView  autorelease];
 }
 
-- (PreviewView *)preview
+- (PreviewView *)previewWithFrame: (CGRect)frame 
 {
 	return nil;
 }

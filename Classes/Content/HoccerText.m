@@ -44,14 +44,16 @@
 	return [label autorelease];
 }
 
--  (PreviewView *)preview 
+- (PreviewView *)previewWithFrame: (CGRect)frame
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];	
+	PreviewView *view = [[PreviewView alloc] initWithFrame:frame];	
+
 	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
 	[view insertSubview: textView atIndex: 0];
 	
 	return [view autorelease];
 }
+
 
 
 - (NSString *)saveButtonDescription 

@@ -69,9 +69,9 @@
 	return unknownPersonController.view;
 }
 
-- (PreviewView *)preview
+- (PreviewView *)previewWithFrame: (CGRect)frame
 {
-	PreviewView *previewView = [[PreviewView alloc] initWithFrame:CGRectMake(0, 0, 175, 175)];
+	PreviewView *previewView = [[PreviewView alloc] initWithFrame: frame];
 	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 10, 165, 20)];
 	
 	[previewView addSubview: label];
@@ -81,6 +81,7 @@
 	
 	return [previewView autorelease];
 }
+
 
 - (NSString *)filename
 {

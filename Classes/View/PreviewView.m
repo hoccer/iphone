@@ -33,7 +33,7 @@
 
 - (void) setImage: (UIImage *)image
 {
-	NSInteger padding = 15;
+	NSInteger padding = 10;
 	
 	CGFloat frameWidth = self.frame.size.width - (2 * padding);
 	CGFloat frameHeight = self.frame.size.height - (2 * padding);

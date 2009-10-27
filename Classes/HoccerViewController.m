@@ -168,7 +168,8 @@
 	
 	[currentPreview removeFromSuperview];
 	
-	PreviewView *contentView = content.preview;
+	PreviewView *contentView = [content previewWithFrame: CGRectMake(0, 0, 175, 175)];
+	
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	originalFrame = CGRectMake(xOrigin, 40, contentView.frame.size.width, contentView.frame.size.height);
 		
