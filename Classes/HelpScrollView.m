@@ -54,7 +54,6 @@
 	
 	scrollView.contentSize = CGSizeMake(scrollViewSize.width  * [pages count], scrollViewSize.height);
 
-	
 	[self setUpPages];
 }
 
@@ -71,16 +70,6 @@
 		[scrollView  addSubview:pageController.view];
 	}
 }
-
-	
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -110,13 +99,33 @@
 }
 
 - (void)scrollViewDidScroll: (UIScrollView *)theScrollView {	
+	if (pageControlUsed)
+		return;
+	
 	CGFloat pageWidth = theScrollView.frame.size.width;
 	int page = floor((theScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-	NSLog(@"on page: %d", page);
-	
 	pageControl.currentPage = page;
-
 }
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView   
+{
+	pageControlUsed = NO;
+}
+
+
+- (IBAction)changePage:(id)sender 
+{
+    int page = pageControl.currentPage;
+
+    CGRect frame = scrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    
+	[scrollView scrollRectToVisible:frame animated:YES];
+
+    pageControlUsed = YES;
+}
+
 
 
 @end

@@ -14,12 +14,14 @@
 	IBOutlet UIPageControl *pageControl;
 	NSArray *pages;
 	
+	BOOL pageControlUsed;
+	
 	id delegate;
 }
 
 @property (nonatomic, assign) id delegate;
 
 - (IBAction)hideView: (id)sender;
-
+- (IBAction)changePage:(id)sender;
 
 @end
