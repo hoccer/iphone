@@ -108,6 +108,7 @@
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">Move your mobile like throwing a frisbee to share selected content with catchers nearby. Try the gesture now!</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
@@ -186,8 +187,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="244337442"/>
 							<reference ref="184833995"/>
-							<reference ref="28281232"/>
 							<reference ref="768513268"/>
+							<reference ref="28281232"/>
 						</object>
 						<reference key="parent" ref="391025939"/>
 					</object>
