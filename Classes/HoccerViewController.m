@@ -131,6 +131,7 @@
 
 - (void)showConnectionActivity
 {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	infoView.hidden = NO;
 	
 	// cancelButton.hidden = NO;
@@ -142,6 +143,8 @@
 
 - (void)hideConnectionActivity
 {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
 	infoView.hidden = YES;
 	statusLabel .hidden = YES;
 	// cancelButton.hidden = YES;
@@ -196,7 +199,8 @@
 - (void)resetPreview
 {
 	
-	// currentPreview.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, 0, 0)
+	currentPreview.frame = CGRectMake(originalFrame.origin.x, originalFrame.origin.y, 0, 0);
+	currentPreview.
 	
 	// [UIView beginAnimations:@"showPreviewAnimation" context:NULL];
 	// [UIView setAnimationDuration: 1];
