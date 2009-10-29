@@ -212,7 +212,7 @@
  - (void)startPreviewFlyOutAniamation
 {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
-	[UIView setAnimationDuration:0.4];
+	[UIView setAnimationDuration:0.2];
 	currentPreview.frame = CGRectMake(currentPreview.frame.origin.x, -200, 20, 20);
 	[UIView commitAnimations];
 }

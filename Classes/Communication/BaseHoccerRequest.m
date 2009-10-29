@@ -28,7 +28,7 @@
 		
 		
 		NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
-		NSString *userAgent = [NSString stringWithFormat: @"Hoccer %@/iPhone", version];
+		NSString *userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
 		
 		[request setValue: userAgent forHTTPHeaderField:@"User-Agent"];
 		
