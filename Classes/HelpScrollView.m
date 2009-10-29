@@ -11,6 +11,7 @@
 
 #import "HelpScreen.h"
 #import "HelpContent.h"
+#import "FeedbackProvider.h"
 
 @interface HelpScrollView ()
 
@@ -127,6 +128,18 @@
     pageControlUsed = YES;
 }
 
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
+{
+	if (pageControl.currentPage == 0) {
+		[FeedbackProvider playThrowFeedback];
+	}
+}
 
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
+{
+	if (pageControl.currentPage == 1) {
+		[FeedbackProvider playCatchFeedback];
+	}
+}
 
 @end

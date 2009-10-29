@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GesturesInterpreterDelegate.h"
 
 
-@interface HelpScrollView : UIViewController <UIScrollViewDelegate> {
+@interface HelpScrollView : UIViewController <UIScrollViewDelegate, GesturesInterpreterDelegate> {
 	IBOutlet UIScrollView *scrollView;
 	IBOutlet UIPageControl *pageControl;
 	NSArray *pages;
@@ -17,6 +18,8 @@
 	BOOL pageControlUsed;
 	
 	id delegate;
+	
+	NSDate *lastGesture;
 }
 
 @property (nonatomic, assign) id delegate;

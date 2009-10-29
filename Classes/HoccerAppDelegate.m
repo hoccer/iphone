@@ -363,12 +363,14 @@
 	help.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[viewController presentModalViewController:help animated:YES];
 
+	gesturesInterpreter.delegate = help;
 	[help release];
 }
 
 - (void)userDidCloseHelpView
 {
 	[viewController dismissModalViewControllerAnimated:YES];
+	gesturesInterpreter.delegate = self;
 }
 
 

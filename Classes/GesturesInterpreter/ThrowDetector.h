@@ -10,6 +10,7 @@
 @class FeatureHistory;
 
 @interface ThrowDetector : NSObject {
+	NSDate *lastGesture;
 }
 
 - (BOOL)detect: (FeatureHistory *)featureHistory;

@@ -10,6 +10,7 @@
 #import "HelpScreen.h"
 
 #import "HelpContent.h"
+#import "FeedbackProvider.h"
 
 @implementation HelpScreen
 
@@ -67,7 +68,6 @@
 	[player play];
 }
 
-
 - (void)dealloc {
     [description release];
 	[header release];
@@ -76,8 +76,9 @@
 	self.content = nil;
 	
 	[super dealloc];
-	
 }
+
+
 
 
 

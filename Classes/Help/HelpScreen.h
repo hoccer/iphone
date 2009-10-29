@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GesturesInterpreterDelegate.h"
+
 
 @class HelpContent;
 
@@ -16,9 +18,7 @@
 	IBOutlet UITextView *description;
 	IBOutlet UIImageView *imageView;
 	
-	
 	HelpContent *content;
-	
 }
 
 @property (nonatomic, retain) HelpContent *content;

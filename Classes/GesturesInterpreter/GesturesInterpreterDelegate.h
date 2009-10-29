@@ -12,5 +12,6 @@
 
 @optional
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter;
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter;
 
 @end

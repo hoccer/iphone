@@ -12,9 +12,13 @@
 #import "ThrowDetector.h"
 #import "FeatureHistory.h"
 
+@interface GesturesInterpreter ()
+@property (retain) NSDate *lastGesture;
+@end
+
+
 
 @implementation GesturesInterpreter
-
 
 @synthesize delegate;
 
@@ -56,6 +60,8 @@
 		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) 
 									withObject: self];
 	}
+	
+	
 }
 
 @end

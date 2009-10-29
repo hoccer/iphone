@@ -11,7 +11,7 @@
 
 
 @interface CatchDetector : NSObject {
-
+	NSDate *lastGesture;
 }
 
 - (BOOL)detect: (FeatureHistory *)featureHistory;
