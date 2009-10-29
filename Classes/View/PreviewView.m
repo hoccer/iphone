@@ -23,7 +23,7 @@
 		
 		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"close" ofType:@"png"];
 		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
-		[button setFrame: CGRectMake(frame.size.width - 40, 0, 40, 40)];
+		[button setFrame: CGRectMake(0, 0, 20, 20)];
 		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];
