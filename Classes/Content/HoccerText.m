@@ -37,7 +37,7 @@
 
 - (UIView *)view 
 {
-	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(10, 50, 270, 60)];
+	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
 	text.text = content;
 	text.editable = YES;
 	
@@ -48,7 +48,7 @@
 {
 	PreviewView *view = [[PreviewView alloc] initWithFrame:frame];	
 
-	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(5, 5, 165, 165)];
+	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(10, 10, 155, 155)];
 	[view insertSubview: textView atIndex: 0];
 	[self.textView becomeFirstResponder];
 	
