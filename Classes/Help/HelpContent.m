@@ -23,7 +23,7 @@
 	content.name = @"Catch";
 	content.description = @"To catch thrown content, raise your mobile like catching a ball and hold it for a second. You can try it now, too!";
 	content.imagePath = [[NSBundle mainBundle] pathForResource:@"receive" ofType:@"png"];
-	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"mov"];
+	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"m4v"];
 	
 	return [content autorelease];
 }
@@ -35,7 +35,7 @@
 	content.name = @"Throw";
 	content.description = @"Move your mobile like throwing a frisbee to share selected content with catchers nearby. Try the gesture now!";
 	content.imagePath = [[NSBundle mainBundle] pathForResource:@"receive" ofType:@"png"];
-	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"mov"];
+	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"m4v"];
 	
 	return [content autorelease];
 }
@@ -47,7 +47,7 @@
 	content.name = @"Tab";
 	content.description = @"To make sure your content is only receivable by ONE person, give both mobiles a gentle simultaneous tap.";
 	content.imagePath = [[NSBundle mainBundle] pathForResource:@"receive" ofType:@"png"];
-	content.videoPath = [[NSBundle mainBundle] pathForResource:@"bump_180" ofType:@"mov"];
+	content.videoPath = [[NSBundle mainBundle] pathForResource:@"bump_180" ofType:@"m4v"];
 	
 	return [content autorelease];
 }
