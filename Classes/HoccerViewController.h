@@ -15,8 +15,9 @@
 
 @class HoccerAppDelegate;
 @class PreviewView;
+@class ContentSelectionButtonView;
 
-@interface HoccerViewController : UIViewController <UIActionSheetDelegate> {
+@interface HoccerViewController : UIViewController <UIScrollViewDelegate> {
 		
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
@@ -32,6 +33,8 @@
 	IBOutlet UIImageView *descriptionImage;
 		
 	IBOutlet UIScrollView *mainScrollView;
+	
+	ContentSelectionButtonView *selectionViewController;
 	IBOutlet HoccerAppDelegate* delegate;
 	
 	PreviewView *currentPreview;
@@ -40,10 +43,8 @@
 
 @property (assign) HoccerAppDelegate* delegate;
 
-- (IBAction)showActions: (id)sender;
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)didSelectHelp: (id)sender;
-
 
 - (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
 - (void)setProgressUpdate: (CGFloat) percentage;

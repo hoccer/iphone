@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
 	NSLog(@"delegate: %@", self.delegate);
 	
-	ContentSelectionButtonView *selectionViewController = [[ContentSelectionButtonView alloc] initWithNibName:@"ContentSelectionButtonView" bundle:nil];
+	selectionViewController = [[ContentSelectionButtonView alloc] initWithNibName:@"ContentSelectionButtonView" bundle:nil];
 	selectionViewController.delegate = self.delegate;
 	
 	CGSize size = mainScrollView.frame.size;
@@ -54,7 +54,7 @@
 	
 	selectionViewController.view.frame = buttonViewRect;
 	mainScrollView.contentSize = size;
-	// mainScrollView.delegate = self;
+	mainScrollView.delegate = self;
 	[mainScrollView addSubview: selectionViewController.view];
 }
 
@@ -75,6 +75,7 @@
 	
 	[mainScrollView release];
 	
+	[selectionViewController release];	
 	[super dealloc];
 }
 
@@ -172,15 +173,6 @@
 	[alertView release];
 }
 
-- (IBAction)showActions: (id)sender
-{
-	UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel"
-				  destructiveButtonTitle:nil otherButtonTitles: @"Contact", @"Image", @"Text", nil];
-	
-	[sheet showFromToolbar: toolbar];
-	[sheet autorelease];
-}
-
 
 - (void)setContentPreview: (id <HoccerContent>)content
 {
@@ -240,5 +232,24 @@
 #pragma mark -
 #pragma mark ScrollViewDelegate Methods
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	if (decelerate) {
+		return;
+	}
+	
+	[self scrollViewDidEndDecelerating: scrollView];
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	float maxHeight = selectionViewController.view.frame.size.height;
+	if (scrollView.contentOffset.y > maxHeight * 0.95) {
+		[scrollView setContentOffset: CGPointMake(0, maxHeight) animated:YES];
+	} else {
+		[scrollView setContentOffset: CGPointMake(0, 0) animated:YES];
+	}
+}
 
 @end

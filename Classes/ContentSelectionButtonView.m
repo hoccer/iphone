@@ -7,6 +7,7 @@
 //
 
 #import "ContentSelectionButtonView.h"
+#import "NSObject+DelegateHelper.h"
 
 
 @implementation ContentSelectionButtonView
