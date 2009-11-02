@@ -186,6 +186,7 @@
 	}
 	
 	[currentPreview removeFromSuperview];
+	[mainScrollView setContentOffset: CGPointMake(0, 0) animated: NO];
 	
 	PreviewView *contentView = [content previewWithFrame: CGRectMake(0, 0, 175, 175)];
 	
