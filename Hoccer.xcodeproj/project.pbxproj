@@ -39,6 +39,7 @@
 		2271E216109F0260003D5C68 /* DragUpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E214109F0260003D5C68 /* DragUpMenuViewController.m */; };
 		2271E217109F0260003D5C68 /* DragUpMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E215109F0260003D5C68 /* DragUpMenuViewController.xib */; };
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
+		2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -176,6 +177,8 @@
 		2271E214109F0260003D5C68 /* DragUpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragUpMenuViewController.m; sourceTree = "<group>"; };
 		2271E215109F0260003D5C68 /* DragUpMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DragUpMenuViewController.xib; path = Classes/DragUpMenuViewController.xib; sourceTree = "<group>"; };
 		2271E2E6109F26EE003D5C68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2271E32A109F355A003D5C68 /* ACThinProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThinProgressView.h; sourceTree = "<group>"; };
+		2271E32B109F355A003D5C68 /* ACThinProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThinProgressView.m; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -440,6 +443,8 @@
 			children = (
 				224F8A9A108CBB4300F69B53 /* PreviewView.h */,
 				224F8A9B108CBB4300F69B53 /* PreviewView.m */,
+				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
+				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
 				2271E216109F0260003D5C68 /* DragUpMenuViewController.m in Sources */,
+				2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -113,7 +113,6 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage
 {
-	statusLabel.hidden = YES;
 	activitySpinner.hidden = YES;
 	
 	progressView.hidden = NO;
