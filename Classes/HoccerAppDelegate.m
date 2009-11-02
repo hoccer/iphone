@@ -26,10 +26,13 @@
 #import "SelectViewController.h"
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
+#import "TermOfUse.h"
 
 @interface HoccerAppDelegate ()
 
 @property (retain) NSDate *lastLocationUpdate;
+
+- (void)userNeedToAgreeToTermsOfUse;
 
 @end
 
@@ -46,6 +49,7 @@
 @synthesize lastLocationUpdate;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+
 	application.applicationSupportsShakeToEdit = NO;
 	
 	gesturesInterpreter = [[GesturesInterpreter alloc] init];
@@ -59,6 +63,12 @@
 
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
+	
+	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
+	if (agreedToTermsOfUse == NULL) {
+		[self userNeedToAgreeToTermsOfUse];
+	}
+	
 }
 
 - (void)dealloc {
@@ -373,6 +383,26 @@
 	gesturesInterpreter.delegate = self;
 }
 
+- (void)userNeedToAgreeToTermsOfUse
+{
+	NSLog(@"needs terms of use");
+	TermOfUse *terms = [[TermOfUse alloc] init];
+	
+	terms.delegate = self;
+	[viewController presentModalViewController:terms animated:NO];
+	
+	[terms release];
+}
+
+- (void)userDidAgreeToTermsOfUse
+{
+	[viewController dismissModalViewControllerAnimated:YES];
+	
+	CFBooleanRef agreed = kCFBooleanTrue;
+	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
+
+	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
+}
 
 #pragma mark -
 #pragma mark Saving Delegate Methods

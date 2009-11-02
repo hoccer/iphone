@@ -43,7 +43,6 @@
 	pages = [[NSArray arrayWithObjects: 
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
-			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent tabHelp]] autorelease],
 			  nil] retain];
 	
 	
@@ -56,6 +55,8 @@
 	
 	scrollView.contentSize = CGSizeMake(scrollViewSize.width  * [pages count], scrollViewSize.height);
 
+	pageControl.numberOfPages = [pages count]; 
+	
 	[self setUpPages];
 }
 

@@ -34,6 +34,8 @@
 		2271A01A10835B8900F84755 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
 		2271A01B10835B8900F84755 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
 		2271A04B1083665E00F84755 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
+		2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
+		2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -164,6 +166,9 @@
 		2271A01810835B8900F84755 /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = catch_sound.wav; path = Resources/catch_sound.wav; sourceTree = "<group>"; };
 		2271A01910835B8900F84755 /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = throw_sound.wav; path = Resources/throw_sound.wav; sourceTree = "<group>"; };
 		2271A04A1083665E00F84755 /* tap_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap_sound.wav; path = Resources/tap_sound.wav; sourceTree = "<group>"; };
+		2271E19F109EDCFE003D5C68 /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
+		2271E1A0109EDCFE003D5C68 /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
+		2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -310,6 +315,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2271E19E109EDCD5003D5C68 /* TermOfUse */,
 				227A94D310971302008CE547 /* Help */,
 				229DAF1C107B377C00B47ABE /* AddressBook */,
 				227990C3105FE2F20035C643 /* Debug */,
@@ -426,6 +432,16 @@
 				224F8A9B108CBB4300F69B53 /* PreviewView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		2271E19E109EDCD5003D5C68 /* TermOfUse */ = {
+			isa = PBXGroup;
+			children = (
+				2271E19F109EDCFE003D5C68 /* TermOfUse.h */,
+				2271E1A0109EDCFE003D5C68 /* TermOfUse.m */,
+				2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */,
+			);
+			name = TermOfUse;
 			sourceTree = "<group>";
 		};
 		22762D17105E4408003BF968 /* Tests */ = {
@@ -705,6 +721,7 @@
 				22A019241099C482007FCC59 /* bump_180.m4v in Resources */,
 				22A019251099C482007FCC59 /* catch_180.m4v in Resources */,
 				22A019261099C482007FCC59 /* throw_180.m4v in Resources */,
+				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +801,7 @@
 				227A94D7109713AB008CE547 /* HelpScreen.m in Sources */,
 				227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */,
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
+				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
