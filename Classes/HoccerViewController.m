@@ -28,6 +28,8 @@
 #import "HoccerText.h"
 #import "PreviewView.h"
 
+#import "ContentSelectionButtonView.h"
+
 
 @implementation HoccerViewController
 
@@ -39,7 +41,21 @@
 
 
 - (void)viewDidLoad {
+	NSLog(@"delegate: %@", self.delegate);
 	
+	ContentSelectionButtonView *selectionViewController = [[ContentSelectionButtonView alloc] initWithNibName:@"ContentSelectionButtonView" bundle:nil];
+	selectionViewController.delegate = self.delegate;
+	
+	CGSize size = mainScrollView.frame.size;
+	size.height += selectionViewController.view.frame.size.height;
+	
+	CGRect buttonViewRect = selectionViewController.view.frame;
+	buttonViewRect.origin.y = mainScrollView.frame.size.height;
+	
+	selectionViewController.view.frame = buttonViewRect;
+	mainScrollView.contentSize = size;
+	// mainScrollView.delegate = self;
+	[mainScrollView addSubview: selectionViewController.view];
 }
 
 - (void)viewDidUnload {
@@ -56,6 +72,8 @@
 	[progressView release];
 	[modeLabel release];
 	[successView release];
+	
+	[mainScrollView release];
 	
 	[super dealloc];
 }
@@ -210,40 +228,6 @@
 }
 
 
-#pragma mark -
-#pragma mark UIActionSheetDelegate Methods
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex 
-{
-	switch (buttonIndex) {
-		case 0:
-			;
-			ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-			picker.peoplePickerDelegate = self.delegate;
-			
-			[self presentModalViewController:picker animated:YES];
-			[picker release];
-			break;
-		case 1:
-			;
-			UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-			
-			imagePicker.delegate = self.delegate;
-			[self presentModalViewController:imagePicker animated:YES];
-			[imagePicker release];
-
-			
-			break;
-		case 2:
-			[self.delegate checkAndPerformSelector: @selector(userDidPickText)];
-			
-			break;
-		default:
-			break;
-	}
-}
-
-
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
 	[currentPreview dismissKeyboard];
 }
@@ -253,7 +237,8 @@
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
 
-
+#pragma mark -
+#pragma mark ScrollViewDelegate Methods
 
 
 @end

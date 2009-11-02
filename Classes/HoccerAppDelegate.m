@@ -108,6 +108,7 @@
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
 	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:
@@ -385,7 +386,6 @@
 
 - (void)userNeedToAgreeToTermsOfUse
 {
-	NSLog(@"needs terms of use");
 	TermOfUse *terms = [[TermOfUse alloc] init];
 	
 	terms.delegate = self;
@@ -402,6 +402,24 @@
 	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
 
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
+}
+
+- (void)userWantsToSelectImage
+{
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	
+	imagePicker.delegate = self;
+	[viewController presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
+- (void)userWantsToSelectContact
+{
+	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+	picker.peoplePickerDelegate = self;
+	
+	[viewController presentModalViewController:picker animated:YES];
+	[picker release];
 }
 
 #pragma mark -

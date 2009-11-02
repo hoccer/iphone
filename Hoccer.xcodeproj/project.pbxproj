@@ -36,6 +36,8 @@
 		2271A04B1083665E00F84755 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
 		2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
 		2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */; };
+		2271E216109F0260003D5C68 /* ContentSelectionButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E214109F0260003D5C68 /* ContentSelectionButtonView.m */; };
+		2271E217109F0260003D5C68 /* ContentSelectionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E215109F0260003D5C68 /* ContentSelectionButtonView.xib */; };
 		227333EE1056426D004228B4 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227333ED1056426D004228B4 /* icon.png */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
@@ -169,6 +171,9 @@
 		2271E19F109EDCFE003D5C68 /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		2271E1A0109EDCFE003D5C68 /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
 		2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
+		2271E213109F0260003D5C68 /* ContentSelectionButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentSelectionButtonView.h; sourceTree = "<group>"; };
+		2271E214109F0260003D5C68 /* ContentSelectionButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentSelectionButtonView.m; sourceTree = "<group>"; };
+		2271E215109F0260003D5C68 /* ContentSelectionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSelectionButtonView.xib; sourceTree = "<group>"; };
 		227333ED1056426D004228B4 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
@@ -338,6 +343,9 @@
 				22CAB7101084BC59001C184D /* SelectViewController.m */,
 				E64B77FE109491AA0005ACA3 /* AboutViewController.h */,
 				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
+				2271E213109F0260003D5C68 /* ContentSelectionButtonView.h */,
+				2271E214109F0260003D5C68 /* ContentSelectionButtonView.m */,
+				2271E215109F0260003D5C68 /* ContentSelectionButtonView.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -722,6 +730,7 @@
 				22A019251099C482007FCC59 /* catch_180.m4v in Resources */,
 				22A019261099C482007FCC59 /* throw_180.m4v in Resources */,
 				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
+				2271E217109F0260003D5C68 /* ContentSelectionButtonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -802,6 +811,7 @@
 				227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */,
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
+				2271E216109F0260003D5C68 /* ContentSelectionButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

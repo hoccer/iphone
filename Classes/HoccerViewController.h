@@ -31,6 +31,7 @@
 	IBOutlet UIView *successView;
 	IBOutlet UIImageView *descriptionImage;
 		
+	IBOutlet UIScrollView *mainScrollView;
 	IBOutlet HoccerAppDelegate* delegate;
 	
 	PreviewView *currentPreview;
