@@ -134,10 +134,6 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	infoView.hidden = NO;
 	
-	// cancelButton.hidden = NO;
-	statusLabel.hidden = NO;
-	
-	
 	[activitySpinner startAnimating];
 }
 
@@ -146,10 +142,6 @@
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
 	infoView.hidden = YES;
-	statusLabel .hidden = YES;
-	// cancelButton.hidden = YES;
-
-	
 	[activitySpinner stopAnimating];
 }
 
