@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <AddressBook/AddressBook.h>
+#import <QuartzCore/QuartzCore.h>
 
 
 #import "ABPersonVCardCreator.h"
@@ -28,7 +29,7 @@
 #import "HoccerText.h"
 #import "PreviewView.h"
 
-#import "ContentSelectionButtonView.h"
+#import "DragUpMenuViewController.h"
 
 
 @implementation HoccerViewController
@@ -39,11 +40,8 @@
     [super didReceiveMemoryWarning];
 }
 
-
 - (void)viewDidLoad {
-	NSLog(@"delegate: %@", self.delegate);
-	
-	selectionViewController = [[ContentSelectionButtonView alloc] initWithNibName:@"ContentSelectionButtonView" bundle:nil];
+	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
 	selectionViewController.delegate = self.delegate;
 	
 	CGSize size = mainScrollView.frame.size;
@@ -150,8 +148,14 @@
 
 - (void)showConnectionActivity
 {
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	
+	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(0, 0)];
+	
+	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	infoView.hidden = NO;
+	// [[infoView layer] addAnimation:animation forKey:<#(NSString *)key#>  
 	
 	[activitySpinner startAnimating];
 }
@@ -191,7 +195,7 @@
 		
 	contentView.delegate = self.delegate;
 	
-	[self.view insertSubview: contentView atIndex: 1];
+	[mainScrollView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	currentPreview = contentView;

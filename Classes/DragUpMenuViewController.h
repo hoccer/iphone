@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ContentSelectionButtonView : UIViewController {
+@interface DragUpMenuViewController : UIViewController {
 	id delegate;
 }
 

@@ -15,7 +15,7 @@
 
 @class HoccerAppDelegate;
 @class PreviewView;
-@class ContentSelectionButtonView;
+@class DragUpMenuViewController;
 
 @interface HoccerViewController : UIViewController <UIScrollViewDelegate> {
 		
@@ -34,7 +34,7 @@
 		
 	IBOutlet UIScrollView *mainScrollView;
 	
-	ContentSelectionButtonView *selectionViewController;
+	DragUpMenuViewController *selectionViewController;
 	IBOutlet HoccerAppDelegate* delegate;
 	
 	PreviewView *currentPreview;

@@ -6,11 +6,11 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import "ContentSelectionButtonView.h"
+#import "DragUpMenuViewController.h"
 #import "NSObject+DelegateHelper.h"
 
 
-@implementation ContentSelectionButtonView
+@implementation DragUpMenuViewController
 
 @synthesize delegate;
 
