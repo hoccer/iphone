@@ -20,9 +20,9 @@
 	
 	FeatureHistory *featureHistory;
 	
-	id <GesturesInterpreterDelegate> delegate;
+	NSObject <GesturesInterpreterDelegate> * delegate;
 }
 
-@property (retain) id <GesturesInterpreterDelegate>  delegate;
+@property (retain) NSObject <GesturesInterpreterDelegate> * delegate;
 
 @end

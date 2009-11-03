@@ -7,6 +7,7 @@
 //
 
 #import "TermOfUse.h"
+#import "NSObject+DelegateHelper.h"
 
 
 @implementation TermOfUse
