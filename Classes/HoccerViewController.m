@@ -161,7 +161,6 @@
 	animation.delegate = self;
 
 	[[infoView layer] addAnimation:animation forKey:@"positionAnimation"];  
-	// infoView.center = CGPointMake(160, 30);
 
 	[activitySpinner startAnimating];
 }
