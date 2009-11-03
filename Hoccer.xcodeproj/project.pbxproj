@@ -73,6 +73,9 @@
 		227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A94F710971A9C008CE547 /* HelpScrollView.xib */; };
 		227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A960810973CED008CE547 /* MediaPlayer.framework */; };
 		227A963710974BD3008CE547 /* HelpContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A963610974BD3008CE547 /* HelpContent.m */; };
+		227B3A7F10A06E32000326FD /* Contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B3A7C10A06E32000326FD /* Contacts.png */; };
+		227B3A8010A06E32000326FD /* Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B3A7D10A06E32000326FD /* Photo.png */; };
+		227B3A8110A06E32000326FD /* Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B3A7E10A06E32000326FD /* Text.png */; };
 		227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */; };
 		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
@@ -230,6 +233,9 @@
 		227A960810973CED008CE547 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		227A963510974BD3008CE547 /* HelpContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpContent.h; path = Help/HelpContent.h; sourceTree = "<group>"; };
 		227A963610974BD3008CE547 /* HelpContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpContent.m; path = Help/HelpContent.m; sourceTree = "<group>"; };
+		227B3A7C10A06E32000326FD /* Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contacts.png; sourceTree = "<group>"; };
+		227B3A7D10A06E32000326FD /* Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photo.png; sourceTree = "<group>"; };
+		227B3A7E10A06E32000326FD /* Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Text.png; sourceTree = "<group>"; };
 		227B5CDC107DE1A80012BBA6 /* VcardParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParserTests.h; path = Tests/VcardParserTests.h; sourceTree = "<group>"; };
 		227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardParserTests.m; path = Tests/VcardParserTests.m; sourceTree = "<group>"; };
 		227B5CE3107DE3D30012BBA6 /* VcardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardParser.h; path = AddressBook/VcardParser.h; sourceTree = "<group>"; };
@@ -560,6 +566,16 @@
 			name = Video;
 			sourceTree = "<group>";
 		};
+		227B3A6610A06DFC000326FD /* image */ = {
+			isa = PBXGroup;
+			children = (
+				227B3A7C10A06E32000326FD /* Contacts.png */,
+				227B3A7D10A06E32000326FD /* Photo.png */,
+				227B3A7E10A06E32000326FD /* Text.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		229DAF1C107B377C00B47ABE /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,8 +614,8 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				22762D17105E4408003BF968 /* Tests */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				22762D04105E412A003BF968 /* Test-Info.plist */,
@@ -620,6 +636,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				227B3A6610A06DFC000326FD /* image */,
 				227A95EF10973B90008CE547 /* Video */,
 				28D161B51095F72B00858642 /* close.png */,
 				28D161961095F27B00858642 /* receive.png */,
@@ -740,6 +757,9 @@
 				22A019261099C482007FCC59 /* throw_180.m4v in Resources */,
 				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
 				2271E217109F0260003D5C68 /* DragUpMenuViewController.xib in Resources */,
+				227B3A7F10A06E32000326FD /* Contacts.png in Resources */,
+				227B3A8010A06E32000326FD /* Photo.png in Resources */,
+				227B3A8110A06E32000326FD /* Text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@
 	selectionViewController.delegate = self.delegate;
 	
 	CGSize size = mainScrollView.frame.size;
-	size.height += selectionViewController.view.frame.size.height;
+	// size.height += 1; //selectionViewController.view.frame.size.height;
 	
 	CGRect buttonViewRect = selectionViewController.view.frame;
 	buttonViewRect.origin.y = mainScrollView.frame.size.height;
@@ -154,7 +154,7 @@
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(160, -35)];
 	animation.toValue = [NSNumber valueWithCGPoint: CGPointMake(160, 30)];
-	animation.duration = 0.3;
+	animation.duration = 0.2;
 	animation.fillMode = kCAFillModeForwards;
 	animation.removedOnCompletion = NO;
 	animation.beginTime = CACurrentMediaTime() + 0.6;
@@ -164,8 +164,6 @@
 
 	[activitySpinner startAnimating];
 }
-
-
 
 - (void)hideConnectionActivity
 {
@@ -246,24 +244,39 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-	if (decelerate) {
-		return;
-	}
-	
-	[self scrollViewDidEndDecelerating: scrollView];
+	CGFloat yOffset =  scrollView.contentOffset.y;
 
+	NSLog(@"offset on end draging: %f", scrollView.contentOffset.y);
+	if (yOffset > selectionViewController.view.frame.size.height + 5) {
+		
+		CGSize size = mainScrollView.frame.size;
+		size.height += selectionViewController.view.frame.size.height;
+		mainScrollView.contentSize = size;
+
+		scrollView.contentOffset = CGPointMake(0, yOffset);
+	} else {
+		mainScrollView.contentSize = CGSizeMake(320, 460);
+		scrollView.contentOffset = CGPointMake(0, yOffset);
+	}
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
 	float maxHeight = selectionViewController.view.frame.size.height;
-	if (scrollView.contentOffset.y > maxHeight * 0.95) {
+	if (scrollView.contentOffset.y > maxHeight ) {
 		[scrollView setContentOffset: CGPointMake(0, maxHeight) animated:YES];
-	} else {
-		[scrollView setContentOffset: CGPointMake(0, 0) animated:YES];
 	}
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	if (growScrollView && scrollView.contentOffset.y == selectionViewController.view.frame.size.height) {}
+}
+
+
+#pragma mark -
+#pragma mark CAAnimation Delegate Methods
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag 
 {
 	infoView.center = CGPointMake(160, 30);

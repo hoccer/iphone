@@ -39,6 +39,8 @@
 	
 	PreviewView *currentPreview;
 	CGRect originalFrame;
+
+	BOOL growScrollView;
 }
 
 @property (assign) HoccerAppDelegate* delegate;
