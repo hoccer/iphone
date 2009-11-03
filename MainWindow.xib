@@ -42,8 +42,11 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAxIDEAA</bytes>
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MAA</bytes>
+					<object class="NSColorSpace" key="NSCustomColorSpace">
+						<int key="NSID">2</int>
+					</object>
 				</object>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -247,11 +250,13 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>didDissmissContentToThrow:</string>
+							<string>didSelectHelp:</string>
 							<string>onCancel:</string>
-							<string>showActions:</string>
+							<string>showAbout:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -262,21 +267,31 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activitySpinner</string>
+							<string>cancelButton</string>
 							<string>delegate</string>
+							<string>descriptionImage</string>
 							<string>infoView</string>
 							<string>locationLabel</string>
-							<string>saveButton</string>
+							<string>mainScrollView</string>
+							<string>modeLabel</string>
+							<string>progressView</string>
 							<string>statusLabel</string>
+							<string>successView</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIActivityIndicatorView</string>
+							<string>UIBarButtonItem</string>
 							<string>HoccerAppDelegate</string>
+							<string>UIImageView</string>
 							<string>UIView</string>
 							<string>UILabel</string>
-							<string>UIBarButtonItem</string>
+							<string>UIScrollView</string>
+							<string>UINavigationItem</string>
+							<string>UIProgressView</string>
 							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIToolbar</string>
 						</object>
 					</object>
@@ -326,12 +341,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>activity</string>
 							<string>delegate</string>
 							<string>saveButton</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIActivityIndicatorView</string>
 							<string>id</string>
 							<string>UIBarButtonItem</string>
 							<string>UIToolbar</string>

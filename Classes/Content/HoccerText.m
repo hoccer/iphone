@@ -50,7 +50,6 @@
 	PreviewView *view = [[PreviewView alloc] initWithFrame:frame];	
 
 	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(10, 10, 155, 155)];
-	
 	[view insertSubview: textView atIndex: 0];
 	[self.textView becomeFirstResponder];
 	

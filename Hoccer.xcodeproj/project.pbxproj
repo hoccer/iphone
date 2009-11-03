@@ -569,6 +569,9 @@
 		227B3A6610A06DFC000326FD /* image */ = {
 			isa = PBXGroup;
 			children = (
+				28D161B51095F72B00858642 /* close.png */,
+				28D161961095F27B00858642 /* receive.png */,
+				28D1618F1095EE1200858642 /* myicon.png */,
 				227B3A7C10A06E32000326FD /* Contacts.png */,
 				227B3A7D10A06E32000326FD /* Photo.png */,
 				227B3A7E10A06E32000326FD /* Text.png */,
@@ -638,9 +641,6 @@
 			children = (
 				227B3A6610A06DFC000326FD /* image */,
 				227A95EF10973B90008CE547 /* Video */,
-				28D161B51095F72B00858642 /* close.png */,
-				28D161961095F27B00858642 /* receive.png */,
-				28D1618F1095EE1200858642 /* myicon.png */,
 				22762DE5105E5688003BF968 /* fixtures */,
 				2271A01810835B8900F84755 /* catch_sound.wav */,
 				2271A01910835B8900F84755 /* throw_sound.wav */,
