@@ -147,17 +147,26 @@
 
 - (void)showConnectionActivity
 {
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	
-	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(0, 0)];
-	
-	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	infoView.hidden = NO;
-	// [[infoView layer] addAnimation:animation forKey:<#(NSString *)key#>  
+	infoView.center = CGPointMake(160, -35);
 	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(160, -35)];
+	animation.toValue = [NSNumber valueWithCGPoint: CGPointMake(160, 30)];
+	animation.duration = 0.3;
+	animation.fillMode = kCAFillModeForwards;
+	animation.removedOnCompletion = NO;
+	animation.beginTime = CACurrentMediaTime() + 0.6;
+	animation.delegate = self;
+
+	[[infoView layer] addAnimation:animation forKey:@"positionAnimation"];  
+	// infoView.center = CGPointMake(160, 30);
+
 	[activitySpinner startAnimating];
 }
+
+
 
 - (void)hideConnectionActivity
 {
@@ -254,6 +263,11 @@
 	} else {
 		[scrollView setContentOffset: CGPointMake(0, 0) animated:YES];
 	}
+}
+
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag 
+{
+	infoView.center = CGPointMake(160, 30);
 }
 
 @end
