@@ -15,9 +15,6 @@
 
 @end
 
-
-
-
 @implementation HoccerText
 
 @synthesize textView;
@@ -50,14 +47,13 @@
 	PreviewView *view = [[PreviewView alloc] initWithFrame:frame];	
 
 	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(10, 10, 155, 155)];
+	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
+	
 	[view insertSubview: textView atIndex: 0];
 	[self.textView becomeFirstResponder];
 	
-	
 	return [view autorelease];
 }
-
-
 
 - (NSString *)saveButtonDescription 
 {

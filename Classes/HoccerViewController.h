@@ -34,13 +34,13 @@
 		
 	IBOutlet UIScrollView *mainScrollView;
 	
+	IBOutlet UIView *downIndicator;
+	
 	DragUpMenuViewController *selectionViewController;
 	IBOutlet HoccerAppDelegate* delegate;
 	
 	PreviewView *currentPreview;
 	CGRect originalFrame;
-
-	BOOL growScrollView;
 }
 
 @property (assign) HoccerAppDelegate* delegate;

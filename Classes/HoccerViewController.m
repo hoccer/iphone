@@ -72,6 +72,7 @@
 	[successView release];
 	
 	[mainScrollView release];
+	[downIndicator release];
 	
 	[selectionViewController release];	
 	[super dealloc];
@@ -246,7 +247,6 @@
 {
 	CGFloat yOffset =  scrollView.contentOffset.y;
 
-	NSLog(@"offset on end draging: %f", scrollView.contentOffset.y);
 	if (yOffset > selectionViewController.view.frame.size.height + 5) {
 		
 		CGSize size = mainScrollView.frame.size;
@@ -271,7 +271,35 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-	if (growScrollView && scrollView.contentOffset.y == selectionViewController.view.frame.size.height) {}
+	if (scrollView.contentOffset.y >= selectionViewController.view.frame.size.height) {
+		[self turnDownIndicator];
+	} else {
+		[self turnUpIndicator];
+	}
+}
+
+
+- (void)turnDownIndicator
+{
+	NSLog(@"turning down");
+	
+	[UIView beginAnimations:@"turnDownAnimation" context:NULL];
+	[UIView setAnimationDuration:0.2];
+	
+	downIndicator.transform = CGAffineTransformMakeRotation(3.14);	
+	[UIView commitAnimations];
+}
+
+- (void)turnUpIndicator
+{
+	NSLog(@"turning up");
+	
+	[UIView beginAnimations:@"rotateUpAnimation" context:NULL];
+	[UIView setAnimationDuration:0.2];
+	
+	downIndicator.transform = CGAffineTransformIdentity;	
+	[UIView commitAnimations];
+
 }
 
 
