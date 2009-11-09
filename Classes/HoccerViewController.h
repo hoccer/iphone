@@ -19,7 +19,7 @@
 @class DragUpMenuViewController;
 @class HiddenViewScrollViewDelegate;
 
-@interface HoccerViewController : UIViewController <UIScrollViewDelegate> {
+@interface HoccerViewController : UIViewController {
 		
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIToolbar *toolbar;
@@ -36,6 +36,8 @@
 		
 	IBOutlet UIScrollView *mainScrollView;
 	IBOutlet UIView *downIndicator;
+	IBOutlet UIView *backgroundView;
+	
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	

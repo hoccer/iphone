@@ -41,6 +41,10 @@
 }
 
 - (void)viewDidLoad {
+// 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Background" ofType:@"png"];
+//	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile: backgroundImagePath]];
+	[backgroundView setNeedsDisplay];
+	
 	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
 	selectionViewController.delegate = self.delegate;
 	
@@ -78,6 +82,8 @@
 	
 	[selectionViewController release];	
 	[hiddenViewDelegate release];
+	
+	[backgroundView release];
 	
 	[super dealloc];
 }
