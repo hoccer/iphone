@@ -14,6 +14,9 @@
 - (void)turnIndicatorDown;
 - (void)turnIndicatorUp;
 
+- (void)expandScrollView;
+- (void)shrinkScrollView;
+
 @end
 
 @implementation HiddenViewScrollViewDelegate
@@ -33,6 +36,13 @@
 }
 
 
+- (IBAction)showHiddenView: (id)sender
+{
+	[self expandScrollView];
+	
+	[scrollView setContentOffset:CGPointMake(0, hiddenView.frame.size.height) animated:YES];
+}
+
 
 #pragma mark -
 #pragma mark ScrollViewDelegate Methods
@@ -41,14 +51,10 @@
 {
 	CGFloat yOffset =  scrollView.contentOffset.y;
 	if (yOffset > hiddenView.frame.size.height + 5) {
-		CGSize size = scrollView.frame.size;
-		size.height += hiddenView.frame.size.height;
-		scrollView.contentSize = size;
-		scrollView.contentOffset = CGPointMake(0, yOffset);
+		[self expandScrollView];
 	} else {
-		scrollView.contentSize = CGSizeMake(320, 460);
-		scrollView.contentOffset = CGPointMake(0, yOffset);
-	
+		[self shrinkScrollView];
+		
 		if (!decelerate) {
 			[self scrollViewDidEndDecelerating:aScrollView];
 		}
@@ -73,6 +79,9 @@
 	}
 }
 
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void)turnIndicatorDown
 {
@@ -100,9 +109,25 @@
 	[UIView commitAnimations];
 	
 	indicatorIsTurnedUp = YES;
-	
 }
 
+- (void)expandScrollView
+{
+	CGFloat yOffset =  scrollView.contentOffset.y;
+
+	CGSize size = scrollView.frame.size;
+	size.height = size.height + hiddenView.frame.size.height;
+	scrollView.contentSize = size;
+	scrollView.contentOffset = CGPointMake(0, yOffset);
+}
+
+- (void)shrinkScrollView
+{
+	CGFloat yOffset =  scrollView.contentOffset.y;
+
+	scrollView.contentSize = CGSizeMake(320, 460);
+	scrollView.contentOffset = CGPointMake(0, yOffset);
+}
 
 
 @end

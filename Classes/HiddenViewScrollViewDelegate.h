@@ -23,5 +23,6 @@
 @property (nonatomic, retain) UIView *indicatorView;
 @property (nonatomic, retain) UIView *hiddenView;
 
+- (IBAction)showHiddenView: (id)sender;
 
 @end
