@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="12"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -37,10 +36,9 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 			</object>
 			<object class="IBUIWindow" id="117978783">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{320, 480}</string>
-				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -51,7 +49,7 @@
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
-					<int key="IBUIStatusBarStyle">1</int>
+					<int key="IBUIStatusBarStyle">2</int>
 				</object>
 			</object>
 			<object class="IBUIViewController" id="84156477">
@@ -171,7 +169,7 @@
 					<string>HoccerViewController</string>
 					<string>{{92, 466}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{255, 347}, {320, 480}}</string>
+					<string>{{229, 286}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>HoccerAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -270,6 +268,7 @@
 							<string>cancelButton</string>
 							<string>delegate</string>
 							<string>descriptionImage</string>
+							<string>downIndicator</string>
 							<string>infoView</string>
 							<string>locationLabel</string>
 							<string>mainScrollView</string>
@@ -285,6 +284,7 @@
 							<string>UIBarButtonItem</string>
 							<string>HoccerAppDelegate</string>
 							<string>UIImageView</string>
+							<string>UIView</string>
 							<string>UIView</string>
 							<string>UILabel</string>
 							<string>UIScrollView</string>

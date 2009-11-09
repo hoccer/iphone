@@ -16,10 +16,6 @@
 
 @end
 
-
-
-
-
 @implementation HiddenViewScrollViewDelegate
 
 @synthesize scrollView;
