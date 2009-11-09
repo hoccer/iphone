@@ -12,10 +12,9 @@
 #import <AddressBook/AddressBook.h>
 #import <QuartzCore/QuartzCore.h>
 
-
 #import "ABPersonVCardCreator.h"
 #import "NSObject+DelegateHelper.h"
-#import  "NSString+StringWithData.h"
+#import "NSString+StringWithData.h"
 
 #import "HoccerViewController.h"
 #import "HoccerDownloadRequest.h"
@@ -30,6 +29,7 @@
 #import "PreviewView.h"
 
 #import "DragUpMenuViewController.h"
+#import "HiddenViewScrollViewDelegate.h"
 
 
 @implementation HoccerViewController
@@ -44,15 +44,17 @@
 	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
 	selectionViewController.delegate = self.delegate;
 	
-	CGSize size = mainScrollView.frame.size;
-	// size.height += 1; //selectionViewController.view.frame.size.height;
-	
-	CGRect buttonViewRect = selectionViewController.view.frame;
-	buttonViewRect.origin.y = mainScrollView.frame.size.height;
-	
-	selectionViewController.view.frame = buttonViewRect;
-	mainScrollView.contentSize = size;
-	mainScrollView.delegate = self;
+	hiddenViewDelegate = [[HiddenViewScrollViewDelegate alloc] init];
+	hiddenViewDelegate.scrollView = mainScrollView;
+	hiddenViewDelegate.indicatorView = downIndicator;
+	hiddenViewDelegate.hiddenView = selectionViewController.view;
+
+	CGRect bottomViewRect = selectionViewController.view.frame;
+	bottomViewRect.origin.y = mainScrollView.frame.size.height;
+	selectionViewController.view.frame = bottomViewRect;
+
+	mainScrollView.contentSize = mainScrollView.frame.size;;
+	mainScrollView.delegate = hiddenViewDelegate;
 	[mainScrollView addSubview: selectionViewController.view];
 }
 
@@ -75,6 +77,8 @@
 	[downIndicator release];
 	
 	[selectionViewController release];	
+	[hiddenViewDelegate release];
+	
 	[super dealloc];
 }
 
@@ -239,6 +243,7 @@
 {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
+
 
 
 #pragma mark -

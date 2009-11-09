@@ -6,7 +6,10 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-@interface HiddenViewScrollViewDelegate
+#import "HiddenViewScrollViewDelegate.h"
+
+
+@interface HiddenViewScrollViewDelegate ()
 
 - (void)turnIndicatorDown;
 - (void)turnIndicatorUp;
@@ -15,46 +18,54 @@
 
 
 
-#import "HiddenViewScrollViewDelegate.h"
 
 
 @implementation HiddenViewScrollViewDelegate
 
 @synthesize scrollView;
 @synthesize indicatorView;
+@synthesize hiddenView;
+
+
+- (void) dealloc
+{
+	[scrollView release];
+	[indicatorView release];
+	[hiddenView release];
+	
+	[super dealloc];
+}
+
+
 
 #pragma mark -
 #pragma mark ScrollViewDelegate Methods
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView willDecelerate:(BOOL)decelerate
 {
 	CGFloat yOffset =  scrollView.contentOffset.y;
-	
-	if (yOffset > selectionViewController.view.frame.size.height + 5) {
-		
-		CGSize size = mainScrollView.frame.size;
-		size.height += selectionViewController.view.frame.size.height;
-		mainScrollView.contentSize = size;
-		
+	if (yOffset > hiddenView.frame.size.height + 5) {
+		CGSize size = scrollView.frame.size;
+		size.height += hiddenView.frame.size.height;
+		scrollView.contentSize = size;
 		scrollView.contentOffset = CGPointMake(0, yOffset);
 	} else {
-		mainScrollView.contentSize = CGSizeMake(320, 460);
+		scrollView.contentSize = CGSizeMake(320, 460);
 		scrollView.contentOffset = CGPointMake(0, yOffset);
 	}
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
 {
-	float maxHeight = selectionViewController.view.frame.size.height;
+	float maxHeight = hiddenView.frame.size.height;
 	if (scrollView.contentOffset.y > maxHeight ) {
 		[scrollView setContentOffset: CGPointMake(0, maxHeight) animated:YES];
 	}
 }
 
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-	if (scrollView.contentOffset.y >= selectionViewController.view.frame.size.height) {
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
+{	
+	if (scrollView.contentOffset.y >= hiddenView.frame.size.height) {
 		[self turnIndicatorDown];
 	} else {
 		[self turnIndicatorUp];
@@ -64,24 +75,30 @@
 
 - (void)turnIndicatorDown
 {
-	NSLog(@"turning down");
+	if (!indicatorIsTurnedUp)
+		return;
 	
 	[UIView beginAnimations:@"turnDownAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
 	
-	downIndicator.transform = CGAffineTransformMakeRotation(3.14);	
+	indicatorView.transform = CGAffineTransformMakeRotation(3.14);	
 	[UIView commitAnimations];
+	
+	indicatorIsTurnedUp = NO;
 }
 
 - (void)turnIndicatorUp
-{
-	NSLog(@"turning up");
+{	
+	if (indicatorIsTurnedUp)
+		return;
 	
 	[UIView beginAnimations:@"rotateUpAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
 	
-	downIndicator.transform = CGAffineTransformIdentity;	
+	indicatorView.transform = CGAffineTransformIdentity;	
 	[UIView commitAnimations];
+	
+	indicatorIsTurnedUp = YES;
 	
 }
 

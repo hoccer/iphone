@@ -12,11 +12,16 @@
 @interface HiddenViewScrollViewDelegate : NSObject <UIScrollViewDelegate> {
 
 	UIScrollView *scrollView;
+	UIView *hiddenView;
+	
 	UIView *indicatorView;
+	
+	BOOL indicatorIsTurnedUp;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIView *indicatorView;
+@property (nonatomic, retain) UIView *hiddenView;
 
 
 @end

@@ -13,9 +13,11 @@
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
 
+
 @class HoccerAppDelegate;
 @class PreviewView;
 @class DragUpMenuViewController;
+@class HiddenViewScrollViewDelegate;
 
 @interface HoccerViewController : UIViewController <UIScrollViewDelegate> {
 		
@@ -33,14 +35,15 @@
 	IBOutlet UIImageView *descriptionImage;
 		
 	IBOutlet UIScrollView *mainScrollView;
-	
 	IBOutlet UIView *downIndicator;
-	
-	DragUpMenuViewController *selectionViewController;
+		
 	IBOutlet HoccerAppDelegate* delegate;
 	
 	PreviewView *currentPreview;
 	CGRect originalFrame;
+	
+	DragUpMenuViewController *selectionViewController;
+	HiddenViewScrollViewDelegate *hiddenViewDelegate;
 }
 
 @property (assign) HoccerAppDelegate* delegate;
