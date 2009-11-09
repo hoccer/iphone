@@ -52,14 +52,19 @@
 	} else {
 		scrollView.contentSize = CGSizeMake(320, 460);
 		scrollView.contentOffset = CGPointMake(0, yOffset);
+	
+		if (!decelerate) {
+			[self scrollViewDidEndDecelerating:aScrollView];
+		}
 	}
+	
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
 {
 	float maxHeight = hiddenView.frame.size.height;
-	if (scrollView.contentOffset.y > maxHeight ) {
-		[scrollView setContentOffset: CGPointMake(0, maxHeight) animated:YES];
+	if (scrollView.contentOffset.y < maxHeight ) {
+	 	[scrollView setContentOffset: CGPointMake(0, 0) animated:YES];
 	}
 }
 
