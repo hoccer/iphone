@@ -95,7 +95,15 @@
 
 - (PreviewView *)previewWithFrame: (CGRect)frame
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame: frame];
+	PreviewView *view = [[PreviewView alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	
+	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+
+	[view addSubview:backgroundImage];
+	[view sendSubviewToBack:backgroundImage];
+	// view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile: backgroundImagePath]];
+	[backgroundImage release];
 
 	[view setImage:image];
 	return [view autorelease];

@@ -124,6 +124,10 @@
 		22D7303E10A85CA0000AEA79 /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7303D10A85CA0000AEA79 /* Header.png */; };
 		22D7304510A85F3D000AEA79 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7304410A85F3D000AEA79 /* Map.png */; };
 		22D7304C10A861B3000AEA79 /* Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7304B10A861B3000AEA79 /* Catch_Icon.png */; };
+		22D7305B10A869E1000AEA79 /* Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7305A10A869E1000AEA79 /* Throw_Icon.png */; };
+		22D730B710A879AA000AEA79 /* Photobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D730B610A879AA000AEA79 /* Photobox.png */; };
+		22D7311410A87EC5000AEA79 /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7311310A87EC5000AEA79 /* Close.png */; };
+		22D7312F10A88133000AEA79 /* Close_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7312E10A88133000AEA79 /* Close_Highlighted.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -131,7 +135,6 @@
 		28B19B2A10A2F01E0075CD0D /* artcomtech_260px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */; };
 		28D161901095EE1200858642 /* myicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D1618F1095EE1200858642 /* myicon.png */; };
 		28D161971095F27B00858642 /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D161961095F27B00858642 /* receive.png */; };
-		28D161B61095F72B00858642 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D161B51095F72B00858642 /* close.png */; };
 		28D7ACF80DDB3853001CB0EB /* HoccerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */; };
 		E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
 		E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64B7800109491AA0005ACA3 /* AboutViewController.xib */; };
@@ -311,6 +314,10 @@
 		22D7303D10A85CA0000AEA79 /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header.png; sourceTree = "<group>"; };
 		22D7304410A85F3D000AEA79 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map.png; sourceTree = "<group>"; };
 		22D7304B10A861B3000AEA79 /* Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Catch_Icon.png; sourceTree = "<group>"; };
+		22D7305A10A869E1000AEA79 /* Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Throw_Icon.png; sourceTree = "<group>"; };
+		22D730B610A879AA000AEA79 /* Photobox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photobox.png; sourceTree = "<group>"; };
+		22D7311310A87EC5000AEA79 /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
+		22D7312E10A88133000AEA79 /* Close_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close_Highlighted.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -318,7 +325,6 @@
 		28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcomtech_260px_white.png; sourceTree = "<group>"; };
 		28D1618F1095EE1200858642 /* myicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myicon.png; sourceTree = "<group>"; };
 		28D161961095F27B00858642 /* receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receive.png; sourceTree = "<group>"; };
-		28D161B51095F72B00858642 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -602,6 +608,10 @@
 		227B3A6610A06DFC000326FD /* image */ = {
 			isa = PBXGroup;
 			children = (
+				22D7312E10A88133000AEA79 /* Close_Highlighted.png */,
+				22D7311310A87EC5000AEA79 /* Close.png */,
+				22D730B610A879AA000AEA79 /* Photobox.png */,
+				22D7305A10A869E1000AEA79 /* Throw_Icon.png */,
 				22D7304B10A861B3000AEA79 /* Catch_Icon.png */,
 				22D7304410A85F3D000AEA79 /* Map.png */,
 				22D7303D10A85CA0000AEA79 /* Header.png */,
@@ -617,7 +627,6 @@
 				22D72F8910A83760000AEA79 /* Contacts.png */,
 				2278AB0E10A2E3CB009716A2 /* Photo.png */,
 				2278AB0F10A2E3CB009716A2 /* Text.png */,
-				28D161B51095F72B00858642 /* close.png */,
 				28D161961095F27B00858642 /* receive.png */,
 				28D1618F1095EE1200858642 /* myicon.png */,
 				28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */,
@@ -796,7 +805,6 @@
 				E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */,
 				28D161901095EE1200858642 /* myicon.png in Resources */,
 				28D161971095F27B00858642 /* receive.png in Resources */,
-				28D161B61095F72B00858642 /* close.png in Resources */,
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
 				22A019241099C482007FCC59 /* bump_180.m4v in Resources */,
@@ -821,6 +829,10 @@
 				22D7303E10A85CA0000AEA79 /* Header.png in Resources */,
 				22D7304510A85F3D000AEA79 /* Map.png in Resources */,
 				22D7304C10A861B3000AEA79 /* Catch_Icon.png in Resources */,
+				22D7305B10A869E1000AEA79 /* Throw_Icon.png in Resources */,
+				22D730B710A879AA000AEA79 /* Photobox.png in Resources */,
+				22D7311410A87EC5000AEA79 /* Close.png in Resources */,
+				22D7312F10A88133000AEA79 /* Close_Highlighted.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

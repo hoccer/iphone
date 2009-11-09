@@ -21,9 +21,14 @@
 	if (self != nil) {
 		UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
 		
-		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"close" ofType:@"png"];
+		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
 		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
-		[button setFrame: CGRectMake(0, 0, 20, 20)];
+		
+		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
+		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
+				forState:UIControlStateHighlighted];
+
+		[button setFrame: CGRectMake(17, 18, 35, 36)];
 		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];
@@ -33,30 +38,21 @@
 
 - (void) setImage: (UIImage *)image
 {
-	NSInteger padding = 10;
+	NSInteger paddingLeft = 35;
+	NSInteger paddingTop = 35;
 	
-	CGFloat frameWidth = self.frame.size.width - (2 * padding);
-	CGFloat frameHeight = self.frame.size.height - (2 * padding);
+	CGFloat frameWidth = self.frame.size.width - (2 * paddingLeft) + 3;
+	CGFloat frameHeight = self.frame.size.height - (2 * paddingTop) + 10;
 		
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
 	UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES
 											trimToFit: YES];
 	
-	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(padding, padding, thumb.size.width, thumb.size.height)];
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, size.width, size.height)];
 	imageView.image = thumb;
 	
-	[self insertSubview:imageView atIndex:0];
+	[self insertSubview:imageView atIndex:1];
 	[imageView release];
-}
-
-- (void)drawRect: (CGRect)rect
-{
-	[super drawRect:rect];
-	CGContextRef context = UIGraphicsGetCurrentContext();
-
-	// CGContextSetShadow(context, CGSizeMake(-15.0, 20.0), 5.0f);
-	CGContextSetRGBFillColor(context, 0.9, 0.9, 0.9, 1.0);
-	CGContextFillRect(context, rect);
 }
 
 - (void)userDismissedContent: (id)sender
