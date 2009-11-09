@@ -280,9 +280,7 @@
 
 
 - (void)turnDownIndicator
-{
-	NSLog(@"turning down");
-	
+{	
 	[UIView beginAnimations:@"turnDownAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
 	
@@ -291,9 +289,7 @@
 }
 
 - (void)turnUpIndicator
-{
-	NSLog(@"turning up");
-	
+{	
 	[UIView beginAnimations:@"rotateUpAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
 	
