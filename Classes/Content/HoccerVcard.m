@@ -79,7 +79,7 @@
 	[view sendSubviewToBack:backgroundImage];
 	[backgroundImage release];
 	
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(125, 60, 165, 20)];
+	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(106, 56, 165, 20)];
 	label.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
 	label.textColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
 	

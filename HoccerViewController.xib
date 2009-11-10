@@ -9,7 +9,6 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="134"/>
-			<integer value="155"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -32,16 +31,16 @@
 			<object class="IBProxyObject" id="843779117">
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
 			</object>
-			<object class="IBUIView" id="882456565">
-				<reference key="NSNextResponder"/>
+			<object class="IBUIView" id="1019733498">
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="51070778">
-						<reference key="NSNextResponder" ref="882456565"/>
+					<object class="IBUIImageView" id="942244127">
+						<reference key="NSNextResponder" ref="1019733498"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{59, 337}, {69, 69}}</string>
-						<reference key="NSSuperview" ref="882456565"/>
+						<reference key="NSSuperview" ref="1019733498"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentMode">4</int>
@@ -51,11 +50,11 @@
 							<string key="NSResourceName">Throw_Icon.png</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="716532533">
-						<reference key="NSNextResponder" ref="882456565"/>
+					<object class="IBUILabel" id="713435899">
+						<reference key="NSNextResponder" ref="1019733498"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{136, 353}, {50, 23}}</string>
-						<reference key="NSSuperview" ref="882456565"/>
+						<reference key="NSSuperview" ref="1019733498"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -73,11 +72,11 @@
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">1.000000e+01</float>
 					</object>
-					<object class="IBUILabel" id="700210830">
-						<reference key="NSNextResponder" ref="882456565"/>
+					<object class="IBUILabel" id="888043702">
+						<reference key="NSNextResponder" ref="1019733498"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{136, 369}, {130, 21}}</string>
-						<reference key="NSSuperview" ref="882456565"/>
+						<reference key="NSSuperview" ref="1019733498"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -94,7 +93,6 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 405}</string>
-				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MSAwAA</bytes>
@@ -543,7 +541,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">shareView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="882456565"/>
+						<reference key="destination" ref="1019733498"/>
 					</object>
 					<int key="connectionID">160</int>
 				</object>
@@ -633,10 +631,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="50139748"/>
-							<reference ref="236719369"/>
-							<reference ref="123834881"/>
 							<reference ref="821677117"/>
 							<reference ref="99806353"/>
+							<reference ref="123834881"/>
+							<reference ref="236719369"/>
 						</object>
 						<reference key="parent" ref="757791289"/>
 					</object>
@@ -694,29 +692,29 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">155</int>
-						<reference key="object" ref="882456565"/>
+						<reference key="object" ref="1019733498"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="51070778"/>
-							<reference ref="716532533"/>
-							<reference ref="700210830"/>
+							<reference ref="942244127"/>
+							<reference ref="713435899"/>
+							<reference ref="888043702"/>
 						</object>
 						<reference key="parent" ref="92331386"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">157</int>
-						<reference key="object" ref="51070778"/>
-						<reference key="parent" ref="882456565"/>
+						<reference key="object" ref="942244127"/>
+						<reference key="parent" ref="1019733498"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">158</int>
-						<reference key="object" ref="716532533"/>
-						<reference key="parent" ref="882456565"/>
+						<reference key="object" ref="713435899"/>
+						<reference key="parent" ref="1019733498"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">159</int>
-						<reference key="object" ref="700210830"/>
-						<reference key="parent" ref="882456565"/>
+						<reference key="object" ref="888043702"/>
+						<reference key="parent" ref="1019733498"/>
 					</object>
 				</object>
 			</object>
