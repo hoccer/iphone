@@ -102,7 +102,6 @@
 
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
-	// view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile: backgroundImagePath]];
 	[backgroundImage release];
 
 	[view setImage:image];

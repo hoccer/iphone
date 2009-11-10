@@ -59,7 +59,7 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentMode">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<object class="NSCustomResource" key="IBUIImage">
+						<object class="NSCustomResource" key="IBUIImage" id="109594593">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">Catch_Icon.png</string>
 						</object>
@@ -73,7 +73,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="IBUIText">Catch</string>
-						<object class="NSFont" key="IBUIFont" id="64438128">
+						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">1.400000e+01</double>
 							<int key="NSfFlags">16</int>
@@ -95,7 +95,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="IBUIText">receive a distribution</string>
-						<object class="NSFont" key="IBUIFont" id="953182485">
+						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">1.300000e+01</double>
 							<int key="NSfFlags">16</int>
@@ -257,10 +257,7 @@
 												<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 												<int key="IBUIContentMode">4</int>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
-												<object class="NSCustomResource" key="IBUIImage">
-													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">Throw_Icon.png</string>
-												</object>
+												<reference key="IBUIImage" ref="109594593"/>
 											</object>
 											<object class="IBUILabel" id="978507608">
 												<reference key="NSNextResponder" ref="761933659"/>
@@ -271,7 +268,7 @@
 												<bool key="IBUIClipsSubviews">YES</bool>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
 												<string key="IBUIText">Throw</string>
-												<reference key="IBUIFont" ref="64438128"/>
+												<reference key="IBUIFont" ref="770515321"/>
 												<reference key="IBUITextColor" ref="161624430"/>
 												<nil key="IBUIHighlightedColor"/>
 												<int key="IBUIBaselineAdjustment">1</int>
@@ -286,7 +283,11 @@
 												<bool key="IBUIClipsSubviews">YES</bool>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
 												<string key="IBUIText">distribute to many</string>
-												<reference key="IBUIFont" ref="953182485"/>
+												<object class="NSFont" key="IBUIFont" id="17234925">
+													<string key="NSName">Helvetica</string>
+													<double key="NSSize">1.400000e+01</double>
+													<int key="NSfFlags">16</int>
+												</object>
 												<reference key="IBUITextColor" ref="161624430"/>
 												<nil key="IBUIHighlightedColor"/>
 												<int key="IBUIBaselineAdjustment">1</int>
@@ -368,11 +369,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="IBUIText">Looking for partners</string>
-								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Helvetica</string>
-									<double key="NSSize">1.400000e+01</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="IBUIFont" ref="17234925"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>

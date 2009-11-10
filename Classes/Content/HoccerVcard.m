@@ -71,15 +71,25 @@
 
 - (PreviewView *)previewWithFrame: (CGRect)frame
 {
-	PreviewView *previewView = [[PreviewView alloc] initWithFrame: frame];
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(10, 10, 165, 20)];
+	PreviewView *view = [[PreviewView alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
-	[previewView addSubview: label];
+	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Contactbox" ofType:@"png"];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	
+	[view addSubview:backgroundImage];
+	[view sendSubviewToBack:backgroundImage];
+	[backgroundImage release];
+	
+	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(125, 60, 165, 20)];
+	label.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+	label.textColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
+	
+	[view addSubview: label];
 	
 	label.text = [acPerson previewName]; 
 	[label release];
 	
-	return [previewView autorelease];
+	return [view autorelease];
 }
 
 
