@@ -28,7 +28,7 @@
 		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
 				forState:UIControlStateHighlighted];
 
-		[button setFrame: CGRectMake(18, 17, 35, 36)];
+		[button setFrame: CGRectMake(3, 3, 35, 36)];
 		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];

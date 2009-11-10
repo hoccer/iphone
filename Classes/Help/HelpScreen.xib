@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="9"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,7 +39,7 @@
 					<object class="IBUILabel" id="244337442">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{27, 218}, {56, 21}}</string>
+						<string key="NSFrame">{{21, 242}, {56, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -61,7 +61,7 @@
 					<object class="IBUIButton" id="184833995">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{82, 327}, {156, 37}}</string>
+						<string key="NSFrame">{{86, 340}, {156, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -104,7 +104,7 @@
 					<object class="IBUITextView" id="768513268">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 235}, {280, 104}}</string>
+						<string key="NSFrame">{{20, 260}, {280, 72}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -197,10 +197,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="244337442"/>
-							<reference ref="768513268"/>
-							<reference ref="184833995"/>
 							<reference ref="28281232"/>
+							<reference ref="768513268"/>
+							<reference ref="244337442"/>
+							<reference ref="184833995"/>
 						</object>
 						<reference key="parent" ref="391025939"/>
 					</object>
@@ -254,7 +254,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>HelpScreen</string>
 					<string>UIResponder</string>
-					<string>{{341, 146}, {320, 480}}</string>
+					<string>{{136, 270}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

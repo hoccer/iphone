@@ -14,9 +14,7 @@
 #import "FeedbackProvider.h"
 
 @interface HelpScrollView ()
-
 - (void)setUpPages;
-
 @end
 
 
