@@ -10,6 +10,7 @@
 #import "NSObject+DelegateHelper.h"
 
 #import "HelpScreen.h"
+#import "HelpOverview.h"
 #import "HelpContent.h"
 #import "FeedbackProvider.h"
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
 	
 	pages = [[NSArray arrayWithObjects: 
+			  [[[HelpOverview alloc] init] autorelease],
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
 			  nil] retain];

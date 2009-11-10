@@ -88,6 +88,8 @@
 		2281009310A9C1A000DFA0BF /* Info_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */; };
 		2281009410A9C1A000DFA0BF /* Info_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281009010A9C1A000DFA0BF /* Info_Button.png */; };
 		228100AC10A9CA9900DFA0BF /* Contactbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100AB10A9CA9900DFA0BF /* Contactbox.png */; };
+		228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
+		228100C410A9CDCC00DFA0BF /* HelpOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228100C210A9CDCC00DFA0BF /* HelpOverview.xib */; };
 		2281FF1110A96D2700DFA0BF /* Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FF1010A96D2700DFA0BF /* Throw_Icon.png */; };
 		2281FF8510A9810F00DFA0BF /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FF8410A9810F00DFA0BF /* Close.png */; };
 		2281FFD910A99F6200DFA0BF /* Header_Training.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFD810A99F6200DFA0BF /* Header_Training.png */; };
@@ -275,6 +277,9 @@
 		2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info_Highlighted.png; sourceTree = "<group>"; };
 		2281009010A9C1A000DFA0BF /* Info_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info_Button.png; sourceTree = "<group>"; };
 		228100AB10A9CA9900DFA0BF /* Contactbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contactbox.png; sourceTree = "<group>"; };
+		228100C010A9CDCC00DFA0BF /* HelpOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpOverview.h; path = Help/HelpOverview.h; sourceTree = "<group>"; };
+		228100C110A9CDCC00DFA0BF /* HelpOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpOverview.m; path = Help/HelpOverview.m; sourceTree = "<group>"; };
+		228100C210A9CDCC00DFA0BF /* HelpOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpOverview.xib; path = Help/HelpOverview.xib; sourceTree = "<group>"; };
 		2281FF1010A96D2700DFA0BF /* Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Throw_Icon.png; path = /Volumes/tmp/Vanessa/Throw_Icon.png; sourceTree = "<absolute>"; };
 		2281FF8410A9810F00DFA0BF /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
 		2281FFD810A99F6200DFA0BF /* Header_Training.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header_Training.png; sourceTree = "<group>"; };
@@ -605,6 +610,9 @@
 				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
 				227A963510974BD3008CE547 /* HelpContent.h */,
 				227A963610974BD3008CE547 /* HelpContent.m */,
+				228100C010A9CDCC00DFA0BF /* HelpOverview.h */,
+				228100C110A9CDCC00DFA0BF /* HelpOverview.m */,
+				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -861,6 +869,7 @@
 				2281009310A9C1A000DFA0BF /* Info_Highlighted.png in Resources */,
 				2281009410A9C1A000DFA0BF /* Info_Button.png in Resources */,
 				228100AC10A9CA9900DFA0BF /* Contactbox.png in Resources */,
+				228100C410A9CDCC00DFA0BF /* HelpOverview.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +953,7 @@
 				2271E216109F0260003D5C68 /* DragUpMenuViewController.m in Sources */,
 				2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */,
 				2278AAD710A2E065009716A2 /* HiddenViewScrollViewDelegate.m in Sources */,
+				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
