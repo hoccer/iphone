@@ -39,7 +39,7 @@
 					<object class="IBUIImageView" id="466095233">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{14, -30}, {286, 128}}</string>
+						<string key="NSFrame">{{17, 96}, {286, 34}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -53,7 +53,7 @@
 					<object class="IBUITextView" id="711883592">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{16, 87}, {284, 304}}</string>
+						<string key="NSFrame">{{14, 144}, {289, 243}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -82,7 +82,7 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
-							<double key="NSSize">1.500000e+01</double>
+							<double key="NSSize">1.400000e+01</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -118,6 +118,20 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">Back_Button.png</string>
+						</object>
+					</object>
+					<object class="IBUIImageView" id="887339081">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrameSize">{320, 50}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<int key="IBUIContentMode">4</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Header_About.png</string>
 						</object>
 					</object>
 				</object>
@@ -167,9 +181,10 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="980501733"/>
+							<reference ref="887339081"/>
 							<reference ref="466095233"/>
 							<reference ref="711883592"/>
-							<reference ref="980501733"/>
 						</object>
 						<reference key="parent" ref="559254075"/>
 					</object>
@@ -199,6 +214,11 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 						<reference key="object" ref="980501733"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">19</int>
+						<reference key="object" ref="887339081"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -212,12 +232,14 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 					<string>14.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
 					<string>17.IBPluginDependency</string>
+					<string>19.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>AboutViewController</string>
 					<string>UIResponder</string>
 					<string>{{284, 303}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -244,7 +266,7 @@ TGVhZDogClJvZGphIFRyYXBwZQ</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">18</int>
+			<int key="maxID">19</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
