@@ -22,7 +22,7 @@
 	
 	content.name = @"Catch";
 	content.description = @"To catch thrown content, raise your mobile like catching a ball and hold it for a second. You can try it now, too!";
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"receive" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"Help_Catch_Icon" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"m4v"];
 	
 	return [content autorelease];
@@ -34,7 +34,7 @@
 	
 	content.name = @"Throw";
 	content.description = @"Move your mobile like throwing a frisbee to share selected content with catchers nearby. Try the gesture now!";
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"receive" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"Help_Throw_Icon" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"m4v"];
 	
 	return [content autorelease];

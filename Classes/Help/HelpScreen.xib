@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="9"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -90,7 +90,7 @@
 					<object class="IBUIImageView" id="28281232">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 43}, {320, 184}}</string>
+						<string key="NSFrame">{{9, 96}, {311, 154}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -98,7 +98,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">receive.png</string>
+							<string key="NSResourceName">Help_Catch_Icon.png</string>
 						</object>
 					</object>
 					<object class="IBUITextView" id="768513268">
@@ -197,10 +197,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="28281232"/>
 							<reference ref="244337442"/>
 							<reference ref="768513268"/>
 							<reference ref="184833995"/>
+							<reference ref="28281232"/>
 						</object>
 						<reference key="parent" ref="391025939"/>
 					</object>
@@ -254,7 +254,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>HelpScreen</string>
 					<string>UIResponder</string>
-					<string>{{197, 227}, {320, 480}}</string>
+					<string>{{341, 146}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

@@ -193,7 +193,7 @@
 	PreviewView *contentView = [content previewWithFrame: CGRectMake(0, 0, 175, 175)];
 	
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	originalFrame = CGRectMake(xOrigin, 60, contentView.frame.size.width, contentView.frame.size.height);
+	originalFrame = CGRectMake(xOrigin, 75, contentView.frame.size.width, contentView.frame.size.height);
 		
 	contentView.delegate = self.delegate;
 	
