@@ -17,6 +17,7 @@
 	UIView *indicatorView;
 	
 	BOOL indicatorIsTurnedUp;
+	BOOL expanded;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;

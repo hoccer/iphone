@@ -41,10 +41,6 @@
 }
 
 - (void)viewDidLoad {
-// 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Background" ofType:@"png"];
-//	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile: backgroundImagePath]];
-	[backgroundView setNeedsDisplay];
-	
 	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
 	selectionViewController.delegate = self.delegate;
 	
@@ -66,16 +62,12 @@
 }
 
 - (void)dealloc {
-	[cancelButton release];
-	[toolbar release];
     [statusLabel release];
 	[locationLabel release];
 	[infoView release];
 	
 	[activitySpinner release];
 	[progressView release];
-	[modeLabel release];
-	[successView release];
 	
 	[mainScrollView release];
 	[downIndicator release];
@@ -84,6 +76,9 @@
 	[hiddenViewDelegate release];
 	
 	[backgroundView release];
+	
+	[shareView release];
+	[receiveView release];
 	
 	[super dealloc];
 }
@@ -133,27 +128,17 @@
 
 - (void)showReceiveMode
 {
-	modeLabel.title = @"Receive";
-	descriptionImage.hidden = NO;
+	[shareView removeFromSuperview];
+	[backgroundView insertSubview:receiveView atIndex:0];
 }
 
 - (void)showSendMode
 {
-	modeLabel.title = @"Share";
-	descriptionImage.hidden = YES;
-	
+	[receiveView removeFromSuperview];
+	[backgroundView insertSubview:shareView atIndex:0];
 }
 
-- (void)showSuccessMode
-{
-	successView.hidden = NO;
-	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideSuccessMode) userInfo:nil repeats:NO];
-}
 
-- (void)hideSuccessMode 
-{
-	successView.hidden = YES;
-}
 
 
 - (void)showConnectionActivity

@@ -79,6 +79,32 @@
 	}
 }
 
+- (void)setIndicatorView: (UIButton *)view
+{
+	NSLog(@"setting indicator view");
+
+	[view retain];
+	[indicatorView release];
+	
+	indicatorView = view;
+	
+	[view addTarget:self action:@selector(indicatorTriggered:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)indicatorTriggered: (id)sender
+{
+	if (!expanded) {
+		[self expandScrollView];
+		[self.scrollView setContentOffset: CGPointMake(0, self.hiddenView.frame.size.height) 
+								 animated: YES];
+	} else {
+		[self shrinkScrollView];
+		[self.scrollView setContentOffset:CGPointMake(0, 0) animated: YES];
+	}
+	
+	NSLog(@"arrow triggered");
+}
+
 
 #pragma mark -
 #pragma mark Private Methods
@@ -119,6 +145,8 @@
 	size.height = size.height + hiddenView.frame.size.height;
 	scrollView.contentSize = size;
 	scrollView.contentOffset = CGPointMake(0, yOffset);
+	
+	expanded = YES;
 }
 
 - (void)shrinkScrollView
@@ -127,6 +155,8 @@
 
 	scrollView.contentSize = CGSizeMake(320, 460);
 	scrollView.contentOffset = CGPointMake(0, yOffset);
+
+	expanded = NO;
 }
 
 

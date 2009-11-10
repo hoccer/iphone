@@ -89,14 +89,6 @@
 	[super dealloc];
 }
 
-#pragma mark -
-#pragma mark UITabBarControllerDelegate
-
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)aViewController
-{
-	NSLog(@"selected class: %@", aViewController);
-}
-
 - (void)didDissmissContentToThrow
 {
 	[contentToSend contentWillBeDismissed];
@@ -242,10 +234,7 @@
 	[hoccerViewController setContentPreview: nil];
 
 	[hoccerViewController hideConnectionActivity];
-	[hoccerViewController showSuccessMode];
-
 }
-
 
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegate Methods

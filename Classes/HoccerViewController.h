@@ -22,22 +22,19 @@
 @interface HoccerViewController : UIViewController {
 		
 	IBOutlet UILabel *statusLabel;
-	IBOutlet UIToolbar *toolbar;
-	IBOutlet UIBarButtonItem *cancelButton;
 	IBOutlet UILabel *locationLabel;
 	
 	IBOutlet UIView *infoView;
-	IBOutlet UINavigationItem *modeLabel;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	
-	IBOutlet UIView *successView;
-	IBOutlet UIImageView *descriptionImage;
-		
 	IBOutlet UIScrollView *mainScrollView;
 	IBOutlet UIView *downIndicator;
 	IBOutlet UIView *backgroundView;
 	
+	IBOutlet UIView *shareView;
+	IBOutlet UIView *receiveView;
+	UIView *currentView;
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	
@@ -48,7 +45,7 @@
 	HiddenViewScrollViewDelegate *hiddenViewDelegate;
 }
 
-@property (assign) HoccerAppDelegate* delegate;
+@property (nonatomic, assign) HoccerAppDelegate* delegate;
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)didSelectHelp: (id)sender;
@@ -58,7 +55,6 @@
 - (void)setUpdate: (NSString *)update;
 
 - (void)showError: (NSString *)message;
-- (void)showSuccessMode;
 
 - (void)setContentPreview: (id <HoccerContent>)content;
 - (void)startPreviewFlyOutAniamation;
