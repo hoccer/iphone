@@ -47,7 +47,6 @@
 												   isSeeder: YES
 												   delegate: self];
 		
-		NSLog(@"uploading");
 	}
 	return self;
 }
@@ -80,7 +79,6 @@
 
 - (void)finishedRequest: (BaseHoccerRequest *) aRequest
 {
-	NSLog(@"download uri %@", [aRequest.result valueForKey: @"upload_uri"]);
 
 	[request release];
 	request = [[PeerGroupPollingRequest alloc] initWithObject:aRequest.result 
@@ -147,7 +145,6 @@
 
 - (void) didFinishUpload
 {
-	NSLog(@"upload did finish");
 	if (uploadDidFinish && pollingDidFinish) {
 		[self.delegate checkAndPerformSelector:@selector(requestDidFinishUpload:) withObject: self];
 	}

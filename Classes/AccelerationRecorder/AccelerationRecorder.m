@@ -31,7 +31,6 @@
 	self.filename = [self filenameFromCurrentTime];
 	
 	self.filename = [gesturesDirectory stringByAppendingPathComponent: self.filename];
-	NSLog(@"recording to: %@", self.filename);
 	
 	if (![[NSFileManager defaultManager] fileExistsAtPath:self.filename]) {
 		[[NSFileManager defaultManager]createFileAtPath:self.filename contents:nil attributes:nil];
@@ -65,9 +64,6 @@
 #pragma mark UIAccelerationDelegate methods
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration 
 {
-	NSLog(@"%f,%f,%f,%f\n", acceleration.timestamp, acceleration.x, 
-		  acceleration.y, acceleration.z);
-
 	[file writeData: [[self formatAccelerationData:acceleration] dataUsingEncoding: NSUTF8StringEncoding]];
 	
 	[featureHistory addAcceleration: acceleration];

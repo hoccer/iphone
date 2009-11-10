@@ -27,7 +27,6 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 
 +  (void)initialize
 {
-	NSLog(@"initialize");
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("catch_sound"), &catchId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("throw_sound"), &throwId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("tap_sound"), &tapId);

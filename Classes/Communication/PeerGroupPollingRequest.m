@@ -22,7 +22,6 @@
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		NSLog(@"verbinde mit %@", [aObject valueForKey:@"peer_uri"]);
 		
 		NSURL *url = [NSURL URLWithString: [aObject valueForKey:@"peer_uri"]];
 		
@@ -54,10 +53,8 @@
 		return;
 	}
 	
-	NSLog(@"polling connection did finish");
 	
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	NSLog(@"polling result: %@", dataString);
 	
 	[dataString release];
 	self.connection = nil;
@@ -77,7 +74,6 @@
 		return;
 	}
 	
-	NSLog(@"restarting connection");
 	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");

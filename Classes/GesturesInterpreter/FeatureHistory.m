@@ -79,8 +79,6 @@
 			[self chartDataFor: yLineFeatures], 
 			[self chartDataFor: zLineFeatures]];
 
-	NSLog(@"url: %@", url);
-
 	
 	NSError *error = nil;
 	NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString: [url stringByAddingPercentEscapesUsingEncoding:  NSUTF8StringEncoding]] 

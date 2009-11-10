@@ -81,8 +81,6 @@
 
 - (void)setIndicatorView: (UIButton *)view
 {
-	NSLog(@"setting indicator view");
-
 	[view retain];
 	[indicatorView release];
 	
@@ -101,8 +99,6 @@
 		[self shrinkScrollView];
 		[self.scrollView setContentOffset:CGPointMake(0, 0) animated: YES];
 	}
-	
-	NSLog(@"arrow triggered");
 }
 
 

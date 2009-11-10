@@ -21,9 +21,7 @@
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		
-		NSLog(@"verbinde mit %@", [[aObject valueForKey:@"resources"] objectAtIndex:0]);
-		
+				
 		NSURL *url = [NSURL URLWithString: [[aObject valueForKey:@"resources"] objectAtIndex:0]];
 
 		[self.request setURL: url];

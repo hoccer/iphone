@@ -28,7 +28,6 @@
 	self = [super init];
 	if (self != nil) {
 		person = ABPersonCreate();
-		NSLog(@"vcard: %@", vcard);
 		
 		VcardParser *parser = [[VcardParser alloc] initWithString:vcard];
 		parser.delegate = self;

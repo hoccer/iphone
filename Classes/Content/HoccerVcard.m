@@ -54,7 +54,6 @@
 	
 	ABAddressBookSave(addressBook, &error);
 	CFRelease(addressBook);
-	NSLog(@"error: %@", error);
 }
 
 - (void)dismiss 

@@ -28,8 +28,6 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 		self.delegate = aDelegate;
 		NSURL *uploadUrl = [NSURL URLWithString: [aResult valueForKey:@"upload_uri"]];
 		
-		NSLog(@"uploading to %@", uploadUrl);
-
 		[self.request setURL: uploadUrl];
 		[self.request setHTTPMethod: @"PUT"];
 		[self.request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
@@ -51,9 +49,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 #pragma mark BaseHoccerRequest Delegate Methods
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
-{
-	NSLog(@"upload connection did finish");
-	
+{	
 	self.result = [self createJSONFromResult: receivedData];
 	self.connection = nil;
 	

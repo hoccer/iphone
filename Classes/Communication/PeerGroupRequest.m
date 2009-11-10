@@ -27,7 +27,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 		self.delegate = aDelegate;
 		
 		NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"peers"];
-		NSLog(@"sending request to: %@", urlString);
 		NSURL *url = [NSURL URLWithString: urlString];
 			
 		[self.request setURL: url];
@@ -54,13 +53,11 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"peer[gesture]=%@&", gesture];
 	[body appendFormat:@"peer[seeder]=%d", seeder];
 
-	NSLog(@"body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
-	NSLog(@"connection did finish");
 	
 	self.result = [self createJSONFromResult: receivedData];
 	self.connection = nil;

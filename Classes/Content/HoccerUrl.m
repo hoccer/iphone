@@ -23,8 +23,6 @@
 
 - (void)save 
 {
-	NSLog(@"opening: %@", content);
-	
 	NSURL *url = nil;
 	if (webView) {
 		NSURLRequest *request = webView.request;

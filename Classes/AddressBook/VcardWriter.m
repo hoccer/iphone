@@ -29,7 +29,6 @@
 	if (value == nil)
 		return;
 	
-	NSLog(@"writing property: %@", propertyName);
 	NSString *line = nil;
 	
 	if (!parameter) {

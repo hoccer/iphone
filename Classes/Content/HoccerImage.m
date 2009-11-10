@@ -29,12 +29,10 @@
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	NSLog(@"creating jpeg representation");
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	
 	if (![[NSThread currentThread] isCancelled]) {
 		self.isReady = YES;
-		NSLog(@"finished jpeg represenation");
 	}
 	
 	[pool drain];
@@ -76,7 +74,6 @@
 
 - (void)save
 {
-	NSLog(@"saving image");
 	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
@@ -126,7 +123,6 @@
 
 - (void)dealloc 
 {
-	NSLog(@"deallocation image");
 	[image release];
 	[data release];
 	

@@ -39,7 +39,6 @@
 
 - (void)cancel 
 {
-	NSLog(@"canceling connection: %@", connection);
 	[self.connection cancel];
 	self.connection = nil;
 	
@@ -68,7 +67,6 @@
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
-	NSLog(@"received: %@", dataString);
 	SBJSON *json = [[SBJSON alloc] init];
 	id jsonResult = [json objectWithString: dataString error: &error];
 	[json release];
@@ -107,8 +105,6 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
 {
 	self.response = aResponse;
-	NSLog(@"status code: %d", [response statusCode]);
-	NSLog(@"response length: %d", [response expectedContentLength]);
 }
 
 

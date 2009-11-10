@@ -58,8 +58,6 @@
 
 - (void)finishedRequest: (PeerGroupRequest *)aRequest 
 {
-	NSLog(@"received peer uri: %@", [aRequest.result valueForKey:@"peer_uri"]);
-	
 	BaseHoccerRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
 	
 	[request release];

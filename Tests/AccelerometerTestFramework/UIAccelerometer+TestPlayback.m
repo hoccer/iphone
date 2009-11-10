@@ -19,7 +19,6 @@
 									componentsSeparatedByString:@"\n"];
 	
 	for (NSString *line in recordedData) {
-		NSLog(@"line: %@", line);
 		NSArray *accelerationComponents = [self splitLine: line];
 		
 		if ([accelerationComponents count] != 4) {

@@ -160,9 +160,7 @@
 {
 	if (self.contentToSend)
 		return;
-	
-	NSLog(@"im catching, wooo");
-	
+		
 	if (request != nil) {
 		return;
 	}
@@ -180,8 +178,6 @@
 {
 	if (!self.contentToSend)
 		return;
-	
-	NSLog(@"im throwing, wooo");
 	
 	if (request != nil) {
 		return;
