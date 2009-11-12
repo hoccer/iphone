@@ -18,6 +18,8 @@
 	
 	BOOL indicatorIsTurnedUp;
 	BOOL expanded;
+	
+	int height;
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;

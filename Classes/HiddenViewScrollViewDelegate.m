@@ -25,6 +25,16 @@
 @synthesize indicatorView;
 @synthesize hiddenView;
 
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		height = 77;
+	}
+	return self;
+}
+
+
 
 - (void) dealloc
 {
@@ -40,7 +50,7 @@
 {
 	[self expandScrollView];
 	
-	[scrollView setContentOffset:CGPointMake(0, hiddenView.frame.size.height) animated:YES];
+	[scrollView setContentOffset:CGPointMake(0, height) animated:YES];
 }
 
 
@@ -50,7 +60,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView willDecelerate:(BOOL)decelerate
 {
 	CGFloat yOffset =  scrollView.contentOffset.y;
-	if (yOffset > hiddenView.frame.size.height + 5) {
+	if (yOffset > height + 5) {
 		[self expandScrollView];
 	} else {
 		[self shrinkScrollView];
@@ -64,15 +74,14 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
 {
-	float maxHeight = hiddenView.frame.size.height;
-	if (scrollView.contentOffset.y < maxHeight ) {
+	if (scrollView.contentOffset.y < height ) {
 	 	[scrollView setContentOffset: CGPointMake(0, 0) animated:YES];
 	}
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView
 {	
-	if (scrollView.contentOffset.y >= hiddenView.frame.size.height) {
+	if (scrollView.contentOffset.y >= height) {
 		[self turnIndicatorDown];
 	} else {
 		[self turnIndicatorUp];
@@ -93,7 +102,7 @@
 {
 	if (!expanded) {
 		[self expandScrollView];
-		[self.scrollView setContentOffset: CGPointMake(0, self.hiddenView.frame.size.height) 
+		[self.scrollView setContentOffset: CGPointMake(0, height) 
 								 animated: YES];
 	} else {
 		[self shrinkScrollView];
@@ -138,7 +147,7 @@
 	CGFloat yOffset =  scrollView.contentOffset.y;
 
 	CGSize size = scrollView.frame.size;
-	size.height = size.height + hiddenView.frame.size.height;
+	size.height = size.height + height;
 	scrollView.contentSize = size;
 	scrollView.contentOffset = CGPointMake(0, yOffset);
 	
