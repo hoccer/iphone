@@ -119,9 +119,6 @@
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
-		22A019241099C482007FCC59 /* bump_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 22A019211099C482007FCC59 /* bump_180.m4v */; };
-		22A019251099C482007FCC59 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 22A019221099C482007FCC59 /* catch_180.m4v */; };
-		22A019261099C482007FCC59 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 22A019231099C482007FCC59 /* throw_180.m4v */; };
 		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
@@ -324,9 +321,6 @@
 		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
 		229DAF56107B3BF400B47ABE /* VcardWriterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriterTests.h; path = Tests/Vcard/VcardWriterTests.h; sourceTree = "<group>"; };
 		229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriterTests.m; path = Tests/Vcard/VcardWriterTests.m; sourceTree = "<group>"; };
-		22A019211099C482007FCC59 /* bump_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = bump_180.m4v; sourceTree = "<group>"; };
-		22A019221099C482007FCC59 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
-		22A019231099C482007FCC59 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonVCardCreator.h; path = AddressBook/ABPersonVCardCreator.h; sourceTree = "<group>"; };
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
@@ -637,9 +631,6 @@
 				227CA17810AC296E00418A4D /* throw_180.mp4 */,
 				227CA1D610AC2D5E00418A4D /* catch_180.mp4 */,
 				227CA1D710AC2D5E00418A4D /* bump_180.mp4 */,
-				22A019211099C482007FCC59 /* bump_180.m4v */,
-				22A019221099C482007FCC59 /* catch_180.m4v */,
-				22A019231099C482007FCC59 /* throw_180.m4v */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -856,9 +847,6 @@
 				28D161971095F27B00858642 /* receive.png in Resources */,
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
-				22A019241099C482007FCC59 /* bump_180.m4v in Resources */,
-				22A019251099C482007FCC59 /* catch_180.m4v in Resources */,
-				22A019261099C482007FCC59 /* throw_180.m4v in Resources */,
 				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
 				2271E217109F0260003D5C68 /* DragUpMenuViewController.xib in Resources */,
 				2278AB1110A2E3CB009716A2 /* Photo.png in Resources */,
