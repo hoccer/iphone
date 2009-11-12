@@ -68,6 +68,20 @@ ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
 							<int key="IBUIAutocapitalizationType">2</int>
 						</object>
 					</object>
+					<object class="IBUIImageView" id="859239619">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrameSize">{320, 50}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<int key="IBUIContentMode">4</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">Header_Training.png</string>
+						</object>
+					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
@@ -107,6 +121,7 @@ ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="426191058"/>
+							<reference ref="859239619"/>
 						</object>
 						<reference key="parent" ref="2659670"/>
 					</object>
@@ -126,6 +141,11 @@ ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
 						<reference key="object" ref="426191058"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="859239619"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -137,12 +157,14 @@ ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
+					<string>5.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>HelpOverview</string>
 					<string>UIResponder</string>
 					<string>{{311, 204}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -167,7 +189,7 @@ ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">4</int>
+			<int key="maxID">5</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

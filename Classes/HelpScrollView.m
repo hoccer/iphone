@@ -13,6 +13,7 @@
 #import "HelpOverview.h"
 #import "HelpContent.h"
 #import "FeedbackProvider.h"
+#import "AboutViewController.h"
 
 @interface HelpScrollView ()
 - (void)setUpPages;
@@ -32,6 +33,7 @@
 			  [[[HelpOverview alloc] init] autorelease],
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
 			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
+			  [[[AboutViewController alloc] init] autorelease],			  
 			  nil] retain];
 	
 	
