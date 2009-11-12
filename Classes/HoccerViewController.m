@@ -110,8 +110,9 @@
 	
 - (void)setUpdate: (NSString *)update
 {
-	progressView.hidden = YES;
-
+	progressView.progress = 0;
+	
+	progressView.hidden = NO;
 	activitySpinner.hidden = NO;
 	statusLabel.hidden = NO;
 	statusLabel.text = update;
@@ -119,8 +120,6 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage
 {
-	// activitySpinner.hidden = YES;
-	
 	progressView.hidden = NO;
 	progressView.progress = percentage;
 }

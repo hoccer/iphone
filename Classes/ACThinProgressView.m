@@ -27,9 +27,9 @@
 	CGContextSetRGBFillColor(context, 0.85, 0.85, 0.85, 1.0);
 	CGContextFillRect(context, rect);
 
-	//CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
-//	CGRect progressBarRect = CGRectMake(0, 6,  rect.size.width, 3);
-//	CGContextFillRect(context, progressBarRect);
+	CGContextSetRGBFillColor(context, 0.25, 0.25, 0.25, 1.0);
+	CGRect progressBarRect = CGRectMake(0, 6,  rect.size.width, 3);
+	CGContextFillRect(context, progressBarRect);
 
 	CGContextSetRGBFillColor(context, 0.09, 0.84, 0.86, 1.0);
 	CGRect progressRect = CGRectMake(0, 6, progressWidth, 3);
