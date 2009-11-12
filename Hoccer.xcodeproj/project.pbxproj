@@ -82,7 +82,7 @@
 		227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */; };
 		227CA0DB10AC029600418A4D /* Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0DA10AC029600418A4D /* Throw_Icon.png */; };
-		2281001010A9A5A800DFA0BF /* Help_Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281000F10A9A5A800DFA0BF /* Help_Catch_Icon.png */; };
+		227CA0E610AC090000418A4D /* Help_Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0E510AC090000418A4D /* Help_Catch_Icon.png */; };
 		2281002710A9A8DD00DFA0BF /* Help_Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */; };
 		2281009110A9C1A000DFA0BF /* Help_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */; };
 		2281009210A9C1A000DFA0BF /* Help_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008E10A9C1A000DFA0BF /* Help_Button.png */; };
@@ -274,7 +274,7 @@
 		227B5E3A107DF4F70012BBA6 /* MockedParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockedParserDelegate.h; path = Tests/Vcard/MockedParserDelegate.h; sourceTree = "<group>"; };
 		227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockedParserDelegate.m; path = Tests/Vcard/MockedParserDelegate.m; sourceTree = "<group>"; };
 		227CA0DA10AC029600418A4D /* Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Throw_Icon.png; sourceTree = "<group>"; };
-		2281000F10A9A5A800DFA0BF /* Help_Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Catch_Icon.png; sourceTree = "<group>"; };
+		227CA0E510AC090000418A4D /* Help_Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Catch_Icon.png; sourceTree = "<group>"; };
 		2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Throw_Icon.png; sourceTree = "<group>"; };
 		2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Highlighted.png; sourceTree = "<group>"; };
 		2281008E10A9C1A000DFA0BF /* Help_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Button.png; sourceTree = "<group>"; };
@@ -636,6 +636,7 @@
 		227B3A6610A06DFC000326FD /* image */ = {
 			isa = PBXGroup;
 			children = (
+				227CA0E510AC090000418A4D /* Help_Catch_Icon.png */,
 				227CA0DA10AC029600418A4D /* Throw_Icon.png */,
 				2281010210A9DFFE00DFA0BF /* Header_Terms-of-Use.png */,
 				2281010010A9DD7300DFA0BF /* Accept_Button.png */,
@@ -646,7 +647,6 @@
 				2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */,
 				2281009010A9C1A000DFA0BF /* Info_Button.png */,
 				2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */,
-				2281000F10A9A5A800DFA0BF /* Help_Catch_Icon.png */,
 				2281FFF310A9A38A00DFA0BF /* Back_Button.png */,
 				2281FFF410A9A38A00DFA0BF /* Back_Highlighted.png */,
 				2281FFE610A9A13200DFA0BF /* Play_Video_Button.png */,
@@ -870,7 +870,6 @@
 				2281FFE710A9A13200DFA0BF /* Play_Video_Button.png in Resources */,
 				2281FFF510A9A38A00DFA0BF /* Back_Button.png in Resources */,
 				2281FFF610A9A38A00DFA0BF /* Back_Highlighted.png in Resources */,
-				2281001010A9A5A800DFA0BF /* Help_Catch_Icon.png in Resources */,
 				2281002710A9A8DD00DFA0BF /* Help_Throw_Icon.png in Resources */,
 				2281009110A9C1A000DFA0BF /* Help_Highlighted.png in Resources */,
 				2281009210A9C1A000DFA0BF /* Help_Button.png in Resources */,
@@ -882,6 +881,7 @@
 				2281010110A9DD7300DFA0BF /* Accept_Button.png in Resources */,
 				2281010310A9DFFE00DFA0BF /* Header_Terms-of-Use.png in Resources */,
 				227CA0DB10AC029600418A4D /* Throw_Icon.png in Resources */,
+				227CA0E610AC090000418A4D /* Help_Catch_Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
