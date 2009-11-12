@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="134"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -337,7 +337,7 @@
 							<object class="IBUIActivityIndicatorView" id="1010486336">
 								<reference key="NSNextResponder" ref="72600430"/>
 								<int key="NSvFlags">-2147483356</int>
-								<string key="NSFrame">{{15, 21}, {20, 20}}</string>
+								<string key="NSFrame">{{26, 26}, {20, 20}}</string>
 								<reference key="NSSuperview" ref="72600430"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="93590619">
 									<int key="NSColorSpace">3</int>
@@ -351,7 +351,7 @@
 							<object class="IBUILabel" id="1024507351">
 								<reference key="NSNextResponder" ref="72600430"/>
 								<int key="NSvFlags">-2147483382</int>
-								<string key="NSFrame">{{43, 20}, {212, 21}}</string>
+								<string key="NSFrame">{{62, 25}, {212, 21}}</string>
 								<reference key="NSSuperview" ref="72600430"/>
 								<reference key="IBUIBackgroundColor" ref="93590619"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -370,7 +370,7 @@
 							<object class="IBUIButton" id="877640077">
 								<reference key="NSNextResponder" ref="72600430"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{284, 1}, {36, 36}}</string>
+								<string key="NSFrame">{{266, 18}, {36, 36}}</string>
 								<reference key="NSSuperview" ref="72600430"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -394,7 +394,7 @@
 							<object class="IBUIProgressView" id="74671301">
 								<reference key="NSNextResponder" ref="72600430"/>
 								<int key="NSvFlags">-2147483356</int>
-								<string key="NSFrame">{{45, 47}, {210, 9}}</string>
+								<string key="NSFrame">{{0, 61}, {320, 9}}</string>
 								<reference key="NSSuperview" ref="72600430"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -405,7 +405,7 @@
 								<float key="IBUIProgress">5.000000e-01</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 62}</string>
+						<string key="NSFrameSize">{320, 70}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
@@ -573,9 +573,9 @@
 						<reference key="object" ref="774585933"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="72600430"/>
 							<reference ref="26574044"/>
 							<reference ref="757791289"/>
+							<reference ref="72600430"/>
 						</object>
 						<reference key="parent" ref="92331386"/>
 					</object>
@@ -584,10 +584,10 @@
 						<reference key="object" ref="72600430"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1010486336"/>
 							<reference ref="877640077"/>
-							<reference ref="74671301"/>
 							<reference ref="1024507351"/>
+							<reference ref="74671301"/>
+							<reference ref="1010486336"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -776,7 +776,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{301, 106}, {320, 480}}</string>
+					<string>{{348, 120}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ACThinProgressView</string>
