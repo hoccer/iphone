@@ -115,14 +115,14 @@
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
 {
-	if (pageControl.currentPage == 0) {
+	if (pageControl.currentPage == 1) {
 		[FeedbackProvider playThrowFeedback];
 	}
 }
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
-	if (pageControl.currentPage == 1) {
+	if (pageControl.currentPage == 2) {
 		[FeedbackProvider playCatchFeedback];
 	}
 }
