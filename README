@@ -1,0 +1,4 @@
+The videos where rotated/encoded with the commands:
+
+mencoder -vf rotate=2 -o catch_180.mp4 -oac copy -ovc lavc  catch_180.m4v
+ffmpeg -i catch_180.mp4 -vcodec mpeg4 -acodec libfaac catch_180.mp4
