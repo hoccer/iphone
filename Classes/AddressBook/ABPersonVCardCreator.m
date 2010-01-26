@@ -73,7 +73,6 @@
 	[self createMultiValueWithID: kABPersonEmailProperty toVcardProperty: @"EMAIL"];
 	[self createAddress];
 
-	
 	[writer writeFooter];
 }
 
@@ -122,16 +121,16 @@
 		return;
 	}
 	
-	CFStringRef phoneNumber, phoneNumberLabel;
+	CFStringRef value, valueLabel;
 	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
-		phoneNumber		 = ABMultiValueCopyValueAtIndex(multi, i);
-		phoneNumberLabel = ABMultiValueCopyLabelAtIndex(multi, i);
+		value		 = ABMultiValueCopyValueAtIndex(multi, i);
+		valueLabel = ABMultiValueCopyLabelAtIndex(multi, i);
 		
-		[writer writeProperty:name value:(NSString *)phoneNumber paramater:
-					[self propertiesFromLabel:phoneNumberLabel]];		
+		[writer writeProperty:name value:(NSString *)value paramater:
+					[self propertiesFromLabel:valueLabel]];		
 		
-		CFRelease(phoneNumber);
-		CFRelease(phoneNumberLabel);
+		CFRelease(value);
+		CFRelease(valueLabel);
 	}
 	
 	CFRelease(multi);
@@ -198,6 +197,10 @@
 
 - (NSArray *)propertiesFromLabel: (CFStringRef)label
 {
+	if (label == nil) {
+		return [NSArray arrayWithObjects:@"OTHER", nil];
+	}	
+	
 	if (CFStringCompare(label, kABWorkLabel, kCFCompareCaseInsensitive) ==  kCFCompareEqualTo)
 		return [NSArray arrayWithObjects:@"WORK", nil];
 	

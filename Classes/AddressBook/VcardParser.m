@@ -50,8 +50,17 @@
 - (void)parse
 {
 	for (int i = 2; i < [vcardLines count]; i++) {
+		if ([[vcardLines objectAtIndex:i] length] == 0) {
+			return;
+		}
+		
 		NSArray *propertyWithAttributesAndValue = [[vcardLines objectAtIndex:i] 
 												   componentsSeparatedByString: @":"];
+		
+		if ([propertyWithAttributesAndValue count] < 2) {
+			return;
+		}
+		
 		NSString *propertyWithAttributes = [propertyWithAttributesAndValue objectAtIndex:0];
 		NSArray *propertyAndAttributes = [propertyWithAttributes componentsSeparatedByString: @";"];
 		
