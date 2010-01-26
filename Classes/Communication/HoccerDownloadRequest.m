@@ -76,6 +76,14 @@
 	request = downloadRequest;
 }
 
+- (void)readyForStartingDownload: (BaseHoccerRequest *)aRequest
+{
+	NSLog(@"downlaoding (downloadrequest): %@", [aRequest.response MIMEType]); 
+
+	[delegate checkAndPerformSelector:@selector(requestIsReadyToStartDownload:) withObject:aRequest];
+}
+
+
 
 - (void)finishedDownload: (BaseHoccerRequest *)aRequest 
 {

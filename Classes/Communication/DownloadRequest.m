@@ -100,6 +100,8 @@
 	
 	if ([aResponse statusCode] == 200) {
 		isDownloading = YES;
+		
+		[delegate checkAndPerformSelector:@selector(readyForStartingDownload:) withObject:self];
 	}
 }
 

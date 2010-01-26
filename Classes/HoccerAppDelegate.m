@@ -20,6 +20,7 @@
 #import "HoccerImage.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
+#import "HoccerUrl.h"
 
 #import "FeedbackProvider.h"
 
@@ -198,6 +199,31 @@
 
 #pragma mark -
 #pragma mark Download Communication Delegate Methods
+
+
+- (void)requestIsReadyToStartDownload: (BaseHoccerRequest *)aRequest
+{
+	NSLog(@"downlaoding: %@", [aRequest.response MIMEType]); 
+	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
+		return;
+	
+	[aRequest cancel];
+	
+	NSURL *url = [aRequest.request URL];
+	self.hoccerContent = [[HoccerUrl alloc] initWithData: [[url absoluteString] dataUsingEncoding: NSUTF8StringEncoding]];
+	
+	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+	
+	receivedContentView.delegate = self;
+	[receivedContentView setHoccerContent: self.hoccerContent];
+	
+	[viewController presentModalViewController: receivedContentView animated:YES];
+	
+	[request release];
+	request = nil;
+	
+	[hoccerViewController hideConnectionActivity];
+}
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
