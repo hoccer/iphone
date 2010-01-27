@@ -10,6 +10,7 @@
 #import "HoccerContent.h"
 
 @class BaseHoccerRequest;
+@class HocLocation;
 
 
 @interface HoccerUploadRequest : NSObject {
@@ -33,7 +34,7 @@
 @property (retain) NSString *type;
 @property (retain) NSString *filename;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
 				  type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate;
 - (void)cancel;
 

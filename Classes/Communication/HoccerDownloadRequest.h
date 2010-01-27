@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "BaseHoccerRequest.h"
 
+@class HocLocation;
+
 
 @interface HoccerDownloadRequest : NSObject {
 	BaseHoccerRequest *request;
@@ -17,7 +19,7 @@
 
 @property (nonatomic, assign) id delegate;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;
 - (void)cancel;
 
 

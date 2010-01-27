@@ -6,8 +6,6 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import <CoreLocation/CoreLocation.h>
-
 #import "HoccerDownloadRequest.h"
 #import "NSObject+DelegateHelper.h"
 
@@ -16,6 +14,7 @@
 #import "DownloadRequest.h"
 
 #import "BaseHoccerRequest.h"
+#import "HocLocation.h"
 
 
 
@@ -24,7 +23,7 @@
 @synthesize delegate;
 
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate
 {
 	self = [super init];
 	if (self != nil) {

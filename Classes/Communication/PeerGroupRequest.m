@@ -9,18 +9,19 @@
 #import "PeerGroupRequest.h"
 #import "JSON.h"
 #import "NSObject+DelegateHelper.h"
+#import "HocLocation.h"
 
 const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
-- (NSData *)bodyWithLocation: (CLLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder;
+- (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder;
 @end
 
 @implementation PeerGroupRequest
 
 // @synthesize result;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate
 {
 	self = [super init];
 	if (self != nil) {
@@ -44,14 +45,22 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (CLLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder
+- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture seeder: (BOOL) seeder
 {
+	
+	CLLocation *location = hocLocation.location;
+	
 	NSMutableString *body = [NSMutableString string];
 	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
 	[body appendFormat:@"peer[accuracy]=%f&", location.horizontalAccuracy];
 	[body appendFormat:@"peer[gesture]=%@&", gesture];
 	[body appendFormat:@"peer[seeder]=%d", seeder];
+	
+	if (hocLocation.bssids != nil) {
+		NSLog(@"bssids kommen hier");
+	}
+	
 
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }

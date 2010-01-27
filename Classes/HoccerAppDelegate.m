@@ -30,6 +30,7 @@
 #import "TermOfUse.h"
 
 #import "WifiScanner.h"
+#import "HocLocation.h"
 
 @interface HoccerAppDelegate ()
 
@@ -174,8 +175,11 @@
 
 	[FeedbackProvider  playCatchFeedback];
 
-	CLLocation *location = [self currentLocation];
-	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture: @"distribute" delegate: self];
+	HocLocation *hocLocation = [[[HocLocation alloc] 
+								 initWithLocation:[self currentLocation] 
+								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
+	
+	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"distribute" delegate: self];
 	
 	[hoccerViewController showConnectionActivity];
 }
@@ -195,8 +199,10 @@
 	[hoccerViewController startPreviewFlyOutAniamation];
 	[hoccerViewController setUpdate: @"preparing"];
 	
-	CLLocation *location = [self currentLocation];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:@"distribute" content: contentToSend 
+	HocLocation *hocLocation = [[[HocLocation alloc] 
+								 initWithLocation:[self currentLocation] 
+								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
+	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
 	[hoccerViewController showConnectionActivity];
@@ -209,7 +215,6 @@
 
 - (void)requestIsReadyToStartDownload: (BaseHoccerRequest *)aRequest
 {
-	NSLog(@"downlaoding: %@", [aRequest.response MIMEType]); 
 	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
 		return;
 	

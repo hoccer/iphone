@@ -65,7 +65,6 @@ static WifiScanner *wifiScannerInstance;
 		[bssids addObject: [wifiSpot valueForKey:@"BSSID"]];
 	}
 	
-		
 	return [bssids autorelease];
 }
 

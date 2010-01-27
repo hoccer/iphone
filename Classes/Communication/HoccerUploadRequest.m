@@ -30,7 +30,7 @@
 @synthesize content;
 @synthesize type, filename;
 
-- (id)initWithLocation: (CLLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate
 {
 	self = [super init];
