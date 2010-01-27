@@ -22,8 +22,9 @@
 	BOOL repeat;
 }
 
-- (void)scanNetwork;
-- (NSArray *)bssids;
+@property (readonly) NSArray *bssids;
 
++ (WifiScanner *)sharedScanner;
+- (void)scanNetwork;
 
 @end

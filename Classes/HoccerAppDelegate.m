@@ -74,8 +74,7 @@
 	
 	
 	// wifi scanner test code
-
-	wifiScanner = [[WifiScanner alloc] init];	
+	NSLog(@"bssids: %@", [WifiScanner sharedScanner].bssids);
 	
 }
 

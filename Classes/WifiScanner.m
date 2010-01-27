@@ -9,7 +9,18 @@
 #import "WifiScanner.h"
 #import <dlfcn.h>
 
+
+static WifiScanner *wifiScannerInstance;
+
 @implementation WifiScanner
+
++ (WifiScanner *)sharedScanner {
+	if (wifiScannerInstance == nil) {
+		wifiScannerInstance = [[WifiScanner alloc] init];
+	}
+	
+	return wifiScannerInstance;
+}
 
 - (id) init
 {
@@ -34,12 +45,9 @@
 
 - (void)scanNetwork {
 	NSDictionary *parameters = [[NSDictionary alloc] init];
-	NSArray *scan_networks;
-	scan(wifiHandle, &scan_networks, parameters);
+	scan(wifiHandle, &scanNetworks, parameters);
 	[parameters release];
-
-	NSLog(@"scan_networks %@", scan_networks);
-
+	
 	if (repeat) {
 		[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(scanNetwork) userInfo:nil repeats:NO];
 	}
@@ -47,11 +55,17 @@
 
 - (NSArray *)bssids 
 {
-	NSMutableArray *bssids = [[NSMutableArray alloc] init];
-	for (NSDictionary *wifiSpot in scanNetworks) {
-		[bssids addObject: [wifiSpot valueForKey:@"bssid"]];
+	if (scanNetworks == nil) {
+		NSLog(@"not yet scanned");
+		return nil;
 	}
 	
+	NSMutableArray *bssids = [[NSMutableArray alloc] init];
+	for (NSDictionary *wifiSpot in scanNetworks) {
+		[bssids addObject: [wifiSpot valueForKey:@"BSSID"]];
+	}
+	
+		
 	return [bssids autorelease];
 }
 
