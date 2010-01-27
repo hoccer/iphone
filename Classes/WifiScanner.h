@@ -17,12 +17,13 @@
 	int (*close)(void *);
 	int (*scan)(void *, NSArray **, void*);
 	
-	NSArray *scanNetworks;
+	NSArray *scannedNetworks;
 	
 	BOOL repeat;
 }
 
 @property (readonly) NSArray *bssids;
+@property (nonatomic, retain) NSArray *scannedNetworks;
 
 + (WifiScanner *)sharedScanner;
 - (void)scanNetwork;

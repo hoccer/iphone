@@ -73,9 +73,7 @@
 		[self userNeedToAgreeToTermsOfUse];
 	}
 	
-	
-	// wifi scanner test code
-	NSLog(@"bssids: %@", [WifiScanner sharedScanner].bssids);
+	[WifiScanner sharedScanner];
 	
 }
 
@@ -93,7 +91,6 @@
     [window release];
 	
 	[lastLocationUpdate release];
-	[wifiScanner release];
 	[super dealloc];
 }
 

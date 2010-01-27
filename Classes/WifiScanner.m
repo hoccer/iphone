@@ -14,6 +14,8 @@ static WifiScanner *wifiScannerInstance;
 
 @implementation WifiScanner
 
+@synthesize scannedNetworks;
+
 + (WifiScanner *)sharedScanner {
 	if (wifiScannerInstance == nil) {
 		wifiScannerInstance = [[WifiScanner alloc] init];
@@ -44,9 +46,7 @@ static WifiScanner *wifiScannerInstance;
 }
 
 - (void)scanNetwork {
-	NSDictionary *parameters = [[NSDictionary alloc] init];
-	scan(wifiHandle, &scanNetworks, parameters);
-	[parameters release];
+	[NSThread detachNewThreadSelector:@selector(scan) toTarget:self withObject:nil];
 	
 	if (repeat) {
 		[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(scanNetwork) userInfo:nil repeats:NO];
@@ -55,17 +55,26 @@ static WifiScanner *wifiScannerInstance;
 
 - (NSArray *)bssids 
 {
-	if (scanNetworks == nil) {
+	if (scannedNetworks == nil) {
 		NSLog(@"not yet scanned");
 		return nil;
 	}
 	
 	NSMutableArray *bssids = [[NSMutableArray alloc] init];
-	for (NSDictionary *wifiSpot in scanNetworks) {
+	for (NSDictionary *wifiSpot in scannedNetworks) {
 		[bssids addObject: [wifiSpot valueForKey:@"BSSID"]];
 	}
 	
 	return [bssids autorelease];
+}
+
+- (void)scan {
+	NSDictionary *parameters = [[NSDictionary alloc] init];
+	NSArray *newScanNetworks = nil;
+	scan(wifiHandle, &newScanNetworks, parameters);
+	[parameters release];
+	
+	[self performSelectorOnMainThread:@selector(setScannedNetworks:) withObject:newScanNetworks waitUntilDone:NO];
 }
 
 

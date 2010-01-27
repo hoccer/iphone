@@ -41,8 +41,6 @@
 	id <HoccerContent> contentToSend;					
 	
 	NSDate *lastLocationUpdate;
-	
-	WifiScanner *wifiScanner;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
