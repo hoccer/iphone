@@ -58,10 +58,12 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"peer[seeder]=%d", seeder];
 	
 	if (hocLocation.bssids != nil) {
-		NSLog(@"bssids kommen hier");
+		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
+		
+		[body appendFormat:@"&peer[bssids]=%@", ids];
 	}
-	
 
+	NSLog(@"request body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
