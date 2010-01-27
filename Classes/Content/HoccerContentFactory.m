@@ -37,8 +37,8 @@
 
 + (BOOL) isSupportedType: (NSString *)mimeType
 {
-	return ([mimeType isEqual: @"text/x-vcard"] && [mimeType isEqual: @"text/plain"] 
-			&& [mimeType rangeOfString:@"image/"].location == 0);
+	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] 
+			|| [mimeType rangeOfString:@"image/"].location == 0);
 }
 
 

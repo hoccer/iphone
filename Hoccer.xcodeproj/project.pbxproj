@@ -27,8 +27,6 @@
 		22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E9A108321C600F84755 /* ABPersonCreatorTest.m */; };
-		22719FF0108346DF00F84755 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22719FEF108346DF00F84755 /* AudioToolbox.framework */; };
-		22719FF1108346DF00F84755 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22719FEF108346DF00F84755 /* AudioToolbox.framework */; };
 		2271A00C108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271A01A10835B8900F84755 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
@@ -121,6 +119,7 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -201,7 +200,6 @@
 		22719E8E1083207700F84755 /* ABPersonCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonCreator.m; path = AddressBook/ABPersonCreator.m; sourceTree = "<group>"; };
 		22719E99108321C600F84755 /* ABPersonCreatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonCreatorTest.h; path = Tests/Vcard/ABPersonCreatorTest.h; sourceTree = "<group>"; };
 		22719E9A108321C600F84755 /* ABPersonCreatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonCreatorTest.m; path = Tests/Vcard/ABPersonCreatorTest.m; sourceTree = "<group>"; };
-		22719FEF108346DF00F84755 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2271A00A108347C800F84755 /* FeedbackProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackProvider.h; sourceTree = "<group>"; };
 		2271A00B108347C800F84755 /* FeedbackProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackProvider.m; sourceTree = "<group>"; };
 		2271A01810835B8900F84755 /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = catch_sound.wav; path = Resources/catch_sound.wav; sourceTree = "<group>"; };
@@ -324,6 +322,7 @@
 		228989711067CC4200FB3E5D /* HoccerUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadRequest.m; path = Communication/HoccerUploadRequest.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
+		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		229DAF11107B331F00B47ABE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
@@ -380,9 +379,9 @@
 				22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */,
 				229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */,
 				229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */,
-				22719FF1108346DF00F84755 /* AudioToolbox.framework in Frameworks */,
 				227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */,
 				2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */,
+				229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +391,6 @@
 			files = (
 				22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */,
 				22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */,
-				22719FF0108346DF00F84755 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,7 +767,6 @@
 			children = (
 				2271E2E6109F26EE003D5C68 /* QuartzCore.framework */,
 				227A960810973CED008CE547 /* MediaPlayer.framework */,
-				22719FEF108346DF00F84755 /* AudioToolbox.framework */,
 				229DAF11107B331F00B47ABE /* AddressBook.framework */,
 				229DAF12107B331F00B47ABE /* AddressBookUI.framework */,
 				22783D881067ABBB00B244F7 /* MapKit.framework */,
@@ -777,6 +774,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				229779FA111031C100B55D3F /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

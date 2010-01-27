@@ -69,7 +69,6 @@
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];
 	}
-	
 }
 
 - (void)dealloc {
