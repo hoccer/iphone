@@ -16,6 +16,8 @@
 @class BaseHoccerRequest;
 @class ReceivedContentView;
 
+@class WifiScanner;
+
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
 
@@ -39,6 +41,8 @@
 	id <HoccerContent> contentToSend;					
 	
 	NSDate *lastLocationUpdate;
+	
+	WifiScanner *wifiScanner;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

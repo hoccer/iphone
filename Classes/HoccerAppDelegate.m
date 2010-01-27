@@ -29,6 +29,8 @@
 #import "HelpScrollView.h"
 #import "TermOfUse.h"
 
+#import "WifiScanner.h"
+
 @interface HoccerAppDelegate ()
 
 @property (retain) NSDate *lastLocationUpdate;
@@ -69,6 +71,12 @@
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];
 	}
+	
+	
+	// wifi scanner test code
+
+	wifiScanner = [[WifiScanner alloc] init];	
+	
 }
 
 - (void)dealloc {
@@ -85,7 +93,7 @@
     [window release];
 	
 	[lastLocationUpdate release];
-	
+	[wifiScanner release];
 	[super dealloc];
 }
 
