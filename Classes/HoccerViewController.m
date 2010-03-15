@@ -43,7 +43,8 @@
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
 	receiveViewController = [[ReceiveViewController alloc] init];
-	receiveViewController.view = shareView;
+	receiveViewController.view = receiveView;
+	receiveViewController.feedback = infoView;
 }
 
 - (void)viewDidUnload {

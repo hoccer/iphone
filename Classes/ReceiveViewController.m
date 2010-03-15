@@ -8,8 +8,11 @@
 
 #import "ReceiveViewController.h"
 
+#define kSweepInBorder 30
+
 
 @implementation ReceiveViewController
+@synthesize feedback;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -57,32 +60,35 @@
 
 
 - (void)dealloc {
+	[feedback release];
     [super dealloc];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches began in ReceiveViewController");
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+	
+	if (currentLocation.x < kSweepInBorder) {
+		NSLog(@"starting sweep in");
+		sweeping = YES;
+		feedback.hidden = NO;
+		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	}
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
+	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+
+	if (sweeping) {
+		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	}
+	
 	NSLog(@"touches moved in ReceiveViewController");
-	
-	//UITouch* touch = [touches anyObject];
-//	CGPoint prevLocation = [touch previousLocationInView: self.view.superview];
-//	CGPoint currentLocation = [touch locationInView: self.view.superview];
-//	
-//	CGRect myRect = self.view.frame;
-//	myRect.origin.x += currentLocation.x - prevLocation.x; 
-//	myRect.origin.y += currentLocation.y - prevLocation.y; 
-	
-	//self.view.frame = myRect;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	
-	//[self resetViewAnimated:YES];
-	
 	NSLog(@"touches ended in ReceiveViewController");
+	
+	sweeping = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{

@@ -10,7 +10,11 @@
 
 
 @interface ReceiveViewController : UIViewController {
-
+	UIView* feeback;
+	
+	BOOL sweeping;
 }
+
+@property (retain) UIView* feedback; 
 
 @end
