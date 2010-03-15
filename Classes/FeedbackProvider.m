@@ -15,11 +15,11 @@ SystemSoundID tapId   = 0;
 void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 {
 	CFBundleRef bundle = CFBundleGetMainBundle();
-	CFURLRef catchSoundUrl = CFBundleCopyResourceURL(bundle, 
+	CFURLRef soundUrl = CFBundleCopyResourceURL(bundle, 
 													name, CFSTR("wav"), NULL);
-	AudioServicesCreateSystemSoundID(catchSoundUrl, id);
+	AudioServicesCreateSystemSoundID(soundUrl, id);
 	
-	CFRelease(catchSoundUrl);
+	CFRelease(soundUrl);
 }
 
 
