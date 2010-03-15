@@ -26,7 +26,7 @@
 
 #import "HoccerVcard.h"
 #import "HoccerText.h"
-#import "PreviewView.h"
+#import "Preview.h"
 
 #import "DragUpMenuViewController.h"
 #import "HiddenViewScrollViewDelegate.h"
@@ -43,19 +43,6 @@
 - (void)viewDidLoad {
 	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
 	selectionViewController.delegate = self.delegate;
-	
-	hiddenViewDelegate = [[HiddenViewScrollViewDelegate alloc] init];
-	hiddenViewDelegate.scrollView = mainScrollView;
-	hiddenViewDelegate.indicatorView = downIndicator;
-	hiddenViewDelegate.hiddenView = selectionViewController.view;
-
-	CGRect bottomViewRect = selectionViewController.view.frame;
-	bottomViewRect.origin.y = mainScrollView.frame.size.height;
-	selectionViewController.view.frame = bottomViewRect;
-
-	mainScrollView.contentSize = mainScrollView.frame.size;;
-	mainScrollView.delegate = hiddenViewDelegate;
-	[mainScrollView addSubview: selectionViewController.view];
 }
 
 - (void)viewDidUnload {
@@ -69,12 +56,9 @@
 	[activitySpinner release];
 	[progressView release];
 	
-	[mainScrollView release];
 	[downIndicator release];
 	
-	[selectionViewController release];	
-	[hiddenViewDelegate release];
-	
+	[selectionViewController release];		
 	[backgroundView release];
 	
 	[shareView release];
@@ -187,31 +171,38 @@
 	}
 	
 	[currentPreview removeFromSuperview];
-	[mainScrollView setContentOffset: CGPointMake(0, 0) animated: NO];
 	
-	PreviewView *contentView = [content previewWithFrame: CGRectMake(0, 0, 175, 175)];
-	
+	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	originalFrame = CGRectMake(xOrigin, 75, contentView.frame.size.width, contentView.frame.size.height);
-		
+	contentView.origin = CGPointMake(xOrigin, 75);
 	contentView.delegate = self.delegate;
 	
-	[mainScrollView insertSubview: contentView atIndex: 1];
+	[shareView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	currentPreview = contentView;
-	[self resetPreview];
 }
 
 - (void)resetPreview
 {
+	[currentPreview resetViewAnimated:NO];
+}
+
+- (IBAction)selectContacts: (id)sender
+{
+	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectContact)];
+}
+
+- (IBAction)selectImage: (id)sender 
+{
+	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectImage)];
 	
-	currentPreview.frame = CGRectMake(originalFrame.origin.x, originalFrame.origin.y, 0, 0);
+}
+
+- (IBAction)selectText: (id)sender
+{
+	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];
 	
-	// [UIView beginAnimations:@"showPreviewAnimation" context:NULL];
-	// [UIView setAnimationDuration: 1];
-	currentPreview.frame = originalFrame;
-	// [UIView commitAnimations];
 }
 
 #pragma mark -
@@ -242,5 +233,40 @@
 {
 	infoView.center = CGPointMake(160, 30);
 }
+
+
+
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//	NSLog(@"touches began");
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
+//	
+//	UITouch* touch = [touches anyObject];
+//	CGPoint prevLocation = [touch previousLocationInView: self.superview];
+//	CGPoint currentLocation = [touch locationInView: self.superview];
+//	
+//	CGRect myRect = self.frame;
+//	myRect.origin.x += currentLocation.x - prevLocation.x; 
+//	myRect.origin.y += currentLocation.y - prevLocation.y; 
+//	
+//	self.frame = myRect;
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
+//	
+//	CGRect myRect = self.frame;
+//	myRect.origin = origin;
+//	self.frame = myRect;
+//	
+//	NSLog(@"touches ended");
+//}
+//
+//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+//	NSLog(@"touches cancelled");
+//}
+
+
 
 @end

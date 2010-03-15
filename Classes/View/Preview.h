@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PreviewView : UIView {
+@interface Preview : UIView {
 	id delegate;
+	CGPoint origin;
 }
 
 @property (nonatomic, retain) id delegate;
+@property (assign) CGPoint origin;
 
-- (void) setImage: (UIImage *)image;
+
+- (void)setImage: (UIImage *)image;
 - (void)dismissKeyboard;
-
+- (void)resetViewAnimated: (BOOL)animated;
 
 @end

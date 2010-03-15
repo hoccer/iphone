@@ -15,7 +15,7 @@
 
 
 @class HoccerAppDelegate;
-@class PreviewView;
+@class Preview;
 @class DragUpMenuViewController;
 @class HiddenViewScrollViewDelegate;
 
@@ -28,7 +28,6 @@
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	
-	IBOutlet UIScrollView *mainScrollView;
 	IBOutlet UIView *downIndicator;
 	IBOutlet UIView *backgroundView;
 	
@@ -38,11 +37,9 @@
 		
 	IBOutlet HoccerAppDelegate* delegate;
 	
-	PreviewView *currentPreview;
-	CGRect originalFrame;
+	Preview *currentPreview;
 	
 	DragUpMenuViewController *selectionViewController;
-	HiddenViewScrollViewDelegate *hiddenViewDelegate;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -65,6 +62,11 @@
 
 - (void)showConnectionActivity;
 - (void)hideConnectionActivity;
+
+
+- (IBAction)selectContacts: (id)sender;
+- (IBAction)selectImage: (id)sender;
+- (IBAction)selectText: (id)sender;
 
 @end
 

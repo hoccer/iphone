@@ -24,7 +24,6 @@
 
 #import "FeedbackProvider.h"
 
-#import "SelectViewController.h"
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
 #import "TermOfUse.h"

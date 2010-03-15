@@ -54,9 +54,7 @@
 	} else if ([throwDetector detect: featureHistory]) {
 		[self.delegate checkAndPerformSelector: @selector(gesturesInterpreterDidDetectThrow:) 
 									withObject: self];
-	}
-	
-	
+	}	
 }
 
 @end

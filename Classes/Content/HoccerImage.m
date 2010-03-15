@@ -7,7 +7,7 @@
 //
 
 #import "HoccerImage.h"
-#import "PreviewView.h"
+#import "Preview.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
@@ -90,9 +90,9 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (PreviewView *)preview
+- (Preview *)preview
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
 	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];

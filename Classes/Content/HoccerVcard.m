@@ -10,7 +10,7 @@
 #import "ABPersonVCardCreator.h"
 #import "NSString+StringWithData.h"
 
-#import "PreviewView.h"
+#import "Preview.h"
 #import "ABPersonCreator.h"
 
 
@@ -68,9 +68,9 @@
 	return unknownPersonController.view;
 }
 
-- (PreviewView *)preview
+- (Preview *)preview
 {
-	PreviewView *view = [[PreviewView alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Contactbox" ofType:@"png"];
 	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];

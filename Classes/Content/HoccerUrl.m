@@ -49,7 +49,7 @@
 	return [webView  autorelease];
 }
 
-- (PreviewView *)preview
+- (Preview *)preview
 {
 	return nil;
 }
