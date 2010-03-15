@@ -10,16 +10,10 @@
 
 
 @interface Preview : UIView {
-	id delegate;
-	CGPoint origin;
+	UIButton* button;
 }
 
-@property (nonatomic, retain) id delegate;
-@property (assign) CGPoint origin;
-
-
-- (void)setImage: (UIImage *)image;
-- (void)dismissKeyboard;
-- (void)resetViewAnimated: (BOOL)animated;
+- (void) setImage: (UIImage *)image;
+- (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector;
 
 @end

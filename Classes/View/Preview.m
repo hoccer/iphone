@@ -12,8 +12,7 @@
 #import "GTMUIImage+Resize.h"
 
 @implementation Preview
-@synthesize delegate;
-@synthesize origin;
+
 
 
 
@@ -21,7 +20,7 @@
 {
 	self = [super initWithFrame:frame];	
 	if (self != nil) {
-		UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+		button = [UIButton buttonWithType:UIButtonTypeCustom];
 		
 		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
 		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
@@ -31,20 +30,15 @@
 				forState:UIControlStateHighlighted];
 
 		[button setFrame: CGRectMake(3, 3, 35, 36)];
-		[button addTarget: self action: @selector(userDismissedContent:) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self addSubview: button];
 		
-		self.origin = frame.origin;
+
 	}
 	return self;
 }
 
-- (void)setOrigin: (CGPoint)newOrigin {
-	origin = newOrigin;
-	
-	[self resetViewAnimated: NO];
-}
+
 
 
 - (void) setImage: (UIImage *)image
@@ -66,51 +60,12 @@
 	[imageView release];
 }
 
-- (void)resetViewAnimated: (BOOL)animated {
-	CGRect myRect = self.frame;
-	myRect.origin = origin;
-	self.frame = myRect;
-}
-
-- (void)userDismissedContent: (id)sender
-{
-	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
-}
-
-- (void)dismissKeyboard
-{
-	for (UIView* view in self.subviews) {
-		if ([view isKindOfClass:[UITextView class]])
-			[view resignFirstResponder];
-	}
+- (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector{
+	[button addTarget: aTarget action: aSelector forControlEvents:UIControlEventTouchUpInside];
 }
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches began");
-}
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
-	
-	UITouch* touch = [touches anyObject];
-	CGPoint prevLocation = [touch previousLocationInView: self.superview];
-	CGPoint currentLocation = [touch locationInView: self.superview];
-	
-	CGRect myRect = self.frame;
-	myRect.origin.x += currentLocation.x - prevLocation.x; 
-	myRect.origin.y += currentLocation.y - prevLocation.y; 
-	
-	self.frame = myRect;
-}
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	[self resetViewAnimated:YES];	
-		
-	NSLog(@"touches ended");
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches cancelled");
-}
 
 @end

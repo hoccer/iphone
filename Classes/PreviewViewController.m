@@ -7,15 +7,20 @@
 //
 
 #import "PreviewViewController.h"
-
+#import "Preview.h"
+#import "NSObject+DelegateHelper.h"
 
 @implementation PreviewViewController
 
-- (id) initWithView: (UIView*) aPreviewView{
+@synthesize previewView;
+@synthesize origin;
+@synthesize delegate;
+
+- (id) init{
 	
 	self = [super init];
-	if (self) {
-		previewView = aPreviewView;
+	if (self){
+		self.view = nil;
 	}
 	return self;	
 }
@@ -31,12 +36,12 @@
 }
 */
 
-
+/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 	self.view = [[Preview alloc] initWithFrame: previewView];
 }
-
+*/
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -52,6 +57,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+- (void) setView:(UIView *) aPreview{
+	super.view = aPreview;
+	
+	if ([self.view isKindOfClass: [Preview class]]) {
+		[(Preview*) self.view setCloseActionTarget:self action:@selector(userDismissedContent:)];
+	}
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -69,6 +82,72 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	NSLog(@"touches began");
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
+	NSLog(@"touches moved");
+
+	UITouch* touch = [touches anyObject];
+	CGPoint prevLocation = [touch previousLocationInView: self.view.superview];
+	CGPoint currentLocation = [touch locationInView: self.view.superview];
+	
+	CGRect myRect = self.view.frame;
+	myRect.origin.x += currentLocation.x - prevLocation.x; 
+	myRect.origin.y += currentLocation.y - prevLocation.y; 
+	
+	self.view.frame = myRect;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
+	
+	[self resetViewAnimated:YES];
+	
+	NSLog(@"touches ended");
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+	NSLog(@"touches cancelled");
+}
+
+- (void)dismissKeyboard
+{
+	for (UIView* view in self.view.subviews) {
+		if ([view isKindOfClass:[UITextView class]])
+			[view resignFirstResponder];
+	}
+}
+
+- (void)resetViewAnimated: (BOOL)animated {
+	CGRect myRect = self.view.frame;
+	myRect.origin = origin;
+	self.view.frame = myRect;
+}
+
+- (void)setOrigin: (CGPoint)newOrigin {
+	origin = newOrigin;
+	[self resetViewAnimated: NO];
+}
+
+- (void)userDismissedContent: (id)sender
+{
+	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
+}
+
+#pragma mark -
+#pragma mark animations
+- (void)startPreviewFlyOutAnimation
+{
+	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
+	[UIView setAnimationDuration:0.2];
+	self.view.frame = CGRectMake(origin.x, -200, 20, 20);
+	[UIView commitAnimations];
 }
 
 

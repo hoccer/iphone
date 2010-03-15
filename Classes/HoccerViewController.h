@@ -16,7 +16,7 @@
 
 @class HoccerAppDelegate;
 @class Preview;
-@class DragUpMenuViewController;
+@class PreviewViewController;
 @class HiddenViewScrollViewDelegate;
 
 @interface HoccerViewController : UIViewController {
@@ -36,10 +36,8 @@
 	UIView *currentView;
 		
 	IBOutlet HoccerAppDelegate* delegate;
-	
-	Preview *currentPreview;
-	
-	DragUpMenuViewController *selectionViewController;
+		
+	PreviewViewController *previewViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

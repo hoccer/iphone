@@ -34,8 +34,6 @@
 		2271A04B1083665E00F84755 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
 		2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
 		2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */; };
-		2271E216109F0260003D5C68 /* DragUpMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E214109F0260003D5C68 /* DragUpMenuViewController.m */; };
-		2271E217109F0260003D5C68 /* DragUpMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E215109F0260003D5C68 /* DragUpMenuViewController.xib */; };
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
 		2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
@@ -209,9 +207,6 @@
 		2271E19F109EDCFE003D5C68 /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		2271E1A0109EDCFE003D5C68 /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
 		2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
-		2271E213109F0260003D5C68 /* DragUpMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragUpMenuViewController.h; sourceTree = "<group>"; };
-		2271E214109F0260003D5C68 /* DragUpMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragUpMenuViewController.m; sourceTree = "<group>"; };
-		2271E215109F0260003D5C68 /* DragUpMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DragUpMenuViewController.xib; path = Classes/DragUpMenuViewController.xib; sourceTree = "<group>"; };
 		2271E2E6109F26EE003D5C68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2271E32A109F355A003D5C68 /* ACThinProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThinProgressView.h; sourceTree = "<group>"; };
 		2271E32B109F355A003D5C68 /* ACThinProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThinProgressView.m; sourceTree = "<group>"; };
@@ -428,8 +423,6 @@
 				2271A00B108347C800F84755 /* FeedbackProvider.m */,
 				E64B77FE109491AA0005ACA3 /* AboutViewController.h */,
 				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
-				2271E213109F0260003D5C68 /* DragUpMenuViewController.h */,
-				2271E214109F0260003D5C68 /* DragUpMenuViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -768,7 +761,6 @@
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,
 				E64B7800109491AA0005ACA3 /* AboutViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				2271E215109F0260003D5C68 /* DragUpMenuViewController.xib */,
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
 				227CA27910AC5BAC00418A4D /* Default.png */,
 				22AD327B11107C7700BC7DEC /* icon.png */,
@@ -869,7 +861,6 @@
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
 				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
-				2271E217109F0260003D5C68 /* DragUpMenuViewController.xib in Resources */,
 				28B19B2810A2EF320075CD0D /* artcomtech_286px_white.png in Resources */,
 				28B19B2A10A2F01E0075CD0D /* artcomtech_260px_white.png in Resources */,
 				22D72FE710A8498B000AEA79 /* Arrow.png in Resources */,
@@ -989,7 +980,6 @@
 				227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */,
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
-				2271E216109F0260003D5C68 /* DragUpMenuViewController.m in Sources */,
 				2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */,
 				2278AAD710A2E065009716A2 /* HiddenViewScrollViewDelegate.m in Sources */,
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,

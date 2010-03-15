@@ -28,9 +28,8 @@
 #import "HoccerText.h"
 #import "Preview.h"
 
-#import "DragUpMenuViewController.h"
 #import "HiddenViewScrollViewDelegate.h"
-
+#import "PreviewViewController.h"
 
 @implementation HoccerViewController
 
@@ -41,8 +40,7 @@
 }
 
 - (void)viewDidLoad {
-	selectionViewController = [[DragUpMenuViewController alloc] initWithNibName:@"DragUpMenuViewController" bundle:nil];
-	selectionViewController.delegate = self.delegate;
+	previewViewController = [[PreviewViewController alloc] init];
 }
 
 - (void)viewDidUnload {
@@ -58,7 +56,7 @@
 	
 	[downIndicator release];
 	
-	[selectionViewController release];		
+	[previewViewController release];		
 	[backgroundView release];
 	
 	[shareView release];
@@ -170,22 +168,22 @@
 		[self showSendMode];
 	}
 	
-	[currentPreview removeFromSuperview];
+	[previewViewController.view removeFromSuperview];
 	
 	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	contentView.origin = CGPointMake(xOrigin, 75);
-	contentView.delegate = self.delegate;
 	
 	[shareView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
-	currentPreview = contentView;
+	previewViewController.view = contentView;	
+	previewViewController.origin = CGPointMake(xOrigin, 75);
+	previewViewController.delegate = self.delegate;
 }
 
 - (void)resetPreview
 {
-	[currentPreview resetViewAnimated:NO];
+	[previewViewController resetViewAnimated:NO];
 }
 
 - (IBAction)selectContacts: (id)sender
@@ -205,27 +203,14 @@
 	
 }
 
-#pragma mark -
-#pragma mark animations
- - (void)startPreviewFlyOutAniamation
-{
-	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
-	[UIView setAnimationDuration:0.2];
-	currentPreview.frame = CGRectMake(currentPreview.frame.origin.x, -200, 20, 20);
-	[UIView commitAnimations];
-}
-
-
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	[currentPreview dismissKeyboard];
+	[previewViewController dismissKeyboard];
 }
 
 - (IBAction)showAbout: (id)sender 
 {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
-
-
 
 #pragma mark -
 #pragma mark CAAnimation Delegate Methods
@@ -234,39 +219,9 @@
 	infoView.center = CGPointMake(160, 30);
 }
 
-
-
-//
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-//	NSLog(@"touches began");
-//}
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
-//	
-//	UITouch* touch = [touches anyObject];
-//	CGPoint prevLocation = [touch previousLocationInView: self.superview];
-//	CGPoint currentLocation = [touch locationInView: self.superview];
-//	
-//	CGRect myRect = self.frame;
-//	myRect.origin.x += currentLocation.x - prevLocation.x; 
-//	myRect.origin.y += currentLocation.y - prevLocation.y; 
-//	
-//	self.frame = myRect;
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-//	
-//	CGRect myRect = self.frame;
-//	myRect.origin = origin;
-//	self.frame = myRect;
-//	
-//	NSLog(@"touches ended");
-//}
-//
-//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-//	NSLog(@"touches cancelled");
-//}
-
+- (void)startPreviewFlyOutAniamation {
+	[previewViewController startPreviewFlyOutAnimation];
+}
 
 
 @end

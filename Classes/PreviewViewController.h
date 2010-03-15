@@ -12,9 +12,15 @@
 @interface PreviewViewController : UIViewController {
 
 	UIView* previewView;	
-	
+	id delegate;
+	CGPoint origin;
 }
 
-- (id) initWithView: (UIView*) previewView;
+@property (retain) UIView* previewView;
+@property (nonatomic, retain) id delegate;
+@property (assign) CGPoint origin;
 
+- (void)dismissKeyboard;
+- (void)resetViewAnimated: (BOOL)animated;
+- (void)startPreviewFlyOutAnimation;
 @end
