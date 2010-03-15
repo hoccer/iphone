@@ -42,7 +42,7 @@
 	return [text autorelease];
 }
 
-- (PreviewView *)previewWithFrame: (CGRect)frame
+- (PreviewView *)preview
 {
 	PreviewView *view = [[PreviewView alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
