@@ -226,7 +226,7 @@
 }
 
 - (void)startPreviewFlyOutAniamation {
-	[previewViewController startPreviewFlyOutAnimation];
+	[previewViewController startFlyOutUpwardsAnimation];
 	infoView.hidden = YES;
 }
 

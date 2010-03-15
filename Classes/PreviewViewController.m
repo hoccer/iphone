@@ -10,6 +10,8 @@
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"
 
+#define kSweepBorder 20
+
 @implementation PreviewViewController
 
 @synthesize origin;
@@ -20,6 +22,7 @@
 	self = [super init];
 	if (self){
 		self.view = nil;
+		gestureDetected = FALSE;
 	}
 	return self;	
 }
@@ -80,16 +83,13 @@
 
 
 - (void)dealloc {
-	
-	
     [super dealloc];
 }
 
-
-
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	NSLog(@"touches began");
+	touchStartPoint = [[touches anyObject]locationInView: self.view.superview];	
+	
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
@@ -104,9 +104,33 @@
 	myRect.origin.y += currentLocation.y - prevLocation.y; 
 	
 	self.view.frame = myRect;
+	
+	if (!gestureDetected) {
+		
+		CGFloat width = self.view.frame.size.width; 
+
+		if (currentLocation.x < kSweepBorder) {
+			NSLog(@"sweep left");		
+			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
+			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
+			gestureDetected = TRUE;	
+			
+		} else if (currentLocation.x > width - kSweepBorder ) {
+			NSLog(@"sweep right");
+			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
+
+			[self startFlySidewaysAnimation: CGPointMake(width, height)];
+			gestureDetected = TRUE;	
+		}
+	}
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
+	
+	if (gestureDetected) {
+		gestureDetected = false;
+		return;
+	}
 	
 	[self resetViewAnimated:YES];
 	
@@ -129,12 +153,9 @@
 	NSLog(@"in %s", _cmd);
 	CGRect myRect = self.view.frame;
 	myRect.origin = origin;
-	
-	
+		
 	self.view.frame = myRect;
 	self.view.userInteractionEnabled = YES;
-	
-//	[self.view setNeedsLayout];
 }
 
 - (void)setOrigin: (CGPoint)newOrigin {
@@ -149,13 +170,24 @@
 
 #pragma mark -
 #pragma mark animations
-- (void)startPreviewFlyOutAnimation
+- (void)startFlyOutUpwardsAnimation
 {
-	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
+	[UIView beginAnimations:@"myFlyOutUpwardsAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
 	CGRect myRect = self.view.frame;
 	myRect.origin = CGPointMake(origin.x, -200);
 	
+	self.view.frame = myRect;
+	[UIView commitAnimations];
+}
+
+- (void)startFlySidewaysAnimation: (CGPoint) endPoint
+{
+	CGRect myRect = self.view.frame;
+	myRect.origin = endPoint;
+		
+	[UIView beginAnimations:@"myFlyOutSidewaysAnimation" context:NULL];
+	[UIView setAnimationDuration:0.3];	
 	self.view.frame = myRect;
 	[UIView commitAnimations];
 }

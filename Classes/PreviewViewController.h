@@ -13,6 +13,9 @@
 
 	id delegate;
 	CGPoint origin;
+	
+	CGPoint touchStartPoint;
+	BOOL gestureDetected;
 }
 
 @property (nonatomic, retain) id delegate;
@@ -20,5 +23,7 @@
 
 - (void)dismissKeyboard;
 - (void)resetViewAnimated: (BOOL)animated;
-- (void)startPreviewFlyOutAnimation;
+- (void)startFlyOutUpwardsAnimation;
+- (void)startFlySidewaysAnimation: (CGPoint) endPoint;
+
 @end
