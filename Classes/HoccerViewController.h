@@ -17,6 +17,7 @@
 @class HoccerAppDelegate;
 @class Preview;
 @class PreviewViewController;
+@class ReceiveViewController;
 @class HiddenViewScrollViewDelegate;
 
 @interface HoccerViewController : UIViewController {
@@ -38,6 +39,7 @@
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	PreviewViewController *previewViewController;
+	ReceiveViewController *receiveViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

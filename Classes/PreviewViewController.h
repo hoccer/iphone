@@ -11,12 +11,10 @@
 
 @interface PreviewViewController : UIViewController {
 
-	UIView* previewView;	
 	id delegate;
 	CGPoint origin;
 }
 
-@property (retain) UIView* previewView;
 @property (nonatomic, retain) id delegate;
 @property (assign) CGPoint origin;
 

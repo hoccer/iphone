@@ -30,6 +30,7 @@
 
 #import "HiddenViewScrollViewDelegate.h"
 #import "PreviewViewController.h"
+#import "ReceiveViewController.h"
 
 @implementation HoccerViewController
 
@@ -41,6 +42,8 @@
 
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
+	receiveViewController = [[ReceiveViewController alloc] init];
+	receiveViewController.view = shareView;
 }
 
 - (void)viewDidUnload {
@@ -57,6 +60,8 @@
 	[downIndicator release];
 	
 	[previewViewController release];		
+	[receiveViewController release];		
+
 	[backgroundView release];
 	
 	[shareView release];
@@ -115,6 +120,7 @@
 
 - (void)showSendMode
 {
+	//[receiveViewController.view removeFromSuperview];
 	[receiveView removeFromSuperview];
 	[backgroundView insertSubview:shareView atIndex:0];
 }
@@ -221,6 +227,7 @@
 
 - (void)startPreviewFlyOutAniamation {
 	[previewViewController startPreviewFlyOutAnimation];
+	infoView.hidden = YES;
 }
 
 

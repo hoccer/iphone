@@ -12,7 +12,6 @@
 
 @implementation PreviewViewController
 
-@synthesize previewView;
 @synthesize origin;
 @synthesize delegate;
 
@@ -81,6 +80,8 @@
 
 
 - (void)dealloc {
+	
+	
     [super dealloc];
 }
 
@@ -125,9 +126,15 @@
 }
 
 - (void)resetViewAnimated: (BOOL)animated {
+	NSLog(@"in %s", _cmd);
 	CGRect myRect = self.view.frame;
 	myRect.origin = origin;
+	
+	
 	self.view.frame = myRect;
+	self.view.userInteractionEnabled = YES;
+	
+//	[self.view setNeedsLayout];
 }
 
 - (void)setOrigin: (CGPoint)newOrigin {
@@ -146,9 +153,11 @@
 {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
-	self.view.frame = CGRectMake(origin.x, -200, 20, 20);
+	CGRect myRect = self.view.frame;
+	myRect.origin = CGPointMake(origin.x, -200);
+	
+	self.view.frame = myRect;
 	[UIView commitAnimations];
 }
-
 
 @end

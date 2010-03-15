@@ -38,9 +38,6 @@
 	return self;
 }
 
-
-
-
 - (void) setImage: (UIImage *)image
 {
 	NSInteger paddingLeft = 35;
@@ -64,7 +61,9 @@
 	[button addTarget: aTarget action: aSelector forControlEvents:UIControlEventTouchUpInside];
 }
 
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	NSLog(@"touches began");
+}
 
 
 

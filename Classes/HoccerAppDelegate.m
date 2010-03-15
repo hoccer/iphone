@@ -51,8 +51,7 @@
 
 @synthesize lastLocationUpdate;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
 	
 	gesturesInterpreter = [[GesturesInterpreter alloc] init];
