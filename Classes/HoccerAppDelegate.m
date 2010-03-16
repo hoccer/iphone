@@ -306,7 +306,6 @@
 	[viewController setProgressUpdate:[progress floatValue]];
 }
 
-
 - (CLLocation *) currentLocation
 {
 	return locationManager.location;

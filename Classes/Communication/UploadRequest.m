@@ -56,7 +56,14 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	[delegate checkAndPerformSelector:@selector(finishedUpload:) withObject: self];
 }
 
-
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten 
+											   totalBytesWritten:(NSInteger)totalBytesWritten 
+									   totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
+	
+	float percentage =  (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
+	[self.delegate checkAndPerformSelector: @selector(request:didPublishDownloadedPercentageUpdate:)
+								withObject: self withObject: [NSNumber numberWithFloat:  percentage]];
+}
 
 #pragma mark -
 #pragma mark Private Methods

@@ -140,6 +140,16 @@
 								withObject: update];
 }
 
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress 
+{
+	NSLog(@"percetage uploaded: %f", [progress floatValue]);	
+	
+	[self.delegate checkAndPerformSelector:@selector(request:didPublishDownloadedPercentageUpdate:)
+								withObject: self
+								withObject: progress];
+}
+
+
 #pragma mark -
 #pragma mark Private Methods
 
