@@ -52,9 +52,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
-	
-	// gesturesInterpreter = [[GesturesInterpreter alloc] init];
-	// gesturesInterpreter.delegate = self;
+	application.idleTimerDisabled = YES;
 	
 	locationManager = [[CLLocationManager alloc] init];
 	locationManager.delegate = self;
