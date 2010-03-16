@@ -27,13 +27,10 @@
 											CLLocationManagerDelegate, UINavigationControllerDelegate> 
 {
     UIWindow *window;
-    UIViewController *viewController;
+    HoccerViewController *viewController;
 	ReceivedContentView *receivedContentView;
-												
-	IBOutlet HoccerViewController *hoccerViewController;
-											
+																							
 	CLLocationManager *locationManager;
-	GesturesInterpreter *gesturesInterpreter;
 	BaseHoccerRequest *request;
 
 	id <HoccerContent> hoccerContent;

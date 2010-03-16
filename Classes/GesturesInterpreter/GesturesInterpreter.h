@@ -23,6 +23,6 @@
 	NSObject <GesturesInterpreterDelegate> * delegate;
 }
 
-@property (retain) NSObject <GesturesInterpreterDelegate> * delegate;
+@property (retain) IBOutlet NSObject <GesturesInterpreterDelegate> * delegate;
 
 @end

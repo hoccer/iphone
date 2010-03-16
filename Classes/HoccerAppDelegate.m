@@ -40,7 +40,6 @@
 @end
 
 
-
 @implementation HoccerAppDelegate
 
 @synthesize window;
@@ -54,8 +53,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
 	
-	gesturesInterpreter = [[GesturesInterpreter alloc] init];
-	gesturesInterpreter.delegate = self;
+	// gesturesInterpreter = [[GesturesInterpreter alloc] init];
+	// gesturesInterpreter.delegate = self;
 	
 	locationManager = [[CLLocationManager alloc] init];
 	locationManager.delegate = self;
@@ -95,7 +94,7 @@
 {
 	[contentToSend contentWillBeDismissed];
 	self.contentToSend = nil;
-	[hoccerViewController setContentPreview: nil];
+	[viewController setContentPreview: nil];
 }
 
 
@@ -108,7 +107,7 @@
 	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:
 						   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
-	[hoccerViewController setContentPreview: self.contentToSend];
+	[viewController setContentPreview: self.contentToSend];
 	
 	[viewController dismissModalViewControllerAnimated:YES];
 }
@@ -126,7 +125,7 @@
 	
 	
 	self.contentToSend = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
-	[hoccerViewController setContentPreview: self.contentToSend];
+	[viewController setContentPreview: self.contentToSend];
 	
 	[viewController dismissModalViewControllerAnimated:YES];
 	return NO;
@@ -152,7 +151,7 @@
 {
 	self.contentToSend = [[[HoccerText alloc] init] autorelease];
 	
-	[hoccerViewController  setContentPreview: self.contentToSend];
+	[viewController  setContentPreview: self.contentToSend];
 }
 
 #pragma mark -
@@ -175,7 +174,7 @@
 	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"distribute" delegate: self];
 	
-	[hoccerViewController showConnectionActivity];
+	[viewController showConnectionActivity];
 }
 
 
@@ -190,8 +189,8 @@
 	
 	
 	[FeedbackProvider playThrowFeedback];
-	[hoccerViewController startPreviewFlyOutAniamation];
-	[hoccerViewController setUpdate: @"preparing"];
+	[viewController startPreviewFlyOutAniamation];
+	[viewController setUpdate: @"preparing"];
 	
 	HocLocation *hocLocation = [[[HocLocation alloc] 
 								 initWithLocation:[self currentLocation] 
@@ -199,7 +198,7 @@
 	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
-	[hoccerViewController showConnectionActivity];
+	[viewController showConnectionActivity];
 }
 
 - (void)sweepInterpreterDidDetectSweepIn {
@@ -208,11 +207,11 @@
 								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
 	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"pass" delegate: self];
-	[hoccerViewController showConnectionActivity];
+	[viewController showConnectionActivity];
 }
 
 - (void)sweepInterpreterDidDetectSweepOut {
-	[hoccerViewController setUpdate: @"preparing"];
+	[viewController setUpdate: @"preparing"];
 	
 	HocLocation *hocLocation = [[[HocLocation alloc] 
 								 initWithLocation:[self currentLocation] 
@@ -220,7 +219,7 @@
 	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"pass" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
-	[hoccerViewController showConnectionActivity];
+	[viewController showConnectionActivity];
 }
 
 #pragma mark -
@@ -247,7 +246,7 @@
 	[request release];
 	request = nil;
 	
-	[hoccerViewController hideConnectionActivity];
+	[viewController hideConnectionActivity];
 }
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
@@ -265,7 +264,7 @@
 	[request release];
 	request = nil;
 	
-	[hoccerViewController hideConnectionActivity];
+	[viewController hideConnectionActivity];
 }
 
 
@@ -278,9 +277,9 @@
 	request = nil;
 	
 	self.contentToSend = nil;
-	[hoccerViewController setContentPreview: nil];
+	[viewController setContentPreview: nil];
 
-	[hoccerViewController hideConnectionActivity];
+	[viewController hideConnectionActivity];
 }
 
 #pragma mark -
@@ -288,23 +287,23 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	[hoccerViewController showError: [error localizedDescription]];
-	[hoccerViewController resetPreview];
+	[viewController showError: [error localizedDescription]];
+	[viewController resetPreview];
 	
 	[request release];
 	request = nil;
 	
-	[hoccerViewController hideConnectionActivity];
+	[viewController hideConnectionActivity];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
 {
-	[hoccerViewController setUpdate: update];
+	[viewController setUpdate: update];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
-	[hoccerViewController setProgressUpdate:[progress floatValue]];
+	[viewController setProgressUpdate:[progress floatValue]];
 }
 
 
@@ -336,7 +335,7 @@
 	[geocoder release];
 	CLLocation *location = [self currentLocation];
 	
-	[hoccerViewController setLocation:placemark withAccuracy: location.horizontalAccuracy];
+	[viewController setLocation:placemark withAccuracy: location.horizontalAccuracy];
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error
@@ -348,8 +347,8 @@
 
 - (void)userDidCancelRequest
 {
-	[hoccerViewController resetPreview];
-	[hoccerViewController hideConnectionActivity];
+	[viewController resetPreview];
+	[viewController hideConnectionActivity];
 	
 	[request cancel];
 	[request release];
@@ -410,14 +409,14 @@
 	help.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[viewController presentModalViewController:help animated:YES];
 
-	gesturesInterpreter.delegate = help;
+	// gesturesInterpreter.delegate = help;
 	[help release];
 }
 
 - (void)userDidCloseHelpView
 {
 	[viewController dismissModalViewControllerAnimated:YES];
-	gesturesInterpreter.delegate = self;
+	// gesturesInterpreter.delegate = self;
 }
 
 - (void)userNeedToAgreeToTermsOfUse
