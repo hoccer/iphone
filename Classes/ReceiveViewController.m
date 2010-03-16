@@ -7,6 +7,7 @@
 //
 
 #import "ReceiveViewController.h"
+#import "NSObject+DelegateHelper.h"
 
 #define kSweepInBorder 30
 #define kSweepAcceptanceDistance 100
@@ -18,6 +19,7 @@
 
 @implementation ReceiveViewController
 @synthesize feedback;
+@synthesize delegate;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -70,29 +72,24 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
 	
-	if (currentLocation.x < kSweepInBorder) {
+	if (initialTouchPoint.x < kSweepInBorder) {
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
 		feedback.hidden = NO;
-		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
-	} else if (currentLocation.x > self.view.superview.frame.size.width - kSweepInBorder){
+	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
 		feedback.hidden = NO;
-		feedback.center = CGPointMake(feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);		
 	}
-
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
-	if (sweeping == kSweepDirectionLeftIn) {
-		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
-	} else if (sweeping == kSweepDirectionRightIn) {
-		feedback.center = CGPointMake(feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	if (sweeping != kNoSweeping) {
+		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
 	}
 }
 
@@ -100,25 +97,42 @@
 	NSLog(@"touches ended in ReceiveViewController");
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
-	if (sweeping == kSweepDirectionLeftIn && sweeping == kSweepDirectionRightIn && currentLocation.x > kSweepAcceptanceDistance) {
-		//success
-		[self startMoveToCenterAnimation];		
+	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
+			sweeping == kSweepDirectionRightIn && currentLocation.x < self.view.frame.size. width - kSweepAcceptanceDistance) {
+		
+		[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn) withObject:self];
+		[self startMoveToCenterAnimation];
+		sweeping = kNoSweeping;
+
+		return;
+	}
+	
+	if (sweeping != kNoSweeping) {
+		[self startMoveOutAnimation: sweeping];
 	}
 
-    sweeping = kNoSweeping;
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches cancelled in ReceiveViewController");
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	sweeping = kNoSweeping;
 }
 
-- (void)startMoveToCenterAnimation
-{
+- (void)startMoveToCenterAnimation {
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
 	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 75);
 
 	[UIView commitAnimations];
 }
+
+- (void)startMoveOutAnimation: (NSInteger)direction {
+	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	
+	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
+	
+	[UIView commitAnimations];
+}
+
 
 @end

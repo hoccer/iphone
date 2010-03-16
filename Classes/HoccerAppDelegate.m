@@ -85,8 +85,7 @@
 	[request release];
 	
     [viewController release];
-	[navigationController release];
-    [window release];
+	[window release];
 	
 	[lastLocationUpdate release];
 	[super dealloc];
@@ -203,6 +202,26 @@
 	[hoccerViewController showConnectionActivity];
 }
 
+- (void)sweepInterpreterDidDetectSweepIn {
+	HocLocation *hocLocation = [[[HocLocation alloc] 
+								 initWithLocation:[self currentLocation] 
+								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
+	
+	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"pass" delegate: self];
+	[hoccerViewController showConnectionActivity];
+}
+
+- (void)sweepInterpreterDidDetectSweepOut {
+	[hoccerViewController setUpdate: @"preparing"];
+	
+	HocLocation *hocLocation = [[[HocLocation alloc] 
+								 initWithLocation:[self currentLocation] 
+								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
+	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"pass" content: contentToSend 
+													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	
+	[hoccerViewController showConnectionActivity];
+}
 
 #pragma mark -
 #pragma mark Download Communication Delegate Methods

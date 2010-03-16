@@ -29,7 +29,7 @@
 
 - (void)setX: (double)aX 
 {
-	x= aX;
+	x = aX;
 }
 
 - (void)setY: (double)aY 

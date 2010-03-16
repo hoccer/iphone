@@ -31,7 +31,6 @@
 	ReceivedContentView *receivedContentView;
 												
 	IBOutlet HoccerViewController *hoccerViewController;
-	IBOutlet UINavigationController *navigationController;
 											
 	CLLocationManager *locationManager;
 	GesturesInterpreter *gesturesInterpreter;
@@ -57,7 +56,7 @@
 
 - (void)didDissmissContentToThrow;
 
--  (void)hideReceivedContentView;
+- (void)hideReceivedContentView;
 
 @end
 

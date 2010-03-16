@@ -37,11 +37,7 @@
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
 		2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
-		22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */; };
-		22762DDC105E541D003BF968 /* MockedAccelerometerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DD9105E541D003BF968 /* MockedAccelerometerDelegate.m */; };
-		22762DDD105E541D003BF968 /* UIAccelerometer+TestPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */; };
 		22762F62105E78AF003BF968 /* 2_values.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22762F61105E78AF003BF968 /* 2_values.txt */; };
-		22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */; };
 		22762FB8105E84B5003BF968 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		227687C2109047E4000528E8 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
@@ -119,6 +115,11 @@
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
 		229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* ReceiveViewController.m */; };
+		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
+		229D9D5D114FC1B200459ED9 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
+		229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
+		229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
+		229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -393,6 +394,9 @@
 			files = (
 				22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */,
 				22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */,
+				229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */,
+				229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */,
+				229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,10 +1003,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22762D78105E4A24003BF968 /* AccelerometerTestFrameworkTests.m in Sources */,
-				22762DDC105E541D003BF968 /* MockedAccelerometerDelegate.m in Sources */,
-				22762DDD105E541D003BF968 /* UIAccelerometer+TestPlayback.m in Sources */,
-				22762FA8105E7D88003BF968 /* UIAcceleration+TestSetters.m in Sources */,
 				22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */,
 				22799025105FD87D0035C643 /* HoccerImage.m in Sources */,
 				22799026105FD8810035C643 /* HoccerUrl.m in Sources */,
@@ -1027,6 +1027,8 @@
 				22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */,
 				22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */,
 				2271A00C108347C800F84755 /* FeedbackProvider.m in Sources */,
+				229D9D58114FC18400459ED9 /* Preview.m in Sources */,
+				229D9D5D114FC1B200459ED9 /* HoccerVcard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

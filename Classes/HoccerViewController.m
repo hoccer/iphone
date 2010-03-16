@@ -46,6 +46,7 @@
 	receiveViewController.view = receiveView;
 
 	receiveViewController.feedback = feedbackView;
+	receiveViewController.delegate = self.delegate;
 	feedbackView.hidden = YES;
 	[receiveView addSubview:feedbackView];
 }

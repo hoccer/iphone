@@ -6,7 +6,7 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 @interface Preview : UIView {
