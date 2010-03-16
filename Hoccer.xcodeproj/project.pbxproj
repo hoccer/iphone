@@ -120,6 +120,7 @@
 		229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -326,6 +327,8 @@
 		229A9011114E44C10069A0EA /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* ReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveViewController.h; sourceTree = "<group>"; };
 		229A9122114E737A0069A0EA /* ReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiveViewController.m; sourceTree = "<group>"; };
+		229D9F7D114FEE0200459ED9 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
+		229D9F7E114FEE0200459ED9 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		229DAF11107B331F00B47ABE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
 				229A9121114E737A0069A0EA /* ReceiveViewController.h */,
 				229A9122114E737A0069A0EA /* ReceiveViewController.m */,
+				229D9F7D114FEE0200459ED9 /* LocationController.h */,
+				229D9F7E114FEE0200459ED9 /* LocationController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -996,6 +1001,7 @@
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,
 				229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */,
 				229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */,
+				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 
@@ -16,6 +15,8 @@
 @class BaseHoccerRequest;
 @class ReceivedContentView;
 
+@class LocationController;
+
 @class WifiScanner;
 
 #import "GesturesInterpreterDelegate.h"
@@ -23,29 +24,30 @@
 
 @interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
 											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, 
-											MKReverseGeocoderDelegate, ABPeoplePickerNavigationControllerDelegate,
-											CLLocationManagerDelegate, UINavigationControllerDelegate> 
+											 ABPeoplePickerNavigationControllerDelegate,
+											 UINavigationControllerDelegate> 
 {
     UIWindow *window;
     HoccerViewController *viewController;
 	ReceivedContentView *receivedContentView;
+	
+	LocationController *locationController;
 																							
-	CLLocationManager *locationManager;
 	BaseHoccerRequest *request;
 
 	id <HoccerContent> hoccerContent;
 	id <HoccerContent> contentToSend;					
 	
-	NSDate *lastLocationUpdate;
+	
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
 
+@property (nonatomic, retain) IBOutlet LocationController *locationController;
+
 @property (nonatomic, retain) id <HoccerContent> hoccerContent;
 @property (nonatomic, retain) id <HoccerContent> contentToSend;
-
-- (CLLocation *) currentLocation;
 
 - (void)userDidCancelRequest;
 - (void)userDidDismissContent;

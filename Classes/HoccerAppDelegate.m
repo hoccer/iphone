@@ -28,12 +28,11 @@
 #import "HelpScrollView.h"
 #import "TermOfUse.h"
 
-#import "WifiScanner.h"
+
 #import "HocLocation.h"
+#import "LocationController.h"
 
 @interface HoccerAppDelegate ()
-
-@property (retain) NSDate *lastLocationUpdate;
 
 - (void)userNeedToAgreeToTermsOfUse;
 
@@ -48,16 +47,13 @@
 @synthesize contentToSend;
 @synthesize hoccerContent;
 
-@synthesize lastLocationUpdate;
+@synthesize locationController;
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
 	
-	locationManager = [[CLLocationManager alloc] init];
-	locationManager.delegate = self;
-	[locationManager startUpdatingLocation];
-
 	[request release];
 
 	[window addSubview:viewController.view];
@@ -67,16 +63,9 @@
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];
 	}
-	
-	[WifiScanner sharedScanner];
-	
 }
 
-- (void)dealloc {
-	[locationManager stopUpdatingLocation];
-	[locationManager release];
-	locationManager = nil;
-	
+- (void)dealloc {	
 	[hoccerContent release];
 	[contentToSend release];
 	[request release];
@@ -84,7 +73,6 @@
     [viewController release];
 	[window release];
 	
-	[lastLocationUpdate release];
 	[super dealloc];
 }
 
@@ -166,11 +154,9 @@
 
 	[FeedbackProvider  playCatchFeedback];
 
-	HocLocation *hocLocation = [[[HocLocation alloc] 
-								 initWithLocation:[self currentLocation] 
-								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
 	
-	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"distribute" delegate: self];
+	
+	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
 	
 	[viewController showConnectionActivity];
 }
@@ -189,32 +175,22 @@
 	[FeedbackProvider playThrowFeedback];
 	[viewController startPreviewFlyOutAniamation];
 	[viewController setUpdate: @"preparing"];
-	
-	HocLocation *hocLocation = [[[HocLocation alloc] 
-								 initWithLocation:[self currentLocation] 
-								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
-	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"distribute" content: contentToSend 
+
+	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
 	[viewController showConnectionActivity];
 }
 
-- (void)sweepInterpreterDidDetectSweepIn {
-	HocLocation *hocLocation = [[[HocLocation alloc] 
-								 initWithLocation:[self currentLocation] 
-								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
-	
-	request = [[HoccerDownloadRequest alloc] initWithLocation: hocLocation gesture: @"pass" delegate: self];
+- (void)sweepInterpreterDidDetectSweepIn {	
+	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
 	[viewController showConnectionActivity];
 }
 
 - (void)sweepInterpreterDidDetectSweepOut {
 	[viewController setUpdate: @"preparing"];
 	
-	HocLocation *hocLocation = [[[HocLocation alloc] 
-								 initWithLocation:[self currentLocation] 
-								 bssids:[WifiScanner sharedScanner].bssids] autorelease];
-	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:@"pass" content: contentToSend 
+	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
 	[viewController showConnectionActivity];
@@ -302,41 +278,6 @@
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
 	[viewController setProgressUpdate:[progress floatValue]];
-}
-
-- (CLLocation *) currentLocation
-{
-	return locationManager.location;
-}
-
-#pragma mark -
-#pragma mark Reverse Geocoding Methods
-
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
-		   fromLocation:(CLLocation *)oldLocation {
-	
-	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
-		return;
-	
-	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: newLocation.coordinate];
-	geocoder.delegate = self;
-	
-	[geocoder start];
-	
-	self.lastLocationUpdate = [NSDate date];
-}
-
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
-{
-	[geocoder release];
-	CLLocation *location = [self currentLocation];
-	
-	[viewController setLocation:placemark withAccuracy: location.horizontalAccuracy];
-}
-
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error
-{
 }
 
 #pragma mark -

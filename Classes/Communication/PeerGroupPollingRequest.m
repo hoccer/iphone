@@ -74,6 +74,7 @@
 		return;
 	}
 	
+	NSLog(@"polling peer group");
 	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
