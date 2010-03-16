@@ -9,6 +9,11 @@
 #import "ReceiveViewController.h"
 
 #define kSweepInBorder 30
+#define kSweepAcceptanceDistance 100
+
+#define kSweepDirectionLeftIn -1
+#define kNoSweeping 0
+#define kSweepDirectionRightIn 1
 
 
 @implementation ReceiveViewController
@@ -68,31 +73,52 @@
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 	
 	if (currentLocation.x < kSweepInBorder) {
-		NSLog(@"starting sweep in");
-		sweeping = YES;
+		NSLog(@"starting sweep in from left");
+		sweeping = kSweepDirectionLeftIn;
 		feedback.hidden = NO;
 		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	} else if (currentLocation.x > self.view.superview.frame.size.width - kSweepInBorder){
+		NSLog(@"starting sweep in from right");
+		sweeping = kSweepDirectionRightIn;
+		feedback.hidden = NO;
+		feedback.center = CGPointMake(feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);		
 	}
+
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
-	if (sweeping) {
+	if (sweeping == kSweepDirectionLeftIn) {
 		feedback.center = CGPointMake(- feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	} else if (sweeping == kSweepDirectionRightIn) {
+		feedback.center = CGPointMake(feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
 	}
-	
-	NSLog(@"touches moved in ReceiveViewController");
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
 	NSLog(@"touches ended in ReceiveViewController");
-	
-	sweeping = NO;
+	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+
+	if (sweeping == kSweepDirectionLeftIn && sweeping == kSweepDirectionRightIn && currentLocation.x > kSweepAcceptanceDistance) {
+		//success
+		[self startMoveToCenterAnimation];		
+	}
+
+    sweeping = kNoSweeping;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
 	NSLog(@"touches cancelled in ReceiveViewController");
+}
+
+- (void)startMoveToCenterAnimation
+{
+	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 75);
+
+	[UIView commitAnimations];
 }
 
 @end

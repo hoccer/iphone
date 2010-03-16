@@ -12,9 +12,10 @@
 @interface ReceiveViewController : UIViewController {
 	UIView* feeback;
 	
-	BOOL sweeping;
+	int sweeping;
 }
 
 @property (retain) UIView* feedback; 
 
+- (void)startMoveToCenterAnimation;
 @end

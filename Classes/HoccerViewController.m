@@ -44,7 +44,10 @@
 	previewViewController = [[PreviewViewController alloc] init];
 	receiveViewController = [[ReceiveViewController alloc] init];
 	receiveViewController.view = receiveView;
-	receiveViewController.feedback = infoView;
+
+	receiveViewController.feedback = feedbackView;
+	feedbackView.hidden = YES;
+	[receiveView addSubview:feedbackView];
 }
 
 - (void)viewDidUnload {
@@ -54,6 +57,7 @@
     [statusLabel release];
 	[locationLabel release];
 	[infoView release];
+	[feedbackView release];
 	
 	[activitySpinner release];
 	[progressView release];
