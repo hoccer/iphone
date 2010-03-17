@@ -229,7 +229,7 @@
 #pragma mark CAAnimation Delegate Methods
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag 
 {
-	infoView.center = CGPointMake(160, 30);
+	// infoView.center = CGPointMake(160, 30);
 }
 
 - (void)startPreviewFlyOutAniamation {

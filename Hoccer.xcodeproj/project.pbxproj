@@ -112,8 +112,6 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
-		2299005D1151315F00B3DFB4 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299005B1151315F00B3DFB4 /* SelectContentViewController.m */; };
-		2299005E1151315F00B3DFB4 /* SelectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */; };
 		229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
 		229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* ReceiveViewController.m */; };
 		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
@@ -323,9 +321,6 @@
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
-		2299005A1151315F00B3DFB4 /* SelectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContentViewController.h; sourceTree = "<group>"; };
-		2299005B1151315F00B3DFB4 /* SelectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContentViewController.m; sourceTree = "<group>"; };
-		2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContentViewController.xib; sourceTree = "<group>"; };
 		229A9010114E44C10069A0EA /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
 		229A9011114E44C10069A0EA /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* ReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveViewController.h; sourceTree = "<group>"; };
@@ -440,9 +435,6 @@
 				229A9122114E737A0069A0EA /* ReceiveViewController.m */,
 				229D9F7D114FEE0200459ED9 /* LocationController.h */,
 				229D9F7E114FEE0200459ED9 /* LocationController.m */,
-				2299005A1151315F00B3DFB4 /* SelectContentViewController.h */,
-				2299005B1151315F00B3DFB4 /* SelectContentViewController.m */,
-				2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -919,7 +911,6 @@
 				22AD327C11107C7700BC7DEC /* icon.png in Resources */,
 				22AD329C11107D7500BC7DEC /* iTunesArtwork.png in Resources */,
 				22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */,
-				2299005E1151315F00B3DFB4 /* SelectContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,7 +998,6 @@
 				229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */,
 				229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */,
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
-				2299005D1151315F00B3DFB4 /* SelectContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

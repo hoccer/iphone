@@ -129,7 +129,7 @@
 - (void)startMoveToCenterAnimation {
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 75);
+	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
 
 	[UIView commitAnimations];
 }
@@ -137,7 +137,6 @@
 - (void)startMoveOutAnimation: (NSInteger)direction {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	
 	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
 	
 	[UIView commitAnimations];
