@@ -196,6 +196,7 @@
 - (void)resetPreview
 {
 	[previewViewController resetViewAnimated:NO];
+	[receiveViewController resetView];
 }
 
 - (IBAction)selectContacts: (id)sender

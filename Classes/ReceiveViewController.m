@@ -79,10 +79,15 @@
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
 		feedback.hidden = NO;
+		
 	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
 		feedback.hidden = NO;
+	}
+	
+	if (sweeping != kNoSweeping) {
+		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + initialTouchPoint.x, initialTouchPoint.y);
 	}
 }
 
@@ -133,6 +138,10 @@
 	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
 	
 	[UIView commitAnimations];
+}
+
+-  (void)resetView {
+	feedback.hidden = YES;
 }
 
 

@@ -23,4 +23,6 @@
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;
 
+-  (void)resetView;
+
 @end
