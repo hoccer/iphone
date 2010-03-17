@@ -11,14 +11,14 @@
 
 @interface ReceiveViewController : UIViewController {
 	id delegate;
-	UIView* feeback;
+	UIView* feedback;
 	
 	int sweeping;
 	CGPoint initialTouchPoint;
 }
 
-@property (retain) UIView* feedback; 
 @property (assign) id delegate;
+@property (retain) UIView* feedback; 
 
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;

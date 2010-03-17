@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationController.h"
 #import "WifiScanner.h"
+#import "HocLocation.h"
 
 @implementation LocationController
 @synthesize viewController;
@@ -63,7 +64,7 @@
 {
 }
 
-- (CLLocation *)location {
+- (HocLocation *)location {
 	return [[[HocLocation alloc] 
 			initWithLocation: locationManager.location
 					  bssids:[WifiScanner sharedScanner].bssids] autorelease];

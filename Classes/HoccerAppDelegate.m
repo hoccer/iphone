@@ -71,6 +71,7 @@
 	[request release];
 	
     [viewController release];
+	
 	[window release];
 	
 	[super dealloc];

@@ -17,8 +17,6 @@
 
 @class LocationController;
 
-@class WifiScanner;
-
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
 

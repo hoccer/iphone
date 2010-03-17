@@ -18,6 +18,7 @@
 
 
 @implementation ReceiveViewController
+
 @synthesize feedback;
 @synthesize delegate;
 
