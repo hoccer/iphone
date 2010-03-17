@@ -14,6 +14,7 @@
 	UIView* feedback;
 	
 	int sweeping;
+	BOOL blocked;
 	CGPoint initialTouchPoint;
 }
 

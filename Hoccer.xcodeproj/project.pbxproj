@@ -81,7 +81,6 @@
 		227CA27510AC582800418A4D /* Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA26F10AC582800418A4D /* Photo.png */; };
 		227CA27610AC582800418A4D /* Text_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA27010AC582800418A4D /* Text_Highlighted.png */; };
 		227CA27710AC582800418A4D /* Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA27110AC582800418A4D /* Text.png */; };
-		227CA27A10AC5BAC00418A4D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA27910AC5BAC00418A4D /* Default.png */; };
 		2281002710A9A8DD00DFA0BF /* Help_Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */; };
 		2281009110A9C1A000DFA0BF /* Help_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */; };
 		2281009210A9C1A000DFA0BF /* Help_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008E10A9C1A000DFA0BF /* Help_Button.png */; };
@@ -113,6 +112,8 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		2299005D1151315F00B3DFB4 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299005B1151315F00B3DFB4 /* SelectContentViewController.m */; };
+		2299005E1151315F00B3DFB4 /* SelectContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */; };
 		229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
 		229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* ReceiveViewController.m */; };
 		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
@@ -282,7 +283,6 @@
 		227CA26F10AC582800418A4D /* Photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photo.png; sourceTree = "<group>"; };
 		227CA27010AC582800418A4D /* Text_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Text_Highlighted.png; sourceTree = "<group>"; };
 		227CA27110AC582800418A4D /* Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Text.png; sourceTree = "<group>"; };
-		227CA27910AC5BAC00418A4D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Throw_Icon.png; sourceTree = "<group>"; };
 		2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Highlighted.png; sourceTree = "<group>"; };
 		2281008E10A9C1A000DFA0BF /* Help_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Button.png; sourceTree = "<group>"; };
@@ -323,6 +323,9 @@
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
+		2299005A1151315F00B3DFB4 /* SelectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContentViewController.h; sourceTree = "<group>"; };
+		2299005B1151315F00B3DFB4 /* SelectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContentViewController.m; sourceTree = "<group>"; };
+		2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContentViewController.xib; sourceTree = "<group>"; };
 		229A9010114E44C10069A0EA /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
 		229A9011114E44C10069A0EA /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* ReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveViewController.h; sourceTree = "<group>"; };
@@ -437,6 +440,9 @@
 				229A9122114E737A0069A0EA /* ReceiveViewController.m */,
 				229D9F7D114FEE0200459ED9 /* LocationController.h */,
 				229D9F7E114FEE0200459ED9 /* LocationController.m */,
+				2299005A1151315F00B3DFB4 /* SelectContentViewController.h */,
+				2299005B1151315F00B3DFB4 /* SelectContentViewController.m */,
+				2299005C1151315F00B3DFB4 /* SelectContentViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -776,7 +782,6 @@
 				E64B7800109491AA0005ACA3 /* AboutViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
-				227CA27910AC5BAC00418A4D /* Default.png */,
 				22AD327B11107C7700BC7DEC /* icon.png */,
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
 			);
@@ -910,11 +915,11 @@
 				227CA27510AC582800418A4D /* Photo.png in Resources */,
 				227CA27610AC582800418A4D /* Text_Highlighted.png in Resources */,
 				227CA27710AC582800418A4D /* Text.png in Resources */,
-				227CA27A10AC5BAC00418A4D /* Default.png in Resources */,
 				2861DCB910ADA03500EA2FFA /* menue.png in Resources */,
 				22AD327C11107C7700BC7DEC /* icon.png in Resources */,
 				22AD329C11107D7500BC7DEC /* iTunesArtwork.png in Resources */,
 				22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */,
+				2299005E1151315F00B3DFB4 /* SelectContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,6 +1007,7 @@
 				229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */,
 				229A9123114E737A0069A0EA /* ReceiveViewController.m in Sources */,
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
+				2299005D1151315F00B3DFB4 /* SelectContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

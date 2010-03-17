@@ -38,12 +38,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	blocked = NO;
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -73,8 +74,12 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
+	if (blocked) {
+		return;
+	}
 	
+	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
+
 	if (initialTouchPoint.x < kSweepInBorder) {
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
@@ -86,9 +91,7 @@
 		feedback.hidden = NO;
 	}
 	
-	if (sweeping != kNoSweeping) {
-		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + initialTouchPoint.x, initialTouchPoint.y);
-	}
+	[self touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
@@ -109,7 +112,7 @@
 		[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn) withObject:self];
 		[self startMoveToCenterAnimation];
 		sweeping = kNoSweeping;
-
+		blocked = YES;
 		return;
 	}
 	
@@ -142,6 +145,7 @@
 
 -  (void)resetView {
 	feedback.hidden = YES;
+	blocked = NO;
 }
 
 
