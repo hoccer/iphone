@@ -10,7 +10,11 @@
 
 
 @interface SelectContentViewController : UITableViewController {
-
+	NSArray* selectableContents;
+	id delegate;	
 }
 
+@property (assign) id delegate;
 @end
+
+

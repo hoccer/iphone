@@ -28,9 +28,10 @@
 #import "HelpScrollView.h"
 #import "TermOfUse.h"
 
-
 #import "HocLocation.h"
 #import "LocationController.h"
+
+#import "StatusViewController.h"
 
 @interface HoccerAppDelegate ()
 
@@ -48,6 +49,7 @@
 @synthesize hoccerContent;
 
 @synthesize locationController;
+@synthesize statusViewController;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -141,6 +143,25 @@
 	[viewController  setContentPreview: self.contentToSend];
 }
 
+- (void)userWantsToSelectImage
+{
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	
+	imagePicker.delegate = self;
+	[viewController presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
+- (void)userWantsToSelectContact
+{
+	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+	picker.peoplePickerDelegate = self;
+	
+	[viewController presentModalViewController:picker animated:YES];
+	[picker release];
+}
+
+
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
@@ -159,7 +180,7 @@
 	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
 	
-	[viewController showConnectionActivity];
+	[statusViewController showActivityInfo];
 }
 
 
@@ -175,26 +196,26 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	[viewController startPreviewFlyOutAniamation];
-	[viewController setUpdate: @"preparing"];
+	[statusViewController setUpdate: @"preparing"];
 
 	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
-	[viewController showConnectionActivity];
+	[statusViewController showActivityInfo];
 }
 
 - (void)sweepInterpreterDidDetectSweepIn {	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
-	[viewController showConnectionActivity];
+	[statusViewController showActivityInfo];
 }
 
 - (void)sweepInterpreterDidDetectSweepOut {
-	[viewController setUpdate: @"preparing"];
+	[statusViewController setUpdate: @"preparing"];
 	
 	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
-	[viewController showConnectionActivity];
+	[statusViewController showActivityInfo];
 }
 
 #pragma mark -
@@ -221,7 +242,7 @@
 	[request release];
 	request = nil;
 	
-	[viewController hideConnectionActivity];
+	[statusViewController hideActivityInfo];
 }
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
@@ -239,7 +260,7 @@
 	[request release];
 	request = nil;
 	
-	[viewController hideConnectionActivity];
+	[statusViewController hideActivityInfo];
 }
 
 
@@ -254,7 +275,7 @@
 	self.contentToSend = nil;
 	[viewController setContentPreview: nil];
 
-	[viewController hideConnectionActivity];
+	[statusViewController hideActivityInfo];
 }
 
 #pragma mark -
@@ -268,26 +289,31 @@
 	[request release];
 	request = nil;
 	
-	[viewController hideConnectionActivity];
+	[statusViewController hideActivityInfo];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
 {
-	[viewController setUpdate: update];
+	[statusViewController setUpdate: update];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
-	[viewController setProgressUpdate:[progress floatValue]];
+	[statusViewController setProgressUpdate:[progress floatValue]];
 }
 
 #pragma mark -
 #pragma mark Interaction Delegate Methods
 
+
+- (void)userDidCancel {
+	
+}
+
 - (void)userDidCancelRequest
 {
 	[viewController resetPreview];
-	[viewController hideConnectionActivity];
+	[statusViewController hideActivityInfo];
 	
 	[request cancel];
 	[request release];
@@ -378,23 +404,7 @@
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
 }
 
-- (void)userWantsToSelectImage
-{
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	
-	imagePicker.delegate = self;
-	[viewController presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
-}
 
-- (void)userWantsToSelectContact
-{
-	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-	
-	[viewController presentModalViewController:picker animated:YES];
-	[picker release];
-}
 
 #pragma mark -
 #pragma mark Saving Delegate Methods

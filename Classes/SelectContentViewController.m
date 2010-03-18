@@ -7,13 +7,70 @@
 //
 
 #import "SelectContentViewController.h"
+#import "NSObject+DelegateHelper.h"
+
+@interface SelectableContent : NSObject
+{
+	NSString* textLabel;
+	SEL action;
+}
+
+@property (retain) NSString* textLabel;
+@property (assign) SEL action;
+
+- (id) initWithLabel: (NSString*) aTextLabel action: (SEL) anAction;
+
+@end
+
+@implementation SelectableContent
+
+@synthesize textLabel;
+@synthesize action;
+
++ (SelectableContent*) selectableContentWithLabel: (NSString*) aTextLabel action: (SEL) anAction{
+	return [[[SelectableContent alloc] initWithLabel:aTextLabel action:anAction] autorelease];	
+}
+
+- (id) initWithLabel: (NSString*) aTextLabel action: (SEL) anAction
+{
+	self = [super init];
+	if (self != nil) {
+		self.textLabel = aTextLabel;
+		self.action = anAction;
+	}
+	return self;
+}
+
+- (void) dealloc
+{
+	[textLabel release];
+	[super dealloc];
+}
+
+@end
+
 
 
 @implementation SelectContentViewController
 
+@synthesize delegate;
 
 #pragma mark -
 #pragma mark View lifecycle
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		selectableContents = [[NSArray alloc] initWithObjects: 
+							  [SelectableContent selectableContentWithLabel: @"Contact" action:@selector(selectContacts:)],
+							  [SelectableContent selectableContentWithLabel: @"Photo" action:@selector(selectImage:)],
+							  [SelectableContent selectableContentWithLabel: @"Text" action:@selector(selectText:)], 
+							  nil];
+	}
+	return self;
+}
+
 
 /*
 - (void)viewDidLoad {
@@ -81,7 +138,8 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+	int index = indexPath.row;
+	cell.textLabel.text = [(SelectableContent *)[selectableContents objectAtIndex:index] textLabel];
     
     return cell;
 }
@@ -131,14 +189,11 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    
+	int index = indexPath.row;
+	SEL action = [[selectableContents objectAtIndex:index] action];
+	[self.delegate checkAndPerformSelector:action];	
+	
 }
 
 
@@ -159,8 +214,11 @@
 
 
 - (void)dealloc {
+	[selectableContents release];
     [super dealloc];
 }
+
+
 
 
 @end

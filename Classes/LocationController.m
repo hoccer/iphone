@@ -55,9 +55,7 @@
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
 {
 	[geocoder release];
-	CLLocation *location = locationManager.location;
-	
-	[viewController setLocation:placemark withAccuracy: location.horizontalAccuracy];
+	// [viewController setLocation:placemark withAccuracy: locationManager.location.horizontalAccuracy];
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error

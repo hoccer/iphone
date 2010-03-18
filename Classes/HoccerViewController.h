@@ -19,42 +19,34 @@
 @class PreviewViewController;
 @class ReceiveViewController;
 @class SelectContentViewController;
-@class HiddenViewScrollViewDelegate;
+@class StatusViewController;
+
 
 @interface HoccerViewController : UIViewController {
 		
-	IBOutlet UILabel *statusLabel;
-	IBOutlet UILabel *locationLabel;
 	
-	IBOutlet UIView *infoView;
 	IBOutlet UIView *feedbackView;
-
-	IBOutlet UIProgressView *progressView;	
-	IBOutlet UIActivityIndicatorView *activitySpinner;
-	
-	IBOutlet UIView *downIndicator;
 	IBOutlet UIView *backgroundView;
 	
 	IBOutlet UIView *shareView;
 	IBOutlet UIView *receiveView;
-	UIView *currentView;
-		
+
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	PreviewViewController *previewViewController;
 	ReceiveViewController *receiveViewController;
 
 	SelectContentViewController *selectContentViewController;
+	BOOL isPopUpDisplayed;
+	
+	StatusViewController *statusViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
+@property (nonatomic, retain) IBOutlet StatusViewController* statusViewController;
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)didSelectHelp: (id)sender;
-
-- (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy;
-- (void)setProgressUpdate: (CGFloat) percentage;
-- (void)setUpdate: (NSString *)update;
 
 - (void)showError: (NSString *)message;
 
@@ -65,11 +57,10 @@
 - (IBAction)didDissmissContentToThrow: (id)sender;
 - (IBAction)showAbout: (id)sender;
 
-- (void)showConnectionActivity;
-- (void)hideConnectionActivity;
-
-
-- (IBAction)showSelectContentView: (id)sender;
+- (IBAction)toggleSelectContacts: (id)sender;
+- (void)showSelectContentView;
+- (void)hideSelectContentViewAnimated: (BOOL) animated;
+- (void)removeSelectContentViewFromSuperview;
 
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;

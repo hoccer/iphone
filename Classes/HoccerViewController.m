@@ -17,11 +17,6 @@
 #import "NSString+StringWithData.h"
 
 #import "HoccerViewController.h"
-#import "HoccerDownloadRequest.h"
-#import "HoccerUploadRequest.h"
-#import "BaseHoccerRequest.h"
-#import "HoccerContentFactory.h"
-#import "GesturesInterpreter.h"
 #import "HoccerAppDelegate.h"
 
 #import "HoccerVcard.h"
@@ -32,10 +27,12 @@
 #import "PreviewViewController.h"
 #import "ReceiveViewController.h"
 #import "SelectContentViewController.h"
+#import "StatusViewController.h"
 
 @implementation HoccerViewController
 
 @synthesize delegate; 
+@synthesize statusViewController;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -49,25 +46,23 @@
 	receiveViewController.feedback = feedbackView;
 	receiveViewController.delegate = self.delegate;
 	feedbackView.hidden = YES;
+    isPopUpDisplayed = FALSE;
 	[receiveView addSubview:feedbackView];
+	
+	statusViewController.delegate = self.delegate;
+	[self.view addSubview:statusViewController.view];
 }
 
 - (void)viewDidUnload {
 }
 
 - (void)dealloc {
-    [statusLabel release];
-	[locationLabel release];
-	[infoView release];
+   
 	[feedbackView release];
-	
-	[activitySpinner release];
-	[progressView release];
-	
-	[downIndicator release];
-	
+
 	[previewViewController release];		
 	[receiveViewController release];		
+	[statusViewController release];		
 
 	[backgroundView release];
 	
@@ -94,28 +89,15 @@
 {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseHelpView)];
 }
-
-
-- (void)setLocation: (MKPlacemark *)placemark withAccuracy: (float) accuracy
-{
-	if (placemark.thoroughfare != nil)
-		locationLabel.text = [NSString stringWithFormat:@"%@ (~ %4.2fm)", placemark.thoroughfare, accuracy];
-}	
 	
 - (void)setUpdate: (NSString *)update
 {
-	progressView.progress = 0;
-	
-	progressView.hidden = NO;
-	activitySpinner.hidden = NO;
-	statusLabel.hidden = NO;
-	statusLabel.text = update;
+	[statusViewController setUpdate: update];
 }
 
 - (void)setProgressUpdate: (CGFloat) percentage
 {
-	progressView.hidden = NO;
-	progressView.progress = percentage;
+	[statusViewController setProgressUpdate: percentage];
 }
 
 
@@ -132,36 +114,6 @@
 	[backgroundView insertSubview:shareView atIndex:0];
 }
 
-
-
-
-- (void)showConnectionActivity
-{
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	infoView.hidden = NO;
-	infoView.center = CGPointMake(160, -35);
-	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(160, -35)];
-	animation.toValue = [NSNumber valueWithCGPoint: CGPointMake(160, 30)];
-	animation.duration = 0.2;	
-	animation.fillMode = kCAFillModeForwards;
-	animation.removedOnCompletion = NO;
-	animation.beginTime = CACurrentMediaTime() + 0.6;
-	animation.delegate = self;
-
-	[[infoView layer] addAnimation:animation forKey:@"positionAnimation"];  
-
-	[activitySpinner startAnimating];
-}
-
-- (void)hideConnectionActivity
-{
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
-	infoView.hidden = YES;
-	[activitySpinner stopAnimating];
-}
 
 - (void)showError: (NSString *)message
 {
@@ -202,19 +154,21 @@
 
 - (IBAction)selectContacts: (id)sender
 {
+	[self hideSelectContentViewAnimated: YES];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectContact)];
+	
 }
 
 - (IBAction)selectImage: (id)sender 
 {
+	[self hideSelectContentViewAnimated: NO];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectImage)];
-	
 }
 
 - (IBAction)selectText: (id)sender
 {
-	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];
-	
+	[self hideSelectContentViewAnimated: YES];
+	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];	
 }
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
@@ -235,12 +189,20 @@
 
 - (void)startPreviewFlyOutAniamation {
 	[previewViewController startFlyOutUpwardsAnimation];
-	infoView.hidden = YES;
 }
 
-- (IBAction)showSelectContentView: (id)sender{
-	
+- (IBAction)toggleSelectContacts: (id)sender{
+	if (!isPopUpDisplayed) {			
+		[self showSelectContentView];
+	} else {
+		[self hideSelectContentViewAnimated: TRUE];
+	}
+}
+
+
+- (void)showSelectContentView{
 	selectContentViewController = [[SelectContentViewController alloc] init];
+	selectContentViewController.delegate = self;
 	CGRect selectContentFrame = selectContentViewController.view.frame;
 	selectContentFrame.size = receiveViewController.view.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
@@ -252,7 +214,38 @@
 	selectContentFrame.origin = CGPointMake(0,0);
 	selectContentViewController.view.frame = selectContentFrame;
 	[UIView commitAnimations];
+	isPopUpDisplayed = TRUE;
 }
+
+- (void)hideSelectContentViewAnimated: (BOOL) animate{
+	if(selectContentViewController != nil){	
+		
+		CGRect selectContentFrame = selectContentViewController.view.frame;
+		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
+		
+		if (animate) {
+			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+			[UIView setAnimationDidStopSelector:@selector(removeSelectContentViewFromSuperview)];
+			[UIView setAnimationDelegate:self];
+			[UIView setAnimationDuration:0.2];
+			selectContentViewController.view.frame = selectContentFrame;
+			[UIView commitAnimations];
+		} else {
+			selectContentViewController.view.frame = selectContentFrame;
+			[self removeSelectContentViewFromSuperview];
+		}
+
+	}
+}
+
+- (void)removeSelectContentViewFromSuperview{	
+	[selectContentViewController.view removeFromSuperview];	 
+	[selectContentViewController release];
+	selectContentViewController = nil;
+	isPopUpDisplayed = FALSE;
+}
+
+
 
 
 @end
