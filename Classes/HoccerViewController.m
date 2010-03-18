@@ -31,6 +31,7 @@
 #import "HiddenViewScrollViewDelegate.h"
 #import "PreviewViewController.h"
 #import "ReceiveViewController.h"
+#import "SelectContentViewController.h"
 
 @implementation HoccerViewController
 
@@ -143,7 +144,7 @@
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(160, -35)];
 	animation.toValue = [NSNumber valueWithCGPoint: CGPointMake(160, 30)];
-	animation.duration = 0.2;
+	animation.duration = 0.2;	
 	animation.fillMode = kCAFillModeForwards;
 	animation.removedOnCompletion = NO;
 	animation.beginTime = CACurrentMediaTime() + 0.6;
@@ -235,6 +236,22 @@
 - (void)startPreviewFlyOutAniamation {
 	[previewViewController startFlyOutUpwardsAnimation];
 	infoView.hidden = YES;
+}
+
+- (IBAction)showSelectContentView: (id)sender{
+	
+	selectContentViewController = [[SelectContentViewController alloc] init];
+	CGRect selectContentFrame = selectContentViewController.view.frame;
+	selectContentFrame.size = receiveViewController.view.frame.size;
+	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
+	selectContentViewController.view.frame = selectContentFrame;	
+	[receiveViewController.view addSubview:selectContentViewController.view];
+	
+	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+	[UIView setAnimationDuration:0.2];
+	selectContentFrame.origin = CGPointMake(0,0);
+	selectContentViewController.view.frame = selectContentFrame;
+	[UIView commitAnimations];
 }
 
 

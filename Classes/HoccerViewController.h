@@ -18,6 +18,7 @@
 @class Preview;
 @class PreviewViewController;
 @class ReceiveViewController;
+@class SelectContentViewController;
 @class HiddenViewScrollViewDelegate;
 
 @interface HoccerViewController : UIViewController {
@@ -42,6 +43,8 @@
 		
 	PreviewViewController *previewViewController;
 	ReceiveViewController *receiveViewController;
+
+	SelectContentViewController *selectContentViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -65,6 +68,8 @@
 - (void)showConnectionActivity;
 - (void)hideConnectionActivity;
 
+
+- (IBAction)showSelectContentView: (id)sender;
 
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;
