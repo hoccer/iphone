@@ -96,6 +96,10 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
+	if (blocked) {
+		return;
+	}
+	
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
 	if (sweeping != kNoSweeping) {

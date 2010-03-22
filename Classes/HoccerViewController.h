@@ -23,8 +23,6 @@
 
 
 @interface HoccerViewController : UIViewController {
-		
-	
 	IBOutlet UIView *sweepInView;
 	
 	IBOutlet UIView *shareView;
@@ -37,10 +35,12 @@
 
 	SelectContentViewController *selectContentViewController;
 	BOOL isPopUpDisplayed;
+	BOOL allowSweepGesture;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) IBOutlet StatusViewController* statusViewController;
+@property (nonatomic, assign) BOOL allowSweepGesture;
 
 - (IBAction)onCancel: (id)sender; 
 - (IBAction)didSelectHelp: (id)sender;

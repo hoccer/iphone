@@ -33,6 +33,7 @@
 
 @synthesize delegate; 
 @synthesize statusViewController;
+@synthesize allowSweepGesture;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -48,6 +49,8 @@
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
 	[receiveView addSubview: sweepInView];
+	
+	self.allowSweepGesture = YES;
 }
 
 - (void)viewDidUnload {
@@ -69,48 +72,39 @@
 
 #pragma mark -
 #pragma mark User Interaction
-- (IBAction)onCancel: (id)sender 
-{
+- (IBAction)onCancel: (id)sender {
 	[self.delegate checkAndPerformSelector:@selector(userDidCancelRequest)];
 }
 
-- (IBAction)didDissmissContentToThrow: (id)sender
-{
+- (IBAction)didDissmissContentToThrow: (id)sender {
 	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
 }
 
--  (IBAction)didSelectHelp: (id)sender
-{
+- (IBAction)didSelectHelp: (id)sender {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseHelpView)];
 }
 	
-- (void)setUpdate: (NSString *)update
-{
+- (void)setUpdate: (NSString *)update {
 	[statusViewController setUpdate: update];
 }
 
-- (void)setProgressUpdate: (CGFloat) percentage
-{
+- (void)setProgressUpdate: (CGFloat) percentage {
 	[statusViewController setProgressUpdate: percentage];
 }
 
 
-- (void)showReceiveMode
-{
+- (void)showReceiveMode {
 	[shareView removeFromSuperview];
 	[self.view insertSubview:receiveView atIndex:0];
 }
 
-- (void)showSendMode
-{
-	//[receiveViewController.view removeFromSuperview];
+- (void)showSendMode {
 	[receiveView removeFromSuperview];
 	[self.view insertSubview:shareView atIndex:0];
 }
 
 
-- (void)showError: (NSString *)message
-{
+- (void)showError: (NSString *)message {
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil 
 											  cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
 	
@@ -119,8 +113,7 @@
 }
 
 
-- (void)setContentPreview: (id <HoccerContent>)content
-{
+- (void)setContentPreview: (id <HoccerContent>)content {
 	if (content == nil) {
 		[self showReceiveMode];
 	} else {
@@ -128,7 +121,6 @@
 	}
 	
 	[previewViewController.view removeFromSuperview];
-	
 	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
@@ -140,27 +132,23 @@
 	previewViewController.delegate = self.delegate;
 }
 
-- (void)resetPreview
-{
+- (void)resetPreview {
 	[previewViewController resetViewAnimated:NO];
 	[backgroundViewController resetView];
 }
 
-- (IBAction)selectContacts: (id)sender
-{
+- (IBAction)selectContacts: (id)sender {
 	[self hideSelectContentViewAnimated: YES];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectContact)];
 	
 }
 
-- (IBAction)selectImage: (id)sender 
-{
+- (IBAction)selectImage: (id)sender {
 	[self hideSelectContentViewAnimated: NO];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectImage)];
 }
 
-- (IBAction)selectText: (id)sender
-{
+- (IBAction)selectText: (id)sender {
 	[self hideSelectContentViewAnimated: YES];
 	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];	
 }
@@ -169,8 +157,7 @@
 	[previewViewController dismissKeyboard];
 }
 
-- (IBAction)showAbout: (id)sender 
-{
+- (IBAction)showAbout: (id)sender {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
 
@@ -231,14 +218,15 @@
 	}
 }
 
-- (void)removeSelectContentViewFromSuperview{	
+- (void)removeSelectContentViewFromSuperview {	
 	[selectContentViewController.view removeFromSuperview];	 
 	[selectContentViewController release];
 	selectContentViewController = nil;
 	isPopUpDisplayed = FALSE;
 }
 
-
-
+- (void)setAllowSweepGesture: (BOOL)allow {
+	backgroundViewController.blocked = !allow;
+}
 
 @end

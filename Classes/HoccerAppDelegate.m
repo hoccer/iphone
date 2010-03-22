@@ -170,6 +170,7 @@
 	if (self.contentToSend || request != nil) {
 		return;
 	}
+	viewController.allowSweepGesture = NO;
 
 	[FeedbackProvider  playCatchFeedback];
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
@@ -181,7 +182,7 @@
 	if (!self.contentToSend || request != nil) {
 		return;
 	}
-	
+
 	[FeedbackProvider playThrowFeedback];
 	[viewController startPreviewFlyOutAniamation];
 	[statusViewController setUpdate: @"preparing"];
@@ -196,6 +197,7 @@
 	if (self.contentToSend || request != nil) {
 		return;
 	}
+	viewController.allowSweepGesture = NO;
 	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
 	[statusViewController showActivityInfo];
@@ -215,8 +217,6 @@
 
 #pragma mark -
 #pragma mark Download Communication Delegate Methods
-
-
 - (void)requestIsReadyToStartDownload: (BaseHoccerRequest *)aRequest
 {
 	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
@@ -280,6 +280,8 @@
 {
 	[viewController showError: [error localizedDescription]];
 	[viewController resetPreview];
+	viewController.allowSweepGesture = YES;
+
 	
 	[request release];
 	request = nil;
@@ -303,6 +305,8 @@
 - (void)userDidCancelRequest
 {
 	[viewController resetPreview];
+	viewController.allowSweepGesture = YES;
+
 	[statusViewController hideActivityInfo];
 	
 	[request cancel];
