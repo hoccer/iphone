@@ -18,30 +18,6 @@
 
 @synthesize delegate;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -66,14 +42,12 @@
 
 - (IBAction) cancelAction: (id) sender{
 	self.view.hidden = YES;	
-	[self.delegate checkAndPerformSelector:@selector (userDidCancel)];
+	[self.delegate checkAndPerformSelector:@selector (userDidCancelRequest)];
 }
 
 - (void)setUpdate: (NSString *)update
 {
 	NSLog(@"seting update %@ on %@", update, statusLabel);
-	
-	
 	progressView.progress = 0;
 	
 	progressView.hidden = NO;
@@ -92,18 +66,14 @@
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	self.view.hidden = NO;
-	self.view.center = CGPointMake(160, -35);
+	self.view.center = CGPointMake(160, 32);
 	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.fromValue = [NSNumber valueWithCGPoint:CGPointMake(160, -35)];
-	animation.toValue = [NSNumber valueWithCGPoint: CGPointMake(160, 30)];
-	animation.duration = 0.2;	
-	animation.fillMode = kCAFillModeForwards;
-	animation.removedOnCompletion = NO;
-	animation.beginTime = CACurrentMediaTime() + 0.6;
-	animation.delegate = self;
+	[UIView beginAnimations:@"slideIn" context:nil];
+	[UIView setAnimationDuration:0.4];
 	
-	[[self.view layer] addAnimation:animation forKey:@"positionAnimation"];  
+	self.view.center = CGPointMake(160, 68);
+	// animation.beginTime = CACurrentMediaTime() + 0.6;
+	[UIView commitAnimations];
 	
 	[activitySpinner startAnimating];
 }

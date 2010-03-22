@@ -73,7 +73,6 @@
 	[request release];
 	
     [viewController release];
-	
 	[window release];
 	
 	[super dealloc];
@@ -175,9 +174,6 @@
 	}
 
 	[FeedbackProvider  playCatchFeedback];
-
-	
-	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
 	
 	[statusViewController showActivityInfo];
@@ -304,11 +300,6 @@
 
 #pragma mark -
 #pragma mark Interaction Delegate Methods
-
-
-- (void)userDidCancel {
-	
-}
 
 - (void)userDidCancelRequest
 {

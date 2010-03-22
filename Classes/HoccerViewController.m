@@ -57,7 +57,6 @@
 }
 
 - (void)dealloc {
-   
 	[feedbackView release];
 
 	[previewViewController release];		
@@ -198,7 +197,6 @@
 		[self hideSelectContentViewAnimated: TRUE];
 	}
 }
-
 
 - (void)showSelectContentView{
 	selectContentViewController = [[SelectContentViewController alloc] init];
