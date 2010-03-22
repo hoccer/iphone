@@ -33,13 +33,13 @@
 	PreviewViewController *previewViewController;
 	BackgroundViewController *backgroundViewController;
 
-	SelectContentViewController *selectContentViewController;
+	UIViewController *popOver;
 	BOOL isPopUpDisplayed;
 	BOOL allowSweepGesture;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
-@property (nonatomic, retain) IBOutlet StatusViewController* statusViewController;
+@property (nonatomic, retain) UIViewController *popOver;
 @property (nonatomic, assign) BOOL allowSweepGesture;
 
 - (IBAction)onCancel: (id)sender; 
@@ -55,9 +55,7 @@
 - (IBAction)showAbout: (id)sender;
 
 - (IBAction)toggleSelectContacts: (id)sender;
-- (void)showSelectContentView;
-- (void)hideSelectContentViewAnimated: (BOOL) animated;
-- (void)removeSelectContentViewFromSuperview;
+- (IBAction)toggleHelp: (id)sender;
 
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;

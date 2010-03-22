@@ -261,10 +261,10 @@
 		227990FA105FEA140035C643 /* ReceivedContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReceivedContentView.xib; path = Classes/ReceivedContentView.xib; sourceTree = "<group>"; };
 		227A94D4109713AB008CE547 /* HelpScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpScreen.h; path = Help/HelpScreen.h; sourceTree = "<group>"; };
 		227A94D5109713AB008CE547 /* HelpScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpScreen.m; path = Help/HelpScreen.m; sourceTree = "<group>"; };
-		227A94D6109713AB008CE547 /* HelpScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpScreen.xib; path = Help/HelpScreen.xib; sourceTree = "<group>"; };
+		227A94D6109713AB008CE547 /* HelpScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpScreen.xib; path = Classes/Help/HelpScreen.xib; sourceTree = "<group>"; };
 		227A94F510971A9C008CE547 /* HelpScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScrollView.h; sourceTree = "<group>"; };
 		227A94F610971A9C008CE547 /* HelpScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScrollView.m; sourceTree = "<group>"; };
-		227A94F710971A9C008CE547 /* HelpScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpScrollView.xib; sourceTree = "<group>"; };
+		227A94F710971A9C008CE547 /* HelpScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpScrollView.xib; path = Classes/HelpScrollView.xib; sourceTree = "<group>"; };
 		227A960810973CED008CE547 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		227A963510974BD3008CE547 /* HelpContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpContent.h; path = Help/HelpContent.h; sourceTree = "<group>"; };
 		227A963610974BD3008CE547 /* HelpContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpContent.m; path = Help/HelpContent.m; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		228100AB10A9CA9900DFA0BF /* Contactbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contactbox.png; sourceTree = "<group>"; };
 		228100C010A9CDCC00DFA0BF /* HelpOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpOverview.h; path = Help/HelpOverview.h; sourceTree = "<group>"; };
 		228100C110A9CDCC00DFA0BF /* HelpOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpOverview.m; path = Help/HelpOverview.m; sourceTree = "<group>"; };
-		228100C210A9CDCC00DFA0BF /* HelpOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpOverview.xib; path = Help/HelpOverview.xib; sourceTree = "<group>"; };
+		228100C210A9CDCC00DFA0BF /* HelpOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpOverview.xib; path = Classes/Help/HelpOverview.xib; sourceTree = "<group>"; };
 		228100F410A9D50700DFA0BF /* Header_About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Header_About.png; sourceTree = "<group>"; };
 		2281010010A9DD7300DFA0BF /* Accept_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accept_Button.png; sourceTree = "<group>"; };
 		2281010210A9DFFE00DFA0BF /* Header_Terms-of-Use.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Header_Terms-of-Use.png"; sourceTree = "<group>"; };
@@ -441,8 +441,6 @@
 				227990F9105FEA140035C643 /* ReceivedContentView.m */,
 				2271A00A108347C800F84755 /* FeedbackProvider.h */,
 				2271A00B108347C800F84755 /* FeedbackProvider.m */,
-				E64B77FE109491AA0005ACA3 /* AboutViewController.h */,
-				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
 				229A9121114E737A0069A0EA /* BackgroundViewController.h */,
 				229A9122114E737A0069A0EA /* BackgroundViewController.m */,
 				229D9F7D114FEE0200459ED9 /* LocationController.h */,
@@ -640,15 +638,14 @@
 			children = (
 				227A94D4109713AB008CE547 /* HelpScreen.h */,
 				227A94D5109713AB008CE547 /* HelpScreen.m */,
-				227A94D6109713AB008CE547 /* HelpScreen.xib */,
 				227A94F510971A9C008CE547 /* HelpScrollView.h */,
 				227A94F610971A9C008CE547 /* HelpScrollView.m */,
-				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
 				227A963510974BD3008CE547 /* HelpContent.h */,
 				227A963610974BD3008CE547 /* HelpContent.m */,
 				228100C010A9CDCC00DFA0BF /* HelpOverview.h */,
 				228100C110A9CDCC00DFA0BF /* HelpOverview.m */,
-				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
+				E64B77FE109491AA0005ACA3 /* AboutViewController.h */,
+				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -784,6 +781,9 @@
 				2271A01910835B8900F84755 /* throw_sound.wav */,
 				2271A04A1083665E00F84755 /* tap_sound.wav */,
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
+				227A94D6109713AB008CE547 /* HelpScreen.xib */,
+				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
+				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
 				22B06BF11152777500D2ECFE /* StatusViewController.xib */,
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,

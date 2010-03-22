@@ -8,8 +8,6 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import <AddressBookUI/AddressBookUI.h>
-#import <AddressBook/AddressBook.h>
 #import <QuartzCore/QuartzCore.h>
 
 #import "ABPersonVCardCreator.h"
@@ -27,12 +25,25 @@
 #import "PreviewViewController.h"
 #import "BackgroundViewController.h"
 #import "SelectContentViewController.h"
-#import "StatusViewController.h"
+
+#import "HelpScrollView.h"
+
+@interface HoccerViewController ()
+
+- (void)showPopOver: (UIViewController *)popOverView;
+- (void)hidePopOverAnimated: (BOOL) animate;
+- (void)removePopOverFromSuperview;
+
+- (void)showSelectContentView;
+- (void)showHelpView;
+
+@end
+
 
 @implementation HoccerViewController
 
 @synthesize delegate; 
-@synthesize statusViewController;
+@synthesize popOver;
 @synthesize allowSweepGesture;
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +72,6 @@
 
 	[previewViewController release];		
 	[backgroundViewController release];		
-	[statusViewController release];		
 	
 	[shareView release];
 	[receiveView release];
@@ -83,15 +93,6 @@
 - (IBAction)didSelectHelp: (id)sender {
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseHelpView)];
 }
-	
-- (void)setUpdate: (NSString *)update {
-	[statusViewController setUpdate: update];
-}
-
-- (void)setProgressUpdate: (CGFloat) percentage {
-	[statusViewController setProgressUpdate: percentage];
-}
-
 
 - (void)showReceiveMode {
 	[shareView removeFromSuperview];
@@ -138,18 +139,18 @@
 }
 
 - (IBAction)selectContacts: (id)sender {
-	[self hideSelectContentViewAnimated: YES];
+	[self hidePopOverAnimated: YES];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectContact)];
 	
 }
 
 - (IBAction)selectImage: (id)sender {
-	[self hideSelectContentViewAnimated: NO];
+	[self hidePopOverAnimated: NO];
 	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectImage)];
 }
 
 - (IBAction)selectText: (id)sender {
-	[self hideSelectContentViewAnimated: YES];
+	[self hidePopOverAnimated: YES];
 	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];	
 }
 
@@ -161,12 +162,6 @@
 	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
 }
 
-#pragma mark -
-#pragma mark CAAnimation Delegate Methods
-- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag 
-{
-	// infoView.center = CGPointMake(160, 30);
-}
 
 - (void)startPreviewFlyOutAniamation {
 	[previewViewController startFlyOutUpwardsAnimation];
@@ -176,53 +171,84 @@
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
 	} else {
-		[self hideSelectContentViewAnimated: TRUE];
+		[self hidePopOverAnimated: YES];
 	}
 }
 
-- (void)showSelectContentView{
-	selectContentViewController = [[SelectContentViewController alloc] init];
+- (void)showSelectContentView {
+	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
 	selectContentViewController.delegate = self;
-	CGRect selectContentFrame = selectContentViewController.view.frame;
+	
+	[self showPopOver: selectContentViewController];
+	[selectContentViewController release];
+}
+
+
+- (IBAction)toggleHelp: (id)sender {
+	if (!isPopUpDisplayed) {			
+		[self showHelpView];
+	} else {
+		[self hidePopOverAnimated: YES];
+	}
+}
+
+
+- (void)showHelpView {
+	HelpScrollView *helpView = [[HelpScrollView alloc] init];
+	helpView.delegate = self;
+	
+	[self showPopOver:helpView];
+	[helpView release];
+}
+
+
+- (void)showPopOver: (UIViewController *)popOverView  {
+	self.popOver = popOverView;
+	
+	CGRect selectContentFrame = popOverView.view.frame;
 	selectContentFrame.size = backgroundViewController.view.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
-	selectContentViewController.view.frame = selectContentFrame;	
-	[backgroundViewController.view addSubview:selectContentViewController.view];
+	popOverView.view.frame = selectContentFrame;	
+	
+	[backgroundViewController.view addSubview:popOverView.view];
 	
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
+	
 	selectContentFrame.origin = CGPointMake(0,0);
-	selectContentViewController.view.frame = selectContentFrame;
+	popOverView.view.frame = selectContentFrame;
 	[UIView commitAnimations];
-	isPopUpDisplayed = TRUE;
+	
+	 isPopUpDisplayed = TRUE;
 }
 
-- (void)hideSelectContentViewAnimated: (BOOL) animate{
-	if(selectContentViewController != nil){	
-		
-		CGRect selectContentFrame = selectContentViewController.view.frame;
+- (void)hidePopOverAnimated: (BOOL) animate {
+	if (self.popOver != nil) {		
+		CGRect selectContentFrame = self.popOver.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
 		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-			[UIView setAnimationDidStopSelector:@selector(removeSelectContentViewFromSuperview)];
+			[UIView setAnimationDidStopSelector:@selector(removePopOverFromSuperview)];
 			[UIView setAnimationDelegate:self];
 			[UIView setAnimationDuration:0.2];
-			selectContentViewController.view.frame = selectContentFrame;
+			
+			self.popOver.view.frame = selectContentFrame;
+			
 			[UIView commitAnimations];
 		} else {
-			selectContentViewController.view.frame = selectContentFrame;
-			[self removeSelectContentViewFromSuperview];
+			self.popOver.view.frame = selectContentFrame;
+			[self removePopOverFromSuperview];
 		}
 
 	}
 }
 
-- (void)removeSelectContentViewFromSuperview {	
-	[selectContentViewController.view removeFromSuperview];	 
-	[selectContentViewController release];
-	selectContentViewController = nil;
-	isPopUpDisplayed = FALSE;
+- (void)removePopOverFromSuperview {	
+	[popOver.view removeFromSuperview];	 
+	self.popOver = nil;
+
+	isPopUpDisplayed = NO;
 }
 
 - (void)setAllowSweepGesture: (BOOL)allow {

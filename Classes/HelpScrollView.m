@@ -51,11 +51,10 @@
 	[self setUpPages];
 }
 
-- (void)setUpPages
-{
+- (void)setUpPages {
 	for (int i = 0; i < [pages count]; i++) {
 		UIViewController *pageController = [pages objectAtIndex:i]; 
-		
+	
 		CGRect frame = pageController.view.frame;
 		frame.origin.x = scrollView.frame.size.width * i;
 		frame.origin.y = 0; 
