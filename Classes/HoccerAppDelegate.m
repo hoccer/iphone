@@ -17,10 +17,8 @@
 #import "GesturesInterpreter.h"
 
 #import "HoccerContentFactory.h"
-#import "HoccerImage.h"
-#import "HoccerText.h"
-#import "HoccerVcard.h"
 #import "HoccerUrl.h"
+#import "HoccerContent.h"
 
 #import "FeedbackProvider.h"
 
@@ -56,14 +54,11 @@
 	application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
 	
-	[request release];
-
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
-	[viewController.view insertSubview:statusViewController.view atIndex:4];
+	[viewController.view insertSubview:statusViewController.view atIndex:1];
 
-	
 	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];

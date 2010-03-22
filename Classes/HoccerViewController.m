@@ -59,13 +59,13 @@
 	previewViewController.delegate = self;
 	
 	backgroundViewController = [[BackgroundViewController alloc] init];
-	backgroundViewController.view = receiveView;
+	backgroundViewController.view = backgroundView;
 	backgroundViewController.feedback = sweepInView;
 	backgroundViewController.delegate = self.delegate;
 	
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
-	[receiveView addSubview: sweepInView];
+	[backgroundView addSubview: sweepInView];
 	
 	self.allowSweepGesture = YES;
 }
@@ -79,7 +79,7 @@
 	[previewViewController release];		
 	[backgroundViewController release];		
 	
-	[receiveView release];
+	[backgroundView release];
 	
 	[super dealloc];
 }
@@ -171,7 +171,7 @@
 	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
-	[receiveView insertSubview: contentView atIndex: 1];
+	[backgroundView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	previewViewController.view = contentView;	

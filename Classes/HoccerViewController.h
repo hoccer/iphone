@@ -26,9 +26,8 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
 	IBOutlet UIView *sweepInView;
-	
-	IBOutlet UIView *receiveView;
-
+	IBOutlet UIView *backgroundView;
+							
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	PreviewViewController *previewViewController;

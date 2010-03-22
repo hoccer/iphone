@@ -373,16 +373,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>backgroundView</string>
 							<string>delegate</string>
-							<string>receiveView</string>
 							<string>shareView</string>
 							<string>statusViewController</string>
 							<string>sweepInView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>HoccerAppDelegate</string>
 							<string>UIView</string>
+							<string>HoccerAppDelegate</string>
 							<string>UIView</string>
 							<string>StatusViewController</string>
 							<string>UIView</string>
