@@ -25,7 +25,7 @@
 
 #import "HiddenViewScrollViewDelegate.h"
 #import "PreviewViewController.h"
-#import "ReceiveViewController.h"
+#import "BackgroundViewController.h"
 #import "SelectContentViewController.h"
 #import "StatusViewController.h"
 
@@ -40,11 +40,11 @@
 
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
-	receiveViewController = [[ReceiveViewController alloc] init];
-	receiveViewController.view = receiveView;
+	backgroundViewController = [[BackgroundViewController alloc] init];
+	backgroundViewController.view = receiveView;
 
-	receiveViewController.feedback = sweepInView;
-	receiveViewController.delegate = self.delegate;
+	backgroundViewController.feedback = sweepInView;
+	backgroundViewController.delegate = self.delegate;
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
 	[receiveView addSubview: sweepInView];
@@ -57,7 +57,7 @@
 	[sweepInView release];
 
 	[previewViewController release];		
-	[receiveViewController release];		
+	[backgroundViewController release];		
 	[statusViewController release];		
 	
 	[shareView release];
@@ -143,7 +143,7 @@
 - (void)resetPreview
 {
 	[previewViewController resetViewAnimated:NO];
-	[receiveViewController resetView];
+	[backgroundViewController resetView];
 }
 
 - (IBAction)selectContacts: (id)sender
@@ -197,10 +197,10 @@
 	selectContentViewController = [[SelectContentViewController alloc] init];
 	selectContentViewController.delegate = self;
 	CGRect selectContentFrame = selectContentViewController.view.frame;
-	selectContentFrame.size = receiveViewController.view.frame.size;
+	selectContentFrame.size = backgroundViewController.view.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	selectContentViewController.view.frame = selectContentFrame;	
-	[receiveViewController.view addSubview:selectContentViewController.view];
+	[backgroundViewController.view addSubview:selectContentViewController.view];
 	
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];

@@ -166,8 +166,7 @@
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
-- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
-{
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
 	if (self.contentToSend || request != nil) {
 		return;
 	}
@@ -178,9 +177,7 @@
 	[statusViewController showActivityInfo];
 }
 
-
-- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
-{
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
 	if (!self.contentToSend || request != nil) {
 		return;
 	}
@@ -196,13 +193,20 @@
 }
 
 - (void)sweepInterpreterDidDetectSweepIn {	
+	if (self.contentToSend || request != nil) {
+		return;
+	}
+	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
 	[statusViewController showActivityInfo];
 }
 
 - (void)sweepInterpreterDidDetectSweepOut {
-	[statusViewController setUpdate: @"preparing"];
+	if (!self.contentToSend || request != nil) {
+		return;
+	}
 	
+	[statusViewController setUpdate: @"preparing"];
 	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: contentToSend 
 													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	

@@ -6,7 +6,7 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-#import "ReceiveViewController.h"
+#import "BackgroundViewController.h"
 #import "NSObject+DelegateHelper.h"
 
 #define kSweepInBorder 30
@@ -17,10 +17,11 @@
 #define kSweepDirectionRightIn 1
 
 
-@implementation ReceiveViewController
+@implementation BackgroundViewController
 
 @synthesize feedback;
 @synthesize delegate;
+@synthesize blocked;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.

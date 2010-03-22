@@ -17,7 +17,7 @@
 @class HoccerAppDelegate;
 @class Preview;
 @class PreviewViewController;
-@class ReceiveViewController;
+@class BackgroundViewController;
 @class SelectContentViewController;
 @class StatusViewController;
 
@@ -33,7 +33,7 @@
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	PreviewViewController *previewViewController;
-	ReceiveViewController *receiveViewController;
+	BackgroundViewController *backgroundViewController;
 
 	SelectContentViewController *selectContentViewController;
 	BOOL isPopUpDisplayed;

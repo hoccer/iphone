@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ReceiveViewController : UIViewController {
+@interface BackgroundViewController : UIViewController {
 	id delegate;
 	UIView* feedback;
 	
@@ -20,6 +20,7 @@
 
 @property (assign) id delegate;
 @property (retain) UIView* feedback; 
+@property (assign) BOOL blocked;
 
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;
