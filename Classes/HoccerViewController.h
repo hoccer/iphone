@@ -37,8 +37,6 @@
 
 	SelectContentViewController *selectContentViewController;
 	BOOL isPopUpDisplayed;
-	
-	StatusViewController *statusViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

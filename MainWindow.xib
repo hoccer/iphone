@@ -159,14 +159,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">statusViewController</string>
-						<reference key="source" ref="943309135"/>
-						<reference key="destination" ref="526905714"/>
-					</object>
-					<int key="connectionID">81</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="526905714"/>
 						<reference key="destination" ref="664661524"/>

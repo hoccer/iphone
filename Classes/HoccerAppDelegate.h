@@ -53,7 +53,6 @@
 - (void)userDidCancelRequest;
 - (void)userDidDismissContent;
 - (void)userDidSaveContent;
-- (void)userDidCancel;
 - (void)didDissmissContentToThrow;
 
 - (void)hideReceivedContentView;

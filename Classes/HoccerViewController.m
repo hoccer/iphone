@@ -48,8 +48,6 @@
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
 	[receiveView addSubview: sweepInView];
-	
-	[self.view insertSubview:statusViewController.view atIndex:4];
 }
 
 - (void)viewDidUnload {

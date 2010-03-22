@@ -61,6 +61,9 @@
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
+	[viewController.view insertSubview:statusViewController.view atIndex:4];
+
+	
 	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];
