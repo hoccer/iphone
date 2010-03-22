@@ -102,7 +102,7 @@
 					<object class="IBUIButton" id="611315252">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 399}, {111, 77}}</string>
+						<string key="NSFrame">{{15, 399}, {111, 77}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -135,36 +135,10 @@
 							<string key="NSResourceName">Contacts.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="46817085">
-						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{107, 399}, {104, 77}}</string>
-						<reference key="NSSuperview" ref="774585933"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="770515321"/>
-						<string key="IBUINormalTitle">Image</string>
-						<reference key="IBUIHighlightedTitleColor" ref="967686726"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="21957962"/>
-						<object class="NSCustomResource" key="IBUIHighlightedImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Photo_Highlighted.png</string>
-						</object>
-						<object class="NSCustomResource" key="IBUINormalImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">Photo.png</string>
-						</object>
-					</object>
 					<object class="IBUIButton" id="456820308">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{212, 399}, {108, 77}}</string>
+						<string key="NSFrame">{{177, 399}, {108, 77}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -299,11 +273,10 @@
 						<reference key="object" ref="774585933"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="46817085"/>
-							<reference ref="456820308"/>
 							<reference ref="611315252"/>
 							<reference ref="26574044"/>
 							<reference ref="264601323"/>
+							<reference ref="456820308"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -340,11 +313,6 @@
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">162</int>
-						<reference key="object" ref="46817085"/>
-						<reference key="parent" ref="774585933"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">163</int>
 						<reference key="object" ref="456820308"/>
 						<reference key="parent" ref="774585933"/>
@@ -367,7 +335,6 @@
 					<string>155.IBEditorWindowLastContentRect</string>
 					<string>155.IBPluginDependency</string>
 					<string>161.IBPluginDependency</string>
-					<string>162.IBPluginDependency</string>
 					<string>163.IBPluginDependency</string>
 					<string>167.IBEditorWindowLastContentRect</string>
 					<string>167.IBPluginDependency</string>
@@ -383,7 +350,6 @@
 					<string>{{0, 830}, {240, 128}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{42, 518}, {320, 405}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -843,8 +809,6 @@
 				<string>Contacts.png</string>
 				<string>Contacts_Highlighted.png</string>
 				<string>Header.png</string>
-				<string>Photo.png</string>
-				<string>Photo_Highlighted.png</string>
 				<string>Text.png</string>
 				<string>Text_Highlighted.png</string>
 			</object>
@@ -853,8 +817,6 @@
 				<string>{107, 78}</string>
 				<string>{107, 78}</string>
 				<string>{320, 50}</string>
-				<string>{107, 78}</string>
-				<string>{107, 78}</string>
 				<string>{107, 78}</string>
 				<string>{107, 78}</string>
 			</object>
