@@ -20,11 +20,9 @@
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
 
-@interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, 
-											UIImagePickerControllerDelegate, GesturesInterpreterDelegate, 
-											 ABPeoplePickerNavigationControllerDelegate,
-											 UINavigationControllerDelegate> 
-{
+@interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UIImagePickerControllerDelegate, 
+										GesturesInterpreterDelegate, ABPeoplePickerNavigationControllerDelegate,
+										UINavigationControllerDelegate> {
     UIWindow *window;
     HoccerViewController *viewController;
 	
@@ -37,8 +35,6 @@
 
 	id <HoccerContent> hoccerContent;
 	id <HoccerContent> contentToSend;					
-	
-	
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

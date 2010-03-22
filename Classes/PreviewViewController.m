@@ -89,7 +89,6 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
 	NSLog(@"touches began");
 	touchStartPoint = [[touches anyObject]locationInView: self.view.superview];	
-	
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
@@ -113,7 +112,7 @@
 			NSLog(@"sweep left");		
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
-			gestureDetected = TRUE;	
+			gestureDetected = YES;	
 			
 			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
 		} else if (currentLocation.x > width - kSweepBorder ) {
@@ -121,7 +120,7 @@
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 
 			[self startFlySidewaysAnimation: CGPointMake(width, height)];
-			gestureDetected = TRUE;	
+			gestureDetected = YES;	
 			
 			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
 		}
@@ -130,18 +129,17 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
 	
-	if (gestureDetected) {
-		gestureDetected = false;
-		return;
+	if (!gestureDetected) {
+		[self resetViewAnimated:YES];
 	}
 	
-	[self resetViewAnimated:YES];
-	
+	gestureDetected = NO;
 	NSLog(@"touches ended");
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
 	NSLog(@"touches cancelled");
+	gestureDetected = NO;
 }
 
 - (void)dismissKeyboard

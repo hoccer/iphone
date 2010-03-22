@@ -10,7 +10,6 @@
 
 
 @interface PreviewViewController : UIViewController {
-
 	id delegate;
 	CGPoint origin;
 	
