@@ -27,7 +27,6 @@
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
 	IBOutlet UIView *sweepInView;
 	
-	IBOutlet UIView *shareView;
 	IBOutlet UIView *receiveView;
 
 	IBOutlet HoccerAppDelegate* delegate;

@@ -79,7 +79,6 @@
 	[previewViewController release];		
 	[backgroundViewController release];		
 	
-	[shareView release];
 	[receiveView release];
 	
 	[super dealloc];
@@ -155,13 +154,9 @@
 
 
 - (void)showReceiveMode {
-	[shareView removeFromSuperview];
-	[self.view insertSubview:receiveView atIndex:0];
 }
 
 - (void)showSendMode {
-	[receiveView removeFromSuperview];
-	[self.view insertSubview:shareView atIndex:0];
 }
 
 
@@ -176,11 +171,11 @@
 	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
-	[shareView insertSubview: contentView atIndex: 1];
+	[receiveView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
 	
 	previewViewController.view = contentView;	
-	previewViewController.origin = CGPointMake(xOrigin, 75);
+	previewViewController.origin = CGPointMake(xOrigin, 25);
 }
 
 - (void)resetPreview {
