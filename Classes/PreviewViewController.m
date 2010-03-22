@@ -164,7 +164,7 @@
 
 - (void)userDismissedContent: (id)sender
 {
-	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
+	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow:)];
 }
 
 #pragma mark -

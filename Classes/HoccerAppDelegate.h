@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <AddressBookUI/AddressBookUI.h>
 
 @class HoccerViewController;
 @class GesturesInterpreter;
@@ -20,9 +19,7 @@
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
 
-@interface HoccerAppDelegate : NSObject <UIApplicationDelegate, UIImagePickerControllerDelegate, 
-										GesturesInterpreterDelegate, ABPeoplePickerNavigationControllerDelegate,
-										UINavigationControllerDelegate> {
+@interface HoccerAppDelegate : NSObject <GesturesInterpreterDelegate> {
     UIWindow *window;
     HoccerViewController *viewController;
 	
@@ -49,11 +46,7 @@
 - (void)userDidCancelRequest;
 - (void)userDidDismissContent;
 - (void)userDidSaveContent;
-- (void)didDissmissContentToThrow;
 
 - (void)hideReceivedContentView;
 
-
-
 @end
-

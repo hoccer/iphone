@@ -28,7 +28,6 @@
 - (void)createDataRepresentaion: (HoccerImage *)content
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	
 	if (![[NSThread currentThread] isCancelled]) {

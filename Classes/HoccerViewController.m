@@ -28,6 +28,10 @@
 
 #import "HelpScrollView.h"
 
+#import "HoccerImage.h"
+#import "HoccerText.h"
+#import "HoccerVcard.h"
+
 @interface HoccerViewController ()
 
 - (void)showPopOver: (UIViewController *)popOverView;
@@ -52,11 +56,13 @@
 
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
+	previewViewController.delegate = self;
+	
 	backgroundViewController = [[BackgroundViewController alloc] init];
 	backgroundViewController.view = receiveView;
-
 	backgroundViewController.feedback = sweepInView;
 	backgroundViewController.delegate = self.delegate;
+	
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
 	[receiveView addSubview: sweepInView];
@@ -81,18 +87,72 @@
 
 
 #pragma mark -
-#pragma mark User Interaction
-- (IBAction)onCancel: (id)sender {
-	[self.delegate checkAndPerformSelector:@selector(userDidCancelRequest)];
-}
+#pragma mark User Action
 
 - (IBAction)didDissmissContentToThrow: (id)sender {
-	[self.delegate checkAndPerformSelector: @selector(didDissmissContentToThrow)];
+	[self setContentPreview: nil];
+
+	[self.delegate checkAndPerformSelector: @selector(hoccerViewControllerDidDismissSelectedContent:) withObject:self];
 }
 
-- (IBAction)didSelectHelp: (id)sender {
-	[self.delegate checkAndPerformSelector: @selector(userDidChoseHelpView)];
+- (IBAction)selectContacts: (id)sender {
+	[self hidePopOverAnimated: YES];
+	
+	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+	picker.peoplePickerDelegate = self;
+	
+	[self presentModalViewController:picker animated:YES];
+	[picker release];
 }
+
+- (IBAction)selectImage: (id)sender {
+	[self hidePopOverAnimated: NO];
+	
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.delegate = self;
+	[self presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
+- (IBAction)selectText: (id)sender {
+	[self hidePopOverAnimated: YES];
+	
+	id <HoccerContent> content = [[[HoccerText alloc] init] autorelease];
+	[self setContentPreview: content];
+	
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+}
+
+- (IBAction)toggleHelp: (id)sender {
+	if (!isPopUpDisplayed) {			
+		[self showHelpView];
+	} else {
+		[self hidePopOverAnimated: YES];
+	}
+}
+
+- (IBAction)toggleSelectContent: (id)sender {
+	if (!isPopUpDisplayed) {			
+		[self showSelectContentView];
+		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowContentSelector:) withObject:self];
+	} else {
+		[self hidePopOverAnimated: YES];
+		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
+	}
+}
+
+
+#pragma mark -
+#pragma mark View Manipulation
+
+- (void)showError: (NSString *)message {
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil 
+											  cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
+	
+	[alertView show];
+	[alertView release];
+}
+
 
 - (void)showReceiveMode {
 	[shareView removeFromSuperview];
@@ -102,15 +162,6 @@
 - (void)showSendMode {
 	[receiveView removeFromSuperview];
 	[self.view insertSubview:shareView atIndex:0];
-}
-
-
-- (void)showError: (NSString *)message {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil 
-											  cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
-	
-	[alertView show];
-	[alertView release];
 }
 
 
@@ -130,7 +181,6 @@
 	
 	previewViewController.view = contentView;	
 	previewViewController.origin = CGPointMake(xOrigin, 75);
-	previewViewController.delegate = self.delegate;
 }
 
 - (void)resetPreview {
@@ -138,41 +188,8 @@
 	[backgroundViewController resetView];
 }
 
-- (IBAction)selectContacts: (id)sender {
-	[self hidePopOverAnimated: YES];
-	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectContact)];
-	
-}
-
-- (IBAction)selectImage: (id)sender {
-	[self hidePopOverAnimated: NO];
-	[self.delegate checkAndPerformSelector:@selector(userWantsToSelectImage)];
-}
-
-- (IBAction)selectText: (id)sender {
-	[self hidePopOverAnimated: YES];
-	[self.delegate checkAndPerformSelector:@selector(userDidPickText)];	
-}
-
-- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	[previewViewController dismissKeyboard];
-}
-
-- (IBAction)showAbout: (id)sender {
-	[self.delegate checkAndPerformSelector: @selector(userDidChoseAboutView)];
-}
-
-
 - (void)startPreviewFlyOutAniamation {
 	[previewViewController startFlyOutUpwardsAnimation];
-}
-
-- (IBAction)toggleSelectContacts: (id)sender{
-	if (!isPopUpDisplayed) {			
-		[self showSelectContentView];
-	} else {
-		[self hidePopOverAnimated: YES];
-	}
 }
 
 - (void)showSelectContentView {
@@ -183,16 +200,6 @@
 	[selectContentViewController release];
 }
 
-
-- (IBAction)toggleHelp: (id)sender {
-	if (!isPopUpDisplayed) {			
-		[self showHelpView];
-	} else {
-		[self hidePopOverAnimated: YES];
-	}
-}
-
-
 - (void)showHelpView {
 	HelpScrollView *helpView = [[HelpScrollView alloc] init];
 	helpView.delegate = self;
@@ -200,7 +207,6 @@
 	[self showPopOver:helpView];
 	[helpView release];
 }
-
 
 - (void)showPopOver: (UIViewController *)popOverView  {
 	self.popOver = popOverView;
@@ -254,5 +260,67 @@
 - (void)setAllowSweepGesture: (BOOL)allow {
 	backgroundViewController.blocked = !allow;
 }
+
+
+
+#pragma mark -
+#pragma mark UIImagePickerController Delegate Methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	id <HoccerContent> content = [[[HoccerImage alloc] initWithUIImage:
+								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
+	
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	
+	[self setContentPreview: content];
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+
+#pragma mark -
+#pragma mark ABPeoplePickerNavigationController delegate
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
+	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+	
+	ABRecordID contactId = ABRecordGetRecordID(person);
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
+	
+	id <HoccerContent> content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
+	
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	[self setContentPreview: content];
+	
+	[self dismissModalViewControllerAnimated:YES];
+	return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
+	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
+								property:(ABPropertyID)property 
+							  identifier:(ABMultiValueIdentifier)identifier
+{
+	return NO;
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
+{
+	[self dismissModalViewControllerAnimated:YES];
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
+}
+
+
+#pragma mark -
+#pragma mark Touch Events
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
+	[previewViewController dismissKeyboard];
+}
+
+
+
+
+
 
 @end

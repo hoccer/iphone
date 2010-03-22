@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
@@ -22,7 +23,8 @@
 @class StatusViewController;
 
 
-@interface HoccerViewController : UIViewController {
+@interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
+						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
 	IBOutlet UIView *sweepInView;
 	
 	IBOutlet UIView *shareView;
@@ -42,9 +44,6 @@
 @property (nonatomic, retain) UIViewController *popOver;
 @property (nonatomic, assign) BOOL allowSweepGesture;
 
-- (IBAction)onCancel: (id)sender; 
-- (IBAction)didSelectHelp: (id)sender;
-
 - (void)showError: (NSString *)message;
 
 - (void)setContentPreview: (id <HoccerContent>)content;
@@ -52,14 +51,15 @@
 - (void)resetPreview;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
-- (IBAction)showAbout: (id)sender;
 
-- (IBAction)toggleSelectContacts: (id)sender;
+- (IBAction)toggleSelectContent: (id)sender;
 - (IBAction)toggleHelp: (id)sender;
 
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
+
+
 
 @end
 

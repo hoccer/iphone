@@ -192,7 +192,7 @@
     
 	int index = indexPath.row;
 	SEL action = [[selectableContents objectAtIndex:index] action];
-	[self.delegate checkAndPerformSelector:action];	
+	[self.delegate checkAndPerformSelector:action withObject: self];	
 	
 }
 

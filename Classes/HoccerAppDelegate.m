@@ -81,88 +81,6 @@
 	[super dealloc];
 }
 
-- (void)didDissmissContentToThrow
-{
-	[contentToSend contentWillBeDismissed];
-	self.contentToSend = nil;
-	[viewController setContentPreview: nil];
-}
-
-
-
-#pragma mark -
-#pragma mark UIImagePickerController Delegate Methods
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	self.contentToSend = [[[HoccerImage alloc] initWithUIImage:
-						   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
-	
-	[viewController setContentPreview: self.contentToSend];
-	[viewController dismissModalViewControllerAnimated:YES];
-}
-
-
-#pragma mark -
-#pragma mark ABPeoplePickerNavigationController delegate
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-	
-	ABRecordID id = ABRecordGetRecordID(person);
-	ABAddressBookRef addressBook = ABAddressBookCreate();
-	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, id);
-	
-	
-	self.contentToSend = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
-	[viewController setContentPreview: self.contentToSend];
-	
-	[viewController dismissModalViewControllerAnimated:YES];
-	return NO;
-}
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
-								property:(ABPropertyID)property 
-							  identifier:(ABMultiValueIdentifier)identifier
-{
-	return NO;
-}
-
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
-{
-	[viewController dismissModalViewControllerAnimated:YES];
-}
-
-#pragma mark -
-#pragma mark Text Delegate Methods 
-
-- (void)userDidPickText
-{
-	self.contentToSend = [[[HoccerText alloc] init] autorelease];
-	
-	[viewController  setContentPreview: self.contentToSend];
-}
-
-- (void)userWantsToSelectImage
-{
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	
-	imagePicker.delegate = self;
-	[viewController presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
-}
-
-- (void)userWantsToSelectContact
-{
-	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-	
-	[viewController presentModalViewController:picker animated:YES];
-	[picker release];
-}
-
-
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
@@ -300,22 +218,7 @@
 }
 
 #pragma mark -
-#pragma mark Interaction Delegate Methods
-
-- (void)userDidCancelRequest
-{
-	[viewController resetPreview];
-	viewController.allowSweepGesture = YES;
-
-	[statusViewController hideActivityInfo];
-	
-	[request cancel];
-	[request release];
-	
-	request = nil;
-}
-
-
+#pragma mark ReceivedContentView Delegate Methods
 - (void)userDidSaveContent
 {
 	if ([hoccerContent needsWaiting])  {
@@ -343,41 +246,7 @@
 }
 
 
-- (void)userDidChoseAboutView
-{
-	AboutViewController *aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-	aboutViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	aboutViewController.delegate = self;
-	
-	[viewController presentModalViewController:aboutViewController animated:YES];
-	
-	[aboutViewController release];	
-}
-
-
-- (void)userDidCloseAboutView
-{
-	[viewController dismissModalViewControllerAnimated:YES];
-}
-
-
-- (void)userDidChoseHelpView
-{
-	HelpScrollView  *help = [[HelpScrollView alloc] init];
-	help.delegate = self;
-	help.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	[viewController presentModalViewController:help animated:YES];
-
-	// gesturesInterpreter.delegate = help;
-	[help release];
-}
-
-- (void)userDidCloseHelpView
-{
-	[viewController dismissModalViewControllerAnimated:YES];
-	// gesturesInterpreter.delegate = self;
-}
-
+#pragma mark Terms Of Use Delegate Methods
 - (void)userNeedToAgreeToTermsOfUse
 {
 	TermOfUse *terms = [[TermOfUse alloc] init];
@@ -407,5 +276,40 @@
 {
 	[viewController dismissModalViewControllerAnimated:YES];
 }
+
+
+#pragma mark -
+#pragma mark HoccerViewController Delegate
+
+- (void)hoccerViewController:(HoccerViewController *)controller didSelectContent: (id<HoccerContent>) content {
+	self.contentToSend = content;
+}
+
+- (void)hoccerViewControllerDidDismissSelectedContent:(HoccerViewController *)controller {
+	[self.contentToSend contentWillBeDismissed];
+	self.contentToSend = nil;
+}
+
+- (void)hoccerViewControllerDidShowContentSelector:(HoccerViewController *)controller {
+	
+}
+
+- (void)hoccerViewControllerDidCancelContentSelector:(HoccerViewController *)controller {
+	
+}
+
+- (void)userDidCancelRequest
+{
+	[viewController resetPreview];
+	viewController.allowSweepGesture = YES;
+	
+	[statusViewController hideActivityInfo];
+	
+	[request cancel];
+	[request release];
+	
+	request = nil;
+}
+
 
 @end
