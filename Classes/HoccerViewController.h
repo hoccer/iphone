@@ -25,7 +25,7 @@
 @interface HoccerViewController : UIViewController {
 		
 	
-	IBOutlet UIView *feedbackView;
+	IBOutlet UIView *sweepInView;
 	
 	IBOutlet UIView *shareView;
 	IBOutlet UIView *receiveView;

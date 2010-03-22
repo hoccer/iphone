@@ -43,11 +43,11 @@
 	receiveViewController = [[ReceiveViewController alloc] init];
 	receiveViewController.view = receiveView;
 
-	receiveViewController.feedback = feedbackView;
+	receiveViewController.feedback = sweepInView;
 	receiveViewController.delegate = self.delegate;
-	feedbackView.hidden = YES;
+	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
-	[receiveView addSubview:feedbackView];
+	[receiveView addSubview: sweepInView];
 	
 	[self.view insertSubview:statusViewController.view atIndex:4];
 }
@@ -56,7 +56,7 @@
 }
 
 - (void)dealloc {
-	[feedbackView release];
+	[sweepInView release];
 
 	[previewViewController release];		
 	[receiveViewController release];		

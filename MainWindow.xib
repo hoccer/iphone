@@ -382,18 +382,18 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>delegate</string>
-							<string>feedbackView</string>
 							<string>receiveView</string>
 							<string>shareView</string>
 							<string>statusViewController</string>
+							<string>sweepInView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>HoccerAppDelegate</string>
 							<string>UIView</string>
 							<string>UIView</string>
-							<string>UIView</string>
 							<string>StatusViewController</string>
+							<string>UIView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
