@@ -49,7 +49,6 @@
     isPopUpDisplayed = FALSE;
 	[receiveView addSubview:feedbackView];
 	
-	statusViewController.delegate = self.delegate;
 	[self.view insertSubview:statusViewController.view atIndex:4];
 }
 
