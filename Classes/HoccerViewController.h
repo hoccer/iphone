@@ -26,7 +26,6 @@
 		
 	
 	IBOutlet UIView *feedbackView;
-	IBOutlet UIView *backgroundView;
 	
 	IBOutlet UIView *shareView;
 	IBOutlet UIView *receiveView;

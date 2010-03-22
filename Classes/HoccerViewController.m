@@ -50,7 +50,7 @@
 	[receiveView addSubview:feedbackView];
 	
 	statusViewController.delegate = self.delegate;
-	[self.view addSubview:statusViewController.view];
+	[self.view insertSubview:statusViewController.view atIndex:4];
 }
 
 - (void)viewDidUnload {
@@ -62,8 +62,6 @@
 	[previewViewController release];		
 	[receiveViewController release];		
 	[statusViewController release];		
-
-	[backgroundView release];
 	
 	[shareView release];
 	[receiveView release];
@@ -103,14 +101,14 @@
 - (void)showReceiveMode
 {
 	[shareView removeFromSuperview];
-	[backgroundView insertSubview:receiveView atIndex:0];
+	[self.view insertSubview:receiveView atIndex:0];
 }
 
 - (void)showSendMode
 {
 	//[receiveViewController.view removeFromSuperview];
 	[receiveView removeFromSuperview];
-	[backgroundView insertSubview:shareView atIndex:0];
+	[self.view insertSubview:shareView atIndex:0];
 }
 
 

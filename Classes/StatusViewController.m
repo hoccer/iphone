@@ -47,9 +47,7 @@
 
 - (void)setUpdate: (NSString *)update
 {
-	NSLog(@"seting update %@ on %@", update, statusLabel);
 	progressView.progress = 0;
-	
 	progressView.hidden = NO;
 	activitySpinner.hidden = NO;
 	statusLabel.hidden = NO;
