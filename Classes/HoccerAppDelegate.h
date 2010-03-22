@@ -25,10 +25,10 @@
 	
 	ReceivedContentView *receivedContentView;
 	StatusViewController *statusViewController;
-	
 	LocationController *locationController;
-																							
 	BaseHoccerRequest *request;
+	
+	GesturesInterpreter *gestureInterpreter;
 
 	id <HoccerContent> hoccerContent;
 	id <HoccerContent> contentToSend;					
@@ -43,7 +43,8 @@
 @property (nonatomic, retain) id <HoccerContent> hoccerContent;
 @property (nonatomic, retain) id <HoccerContent> contentToSend;
 
-- (void)userDidCancelRequest;
+@property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
+
 - (void)userDidDismissContent;
 - (void)userDidSaveContent;
 

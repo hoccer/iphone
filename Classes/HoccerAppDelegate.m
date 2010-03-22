@@ -49,6 +49,8 @@
 @synthesize locationController;
 @synthesize statusViewController;
 
+@synthesize gestureInterpreter;
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
@@ -70,6 +72,7 @@
 	[contentToSend release];
 	[request release];
 	
+	[gestureInterpreter release];
     [viewController release];
 	[window release];
 	
@@ -278,6 +281,8 @@
 
 - (void)hoccerViewController:(HoccerViewController *)controller didSelectContent: (id<HoccerContent>) content {
 	self.contentToSend = content;
+
+	gestureInterpreter.delegate = self;
 }
 
 - (void)hoccerViewControllerDidDismissSelectedContent:(HoccerViewController *)controller {
@@ -286,15 +291,14 @@
 }
 
 - (void)hoccerViewControllerDidShowContentSelector:(HoccerViewController *)controller {
-	
+	gestureInterpreter.delegate = nil;
 }
 
 - (void)hoccerViewControllerDidCancelContentSelector:(HoccerViewController *)controller {
-	
+	gestureInterpreter.delegate = self;
 }
 
-- (void)userDidCancelRequest
-{
+- (void)statusViewControllerDidCancelRequest:(StatusViewController *)controller {
 	[viewController resetPreview];
 	viewController.allowSweepGesture = YES;
 	

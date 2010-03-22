@@ -42,7 +42,7 @@
 
 - (IBAction) cancelAction: (id) sender{
 	self.view.hidden = YES;	
-	[self.delegate checkAndPerformSelector:@selector (userDidCancelRequest)];
+	[self.delegate checkAndPerformSelector:@selector(statusViewControllerDidCancelRequest:) withObject:self];
 }
 
 - (void)setUpdate: (NSString *)update
