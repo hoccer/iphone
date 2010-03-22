@@ -99,7 +99,6 @@
 						   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease] ;
 	
 	[viewController setContentPreview: self.contentToSend];
-	
 	[viewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -169,10 +168,7 @@
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
-	if (self.contentToSend)
-		return;
-		
-	if (request != nil) {
+	if (self.contentToSend || request != nil) {
 		return;
 	}
 
@@ -185,13 +181,9 @@
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
 {
-	if (!self.contentToSend)
-		return;
-	
-	if (request != nil) {
+	if (!self.contentToSend || request != nil) {
 		return;
 	}
-	
 	
 	[FeedbackProvider playThrowFeedback];
 	[viewController startPreviewFlyOutAniamation];

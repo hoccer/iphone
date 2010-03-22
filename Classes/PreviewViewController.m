@@ -134,11 +134,9 @@
 	}
 	
 	gestureDetected = NO;
-	NSLog(@"touches ended");
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches cancelled");
 	gestureDetected = NO;
 }
 
