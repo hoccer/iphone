@@ -172,6 +172,7 @@
 	[request release];
 	request = nil;
 	
+	[viewController resetPreview];
 	[statusViewController hideActivityInfo];
 }
 

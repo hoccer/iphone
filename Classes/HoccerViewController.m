@@ -199,10 +199,6 @@
 	[alertView release];
 }
 
-
-
-
-
 - (void)setContentPreview: (id <HoccerContent>)content {
 	[previewViewController.view removeFromSuperview];
 	Preview *contentView = [content preview];
@@ -308,8 +304,6 @@
 	return helpViewController;
 }
 
-
-
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
 
@@ -323,7 +317,6 @@
 	[self setContentPreview: content];
 	[self dismissModalViewControllerAnimated:YES];
 }
-
 
 #pragma mark -
 #pragma mark ABPeoplePickerNavigationController delegate
@@ -360,7 +353,6 @@
 	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
 }
 
-
 #pragma mark -
 #pragma mark Touch Events
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
@@ -370,7 +362,5 @@
 - (void) sweepInterpreterDidDetectSweepOut {
 	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
 }
-
-
 
 @end
