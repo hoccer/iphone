@@ -123,14 +123,14 @@
 	
 	CFStringRef value, valueLabel;
 	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
-		value		 = ABMultiValueCopyValueAtIndex(multi, i);
+		value	   = ABMultiValueCopyValueAtIndex(multi, i);
 		valueLabel = ABMultiValueCopyLabelAtIndex(multi, i);
 		
 		[writer writeProperty:name value:(NSString *)value paramater:
 					[self propertiesFromLabel:valueLabel]];		
 		
-		CFRelease(value);
-		CFRelease(valueLabel);
+		if (value != NULL) CFRelease(value);
+		if (valueLabel != NULL) CFRelease(valueLabel);
 	}
 	
 	CFRelease(multi);
