@@ -195,15 +195,13 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	[viewController showError: [error localizedDescription]];
+	[statusViewController setError: [error localizedDescription]];
 	[viewController resetPreview];
 	viewController.allowSweepGesture = YES;
-
-	
 	[request release];
 	request = nil;
 	
-	[statusViewController hideActivityInfo];
+	// [statusViewController hideActivityInfo];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
@@ -319,7 +317,6 @@
 	} else {
 		viewController.allowSweepGesture = YES;
 	}
-
 	
 	[statusViewController hideActivityInfo];
 	

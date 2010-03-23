@@ -21,10 +21,10 @@
 @property (assign) id delegate;
 
 - (void)setUpdate: (NSString *)update;
+- (void)setError: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
 - (void)showActivityInfo;
 - (void)hideActivityInfo;
-
 
 - (IBAction) cancelAction: (id) sender;
 

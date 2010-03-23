@@ -54,8 +54,14 @@
 	statusLabel.text = update;
 }
 
-- (void)setProgressUpdate: (CGFloat) percentage
-{
+- (void)setError: (NSString *)message {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
+	[self setUpdate:message];
+}
+
+
+- (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.hidden = NO;
 	progressView.progress = percentage;
 }
