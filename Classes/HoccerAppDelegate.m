@@ -61,6 +61,8 @@
 	if (agreedToTermsOfUse == NULL) {
 		[self userNeedToAgreeToTermsOfUse];
 	}
+	
+	CFRelease(agreedToTermsOfUse);
 }
 
 - (void)dealloc {	

@@ -291,6 +291,8 @@
 	[self setContentPreview: content];
 	
 	[self dismissModalViewControllerAnimated:YES];
+	CFRelease(fullPersonInfo);
+	
 	return NO;
 }
 

@@ -62,8 +62,8 @@
 - (IBAction)playVideo: (id)sender
 {
 
-	MPMoviePlayerController *player = [[MPMoviePlayerController alloc] initWithContentURL:
-								[NSURL fileURLWithPath:self.content.videoPath]];
+	MPMoviePlayerController *player = [[[MPMoviePlayerController alloc] initWithContentURL:
+								[NSURL fileURLWithPath:self.content.videoPath]] autorelease];
 	
 	[player play];
 }

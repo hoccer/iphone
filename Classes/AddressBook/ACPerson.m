@@ -33,25 +33,22 @@
 
 - (NSString *)name
 {
-	CFStringRef firstName = (CFStringRef) ABRecordCopyValue(person, kABPersonFirstNameProperty);
-	CFStringRef lastName = (CFStringRef) ABRecordCopyValue(person, kABPersonLastNameProperty);
+	NSString *firstName = [(NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty) autorelease];
+	NSString *lastName = [(NSString *) ABRecordCopyValue(person, kABPersonLastNameProperty) autorelease];
 	
 	if (lastName == NULL && firstName == NULL) {
 		return nil;
 	}
 	
 	if (lastName != NULL && firstName == NULL) {
-		return (NSString *)lastName;
-		CFRelease(lastName);
+		return lastName;
 	}
 	
 	if (lastName == NULL && firstName != NULL) {
-		return (NSString *)firstName;
-		CFRelease(firstName);
+		return firstName;
 	}
 	
-	NSString *combinedName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-	return combinedName;
+	return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
 }
 
 @end

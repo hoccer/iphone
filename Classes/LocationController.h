@@ -16,6 +16,7 @@
 	
 	CLLocationManager *locationManager;
 	NSDate *lastLocationUpdate;
+	MKReverseGeocoder *geocoder;
 }
 
 @property (retain) IBOutlet HoccerViewController *viewController;

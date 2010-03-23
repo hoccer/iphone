@@ -44,7 +44,7 @@
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
 		return;
 	
-	MKReverseGeocoder *geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: newLocation.coordinate];
+	geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: newLocation.coordinate];
 	geocoder.delegate = self;
 	
 	[geocoder start];
@@ -52,9 +52,10 @@
 	self.lastLocationUpdate = [NSDate date];
 }
 
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
+- (void)reverseGeocoder:(MKReverseGeocoder *)aGeocoder didFindPlacemark:(MKPlacemark *)placemark
 {
 	[geocoder release];
+	geocoder = nil;
 	// [viewController setLocation:placemark withAccuracy: locationManager.location.horizontalAccuracy];
 }
 
