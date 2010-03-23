@@ -200,20 +200,10 @@
 }
 
 
-- (void)showReceiveMode {
-}
 
-- (void)showSendMode {
-}
 
 
 - (void)setContentPreview: (id <HoccerContent>)content {
-	if (content == nil) {
-		[self showReceiveMode];
-	} else {
-		[self showSendMode];
-	}
-	
 	[previewViewController.view removeFromSuperview];
 	Preview *contentView = [content preview];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
