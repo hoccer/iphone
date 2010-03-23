@@ -22,8 +22,6 @@
 
 #import "FeedbackProvider.h"
 
-#import "AboutViewController.h"
-#import "HelpScrollView.h"
 #import "TermOfUse.h"
 
 #import "HocLocation.h"
@@ -32,9 +30,7 @@
 #import "StatusViewController.h"
 
 @interface HoccerAppDelegate ()
-
 - (void)userNeedToAgreeToTermsOfUse;
-
 @end
 
 
@@ -283,11 +279,13 @@
 	self.contentToSend = content;
 
 	gestureInterpreter.delegate = self;
+	viewController.allowSweepGesture = NO;
 }
 
 - (void)hoccerViewControllerDidDismissSelectedContent:(HoccerViewController *)controller {
 	[self.contentToSend contentWillBeDismissed];
 	self.contentToSend = nil;
+	viewController.allowSweepGesture = YES;
 }
 
 - (void)hoccerViewControllerDidShowContentSelector:(HoccerViewController *)controller {
@@ -297,6 +295,18 @@
 - (void)hoccerViewControllerDidCancelContentSelector:(HoccerViewController *)controller {
 	gestureInterpreter.delegate = self;
 }
+
+- (void)hoccerViewControllerDidShowHelp: (HoccerViewController *)controller {
+	gestureInterpreter.delegate = nil;
+
+}
+
+- (void)hoccerViewControllerDidCancelHelp: (HoccerViewController *)controller {
+	gestureInterpreter.delegate = self;
+}
+
+#pragma mark -
+#pragma mark StatusViewController Delegate
 
 - (void)statusViewControllerDidCancelRequest:(StatusViewController *)controller {
 	[viewController resetPreview];

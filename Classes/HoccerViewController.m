@@ -125,8 +125,10 @@
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showHelpView];
+		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowHelp:) withObject:self];
 	} else {
 		[self hidePopOverAnimated: YES];
+		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelHelp:) withObject:self];
 	}
 }
 
@@ -313,8 +315,9 @@
 	[previewViewController dismissKeyboard];
 }
 
-
-
+- (void) sweepInterpreterDidDetectSweepOut {
+	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
+}
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "HoccerText.h"
+
 #import "Preview.h"
 
 @interface HoccerText ()
@@ -52,7 +53,7 @@
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
 		
-	self.textView =  [[UITextView alloc] initWithFrame:CGRectMake(40, 45, 240, 170)];
+	self.textView =  [[[UITextView alloc] initWithFrame:CGRectMake(40, 45, 240, 170)] autorelease];
 	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
 	self.textView.font = [UIFont systemFontOfSize: [UIFont systemFontSize] + 2];
 	
@@ -102,7 +103,6 @@
 {
 	[textView resignFirstResponder];
 }
-
 
 - (void)dismissKeyboard
 {
