@@ -25,10 +25,10 @@
 	
 	ReceivedContentView *receivedContentView;
 	StatusViewController *statusViewController;
-	LocationController *locationController;
-	BaseHoccerRequest *request;
 	
+	BaseHoccerRequest *request;
 	GesturesInterpreter *gestureInterpreter;
+	LocationController *locationController;
 
 	id <HoccerContent> hoccerContent;
 	id <HoccerContent> contentToSend;					

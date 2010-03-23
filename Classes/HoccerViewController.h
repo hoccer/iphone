@@ -21,6 +21,7 @@
 @class BackgroundViewController;
 @class SelectContentViewController;
 @class StatusViewController;
+@class HelpScrollView;
 
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
@@ -32,6 +33,7 @@
 		
 	PreviewViewController *previewViewController;
 	BackgroundViewController *backgroundViewController;
+	HelpScrollView *helpViewController;
 
 	UIViewController *popOver;
 	BOOL isPopUpDisplayed;
@@ -41,6 +43,9 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) UIViewController *popOver;
 @property (nonatomic, assign) BOOL allowSweepGesture;
+
+@property (nonatomic, retain) HelpScrollView *helpViewController;
+
 
 - (void)showError: (NSString *)message;
 

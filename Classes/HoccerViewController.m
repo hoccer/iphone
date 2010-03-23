@@ -49,9 +49,11 @@
 @synthesize delegate; 
 @synthesize popOver;
 @synthesize allowSweepGesture;
+@synthesize helpViewController;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+	self.helpViewController = nil;
 }
 
 - (void)viewDidLoad {
@@ -77,9 +79,11 @@
 	[sweepInView release];
 
 	[previewViewController release];		
-	[backgroundViewController release];		
+	[backgroundViewController release];	
+	[helpViewController release];
 	
 	[backgroundView release];
+	[popOver release];
 	
 	[super dealloc];
 }
@@ -198,11 +202,9 @@
 }
 
 - (void)showHelpView {
-	HelpScrollView *helpView = [[HelpScrollView alloc] init];
-	helpView.delegate = self;
+	self.helpViewController.delegate = self;
 	
-	[self showPopOver:helpView];
-	[helpView release];
+	[self showPopOver:self.helpViewController];
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -256,6 +258,14 @@
 
 - (void)setAllowSweepGesture: (BOOL)allow {
 	backgroundViewController.blocked = !allow;
+}
+
+- (HelpScrollView *)helpViewController {
+	if (helpViewController == nil) {
+		helpViewController = [[HelpScrollView alloc] init];
+	}
+	
+	return helpViewController;
 }
 
 

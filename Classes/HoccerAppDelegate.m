@@ -71,6 +71,9 @@
 	[request release];
 	
 	[gestureInterpreter release];
+	[locationController release];
+	
+	[statusViewController release];
     [viewController release];
 	[window release];
 	
@@ -299,7 +302,7 @@
 }
 
 - (void)hoccerViewControllerDidShowHelp: (HoccerViewController *)controller {
-	gestureInterpreter.delegate = nil;
+	gestureInterpreter.delegate = (NSObject *) viewController.helpViewController;
 
 }
 
