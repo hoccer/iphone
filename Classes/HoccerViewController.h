@@ -23,6 +23,8 @@
 @class StatusViewController;
 @class HelpScrollView;
 
+@class ActionElement;
+
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
@@ -38,6 +40,8 @@
 	UIViewController *popOver;
 	BOOL isPopUpDisplayed;
 	BOOL allowSweepGesture;
+							
+	ActionElement *delayedAction;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

@@ -232,7 +232,6 @@
 	}
 }
 
-
 - (void)userDidDismissContent
 {
 	[self hideReceivedContentView];
@@ -312,10 +311,15 @@
 
 #pragma mark -
 #pragma mark StatusViewController Delegate
-
 - (void)statusViewControllerDidCancelRequest:(StatusViewController *)controller {
 	[viewController resetPreview];
-	viewController.allowSweepGesture = YES;
+	
+	if (self.contentToSend != nil) {
+		viewController.allowSweepGesture = NO;
+	} else {
+		viewController.allowSweepGesture = YES;
+	}
+
 	
 	[statusViewController hideActivityInfo];
 	

@@ -7,10 +7,8 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
-#import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "ABPersonVCardCreator.h"
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
 
@@ -21,7 +19,6 @@
 #import "HoccerText.h"
 #import "Preview.h"
 
-#import "HiddenViewScrollViewDelegate.h"
 #import "PreviewViewController.h"
 #import "BackgroundViewController.h"
 #import "SelectContentViewController.h"
@@ -32,17 +29,56 @@
 #import "HoccerText.h"
 #import "HoccerVcard.h"
 
-@interface HoccerViewController ()
 
-- (void)showPopOver: (UIViewController *)popOverView;
-- (void)hidePopOverAnimated: (BOOL) animate;
-- (void)removePopOverFromSuperview;
 
-- (void)showSelectContentView;
-- (void)showHelpView;
+@interface ActionElement : NSObject
+{
+	id target;
+	SEL selector;
+}
+
++ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)selector;
+- (id)initWithTargat: (id)aTarget selector: (SEL)selector;
+- (void)perform;
 
 @end
 
+
+@implementation ActionElement
+
++ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)aSelector {
+	return [[[ActionElement alloc] initWithTargat:aTarget selector:aSelector] autorelease];
+}
+
+- (id)initWithTargat: (id)aTarget selector: (SEL)aSelector {
+	self = [super init];
+	if (self != nil) {
+		target = aTarget;
+		selector = aSelector;	
+	}
+	
+	return self;
+}
+
+- (void)perform {
+	[target performSelector:selector];
+}
+
+@end
+
+@interface HoccerViewController ()
+
+@property (retain) ActionElement* delayedAction;
+
+- (void)showPopOver: (UIViewController *)popOverView;
+- (void)hidePopOverAnimated: (BOOL) animate;
+- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
+
+- (void)showSelectContentView;
+- (void)showHelpView;
+- (void)removePopOverFromSuperview;
+
+@end
 
 @implementation HoccerViewController
 
@@ -50,6 +86,7 @@
 @synthesize popOver;
 @synthesize allowSweepGesture;
 @synthesize helpViewController;
+@synthesize delayedAction;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -76,6 +113,7 @@
 }
 
 - (void)dealloc {
+	[delayedAction release];
 	[sweepInView release];
 
 	[previewViewController release];		
@@ -87,7 +125,6 @@
 	
 	[super dealloc];
 }
-
 
 #pragma mark -
 #pragma mark User Action
@@ -129,7 +166,9 @@
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showHelpView];
-		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowHelp:) withObject:self];
+	} else if (popOver != self.helpViewController) {
+		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHelpView)];
+		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
 		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelHelp:) withObject:self];
@@ -139,7 +178,9 @@
 - (IBAction)toggleSelectContent: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
-		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowContentSelector:) withObject:self];
+	} else if (![popOver isKindOfClass:[SelectContentViewController class]]) {
+		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSelectContentView)];
+		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
 		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
@@ -199,12 +240,15 @@
 	
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
+	
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowContentSelector:) withObject:self];
 }
 
 - (void)showHelpView {
 	self.helpViewController.delegate = self;
 	
 	[self showPopOver:self.helpViewController];
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowHelp:) withObject:self];
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -234,10 +278,9 @@
 		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-			[UIView setAnimationDidStopSelector:@selector(removePopOverFromSuperview)];
+			[UIView setAnimationDidStopSelector:@selector(hideAnimationDidStop:finished:context:)];
 			[UIView setAnimationDelegate:self];
 			[UIView setAnimationDuration:0.2];
-			
 			self.popOver.view.frame = selectContentFrame;
 			
 			[UIView commitAnimations];
@@ -249,11 +292,18 @@
 	}
 }
 
-- (void)removePopOverFromSuperview {	
+- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
+	[self removePopOverFromSuperview];
+}
+
+- (void)removePopOverFromSuperview {
 	[popOver.view removeFromSuperview];	 
 	self.popOver = nil;
-
+	
 	isPopUpDisplayed = NO;
+	
+	[self.delayedAction perform];
+	self.delayedAction = nil;
 }
 
 - (void)setAllowSweepGesture: (BOOL)allow {

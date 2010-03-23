@@ -43,7 +43,6 @@
 		227687C2109047E4000528E8 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
 		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
-		2278AAD710A2E065009716A2 /* HiddenViewScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2278AAD610A2E065009716A2 /* HiddenViewScrollViewDelegate.m */; };
 		22791C59108C570F00059D05 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22798F46105FABAD0035C643 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
@@ -238,8 +237,6 @@
 		227687C0109047E4000528E8 /* ACPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACPerson.h; path = AddressBook/ACPerson.h; sourceTree = "<group>"; };
 		227687C1109047E4000528E8 /* ACPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACPerson.m; path = AddressBook/ACPerson.m; sourceTree = "<group>"; };
 		22783D881067ABBB00B244F7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2278AAD510A2E065009716A2 /* HiddenViewScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenViewScrollViewDelegate.h; sourceTree = "<group>"; };
-		2278AAD610A2E065009716A2 /* HiddenViewScrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiddenViewScrollViewDelegate.m; sourceTree = "<group>"; };
 		22791C57108C570F00059D05 /* HoccerVcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerVcard.h; path = Content/HoccerVcard.h; sourceTree = "<group>"; };
 		22791C58108C570F00059D05 /* HoccerVcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerVcard.m; path = Content/HoccerVcard.m; sourceTree = "<group>"; };
 		22798F43105FABAD0035C643 /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
@@ -541,8 +538,6 @@
 				224F8A9B108CBB4300F69B53 /* Preview.m */,
 				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
 				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
-				2278AAD510A2E065009716A2 /* HiddenViewScrollViewDelegate.h */,
-				2278AAD610A2E065009716A2 /* HiddenViewScrollViewDelegate.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1009,7 +1004,6 @@
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
 				2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */,
-				2278AAD710A2E065009716A2 /* HiddenViewScrollViewDelegate.m in Sources */,
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 				22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */,
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,

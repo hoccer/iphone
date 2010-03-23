@@ -48,7 +48,6 @@
 	return self;
 }
 
-
 - (NSData *)vcard
 {
 	return [[writer vcardRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
