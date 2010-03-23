@@ -69,11 +69,19 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {
+	int statusCode = [self.response statusCode];
 	
 	self.result = [self createJSONFromResult: receivedData];
 	self.connection = nil;
 	
-	[delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
+	NSLog(@"received");
+	if (statusCode >= 400) {
+		NSLog(@"failed");
+		NSError *error = [self createErrorFromResult: self.result];
+		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
+	} else {
+		[self.delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
+	}
 }
 
 

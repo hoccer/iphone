@@ -22,6 +22,7 @@
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
+		NSLog(@"data %@", aObject);
 		
 		NSURL *url = [NSURL URLWithString: [aObject valueForKey:@"peer_uri"]];
 		

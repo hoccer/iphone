@@ -94,7 +94,6 @@
 	[receivedData appendData:data];
 }
 
-
 - (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error 
 {
 	self.connection = nil;
