@@ -18,6 +18,7 @@
 @interface HoccerViewControlleriPad () 
 
 @property (retain) UIPopoverController *popOver;
+- (UIPopoverController *)popOverWithController: (UIViewController*)controller;
 
 @end
 
@@ -46,39 +47,48 @@
 }
 
 - (IBAction)selectImage: (id)sender {
-	if (self.popOver != nil) {
+	if ([self.popOver.contentViewController isKindOfClass:[UIImagePickerController class]]) {
 		[self.popOver dismissPopoverAnimated:YES];
 		self.popOver = nil;
+
 		return;
 	}
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 	imagePicker.delegate = self;
-	
-	self.popOver = [[[UIPopoverController alloc] initWithContentViewController:imagePicker] autorelease];
-	self.popOver.delegate = self; 
+
+	self.popOver = [self popOverWithController: imagePicker];
 	[self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES]; 
 
 	[imagePicker release];
 }
 
 - (IBAction)selectContacts: (id)sender {
-	if (self.popOver != nil) {
+	if ([self.popOver.contentViewController isKindOfClass:[ABPeoplePickerNavigationController class]]) {
 		[self.popOver dismissPopoverAnimated:YES];
 		self.popOver = nil;
+
 		return;
 	}
 	
 	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
 	picker.peoplePickerDelegate = self;
-	picker.contentSizeForViewInPopover = CGSizeMake(300.0, 280.0);
 	
-	self.popOver = [[[UIPopoverController alloc] initWithContentViewController:picker] autorelease];
-	self.popOver.delegate = self; 
+	self.popOver = [self popOverWithController: picker];
 	[self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES]; 
 
 	[picker release];
 }
+
+- (IBAction)selectText: (id)sender {
+	if (self.popOver.popoverVisible == YES) {
+		[self.popOver dismissPopoverAnimated:YES];
+		self.popOver = nil;
+	}
+	
+	[super selectText: sender];
+}
+
 
 - (void)setContentPreview: (id <HoccerContent>)content {
 	[self.previewViewController.view removeFromSuperview];
@@ -89,7 +99,7 @@
 	[self.view setNeedsDisplay];
 	self.previewViewController.view = contentView;	
 	
-	self.previewViewController.origin = CGPointMake(1000, backgroundView.frame.size.height * 0.3);
+	self.previewViewController.origin = CGPointMake(900, backgroundView.frame.size.height * 0.3);
 	
 	[UIView beginAnimations:@"previewSlideIn" context:nil];
 	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
@@ -109,7 +119,6 @@
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
-	
 	[self setContentPreview: content];
 }
 
@@ -117,10 +126,19 @@
 #pragma mark UIPopoverController delegate
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-	
 	self.popOver = nil;
 }
 
-
+- (UIPopoverController *)popOverWithController: (UIViewController*)controller {
+	if (popOver == nil) {
+		controller.contentSizeForViewInPopover = CGSizeMake(200, 300);
+		popOver = [[UIPopoverController alloc] initWithContentViewController:controller];
+		popOver.delegate = self;
+	} else {
+		popOver.contentViewController = controller;
+	}
+	
+	return popOver;
+}
 
 @end
