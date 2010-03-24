@@ -576,6 +576,7 @@
 				223BC43C10555AD300ABE5A2 /* Helper */,
 				223BC40D1055556200ABE5A2 /* JSON */,
 				224F8A88108CB80400F69B53 /* View */,
+				22979EF9115A183F002B59C2 /* iPad */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
 				22B06B2911523B4400D2ECFE /* SelectContentViewController.h */,
@@ -594,8 +595,6 @@
 				22B06BF01152777500D2ECFE /* StatusViewController.m */,
 				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
-				22B1CC18115925E600EFD709 /* HoccerViewControlleriPad.h */,
-				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -858,6 +857,15 @@
 				22977B2711105C4500B55D3F /* HocLocation.m */,
 			);
 			name = Wifi;
+			sourceTree = "<group>";
+		};
+		22979EF9115A183F002B59C2 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				22B1CC18115925E600EFD709 /* HoccerViewControlleriPad.h */,
+				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		229DAF1C107B377C00B47ABE /* AddressBook */ = {

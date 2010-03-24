@@ -8,8 +8,19 @@
 #import "HoccerViewControlleriPad.h"
 #import "PreviewViewController.h"
 #import "Preview.h"
+#import "NSObject+DelegateHelper.h"
+
+#import "HoccerContent.h"
+#import "HoccerImage.h"
 
 @implementation HoccerViewControlleriPad
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	self.previewViewController.shouldSnapBackOnTouchUp = NO;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
@@ -45,6 +56,16 @@
 	
 	self.previewViewController.view = contentView;	
 	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	id <HoccerContent> content = [[[HoccerImage alloc] initWithUIImage:
+								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
+	
+	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	
+	[self setContentPreview: content];
 }
 
 

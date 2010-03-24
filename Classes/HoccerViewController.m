@@ -98,6 +98,7 @@
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
 	previewViewController.delegate = self;
+	previewViewController.shouldSnapBackOnTouchUp = YES;
 	
 	backgroundViewController = [[BackgroundViewController alloc] init];
 	backgroundViewController.view = backgroundView;

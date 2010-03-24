@@ -15,10 +15,13 @@
 	
 	CGPoint touchStartPoint;
 	BOOL gestureDetected;
+	
+	BOOL shouldSnapBackOnTouchUp;
 }
 
 @property (nonatomic, retain) id delegate;
 @property (assign) CGPoint origin;
+@property (assign) BOOL shouldSnapBackOnTouchUp;
 
 - (void)dismissKeyboard;
 - (void)resetViewAnimated: (BOOL)animated;

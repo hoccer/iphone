@@ -16,6 +16,7 @@
 
 @synthesize origin;
 @synthesize delegate;
+@synthesize shouldSnapBackOnTouchUp;
 
 - (id) init{
 	
@@ -26,39 +27,6 @@
 	}
 	return self;	
 }
-
-
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-	self.view = [[Preview alloc] initWithFrame: previewView];
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void) setView:(UIView *) aPreview{
 	super.view = aPreview;
@@ -109,14 +77,12 @@
 		CGFloat width = self.view.superview.frame.size.width; 
 
 		if (currentLocation.x < kSweepBorder) {
-			NSLog(@"sweep left");		
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
 			gestureDetected = YES;	
 			
 			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
 		} else if (currentLocation.x > width - kSweepBorder ) {
-			NSLog(@"sweep right");
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 
 			[self startFlySidewaysAnimation: CGPointMake(width, height)];
@@ -128,7 +94,7 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	if (!gestureDetected) {
+	if (!gestureDetected && shouldSnapBackOnTouchUp) {
 		[self resetViewAnimated:YES];
 	}
 	
@@ -148,7 +114,6 @@
 }
 
 - (void)resetViewAnimated: (BOOL)animated {
-	NSLog(@"in %s", _cmd);
 	CGRect myRect = self.view.frame;
 	myRect.origin = origin;
 		
