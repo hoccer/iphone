@@ -83,7 +83,7 @@
 @implementation HoccerViewController
 
 @synthesize delegate; 
-@synthesize popOver;
+@synthesize auxiliaryView;
 @synthesize allowSweepGesture;
 @synthesize helpViewController;
 @synthesize delayedAction;
@@ -125,7 +125,7 @@
 	[helpViewController release];
 	
 	[backgroundView release];
-	[popOver release];
+	[auxiliaryView release];
 	
 	[super dealloc];
 }
@@ -170,7 +170,7 @@
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showHelpView];
-	} else if (popOver != self.helpViewController) {
+	} else if (auxiliaryView != self.helpViewController) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHelpView)];
 		[self hidePopOverAnimated: YES];
 	} else {
@@ -182,7 +182,7 @@
 - (IBAction)toggleSelectContent: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
-	} else if (![popOver isKindOfClass:[SelectContentViewController class]]) {
+	} else if (![auxiliaryView isKindOfClass:[SelectContentViewController class]]) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSelectContentView)];
 		[self hidePopOverAnimated: YES];
 	} else {
@@ -242,7 +242,7 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
-	self.popOver = popOverView;
+	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
 	selectContentFrame.size = backgroundViewController.view.frame.size;
@@ -262,8 +262,8 @@
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
-	if (self.popOver != nil) {		
-		CGRect selectContentFrame = self.popOver.view.frame;
+	if (self.auxiliaryView != nil) {		
+		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
 		
 		if (animate) {
@@ -271,11 +271,11 @@
 			[UIView setAnimationDidStopSelector:@selector(hideAnimationDidStop:finished:context:)];
 			[UIView setAnimationDelegate:self];
 			[UIView setAnimationDuration:0.2];
-			self.popOver.view.frame = selectContentFrame;
+			self.auxiliaryView.view.frame = selectContentFrame;
 			
 			[UIView commitAnimations];
 		} else {
-			self.popOver.view.frame = selectContentFrame;
+			self.auxiliaryView.view.frame = selectContentFrame;
 			[self removePopOverFromSuperview];
 		}
 
@@ -287,8 +287,8 @@
 }
 
 - (void)removePopOverFromSuperview {
-	[popOver.view removeFromSuperview];	 
-	self.popOver = nil;
+	[auxiliaryView.view removeFromSuperview];	 
+	self.auxiliaryView = nil;
 	
 	isPopUpDisplayed = NO;
 	

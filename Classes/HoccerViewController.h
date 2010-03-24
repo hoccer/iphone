@@ -37,7 +37,7 @@
 	BackgroundViewController *backgroundViewController;
 	HelpScrollView *helpViewController;
 
-	UIViewController *popOver;
+	UIViewController *auxiliaryView;
 	BOOL isPopUpDisplayed;
 	BOOL allowSweepGesture;
 							
@@ -45,7 +45,7 @@
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
-@property (nonatomic, retain) UIViewController *popOver;
+@property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, assign) BOOL allowSweepGesture;
 @property (nonatomic, assign) PreviewViewController* previewViewController;
 
