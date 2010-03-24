@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 18.03.10.
-//  Copyright 2010 Apple Inc. All rights reserved.
+//  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>
@@ -70,12 +70,12 @@
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	self.view.hidden = NO;
-	self.view.center = CGPointMake(160, 32);
+	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 32);
 	
 	[UIView beginAnimations:@"slideIn" context:nil];
 	[UIView setAnimationDuration:0.4];
 	
-	self.view.center = CGPointMake(160, 68);
+	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 68);
 	// animation.beginTime = CACurrentMediaTime() + 0.6;
 	[UIView commitAnimations];
 	

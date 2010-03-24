@@ -12,6 +12,7 @@
 #import "HoccerUrl.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
+#import "HoccerData.h"
 
 @implementation HoccerContentFactory
 
@@ -30,7 +31,10 @@
 		} else {
 			hoccerContent = [[HoccerText alloc] initWithData: data];
 		}
+	} else {
+		hoccerContent = [[HoccerData alloc] initWithData:data];
 	}
+
 
 	return [hoccerContent autorelease];
 }

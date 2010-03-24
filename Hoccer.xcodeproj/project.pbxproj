@@ -111,6 +111,8 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		2297A067115A5B7B002B59C2 /* HoccerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297A066115A5B7B002B59C2 /* HoccerData.m */; };
+		2297A06C115A5D65002B59C2 /* HoccerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297A066115A5B7B002B59C2 /* HoccerData.m */; };
 		229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
 		229A9123114E737A0069A0EA /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* BackgroundViewController.m */; };
 		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
@@ -441,6 +443,8 @@
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
+		2297A065115A5B7B002B59C2 /* HoccerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerData.h; sourceTree = "<group>"; };
+		2297A066115A5B7B002B59C2 /* HoccerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerData.m; sourceTree = "<group>"; };
 		229A9010114E44C10069A0EA /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
 		229A9011114E44C10069A0EA /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
@@ -623,6 +627,8 @@
 				22799045105FDCEB0035C643 /* HoccerText.m */,
 				22791C57108C570F00059D05 /* HoccerVcard.h */,
 				22791C58108C570F00059D05 /* HoccerVcard.m */,
+				2297A065115A5B7B002B59C2 /* HoccerData.h */,
+				2297A066115A5B7B002B59C2 /* HoccerData.m */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -1049,6 +1055,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Art+Com AG";
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Hoccer" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -1271,6 +1280,7 @@
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
 				22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */,
 				22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */,
+				2297A067115A5B7B002B59C2 /* HoccerData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1366,6 +1376,7 @@
 				22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */,
 				22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */,
 				22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */,
+				2297A06C115A5D65002B59C2 /* HoccerData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

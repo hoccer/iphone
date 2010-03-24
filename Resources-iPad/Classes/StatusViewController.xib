@@ -39,13 +39,13 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">274</int>
+				<int key="NSvFlags">314</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUILabel" id="435518619">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{286, 19}, {212, 21}}</string>
+						<string key="NSFrame">{{75, 19}, {625, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -71,8 +71,8 @@
 					</object>
 					<object class="IBUIButton" id="314914246">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{508, 14}, {36, 36}}</string>
+						<int key="NSvFlags">289</int>
+						<string key="NSFrame">{{730, 14}, {36, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -102,7 +102,7 @@
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{721, 60}</string>
+				<string key="NSFrameSize">{786, 60}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -200,7 +200,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>StatusViewController</string>
 					<string>UIResponder</string>
-					<string>{{236, 1096}, {721, 60}}</string>
+					<string>{{347, 639}, {786, 60}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -524,7 +524,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../Hoccer.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../Hoccer.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">Close.png</string>
