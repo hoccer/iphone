@@ -87,6 +87,8 @@
 @synthesize allowSweepGesture;
 @synthesize helpViewController;
 @synthesize delayedAction;
+@synthesize previewViewController;
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

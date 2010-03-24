@@ -47,6 +47,7 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) UIViewController *popOver;
 @property (nonatomic, assign) BOOL allowSweepGesture;
+@property (nonatomic, assign) PreviewViewController* previewViewController;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
 

@@ -92,12 +92,13 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
-	NSLog(@"touches moved");
 
 	UITouch* touch = [touches anyObject];
 	CGPoint prevLocation = [touch previousLocationInView: self.view.superview];
 	CGPoint currentLocation = [touch locationInView: self.view.superview];
 	
+	NSLog(@"touches moved: %f, %f", currentLocation.x, currentLocation.y);
+
 	CGRect myRect = self.view.frame;
 	myRect.origin.x += currentLocation.x - prevLocation.x; 
 	myRect.origin.y += currentLocation.y - prevLocation.y; 
@@ -105,8 +106,7 @@
 	self.view.frame = myRect;
 	
 	if (!gestureDetected) {
-		
-		CGFloat width = self.view.frame.size.width; 
+		CGFloat width = self.view.superview.frame.size.width; 
 
 		if (currentLocation.x < kSweepBorder) {
 			NSLog(@"sweep left");		

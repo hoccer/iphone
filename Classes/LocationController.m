@@ -8,7 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "LocationController.h"
-#import "WifiScanner.h"
+// #import "WifiScanner.h"
 #import "HocLocation.h"
 
 @implementation LocationController
@@ -23,7 +23,7 @@
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
 		
-		[WifiScanner sharedScanner];
+		// [WifiScanner sharedScanner];
 	}
 	
 	return self;
@@ -65,8 +65,8 @@
 
 - (HocLocation *)location {
 	return [[[HocLocation alloc] 
-			initWithLocation: locationManager.location
-					  bssids:[WifiScanner sharedScanner].bssids] autorelease];
+			 initWithLocation: locationManager.location bssids: nil] autorelease];
+					  //bssids:[WifiScanner sharedScanner].bssids] autorelease];
 }
 
 

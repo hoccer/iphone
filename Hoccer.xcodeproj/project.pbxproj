@@ -130,6 +130,125 @@
 		22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */; };
 		22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
 		22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
+		22B1CB661159160600EFD709 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
+		22B1CB671159160600EFD709 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
+		22B1CB681159160600EFD709 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
+		22B1CB6A1159160600EFD709 /* myicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D1618F1095EE1200858642 /* myicon.png */; };
+		22B1CB6B1159160600EFD709 /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D161961095F27B00858642 /* receive.png */; };
+		22B1CB6F1159160600EFD709 /* artcomtech_286px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */; };
+		22B1CB701159160600EFD709 /* artcomtech_260px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */; };
+		22B1CB711159160600EFD709 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D72FE610A8498B000AEA79 /* Arrow.png */; };
+		22B1CB721159160600EFD709 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
+		22B1CB731159160600EFD709 /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7303D10A85CA0000AEA79 /* Header.png */; };
+		22B1CB741159160600EFD709 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7304410A85F3D000AEA79 /* Map.png */; };
+		22B1CB751159160600EFD709 /* Photobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D730B610A879AA000AEA79 /* Photobox.png */; };
+		22B1CB761159160600EFD709 /* Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7313A10A88600000AEA79 /* Catch_Icon.png */; };
+		22B1CB771159160600EFD709 /* Close_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7314D10A88E34000AEA79 /* Close_Highlighted.png */; };
+		22B1CB781159160600EFD709 /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FF8410A9810F00DFA0BF /* Close.png */; };
+		22B1CB791159160600EFD709 /* Header_Training.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFD810A99F6200DFA0BF /* Header_Training.png */; };
+		22B1CB7A1159160600EFD709 /* Play_Video_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFE610A9A13200DFA0BF /* Play_Video_Button.png */; };
+		22B1CB7B1159160600EFD709 /* Back_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFF310A9A38A00DFA0BF /* Back_Button.png */; };
+		22B1CB7C1159160600EFD709 /* Back_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFF410A9A38A00DFA0BF /* Back_Highlighted.png */; };
+		22B1CB7D1159160600EFD709 /* Help_Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */; };
+		22B1CB7E1159160600EFD709 /* Help_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */; };
+		22B1CB7F1159160600EFD709 /* Help_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008E10A9C1A000DFA0BF /* Help_Button.png */; };
+		22B1CB801159160600EFD709 /* Info_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */; };
+		22B1CB811159160600EFD709 /* Info_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281009010A9C1A000DFA0BF /* Info_Button.png */; };
+		22B1CB821159160600EFD709 /* Contactbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100AB10A9CA9900DFA0BF /* Contactbox.png */; };
+		22B1CB841159160600EFD709 /* Header_About.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100F410A9D50700DFA0BF /* Header_About.png */; };
+		22B1CB851159160600EFD709 /* Accept_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281010010A9DD7300DFA0BF /* Accept_Button.png */; };
+		22B1CB861159160600EFD709 /* Header_Terms-of-Use.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281010210A9DFFE00DFA0BF /* Header_Terms-of-Use.png */; };
+		22B1CB871159160600EFD709 /* Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0DA10AC029600418A4D /* Throw_Icon.png */; };
+		22B1CB881159160600EFD709 /* Help_Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0E510AC090000418A4D /* Help_Catch_Icon.png */; };
+		22B1CB891159160600EFD709 /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 227CA17810AC296E00418A4D /* throw_180.mp4 */; };
+		22B1CB8A1159160600EFD709 /* catch_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 227CA1D610AC2D5E00418A4D /* catch_180.mp4 */; };
+		22B1CB8B1159160600EFD709 /* bump_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 227CA1D710AC2D5E00418A4D /* bump_180.mp4 */; };
+		22B1CB8C1159160600EFD709 /* Contacts_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA26C10AC582800418A4D /* Contacts_Highlighted.png */; };
+		22B1CB8D1159160600EFD709 /* Contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA26D10AC582800418A4D /* Contacts.png */; };
+		22B1CB8E1159160600EFD709 /* Photo_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA26E10AC582800418A4D /* Photo_Highlighted.png */; };
+		22B1CB8F1159160600EFD709 /* Photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA26F10AC582800418A4D /* Photo.png */; };
+		22B1CB901159160600EFD709 /* Text_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA27010AC582800418A4D /* Text_Highlighted.png */; };
+		22B1CB911159160600EFD709 /* Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA27110AC582800418A4D /* Text.png */; };
+		22B1CB921159160600EFD709 /* menue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2861DCB810ADA03500EA2FFA /* menue.png */; };
+		22B1CB931159160600EFD709 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD327B11107C7700BC7DEC /* icon.png */; };
+		22B1CB941159160600EFD709 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD329B11107D7500BC7DEC /* iTunesArtwork.png */; };
+		22B1CB951159160600EFD709 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD32AE11107FA200BC7DEC /* Icon-Small.png */; };
+		22B1CB991159160600EFD709 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		22B1CB9A1159160600EFD709 /* HoccerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* HoccerAppDelegate.m */; };
+		22B1CB9B1159160600EFD709 /* HoccerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */; };
+		22B1CB9C1159160600EFD709 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
+		22B1CB9D1159160600EFD709 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
+		22B1CB9E1159160600EFD709 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4121055556200ABE5A2 /* NSString+SBJSON.m */; };
+		22B1CB9F1159160600EFD709 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4141055556200ABE5A2 /* SBJSON.m */; };
+		22B1CBA01159160600EFD709 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4161055556200ABE5A2 /* SBJsonBase.m */; };
+		22B1CBA11159160600EFD709 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
+		22B1CBA21159160600EFD709 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
+		22B1CBA31159160600EFD709 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
+		22B1CBA41159160600EFD709 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
+		22B1CBA51159160600EFD709 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
+		22B1CBA61159160600EFD709 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
+		22B1CBA71159160600EFD709 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
+		22B1CBA81159160600EFD709 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
+		22B1CBA91159160600EFD709 /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
+		22B1CBAA1159160600EFD709 /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
+		22B1CBAB1159160600EFD709 /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
+		22B1CBAC1159160600EFD709 /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
+		22B1CBAD1159160600EFD709 /* ReceivedContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentView.m */; };
+		22B1CBAE1159160600EFD709 /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
+		22B1CBAF1159160600EFD709 /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
+		22B1CBB01159160600EFD709 /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
+		22B1CBB11159160600EFD709 /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
+		22B1CBB21159160600EFD709 /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		22B1CBB31159160600EFD709 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
+		22B1CBB41159160600EFD709 /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
+		22B1CBB51159160600EFD709 /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
+		22B1CBB61159160600EFD709 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
+		22B1CBB71159160600EFD709 /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		22B1CBB81159160600EFD709 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
+		22B1CBB91159160600EFD709 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22B1CBBA1159160600EFD709 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
+		22B1CBBB1159160600EFD709 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
+		22B1CBBC1159160600EFD709 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
+		22B1CBBD1159160600EFD709 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
+		22B1CBBE1159160600EFD709 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
+		22B1CBBF1159160600EFD709 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		22B1CBC01159160600EFD709 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
+		22B1CBC11159160600EFD709 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
+		22B1CBC21159160600EFD709 /* HelpScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94D5109713AB008CE547 /* HelpScreen.m */; };
+		22B1CBC31159160600EFD709 /* HelpScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94F610971A9C008CE547 /* HelpScrollView.m */; };
+		22B1CBC41159160600EFD709 /* HelpContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A963610974BD3008CE547 /* HelpContent.m */; };
+		22B1CBC51159160600EFD709 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
+		22B1CBC61159160600EFD709 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
+		22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
+		22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
+		22B1CBC91159160600EFD709 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		22B1CBCA1159160600EFD709 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
+		22B1CBCB1159160600EFD709 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* BackgroundViewController.m */; };
+		22B1CBCC1159160600EFD709 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
+		22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
+		22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
+		22B1CBD01159160600EFD709 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		22B1CBD11159160600EFD709 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		22B1CBD21159160600EFD709 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		22B1CBD31159160600EFD709 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
+		22B1CBD41159160600EFD709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
+		22B1CBD51159160600EFD709 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
+		22B1CBD61159160600EFD709 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
+		22B1CBD71159160600EFD709 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A960810973CED008CE547 /* MediaPlayer.framework */; };
+		22B1CBD81159160600EFD709 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
+		22B1CBD91159160600EFD709 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
+		22B1CBEC1159160D00EFD709 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE11159160D00EFD709 /* MainWindow.xib */; };
+		22B1CBED1159160D00EFD709 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE21159160D00EFD709 /* HoccerViewController.xib */; };
+		22B1CBEE1159160D00EFD709 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE31159160D00EFD709 /* DebugViewController.xib */; };
+		22B1CBEF1159160D00EFD709 /* ReceivedContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE41159160D00EFD709 /* ReceivedContentView.xib */; };
+		22B1CBF01159160D00EFD709 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE51159160D00EFD709 /* AboutViewController.xib */; };
+		22B1CBF11159160D00EFD709 /* HelpScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE61159160D00EFD709 /* HelpScreen.xib */; };
+		22B1CBF21159160D00EFD709 /* HelpScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE71159160D00EFD709 /* HelpScrollView.xib */; };
+		22B1CBF31159160D00EFD709 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE81159160D00EFD709 /* TermOfUse.xib */; };
+		22B1CBF41159160D00EFD709 /* HelpOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBE91159160D00EFD709 /* HelpOverview.xib */; };
+		22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEA1159160D00EFD709 /* SelectContentTableView.xib */; };
+		22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEB1159160D00EFD709 /* StatusViewController.xib */; };
+		22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */; };
 		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
@@ -343,6 +462,20 @@
 		22B06BEF1152777500D2ECFE /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		22B06BF01152777500D2ECFE /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		22B06BF11152777500D2ECFE /* StatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatusViewController.xib; path = Classes/StatusViewController.xib; sourceTree = "<group>"; };
+		22B1CBDE1159160600EFD709 /* Hoccer-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hoccer-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22B1CBE11159160D00EFD709 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = "Resources-iPad/MainWindow.xib"; sourceTree = "<group>"; };
+		22B1CBE21159160D00EFD709 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HoccerViewController.xib; path = "Resources-iPad/HoccerViewController.xib"; sourceTree = "<group>"; };
+		22B1CBE31159160D00EFD709 /* DebugViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DebugViewController.xib; path = "Resources-iPad/Classes/DebugViewController.xib"; sourceTree = "<group>"; };
+		22B1CBE41159160D00EFD709 /* ReceivedContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReceivedContentView.xib; path = "Resources-iPad/Classes/ReceivedContentView.xib"; sourceTree = "<group>"; };
+		22B1CBE51159160D00EFD709 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = "Resources-iPad/Classes/AboutViewController.xib"; sourceTree = "<group>"; };
+		22B1CBE61159160D00EFD709 /* HelpScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpScreen.xib; path = "Resources-iPad/Classes/Help/HelpScreen.xib"; sourceTree = "<group>"; };
+		22B1CBE71159160D00EFD709 /* HelpScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpScrollView.xib; path = "Resources-iPad/Classes/HelpScrollView.xib"; sourceTree = "<group>"; };
+		22B1CBE81159160D00EFD709 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TermOfUse.xib; path = "Resources-iPad/Classes/TermOfUse.xib"; sourceTree = "<group>"; };
+		22B1CBE91159160D00EFD709 /* HelpOverview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HelpOverview.xib; path = "Resources-iPad/Classes/Help/HelpOverview.xib"; sourceTree = "<group>"; };
+		22B1CBEA1159160D00EFD709 /* SelectContentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectContentTableView.xib; path = "Resources-iPad/Classes/SelectContentTableView.xib"; sourceTree = "<group>"; };
+		22B1CBEB1159160D00EFD709 /* StatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatusViewController.xib; path = "Resources-iPad/Classes/StatusViewController.xib"; sourceTree = "<group>"; };
+		22B1CC18115925E600EFD709 /* HoccerViewControlleriPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewControlleriPad.h; sourceTree = "<group>"; };
+		22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewControlleriPad.m; sourceTree = "<group>"; };
 		22BC5D8E107B4C3B00497EF4 /* ABPersonVCardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonVCardCreator.h; path = AddressBook/ABPersonVCardCreator.h; sourceTree = "<group>"; };
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
@@ -408,6 +541,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22B1CBCF1159160600EFD709 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B1CBD01159160600EFD709 /* Foundation.framework in Frameworks */,
+				22B1CBD11159160600EFD709 /* UIKit.framework in Frameworks */,
+				22B1CBD21159160600EFD709 /* CoreGraphics.framework in Frameworks */,
+				22B1CBD31159160600EFD709 /* CoreLocation.framework in Frameworks */,
+				22B1CBD41159160600EFD709 /* MapKit.framework in Frameworks */,
+				22B1CBD51159160600EFD709 /* AddressBook.framework in Frameworks */,
+				22B1CBD61159160600EFD709 /* AddressBookUI.framework in Frameworks */,
+				22B1CBD71159160600EFD709 /* MediaPlayer.framework in Frameworks */,
+				22B1CBD81159160600EFD709 /* QuartzCore.framework in Frameworks */,
+				22B1CBD91159160600EFD709 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -432,8 +582,6 @@
 				22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */,
 				229A9010114E44C10069A0EA /* PreviewViewController.h */,
 				229A9011114E44C10069A0EA /* PreviewViewController.m */,
-				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
 				227990F8105FEA140035C643 /* ReceivedContentView.h */,
 				227990F9105FEA140035C643 /* ReceivedContentView.m */,
 				2271A00A108347C800F84755 /* FeedbackProvider.h */,
@@ -444,6 +592,10 @@
 				229D9F7E114FEE0200459ED9 /* LocationController.m */,
 				22B06BEF1152777500D2ECFE /* StatusViewController.h */,
 				22B06BF01152777500D2ECFE /* StatusViewController.m */,
+				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
+				22B1CC18115925E600EFD709 /* HoccerViewControlleriPad.h */,
+				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -453,6 +605,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Hoccer.app */,
 				22762D03105E412A003BF968 /* Test.octest */,
+				22B1CBDE1159160600EFD709 /* Hoccer-iPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -740,12 +893,31 @@
 			name = vcard;
 			sourceTree = "<group>";
 		};
+		22B1CBE01159160700EFD709 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				22B1CBE11159160D00EFD709 /* MainWindow.xib */,
+				22B1CBE21159160D00EFD709 /* HoccerViewController.xib */,
+				22B1CBE31159160D00EFD709 /* DebugViewController.xib */,
+				22B1CBE41159160D00EFD709 /* ReceivedContentView.xib */,
+				22B1CBE51159160D00EFD709 /* AboutViewController.xib */,
+				22B1CBE61159160D00EFD709 /* HelpScreen.xib */,
+				22B1CBE71159160D00EFD709 /* HelpScrollView.xib */,
+				22B1CBE81159160D00EFD709 /* TermOfUse.xib */,
+				22B1CBE91159160D00EFD709 /* HelpOverview.xib */,
+				22B1CBEA1159160D00EFD709 /* SelectContentTableView.xib */,
+				22B1CBEB1159160D00EFD709 /* StatusViewController.xib */,
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				22762D17105E4408003BF968 /* Tests */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				22B1CBE01159160700EFD709 /* Resources-iPad */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -772,9 +944,9 @@
 				227A95EF10973B90008CE547 /* Video */,
 				22762DE5105E5688003BF968 /* fixtures */,
 				2271A01810835B8900F84755 /* catch_sound.wav */,
-				22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */,
 				2271A01910835B8900F84755 /* throw_sound.wav */,
 				2271A04A1083665E00F84755 /* tap_sound.wav */,
+				22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */,
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
 				227A94D6109713AB008CE547 /* HelpScreen.xib */,
 				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
@@ -847,6 +1019,23 @@
 			productReference = 22762D03105E412A003BF968 /* Test.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		22B1CB601159160600EFD709 /* Hoccer-iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22B1CBDA1159160600EFD709 /* Build configuration list for PBXNativeTarget "Hoccer-iPad" */;
+			buildPhases = (
+				22B1CB611159160600EFD709 /* Resources */,
+				22B1CB981159160600EFD709 /* Sources */,
+				22B1CBCF1159160600EFD709 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hoccer-iPad";
+			productName = Hoccer;
+			productReference = 22B1CBDE1159160600EFD709 /* Hoccer-iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -861,6 +1050,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Hoccer */,
 				22762D02105E412A003BF968 /* Test */,
+				22B1CB601159160600EFD709 /* Hoccer-iPad */,
 			);
 		};
 /* End PBXProject section */
@@ -932,6 +1122,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				22762F62105E78AF003BF968 /* 2_values.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22B1CB611159160600EFD709 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B1CB661159160600EFD709 /* catch_sound.wav in Resources */,
+				22B1CB671159160600EFD709 /* throw_sound.wav in Resources */,
+				22B1CB681159160600EFD709 /* tap_sound.wav in Resources */,
+				22B1CB6A1159160600EFD709 /* myicon.png in Resources */,
+				22B1CB6B1159160600EFD709 /* receive.png in Resources */,
+				22B1CB6F1159160600EFD709 /* artcomtech_286px_white.png in Resources */,
+				22B1CB701159160600EFD709 /* artcomtech_260px_white.png in Resources */,
+				22B1CB711159160600EFD709 /* Arrow.png in Resources */,
+				22B1CB721159160600EFD709 /* Background.png in Resources */,
+				22B1CB731159160600EFD709 /* Header.png in Resources */,
+				22B1CB741159160600EFD709 /* Map.png in Resources */,
+				22B1CB751159160600EFD709 /* Photobox.png in Resources */,
+				22B1CB761159160600EFD709 /* Catch_Icon.png in Resources */,
+				22B1CB771159160600EFD709 /* Close_Highlighted.png in Resources */,
+				22B1CB781159160600EFD709 /* Close.png in Resources */,
+				22B1CB791159160600EFD709 /* Header_Training.png in Resources */,
+				22B1CB7A1159160600EFD709 /* Play_Video_Button.png in Resources */,
+				22B1CB7B1159160600EFD709 /* Back_Button.png in Resources */,
+				22B1CB7C1159160600EFD709 /* Back_Highlighted.png in Resources */,
+				22B1CB7D1159160600EFD709 /* Help_Throw_Icon.png in Resources */,
+				22B1CB7E1159160600EFD709 /* Help_Highlighted.png in Resources */,
+				22B1CB7F1159160600EFD709 /* Help_Button.png in Resources */,
+				22B1CB801159160600EFD709 /* Info_Highlighted.png in Resources */,
+				22B1CB811159160600EFD709 /* Info_Button.png in Resources */,
+				22B1CB821159160600EFD709 /* Contactbox.png in Resources */,
+				22B1CB841159160600EFD709 /* Header_About.png in Resources */,
+				22B1CB851159160600EFD709 /* Accept_Button.png in Resources */,
+				22B1CB861159160600EFD709 /* Header_Terms-of-Use.png in Resources */,
+				22B1CB871159160600EFD709 /* Throw_Icon.png in Resources */,
+				22B1CB881159160600EFD709 /* Help_Catch_Icon.png in Resources */,
+				22B1CB891159160600EFD709 /* throw_180.mp4 in Resources */,
+				22B1CB8A1159160600EFD709 /* catch_180.mp4 in Resources */,
+				22B1CB8B1159160600EFD709 /* bump_180.mp4 in Resources */,
+				22B1CB8C1159160600EFD709 /* Contacts_Highlighted.png in Resources */,
+				22B1CB8D1159160600EFD709 /* Contacts.png in Resources */,
+				22B1CB8E1159160600EFD709 /* Photo_Highlighted.png in Resources */,
+				22B1CB8F1159160600EFD709 /* Photo.png in Resources */,
+				22B1CB901159160600EFD709 /* Text_Highlighted.png in Resources */,
+				22B1CB911159160600EFD709 /* Text.png in Resources */,
+				22B1CB921159160600EFD709 /* menue.png in Resources */,
+				22B1CB931159160600EFD709 /* icon.png in Resources */,
+				22B1CB941159160600EFD709 /* iTunesArtwork.png in Resources */,
+				22B1CB951159160600EFD709 /* Icon-Small.png in Resources */,
+				22B1CBEC1159160D00EFD709 /* MainWindow.xib in Resources */,
+				22B1CBED1159160D00EFD709 /* HoccerViewController.xib in Resources */,
+				22B1CBEE1159160D00EFD709 /* DebugViewController.xib in Resources */,
+				22B1CBEF1159160D00EFD709 /* ReceivedContentView.xib in Resources */,
+				22B1CBF01159160D00EFD709 /* AboutViewController.xib in Resources */,
+				22B1CBF11159160D00EFD709 /* HelpScreen.xib in Resources */,
+				22B1CBF21159160D00EFD709 /* HelpScrollView.xib in Resources */,
+				22B1CBF31159160D00EFD709 /* TermOfUse.xib in Resources */,
+				22B1CBF41159160D00EFD709 /* HelpOverview.xib in Resources */,
+				22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */,
+				22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1299,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22B1CB981159160600EFD709 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B1CB991159160600EFD709 /* main.m in Sources */,
+				22B1CB9A1159160600EFD709 /* HoccerAppDelegate.m in Sources */,
+				22B1CB9B1159160600EFD709 /* HoccerViewController.m in Sources */,
+				22B1CB9C1159160600EFD709 /* PeerGroupRequest.m in Sources */,
+				22B1CB9D1159160600EFD709 /* NSObject+SBJSON.m in Sources */,
+				22B1CB9E1159160600EFD709 /* NSString+SBJSON.m in Sources */,
+				22B1CB9F1159160600EFD709 /* SBJSON.m in Sources */,
+				22B1CBA01159160600EFD709 /* SBJsonBase.m in Sources */,
+				22B1CBA11159160600EFD709 /* SBJsonParser.m in Sources */,
+				22B1CBA21159160600EFD709 /* SBJsonWriter.m in Sources */,
+				22B1CBA31159160600EFD709 /* NSObject+DelegateHelper.m in Sources */,
+				22B1CBA41159160600EFD709 /* PeerGroupPollingRequest.m in Sources */,
+				22B1CBA51159160600EFD709 /* DownloadRequest.m in Sources */,
+				22B1CBA61159160600EFD709 /* GesturesInterpreter.m in Sources */,
+				22B1CBA71159160600EFD709 /* AccelerationRecorder.m in Sources */,
+				22B1CBA81159160600EFD709 /* DebugViewController.m in Sources */,
+				22B1CBA91159160600EFD709 /* HoccerImage.m in Sources */,
+				22B1CBAA1159160600EFD709 /* HoccerUrl.m in Sources */,
+				22B1CBAB1159160600EFD709 /* HoccerContentFactory.m in Sources */,
+				22B1CBAC1159160600EFD709 /* HoccerText.m in Sources */,
+				22B1CBAD1159160600EFD709 /* ReceivedContentView.m in Sources */,
+				22B1CBAE1159160600EFD709 /* LineFeature.m in Sources */,
+				22B1CBAF1159160600EFD709 /* BaseHoccerRequest.m in Sources */,
+				22B1CBB01159160600EFD709 /* HoccerDownloadRequest.m in Sources */,
+				22B1CBB11159160600EFD709 /* HoccerUploadRequest.m in Sources */,
+				22B1CBB21159160600EFD709 /* UploadRequest.m in Sources */,
+				22B1CBB31159160600EFD709 /* FeatureHistory.m in Sources */,
+				22B1CBB41159160600EFD709 /* NSString+Regexp.m in Sources */,
+				22B1CBB51159160600EFD709 /* CatchDetector.m in Sources */,
+				22B1CBB61159160600EFD709 /* ThrowDetector.m in Sources */,
+				22B1CBB71159160600EFD709 /* VcardWriter.m in Sources */,
+				22B1CBB81159160600EFD709 /* ABPersonVCardCreator.m in Sources */,
+				22B1CBB91159160600EFD709 /* NSString+StringWithData.m in Sources */,
+				22B1CBBA1159160600EFD709 /* VcardParser.m in Sources */,
+				22B1CBBB1159160600EFD709 /* ABPersonCreator.m in Sources */,
+				22B1CBBC1159160600EFD709 /* FeedbackProvider.m in Sources */,
+				22B1CBBD1159160600EFD709 /* HoccerVcard.m in Sources */,
+				22B1CBBE1159160600EFD709 /* Preview.m in Sources */,
+				22B1CBBF1159160600EFD709 /* ACPerson.m in Sources */,
+				22B1CBC01159160600EFD709 /* AboutViewController.m in Sources */,
+				22B1CBC11159160600EFD709 /* GTMUIImage+Resize.m in Sources */,
+				22B1CBC21159160600EFD709 /* HelpScreen.m in Sources */,
+				22B1CBC31159160600EFD709 /* HelpScrollView.m in Sources */,
+				22B1CBC41159160600EFD709 /* HelpContent.m in Sources */,
+				22B1CBC51159160600EFD709 /* TermOfUse.m in Sources */,
+				22B1CBC61159160600EFD709 /* ACThinProgressView.m in Sources */,
+				22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */,
+				22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */,
+				22B1CBC91159160600EFD709 /* HocLocation.m in Sources */,
+				22B1CBCA1159160600EFD709 /* PreviewViewController.m in Sources */,
+				22B1CBCB1159160600EFD709 /* BackgroundViewController.m in Sources */,
+				22B1CBCC1159160600EFD709 /* LocationController.m in Sources */,
+				22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */,
+				22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */,
+				22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1070,6 +1383,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				PRODUCT_NAME = Hoccer;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1082,6 +1396,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				PRODUCT_NAME = Hoccer;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1172,6 +1487,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				PRODUCT_NAME = Hoccer;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Distribution;
 		};
@@ -1203,6 +1519,59 @@
 				TEST_HOST = "";
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
+			};
+			name = Distribution;
+		};
+		22B1CBDB1159160600EFD709 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
+				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = "Hoccer-iPad";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		22B1CBDC1159160600EFD709 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
+				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = "Hoccer-iPad";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		22B1CBDD1159160600EFD709 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
+				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				PRODUCT_NAME = "Hoccer-iPad";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Distribution;
 		};
@@ -1257,6 +1626,16 @@
 				22762D05105E412B003BF968 /* Debug */,
 				22762D06105E412B003BF968 /* Release */,
 				227CA1ED10AC410900418A4D /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22B1CBDA1159160600EFD709 /* Build configuration list for PBXNativeTarget "Hoccer-iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B1CBDB1159160600EFD709 /* Debug */,
+				22B1CBDC1159160600EFD709 /* Release */,
+				22B1CBDD1159160600EFD709 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
