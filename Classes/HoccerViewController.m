@@ -98,7 +98,6 @@
 - (void)viewDidLoad {
 	previewViewController = [[PreviewViewController alloc] init];
 	previewViewController.delegate = self;
-	previewViewController.shouldSnapBackOnTouchUp = YES;
 	
 	backgroundViewController = [[BackgroundViewController alloc] init];
 	backgroundViewController.view = backgroundView;
@@ -109,7 +108,9 @@
     isPopUpDisplayed = FALSE;
 	[backgroundView addSubview: sweepInView];
 	
-	self.allowSweepGesture = YES;
+	self.allowSweepGesture = YES;	
+	previewViewController.shouldSnapBackOnTouchUp = YES;
+	backgroundViewController.shouldSnapToCenterOnTouchUp = YES;
 }
 
 - (void)viewDidUnload {

@@ -16,11 +16,14 @@
 	int sweeping;
 	BOOL blocked;
 	CGPoint initialTouchPoint;
+	
+	BOOL shouldSnapToCenterOnTouchUp;
 }
 
 @property (assign) id delegate;
 @property (retain) UIView* feedback; 
 @property (assign) BOOL blocked;
+@property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;

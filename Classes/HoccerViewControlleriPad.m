@@ -7,6 +7,7 @@
 
 #import "HoccerViewControlleriPad.h"
 #import "PreviewViewController.h"
+#import "BackgroundViewController.h"
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"
 
@@ -19,6 +20,7 @@
 	[super viewDidLoad];
 	
 	self.previewViewController.shouldSnapBackOnTouchUp = NO;
+	backgroundViewController.shouldSnapToCenterOnTouchUp = NO;
 }
 
 
