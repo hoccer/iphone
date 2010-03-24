@@ -128,7 +128,6 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	
 	if (!gestureDetected) {
 		[self resetViewAnimated:YES];
 	}

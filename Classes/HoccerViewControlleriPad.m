@@ -11,6 +11,10 @@
 
 @implementation HoccerViewControlleriPad
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
+
 - (IBAction)selectImage: (id)sender {
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 	imagePicker.delegate = self;
