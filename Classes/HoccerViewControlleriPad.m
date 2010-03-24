@@ -87,9 +87,15 @@
 	
 	[backgroundView insertSubview: contentView atIndex: 1];
 	[self.view setNeedsDisplay];
-	
 	self.previewViewController.view = contentView;	
+	
+	self.previewViewController.origin = CGPointMake(1000, backgroundView.frame.size.height * 0.3);
+	
+	[UIView beginAnimations:@"previewSlideIn" context:nil];
 	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
+	
+	[UIView setAnimationDuration: 0.4];
+	[UIView commitAnimations];
 }
 
 
