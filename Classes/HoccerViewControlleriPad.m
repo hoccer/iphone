@@ -34,10 +34,8 @@
 }
 
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[popOver release];
-	
 	[super dealloc];
 }
 
@@ -129,9 +127,13 @@
 	self.popOver = nil;
 }
 
+
+#pragma mark -
+#pragma mark private Methods
+
 - (UIPopoverController *)popOverWithController: (UIViewController*)controller {
 	if (popOver == nil) {
-		controller.contentSizeForViewInPopover = CGSizeMake(200, 300);
+		
 		popOver = [[UIPopoverController alloc] initWithContentViewController:controller];
 		popOver.delegate = self;
 	} else {

@@ -10,7 +10,7 @@
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"
 
-#define kSweepBorder 20
+#define kSweepBorder 50
 
 @implementation PreviewViewController
 
@@ -75,7 +75,7 @@
 	
 	if (!gestureDetected) {
 		CGFloat width = self.view.superview.frame.size.width; 
-
+		NSLog(@"width: %f", width);
 		if (currentLocation.x < kSweepBorder) {
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];

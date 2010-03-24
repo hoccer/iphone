@@ -197,9 +197,12 @@
 {
 	[statusViewController setError: [error localizedDescription]];
 	[viewController resetPreview];
-	viewController.allowSweepGesture = YES;
 	[request release];
 	request = nil;
+	
+	if (self.contentToSend == nil) {
+		viewController.allowSweepGesture = YES;
+	}
 	
 	// [statusViewController hideActivityInfo];
 }
