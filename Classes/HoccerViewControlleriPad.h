@@ -10,8 +10,8 @@
 #import "HoccerViewController.h"
 
 
-@interface HoccerViewControlleriPad : HoccerViewController {
-	
+@interface HoccerViewControlleriPad : HoccerViewController <UIPopoverControllerDelegate> {
+	UIPopoverController *popOver;
 }
 
 @end
