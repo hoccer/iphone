@@ -110,6 +110,7 @@
 
 - (void)presentReceivedContent:(id <HoccerContent>) content{
 	NSLog(@"content: %@", content);
+	
 	[desktopViewController.feedback addSubview: [content view]];
 	UIDocumentInteractionController *interactionController = [(HoccerDataiPad *)content interactionController];
 	interactionController.delegate = self;
@@ -117,12 +118,18 @@
 	for (UIGestureRecognizer *gestureRecognizer in interactionController.gestureRecognizers) {
 		[desktopViewController.feedback addGestureRecognizer: gestureRecognizer];
 	}
+	
+	UIView *someView = [[[UIView alloc] initWithFrame:CGRectMake(300, 300, 150, 150)] autorelease];
+	someView.backgroundColor = [UIColor whiteColor];
+	[self.view addSubview:someView];
+	desktopViewController.feedback = someView;
+	
+	self.allowSweepGesture = YES;
 }
 
 - (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
 }
-
 
 #pragma mark -
 #pragma mark UIImagePickerController

@@ -28,8 +28,9 @@
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
 
-	id <HoccerContent> hoccerContent;
-	id <HoccerContent> contentToSend;					
+	id <HoccerContent> contentToSend;	
+	
+	NSMutableArray *contentOnDesktop;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -38,7 +39,6 @@
 
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 
-@property (nonatomic, retain) id <HoccerContent> hoccerContent;
 @property (nonatomic, retain) id <HoccerContent> contentToSend;
 
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;

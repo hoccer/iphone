@@ -50,11 +50,9 @@
 		
 		[self setWaiting];
 		[hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
-		
 		[hoccerContent save];
 	} else {
 		[self hideReceivedContentView];
-		
 		[hoccerContent save];
 	}
 }

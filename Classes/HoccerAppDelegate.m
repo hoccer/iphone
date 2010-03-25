@@ -41,7 +41,6 @@
 @synthesize viewController;
 
 @synthesize contentToSend;
-@synthesize hoccerContent;
 
 @synthesize locationController;
 @synthesize statusViewController;
@@ -63,11 +62,13 @@
 	}
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
+	
+	contentOnDesktop = [[NSMutableArray alloc] initWithCapacity:1];
 }
 
 - (void)dealloc {	
-	[hoccerContent release];
 	[contentToSend release];
+	[contentOnDesktop release];
 	[request release];
 	
 	[gestureInterpreter release];
@@ -159,21 +160,17 @@
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
-	self.hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
+	id <HoccerContent> hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 														    withData: aRequest.result];
 		
-	[viewController presentReceivedContent: self.hoccerContent];
+	[viewController presentReceivedContent: hoccerContent];
 
 	[request release];
 	request = nil;
-	
+
 	[statusViewController hideActivityInfo];
+	[contentOnDesktop addObject: hoccerContent];
 }
-
-
-
-
-
 
 #pragma mark -
 #pragma mark Upload Communication 

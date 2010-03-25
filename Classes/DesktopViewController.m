@@ -122,6 +122,8 @@
 }
 
 -  (void)resetView {
+	// [self.view addSubview:self.feedback];
+	
 	feedback.hidden = YES;
 	blocked = NO;
 }
