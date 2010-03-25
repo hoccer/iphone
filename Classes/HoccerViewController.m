@@ -20,7 +20,8 @@
 #import "Preview.h"
 
 #import "PreviewViewController.h"
-#import "BackgroundViewController.h"
+#import "DesktopViewController.h"
+#import "ReceivedContentViewController.h"
 #import "SelectContentViewController.h"
 
 #import "HelpScrollView.h"
@@ -28,6 +29,7 @@
 #import "HoccerImage.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
+#import "HoccerContent.h"
 
 
 
@@ -99,10 +101,10 @@
 	previewViewController = [[PreviewViewController alloc] init];
 	previewViewController.delegate = self;
 	
-	backgroundViewController = [[BackgroundViewController alloc] init];
-	backgroundViewController.view = backgroundView;
-	backgroundViewController.feedback = sweepInView;
-	backgroundViewController.delegate = self.delegate;
+	desktopViewController = [[DesktopViewController alloc] init];
+	desktopViewController.view = backgroundView;
+	desktopViewController.feedback = sweepInView;
+	desktopViewController.delegate = self.delegate;
 	
 	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
@@ -110,7 +112,7 @@
 	
 	self.allowSweepGesture = YES;	
 	previewViewController.shouldSnapBackOnTouchUp = YES;
-	backgroundViewController.shouldSnapToCenterOnTouchUp = YES;
+	desktopViewController.shouldSnapToCenterOnTouchUp = YES;
 }
 
 - (void)viewDidUnload {
@@ -121,7 +123,7 @@
 	[sweepInView release];
 
 	[previewViewController release];		
-	[backgroundViewController release];	
+	[desktopViewController release];	
 	[helpViewController release];
 	
 	[backgroundView release];
@@ -205,7 +207,7 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content {
 	[previewViewController.view removeFromSuperview];
-	Preview *contentView = [content preview];
+	Preview *contentView = [content thumbnailView];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
 	[backgroundView insertSubview: contentView atIndex: 1];
@@ -217,7 +219,7 @@
 
 - (void)resetPreview {
 	[previewViewController resetViewAnimated:NO];
-	[backgroundViewController resetView];
+	[desktopViewController resetView];
 }
 
 - (void)startPreviewFlyOutAniamation {
@@ -245,11 +247,11 @@
 	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = backgroundViewController.view.frame.size;
+	selectContentFrame.size = desktopViewController.view.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = selectContentFrame;	
 	
-	[backgroundViewController.view addSubview:popOverView.view];
+	[desktopViewController.view addSubview:popOverView.view];
 	
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
@@ -259,6 +261,17 @@
 	[UIView commitAnimations];
 	
 	 isPopUpDisplayed = TRUE;
+}
+
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent{
+	
+	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+	
+	receivedContentViewController.delegate = self;
+	[receivedContentViewController setHoccerContent: hoccerContent];
+		
+	[self presentModalViewController: receivedContentViewController animated:YES];	
+    [self resetPreview];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -297,7 +310,7 @@
 }
 
 - (void)setAllowSweepGesture: (BOOL)allow {
-	backgroundViewController.blocked = !allow;
+	desktopViewController.blocked = !allow;
 }
 
 - (HelpScrollView *)helpViewController {
@@ -307,6 +320,12 @@
 	
 	return helpViewController;
 }
+
+
+- (void)receivedViewContentControllerDidFinish:(ReceivedContentViewController *)controller {
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods

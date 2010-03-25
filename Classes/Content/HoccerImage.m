@@ -76,6 +76,17 @@
 	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
+- (void) dealloc
+{
+	[image release];
+	[data release];
+	
+	[viewControllerForPreview release];
+	[super dealloc];
+}
+
+
+
 - (void)dismiss {}
 
 - (UIView *)view 
@@ -89,7 +100,7 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (Preview *)preview
+- (Preview *)thumbnailView
 {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
@@ -120,14 +131,6 @@
 	return data;
 }
 
-- (void)dealloc 
-{
-	[image release];
-	[data release];
-	
-	[super dealloc];
-}
-
 - (NSString *)saveButtonDescription 
 {
 	return @"Save to Gallery";
@@ -145,8 +148,6 @@
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 
 				contextInfo: (void *) contextInfo 
 {
-	NSLog(@"saved %@, error: %@", aImage, error);
-	
 	[target checkAndPerformSelector: selector];
 }
 
@@ -160,5 +161,7 @@
 	target = aTarget;
 	selector  = aSelector;
 }
+
+
 
 @end

@@ -43,7 +43,7 @@
 	return [text autorelease];
 }
 
-- (Preview *)preview
+- (Preview *)thumbnailView
 {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	

@@ -19,6 +19,9 @@
 	
 	id target;
 	SEL selector;
+	
+	// UIDocumentInteractionController *documentInteractionController;
+	UIViewController *viewControllerForPreview;
 }
 
 @property (nonatomic, retain) NSData* data;

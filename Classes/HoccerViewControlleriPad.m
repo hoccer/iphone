@@ -7,12 +7,14 @@
 
 #import "HoccerViewControlleriPad.h"
 #import "PreviewViewController.h"
-#import "BackgroundViewController.h"
+#import "DesktopViewController.h"
+#import "ReceivedContentViewController.h"
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"
 
 #import "HoccerContent.h"
 #import "HoccerImage.h"
+#import "HoccerDataiPad.h"
 
 
 @interface HoccerViewControlleriPad () 
@@ -30,7 +32,7 @@
 	[super viewDidLoad];
 	
 	self.previewViewController.shouldSnapBackOnTouchUp = NO;
-	backgroundViewController.shouldSnapToCenterOnTouchUp = NO;
+	desktopViewController.shouldSnapToCenterOnTouchUp = NO;
 }
 
 
@@ -90,7 +92,7 @@
 
 - (void)setContentPreview: (id <HoccerContent>)content {
 	[self.previewViewController.view removeFromSuperview];
-	Preview *contentView = [content preview];
+	Preview *contentView = [content thumbnailView];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
 	[backgroundView insertSubview: contentView atIndex: 1];
@@ -106,6 +108,20 @@
 	[UIView commitAnimations];
 }
 
+- (void)presentReceivedContent:(id <HoccerContent>) content{
+	NSLog(@"content: %@", content);
+	[desktopViewController.feedback addSubview: [content view]];
+	UIDocumentInteractionController *interactionController = [(HoccerDataiPad *)content interactionController];
+	interactionController.delegate = self;
+	
+	for (UIGestureRecognizer *gestureRecognizer in interactionController.gestureRecognizers) {
+		[desktopViewController.feedback addGestureRecognizer: gestureRecognizer];
+	}
+}
+
+- (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+	return self;
+}
 
 
 #pragma mark -
@@ -142,5 +158,6 @@
 	
 	return popOver;
 }
+
 
 @end

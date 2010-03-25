@@ -12,7 +12,6 @@
 @class HoccerViewController;
 @class GesturesInterpreter;
 @class BaseHoccerRequest;
-@class ReceivedContentView;
 @class StatusViewController;
 @class LocationController;
 
@@ -23,7 +22,6 @@
     UIWindow *window;
     HoccerViewController *viewController;
 	
-	ReceivedContentView *receivedContentView;
 	StatusViewController *statusViewController;
 	
 	BaseHoccerRequest *request;
@@ -44,10 +42,5 @@
 @property (nonatomic, retain) id <HoccerContent> contentToSend;
 
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
-
-- (void)userDidDismissContent;
-- (void)userDidSaveContent;
-
-- (void)hideReceivedContentView;
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "HoccerContentFactory.h"
+#import "HoccerContentFactoryIPhone.h"
+#import "HoccerContentFactoryIPad.h"
+
 #import "HoccerContent.h"
 #import "HoccerImage.h"
 #import "HoccerUrl.h"
@@ -14,36 +17,38 @@
 #import "HoccerVcard.h"
 #import "HoccerData.h"
 
+static HoccerContentFactory* sharedInstance = nil;
+
 @implementation HoccerContentFactory
 
-+ (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
-	id <HoccerContent> hoccerContent = nil;
-	
-	NSString *mimeType = [response MIMEType];
++ (HoccerContentFactory *) sharedHoccerContentFactory {
 
-	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data];
-	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData: data];
-	} else if ([mimeType isEqual: @"text/plain"]) {
-		if ([HoccerUrl isDataAUrl: data]) {
-			hoccerContent = [[HoccerUrl alloc] initWithData: data];
+	if (sharedInstance == nil) {		
+		
+		if (!NSClassFromString(@"UIDocumentInteractionController")) {
+			sharedInstance = [[HoccerContentFactoryIPhone alloc] init];		
 		} else {
-			hoccerContent = [[HoccerText alloc] initWithData: data];
+			sharedInstance = [[HoccerContentFactoryIPad alloc] init];		
 		}
-	} else {
-		hoccerContent = [[HoccerData alloc] initWithData:data];
-	}
-
-
-	return [hoccerContent autorelease];
+		
+	} 
+	return sharedInstance;
 }
 
-+ (BOOL) isSupportedType: (NSString *)mimeType
-{
-	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] 
-			|| [mimeType rangeOfString:@"image/"].location == 0);
+- (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
+	[self doesNotRecognizeSelector:_cmd];
+	
+	return nil;
 }
+
+
+- (BOOL) isSupportedType: (NSString *)mimeType {
+	[self doesNotRecognizeSelector:_cmd];
+
+	return NO;
+}
+
+
 
 
 

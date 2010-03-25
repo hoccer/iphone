@@ -253,7 +253,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>ReceivedContentView</string>
+					<string>ReceivedContentViewController</string>
 					<string>UIResponder</string>
 					<string>{{131, 168}, {320, 480}}</string>
 					<object class="NSMutableDictionary">
@@ -312,7 +312,7 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">ReceivedContentView</string>
+					<string key="className">ReceivedContentViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -345,8 +345,8 @@
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/ReceivedContentView.h</string>
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 			</object>

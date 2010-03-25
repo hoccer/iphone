@@ -1,5 +1,5 @@
 //
-//  HoccerContetn.h
+//  HoccerContent.h
 //  Hoccer
 //
 //  Created by Robert Palmer on 14.09.09.
@@ -11,11 +11,10 @@
 
 @protocol HoccerContent <NSObject>
 
-- (id) initWithData: (NSData *)data;
 - (void)save;
 - (void)dismiss;
 - (UIView *)view;
-- (Preview *)preview;
+- (Preview *)thumbnailView;
 
 - (NSString *)filename;
 - (NSString *)mimeType;
@@ -25,9 +24,13 @@
 
 - (NSString *)saveButtonDescription;
 
+//- (UIImage *)icon;
+//- (void)presentPreviewInViewController:(UIViewController *)viewController;
+
 - (void)contentWillBeDismissed;
 - (BOOL)needsWaiting;
 
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector;
+
 
 @end

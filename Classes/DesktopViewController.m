@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "BackgroundViewController.h"
+#import "DesktopViewController.h"
 #import "NSObject+DelegateHelper.h"
 
 #define kSweepInBorder 30
@@ -17,7 +17,7 @@
 #define kSweepDirectionRightIn 1
 
 
-@implementation BackgroundViewController
+@implementation DesktopViewController
 
 @synthesize feedback;
 @synthesize delegate;
@@ -31,16 +31,11 @@
 }
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 

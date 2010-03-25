@@ -6,13 +6,21 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import "ReceivedContentView.h"
+#import "ReceivedContentViewController.h"
 #import "NSObject+DelegateHelper.h"
 #import "HoccerContent.h"
 
-@implementation ReceivedContentView
+@interface ReceivedContentViewController () 
+- (void)hideReceivedContentView;
+
+@end
+
+
+
+@implementation ReceivedContentViewController
 
 @synthesize delegate;
+@synthesize hoccerContent;
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -28,6 +36,7 @@
 
 
 - (void)dealloc {
+	[hoccerContent release];
 	[saveButton release];
 	[toolbar release];
 	[activity release];
@@ -37,16 +46,31 @@
 
 - (IBAction)onSave: (id)sender
 {
-	[self.delegate checkAndPerformSelector:@selector(userDidSaveContent)];
+	if ([hoccerContent needsWaiting])  {
+		
+		[self setWaiting];
+		[hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
+		
+		[hoccerContent save];
+	} else {
+		[self hideReceivedContentView];
+		
+		[hoccerContent save];
+	}
 }
 
 - (IBAction)onDismiss: (id)sender
 {
-	[self.delegate checkAndPerformSelector:@selector(userDidDismissContent)];
+	[self hideReceivedContentView];
 }
 
 - (void)setHoccerContent: (id <HoccerContent>) content 
 {	
+	if (hoccerContent != content) {
+		[hoccerContent release];
+		hoccerContent = [content retain];
+	}
+	
 	[self.view insertSubview: content.view atIndex:0];
 	
 	if ([content saveButtonDescription] == nil) {
@@ -60,6 +84,14 @@
 	
 	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
+}
+
+#pragma mark -
+#pragma mark ReceivedContentView Delegate Methods
+
+-  (void)hideReceivedContentView 
+{
+	[self.delegate checkAndPerformSelector:@selector(receivedViewContentControllerDidFinish:) withObject: self];
 }
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event

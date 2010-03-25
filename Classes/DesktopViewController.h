@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BackgroundViewController : UIViewController {
+@interface DesktopViewController : UIViewController {
 	id delegate;
 	UIView* feedback;
 	

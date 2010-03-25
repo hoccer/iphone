@@ -8,7 +8,7 @@
 
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
-#import "ReceivedContentView.h"
+#import "ReceivedContentViewController.h"
 
 #import "BaseHoccerRequest.h"
 
@@ -19,6 +19,7 @@
 #import "HoccerContentFactory.h"
 #import "HoccerUrl.h"
 #import "HoccerContent.h"
+#import "HoccerData.h"
 
 #import "FeedbackProvider.h"
 
@@ -135,45 +136,43 @@
 #pragma mark Download Communication Delegate Methods
 - (void)requestIsReadyToStartDownload: (BaseHoccerRequest *)aRequest
 {
-	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
-		return;
-	
-	[aRequest cancel];
-	
-	NSURL *url = [aRequest.request URL];
-	self.hoccerContent = [[HoccerUrl alloc] initWithData: [[url absoluteString] dataUsingEncoding: NSUTF8StringEncoding]];
-	
-	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
-	
-	receivedContentView.delegate = self;
-	[receivedContentView setHoccerContent: self.hoccerContent];
-	
-	[viewController presentModalViewController: receivedContentView animated:YES];
-	
-	[request release];
-	request = nil;
-	
-	[statusViewController hideActivityInfo];
+//	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
+//		return;
+//	
+//	[aRequest cancel];
+//	
+//	NSURL *url = [aRequest.request URL];
+//	self.hoccerContent = [[HoccerUrl alloc] initWithData: [[url absoluteString] dataUsingEncoding: NSUTF8StringEncoding]];
+//	
+//	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
+//	
+//	receivedContentView.delegate = self;
+//	[receivedContentView setHoccerContent: self.hoccerContent];
+//	
+//	[viewController presentModalViewController: receivedContentView animated:YES];
+//	
+//	[request release];
+//	request = nil;
+//	
+//	[statusViewController hideActivityInfo];
 }
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
-	self.hoccerContent = [HoccerContentFactory createContentFromResponse: aRequest.response 
+	self.hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 														    withData: aRequest.result];
-	
-	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
-	
-	receivedContentView.delegate = self;
-	[receivedContentView setHoccerContent: self.hoccerContent];
-	
-	[viewController presentModalViewController: receivedContentView animated:YES];
+		
+	[viewController presentReceivedContent: self.hoccerContent];
 
 	[request release];
 	request = nil;
 	
-	[viewController resetPreview];
 	[statusViewController hideActivityInfo];
 }
+
+
+
+
 
 
 #pragma mark -
@@ -216,34 +215,6 @@
 {
 	[statusViewController setProgressUpdate:[progress floatValue]];
 }
-
-#pragma mark -
-#pragma mark ReceivedContentView Delegate Methods
-- (void)userDidSaveContent
-{
-	if ([hoccerContent needsWaiting])  {
-		[receivedContentView setWaiting];
-		[hoccerContent whenReadyCallTarget: self selector: @selector(hideReceivedContentView)];
-
-		[hoccerContent save];
-	} else {
-		[self hideReceivedContentView];
-
-		[hoccerContent save];
-	}
-}
-
-- (void)userDidDismissContent
-{
-	[self hideReceivedContentView];
-}
-
--  (void)hideReceivedContentView 
-{
-	[viewController dismissModalViewControllerAnimated:YES];
-	[receivedContentView release];
-}
-
 
 #pragma mark Terms Of Use Delegate Methods
 - (void)userNeedToAgreeToTermsOfUse

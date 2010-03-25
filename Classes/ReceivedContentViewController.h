@@ -9,17 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
 
-@interface ReceivedContentView : UIViewController {
+@interface ReceivedContentViewController : UIViewController {
 	id delegate;
 	
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UIToolbar *toolbar;
 	
+	id <HoccerContent> hoccerContent;
+
 	IBOutlet UIActivityIndicatorView *activity;
 	
 }
 
 @property (assign) id delegate;
+@property (nonatomic, retain) id <HoccerContent> hoccerContent;
+
 
 - (IBAction)onSave: (id)sender;
 - (IBAction)onDismiss: (id)sender;

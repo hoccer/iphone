@@ -18,10 +18,12 @@
 @class HoccerAppDelegate;
 @class Preview;
 @class PreviewViewController;
-@class BackgroundViewController;
+@class DesktopViewController;
 @class SelectContentViewController;
 @class StatusViewController;
 @class HelpScrollView;
+@class ReceivedContentViewController;
+
 
 @class ActionElement;
 
@@ -34,8 +36,11 @@
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	PreviewViewController *previewViewController;
-	BackgroundViewController *backgroundViewController;
+	DesktopViewController *desktopViewController;
+	ReceivedContentViewController *receivedContentViewController;
+						
 	HelpScrollView *helpViewController;
+							
 
 	UIViewController *auxiliaryView;
 	BOOL isPopUpDisplayed;
@@ -57,6 +62,8 @@
 - (void)setContentPreview: (id <HoccerContent>)content;
 - (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
+- (void)setContentPreview: (id <HoccerContent>)content;
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
 
@@ -66,6 +73,7 @@
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
+
 
 
 
