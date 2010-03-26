@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
 
+@class DesktopDataSource;
 
 @interface HoccerViewControlleriPad : HoccerViewController <UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate> {
 	UIPopoverController *popOver;
+
+	DesktopDataSource *desktopData;
 }
 
 @end

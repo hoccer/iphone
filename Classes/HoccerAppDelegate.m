@@ -65,13 +65,10 @@
 	}
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
-	
-	contentOnDesktop = [[NSMutableArray alloc] init];
 }
 
 - (void)dealloc {	
 	[contentToSend release];
-	[contentOnDesktop release];
 	[request release];
 	
 	[gestureInterpreter release];
@@ -172,7 +169,6 @@
 	request = nil;
 
 	[statusViewController hideActivityInfo];
-	[contentOnDesktop addObject: hoccerContent];
 }
 
 #pragma mark -
@@ -252,14 +248,6 @@
 #pragma mark HoccerViewController Delegate
 
 - (void)hoccerViewController:(HoccerViewController *)controller didSelectContent: (id<HoccerContent>) content {
-	Preview *contentView = [content thumbnailView];
-	
-	DragAndDropViewController *dragViewController = [[DragAndDropViewController alloc] init];
-	dragViewController.view = contentView;	
-	dragViewController.origin = CGPointMake(300, 300);
-	
-	[contentOnDesktop addObject:dragViewController];
-	
 	gestureInterpreter.delegate = self;
 	viewController.allowSweepGesture = NO;
 }
@@ -306,21 +294,5 @@
 	
 	request = nil;
 }
-
-
-#pragma mark -
-#pragma mark DesktopViewController Data Source
-
-- (NSInteger) numberOfItems {
-	return [contentOnDesktop count];
-}
-
-- (UIViewController *)viewControllerForItem: (NSInteger)itemNumber {
-
-	return [contentOnDesktop objectAtIndex:itemNumber];
-}
-
-
-
 
 @end

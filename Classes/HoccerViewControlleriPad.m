@@ -16,11 +16,14 @@
 #import "HoccerImage.h"
 #import "HoccerDataiPad.h"
 
+#import "DesktopDataSource.h"
+
 
 @interface HoccerViewControlleriPad () 
 
 @property (retain) UIPopoverController *popOver;
 - (UIPopoverController *)popOverWithController: (UIViewController*)controller;
+- (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content;
 
 @end
 
@@ -30,16 +33,19 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	desktopData = [[DesktopDataSource alloc] init];
 	
 	self.previewViewController.shouldSnapBackOnTouchUp = NO;
 	desktopViewController.shouldSnapToCenterOnTouchUp = NO;
-	desktopViewController.dataSource = delegate;
+	desktopViewController.dataSource = desktopData;
 	[desktopViewController reloadData];
 }
 
 
 - (void) dealloc {
 	[popOver release];
+	[desktopData release];
+	
 	[super dealloc];
 }
 
@@ -92,21 +98,25 @@
 }
 
 - (void)setContentPreview: (id <HoccerContent>)content {
-	[self.previewViewController.view removeFromSuperview];
-	Preview *contentView = [content thumbnailView];
-	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	
-	[backgroundView insertSubview: contentView atIndex: 1];
-	[self.view setNeedsDisplay];
-	self.previewViewController.view = contentView;	
-	
-	self.previewViewController.origin = CGPointMake(900, backgroundView.frame.size.height * 0.3);
-	
-	[UIView beginAnimations:@"previewSlideIn" context:nil];
-	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
-	
-	[UIView setAnimationDuration: 0.4];
-	[UIView commitAnimations];
+	[desktopData addController: [self createDragAndDropControllerForContent: content]];
+	[desktopViewController reloadData];
+
+
+//	[self.previewViewController.view removeFromSuperview];
+//	Preview *contentView = [content thumbnailView];
+//	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
+//	
+//	[backgroundView insertSubview: contentView atIndex: 1];
+//	[self.view setNeedsDisplay];
+//	self.previewViewController.view = contentView;	
+//	
+//	self.previewViewController.origin = CGPointMake(900, backgroundView.frame.size.height * 0.3);
+//	
+//	[UIView beginAnimations:@"previewSlideIn" context:nil];
+//	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
+//	
+//	[UIView setAnimationDuration: 0.4];
+//	[UIView commitAnimations];
 }
 
 - (void)presentReceivedContent:(id <HoccerContent>) content{
@@ -141,7 +151,7 @@
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
-	[desktopViewController reloadData];
+	[self setContentPreview:content];
 }
 
 #pragma mark -
@@ -166,6 +176,23 @@
 	
 	return popOver;
 }
+
+- (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content {
+	Preview *contentView = [content thumbnailView];
+	
+	DragAndDropViewController *dragViewController = [[DragAndDropViewController alloc] init];
+	dragViewController.view = contentView;	
+	dragViewController.origin = CGPointMake(300, 300);
+	dragViewController.delegate = self;
+	
+	return [dragViewController autorelease];
+}
+
+- (IBAction)dragAndDropViewControllerWillBeDismissed: (UIViewController *)controller {
+	[desktopData removeController:controller];
+	[desktopViewController reloadData];
+}
+
 
 
 @end

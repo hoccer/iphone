@@ -29,8 +29,6 @@
 	LocationController *locationController;
 
 	id <HoccerContent> contentToSend;	
-	
-	NSMutableArray *contentOnDesktop;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
