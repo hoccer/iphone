@@ -8,6 +8,7 @@
 
 #import "DesktopViewController.h"
 #import "NSObject+DelegateHelper.h"
+#import "DragAndDropViewController.h"
 
 #define kSweepInBorder 30
 #define kSweepAcceptanceDistance 100
@@ -20,7 +21,10 @@
 @implementation DesktopViewController
 
 @synthesize feedback;
+
+@synthesize dataSource;
 @synthesize delegate;
+
 @synthesize blocked;
 @synthesize shouldSnapToCenterOnTouchUp;
 
@@ -127,6 +131,25 @@
 	feedback.hidden = YES;
 	blocked = NO;
 }
+
+#pragma mark -
+#pragma mark DataSource Methods
+
+- (void)reloadData {
+	for (UIView *subview in self.view.subviews) {
+		[subview removeFromSuperview];
+	}
+	
+	NSInteger numberOfItems = [dataSource numberOfItems];
+	for (NSInteger i = 0; i < numberOfItems; i++) {
+		DragAndDropViewController *controller = [dataSource viewControllerForItem: i];
+		[self.view addSubview: controller.view];
+	}
+	
+	
+}
+
+
 
 
 @end

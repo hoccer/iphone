@@ -588,6 +588,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22A5B6B4115CC57F00579AC5 /* DesktopData */,
 				22977B2511105C2D00B55D3F /* Wifi */,
 				2271E19E109EDCD5003D5C68 /* TermOfUse */,
 				227A94D310971302008CE547 /* Help */,
@@ -935,6 +936,13 @@
 				22719E9A108321C600F84755 /* ABPersonCreatorTest.m */,
 			);
 			name = vcard;
+			sourceTree = "<group>";
+		};
+		22A5B6B4115CC57F00579AC5 /* DesktopData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DesktopData;
 			sourceTree = "<group>";
 		};
 		22B1CBE01159160700EFD709 /* Resources-iPad */ = {

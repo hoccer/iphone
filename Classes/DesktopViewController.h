@@ -11,6 +11,8 @@
 
 @interface DesktopViewController : UIViewController {
 	id delegate;
+	id dataSource;
+	
 	UIView* feedback;
 	
 	int sweeping;
@@ -21,6 +23,8 @@
 }
 
 @property (assign) id delegate;
+@property (retain) id dataSource;
+
 @property (retain) UIView* feedback; 
 @property (assign) BOOL blocked;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
@@ -28,6 +32,7 @@
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;
 
--  (void)resetView;
+- (void)resetView;
+- (void)reloadData;
 
 @end

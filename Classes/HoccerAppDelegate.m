@@ -30,6 +30,9 @@
 
 #import "StatusViewController.h"
 
+#import "Preview.h"
+#import "DragAndDropViewController.h"
+
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
 @end
@@ -63,7 +66,7 @@
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
 	
-	contentOnDesktop = [[NSMutableArray alloc] initWithCapacity:1];
+	contentOnDesktop = [[NSMutableArray alloc] init];
 }
 
 - (void)dealloc {	
@@ -249,8 +252,14 @@
 #pragma mark HoccerViewController Delegate
 
 - (void)hoccerViewController:(HoccerViewController *)controller didSelectContent: (id<HoccerContent>) content {
-	self.contentToSend = content;
-
+	Preview *contentView = [content thumbnailView];
+	
+	DragAndDropViewController *dragViewController = [[DragAndDropViewController alloc] init];
+	dragViewController.view = contentView;	
+	dragViewController.origin = CGPointMake(300, 300);
+	
+	[contentOnDesktop addObject:dragViewController];
+	
 	gestureInterpreter.delegate = self;
 	viewController.allowSweepGesture = NO;
 }
@@ -280,6 +289,7 @@
 
 #pragma mark -
 #pragma mark StatusViewController Delegate
+
 - (void)statusViewControllerDidCancelRequest:(StatusViewController *)controller {
 	[viewController resetPreview];
 	
@@ -296,6 +306,21 @@
 	
 	request = nil;
 }
+
+
+#pragma mark -
+#pragma mark DesktopViewController Data Source
+
+- (NSInteger) numberOfItems {
+	return [contentOnDesktop count];
+}
+
+- (UIViewController *)viewControllerForItem: (NSInteger)itemNumber {
+
+	return [contentOnDesktop objectAtIndex:itemNumber];
+}
+
+
 
 
 @end

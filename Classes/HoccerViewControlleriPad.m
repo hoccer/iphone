@@ -33,6 +33,8 @@
 	
 	self.previewViewController.shouldSnapBackOnTouchUp = NO;
 	desktopViewController.shouldSnapToCenterOnTouchUp = NO;
+	desktopViewController.dataSource = delegate;
+	[desktopViewController reloadData];
 }
 
 
@@ -139,7 +141,7 @@
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
-	[self setContentPreview: content];
+	[desktopViewController reloadData];
 }
 
 #pragma mark -
