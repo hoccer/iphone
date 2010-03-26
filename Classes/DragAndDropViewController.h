@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-@interface PreviewViewController : UIViewController {
+@interface DragAndDropViewController : UIViewController {
 	id delegate;
 	CGPoint origin;
 	

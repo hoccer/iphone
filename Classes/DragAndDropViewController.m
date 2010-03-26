@@ -6,13 +6,13 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "PreviewViewController.h"
+#import "DragAndDropViewController.h"
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"
 
 #define kSweepBorder 50
 
-@implementation PreviewViewController
+@implementation DragAndDropViewController
 
 @synthesize origin;
 @synthesize delegate;
@@ -30,7 +30,7 @@
 
 - (void) setView:(UIView *) aPreview{
 	super.view = aPreview;
-	
+	 
 	if ([self.view isKindOfClass: [Preview class]]) {
 		[(Preview*) self.view setCloseActionTarget:self action:@selector(userDismissedContent:)];
 	}
@@ -43,7 +43,6 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-
 
 - (void)dealloc {
     [super dealloc];

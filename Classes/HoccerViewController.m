@@ -19,7 +19,7 @@
 #import "HoccerText.h"
 #import "Preview.h"
 
-#import "PreviewViewController.h"
+#import "DragAndDropViewController.h"
 #import "DesktopViewController.h"
 #import "ReceivedContentViewController.h"
 #import "SelectContentViewController.h"
@@ -98,7 +98,7 @@
 }
 
 - (void)viewDidLoad {
-	previewViewController = [[PreviewViewController alloc] init];
+	previewViewController = [[DragAndDropViewController alloc] init];
 	previewViewController.delegate = self;
 	
 	desktopViewController = [[DesktopViewController alloc] init];

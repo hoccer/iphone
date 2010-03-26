@@ -17,7 +17,7 @@
 
 @class HoccerAppDelegate;
 @class Preview;
-@class PreviewViewController;
+@class DragAndDropViewController;
 @class DesktopViewController;
 @class SelectContentViewController;
 @class StatusViewController;
@@ -35,7 +35,7 @@
 							
 	IBOutlet HoccerAppDelegate* delegate;
 		
-	PreviewViewController *previewViewController;
+	DragAndDropViewController *previewViewController;
 	DesktopViewController *desktopViewController;
 	ReceivedContentViewController *receivedContentViewController;
 						
@@ -52,7 +52,7 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, assign) BOOL allowSweepGesture;
-@property (nonatomic, assign) PreviewViewController* previewViewController;
+@property (nonatomic, assign) DragAndDropViewController* previewViewController;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
 

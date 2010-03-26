@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 
 #import "HoccerViewControlleriPad.h"
-#import "PreviewViewController.h"
+#import "DragAndDropViewController.h"
 #import "DesktopViewController.h"
 #import "ReceivedContentViewController.h"
 #import "Preview.h"
@@ -88,7 +88,6 @@
 	
 	[super selectText: sender];
 }
-
 
 - (void)setContentPreview: (id <HoccerContent>)content {
 	[self.previewViewController.view removeFromSuperview];

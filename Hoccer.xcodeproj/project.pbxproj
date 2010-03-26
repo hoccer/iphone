@@ -115,7 +115,7 @@
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		2297A067115A5B7B002B59C2 /* HoccerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297A066115A5B7B002B59C2 /* HoccerData.m */; };
 		2297A06C115A5D65002B59C2 /* HoccerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2297A066115A5B7B002B59C2 /* HoccerData.m */; };
-		229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
+		229A9012114E44C10069A0EA /* DragAndDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* DragAndDropViewController.m */; };
 		229A9123114E737A0069A0EA /* DesktopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopViewController.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
@@ -234,7 +234,7 @@
 		22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
 		22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22B1CBC91159160600EFD709 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
-		22B1CBCA1159160600EFD709 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* PreviewViewController.m */; };
+		22B1CBCA1159160600EFD709 /* DragAndDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9011114E44C10069A0EA /* DragAndDropViewController.m */; };
 		22B1CBCB1159160600EFD709 /* DesktopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopViewController.m */; };
 		22B1CBCC1159160600EFD709 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
 		22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
@@ -457,8 +457,8 @@
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
 		2297A065115A5B7B002B59C2 /* HoccerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerData.h; sourceTree = "<group>"; };
 		2297A066115A5B7B002B59C2 /* HoccerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerData.m; sourceTree = "<group>"; };
-		229A9010114E44C10069A0EA /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
-		229A9011114E44C10069A0EA /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		229A9010114E44C10069A0EA /* DragAndDropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragAndDropViewController.h; sourceTree = "<group>"; };
+		229A9011114E44C10069A0EA /* DragAndDropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragAndDropViewController.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* DesktopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewController.h; sourceTree = "<group>"; };
 		229A9122114E737A0069A0EA /* DesktopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopViewController.m; sourceTree = "<group>"; };
 		229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentFactoryIPhone.h; sourceTree = "<group>"; };
@@ -605,8 +605,8 @@
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
 				22B06B2911523B4400D2ECFE /* SelectContentViewController.h */,
 				22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */,
-				229A9010114E44C10069A0EA /* PreviewViewController.h */,
-				229A9011114E44C10069A0EA /* PreviewViewController.m */,
+				229A9010114E44C10069A0EA /* DragAndDropViewController.h */,
+				229A9011114E44C10069A0EA /* DragAndDropViewController.m */,
 				227990F8105FEA140035C643 /* ReceivedContentViewController.h */,
 				227990F9105FEA140035C643 /* ReceivedContentViewController.m */,
 				2271A00A108347C800F84755 /* FeedbackProvider.h */,
@@ -1305,7 +1305,7 @@
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 				22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */,
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,
-				229A9012114E44C10069A0EA /* PreviewViewController.m in Sources */,
+				229A9012114E44C10069A0EA /* DragAndDropViewController.m in Sources */,
 				229A9123114E737A0069A0EA /* DesktopViewController.m in Sources */,
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
 				22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */,
@@ -1405,7 +1405,7 @@
 				22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */,
 				22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */,
 				22B1CBC91159160600EFD709 /* HocLocation.m in Sources */,
-				22B1CBCA1159160600EFD709 /* PreviewViewController.m in Sources */,
+				22B1CBCA1159160600EFD709 /* DragAndDropViewController.m in Sources */,
 				22B1CBCB1159160600EFD709 /* DesktopViewController.m in Sources */,
 				22B1CBCC1159160600EFD709 /* LocationController.m in Sources */,
 				22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */,
