@@ -79,7 +79,6 @@
 - (void) dealloc
 {
 	[image release];
-	[data release];
 	
 	[viewControllerForPreview release];
 	[super dealloc];

@@ -104,9 +104,6 @@
 
 - (void)presentReceivedContent:(id <HoccerContent>) content withRequestStamp: (NSTimeInterval) aRequestStamp;
 {
-
-	
-	
 //	newestHocItem.content = content;
 	
 //	UIDocumentInteractionController *interactionController = [(HoccerDataIPad *)content interactionController];
@@ -164,11 +161,6 @@
 	dragViewController.origin = CGPointMake(300, 300);
 	
 	return dragViewController;
-}
-
-- (void)dragAndDropViewControllerWillBeDismissed: (UIViewController *)controller {
-	[desktopData removeController:controller];
-	[desktopViewController reloadData];
 }
 
 @end

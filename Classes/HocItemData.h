@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class HoccerRequest;
 @class DragAndDropViewController;
+@class HocLocation;
 
 
 @interface HocItemData : NSObject {
@@ -20,5 +21,8 @@
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;
+
+- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
+- (void)downloadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
 
 @end

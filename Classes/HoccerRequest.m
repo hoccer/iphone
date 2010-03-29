@@ -13,5 +13,7 @@
 
 @synthesize requestStamp;
 
+- (void)cancel {
+}
 
 @end

@@ -33,16 +33,16 @@
 	return [contentOnDesktop count];
 }
 
-- (UIViewController *)viewControllerAtIndex: (NSInteger)index {
-	return [[contentOnDesktop objectAtIndex:index] dragAndDropViewConroller]; 	
+- (DragAndDropViewController *)viewControllerAtIndex: (NSInteger)index {
+	return ((HocItemData *)[contentOnDesktop objectAtIndex:index]).dragAndDropViewConroller; 	
 }
 
 
-- (void)addController: (UIViewController *)controller {
+- (void)addController: (HocItemData *)controller {
 	[contentOnDesktop addObject:controller];
 }
 
-- (void)removeController: (UIViewController *)controller {
+- (void)removeController: (HocItemData *)controller {
 	[contentOnDesktop removeObject:controller];
 }
 
@@ -64,6 +64,10 @@
 	}
 	
 	return nil;
+}
+
+- (HocItemData *)hocItemDataAtIndex: (NSInteger) index {
+	return [contentOnDesktop objectAtIndex:index];
 }
 
 

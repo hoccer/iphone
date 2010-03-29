@@ -489,6 +489,7 @@
 		22A8A0391160AB35004BCD3D /* HoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerRequest.m; sourceTree = "<group>"; };
 		22A8A08F1160BA1E004BCD3D /* HocItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemData.h; sourceTree = "<group>"; };
 		22A8A0901160BA1E004BCD3D /* HocItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocItemData.m; sourceTree = "<group>"; };
+		22A8A2881160F15B004BCD3D /* DesktopViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewDataSource.h; sourceTree = "<group>"; };
 		22AD327B11107C7700BC7DEC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		22AD329B11107D7500BC7DEC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		22AD32AE11107FA200BC7DEC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -956,6 +957,7 @@
 		22A5B6B4115CC57F00579AC5 /* DesktopData */ = {
 			isa = PBXGroup;
 			children = (
+				22A8A2881160F15B004BCD3D /* DesktopViewDataSource.h */,
 				22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */,
 				22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */,
 				22A8A08F1160BA1E004BCD3D /* HocItemData.h */,

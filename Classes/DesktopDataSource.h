@@ -7,18 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class DragAndDropViewController;
+@class HocItemData;
 
 @interface DesktopDataSource : NSObject {
 	NSMutableArray *contentOnDesktop;
 }
 
 - (NSInteger) numberOfItems;
-- (UIViewController *)viewControllerAtIndex: (NSInteger) index;
+- (DragAndDropViewController *)viewControllerAtIndex: (NSInteger) index;
 
-- (void)addController: (UIViewController *)controller;
-- (void)removeController: (UIViewController *)controller;
+- (void)addController: (HocItemData *)controller;
+- (void)removeController: (HocItemData *)controller;
 
 - (BOOL)controllerHasActiveRequest;
+
+- (HocItemData *)hocItemDataForController: (DragAndDropViewController *)controller;
+- (HocItemData *)hocItemDataAtIndex: (NSInteger) index;
 
 @end

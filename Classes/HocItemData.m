@@ -10,6 +10,7 @@
 #import "HoccerRequest.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerUploadRequest.h"
+#import "HoccerDownloadRequest.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 
@@ -20,8 +21,7 @@
 
 @synthesize dragAndDropViewConroller;
 
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		
@@ -29,11 +29,7 @@
 	return self;
 }
 
-
-
-
-- (void) dealloc
-{
+- (void) dealloc {
 	[dragAndDropViewConroller release];
 	[request release];
 	
@@ -123,6 +119,9 @@
 													   type: [dragAndDropViewConroller.content mimeType] filename: [dragAndDropViewConroller.content filename] delegate:self];
 }
 
+- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)gesture {
+	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:gesture delegate: self];
+}
 
 
 @end

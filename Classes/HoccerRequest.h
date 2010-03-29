@@ -10,11 +10,11 @@
 
 
 @interface HoccerRequest : NSObject {
-	
 	NSTimeInterval requestStamp;
-	
 }
 
 @property (assign) NSTimeInterval requestStamp;
+
+- (void)cancel;
 
 @end

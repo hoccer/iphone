@@ -401,7 +401,7 @@
 	}
 	self.allowSweepGesture = NO;
 	
-	[FeedbackProvider  playCatchFeedback];
+	[FeedbackProvider playCatchFeedback];
 	// request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
 	
 	// [statusViewController showActivityInfo];
@@ -415,36 +415,30 @@
 	[FeedbackProvider playThrowFeedback];
 	[self startPreviewFlyOutAniamation];
 	
-	//request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
-	//												   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"distribute"];
 	
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepIn {	
+- (void)sweepInterpreterDidDetectSweepIn: (DragAndDropViewController *)controller{	
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	self.allowSweepGesture = NO;
 	
-	// request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
+	HocItemData *item = [desktopData hocItemDataForController:controller];
+	[item downloadWithLocation:locationController.location gesture:@"pass"];
+	
 	// [statusViewController showActivityInfo];
 }
 
 - (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
-	NSLog(@"in %s", _cmd);
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	
-	NSLog(@"controller: %@", controller);
 	HocItemData *item = [desktopData hocItemDataForController:controller];
-	NSLog(@"item: %@", item);
-
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
-	
-	// request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: controller.content 
-	//												   type: [controller.content mimeType] filename: [controller.content filename] delegate:self];
 	
 	// [statusViewController showActivityInfo];
 }
@@ -463,7 +457,12 @@
 	return newestHocItem;
 }
 
-
+- (void)dragAndDropViewControllerWillBeDismissed: (DragAndDropViewController *)controller {
+	HocItemData *item = [desktopData hocItemDataForController:controller];
+	
+	[desktopData removeController:item];
+	[desktopViewController reloadData];
+}
 
 
 @end

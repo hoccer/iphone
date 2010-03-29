@@ -59,12 +59,12 @@
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
 		
-		feedback = [[[delegate emptyDragAndDropController] view] retain];
+		feedback = [[delegate emptyDragAndDropController] retain];
 	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
 
-		feedback = [[[delegate emptyDragAndDropController] view] retain];
+		feedback = [[delegate emptyDragAndDropController] retain];
 	}
 	
 	[self touchesMoved:touches withEvent:event];
@@ -78,7 +78,7 @@
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
 	if (sweeping != kNoSweeping) {
-		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+		feedback.view.center = CGPointMake(sweeping * feedback.view.frame.size.width / 2 + currentLocation.x, currentLocation.y);
 	}
 }
 
@@ -89,7 +89,7 @@
 	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
 			sweeping == kSweepDirectionRightIn && currentLocation.x < self.view.frame.size. width - kSweepAcceptanceDistance) {
 		
-		[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn) withObject:self];
+		[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn:) withObject: feedback];
 		
 		if (shouldSnapToCenterOnTouchUp) {
 			[self startMoveToCenterAnimation];
@@ -113,7 +113,7 @@
 - (void)startMoveToCenterAnimation {
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
+	feedback.view.center = CGPointMake(feedback.view.superview.frame.size.width / 2, feedback.view.frame.size.height / 2 + 105);
 
 	[UIView commitAnimations];
 }
@@ -121,15 +121,13 @@
 - (void)startMoveOutAnimation: (NSInteger)direction {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
+	feedback.view.center = CGPointMake(initialTouchPoint.x + direction * feedback.view.frame.size.width, initialTouchPoint.y);
 	
 	[UIView commitAnimations];
 }
 
 -  (void)resetView {
-	// [self.view addSubview:self.feedback];
-	
-	feedback.hidden = YES;
+	feedback.view.hidden = YES;
 	blocked = NO;
 }
 
@@ -144,7 +142,6 @@
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
-		NSLog(@"adding controller: %@", controller);
 		[self.view addSubview: controller.view];
 	}
 	
