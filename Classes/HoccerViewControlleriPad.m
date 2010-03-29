@@ -158,7 +158,6 @@
 	return popOver;
 }
 
-
 - (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content {
 	DragAndDropViewController *dragViewController = [self emptyDragAndDropController];
 	dragViewController.content = content;	
@@ -171,15 +170,5 @@
 	[desktopData removeController:controller];
 	[desktopViewController reloadData];
 }
-
-- (void)sweepInterpreterDidDetectSweepIn {	
-	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn)];
-}
-
-- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
-	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: controller];
-}
-
-
 
 @end

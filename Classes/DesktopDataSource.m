@@ -34,7 +34,7 @@
 }
 
 - (UIViewController *)viewControllerAtIndex: (NSInteger)index {
-	return [contentOnDesktop objectAtIndex:index]; 	
+	return [[contentOnDesktop objectAtIndex:index] dragAndDropViewConroller]; 	
 }
 
 
@@ -54,6 +54,16 @@
 	}
 	
 	return NO;
+}
+
+- (HocItemData *)hocItemDataForController: (DragAndDropViewController *)controller {
+	for (HocItemData *item in contentOnDesktop) {
+		if (item.dragAndDropViewConroller == controller) {
+			return item;
+		}
+	}
+	
+	return nil;
 }
 
 

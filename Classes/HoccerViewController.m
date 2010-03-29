@@ -432,10 +432,16 @@
 }
 
 - (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
+	NSLog(@"in %s", _cmd);
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	
+	NSLog(@"controller: %@", controller);
+	HocItemData *item = [desktopData hocItemDataForController:controller];
+	NSLog(@"item: %@", item);
+
+	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
 	// request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: controller.content 
 	//												   type: [controller.content mimeType] filename: [controller.content filename] delegate:self];
@@ -450,7 +456,8 @@
 	newestHocItem.delegate = self;
 		
 	item.dragAndDropViewConroller = newestHocItem;
-	[desktopData addController:newestHocItem];
+
+	[desktopData addController:item];
 	[desktopViewController reloadData];
 	
 	return newestHocItem;

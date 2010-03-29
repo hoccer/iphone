@@ -110,8 +110,6 @@
 	viewController.allowSweepGesture = YES;
 	
 	[statusViewController hideActivityInfo];
-	
-
 }
 
 @end

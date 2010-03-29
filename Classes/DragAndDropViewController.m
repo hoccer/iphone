@@ -89,6 +89,7 @@
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
 			gestureDetected = YES;	
 			
+			NSLog(@"delegate: %@", self.delegate);
 			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
 		} else if (currentLocation.x > width - kSweepBorder ) {
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
@@ -96,6 +97,7 @@
 			[self startFlySidewaysAnimation: CGPointMake(width, height)];
 			gestureDetected = YES;	
 			
+			NSLog(@"delegate: %@", self.delegate);
 			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
 		}
 	}
