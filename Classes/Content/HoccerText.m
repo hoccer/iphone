@@ -20,11 +20,11 @@
 
 @synthesize textView;
 
-- (id) initWithData: (NSData *)data {
+- (id) initWithData: (NSData *)theData {
 	self = [super init];
 	
 	if (self != nil) {
-		content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+		content = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
 	}
 	
 	return self;

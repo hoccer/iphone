@@ -13,13 +13,6 @@
 
 @interface HoccerViewControlleriPad : HoccerViewController <UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate> {
 	UIPopoverController *popOver;
-
-	DesktopDataSource *desktopData;
-	
-	DragAndDropViewController *newestHocItem;
 }
-
-- (DragAndDropViewController *)emptyDragAndDropController;
-
 
 @end

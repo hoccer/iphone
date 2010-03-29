@@ -18,6 +18,7 @@
 @synthesize delegate;
 @synthesize shouldSnapBackOnTouchUp;
 @synthesize content;
+@synthesize requestStamp;
 
 - (id) init {
 	self = [super init];
@@ -25,6 +26,7 @@
 		self.view = [[UIView alloc] initWithFrame:CGRectMake(0,0, 150, 150)];
 		self.view.backgroundColor = [UIColor whiteColor];
 		gestureDetected = FALSE;
+		self.requestStamp = [NSDate timeIntervalSinceReferenceDate];
 	}
 	return self;	
 }

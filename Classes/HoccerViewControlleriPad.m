@@ -45,7 +45,6 @@
 - (void) dealloc {
 	[popOver release];
 	[desktopData release];
-	[newestHocItem release];
 	
 	[super dealloc];
 }
@@ -103,8 +102,12 @@
 	[desktopViewController reloadData];
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) content{
-	newestHocItem.content = content;
+- (void)presentReceivedContent:(id <HoccerContent>) content withRequestStamp: (NSTimeInterval) aRequestStamp;
+{
+
+	
+	
+//	newestHocItem.content = content;
 	
 //	UIDocumentInteractionController *interactionController = [(HoccerDataIPad *)content interactionController];
 //	interactionController.delegate = self;
@@ -164,19 +167,6 @@
 	return dragViewController;
 }
 
-- (DragAndDropViewController *)emptyDragAndDropController {
-	[newestHocItem release];
-	
-	newestHocItem = [[DragAndDropViewController alloc] init];
-	newestHocItem.delegate = self;
-	
-	[desktopData addController:newestHocItem];
-	
-	[desktopViewController reloadData];
-	return newestHocItem;
-}
-
-
 - (void)dragAndDropViewControllerWillBeDismissed: (UIViewController *)controller {
 	[desktopData removeController:controller];
 	[desktopViewController reloadData];
@@ -189,5 +179,7 @@
 - (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
 	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: controller];
 }
+
+
 
 @end

@@ -11,12 +11,14 @@
 
 @interface DesktopDataSource : NSObject {
 	NSMutableArray *contentOnDesktop;
-	NSString* documentsDirectory;
 }
 
 - (NSInteger) numberOfItems;
-- (UIViewController *)viewControllerForItem: (NSInteger)itemNumber;
+- (UIViewController *)viewControllerAtIndex: (NSInteger) index;
+
 - (void)addController: (UIViewController *)controller;
 - (void)removeController: (UIViewController *)controller;
+
+- (BOOL)controllerHasActiveRequest;
 
 @end

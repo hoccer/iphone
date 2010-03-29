@@ -24,12 +24,12 @@
 @class HelpScrollView;
 @class ReceivedContentViewController;
 
-
+@class DesktopDataSource;
 @class ActionElement;
-
+@class LocationController;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
-						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate> {
+						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, GesturesInterpreterDelegate> {
 	IBOutlet UIView *backgroundView;
 							
 	IBOutlet HoccerAppDelegate* delegate;
@@ -46,6 +46,10 @@
 	BOOL allowSweepGesture;
 							
 	ActionElement *delayedAction;
+							
+	DesktopDataSource *desktopData;
+	GesturesInterpreter *gestureInterpreter;
+	LocationController *locationController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -54,7 +58,8 @@
 @property (nonatomic, assign) DragAndDropViewController* previewViewController;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
-
+@property (nonatomic, retain) IBOutlet LocationController *locationController;
+@property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 
 - (void)showError: (NSString *)message;
 
@@ -62,7 +67,7 @@
 - (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
 - (void)setContentPreview: (id <HoccerContent>)content;
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent;
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent withRequestStamp: (NSTimeInterval) aRequestStamp;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
 
@@ -73,8 +78,7 @@
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
 
-
-
+- (DragAndDropViewController *)emptyDragAndDropController;
 
 @end
 

@@ -31,6 +31,13 @@
 #import "HoccerVcard.h"
 #import "HoccerContent.h"
 
+#import "DesktopDataSource.h"
+#import "FeedbackProvider.h"
+#import "GesturesInterpreter.h"
+#import "LocationController.h"
+
+#import "HocItemData.h"
+
 
 
 @interface ActionElement : NSObject
@@ -90,7 +97,8 @@
 @synthesize helpViewController;
 @synthesize delayedAction;
 @synthesize previewViewController;
-
+@synthesize locationController;
+@synthesize gestureInterpreter;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -131,7 +139,7 @@
 - (IBAction)didDissmissContentToThrow: (id)sender {
 	[self setContentPreview: nil];
 
-	[self.delegate checkAndPerformSelector: @selector(hoccerViewControllerDidDismissSelectedContent:) withObject:self];
+	self.allowSweepGesture = YES;
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -159,7 +167,8 @@
 	id <HoccerContent> content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 	
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	gestureInterpreter.delegate = self;
+	self.allowSweepGesture = NO;
 }
 
 - (IBAction)toggleHelp: (id)sender {
@@ -170,7 +179,7 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
-		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelHelp:) withObject:self];
+		gestureInterpreter.delegate = self;	
 	}
 }
 
@@ -182,7 +191,7 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
-		[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
+		gestureInterpreter.delegate = (NSObject *) self.helpViewController;
 	}
 }
 
@@ -226,14 +235,14 @@
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
 	
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowContentSelector:) withObject:self];
+	gestureInterpreter.delegate = nil;
 }
 
 - (void)showHelpView {
 	self.helpViewController.delegate = self;
 	
 	[self showPopOver:self.helpViewController];
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidShowHelp:) withObject:self];
+	gestureInterpreter.delegate = (NSObject *) self.helpViewController;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -256,7 +265,8 @@
 	 isPopUpDisplayed = TRUE;
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent{
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent withRequestStamp: (NSTimeInterval) aRequestStamp;
+{
 	
 	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
 	
@@ -328,7 +338,8 @@
 	id <HoccerContent> content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	gestureInterpreter.delegate = self;
+	self.allowSweepGesture = NO;
 	
 	[self setContentPreview: content];
 	[self dismissModalViewControllerAnimated:YES];
@@ -346,7 +357,8 @@
 	
 	id <HoccerContent> content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
 	
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
+	gestureInterpreter.delegate = self;
+	self.allowSweepGesture = NO;
 	[self setContentPreview: content];
 	
 	[self dismissModalViewControllerAnimated:YES];
@@ -366,7 +378,7 @@
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
 {
 	[self dismissModalViewControllerAnimated:YES];
-	[self.delegate checkAndPerformSelector:@selector(hoccerViewControllerDidCancelContentSelector:) withObject:self];
+	gestureInterpreter.delegate = self;
 }
 
 #pragma mark -
@@ -378,5 +390,73 @@
 - (void) sweepInterpreterDidDetectSweepOut {
 	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
 }
+
+
+#pragma mark -
+#pragma mark GesturesInterpreter Delegate Methods
+
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
+	if ([desktopData controllerHasActiveRequest]) {
+		return;
+	}
+	self.allowSweepGesture = NO;
+	
+	[FeedbackProvider  playCatchFeedback];
+	// request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
+	
+	// [statusViewController showActivityInfo];
+}
+
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
+	if ([desktopData controllerHasActiveRequest]) {
+		return;
+	}
+	
+	[FeedbackProvider playThrowFeedback];
+	[self startPreviewFlyOutAniamation];
+	
+	//request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
+	//												   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	
+	// [statusViewController showActivityInfo];
+}
+
+- (void)sweepInterpreterDidDetectSweepIn {	
+	if ([desktopData controllerHasActiveRequest]) {
+		return;
+	}
+	self.allowSweepGesture = NO;
+	
+	// request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
+	// [statusViewController showActivityInfo];
+}
+
+- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
+	if ([desktopData controllerHasActiveRequest]) {
+		return;
+	}
+	
+	
+	// request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: controller.content 
+	//												   type: [controller.content mimeType] filename: [controller.content filename] delegate:self];
+	
+	// [statusViewController showActivityInfo];
+}
+
+- (DragAndDropViewController *)emptyDragAndDropController {
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	
+	DragAndDropViewController* newestHocItem = [[[DragAndDropViewController alloc] init] autorelease];
+	newestHocItem.delegate = self;
+		
+	item.dragAndDropViewConroller = newestHocItem;
+	[desktopData addController:newestHocItem];
+	[desktopViewController reloadData];
+	
+	return newestHocItem;
+}
+
+
+
 
 @end

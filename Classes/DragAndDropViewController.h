@@ -19,8 +19,12 @@
 	BOOL shouldSnapBackOnTouchUp;
 	
 	id <HoccerContent> content;
+	
+	NSTimeInterval requestStamp;
+	
 }
 
+@property (assign) NSTimeInterval requestStamp;
 @property (nonatomic, retain) id delegate;
 @property (assign) CGPoint origin;
 @property (assign) BOOL shouldSnapBackOnTouchUp;

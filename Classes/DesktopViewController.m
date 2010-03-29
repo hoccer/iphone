@@ -143,7 +143,7 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		DragAndDropViewController *controller = [dataSource viewControllerForItem: i];
+		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
 		NSLog(@"adding controller: %@", controller);
 		[self.view addSubview: controller.view];
 	}

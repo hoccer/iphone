@@ -16,11 +16,11 @@
 
 @implementation HoccerVcard
 
-- (id) initWithData: (NSData *)data 
+- (id) initWithData: (NSData *)theData 
 {
 	self = [super init];
 	if (self != nil) {
-		NSString *vcardString = [NSString stringWithData:data usingEncoding:NSUTF8StringEncoding]; 
+		NSString *vcardString = [NSString stringWithData:theData usingEncoding:NSUTF8StringEncoding]; 
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
 		
 		person = creator.person;

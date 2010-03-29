@@ -7,7 +7,7 @@
 //
 
 #import "DesktopDataSource.h"
-
+#import "HocItemData.h"
 
 @implementation DesktopDataSource
 
@@ -17,16 +17,15 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		contentOnDesktop = [[NSMutableArray alloc] init];
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		documentsDirectory = [[paths objectAtIndex:0] retain];
+		contentOnDesktop = [[NSMutableArray alloc] init];		
 	}
+
 	return self;
 }
 
 - (void) dealloc {
 	[contentOnDesktop release];
-	[documentsDirectory release];
+	
 	[super dealloc];
 }
 
@@ -34,10 +33,10 @@
 	return [contentOnDesktop count];
 }
 
-- (UIViewController *)viewControllerForItem: (NSInteger)itemNumber {
-	
-	return [contentOnDesktop objectAtIndex:itemNumber];
+- (UIViewController *)viewControllerAtIndex: (NSInteger)index {
+	return [contentOnDesktop objectAtIndex:index]; 	
 }
+
 
 - (void)addController: (UIViewController *)controller {
 	[contentOnDesktop addObject:controller];
@@ -46,6 +45,17 @@
 - (void)removeController: (UIViewController *)controller {
 	[contentOnDesktop removeObject:controller];
 }
+
+- (BOOL)controllerHasActiveRequest {
+	for (HocItemData *item in contentOnDesktop) {
+		if ([item hasActiveRequest]) {
+			return YES;
+		}
+	}
+	
+	return NO;
+}
+
 
 
 

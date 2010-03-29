@@ -13,13 +13,5 @@
 
 @synthesize requestStamp;
 
-- (id) init
-{
-	self = [super init];
-	if (self != nil) {		
-		self.requestStamp = [NSDate timeIntervalSinceReferenceDate];
-	}
-	return self;
-}
 
 @end

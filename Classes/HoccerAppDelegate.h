@@ -14,6 +14,7 @@
 @class BaseHoccerRequest;
 @class StatusViewController;
 @class LocationController;
+@class HoccerRequest;
 
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
@@ -23,16 +24,10 @@
     HoccerViewController *viewController;
 	
 	StatusViewController *statusViewController;
-	
-	BaseHoccerRequest *request;
-	GesturesInterpreter *gestureInterpreter;
-	LocationController *locationController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
-@property (nonatomic, retain) IBOutlet LocationController *locationController;
-@property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 
 @end

@@ -43,10 +43,7 @@
 @synthesize window;
 @synthesize viewController;
 
-@synthesize locationController;
 @synthesize statusViewController;
-
-@synthesize gestureInterpreter;
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
@@ -65,142 +62,12 @@
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
 }
 
-- (void)dealloc {	
-	[request release];
-	
-	[gestureInterpreter release];
-	[locationController release];
-	
+- (void)dealloc {			
 	[statusViewController release];
     [viewController release];
 	[window release];
 	
 	[super dealloc];
-}
-
-#pragma mark -
-#pragma mark GesturesInterpreter Delegate Methods
-
-- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
-	if (request != nil) {
-		return;
-	}
-	viewController.allowSweepGesture = NO;
-
-	[FeedbackProvider  playCatchFeedback];
-	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
-	
-	[statusViewController showActivityInfo];
-}
-
-- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
-	if (request != nil) {
-		return;
-	}
-
-	[FeedbackProvider playThrowFeedback];
-	[viewController startPreviewFlyOutAniamation];
-	[statusViewController setUpdate: @"preparing"];
-
-	//request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
-	//												   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
-	
-	[statusViewController showActivityInfo];
-}
-
-- (void)sweepInterpreterDidDetectSweepIn {	
-	if (request != nil) {
-		return;
-	}
-	viewController.allowSweepGesture = NO;
-	
-	request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"pass" delegate: self];
-	[statusViewController showActivityInfo];
-}
-
-- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
-	if (request != nil) {
-		return;
-	}
-	
-	[statusViewController setUpdate: @"preparing"];
-	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: controller.content 
-													   type: [controller.content mimeType] filename: [controller.content filename] delegate:self];
-	
-	[statusViewController showActivityInfo];
-}
-
-#pragma mark -
-#pragma mark Download Communication Delegate Methods
-- (void)requestIsReadyToStartDownload: (BaseHoccerRequest *)aRequest
-{
-//	if ([HoccerContentFactory isSupportedType: [aRequest.response MIMEType]])
-//		return;
-//	
-//	[aRequest cancel];
-//	
-//	NSURL *url = [aRequest.request URL];
-//	self.hoccerContent = [[HoccerUrl alloc] initWithData: [[url absoluteString] dataUsingEncoding: NSUTF8StringEncoding]];
-//	
-//	receivedContentView = [[ReceivedContentView alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
-//	
-//	receivedContentView.delegate = self;
-//	[receivedContentView setHoccerContent: self.hoccerContent];
-//	
-//	[viewController presentModalViewController: receivedContentView animated:YES];
-//	
-//	[request release];
-//	request = nil;
-//	
-//	[statusViewController hideActivityInfo];
-}
-
-- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
-{
-	id <HoccerContent> hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
-														    withData: aRequest.result];
-		
-	[viewController presentReceivedContent: hoccerContent];
-
-	[request release];
-	request = nil;
-
-	[statusViewController hideActivityInfo];
-}
-
-#pragma mark -
-#pragma mark Upload Communication 
-
-- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest
-{
-	[request release];
-	request = nil;
-	[viewController setContentPreview: nil];
-
-	[statusViewController hideActivityInfo];
-}
-
-#pragma mark -
-#pragma mark BaseHoccerRequest Delegate Methods
-
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
-{
-	[statusViewController setError: [error localizedDescription]];
-	[viewController resetPreview];
-	[request release];
-	request = nil;
-		
-	// [statusViewController hideActivityInfo];
-}
-
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
-{
-	[statusViewController setUpdate: update];
-}
-
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
-{
-	[statusViewController setProgressUpdate:[progress floatValue]];
 }
 
 #pragma mark Terms Of Use Delegate Methods
@@ -234,36 +101,6 @@
 	[viewController dismissModalViewControllerAnimated:YES];
 }
 
-
-#pragma mark -
-#pragma mark HoccerViewController Delegate
-
-- (void)hoccerViewController:(HoccerViewController *)controller didSelectContent: (id<HoccerContent>) content {
-	gestureInterpreter.delegate = self;
-	viewController.allowSweepGesture = NO;
-}
-
-- (void)hoccerViewControllerDidDismissSelectedContent:(HoccerViewController *)controller {
-	viewController.allowSweepGesture = YES;
-}
-
-- (void)hoccerViewControllerDidShowContentSelector:(HoccerViewController *)controller {
-	gestureInterpreter.delegate = nil;
-}
-
-- (void)hoccerViewControllerDidCancelContentSelector:(HoccerViewController *)controller {
-	gestureInterpreter.delegate = self;
-}
-
-- (void)hoccerViewControllerDidShowHelp: (HoccerViewController *)controller {
-	gestureInterpreter.delegate = (NSObject *) viewController.helpViewController;
-
-}
-
-- (void)hoccerViewControllerDidCancelHelp: (HoccerViewController *)controller {
-	gestureInterpreter.delegate = self;
-}
-
 #pragma mark -
 #pragma mark StatusViewController Delegate
 
@@ -274,10 +111,7 @@
 	
 	[statusViewController hideActivityInfo];
 	
-	[request cancel];
-	[request release];
-	
-	request = nil;
+
 }
 
 @end
