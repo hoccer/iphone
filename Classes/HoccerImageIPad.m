@@ -13,13 +13,10 @@
 @implementation HoccerImageIPad
 
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[imageInFile release];
 	[super dealloc];
 }
-
-
 
 - (Preview *)thumbnailView
 {

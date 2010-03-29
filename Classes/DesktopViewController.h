@@ -17,7 +17,6 @@
 	DragAndDropViewController* feedback;
 	
 	int sweeping;
-	BOOL blocked;
 	CGPoint initialTouchPoint;
 	
 	BOOL shouldSnapToCenterOnTouchUp;
@@ -27,7 +26,6 @@
 @property (retain) id dataSource;
 
 @property (retain) DragAndDropViewController* feedback; 
-@property (assign) BOOL blocked;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)startMoveToCenterAnimation;

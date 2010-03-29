@@ -25,13 +25,11 @@
 @synthesize dataSource;
 @synthesize delegate;
 
-@synthesize blocked;
 @synthesize shouldSnapToCenterOnTouchUp;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	blocked = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,17 +40,12 @@
     [super viewDidUnload];
 }
 
-
 - (void)dealloc {
 	[feedback release];
     [super dealloc];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (blocked) {
-		return;
-	}
-	
 	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
 
 	if (initialTouchPoint.x < kSweepInBorder) {
@@ -67,14 +60,14 @@
 		feedback = [[delegate emptyDragAndDropController] retain];
 	}
 	
+	if (feedback == nil) {
+		sweeping = kNoSweeping;
+	}
+	
 	[self touchesMoved:touches withEvent:event];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {	
-	if (blocked) {
-		return;
-	}
-	
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
 	if (sweeping != kNoSweeping) {
@@ -96,7 +89,6 @@
 		}
 		
 		sweeping = kNoSweeping;
-		blocked = YES;
 		return;
 	}
 	
@@ -128,7 +120,6 @@
 
 -  (void)resetView {
 	feedback.view.hidden = YES;
-	blocked = NO;
 }
 
 #pragma mark -
@@ -144,8 +135,6 @@
 		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
 		[self.view addSubview: controller.view];
 	}
-	
-	
 }
 
 

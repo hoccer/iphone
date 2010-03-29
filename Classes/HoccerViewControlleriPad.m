@@ -102,19 +102,7 @@
 	[desktopViewController reloadData];
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) content withRequestStamp: (NSTimeInterval) aRequestStamp;
-{
-//	newestHocItem.content = content;
-	
-//	UIDocumentInteractionController *interactionController = [(HoccerDataIPad *)content interactionController];
-//	interactionController.delegate = self;
-//	
-//	for (UIGestureRecognizer *gestureRecognizer in interactionController.gestureRecognizers) {
-//		[newestHocItem.view addGestureRecognizer: gestureRecognizer];
-//	}
-	
-// 	self.allowSweepGesture = YES;
-}
+- (void)presentReceivedContent:(id <HoccerContent>) content {}
 
 - (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;

@@ -67,7 +67,7 @@
 - (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
 - (void)setContentPreview: (id <HoccerContent>)content;
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent withRequestStamp: (NSTimeInterval) aRequestStamp;
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
 

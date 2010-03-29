@@ -265,9 +265,8 @@
 	 isPopUpDisplayed = TRUE;
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent withRequestStamp: (NSTimeInterval) aRequestStamp;
+- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent
 {
-	
 	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
 	
 	receivedContentViewController.delegate = self;
@@ -313,7 +312,6 @@
 }
 
 - (void)setAllowSweepGesture: (BOOL)allow {
-	desktopViewController.blocked = !allow;
 }
 
 - (HelpScrollView *)helpViewController {
@@ -420,7 +418,7 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepIn: (DragAndDropViewController *)controller{	
+- (void)sweepInterpreterDidDetectSweepIn: (DragAndDropViewController *)controller {	
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
@@ -444,6 +442,10 @@
 }
 
 - (DragAndDropViewController *)emptyDragAndDropController {
+	if ([desktopData controllerHasActiveRequest]) {
+		return nil;
+	}
+	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	
 	DragAndDropViewController* newestHocItem = [[[DragAndDropViewController alloc] init] autorelease];

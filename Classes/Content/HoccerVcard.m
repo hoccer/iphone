@@ -129,8 +129,7 @@
 - (void)contentWillBeDismissed 
 {}
 
-- (BOOL)needsWaiting 
-{
+- (BOOL)needsWaiting {
 	return NO;
 }
 
