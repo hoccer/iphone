@@ -9,6 +9,7 @@
 #import "HoccerText.h"
 
 #import "Preview.h"
+#import "NSString+StringWithData.h"
 
 @interface HoccerText ()
 
@@ -34,8 +35,7 @@
 
 - (void)dismiss {}
 
-- (UIView *)view 
-{
+- (UIView *)view {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
 	text.text = content;
 	text.editable = YES;
@@ -43,8 +43,7 @@
 	return [text autorelease];
 }
 
-- (Preview *)thumbnailView
-{
+- (Preview *)thumbnailView {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
@@ -57,6 +56,10 @@
 	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
 	self.textView.font = [UIFont systemFontOfSize: [UIFont systemFontSize] + 2];
 	
+	if (data != nil) {
+		self.textView.text = [NSString stringWithData:data usingEncoding:NSUTF8StringEncoding];
+	}
+	
 	[view insertSubview: textView atIndex: 1];
 	[self.textView becomeFirstResponder];
 	
@@ -64,8 +67,7 @@
 	return [view autorelease];
 }
 
-- (NSString *)saveButtonDescription 
-{
+- (NSString *)saveButtonDescription {
 	return nil;
 }
 	

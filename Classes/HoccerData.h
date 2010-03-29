@@ -15,6 +15,9 @@
 	NSData *data;
 }
 
+@property (retain) NSData *data; 
+
+
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 
 @end

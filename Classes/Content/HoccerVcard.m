@@ -16,8 +16,7 @@
 
 @implementation HoccerVcard
 
-- (id) initWithData: (NSData *)theData 
-{
+- (id) initWithData: (NSData *)theData {
 	self = [super init];
 	if (self != nil) {
 		NSString *vcardString = [NSString stringWithData:theData usingEncoding:NSUTF8StringEncoding]; 
@@ -32,8 +31,7 @@
 	return self;
 }
 
-- (id)initWitPerson: (ABRecordRef)aPerson
-{
+- (id)initWitPerson: (ABRecordRef)aPerson {
 	self = [super init];
 	if (self != nil) {
 		person = aPerson;
@@ -45,8 +43,7 @@
 	return self;
 }
 
-- (void)save 
-{
+- (void)save {
 	CFErrorRef error = NULL;
 	
 	ABAddressBookRef addressBook = ABAddressBookCreate();
