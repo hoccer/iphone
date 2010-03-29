@@ -20,8 +20,8 @@
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
-		filePath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
-		[data writeToURL:[NSURL fileURLWithPath:filePath] atomically: NO];
+		filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
+		[data writeToURL:[NSURL fileURLWithPath:filepath] atomically: NO];
 	}
 	
 	return self;
@@ -29,56 +29,9 @@
 
 - (void) dealloc {
 	[data release];
-	[filePath release];
+	[filepath release];
 		
 	[super dealloc];
 }
-
-- (void)save {}
-
-- (void)dismiss {}
-
-- (UIView *)view {
-	return nil;
-}
-
-
-
-- (Preview *)thumbnailView {
-	return nil;
-}
-
-- (NSString *)filename {
-	return filePath;
-}
-- (NSString *)mimeType {
-	return @"audio/mpeg";
-}
-
-- (NSData *)data {
-	return data;
-}
-
-
-- (BOOL)isDataReady {
-	return YES;
-}
-
-- (NSString *)saveButtonDescription {
-	return @"Save";
-}
-
-- (void)contentWillBeDismissed {}
-
-
-- (BOOL)needsWaiting {
-	return NO;
-}
-
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector {
-
-}
-
-
 
 @end

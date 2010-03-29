@@ -7,30 +7,35 @@
 //
 
 #import "HoccerContentFactoryIPad.h"
-#import "HoccerDataiPad.h"
+#import "HoccerDataIPad.h"
+#import "HoccerVcard.h"
+#import "HoccerImageIPad.h"
+#import "HoccerUrl.h"
+#import "HoccerText.h"
+#import "HoccerData.h"
 
 @implementation HoccerContentFactoryIPad
 
 - (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
-//	id <HoccerContent> hoccerContent = nil;
 	
-//	NSString *mimeType = [response MIMEType];
-//	
-//	if ([mimeType isEqual: @"text/x-vcard"]) {
-//		hoccerContent = [[HoccerVcard alloc] initWithData: data];
-//	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
-//		hoccerContent = [[HoccerImage alloc] initWithData: data];
-//	} else if ([mimeType isEqual: @"text/plain"]) {
-//		if ([HoccerUrl isDataAUrl: data]) {
-//			hoccerContent = [[HoccerUrl alloc] initWithData: data];
-//		} else {
-//			hoccerContent = [[HoccerText alloc] initWithData: data];
-//		}
-//	} else {
-//		hoccerContent = [[HoccerData alloc] initWithData:data filename: [response suggestedFilename]];
-//	}
+	id <HoccerContent> hoccerContent = nil;
 	
-	id <HoccerContent> hoccerContent = [[HoccerDataiPad alloc] initWithData:data filename: [response suggestedFilename]];
+	NSString *mimeType = [response MIMEType];
+	
+	if ([mimeType isEqual: @"text/x-vcard"]) {
+		hoccerContent = [[HoccerVcard alloc] initWithData: data filename: [response suggestedFilename]];
+	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
+		hoccerContent = [[HoccerImageIPad alloc] initWithData: data filename: [response suggestedFilename]];
+	} else if ([mimeType isEqual: @"text/plain"]) {
+		if ([HoccerUrl isDataAUrl: data]) {
+			hoccerContent = [[HoccerUrl alloc] initWithData: data filename: [response suggestedFilename]];
+		} else {
+			hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
+		}
+	} else {
+		hoccerContent = [[HoccerDataIPad alloc] initWithData:data filename: [response suggestedFilename]];
+	}
+	
 	return [hoccerContent autorelease];
 }
 

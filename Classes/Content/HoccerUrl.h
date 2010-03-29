@@ -11,6 +11,7 @@
 #import "HoccerContent.h"
 #import "HoccerText.h"
 
+
 @interface HoccerUrl : HoccerText {
 	UIWebView  *webView;
 }

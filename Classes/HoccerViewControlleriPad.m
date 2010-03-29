@@ -14,7 +14,7 @@
 
 #import "HoccerContent.h"
 #import "HoccerImage.h"
-#import "HoccerDataiPad.h"
+#import "HoccerDataIPad.h"
 
 #import "DesktopDataSource.h"
 
@@ -45,6 +45,7 @@
 - (void) dealloc {
 	[popOver release];
 	[desktopData release];
+	[newestHocItem release];
 	
 	[super dealloc];
 }
@@ -98,44 +99,21 @@
 }
 
 - (void)setContentPreview: (id <HoccerContent>)content {
-	[desktopData addController: [self createDragAndDropControllerForContent: content]];
+	[self createDragAndDropControllerForContent: content];
 	[desktopViewController reloadData];
-
-
-//	[self.previewViewController.view removeFromSuperview];
-//	Preview *contentView = [content thumbnailView];
-//	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-//	
-//	[backgroundView insertSubview: contentView atIndex: 1];
-//	[self.view setNeedsDisplay];
-//	self.previewViewController.view = contentView;	
-//	
-//	self.previewViewController.origin = CGPointMake(900, backgroundView.frame.size.height * 0.3);
-//	
-//	[UIView beginAnimations:@"previewSlideIn" context:nil];
-//	self.previewViewController.origin = CGPointMake(xOrigin, backgroundView.frame.size.height * 0.3);
-//	
-//	[UIView setAnimationDuration: 0.4];
-//	[UIView commitAnimations];
 }
 
 - (void)presentReceivedContent:(id <HoccerContent>) content{
-	NSLog(@"content: %@", content);
+	newestHocItem.content = content;
 	
-	[desktopViewController.feedback addSubview: [content view]];
-	UIDocumentInteractionController *interactionController = [(HoccerDataiPad *)content interactionController];
-	interactionController.delegate = self;
+//	UIDocumentInteractionController *interactionController = [(HoccerDataIPad *)content interactionController];
+//	interactionController.delegate = self;
+//	
+//	for (UIGestureRecognizer *gestureRecognizer in interactionController.gestureRecognizers) {
+//		[newestHocItem.view addGestureRecognizer: gestureRecognizer];
+//	}
 	
-	for (UIGestureRecognizer *gestureRecognizer in interactionController.gestureRecognizers) {
-		[desktopViewController.feedback addGestureRecognizer: gestureRecognizer];
-	}
-	
-	UIView *someView = [[[UIView alloc] initWithFrame:CGRectMake(300, 300, 150, 150)] autorelease];
-	someView.backgroundColor = [UIColor whiteColor];
-	[self.view addSubview:someView];
-	desktopViewController.feedback = someView;
-	
-	self.allowSweepGesture = YES;
+// 	self.allowSweepGesture = YES;
 }
 
 - (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
@@ -177,22 +155,39 @@
 	return popOver;
 }
 
+
 - (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content {
-	Preview *contentView = [content thumbnailView];
-	
-	DragAndDropViewController *dragViewController = [[DragAndDropViewController alloc] init];
-	dragViewController.view = contentView;	
+	DragAndDropViewController *dragViewController = [self emptyDragAndDropController];
+	dragViewController.content = content;	
 	dragViewController.origin = CGPointMake(300, 300);
-	dragViewController.delegate = self;
 	
-	return [dragViewController autorelease];
+	return dragViewController;
 }
 
-- (IBAction)dragAndDropViewControllerWillBeDismissed: (UIViewController *)controller {
+- (DragAndDropViewController *)emptyDragAndDropController {
+	[newestHocItem release];
+	
+	newestHocItem = [[DragAndDropViewController alloc] init];
+	newestHocItem.delegate = self;
+	
+	[desktopData addController:newestHocItem];
+	
+	[desktopViewController reloadData];
+	return newestHocItem;
+}
+
+
+- (void)dragAndDropViewControllerWillBeDismissed: (UIViewController *)controller {
 	[desktopData removeController:controller];
 	[desktopViewController reloadData];
 }
 
+- (void)sweepInterpreterDidDetectSweepIn {	
+	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn)];
+}
 
+- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
+	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: controller];
+}
 
 @end

@@ -11,6 +11,7 @@
 
 @interface DesktopDataSource : NSObject {
 	NSMutableArray *contentOnDesktop;
+	NSString* documentsDirectory;
 }
 
 - (NSInteger) numberOfItems;

@@ -18,12 +18,15 @@
 	self = [super init];
 	if (self != nil) {
 		contentOnDesktop = [[NSMutableArray alloc] init];
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		documentsDirectory = [[paths objectAtIndex:0] retain];
 	}
 	return self;
 }
 
 - (void) dealloc {
 	[contentOnDesktop release];
+	[documentsDirectory release];
 	[super dealloc];
 }
 

@@ -27,15 +27,12 @@
 	BaseHoccerRequest *request;
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
-
-	id <HoccerContent> contentToSend;	
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
-@property (nonatomic, retain) id <HoccerContent> contentToSend;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 
 @end

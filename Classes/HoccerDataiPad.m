@@ -6,20 +6,14 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HoccerDataiPad.h"
+#import "HoccerDataIPad.h"
+#import "Preview.h"
 
-
-@implementation HoccerDataiPad
+@implementation HoccerDataIPad
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename {
 	self = [super init];
 	if (self != nil) {
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-		
-		filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
-		[theData writeToURL:[NSURL fileURLWithPath:filepath] atomically: NO];
-		
 		documentInteractionController = [[UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:filepath]] retain];
 	}
 	
@@ -43,11 +37,21 @@
 }
 
 - (UIView *)view {
-	return [[UIImageView alloc] initWithImage: [documentInteractionController.icons objectAtIndex:0]];
+	return [[[UIImageView alloc] initWithImage: [documentInteractionController.icons objectAtIndex:0]] autorelease];
 }
 
 - (Preview *)thumbnailView {
-	return nil;
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	
+	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	
+	[view addSubview:backgroundImage];
+	[view sendSubviewToBack:backgroundImage];
+	[backgroundImage release];
+	
+	[view setImage:[documentInteractionController.icons objectAtIndex:0]];
+	return [view autorelease];
 }
 
 - (NSString *)filename {

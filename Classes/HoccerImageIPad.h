@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerImage.h"
+#import "HoccerContentIPad.h"
 
-
-@interface HoccerImageIPad : NSObject {
-	
-	
+@interface HoccerImageIPad : HoccerImage <HoccerContentIPad> {
+	UIImage *imageInFile;
 }
 
-
+@property (nonatomic, readonly) UIImage *image;
 
 @end

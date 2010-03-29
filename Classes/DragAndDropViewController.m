@@ -17,18 +17,34 @@
 @synthesize origin;
 @synthesize delegate;
 @synthesize shouldSnapBackOnTouchUp;
+@synthesize content;
 
-- (id) init{
-	
+- (id) init {
 	self = [super init];
 	if (self){
-		self.view = nil;
+		self.view = [[UIView alloc] initWithFrame:CGRectMake(0,0, 150, 150)];
+		self.view.backgroundColor = [UIColor whiteColor];
 		gestureDetected = FALSE;
 	}
 	return self;	
 }
 
-- (void) setView:(UIView *) aPreview{
+- (void) dealloc {
+	[content release];
+	[super dealloc];
+}
+
+- (void)setContent:(id <HoccerContent>)theContent {
+	if (theContent != content) {
+		[content release];
+		content = [theContent retain];
+
+		[self setView:[content thumbnailView]];
+	}
+}
+
+
+- (void) setView:(UIView *) aPreview {
 	super.view = aPreview;
 	 
 	if ([self.view isKindOfClass: [Preview class]]) {
@@ -42,10 +58,6 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-}
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -75,14 +87,14 @@
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
 			gestureDetected = YES;	
 			
-			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
+			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
 		} else if (currentLocation.x > width - kSweepBorder ) {
 			CGFloat height = currentLocation.y - [touch locationInView:self.view].y;
 
 			[self startFlySidewaysAnimation: CGPointMake(width, height)];
 			gestureDetected = YES;	
 			
-			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
+			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
 		}
 	}
 }

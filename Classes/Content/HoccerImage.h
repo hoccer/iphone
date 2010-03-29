@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
+#import "HoccerData.h"
 
 
-@interface HoccerImage : NSObject <HoccerContent> {
+@interface HoccerImage : HoccerData <HoccerContent> {
 	UIImage *image;
-	NSData *data;
 
 	NSThread *secondThread;
 	BOOL isDataReady;

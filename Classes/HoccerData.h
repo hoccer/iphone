@@ -10,9 +10,8 @@
 #import "HoccerContent.h"
 
 
-@interface HoccerData : NSObject <HoccerContent> {
-	NSString *filePath;
-	
+@interface HoccerData : NSObject{
+	NSString *filepath;	
 	NSData *data;
 }
 

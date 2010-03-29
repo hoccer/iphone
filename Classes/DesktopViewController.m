@@ -58,12 +58,13 @@
 	if (initialTouchPoint.x < kSweepInBorder) {
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
-		feedback.hidden = NO;
 		
+		feedback = [[[delegate emptyDragAndDropController] view] retain];
 	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
-		feedback.hidden = NO;
+
+		feedback = [[[delegate emptyDragAndDropController] view] retain];
 	}
 	
 	[self touchesMoved:touches withEvent:event];
@@ -143,6 +144,7 @@
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		DragAndDropViewController *controller = [dataSource viewControllerForItem: i];
+		NSLog(@"adding controller: %@", controller);
 		[self.view addSubview: controller.view];
 	}
 	

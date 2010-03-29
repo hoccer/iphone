@@ -43,8 +43,6 @@
 @synthesize window;
 @synthesize viewController;
 
-@synthesize contentToSend;
-
 @synthesize locationController;
 @synthesize statusViewController;
 
@@ -68,7 +66,6 @@
 }
 
 - (void)dealloc {	
-	[contentToSend release];
 	[request release];
 	
 	[gestureInterpreter release];
@@ -85,7 +82,7 @@
 #pragma mark GesturesInterpreter Delegate Methods
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
-	if (self.contentToSend || request != nil) {
+	if (request != nil) {
 		return;
 	}
 	viewController.allowSweepGesture = NO;
@@ -97,7 +94,7 @@
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
-	if (!self.contentToSend || request != nil) {
+	if (request != nil) {
 		return;
 	}
 
@@ -105,14 +102,14 @@
 	[viewController startPreviewFlyOutAniamation];
 	[statusViewController setUpdate: @"preparing"];
 
-	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
-													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	//request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"distribute" content: contentToSend 
+	//												   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
 	
 	[statusViewController showActivityInfo];
 }
 
 - (void)sweepInterpreterDidDetectSweepIn {	
-	if (self.contentToSend || request != nil) {
+	if (request != nil) {
 		return;
 	}
 	viewController.allowSweepGesture = NO;
@@ -121,14 +118,14 @@
 	[statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepOut {
-	if (!self.contentToSend || request != nil) {
+- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
+	if (request != nil) {
 		return;
 	}
 	
 	[statusViewController setUpdate: @"preparing"];
-	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: contentToSend 
-													   type: [contentToSend mimeType] filename: [contentToSend filename] delegate:self];
+	request = [[HoccerUploadRequest alloc] initWithLocation:locationController.location gesture:@"pass" content: controller.content 
+													   type: [controller.content mimeType] filename: [controller.content filename] delegate:self];
 	
 	[statusViewController showActivityInfo];
 }
@@ -178,8 +175,6 @@
 {
 	[request release];
 	request = nil;
-	
-	self.contentToSend = nil;
 	[viewController setContentPreview: nil];
 
 	[statusViewController hideActivityInfo];
@@ -194,11 +189,7 @@
 	[viewController resetPreview];
 	[request release];
 	request = nil;
-	
-	if (self.contentToSend == nil) {
-		viewController.allowSweepGesture = YES;
-	}
-	
+		
 	// [statusViewController hideActivityInfo];
 }
 
@@ -253,8 +244,6 @@
 }
 
 - (void)hoccerViewControllerDidDismissSelectedContent:(HoccerViewController *)controller {
-	[self.contentToSend contentWillBeDismissed];
-	self.contentToSend = nil;
 	viewController.allowSweepGesture = YES;
 }
 
@@ -281,11 +270,7 @@
 - (void)statusViewControllerDidCancelRequest:(StatusViewController *)controller {
 	[viewController resetPreview];
 	
-	if (self.contentToSend != nil) {
-		viewController.allowSweepGesture = NO;
-	} else {
-		viewController.allowSweepGesture = YES;
-	}
+	viewController.allowSweepGesture = YES;
 	
 	[statusViewController hideActivityInfo];
 	

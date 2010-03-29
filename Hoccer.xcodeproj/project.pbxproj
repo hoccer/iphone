@@ -22,8 +22,8 @@
 		223BC44010555B2700ABE5A2 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
 		223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		224F8A9C108CBB4300F69B53 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
-		2259BB60115BB4500099F9BE /* HoccerDataiPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259BB5F115BB4500099F9BE /* HoccerDataiPad.m */; };
-		2259BB61115BB4500099F9BE /* HoccerDataiPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259BB5F115BB4500099F9BE /* HoccerDataiPad.m */; };
+		2259BB60115BB4500099F9BE /* HoccerDataIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259BB5F115BB4500099F9BE /* HoccerDataIPad.m */; };
+		2259BB61115BB4500099F9BE /* HoccerDataIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259BB5F115BB4500099F9BE /* HoccerDataIPad.m */; };
 		226496261070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		226496271070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
@@ -137,6 +137,7 @@
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
+		22A8A03A1160AB35004BCD3D /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		22AD327C11107C7700BC7DEC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD327B11107C7700BC7DEC /* icon.png */; };
 		22AD329C11107D7500BC7DEC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD329B11107D7500BC7DEC /* iTunesArtwork.png */; };
 		22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD32AE11107FA200BC7DEC /* Icon-Small.png */; };
@@ -330,8 +331,8 @@
 		223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupPollingRequest.m; path = Communication/PeerGroupPollingRequest.m; sourceTree = "<group>"; };
 		224F8A9A108CBB4300F69B53 /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = View/Preview.h; sourceTree = "<group>"; };
 		224F8A9B108CBB4300F69B53 /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preview.m; path = View/Preview.m; sourceTree = "<group>"; };
-		2259BB5E115BB4500099F9BE /* HoccerDataiPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerDataiPad.h; sourceTree = "<group>"; };
-		2259BB5F115BB4500099F9BE /* HoccerDataiPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerDataiPad.m; sourceTree = "<group>"; };
+		2259BB5E115BB4500099F9BE /* HoccerDataIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerDataIPad.h; sourceTree = "<group>"; };
+		2259BB5F115BB4500099F9BE /* HoccerDataIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerDataIPad.m; sourceTree = "<group>"; };
 		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
 		226496251070DD56006D33E2 /* ThrowDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThrowDetector.m; path = GesturesInterpreter/ThrowDetector.m; sourceTree = "<group>"; };
 		22719D7B1083149D00F84755 /* VcardParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardParserDelegate.h; sourceTree = "<group>"; };
@@ -481,6 +482,9 @@
 		229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriterTests.m; path = Tests/Vcard/VcardWriterTests.m; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
+		22A5B7C3115D09F400579AC5 /* HoccerContentIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentIPad.h; sourceTree = "<group>"; };
+		22A8A0381160AB35004BCD3D /* HoccerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerRequest.h; sourceTree = "<group>"; };
+		22A8A0391160AB35004BCD3D /* HoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerRequest.m; sourceTree = "<group>"; };
 		22AD327B11107C7700BC7DEC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		22AD329B11107D7500BC7DEC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		22AD32AE11107FA200BC7DEC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -641,29 +645,30 @@
 		2205A6E21057C27F005C5036 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				22798FEC105FCA1E0035C643 /* HoccerContentFactory.h */,
+				22798FED105FCA1E0035C643 /* HoccerContentFactory.m */,
+				229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */,
+				229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */,
+				229AA91A115B758500290513 /* HoccerContentFactoryIPad.h */,
+				229AA91B115B758500290513 /* HoccerContentFactoryIPad.m */,
 				22798FE4105FC9D90035C643 /* HoccerContent.h */,
+				22A5B7C3115D09F400579AC5 /* HoccerContentIPad.h */,
 				22798FE5105FC9D90035C643 /* HoccerImage.h */,
 				22798FE6105FC9D90035C643 /* HoccerImage.m */,
 				229AA91E115B779300290513 /* HoccerImageIPhone.h */,
 				229AA91F115B779300290513 /* HoccerImageIPhone.m */,
-				229AA922115B77A300290513 /* HoccerImageIPad.h */,
-				229AA923115B77A300290513 /* HoccerImageIPad.m */,
 				22798FE7105FC9D90035C643 /* HoccerUrl.h */,
 				22798FE8105FC9D90035C643 /* HoccerUrl.m */,
-				22798FEC105FCA1E0035C643 /* HoccerContentFactory.h */,
-				22798FED105FCA1E0035C643 /* HoccerContentFactory.m */,
 				22799044105FDCEB0035C643 /* HoccerText.h */,
 				22799045105FDCEB0035C643 /* HoccerText.m */,
 				22791C57108C570F00059D05 /* HoccerVcard.h */,
 				22791C58108C570F00059D05 /* HoccerVcard.m */,
 				2297A065115A5B7B002B59C2 /* HoccerData.h */,
 				2297A066115A5B7B002B59C2 /* HoccerData.m */,
-				229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */,
-				229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */,
-				229AA91A115B758500290513 /* HoccerContentFactoryIPad.h */,
-				229AA91B115B758500290513 /* HoccerContentFactoryIPad.m */,
-				2259BB5E115BB4500099F9BE /* HoccerDataiPad.h */,
-				2259BB5F115BB4500099F9BE /* HoccerDataiPad.m */,
+				2259BB5E115BB4500099F9BE /* HoccerDataIPad.h */,
+				2259BB5F115BB4500099F9BE /* HoccerDataIPad.m */,
+				229AA922115B77A300290513 /* HoccerImageIPad.h */,
+				229AA923115B77A300290513 /* HoccerImageIPad.m */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -685,6 +690,8 @@
 				223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */,
 				2273358B10566826004228B4 /* DownloadRequest.h */,
 				2273358C10566826004228B4 /* DownloadRequest.m */,
+				22A8A0381160AB35004BCD3D /* HoccerRequest.h */,
+				22A8A0391160AB35004BCD3D /* HoccerRequest.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -1329,7 +1336,7 @@
 				229AA91C115B758500290513 /* HoccerContentFactoryIPad.m in Sources */,
 				229AA920115B779300290513 /* HoccerImageIPhone.m in Sources */,
 				229AA924115B77A300290513 /* HoccerImageIPad.m in Sources */,
-				2259BB61115BB4500099F9BE /* HoccerDataiPad.m in Sources */,
+				2259BB61115BB4500099F9BE /* HoccerDataIPad.m in Sources */,
 				22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1431,8 +1438,9 @@
 				229AA91D115B758500290513 /* HoccerContentFactoryIPad.m in Sources */,
 				229AA921115B779300290513 /* HoccerImageIPhone.m in Sources */,
 				229AA925115B77A300290513 /* HoccerImageIPad.m in Sources */,
-				2259BB60115BB4500099F9BE /* HoccerDataiPad.m in Sources */,
+				2259BB60115BB4500099F9BE /* HoccerDataIPad.m in Sources */,
 				22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */,
+				22A8A03A1160AB35004BCD3D /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -98,17 +98,11 @@
 }
 
 - (void)viewDidLoad {
-	previewViewController = [[DragAndDropViewController alloc] init];
-	previewViewController.delegate = self;
-	
 	desktopViewController = [[DesktopViewController alloc] init];
 	desktopViewController.view = backgroundView;
-	desktopViewController.feedback = sweepInView;
-	desktopViewController.delegate = self.delegate;
+	desktopViewController.delegate = self;
 	
-	sweepInView.hidden = YES;
     isPopUpDisplayed = FALSE;
-	[backgroundView addSubview: sweepInView];
 	
 	self.allowSweepGesture = YES;	
 	previewViewController.shouldSnapBackOnTouchUp = YES;
@@ -120,7 +114,6 @@
 
 - (void)dealloc {
 	[delayedAction release];
-	[sweepInView release];
 
 	[previewViewController release];		
 	[desktopViewController release];	

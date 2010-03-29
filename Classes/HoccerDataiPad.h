@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
+#import "HoccerData.h"
 
-@interface HoccerDataiPad : NSObject <HoccerContent> {
+
+@interface HoccerDataIPad : HoccerData <HoccerContent> {
 	
-	NSString *filepath;
 	UIDocumentInteractionController *documentInteractionController;
 }
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
-
 - (UIDocumentInteractionController *)interactionController;
+
 @end

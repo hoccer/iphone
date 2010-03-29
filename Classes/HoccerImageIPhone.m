@@ -12,18 +12,4 @@
 @implementation HoccerImageIPhone
 
 
-//- (UIImage *)icon;
-
-//- (void)presentPreviewInViewController:(UIViewController *)viewController {
-//	viewControllerForPreview = [viewController retain];
-//	
-//	
-//}
-//
-//
-//- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-//	return viewController;
-//}
-
-
 @end
