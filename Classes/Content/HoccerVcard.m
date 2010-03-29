@@ -68,8 +68,7 @@
 	return unknownPersonController.view;
 }
 
-- (Preview *)thumbnailView
-{
+- (Preview *)thumbnailView {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Contactbox" ofType:@"png"];

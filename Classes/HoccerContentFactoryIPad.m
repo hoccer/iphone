@@ -8,7 +8,7 @@
 
 #import "HoccerContentFactoryIPad.h"
 #import "HoccerDataIPad.h"
-#import "HoccerVcard.h"
+#import "HoccerVcardiPad.h"
 #import "HoccerImageIPad.h"
 #import "HoccerUrl.h"
 #import "HoccerText.h"
@@ -23,7 +23,7 @@
 	NSString *mimeType = [response MIMEType];
 	
 	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data filename: [response suggestedFilename]];
+		hoccerContent = [[HoccerVcardiPad alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImageIPad alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType isEqual: @"text/plain"]) {
