@@ -6,8 +6,8 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
+#import "HoccerContent.h"
 #import "HoccerContentFactoryIPad.h"
-#import "HoccerDataIPad.h"
 #import "HoccerVcardiPad.h"
 #import "HoccerImageIPad.h"
 #import "HoccerUrl.h"
@@ -33,7 +33,7 @@
 			hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
 		}
 	} else {
-		hoccerContent = [[HoccerDataIPad alloc] initWithData:data filename: [response suggestedFilename]];
+		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
 	}
 	
 	return [hoccerContent autorelease];

@@ -131,9 +131,16 @@
 	}
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
+	
+	NSLog(@"number of items:%d", numberOfItems);
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
-		[self.view addSubview: controller.view];
+		
+		NSLog(@"fileurl: %@", controller.content);
+		
+		if (controller.content != nil) {
+			[self.view addSubview: controller.view];
+		}
 	}
 }
 

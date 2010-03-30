@@ -14,7 +14,6 @@
 
 #import "HoccerContent.h"
 #import "HoccerImage.h"
-#import "HoccerDataIPad.h"
 
 #import "DesktopDataSource.h"
 
@@ -33,12 +32,10 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	desktopData = [[DesktopDataSource alloc] init];
 	
 	self.previewViewController.shouldSnapBackOnTouchUp = NO;
 	desktopViewController.shouldSnapToCenterOnTouchUp = NO;
 	desktopViewController.dataSource = desktopData;
-	[desktopViewController reloadData];
 }
 
 

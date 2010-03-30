@@ -115,6 +115,9 @@
 	self.allowSweepGesture = YES;	
 	previewViewController.shouldSnapBackOnTouchUp = YES;
 	desktopViewController.shouldSnapToCenterOnTouchUp = YES;
+	
+	desktopData = [[DesktopDataSource alloc] init];
+	desktopData.viewController = self;
 }
 
 - (void)viewDidUnload {
@@ -462,7 +465,7 @@
 	HocItemData *item = [desktopData hocItemDataForController:controller];
 	
 	[desktopData removeController:item];
-	[desktopViewController reloadData];
+	// [desktopViewController reloadData];
 }
 
 

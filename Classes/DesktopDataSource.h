@@ -12,7 +12,11 @@
 
 @interface DesktopDataSource : NSObject {
 	NSMutableArray *contentOnDesktop;
+	
+	UIViewController *viewController;
 }
+
+@property (assign) UIViewController *viewController;
 
 - (NSInteger) numberOfItems;
 - (DragAndDropViewController *)viewControllerAtIndex: (NSInteger) index;

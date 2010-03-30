@@ -7,9 +7,11 @@
 //
 
 #import "DesktopDataSource.h"
+#import "DragAndDropViewController.h"
 #import "HocItemData.h"
 
 @implementation DesktopDataSource
+@synthesize viewController;
 
 #pragma mark -
 #pragma mark DesktopViewController Data Source
@@ -34,16 +36,22 @@
 }
 
 - (DragAndDropViewController *)viewControllerAtIndex: (NSInteger)index {
-	return ((HocItemData *)[contentOnDesktop objectAtIndex:index]).dragAndDropViewConroller; 	
+	
+	DragAndDropViewController *dragdropViewController =  ((HocItemData *)[contentOnDesktop objectAtIndex:index]).dragAndDropViewConroller;
+	[dragdropViewController.content decorateViewWithGestureRecognition:dragdropViewController.view inViewController: self.viewController];
+
+	return dragdropViewController; 	
 }
 
 
-- (void)addController: (HocItemData *)controller {
-	[contentOnDesktop addObject:controller];
+- (void)addController: (HocItemData *)hocItem {
+	NSLog(@"controller: %@", hocItem.dragAndDropViewConroller);
+
+	[contentOnDesktop addObject:hocItem];
 }
 
-- (void)removeController: (HocItemData *)controller {
-	[contentOnDesktop removeObject:controller];
+- (void)removeController: (HocItemData *)hocItem {
+	[contentOnDesktop removeObject:hocItem];
 }
 
 - (BOOL)controllerHasActiveRequest {

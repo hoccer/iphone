@@ -10,16 +10,20 @@
 #import "HoccerContent.h"
 
 @class Preview;
+@class HoccerContentIPadPreviewDelegate;
 
 
-@interface HoccerContent : NSObject{
+@interface HoccerContent : NSObject {
 	NSString *filepath;	
 	NSData *data;
+	
+	HoccerContentIPadPreviewDelegate *previewDelegate;
 }
 
 @property (retain) NSData *data; 
 @property (retain) NSString* filepath;
 @property (nonatomic, readonly) NSString *extension;
+@property (nonatomic, readonly) NSURL *fileUrl;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (void) removeFromDocumentDirectory;
@@ -40,5 +44,8 @@
 
 - (NSString *)descriptionOfSaveButton;
 - (void) saveDataToDocumentDirectory;
+
+- (void)decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController;
+- (void)previewInViewController: (UIViewController *)viewController;
 
 @end

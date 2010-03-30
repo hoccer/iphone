@@ -12,6 +12,7 @@
 #import "HoccerUploadRequest.h"
 #import "HoccerDownloadRequest.h"
 #import "HoccerContent.h"
+#import "HoccerContentIPad.h"
 #import "HoccerContentFactory.h"
 
 #import "DragAndDropViewController.h"
@@ -66,6 +67,7 @@
 {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																										   withData: aRequest.result];
+	
 	dragAndDropViewConroller.content = hoccerContent;	
 	[request release];
 	request = nil;
