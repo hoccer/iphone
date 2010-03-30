@@ -85,11 +85,11 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	// [statusViewController setError: [error localizedDescription]];
 	[dragAndDropViewConroller resetViewAnimated:YES];
 	[request release];
 	request = nil;
-	
+
+	// [statusViewController setError: [error localizedDescription]];
 	// [statusViewController hideActivityInfo];
 }
 
