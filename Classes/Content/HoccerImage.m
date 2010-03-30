@@ -28,9 +28,8 @@
 - (void)createDataRepresentaion: (HoccerImage *)content
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSData* data = UIImageJPEGRepresentation(content.image, 0.8);
-	NSString* filename = [NSString stringWithFormat:@"img_%f.jpg", [NSDate timeIntervalSinceReferenceDate]];
-	[content setData: data filename: filename];
+	content.data = UIImageJPEGRepresentation(content.image, 0.8);
+	[content saveDataToDocumentDirectory];
 	
 	if (![[NSThread currentThread] isCancelled]) {
 		self.isReady = YES;
@@ -52,7 +51,6 @@
 	self = [super init];
 	if (self != nil) {
 		image = [aImage retain];
-		isDataReady = NO;
 		
 		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
 		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
@@ -72,8 +70,6 @@
 - (void) dealloc
 {
 	[image release];
-	
-	[viewControllerForPreview release];
 	[super dealloc];
 }
 
@@ -103,9 +99,9 @@
 	return [view autorelease];
 }
 	
-- (NSString *)filename
-{
-	return @"image.jpg";
+
+- (NSString *)extension {
+	return @"jpg";
 }
 
 - (NSString *)mimeType
@@ -113,7 +109,7 @@
 	return @"image/jpeg";
 }
 
-- (NSString *)saveButtonDescription 
+- (NSString *)descriptionOfSaveButton 
 {
 	return @"Save to Gallery";
 }
@@ -123,7 +119,7 @@
 	return (data != nil);
 }
 
-- (void)save
+- (void)saveDataToContentStorage
 {
 	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
@@ -144,7 +140,5 @@
 	target = aTarget;
 	selector  = aSelector;
 }
-
-
 
 @end

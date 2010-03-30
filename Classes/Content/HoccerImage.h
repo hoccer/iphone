@@ -10,21 +10,14 @@
 #import "HoccerContent.h"
 
 @interface HoccerImage : HoccerContent {
-	UIImage *image;
-
-	NSThread *secondThread;
-	BOOL isDataReady;
-	
+	UIImage *image;	
 	id target;
 	SEL selector;
-	
-	UIViewController *viewControllerForPreview;
 }
 
 @property (nonatomic, readonly) UIImage* image;
 
 - (id)initWithUIImage: (UIImage *)aImage;
-
-- (UIView *)fullscreenView;
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector;
 
 @end

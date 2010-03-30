@@ -11,8 +11,9 @@
 
 
 @interface HoccerText : HoccerContent <UITextViewDelegate> {
-	NSString *content;	
 	UITextView *textView;
 }
+
+@property (nonatomic, readonly) NSString *content;
 
 @end

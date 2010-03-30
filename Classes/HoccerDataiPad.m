@@ -79,12 +79,9 @@
 
 // deprecate
 - (BOOL)isDataReady {return NO; }
-- (NSString *)saveButtonDescription {return nil; }
+- (NSString *)descriptionOfSaveButton {return nil; }
 - (void)contentWillBeDismissed {}
 - (BOOL)needsWaiting {return NO; }
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector {}
-
-
-
 
 @end

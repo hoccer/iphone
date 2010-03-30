@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerVcard.h"
+#import "HoccerContentIPad.h"
 
-@interface HoccerVcardiPad : HoccerVcard {
+@interface HoccerVcardIPad : HoccerVcard <HoccerContentIPad>{
 
 }
 

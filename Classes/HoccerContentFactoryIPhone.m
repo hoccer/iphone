@@ -31,7 +31,7 @@
 			hoccerContent = [[HoccerText alloc] initWithData: data];
 		}
 	} else {
-		hoccerContent = [[hoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
+		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
 	}
 	
 	

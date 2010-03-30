@@ -21,23 +21,9 @@
 
 @synthesize textView;
 
-- (id) initWithData: (NSData *)theData {
-	self = [super init];
-	
-	if (self != nil) {
-		content = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
-	}
-	
-	return self;
-}
-
-- (void)save {}
-
-- (void)dismiss {}
-
-- (UIView *)view {
+- (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
-	text.text = content;
+	text.text = self.content;
 	text.editable = YES;
 	
 	return [text autorelease];
@@ -66,23 +52,15 @@
 	[backgroundImage release];
 	return [view autorelease];
 }
-
-- (NSString *)saveButtonDescription {
-	return nil;
-}
 	
 - (void)dealloc
 {
-	[textView release];
-	[content release];
-	
+	[textView release];	
 	[super dealloc];
 }
 
-
-- (NSString *)filename 
-{
-	return @"text.txt";
+- (void)prepareSharing{
+	[self.data writeToFile: filepath atomically: NO];
 }
 
 - (NSString *)mimeType
@@ -90,20 +68,14 @@
 	return @"text/plain";
 }
 
+- (NSString *)extension {
+	return @"txt";
+}
+
 - (NSData *)data 
-{
+{	
 	[textView resignFirstResponder];
 	return [textView.text dataUsingEncoding: NSUTF8StringEncoding];
-}
-
-- (BOOL)isDataReady 
-{
-	return YES;
-}
-
-- (void) contentWillBeDismissed 
-{
-	[textView resignFirstResponder];
 }
 
 - (void)dismissKeyboard
@@ -111,12 +83,8 @@
 	[textView resignFirstResponder];
 }
 
-- (BOOL)needsWaiting 
-{
-	return NO;
+- (NSString *)content {
+	return [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
 }
-
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
-{}
 
 @end

@@ -21,50 +21,31 @@
 	return YES;
 }
 
-- (void)save 
+- (void)saveDataToContentStorage 
 {
 	NSURL *url = nil;
 	if (webView) {
 		NSURLRequest *request = webView.request;
 		url = [request URL];
 	} else {
-		url = [NSURL URLWithString: content];
+		url = [NSURL URLWithString: self.content];
 	}
 		
 	[[UIApplication sharedApplication] openURL: url];
 }
 
-- (void)dismiss {}
-
-- (NSString *)saveButtonDescription 
+- (NSString *)descriptionOfSaveButton 
 {
 	return @"Open in Safari";
 }
 
-- (UIView *)view {
+- (UIView *)fullscreenView {
 	webView = [[UIWebView alloc] initWithFrame: CGRectMake(10, 60, 300, 350)];
 	webView.scalesPageToFit = YES;
 	
-	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:content]]];	
+	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:self.content]]];	
 	return [webView  autorelease];
 }
-
-- (Preview *)preview
-{
-	return nil;
-}
-
-- (void)contentWillBeDismissed 
-{
-}
-
-- (BOOL)needsWaiting 
-{
-	return NO;
-}
-
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
-{}
 
 
 @end

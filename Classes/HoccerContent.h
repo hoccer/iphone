@@ -19,12 +19,14 @@
 
 @property (retain) NSData *data; 
 @property (retain) NSString* filepath;
+@property (nonatomic, readonly) NSString *extension;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (void) removeFromDocumentDirectory;
-- (void) setData:(NSData *) theData filename: (NSString*) aFilename;
+- (void) saveDataToDocumentDirectory;
 
-- (void)save;
+- (void)saveDataToContentStorage;
+
 - (UIView *)fullscreenView;
 - (Preview *)desktopItemView;
 
@@ -32,10 +34,11 @@
 - (NSString *)mimeType;
 
 - (BOOL)isDataReady;
+- (void)prepareSharing;
 
 - (BOOL)needsWaiting;
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector;
 
-- (NSString *)saveButtonDescription;
+- (NSString *)descriptionOfSaveButton;
+- (void) saveDataToDocumentDirectory;
 
 @end

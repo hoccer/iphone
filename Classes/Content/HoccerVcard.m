@@ -16,48 +16,47 @@
 
 @implementation HoccerVcard
 
-- (id) initWithData: (NSData *)theData {
+
+
+
+- (id)initWitPerson: (ABRecordRef)aPerson {
 	self = [super init];
-	if (self != nil) {
-		NSString *vcardString = [NSString stringWithData:theData usingEncoding:NSUTF8StringEncoding]; 
+	if (self != nil) {		
+		person = aPerson;
+		CFRetain(person);
+		
+		abPersonVCardCreator = [[ABPersonVCardCreator alloc] initWithPerson:person];		
+		self.data = [abPersonVCardCreator vcard];
+		[self saveDataToDocumentDirectory];
+	}
+	
+	return self;
+}
+
+- (ABRecordRef) person{
+	if (person == NULL) {
+		NSString *vcardString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding]; 
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
 		
 		person = creator.person;
 		CFRetain(person);
 		
-		[creator release];
+		[creator release];	
 	}
-	
-	return self;
+	return person;
 }
 
-- (id)initWitPerson: (ABRecordRef)aPerson {
-	self = [super init];
-	if (self != nil) {
-		person = aPerson;
-		acPerson = [[ABPersonVCardCreator alloc] initWithPerson:person];
-		
-		CFRetain(person);
-	}
-	
-	return self;
-}
-
-- (void)save {
+- (void)saveDataToContentStorage {
 	CFErrorRef error = NULL;
 	
 	ABAddressBookRef addressBook = ABAddressBookCreate();
-	ABAddressBookAddRecord(addressBook, person, &error);
+	ABAddressBookAddRecord(addressBook, self.person, &error);
 	
 	ABAddressBookSave(addressBook, &error);
 	CFRelease(addressBook);
 }
 
-- (void)dismiss 
-{
-}
-
-- (UIView *)view 
+- (UIView *)fullscreenView 
 {
 	unknownPersonController = [[ABUnknownPersonViewController alloc] init];
 	unknownPersonController.displayedPerson = person;
@@ -81,16 +80,10 @@
 	
 	[view addSubview: label];
 	
-	label.text = [acPerson previewName]; 
+	label.text = [abPersonVCardCreator previewName]; 
 	[label release];
 	
 	return [view autorelease];
-}
-
-
-- (NSString *)filename
-{
-	return @"vcard.vcf";
 }
 
 - (NSString *)mimeType 
@@ -98,38 +91,22 @@
 	return @"text/x-vcard";
 }
 
-- (NSData *)data
-{
-	return [ABPersonVCardCreator vcardWithABPerson: person];
-}
-
-- (BOOL)isDataReady
-{
-	return YES;
-}
-
-- (NSString *)saveButtonDescription
+- (NSString *)descriptionOfSaveButton
 {
 	return @"Save Contact";
+}
+
+
+- (NSString *)extension {
+	return @"vcf";
 }
 
 - (void) dealloc
 {
 	CFRelease(person);
-	[acPerson release];
+	[abPersonVCardCreator release];
 	[unknownPersonController release];
 	
 	[super dealloc];
 }
-
-- (void)contentWillBeDismissed 
-{}
-
-- (BOOL)needsWaiting {
-	return NO;
-}
-
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
-{}
-
 @end

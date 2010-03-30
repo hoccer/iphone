@@ -9,6 +9,7 @@
 #import "ReceivedContentViewController.h"
 #import "NSObject+DelegateHelper.h"
 #import "HoccerContent.h"
+#import "HoccerImage.h"
 
 @interface ReceivedContentViewController () 
 - (void)hideReceivedContentView;
@@ -41,13 +42,13 @@
 
 - (IBAction)onSave: (id)sender
 {
-	if ([hoccerContent needsWaiting])  {
+	if ([hoccerContent needsWaiting] && [hoccerContent isKindOfClass: [HoccerImage class]]){
 		[self setWaiting];
-		[hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
-		[hoccerContent save];
+		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
+		[hoccerContent saveDataToContentStorage];
 	} else {
 		[self hideReceivedContentView];
-		[hoccerContent save];
+		[hoccerContent saveDataToContentStorage];
 	}
 }
 
@@ -65,13 +66,13 @@
 	
 	[self.view insertSubview: content.fullscreenView atIndex:0];
 	
-	if ([content saveButtonDescription] == nil) {
+	if ([content descriptionOfSaveButton] == nil) {
 		NSMutableArray *items = [NSMutableArray arrayWithArray: toolbar.items];
 		[items removeObject: saveButton];
 		
 		[toolbar setItems:items animated: NO];
 	} else {
-		saveButton.title = [content saveButtonDescription];
+		saveButton.title = [content descriptionOfSaveButton];
 	}
 	
 	[toolbar setHidden: NO];

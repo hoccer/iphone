@@ -1,18 +1,15 @@
 //
-//  HoccerVcardiPad.m
+//  HoccerUrlIPad.m
 //  Hoccer
 //
-//  Created by Robert Palmer on 29.03.10.
+//  Created by Robert Palmer on 30.03.10.
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HoccerVcardiPad.h"
-#import "ACPerson.h"
-#import "Preview.h"
-#import "ABPersonCreator.h"
-#import "NSString+StringWithData.h"
+#import "HoccerUrlIPad.h"
 
-@implementation HoccerVcardIPad
+
+@implementation HoccerUrlIPad
 
 - (UIDocumentInteractionController*) interactionController{
 	return [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath: filepath]];	

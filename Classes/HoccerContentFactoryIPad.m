@@ -23,7 +23,7 @@
 	NSString *mimeType = [response MIMEType];
 	
 	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcardiPad alloc] initWithData: data filename: [response suggestedFilename]];
+		hoccerContent = [[HoccerVcardIPad alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImageIPad alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType isEqual: @"text/plain"]) {

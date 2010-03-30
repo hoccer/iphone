@@ -115,6 +115,7 @@
 }
 
 - (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture {
+	[dragAndDropViewConroller.content prepareSharing];
 	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:gesture content: dragAndDropViewConroller.content 
 													   type: [dragAndDropViewConroller.content mimeType] filename: [dragAndDropViewConroller.content filename] delegate:self];
 }

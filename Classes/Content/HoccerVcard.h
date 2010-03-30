@@ -15,7 +15,7 @@
 
 @interface HoccerVcard : HoccerContent {
 	ABRecordRef person;
-	ABPersonVCardCreator *acPerson;
+	ABPersonVCardCreator *abPersonVCardCreator;
 	
 	ABUnknownPersonViewController *unknownPersonController;
 }

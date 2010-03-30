@@ -1,0 +1,17 @@
+//
+//  HoccerTextIPad.h
+//  Hoccer
+//
+//  Created by Robert Palmer on 30.03.10.
+//  Copyright 2010 Art+Com AG. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "HoccerText.h"
+#import "HoccerContentIPad.h"
+
+@interface HoccerTextIPad : HoccerText <HoccerContentIPad>{
+
+}
+
+@end
