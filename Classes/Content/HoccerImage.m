@@ -130,13 +130,11 @@
 	[target checkAndPerformSelector: selector];
 }
 
-- (BOOL)needsWaiting
-{
+- (BOOL)needsWaiting {
 	return YES;
 }
 
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector 
-{
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector {
 	target = aTarget;
 	selector  = aSelector;
 }

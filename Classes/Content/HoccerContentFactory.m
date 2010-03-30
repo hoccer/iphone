@@ -8,7 +8,6 @@
 
 #import "HoccerContentFactory.h"
 #import "HoccerContentFactoryIPhone.h"
-#import "HoccerContentFactoryIPad.h"
 
 #import "HoccerContent.h"
 #import "HoccerImage.h"
@@ -23,14 +22,9 @@ static HoccerContentFactory* sharedInstance = nil;
 + (HoccerContentFactory *) sharedHoccerContentFactory {
 
 	if (sharedInstance == nil) {		
-		
-		if (!NSClassFromString(@"UIDocumentInteractionController")) {
-			sharedInstance = [[HoccerContentFactoryIPhone alloc] init];		
-		} else {
-			sharedInstance = [[HoccerContentFactoryIPad alloc] init];		
-		}
-		
-	} 
+		sharedInstance = [[HoccerContentFactoryIPhone alloc] init];		
+	}
+	
 	return sharedInstance;
 }
 

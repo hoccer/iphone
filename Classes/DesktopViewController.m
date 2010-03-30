@@ -138,9 +138,7 @@
 		
 		NSLog(@"fileurl: %@", controller.content);
 		
-		if (controller.content != nil) {
-			[self.view addSubview: controller.view];
-		}
+		[self.view addSubview: controller.view];
 	}
 }
 
