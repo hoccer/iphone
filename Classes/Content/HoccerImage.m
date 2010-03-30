@@ -60,15 +60,14 @@
 	return self;
 }
 
-- (UIImage*) image{
+- (UIImage*) image {
 	if (image == nil && data != nil) {
 		image = [[UIImage imageWithData:data] retain];
 	}
 	return image;
 } 
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[image release];
 	[super dealloc];
 }
@@ -84,8 +83,7 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (Preview *)desktopItemView
-{
+- (Preview *)desktopItemView {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
@@ -104,13 +102,11 @@
 	return @"jpg";
 }
 
-- (NSString *)mimeType
-{
+- (NSString *)mimeType {
 	return @"image/jpeg";
 }
 
-- (NSString *)descriptionOfSaveButton 
-{
+- (NSString *)descriptionOfSaveButton {
 	return @"Save to Gallery";
 }
 
@@ -125,8 +121,7 @@
 }
 
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 
-				contextInfo: (void *) contextInfo 
-{
+				contextInfo: (void *) contextInfo {
 	[target checkAndPerformSelector: selector];
 }
 

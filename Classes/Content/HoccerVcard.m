@@ -68,6 +68,7 @@
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Contactbox" ofType:@"png"];
+	
 	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
 	
 	[view addSubview:backgroundImage];
@@ -86,16 +87,13 @@
 	return [view autorelease];
 }
 
-- (NSString *)mimeType 
-{
+- (NSString *)mimeType {
 	return @"text/x-vcard";
 }
 
-- (NSString *)descriptionOfSaveButton
-{
+- (NSString *)descriptionOfSaveButton {
 	return @"Save Contact";
 }
-
 
 - (NSString *)extension {
 	return @"vcf";
