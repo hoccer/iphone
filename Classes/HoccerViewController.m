@@ -164,7 +164,7 @@
 - (IBAction)selectText: (id)sender {
 	[self hidePopOverAnimated: YES];
 	
-	id <HoccerContent> content = [[[HoccerText alloc] init] autorelease];
+	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 	
 	gestureInterpreter.delegate = self;
@@ -207,9 +207,9 @@
 	[alertView release];
 }
 
-- (void)setContentPreview: (id <HoccerContent>)content {
+- (void)setContentPreview: (HoccerContent*)content {
 	[previewViewController.view removeFromSuperview];
-	Preview *contentView = [content thumbnailView];
+	Preview *contentView = [content desktopItemView];
 	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
 	
 	[backgroundView insertSubview: contentView atIndex: 1];
@@ -265,7 +265,7 @@
 	 isPopUpDisplayed = TRUE;
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent
+- (void)presentReceivedContent:(HoccerContent*) hoccerContent
 {
 	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
 	
@@ -332,7 +332,7 @@
 #pragma mark UIImagePickerController Delegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	id <HoccerContent> content = [[[HoccerImage alloc] initWithUIImage:
+	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	gestureInterpreter.delegate = self;
@@ -352,7 +352,7 @@
 	ABAddressBookRef addressBook = ABAddressBookCreate();
 	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
 	
-	id <HoccerContent> content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
+	HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
 	
 	gestureInterpreter.delegate = self;
 	self.allowSweepGesture = NO;

@@ -56,14 +56,14 @@
 	[self hideReceivedContentView];
 }
 
-- (void)setHoccerContent: (id <HoccerContent>) content 
+- (void)setHoccerContent: (HoccerContent*) content 
 {	
 	if (hoccerContent != content) {
 		[hoccerContent release];
 		hoccerContent = [content retain];
 	}
 	
-	[self.view insertSubview: content.view atIndex:0];
+	[self.view insertSubview: content.fullscreenView atIndex:0];
 	
 	if ([content saveButtonDescription] == nil) {
 		NSMutableArray *items = [NSMutableArray arrayWithArray: toolbar.items];

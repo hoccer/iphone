@@ -11,12 +11,12 @@
 #import "HoccerImage.h"
 #import "HoccerUrl.h"
 #import "HoccerText.h"
-#import "HoccerData.h"
+#import "HoccerContent.h"
 
 @implementation HoccerContentFactoryIPhone
 
-- (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
-	id <HoccerContent> hoccerContent = nil;
+- (HoccerContent*)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
+	HoccerContent* hoccerContent = nil;
 	
 	NSString *mimeType = [response MIMEType];
 	
@@ -31,7 +31,7 @@
 			hoccerContent = [[HoccerText alloc] initWithData: data];
 		}
 	} else {
-		hoccerContent = [[HoccerData alloc] initWithData:data filename: [response suggestedFilename]];
+		hoccerContent = [[hoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
 	}
 	
 	

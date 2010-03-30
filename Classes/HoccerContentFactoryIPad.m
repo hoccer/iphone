@@ -12,13 +12,13 @@
 #import "HoccerImageIPad.h"
 #import "HoccerUrl.h"
 #import "HoccerText.h"
-#import "HoccerData.h"
+#import "HoccerContent.h"
 
 @implementation HoccerContentFactoryIPad
 
-- (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
+- (HoccerContent*)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	
-	id <HoccerContent> hoccerContent = nil;
+	HoccerContent* hoccerContent = nil;
 	
 	NSString *mimeType = [response MIMEType];
 	

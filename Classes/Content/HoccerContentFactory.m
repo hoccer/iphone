@@ -15,7 +15,6 @@
 #import "HoccerUrl.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
-#import "HoccerData.h"
 
 static HoccerContentFactory* sharedInstance = nil;
 
@@ -35,7 +34,7 @@ static HoccerContentFactory* sharedInstance = nil;
 	return sharedInstance;
 }
 
-- (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
+- (HoccerContent*)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	[self doesNotRecognizeSelector:_cmd];
 	
 	return nil;

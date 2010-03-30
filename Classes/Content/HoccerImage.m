@@ -28,7 +28,9 @@
 - (void)createDataRepresentaion: (HoccerImage *)content
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	content.data = UIImageJPEGRepresentation(content.image, 0.8);
+	NSData* data = UIImageJPEGRepresentation(content.image, 0.8);
+	NSString* filename = [NSString stringWithFormat:@"img_%f.jpg", [NSDate timeIntervalSinceReferenceDate]];
+	[content setData: data filename: filename];
 	
 	if (![[NSThread currentThread] isCancelled]) {
 		self.isReady = YES;
@@ -60,21 +62,12 @@
 	return self;
 }
 
-
-- (id)initWithData: (NSData *)aData 
-{
-	self = [super init];
-	if (self != nil) {
-		data = [aData retain];
-		image = [[UIImage imageWithData:aData] retain];
+- (UIImage*) image{
+	if (image == nil && data != nil) {
+		image = [[UIImage imageWithData:data] retain];
 	}
-	return self;
-}
-
-- (void)save
-{
-	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
-}
+	return image;
+} 
 
 - (void) dealloc
 {
@@ -84,11 +77,7 @@
 	[super dealloc];
 }
 
-
-
-- (void)dismiss {}
-
-- (UIView *)view 
+- (UIView *)fullscreenView 
 {	
 	CGSize size = CGSizeMake(320, 480);
 	
@@ -99,7 +88,7 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (Preview *)thumbnailView
+- (Preview *)desktopItemView
 {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
@@ -110,10 +99,9 @@
 	[view sendSubviewToBack:backgroundImage];
 	[backgroundImage release];
 
-	[view setImage:image];
+	[view setImage: self.image];
 	return [view autorelease];
 }
-	
 	
 - (NSString *)filename
 {
@@ -123,11 +111,6 @@
 - (NSString *)mimeType
 {
 	return @"image/jpeg";
-}
-
-- (NSData *)data
-{
-	return data;
 }
 
 - (NSString *)saveButtonDescription 
@@ -140,8 +123,9 @@
 	return (data != nil);
 }
 
-- (void)contentWillBeDismissed
+- (void)save
 {
+	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 

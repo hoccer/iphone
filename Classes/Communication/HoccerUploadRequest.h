@@ -18,7 +18,7 @@
 	BaseHoccerRequest *request;
 	BaseHoccerRequest *upload;
 	
-	id <HoccerContent> content;
+	HoccerContent* content;
 	NSString *type;
 	NSString *filename;
 	
@@ -31,11 +31,11 @@
 }
 
 @property (nonatomic, assign) id delegate;
-@property (retain) id <HoccerContent> content;
+@property (retain) HoccerContent* content;
 @property (retain) NSString *type;
 @property (retain) NSString *filename;
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (id <HoccerContent>)theContent 
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (HoccerContent *)theContent 
 				  type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate;
 - (void)cancel;
 

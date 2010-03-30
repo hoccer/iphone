@@ -64,7 +64,7 @@
 
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
-	id <HoccerContent> hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
+	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																										   withData: aRequest.result];
 	dragAndDropViewConroller.content = hoccerContent;	
 	[request release];

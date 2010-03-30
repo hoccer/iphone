@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
-#import "HoccerData.h"
 
-
-@interface HoccerDataIPad : HoccerData <HoccerContent> {
+@interface HoccerDataIPad : HoccerContent {
 	
 	UIDocumentInteractionController *documentInteractionController;
 }

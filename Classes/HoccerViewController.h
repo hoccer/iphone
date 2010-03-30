@@ -63,11 +63,11 @@
 
 - (void)showError: (NSString *)message;
 
-- (void)setContentPreview: (id <HoccerContent>)content;
+- (void)setContentPreview: (HoccerContent *)content;
 - (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
-- (void)setContentPreview: (id <HoccerContent>)content;
-- (void)presentReceivedContent:(id <HoccerContent>) hoccerContent;
+- (void)setContentPreview: (HoccerContent *)content;
+- (void)presentReceivedContent:(HoccerContent *) hoccerContent;
 
 - (IBAction)didDissmissContentToThrow: (id)sender;
 

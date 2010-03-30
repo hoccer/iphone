@@ -23,7 +23,7 @@
 
 @property (retain) UIPopoverController *popOver;
 - (UIPopoverController *)popOverWithController: (UIViewController*)controller;
-- (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content;
+- (DragAndDropViewController *)createDragAndDropControllerForContent: (HoccerContent*) content;
 
 @end
 
@@ -97,12 +97,12 @@
 	[super selectText: sender];
 }
 
-- (void)setContentPreview: (id <HoccerContent>)content {
+- (void)setContentPreview: (HoccerContent*)content {
 	[self createDragAndDropControllerForContent: content];
 	[desktopViewController reloadData];
 }
 
-- (void)presentReceivedContent:(id <HoccerContent>) content {}
+- (void)presentReceivedContent:(HoccerContent*) content {}
 
 - (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
@@ -113,7 +113,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	id <HoccerContent> content = [[[HoccerImage alloc] initWithUIImage:
+	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	[self.delegate checkAndPerformSelector:@selector(hoccerViewController:didSelectContent:) withObject:self withObject: content];
@@ -143,7 +143,7 @@
 	return popOver;
 }
 
-- (DragAndDropViewController *)createDragAndDropControllerForContent: (id <HoccerContent>) content {
+- (DragAndDropViewController *)createDragAndDropControllerForContent: (HoccerContent*) content {
 	DragAndDropViewController *dragViewController = [self emptyDragAndDropController];
 	dragViewController.content = content;	
 	dragViewController.origin = CGPointMake(300, 300);

@@ -14,7 +14,7 @@
 
 @implementation HoccerVcardiPad
 
-- (Preview *)thumbnailView {
+- (Preview *)desktopItemView {
 	NSData *filedata = [NSData dataWithContentsOfFile: filepath];
 	NSString *vcardString = [NSString stringWithData:filedata usingEncoding:NSUTF8StringEncoding]; 
 	NSLog(@"person: %@", vcardString);

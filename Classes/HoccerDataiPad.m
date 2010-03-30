@@ -40,7 +40,7 @@
 	return [[[UIImageView alloc] initWithImage: [documentInteractionController.icons objectAtIndex:0]] autorelease];
 }
 
-- (Preview *)thumbnailView {
+- (Preview *)desktopItemView {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
@@ -58,22 +58,26 @@
 	return documentInteractionController.name;
 }
 
-- (NSString *)mimeType {
-	return nil;
+
+- (void)previewInViewController: (UIViewController *)view {
+	
 }
 
-- (NSData *)data {
-	return nil;
+- (void)decorateViewWithGestureDeector: (UIView *)view {
+	
 }
+
+- (void)saveInSystem {
+// [dataType save: data];
+}
+
 
 // new super power methods
 - (UIDocumentInteractionController *)interactionController {
 	return documentInteractionController;
 }
 
-
-
-// depracate
+// deprecate
 - (BOOL)isDataReady {return NO; }
 - (NSString *)saveButtonDescription {return nil; }
 - (void)contentWillBeDismissed {}

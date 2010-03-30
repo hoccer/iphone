@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HoccerContent.h">
+#import "HoccerContent.h"
 
 @interface DragAndDropViewController : UIViewController {
 	id delegate;
@@ -18,7 +18,7 @@
 	
 	BOOL shouldSnapBackOnTouchUp;
 	
-	id <HoccerContent> content;
+	HoccerContent* content;
 	
 	NSTimeInterval requestStamp;
 	
@@ -28,7 +28,7 @@
 @property (nonatomic, retain) id delegate;
 @property (assign) CGPoint origin;
 @property (assign) BOOL shouldSnapBackOnTouchUp;
-@property (retain) id <HoccerContent> content;
+@property (retain) HoccerContent* content;
 
 - (void)dismissKeyboard;
 - (void)resetViewAnimated: (BOOL)animated;

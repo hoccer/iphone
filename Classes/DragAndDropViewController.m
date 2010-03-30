@@ -36,12 +36,12 @@
 	[super dealloc];
 }
 
-- (void)setContent:(id <HoccerContent>)theContent {
+- (void)setContent:(HoccerContent*)theContent {
 	if (theContent != content) {
 		[content release];
 		content = [theContent retain];
 
-		[self setView:[content thumbnailView]];
+		[self setView:[content desktopItemView]];
 	}
 }
 

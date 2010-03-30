@@ -11,10 +11,9 @@
 
 #import "HoccerContent.h"
 #import "ABPersonVCardCreator.h"
-#import "HoccerData.h"
 
 
-@interface HoccerVcard : HoccerData <HoccerContent> {
+@interface HoccerVcard : HoccerContent {
 	ABRecordRef person;
 	ABPersonVCardCreator *acPerson;
 	

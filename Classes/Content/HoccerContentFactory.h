@@ -16,7 +16,7 @@
 
 + (HoccerContentFactory *) sharedHoccerContentFactory;
 
-- (id <HoccerContent>)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data;
+- (HoccerContent*) createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data;
 - (BOOL) isSupportedType: (NSString *)mimeType;
 
 @end

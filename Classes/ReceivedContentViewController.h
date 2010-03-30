@@ -15,20 +15,20 @@
 	IBOutlet UIBarButtonItem *saveButton;
 	IBOutlet UIToolbar *toolbar;
 	
-	id <HoccerContent> hoccerContent;
+	HoccerContent* hoccerContent;
 
 	IBOutlet UIActivityIndicatorView *activity;
 	
 }
 
 @property (assign) id delegate;
-@property (nonatomic, retain) id <HoccerContent> hoccerContent;
+@property (nonatomic, retain) HoccerContent* hoccerContent;
 
 
 - (IBAction)onSave: (id)sender;
 - (IBAction)onDismiss: (id)sender;
 
-- (void)setHoccerContent: (id <HoccerContent>) content;
+- (void)setHoccerContent: (HoccerContent *) content;
 -  (void)setWaiting;
 
 @end

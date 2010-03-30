@@ -7,22 +7,20 @@
 //
 
 
-#import "HoccerData.h"
+#import "HoccerContent.h"
 #import "Preview.h"
 
-@implementation HoccerData
+@implementation HoccerContent
 @synthesize data;
+@synthesize filepath;
+
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename {
 	self = [super init];
 	if (self != nil) {
-		self.data = theData;	
-		
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-		
-		filepath = [[documentsDirectoryUrl stringByAppendingPathComponent: filename] retain];
-		[data writeToURL:[NSURL fileURLWithPath:filepath] atomically: NO];
+			
+		[self setData:theData filename: filename];
+
 	}
 	
 	return self;
@@ -36,12 +34,25 @@
 	return data;
 }
 
-- (void) dealloc {
+- (void) setData:(NSData *) theData filename: (NSString*) aFilename{
+	
+	self.data = theData;
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
+	
+	self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: aFilename];
+	[data writeToFile: filepath atomically: NO];
+}
+
+- (void) removeFromDocumentDirectory{
 	NSError *error = nil;
 	if (filepath != nil) {
 		[[NSFileManager defaultManager] removeItemAtPath:filepath error:&error]; 
-	}
-	
+	}	
+}
+
+- (void) dealloc {	
 	[data release];
 	[filepath release];
 		

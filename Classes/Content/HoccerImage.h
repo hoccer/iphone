@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
-#import "HoccerData.h"
 
-
-@interface HoccerImage : HoccerData <HoccerContent> {
+@interface HoccerImage : HoccerContent {
 	UIImage *image;
 
 	NSThread *secondThread;
@@ -20,17 +18,13 @@
 	id target;
 	SEL selector;
 	
-	// UIDocumentInteractionController *documentInteractionController;
 	UIViewController *viewControllerForPreview;
 }
 
-@property (nonatomic, retain) NSData* data;
 @property (nonatomic, readonly) UIImage* image;
 
 - (id)initWithUIImage: (UIImage *)aImage;
-- (id)initWithData: (NSData *)data;
-- (void)dismiss;
 
-- (UIView *)view;
+- (UIView *)fullscreenView;
 
 @end

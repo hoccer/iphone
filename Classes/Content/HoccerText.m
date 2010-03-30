@@ -43,7 +43,7 @@
 	return [text autorelease];
 }
 
-- (Preview *)thumbnailView {
+- (Preview *)desktopItemView {
 	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
 	
 	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
