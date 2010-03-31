@@ -93,14 +93,18 @@
 			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
 			gestureDetected = YES;	
 			
-			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
+			if ([delegate respondsToSelector:@selector(containerViewDidSweepOut:)]) {
+				[delegate containerViewDidSweepOut:self];
+			}
 		} else if (currentLocation.x > width - kSweepBorder ) {
 			CGFloat height = currentLocation.y - [touch locationInView:self].y;
 
 			[self startFlySidewaysAnimation: CGPointMake(width, height)];
 			gestureDetected = YES;	
 			
-			[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut:) withObject: self];
+			if ([delegate respondsToSelector:@selector(containerViewDidSweepOut:)]) {
+				[delegate containerViewDidSweepOut:self];
+			}		
 		}
 	}
 }

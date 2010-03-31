@@ -15,7 +15,7 @@
 	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
 	
-	UIView* feedback;
+	ContentContainerView* feedback;
 	
 	int sweeping;
 	CGPoint initialTouchPoint;

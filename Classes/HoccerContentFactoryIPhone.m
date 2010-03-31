@@ -21,14 +21,14 @@
 	NSString *mimeType = [response MIMEType];
 	
 	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data];
+		hoccerContent = [[HoccerVcard alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData: data];
+		hoccerContent = [[HoccerImage alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType isEqual: @"text/plain"]) {
 		if ([HoccerUrl isDataAUrl: data]) {
-			hoccerContent = [[HoccerUrl alloc] initWithData: data];
+			hoccerContent = [[HoccerUrl alloc] initWithData: data filename: [response suggestedFilename]];
 		} else {
-			hoccerContent = [[HoccerText alloc] initWithData: data];
+			hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
 		}
 	} else {
 		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];

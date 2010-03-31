@@ -13,6 +13,7 @@
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
+#import "DesktopViewDelegate.h"
 
 
 @class HoccerAppDelegate;
@@ -29,7 +30,8 @@
 @class LocationController;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
-						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, GesturesInterpreterDelegate> {
+						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, 
+						GesturesInterpreterDelegate, DesktopViewDelegate> {
 	IBOutlet UIView *backgroundView;
 							
 	IBOutlet HoccerAppDelegate* delegate;

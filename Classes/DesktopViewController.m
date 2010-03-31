@@ -82,7 +82,11 @@
 	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
 			sweeping == kSweepDirectionRightIn && currentLocation.x < self.view.frame.size. width - kSweepAcceptanceDistance) {
 		
-		[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepIn:) withObject: feedback];
+		
+		if ([delegate respondsToSelector:@selector(desktopView:didSweepInView:)]) {
+			NSLog(@"delegate: %@", delegate);
+			[delegate desktopView:self didSweepInView:feedback.containedView];
+		}
 		
 		if (shouldSnapToCenterOnTouchUp) {
 			[self startMoveToCenterAnimation];
@@ -137,6 +141,10 @@
 		containerView.origin = [dataSource positionForViewAtIndex: i];
 		
 		[self.view addSubview: containerView];
+		
+		if (i == numberOfItems - 1) {
+			feedback = containerView;
+		}
 	}
 }
 
@@ -152,7 +160,10 @@
 }
 
 - (void)containerViewDidSweepOut: (ContentContainerView *)view {
-	[delegate desktopView:self didSweepOutView:view.containedView];
+	NSLog(@"did sweep out");
+	if ([delegate respondsToSelector:@selector(desktopView:didSweepOutView:)]) {
+		[delegate desktopView:self didSweepOutView: view.containedView];
+	}
 }
 
 @end

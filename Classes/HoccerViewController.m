@@ -408,10 +408,16 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepIn: (UIView *)view {	
+
+#pragma mark -
+#pragma mark DesktopViewDelegate
+
+- (void)desktopView: (DesktopViewController *)desktopView didSweepInView: (UIView *)view {
+	NSLog(@"sweeping out");
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
+	
 	self.allowSweepGesture = NO;
 	
 	HocItemData *item = [desktopData hocItemDataForView: view];
@@ -420,7 +426,8 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepOut: (UIView *)view {
+- (void)desktopView: (DesktopViewController *)desktopView didSweepOutView: (UIView *)view {
+	;
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
@@ -431,25 +438,18 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)desktopView: (DesktopViewController *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
+- (UIView *)desktopView: (DesktopViewController *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
 	if ([desktopData controllerHasActiveRequest]) {
-		return;
+		return nil;
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
-	item.viewOrigin = point;
+	item.viewOrigin = CGPointMake(point.x - 20, point.y - 20);
 	
 	[desktopData addController:item];
 	[desktopView reloadData];
-}
-
-
-- (void)dragAndDropViewControllerWillBeDismissed: (UIView *)view {
-	HocItemData *item = [desktopData hocItemDataForView:view];
 	
-	[desktopData removeController:item];
-	// [desktopViewController reloadData];
+	return item.contentView;
 }
-
 
 @end

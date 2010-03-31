@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol DesktopViewDataSource
+@protocol DesktopViewDataSource <NSObject>
 
 - (NSInteger) numberOfItems;
 - (UIView *) viewAtIndex: (NSInteger)index;

@@ -13,6 +13,7 @@
 #import "HoccerDownloadRequest.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
+#import "Preview.h"
 
 #import "HocLocation.h"
 
@@ -22,21 +23,21 @@
 @synthesize contentView;
 @synthesize viewOrigin;
 
-- (id) init {
-	self = [super init];
-	if (self != nil) {
-		
-	}
-	return self;
-}
 
 - (void) dealloc {
 	[content release];
 	[contentView release];
-	
 	[request release];
-	
 	[super dealloc];
+}
+
+- (void)setContent:(HoccerContent *)newContent {
+	if (content != newContent) {
+		[content release];
+		content = [newContent retain];
+	}
+	
+	self.contentView = nil;
 }
 
 
@@ -106,6 +107,11 @@
 - (Preview *)contentView {
 	if (contentView == nil) {
 		contentView = [[content desktopItemView] retain];
+	}
+	
+	if (contentView == nil) {
+		contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+		contentView.backgroundColor = [UIColor whiteColor];
 	}
 	
 	return contentView;
