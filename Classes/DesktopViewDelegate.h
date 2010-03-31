@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class DesktopViewController;
+@class DesktopView;
 
 @protocol DesktopViewDelegate <NSObject>
 
-- (UIView *)desktopView: (DesktopViewController *)desktopView needsEmptyViewAtPoint: (CGPoint)point;
+- (UIView *)desktopView: (DesktopView *)desktopView needsEmptyViewAtPoint: (CGPoint)point;
 
 @optional
-- (void)desktopView: (DesktopViewController *)desktopView didSweepOutView: (UIView *)view;
-- (void)desktopView: (DesktopViewController *)desktopView didSweepInView: (UIView *)view;
+- (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view;
+- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view;
 
 @end

@@ -18,7 +18,7 @@
 
 @class HoccerAppDelegate;
 @class Preview;
-@class DesktopViewController;
+@class DesktopView;
 @class SelectContentViewController;
 @class StatusViewController;
 @class HelpScrollView;
@@ -32,11 +32,10 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate> {
-	IBOutlet UIView *backgroundView;
-							
+
+	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
 		
-	DesktopViewController *desktopView;
 	ReceivedContentViewController *receivedContentViewController;
 						
 	HelpScrollView *helpViewController;

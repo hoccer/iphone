@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 
 #import "HoccerViewControlleriPad.h"
-#import "DesktopViewController.h"
+#import "DesktopView.h"
 #import "ReceivedContentViewController.h"
 #import "Preview.h"
 #import "NSObject+DelegateHelper.h"

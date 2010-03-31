@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "DesktopViewController.h"
+#import "DesktopView.h"
 #import "NSObject+DelegateHelper.h"
 #import "ContentContainerView.h"
 
@@ -18,7 +18,7 @@
 #define kSweepDirectionRightIn 1
 
 
-@implementation DesktopViewController
+@implementation DesktopView
 
 @synthesize feedback;
 
@@ -26,19 +26,6 @@
 @synthesize delegate;
 
 @synthesize shouldSnapToCenterOnTouchUp;
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
 
 - (void)dealloc {
 	[feedback release];
@@ -49,14 +36,14 @@
 #pragma mark -
 #pragma mark TouchEvents
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
+	initialTouchPoint = [[touches anyObject] locationInView: self]; 
 
 	if (initialTouchPoint.x < kSweepInBorder) {
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
 		
 		[delegate desktopView: self needsEmptyViewAtPoint: initialTouchPoint];
-	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
+	} else if (initialTouchPoint.x > self.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
 
@@ -71,7 +58,7 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
-	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+	CGPoint currentLocation = [[touches anyObject] locationInView: self]; 
 
 	if (sweeping != kNoSweeping) {
 		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
@@ -80,10 +67,10 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
 	NSLog(@"touches ended in ReceiveViewController");
-	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
+	CGPoint currentLocation = [[touches anyObject] locationInView: self]; 
 
 	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
-			sweeping == kSweepDirectionRightIn && currentLocation.x < self.view.frame.size. width - kSweepAcceptanceDistance) {
+			sweeping == kSweepDirectionRightIn && currentLocation.x < self.frame.size. width - kSweepAcceptanceDistance) {
 		
 		
 		if ([delegate respondsToSelector:@selector(desktopView:didSweepInView:)]) {
@@ -132,7 +119,7 @@
 #pragma mark DataSource Methods
 
 - (void)reloadData {
-	for (UIView *subview in self.view.subviews) {
+	for (UIView *subview in self.subviews) {
 		[subview removeFromSuperview];
 	}
 	
@@ -142,7 +129,7 @@
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex: i];
 		
-		[self.view addSubview: containerView];
+		[self addSubview: containerView];
 		
 		if (i == numberOfItems - 1) {
 			feedback = containerView;

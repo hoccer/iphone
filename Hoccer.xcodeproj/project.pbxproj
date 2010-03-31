@@ -115,7 +115,7 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
-		229A9123114E737A0069A0EA /* DesktopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopViewController.m */; };
+		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
@@ -234,7 +234,7 @@
 		22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
 		22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22B1CBC91159160600EFD709 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
-		22B1CBCB1159160600EFD709 /* DesktopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopViewController.m */; };
+		22B1CBCB1159160600EFD709 /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		22B1CBCC1159160600EFD709 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
 		22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
 		22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -455,8 +455,8 @@
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
-		229A9121114E737A0069A0EA /* DesktopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewController.h; sourceTree = "<group>"; };
-		229A9122114E737A0069A0EA /* DesktopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopViewController.m; sourceTree = "<group>"; };
+		229A9121114E737A0069A0EA /* DesktopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopView.h; sourceTree = "<group>"; };
+		229A9122114E737A0069A0EA /* DesktopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopView.m; sourceTree = "<group>"; };
 		229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentFactoryIPhone.h; sourceTree = "<group>"; };
 		229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerContentFactoryIPhone.m; sourceTree = "<group>"; };
 		229D9F7D114FEE0200459ED9 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
@@ -958,8 +958,8 @@
 			children = (
 				22A8A2881160F15B004BCD3D /* DesktopViewDataSource.h */,
 				22AE46ED11634FA600C10B98 /* DesktopViewDelegate.h */,
-				229A9121114E737A0069A0EA /* DesktopViewController.h */,
-				229A9122114E737A0069A0EA /* DesktopViewController.m */,
+				229A9121114E737A0069A0EA /* DesktopView.h */,
+				229A9122114E737A0069A0EA /* DesktopView.m */,
 			);
 			name = DesktopView;
 			sourceTree = "<group>";
@@ -1332,7 +1332,7 @@
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 				22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */,
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,
-				229A9123114E737A0069A0EA /* DesktopViewController.m in Sources */,
+				229A9123114E737A0069A0EA /* DesktopView.m in Sources */,
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
 				22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */,
 				22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */,
@@ -1431,7 +1431,7 @@
 				22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */,
 				22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */,
 				22B1CBC91159160600EFD709 /* HocLocation.m in Sources */,
-				22B1CBCB1159160600EFD709 /* DesktopViewController.m in Sources */,
+				22B1CBCB1159160600EFD709 /* DesktopView.m in Sources */,
 				22B1CBCC1159160600EFD709 /* LocationController.m in Sources */,
 				22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */,
 				22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */,

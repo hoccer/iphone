@@ -20,7 +20,7 @@
 #import "Preview.h"
 #import "ContentContainerView.h"
 
-#import "DesktopViewController.h"
+#import "DesktopView.h"
 #import "ReceivedContentViewController.h"
 #import "SelectContentViewController.h"
 
@@ -105,17 +105,15 @@
 }
 
 - (void)viewDidLoad {
-	desktopView = [[DesktopViewController alloc] init];
-	desktopView.view = backgroundView;
 	desktopView.delegate = self;
+
+	desktopData = [[DesktopDataSource alloc] init];
+	desktopData.viewController = self;
 	
     isPopUpDisplayed = FALSE;
 	
 	self.allowSweepGesture = YES;	
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
-	
-	desktopData = [[DesktopDataSource alloc] init];
-	desktopData.viewController = self;
 }
 
 - (void)viewDidUnload {
@@ -127,7 +125,6 @@
 	[desktopView release];	
 	[helpViewController release];
 	
-	[backgroundView release];
 	[auxiliaryView release];
 	
 	[super dealloc];
@@ -237,11 +234,11 @@
 	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = desktopView.view.frame.size;
+	selectContentFrame.size = desktopView.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = selectContentFrame;	
 	
-	[desktopView.view addSubview:popOverView.view];
+	[desktopView addSubview:popOverView.view];
 	
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
@@ -370,17 +367,6 @@
 }
 
 #pragma mark -
-#pragma mark Touch Events
-- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	[desktopView dismissKeyboard];
-}
-
-- (void) sweepInterpreterDidDetectSweepOut {
-	[self.delegate checkAndPerformSelector:@selector(sweepInterpreterDidDetectSweepOut)];
-}
-
-
-#pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
@@ -412,7 +398,7 @@
 #pragma mark -
 #pragma mark DesktopViewDelegate
 
-- (void)desktopView: (DesktopViewController *)desktopView didSweepInView: (UIView *)view {
+- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
 	NSLog(@"sweeping out");
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
@@ -426,7 +412,7 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)desktopView: (DesktopViewController *)desktopView didSweepOutView: (UIView *)view {
+- (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
@@ -438,7 +424,7 @@
 	[[delegate statusViewController] showActivityInfo];
 }
 
-- (UIView *)desktopView: (DesktopViewController *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
+- (UIView *)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
 	if ([desktopData controllerHasActiveRequest]) {
 		return nil;
 	}

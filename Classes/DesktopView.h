@@ -11,7 +11,7 @@
 #import "DesktopViewDelegate.h"
 #import "ContentContainerViewDelegate.h"
 
-@interface DesktopViewController : UIViewController <ContentContainerViewDelegate> {
+@interface DesktopView : UIView <ContentContainerViewDelegate> {
 	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
 	
