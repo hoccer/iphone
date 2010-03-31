@@ -10,9 +10,7 @@
 
 #import "StatusViewController.h"
 #import "NSObject+DelegateHelper.h"
-
-
-
+#import "HocItemData.h"
 
 @implementation StatusViewController
 
@@ -41,7 +39,6 @@
 
 - (void)setError: (NSString *)message {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
 	[self setUpdate:message];
 }
 
@@ -72,6 +69,17 @@
 	
 	self.view.hidden = YES;
 	[activitySpinner stopAnimating];
+}
+
+- (void)monitorHocItem: (HocItemData*) hocItem {
+	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if ([keyPath isEqual:@"status"]) {
+		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
+	}
 }
 
 

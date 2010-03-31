@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HocItemData;
 
 
 @interface StatusViewController : UIViewController {
@@ -15,7 +16,6 @@
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	IBOutlet UILabel *statusLabel;
-
 }
 
 @property (assign) id delegate;
@@ -28,5 +28,6 @@
 
 - (IBAction) cancelAction: (id) sender;
 
+- (void)monitorHocItem: (HocItemData *)hocItem;
 @end
 

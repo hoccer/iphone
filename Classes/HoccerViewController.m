@@ -434,8 +434,8 @@
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
-	[item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-	// [statusViewController showActivityInfo];
+	[[delegate statusViewController] monitorHocItem:item];
+	[[delegate statusViewController] showActivityInfo];
 }
 
 - (UIView *)desktopView: (DesktopViewController *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -444,7 +444,6 @@
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
-	item.viewOrigin = CGPointMake(point.x - 20, point.y - 20);
 	
 	[desktopData addHocItem:item];
 	[desktopView reloadData];
@@ -452,9 +451,6 @@
 	return item.contentView;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	NSLog(@"new status: %@", [change objectForKey:NSKeyValueChangeNewKey]);
-}
 
 
 
