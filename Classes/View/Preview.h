@@ -10,10 +10,8 @@
 
 
 @interface Preview : UIView {
-	UIButton* button;
 }
 
 - (void) setImage: (UIImage *)image;
-- (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector;
 
 @end

@@ -9,6 +9,7 @@
 #import "DesktopViewController.h"
 #import "NSObject+DelegateHelper.h"
 #import "DragAndDropViewController.h"
+#import "ContentContainerView.h"
 
 #define kSweepInBorder 30
 #define kSweepAcceptanceDistance 100
@@ -131,14 +132,13 @@
 	}
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
-	
-	NSLog(@"number of items:%d", numberOfItems);
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
 		
-		NSLog(@"fileurl: %@", controller.content);
+		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:controller.view];
+		[containerView setCloseActionTarget:self action:@selector(userDismissedContent:)];
 		
-		[self.view addSubview: controller.view];
+		[self.view addSubview: containerView];
 	}
 }
 

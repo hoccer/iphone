@@ -48,10 +48,6 @@
 
 - (void) setView:(UIView *) aPreview {
 	super.view = aPreview;
-	 
-	if ([self.view isKindOfClass: [Preview class]]) {
-		[(Preview*) self.view setCloseActionTarget:self action:@selector(userDismissedContent:)];
-	}
 }
 
 - (void)didReceiveMemoryWarning {

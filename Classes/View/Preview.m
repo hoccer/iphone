@@ -17,19 +17,6 @@
 {
 	self = [super initWithFrame:frame];	
 	if (self != nil) {
-		button = [UIButton buttonWithType:UIButtonTypeCustom];
-		
-		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
-		
-		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
-				forState:UIControlStateHighlighted];
-
-		[button setFrame: CGRectMake(3, 3, 35, 36)];
-		
-		[self addSubview: button];
-		
 
 	}
 	return self;
@@ -52,10 +39,6 @@
 	
 	[self insertSubview:imageView atIndex:1];
 	[imageView release];
-}
-
-- (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector{
-	[button addTarget: aTarget action: aSelector forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

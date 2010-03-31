@@ -137,6 +137,8 @@
 		22AD327C11107C7700BC7DEC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD327B11107C7700BC7DEC /* icon.png */; };
 		22AD329C11107D7500BC7DEC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD329B11107D7500BC7DEC /* iTunesArtwork.png */; };
 		22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD32AE11107FA200BC7DEC /* Icon-Small.png */; };
+		22AE461211633E0500C10B98 /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AE461111633E0500C10B98 /* ContentContainerView.m */; };
+		22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AE461111633E0500C10B98 /* ContentContainerView.m */; };
 		22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
 		22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */; };
 		22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -479,6 +481,8 @@
 		22AD327B11107C7700BC7DEC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		22AD329B11107D7500BC7DEC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		22AD32AE11107FA200BC7DEC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		22AE461011633E0500C10B98 /* ContentContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentContainerView.h; sourceTree = "<group>"; };
+		22AE461111633E0500C10B98 /* ContentContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentContainerView.m; sourceTree = "<group>"; };
 		22B06B2911523B4400D2ECFE /* SelectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContentViewController.h; sourceTree = "<group>"; };
 		22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContentViewController.m; sourceTree = "<group>"; };
 		22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectContentTableView.xib; path = Classes/SelectContentTableView.xib; sourceTree = "<group>"; };
@@ -720,6 +724,8 @@
 				224F8A9B108CBB4300F69B53 /* Preview.m */,
 				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
 				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
+				22AE461011633E0500C10B98 /* ContentContainerView.h */,
+				22AE461111633E0500C10B98 /* ContentContainerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1330,6 +1336,7 @@
 				22A8A0921160BA1E004BCD3D /* HocItemData.m in Sources */,
 				2287BD191162512B00FFA07F /* HoccerContent.m in Sources */,
 				2287BD201162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
+				22AE461211633E0500C10B98 /* ContentContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1431,6 +1438,7 @@
 				22A8A0911160BA1E004BCD3D /* HocItemData.m in Sources */,
 				2287BD181162512B00FFA07F /* HoccerContent.m in Sources */,
 				2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
+				22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
