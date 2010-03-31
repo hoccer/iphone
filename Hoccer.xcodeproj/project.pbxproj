@@ -481,6 +481,7 @@
 		22AE461111633E0500C10B98 /* ContentContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentContainerView.m; sourceTree = "<group>"; };
 		22AE46ED11634FA600C10B98 /* DesktopViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewDelegate.h; sourceTree = "<group>"; };
 		22AE475C1163622100C10B98 /* ContentContainerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentContainerViewDelegate.h; sourceTree = "<group>"; };
+		22AE49E31163ABF400C10B98 /* HocItemDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemDataDelegate.h; sourceTree = "<group>"; };
 		22B06B2911523B4400D2ECFE /* SelectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContentViewController.h; sourceTree = "<group>"; };
 		22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContentViewController.m; sourceTree = "<group>"; };
 		22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectContentTableView.xib; path = Classes/SelectContentTableView.xib; sourceTree = "<group>"; };
@@ -946,6 +947,7 @@
 				22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */,
 				22A8A08F1160BA1E004BCD3D /* HocItemData.h */,
 				22A8A0901160BA1E004BCD3D /* HocItemData.m */,
+				22AE49E31163ABF400C10B98 /* HocItemDataDelegate.h */,
 			);
 			name = DesktopData;
 			sourceTree = "<group>";

@@ -96,6 +96,7 @@
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(300, 300);
 	item.content = content;
+	item.delegate = self;
 	
 	[desktopData addHocItem:item];
 	[desktopView reloadData];

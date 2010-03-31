@@ -342,8 +342,7 @@
 	[self setContentPreview: content];
 	
 	[self dismissModalViewControllerAnimated:YES];
-	CFRelease(fullPersonInfo);
-	
+	CFRelease(addressBook);
 	return NO;
 }
 
@@ -431,5 +430,24 @@
 	
 	return item.contentView;
 }
+
+#pragma mark -
+#pragma mark HocItemDataDelegate
+
+- (void)hocItemWasSend: (HocItemData *)item {
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
+}
+
+- (void)hocItemWasReceived: (HocItemData *)item {
+	[desktopView reloadData];
+}
+
+- (void)hocItemWasCanceled: (HocItemData *)item {
+	item.viewOrigin = CGPointMake(200, 300);
+	[desktopView reloadData];
+}
+
+
 
 @end

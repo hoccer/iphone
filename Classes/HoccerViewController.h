@@ -13,6 +13,7 @@
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
+#import "HocItemDataDelegate.h"
 #import "DesktopViewDelegate.h"
 
 
@@ -28,10 +29,11 @@
 @class DesktopDataSource;
 @class ActionElement;
 @class LocationController;
+@class HocItemData;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, 
-						GesturesInterpreterDelegate, DesktopViewDelegate> {
+						GesturesInterpreterDelegate, DesktopViewDelegate, HocItemDataDelegate> {
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
@@ -61,7 +63,6 @@
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
-
 
 - (void)showError: (NSString *)message;
 

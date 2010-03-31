@@ -138,9 +138,7 @@
 	CFDictionaryRef addressDict = [self createDirectoryFromAddressString: address];
 	ABMultiValueAddValueAndLabel(addresses, addressDict,
 								 [self labelFromAttributes: attributes], NULL);
-								 
-	CFRelease(addressDict);
-	
+								 	
 	ABRecordSetValue(person, kABPersonAddressProperty, addresses, &errorRef);
 	
 	CFRelease(addresses);

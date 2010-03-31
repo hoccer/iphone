@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HocItemDataDelegate.h"
+
 @class HoccerRequest;
 @class HoccerContent;
 @class Preview;
@@ -19,8 +21,9 @@
 	HoccerContent *content;
 	
 	CGPoint viewOrigin;
-	
 	NSString *status;
+	
+	id <HocItemDataDelegate> delegate;
 }
 
 @property (retain) HoccerContent *content;
@@ -28,6 +31,7 @@
 @property (assign) CGPoint viewOrigin;
 
 @property (nonatomic, copy) NSString *status;
+@property (nonatomic, assign) id <HocItemDataDelegate> delegate; 
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

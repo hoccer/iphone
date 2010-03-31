@@ -24,6 +24,7 @@
 @synthesize viewOrigin;
 
 @synthesize status;
+@synthesize delegate;
 
 
 - (void) dealloc {
@@ -48,6 +49,10 @@
 	[request release];
 	
 	request = nil;
+	
+	if ([delegate respondsToSelector:@selector(hocItemWasCanceled:)]) {
+		[delegate hocItemWasCanceled:self];
+	}
 }
 
 - (BOOL)hasActiveRequest {
@@ -124,8 +129,5 @@
 {
 	// [statusViewController setProgressUpdate:[progress floatValue]];
 }
-
-
-
 
 @end
