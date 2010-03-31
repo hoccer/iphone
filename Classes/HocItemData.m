@@ -104,7 +104,11 @@
 }
 
 - (Preview *)contentView {
-	return [content desktopItemView];
+	if (contentView == nil) {
+		contentView = [[content desktopItemView] retain];
+	}
+	
+	return contentView;
 }
 
 @end

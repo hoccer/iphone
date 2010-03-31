@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DesktopViewDataSource.h"
 #import "DesktopViewDelegate.h"
+#import "ContentContainerViewDelegate.h"
 
-@interface DesktopViewController : UIViewController {
+@interface DesktopViewController : UIViewController <ContentContainerViewDelegate> {
 	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
 	

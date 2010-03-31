@@ -14,4 +14,8 @@
 
 - (void)desktopView: (DesktopViewController *)desktopView needsEmptyViewAtPoint: (CGPoint)point;
 
+@optional
+- (void)desktopView: (DesktopViewController *)desktopView didSweepOutView: (UIView *)view;
+- (void)desktopView: (DesktopViewController *)desktopView didSweepInView: (UIView *)view;
+
 @end

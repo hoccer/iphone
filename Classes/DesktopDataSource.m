@@ -75,11 +75,16 @@
 }
 
 - (CGPoint) positionForViewAtIndex: (NSInteger)index {
+	HocItemData *item = [self hocItemDataAtIndex:index];
+	
+	NSLog(@"item %@ in %f, %f", item, item.viewOrigin.x, item.viewOrigin.y);
 	return [self hocItemDataAtIndex:index].viewOrigin;
 }
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
-	[self hocItemDataForView:view].viewOrigin = point;
+	HocItemData *item = [self hocItemDataForView:view];
+	NSLog(@"item %@ to %f, %f", item, point.x, point.y);
+	item.viewOrigin = point;
 }
 
 

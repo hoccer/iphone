@@ -15,14 +15,16 @@
 
 @synthesize delegate;
 @synthesize origin;
+@synthesize containedView;
 
-
-- (id) initWithView: (UIView *)insideView
+- (id) initWithView: (UIView *)subview
 {
-	self = [super initWithFrame:insideView.frame];
+	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
-		insideView.center = CGPointMake(insideView.frame.size.width / 2, insideView.frame.size.height / 2);
-		[self addSubview:insideView];
+		containedView = [subview retain];
+		
+		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
+		[self addSubview:subview];
 		
 		button = [UIButton buttonWithType:UIButtonTypeCustom];
 		
@@ -40,10 +42,29 @@
 	return self;
 }
 
+- (void) dealloc
+{
+	[containedView release];
+	[button release];
+	
+	[super dealloc];
+}
+
+
+
 - (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector{
 	[button addTarget: aTarget action: aSelector forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)setOrigin:(CGPoint)newOrigin {
+	CGRect frame = self.frame;
+	frame.origin = newOrigin;
+	self.frame = frame;
+}
+
+
+#pragma mark -
+#pragma mark Touch Event
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	NSLog(@"touches began");
 	touchStartPoint = [[touches anyObject]locationInView: self.superview];	
@@ -62,6 +83,8 @@
 	myRect.origin.y += currentLocation.y - prevLocation.y; 
 	
 	self.frame = myRect;
+	
+	[delegate containerView:self didMoveToPosition:self.frame.origin];
 	
 	if (!gestureDetected) {
 		CGFloat width = self.superview.frame.size.width; 
@@ -125,6 +148,7 @@
 	self.frame = myRect;
 	self.userInteractionEnabled = YES;
 }
+
 
 
 @end

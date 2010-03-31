@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ContentContainerViewDelegate.h";
 
 @interface ContentContainerView : UIView {
-	id delegate;
-	
+	id <ContentContainerViewDelegate> delegate;
 	UIButton *button;
 	
 	CGPoint touchStartPoint;
@@ -19,9 +19,13 @@
 	
 	BOOL shouldSnapBackOnTouchUp;
 	CGPoint origin;
+	
+	UIView *containedView;
 }
 
-@property (nonatomic, retain) id delegate;
+@property (nonatomic, assign) id delegate;
+@property (readonly) UIView* containedView;
+
 @property (assign) CGPoint origin;
 
 - (id) initWithView: (UIView *)insideView;

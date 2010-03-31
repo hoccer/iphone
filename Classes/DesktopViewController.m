@@ -132,17 +132,25 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *controller = [dataSource viewAtIndex: i];
-		
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:controller];
-		// [containerView setCloseActionTarget:self action:@selector(userDismissedContent:)];
-		
+		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
+		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex: i];
+		
 		[self.view addSubview: containerView];
 	}
 }
 
+#pragma mark -
+#pragma mark ContentContainerViewDelegate Methods
+- (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point {
+	[dataSource view: view.containedView didMoveToPoint:point];
+}
 
+- (void)containerViewDidClose:(ContentContainerView *)view {
+}
 
+- (void)containerViewDidSweepOut: (ContentContainerView *)view {
+	[delegate desktopView:self didSweepOutView:view.containedView];
+}
 
 @end
