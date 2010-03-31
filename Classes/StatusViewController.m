@@ -18,21 +18,6 @@
 
 @synthesize delegate;
 
-
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-
 - (void)dealloc {
 	[statusLabel release];
 	[activitySpinner release];
@@ -76,7 +61,6 @@
 	[UIView setAnimationDuration:0.4];
 	
 	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 68);
-	// animation.beginTime = CACurrentMediaTime() + 0.6;
 	[UIView commitAnimations];
 	
 	[activitySpinner startAnimating];

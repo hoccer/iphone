@@ -1,4 +1,4 @@
-    //
+//
 //  ReceiveViewController.m
 //  Hoccer
 //
@@ -45,6 +45,9 @@
     [super dealloc];
 }
 
+
+#pragma mark -
+#pragma mark TouchEvents
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	initialTouchPoint = [[touches anyObject] locationInView: self.view]; 
 
@@ -84,7 +87,6 @@
 		
 		
 		if ([delegate respondsToSelector:@selector(desktopView:didSweepInView:)]) {
-			NSLog(@"delegate: %@", delegate);
 			[delegate desktopView:self didSweepInView:feedback.containedView];
 		}
 		

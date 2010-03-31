@@ -19,11 +19,15 @@
 	HoccerContent *content;
 	
 	CGPoint viewOrigin;
+	
+	NSString *status;
 }
 
 @property (retain) HoccerContent *content;
 @property (retain) Preview* contentView;
 @property (assign) CGPoint viewOrigin;
+
+@property (nonatomic, copy) NSString *status;
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

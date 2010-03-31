@@ -23,8 +23,8 @@
 - (NSInteger) numberOfItems;
 - (UIView *)viewAtIndex: (NSInteger) index;
 
-- (void)addController: (HocItemData *)controller;
-- (void)removeController: (HocItemData *)controller;
+- (void)addHocItem: (HocItemData *)controller;
+- (void)removeHocItem: (HocItemData *)controller;
 
 - (BOOL)controllerHasActiveRequest;
 

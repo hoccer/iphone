@@ -23,11 +23,14 @@
 @synthesize contentView;
 @synthesize viewOrigin;
 
+@synthesize status;
+
 
 - (void) dealloc {
 	[content release];
 	[contentView release];
 	[request release];
+	
 	[super dealloc];
 }
 
@@ -40,11 +43,47 @@
 	self.contentView = nil;
 }
 
+- (void)cancelRequest {
+	[request cancel];
+	[request release];
+	
+	request = nil;
+}
 
+- (BOOL)hasActiveRequest {
+	return request != nil;
+}
+
+- (Preview *)contentView {
+	if (contentView == nil) {
+		contentView = [[content desktopItemView] retain];
+	}
+	
+	if (contentView == nil) {
+		contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+		contentView.backgroundColor = [UIColor whiteColor];
+	}
+	
+	return contentView;
+}
+
+- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture {
+	[content prepareSharing];
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:gesture content: content 
+													   type: [content mimeType] filename: [content filename] delegate:self];
+}
+
+- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)gesture {
+	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:gesture delegate: self];
+}
+
+
+#pragma mark -
+#pragma mark Download Communication
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
 {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
-																										   withData: aRequest.result];
+																									   withData: aRequest.result];
 	
 	self.content = hoccerContent;	
 	[request release];
@@ -65,16 +104,19 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
+	self.status = [error localizedDescription];
 	// [contentView resetViewAnimated:YES];
 	[request release];
 	request = nil;
-
+	
 	// [statusViewController setError: [error localizedDescription]];
 	// [statusViewController hideActivityInfo];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
 {
+	self.status = update;
+	
 	// [statusViewController setUpdate: update];
 }
 
@@ -83,38 +125,7 @@
 	// [statusViewController setProgressUpdate:[progress floatValue]];
 }
 
-- (void)cancelRequest {
-	[request cancel];
-	[request release];
-	
-	request = nil;
-}
 
-- (BOOL)hasActiveRequest {
-	return request != nil;
-}
 
-- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture {
-	[content prepareSharing];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:gesture content: content 
-													   type: [content mimeType] filename: [content filename] delegate:self];
-}
-
-- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)gesture {
-	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:gesture delegate: self];
-}
-
-- (Preview *)contentView {
-	if (contentView == nil) {
-		contentView = [[content desktopItemView] retain];
-	}
-	
-	if (contentView == nil) {
-		contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-		contentView.backgroundColor = [UIColor whiteColor];
-	}
-	
-	return contentView;
-}
 
 @end

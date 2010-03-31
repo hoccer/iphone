@@ -9,6 +9,7 @@
 #import "DesktopDataSource.h"
 
 #import "HocItemData.h"
+#import "HoccerContent.h"
 
 @implementation DesktopDataSource
 @synthesize viewController;
@@ -31,22 +32,11 @@
 	[super dealloc];
 }
 
-- (NSInteger) numberOfItems {
-	return [contentOnDesktop count];
-}
-
-- (UIView *)viewAtIndex: (NSInteger)index {
-	
-	HocItemData *contentAtIndex = [contentOnDesktop objectAtIndex:index];
-	return (UIView *) contentAtIndex.contentView; 	
-}
-
-
-- (void)addController: (HocItemData *)hocItem {
+- (void)addHocItem: (HocItemData *)hocItem {
 	[contentOnDesktop addObject:hocItem];
 }
 
-- (void)removeController: (HocItemData *)hocItem {
+- (void)removeHocItem: (HocItemData *)hocItem {
 	[contentOnDesktop removeObject:hocItem];
 }
 
@@ -74,6 +64,20 @@
 	return [contentOnDesktop objectAtIndex:index];
 }
 
+#pragma mark -
+#pragma mark DataSource Methods
+
+- (NSInteger) numberOfItems {
+	return [contentOnDesktop count];
+}
+
+- (UIView *)viewAtIndex: (NSInteger)index {
+	HocItemData *contentAtIndex = [contentOnDesktop objectAtIndex:index];
+	[contentAtIndex.content decorateViewWithGestureRecognition:contentAtIndex.contentView inViewController:self.viewController];
+
+	return (UIView *) contentAtIndex.contentView; 	
+}
+
 - (CGPoint) positionForViewAtIndex: (NSInteger)index {
 	return [self hocItemDataAtIndex:index].viewOrigin;
 }
@@ -85,7 +89,7 @@
 
 - (void)removeView: (UIView *)view {
 	HocItemData *item = [self hocItemDataForView:view];
-	[self removeController:item];
+	[self removeHocItem:item];
 }
 
 

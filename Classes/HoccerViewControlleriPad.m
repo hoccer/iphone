@@ -97,7 +97,7 @@
 	item.viewOrigin = CGPointMake(300, 300);
 	item.content = content;
 	
-	[desktopData addController:item];
+	[desktopData addHocItem:item];
 	[desktopView reloadData];
 	[desktopView reloadData];
 }

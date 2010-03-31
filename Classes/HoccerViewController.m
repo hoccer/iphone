@@ -427,7 +427,6 @@
 }
 
 - (void)desktopView: (DesktopViewController *)desktopView didSweepOutView: (UIView *)view {
-	;
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
@@ -435,6 +434,7 @@
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
+	[item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
 	// [statusViewController showActivityInfo];
 }
 
@@ -446,10 +446,16 @@
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(point.x - 20, point.y - 20);
 	
-	[desktopData addController:item];
+	[desktopData addHocItem:item];
 	[desktopView reloadData];
 	
 	return item.contentView;
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	NSLog(@"new status: %@", [change objectForKey:NSKeyValueChangeNewKey]);
+}
+
+
 
 @end
