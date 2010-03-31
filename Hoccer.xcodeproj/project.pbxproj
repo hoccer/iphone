@@ -719,9 +719,6 @@
 				224F8A9B108CBB4300F69B53 /* Preview.m */,
 				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
 				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
-				22AE461011633E0500C10B98 /* ContentContainerView.h */,
-				22AE461111633E0500C10B98 /* ContentContainerView.m */,
-				22AE475C1163622100C10B98 /* ContentContainerViewDelegate.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -956,6 +953,9 @@
 		22AE46DE11634EA800C10B98 /* DesktopView */ = {
 			isa = PBXGroup;
 			children = (
+				22AE461011633E0500C10B98 /* ContentContainerView.h */,
+				22AE461111633E0500C10B98 /* ContentContainerView.m */,
+				22AE475C1163622100C10B98 /* ContentContainerViewDelegate.h */,
 				22A8A2881160F15B004BCD3D /* DesktopViewDataSource.h */,
 				22AE46ED11634FA600C10B98 /* DesktopViewDelegate.h */,
 				229A9121114E737A0069A0EA /* DesktopView.h */,

@@ -15,17 +15,23 @@
 @implementation StatusViewController
 
 @synthesize delegate;
+@synthesize hocItemData;
 
 - (void)dealloc {
 	[statusLabel release];
 	[activitySpinner release];
 	[progressView release];
+	[hocItemData release];
+	
     [super dealloc];
 }
 
 - (IBAction) cancelAction: (id) sender{
 	self.view.hidden = YES;	
 	[self.delegate checkAndPerformSelector:@selector(statusViewControllerDidCancelRequest:) withObject:self];
+	
+	[hocItemData cancelRequest];
+	self.hocItemData = nil;
 }
 
 - (void)setUpdate: (NSString *)update
@@ -72,8 +78,8 @@
 }
 
 - (void)monitorHocItem: (HocItemData*) hocItem {
+	self.hocItemData = hocItem;
 	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

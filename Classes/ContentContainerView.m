@@ -84,8 +84,6 @@
 	
 	self.frame = myRect;
 	
-	[delegate containerView:self didMoveToPosition:self.frame.origin];
-	
 	if (!gestureDetected) {
 		CGFloat width = self.superview.frame.size.width; 
 		if (currentLocation.x < kSweepBorder) {
@@ -112,6 +110,10 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
 	if (!gestureDetected && shouldSnapBackOnTouchUp) {
 		[self resetViewAnimated:YES];
+	}
+	
+	if ([delegate respondsToSelector:@selector(containerView:didMoveToPosition:)]) {
+		[delegate containerView:self didMoveToPosition:self.frame.origin];
 	}
 	
 	gestureDetected = NO;

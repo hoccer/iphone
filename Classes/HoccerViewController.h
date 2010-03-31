@@ -49,6 +49,8 @@
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
+							
+	StatusViewController *statusViewController;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -58,6 +60,8 @@
 @property (nonatomic, retain) HelpScrollView *helpViewController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
+@property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
+
 
 - (void)showError: (NSString *)message;
 
@@ -65,8 +69,6 @@
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;
 - (void)presentReceivedContent:(HoccerContent *) hoccerContent;
-
-- (IBAction)didDissmissContentToThrow: (id)sender;
 
 - (IBAction)toggleSelectContent: (id)sender;
 - (IBAction)toggleHelp: (id)sender;

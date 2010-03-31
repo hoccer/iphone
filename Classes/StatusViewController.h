@@ -11,14 +11,16 @@
 
 
 @interface StatusViewController : UIViewController {
-
 	id delegate;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	IBOutlet UILabel *statusLabel;
+	
+	HocItemData *hocItemData;
 }
 
 @property (assign) id delegate;
+@property (retain) HocItemData* hocItemData;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSString *)message;

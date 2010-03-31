@@ -37,6 +37,7 @@
 #import "LocationController.h"
 
 #import "HocItemData.h"
+#import "StatusViewController.h"
 
 
 
@@ -98,6 +99,7 @@
 @synthesize delayedAction;
 @synthesize locationController;
 @synthesize gestureInterpreter;
+@synthesize statusViewController;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -114,6 +116,8 @@
 	
 	self.allowSweepGesture = YES;	
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
+	
+	[self.view insertSubview:statusViewController.view atIndex:1];
 }
 
 - (void)viewDidUnload {
@@ -126,18 +130,11 @@
 	[helpViewController release];
 	
 	[auxiliaryView release];
-	
 	[super dealloc];
 }
 
 #pragma mark -
 #pragma mark User Action
-
-- (IBAction)didDissmissContentToThrow: (id)sender {
-	[self setContentPreview: nil];
-
-	self.allowSweepGesture = YES;
-}
 
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
@@ -296,8 +293,6 @@
 	self.delayedAction = nil;
 }
 
-- (void)setAllowSweepGesture: (BOOL)allow {
-}
 
 - (HelpScrollView *)helpViewController {
 	if (helpViewController == nil) {
@@ -420,8 +415,8 @@
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
-	[[delegate statusViewController] monitorHocItem:item];
-	[[delegate statusViewController] showActivityInfo];
+	[statusViewController monitorHocItem:item];
+	[statusViewController showActivityInfo];
 }
 
 - (UIView *)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -436,8 +431,5 @@
 	
 	return item.contentView;
 }
-
-
-
 
 @end

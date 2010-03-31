@@ -22,12 +22,9 @@
 @interface HoccerAppDelegate : NSObject <GesturesInterpreterDelegate> {
     UIWindow *window;
     HoccerViewController *viewController;
-	
-	StatusViewController *statusViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
-@property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
 
 @end
