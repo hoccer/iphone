@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DragAndDropViewController;
 
 @protocol DesktopViewDataSource
 
 - (NSInteger) numberOfItems;
-- (UIView *) viewAtIndex: (NSInteger)index;
-- (CGPoint) positionForViewAtIndex: (NSInteger)index;
-
-- (void)view: (UIView *)view didMoveToPoint: (CGPoint)point;
+- (DragAndDropViewController *)viewControllerAtIndex: (NSInteger)index;
 
 
 @end

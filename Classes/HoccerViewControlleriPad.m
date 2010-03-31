@@ -6,7 +6,6 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 
 #import "HoccerViewControlleriPad.h"
-#import "DragAndDropViewController.h"
 #import "DesktopViewController.h"
 #import "ReceivedContentViewController.h"
 #import "Preview.h"
@@ -16,14 +15,13 @@
 #import "HoccerImage.h"
 
 #import "DesktopDataSource.h"
+#import "HocItemData.h";
 
 
 @interface HoccerViewControlleriPad () 
 
 @property (retain) UIPopoverController *popOver;
 - (UIPopoverController *)popOverWithController: (UIViewController*)controller;
-- (DragAndDropViewController *)createDragAndDropControllerForContent: (HoccerContent*) content;
-
 @end
 
 
@@ -33,9 +31,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.previewViewController.shouldSnapBackOnTouchUp = NO;
-	desktopViewController.shouldSnapToCenterOnTouchUp = NO;
-	desktopViewController.dataSource = desktopData;
+	desktopView.shouldSnapToCenterOnTouchUp = NO;
+	desktopView.dataSource = desktopData;
 }
 
 
@@ -95,8 +92,14 @@
 }
 
 - (void)setContentPreview: (HoccerContent*)content {
-	[self createDragAndDropControllerForContent: content];
-	[desktopViewController reloadData];
+	
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.viewOrigin = CGPointMake(300, 300);
+	item.content = content;
+	
+	[desktopData addController:item];
+	[desktopView reloadData];
+	[desktopView reloadData];
 }
 
 - (void)presentReceivedContent:(HoccerContent*) content {}
@@ -138,14 +141,6 @@
 	}
 	
 	return popOver;
-}
-
-- (DragAndDropViewController *)createDragAndDropControllerForContent: (HoccerContent*) content {
-	DragAndDropViewController *dragViewController = [self emptyDragAndDropController];
-	dragViewController.content = content;	
-	dragViewController.origin = CGPointMake(300, 300);
-	
-	return dragViewController;
 }
 
 @end

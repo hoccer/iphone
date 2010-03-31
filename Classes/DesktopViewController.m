@@ -8,7 +8,6 @@
 
 #import "DesktopViewController.h"
 #import "NSObject+DelegateHelper.h"
-#import "DragAndDropViewController.h"
 #import "ContentContainerView.h"
 
 #define kSweepInBorder 30
@@ -53,12 +52,12 @@
 		NSLog(@"starting sweep in from left");
 		sweeping = kSweepDirectionLeftIn;
 		
-		feedback = [[delegate emptyDragAndDropController] retain];
+		[delegate desktopView: self needsEmptyViewAtPoint: initialTouchPoint];
 	} else if (initialTouchPoint.x > self.view.superview.frame.size.width - kSweepInBorder){
 		NSLog(@"starting sweep in from right");
 		sweeping = kSweepDirectionRightIn;
 
-		feedback = [[delegate emptyDragAndDropController] retain];
+		[delegate desktopView: self needsEmptyViewAtPoint: initialTouchPoint];
 	}
 	
 	if (feedback == nil) {
@@ -72,7 +71,7 @@
 	CGPoint currentLocation = [[touches anyObject] locationInView: self.view]; 
 
 	if (sweeping != kNoSweeping) {
-		feedback.view.center = CGPointMake(sweeping * feedback.view.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
 	}
 }
 
@@ -106,7 +105,7 @@
 - (void)startMoveToCenterAnimation {
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.view.center = CGPointMake(feedback.view.superview.frame.size.width / 2, feedback.view.frame.size.height / 2 + 105);
+	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
 
 	[UIView commitAnimations];
 }
@@ -114,13 +113,13 @@
 - (void)startMoveOutAnimation: (NSInteger)direction {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.view.center = CGPointMake(initialTouchPoint.x + direction * feedback.view.frame.size.width, initialTouchPoint.y);
+	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
 	
 	[UIView commitAnimations];
 }
 
 -  (void)resetView {
-	feedback.view.hidden = YES;
+	feedback.hidden = YES;
 }
 
 #pragma mark -
@@ -133,11 +132,12 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		DragAndDropViewController *controller = [dataSource viewControllerAtIndex: i];
+		ContentContainerView *controller = [dataSource viewAtIndex: i];
 		
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:controller.view];
-		[containerView setCloseActionTarget:self action:@selector(userDismissedContent:)];
+		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:controller];
+		// [containerView setCloseActionTarget:self action:@selector(userDismissedContent:)];
 		
+		containerView.origin = [dataSource positionForViewAtIndex: i];
 		[self.view addSubview: containerView];
 	}
 }

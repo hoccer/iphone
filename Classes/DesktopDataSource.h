@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DesktopViewDataSource.h"
+
 @class DragAndDropViewController;
 @class HocItemData;
 
-@interface DesktopDataSource : NSObject {
+@interface DesktopDataSource : NSObject <DesktopViewDataSource> {
 	NSMutableArray *contentOnDesktop;
 	
 	UIViewController *viewController;
@@ -19,14 +21,14 @@
 @property (assign) UIViewController *viewController;
 
 - (NSInteger) numberOfItems;
-- (DragAndDropViewController *)viewControllerAtIndex: (NSInteger) index;
+- (UIView *)viewAtIndex: (NSInteger) index;
 
 - (void)addController: (HocItemData *)controller;
 - (void)removeController: (HocItemData *)controller;
 
 - (BOOL)controllerHasActiveRequest;
 
-- (HocItemData *)hocItemDataForController: (DragAndDropViewController *)controller;
+- (HocItemData *)hocItemDataForView: (UIView *)controller;
 - (HocItemData *)hocItemDataAtIndex: (NSInteger) index;
 
 @end

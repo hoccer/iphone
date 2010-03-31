@@ -7,7 +7,7 @@
 //
 
 #import "DesktopDataSource.h"
-#import "DragAndDropViewController.h"
+
 #import "HocItemData.h"
 
 @implementation DesktopDataSource
@@ -35,18 +35,14 @@
 	return [contentOnDesktop count];
 }
 
-- (DragAndDropViewController *)viewControllerAtIndex: (NSInteger)index {
+- (UIView *)viewAtIndex: (NSInteger)index {
 	
-	DragAndDropViewController *dragdropViewController =  ((HocItemData *)[contentOnDesktop objectAtIndex:index]).dragAndDropViewConroller;
-	[dragdropViewController.content decorateViewWithGestureRecognition:dragdropViewController.view inViewController: self.viewController];
-
-	return dragdropViewController; 	
+	HocItemData *contentAtIndex = [contentOnDesktop objectAtIndex:index];
+	return (UIView *) contentAtIndex.contentView; 	
 }
 
 
 - (void)addController: (HocItemData *)hocItem {
-	NSLog(@"controller: %@", hocItem.dragAndDropViewConroller);
-
 	[contentOnDesktop addObject:hocItem];
 }
 
@@ -64,9 +60,9 @@
 	return NO;
 }
 
-- (HocItemData *)hocItemDataForController: (DragAndDropViewController *)controller {
+- (HocItemData *)hocItemDataForView: (UIView *)view {
 	for (HocItemData *item in contentOnDesktop) {
-		if (item.dragAndDropViewConroller == controller) {
+		if ((UIView *)item.contentView == view) {
 			return item;
 		}
 	}
@@ -78,7 +74,13 @@
 	return [contentOnDesktop objectAtIndex:index];
 }
 
+- (CGPoint) positionForViewAtIndex: (NSInteger)index {
+	return [self hocItemDataAtIndex:index].viewOrigin;
+}
 
+- (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
+	[self hocItemDataForView:view].viewOrigin = point;
+}
 
 
 

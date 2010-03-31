@@ -30,7 +30,6 @@
 #import "StatusViewController.h"
 
 #import "Preview.h"
-#import "DragAndDropViewController.h"
 
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;

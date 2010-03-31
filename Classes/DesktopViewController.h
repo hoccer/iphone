@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DesktopViewDataSource.h"
-@class DragAndDropViewController;
+#import "DesktopViewDelegate.h"
 
 @interface DesktopViewController : UIViewController {
-	id delegate;
+	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
 	
-	DragAndDropViewController* feedback;
+	UIView* feedback;
 	
 	int sweeping;
 	CGPoint initialTouchPoint;
@@ -25,7 +25,7 @@
 @property (assign) id delegate;
 @property (retain) id dataSource;
 
-@property (retain) DragAndDropViewController* feedback; 
+@property (retain) UIView* feedback; 
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)startMoveToCenterAnimation;

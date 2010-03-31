@@ -17,12 +17,12 @@
 
 @class HoccerAppDelegate;
 @class Preview;
-@class DragAndDropViewController;
 @class DesktopViewController;
 @class SelectContentViewController;
 @class StatusViewController;
 @class HelpScrollView;
 @class ReceivedContentViewController;
+@class ContentContainerView;
 
 @class DesktopDataSource;
 @class ActionElement;
@@ -34,13 +34,11 @@
 							
 	IBOutlet HoccerAppDelegate* delegate;
 		
-	DragAndDropViewController *previewViewController;
-	DesktopViewController *desktopViewController;
+	DesktopViewController *desktopView;
 	ReceivedContentViewController *receivedContentViewController;
 						
 	HelpScrollView *helpViewController;
 							
-
 	UIViewController *auxiliaryView;
 	BOOL isPopUpDisplayed;
 	BOOL allowSweepGesture;
@@ -55,7 +53,6 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, assign) BOOL allowSweepGesture;
-@property (nonatomic, assign) DragAndDropViewController* previewViewController;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
@@ -63,7 +60,6 @@
 
 - (void)showError: (NSString *)message;
 
-- (void)setContentPreview: (HoccerContent *)content;
 - (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;
@@ -77,8 +73,6 @@
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
-
-- (DragAndDropViewController *)emptyDragAndDropController;
 
 @end
 

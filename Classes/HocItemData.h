@@ -8,16 +8,22 @@
 
 #import <Foundation/Foundation.h>
 @class HoccerRequest;
-@class DragAndDropViewController;
+@class HoccerContent;
+@class Preview;
 @class HocLocation;
 
 
 @interface HocItemData : NSObject {
 	HoccerRequest *request;
-	DragAndDropViewController *dragAndDropViewConroller;
+	Preview *contentView;
+	HoccerContent *content;
+	
+	CGPoint viewOrigin;
 }
 
-@property (retain) DragAndDropViewController *dragAndDropViewConroller;
+@property (retain) HoccerContent *content;
+@property (retain) Preview* contentView;
+@property (assign) CGPoint viewOrigin;
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

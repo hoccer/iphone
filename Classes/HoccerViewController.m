@@ -18,8 +18,8 @@
 #import "HoccerVcard.h"
 #import "HoccerText.h"
 #import "Preview.h"
+#import "ContentContainerView.h"
 
-#import "DragAndDropViewController.h"
 #import "DesktopViewController.h"
 #import "ReceivedContentViewController.h"
 #import "SelectContentViewController.h"
@@ -96,7 +96,6 @@
 @synthesize allowSweepGesture;
 @synthesize helpViewController;
 @synthesize delayedAction;
-@synthesize previewViewController;
 @synthesize locationController;
 @synthesize gestureInterpreter;
 
@@ -106,15 +105,14 @@
 }
 
 - (void)viewDidLoad {
-	desktopViewController = [[DesktopViewController alloc] init];
-	desktopViewController.view = backgroundView;
-	desktopViewController.delegate = self;
+	desktopView = [[DesktopViewController alloc] init];
+	desktopView.view = backgroundView;
+	desktopView.delegate = self;
 	
     isPopUpDisplayed = FALSE;
 	
 	self.allowSweepGesture = YES;	
-	previewViewController.shouldSnapBackOnTouchUp = YES;
-	desktopViewController.shouldSnapToCenterOnTouchUp = YES;
+	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	
 	desktopData = [[DesktopDataSource alloc] init];
 	desktopData.viewController = self;
@@ -126,8 +124,7 @@
 - (void)dealloc {
 	[delayedAction release];
 
-	[previewViewController release];		
-	[desktopViewController release];	
+	[desktopView release];	
 	[helpViewController release];
 	
 	[backgroundView release];
@@ -210,25 +207,13 @@
 	[alertView release];
 }
 
-- (void)setContentPreview: (HoccerContent*)content {
-	[previewViewController.view removeFromSuperview];
-	Preview *contentView = [content desktopItemView];
-	CGFloat xOrigin = (self.view.frame.size.width - contentView.frame.size.width) / 2;
-	
-	[backgroundView insertSubview: contentView atIndex: 1];
-	[self.view setNeedsDisplay];
-	
-	previewViewController.view = contentView;	
-	previewViewController.origin = CGPointMake(xOrigin, 25);
-}
 
 - (void)resetPreview {
-	[previewViewController resetViewAnimated:NO];
-	[desktopViewController resetView];
+	[desktopView resetView];
 }
 
 - (void)startPreviewFlyOutAniamation {
-	[previewViewController startFlyOutUpwardsAnimation];
+	[desktopView startFlyOutUpwardsAnimation];
 }
 
 - (void)showSelectContentView {
@@ -252,11 +237,11 @@
 	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = desktopViewController.view.frame.size;
+	selectContentFrame.size = desktopView.view.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = selectContentFrame;	
 	
-	[desktopViewController.view addSubview:popOverView.view];
+	[desktopView.view addSubview:popOverView.view];
 	
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.2];
@@ -330,6 +315,9 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)setContentPreview: (HoccerContent *)content {
+	
+}
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
@@ -384,7 +372,7 @@
 #pragma mark -
 #pragma mark Touch Events
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	[previewViewController dismissKeyboard];
+	[desktopView dismissKeyboard];
 }
 
 - (void) sweepInterpreterDidDetectSweepOut {
@@ -420,49 +408,44 @@
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepIn: (DragAndDropViewController *)controller {	
+- (void)sweepInterpreterDidDetectSweepIn: (UIView *)view {	
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	self.allowSweepGesture = NO;
 	
-	HocItemData *item = [desktopData hocItemDataForController:controller];
+	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"pass"];
 	
 	// [statusViewController showActivityInfo];
 }
 
-- (void)sweepInterpreterDidDetectSweepOut: (DragAndDropViewController *)controller {
+- (void)sweepInterpreterDidDetectSweepOut: (UIView *)view {
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	
-	HocItemData *item = [desktopData hocItemDataForController:controller];
+	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
 	// [statusViewController showActivityInfo];
 }
 
-- (DragAndDropViewController *)emptyDragAndDropController {
+- (void)desktopView: (DesktopViewController *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
 	if ([desktopData controllerHasActiveRequest]) {
-		return nil;
+		return;
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.viewOrigin = point;
 	
-	DragAndDropViewController* newestHocItem = [[[DragAndDropViewController alloc] init] autorelease];
-	newestHocItem.delegate = self;
-		
-	item.dragAndDropViewConroller = newestHocItem;
-
 	[desktopData addController:item];
-	[desktopViewController reloadData];
-	
-	return newestHocItem;
+	[desktopView reloadData];
 }
 
-- (void)dragAndDropViewControllerWillBeDismissed: (DragAndDropViewController *)controller {
-	HocItemData *item = [desktopData hocItemDataForController:controller];
+
+- (void)dragAndDropViewControllerWillBeDismissed: (UIView *)view {
+	HocItemData *item = [desktopData hocItemDataForView:view];
 	
 	[desktopData removeController:item];
 	// [desktopViewController reloadData];
