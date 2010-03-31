@@ -32,7 +32,5 @@
 
 - (void)dismissKeyboard;
 - (void)resetViewAnimated: (BOOL)animated;
-- (void)startFlyOutUpwardsAnimation;
-- (void)startFlySidewaysAnimation: (CGPoint) endPoint;
 
 @end
