@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class ContentContainerView;
 
-@protocol ContentContainerViewDelegate
+@protocol ContentContainerViewDelegate <NSObject>
 
 - (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point;
 - (void)containerViewDidClose:(ContentContainerView *)view;

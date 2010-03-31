@@ -147,6 +147,8 @@
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
+	[dataSource removeView:view.containedView];
+	[self reloadData];
 }
 
 - (void)containerViewDidSweepOut: (ContentContainerView *)view {

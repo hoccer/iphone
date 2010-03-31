@@ -35,6 +35,7 @@
 		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
 				forState:UIControlStateHighlighted];
 		
+		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setFrame: CGRectMake(3, 3, 35, 36)];
 		
 		[self addSubview: button];
@@ -50,18 +51,17 @@
 	[super dealloc];
 }
 
-
-
-- (void) setCloseActionTarget: (id) aTarget action: (SEL) aSelector{
-	[button addTarget: aTarget action: aSelector forControlEvents:UIControlEventTouchUpInside];
-}
-
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;
 	frame.origin = newOrigin;
 	self.frame = frame;
 }
 
+- (void)closeView: (id)sender {
+	if ([delegate respondsToSelector:@selector(containerViewDidClose:)]) {
+		[delegate containerViewDidClose:self];
+	}
+}
 
 #pragma mark -
 #pragma mark Touch Event
