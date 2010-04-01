@@ -116,21 +116,15 @@
 	// [contentView resetViewAnimated:YES];
 	[request release];
 	request = nil;
-	
-	// [statusViewController setError: [error localizedDescription]];
-	// [statusViewController hideActivityInfo];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
 {
 	self.status = update;
-	
-	// [statusViewController setUpdate: update];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
-	// [statusViewController setProgressUpdate:[progress floatValue]];
 }
 
 @end

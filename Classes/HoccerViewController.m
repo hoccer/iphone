@@ -414,7 +414,7 @@
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"pass"];
 	
-	[statusViewController monitorHocItem:item];
+	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
 }
 
@@ -436,15 +436,21 @@
 #pragma mark HocItemDataDelegate
 
 - (void)hocItemWasSend: (HocItemData *)item {
+	statusViewController.hocItemData = nil;
+	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
 
 - (void)hocItemWasReceived: (HocItemData *)item {
+	statusViewController.hocItemData = nil;
+
 	[desktopView reloadData];
 }
 
 - (void)hocItemWasCanceled: (HocItemData *)item {
+	statusViewController.hocItemData = nil;
+
 	item.viewOrigin = CGPointMake(200, 300);
 	[desktopView reloadData];
 }

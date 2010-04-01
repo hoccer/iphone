@@ -26,6 +26,18 @@
     [super dealloc];
 }
 
+- (void)setHocItemData:(HocItemData *)newHocItem {
+	if (hocItemData != newHocItem) {
+		[hocItemData removeObserver:self forKeyPath:@"status"];
+		[hocItemData release];
+		
+		hocItemData = [newHocItem retain]; 
+		[self monitorHocItem:hocItemData];
+	}
+}
+
+
+
 - (IBAction) cancelAction: (id) sender{
 	self.view.hidden = YES;	
 	[self.delegate checkAndPerformSelector:@selector(statusViewControllerDidCancelRequest:) withObject:self];
