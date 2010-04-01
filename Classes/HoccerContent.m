@@ -65,6 +65,8 @@
 }
 
 - (void) dealloc {	
+	[self removeFromDocumentDirectory];
+	
 	[data release];
 	[filepath release];
 	[previewDelegate release];

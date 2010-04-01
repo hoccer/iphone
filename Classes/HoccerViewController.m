@@ -451,7 +451,7 @@
 }
 
 - (void)hocItemWasCanceled: (HocItemData *)item {
-	NSLog(@"hocItemWasCanceled:");
+	NSLog(@"hocItemWasCanceled: %@", item);
 	statusViewController.hocItemData = nil;
 
 	item.viewOrigin = CGPointMake(200, 300);
