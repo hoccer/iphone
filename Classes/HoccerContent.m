@@ -90,7 +90,17 @@
 }
 
 - (Preview *)desktopItemView{
-	return nil;
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	
+	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	
+	[view addSubview:backgroundImage];
+	[view sendSubviewToBack:backgroundImage];
+	[backgroundImage release];
+	
+	[view setImage: [previewDelegate hoccerContentIcon:self]];
+	return [view autorelease];
 }
 
 - (NSString *)filename{
