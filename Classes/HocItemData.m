@@ -140,6 +140,16 @@
 	self.status = [error localizedDescription];
 	[request release];
 	request = nil;
+	
+	if (isUpload) {
+		if ([delegate respondsToSelector:@selector(hocItemUploadFailed:)]) {
+			[delegate hocItemUploadFailed: self];
+		}
+	} else {
+		if ([delegate respondsToSelector:@selector(hocItemDownloadFailed:)]) {
+			[delegate hocItemDownloadFailed: self];
+		}
+	}
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 

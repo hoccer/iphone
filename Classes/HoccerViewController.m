@@ -455,6 +455,13 @@
 	[desktopView reloadData];
 }
 
+- (void)hocItemUploadFailed: (HocItemData *)item {
+	NSLog(@"hocItemUploadWasFailed: %@", item);
+	item.viewOrigin = CGPointMake(200, 300);
+	
+	[desktopView reloadData];
+}
+
 - (void)hocItemUploadWasCanceled: (HocItemData *)item {
 	NSLog(@"hocItemUploadWasCanceled: %@", item);
 	statusViewController.hocItemData = nil;
@@ -471,8 +478,11 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemWillStartUpload: (HocItemData *)item {
-
+- (void)hocItemDownloadFailed: (HocItemData *)item {
+	statusViewController.hocItemData = nil;
+	
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
 }
 
 - (void)hocItemWillStartDownload: (HocItemData *)item {
