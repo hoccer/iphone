@@ -436,6 +436,7 @@
 #pragma mark HocItemDataDelegate
 
 - (void)hocItemWasSend: (HocItemData *)item {
+	NSLog(@"hocItemWasSend:");
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];
@@ -443,12 +444,14 @@
 }
 
 - (void)hocItemWasReceived: (HocItemData *)item {
+	NSLog(@"hocItemWasReceived:");
 	statusViewController.hocItemData = nil;
 
 	[desktopView reloadData];
 }
 
 - (void)hocItemWasCanceled: (HocItemData *)item {
+	NSLog(@"hocItemWasCanceled:");
 	statusViewController.hocItemData = nil;
 
 	item.viewOrigin = CGPointMake(200, 300);

@@ -105,6 +105,10 @@
 - (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest {
 	[request release];
 	request = nil;
+	
+	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
+		[delegate hocItemWasSend: self];
+	}
 }
 
 #pragma mark -
@@ -113,7 +117,6 @@
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
 	self.status = [error localizedDescription];
-	// [contentView resetViewAnimated:YES];
 	[request release];
 	request = nil;
 }
