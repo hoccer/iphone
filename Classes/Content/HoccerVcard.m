@@ -14,10 +14,15 @@
 #import "ABPersonCreator.h"
 
 
+@interface HoccerVcard ()
+
+@property (nonatomic, readonly) NSString *name;
+
+@end
+
+
+
 @implementation HoccerVcard
-
-
-
 
 - (id)initWitPerson: (ABRecordRef)aPerson {
 	self = [super init];
@@ -43,6 +48,7 @@
 		
 		[creator release];	
 	}
+	
 	return person;
 }
 
@@ -81,7 +87,7 @@
 	
 	[view addSubview: label];
 	
-	label.text = [abPersonVCardCreator previewName]; 
+	label.text = self.name; 
 	[label release];
 	
 	return [view autorelease];
@@ -106,4 +112,13 @@
 	
 	[super dealloc];
 }
+
+- (NSString *)name {
+	ABPersonVCardCreator *personCreator = [[[ABPersonVCardCreator alloc] initWithPerson: self.person] autorelease];
+	
+	return [personCreator previewName];
+}
+
+
+
 @end
