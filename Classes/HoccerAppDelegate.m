@@ -36,6 +36,12 @@
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
 }
 
+- (void)applicationWillTerminate: (UIApplication *)application {
+	
+}
+
+
+
 - (void)dealloc {			
     [viewController release];
 	[window release];

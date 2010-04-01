@@ -15,6 +15,19 @@
 @synthesize data;
 @synthesize filepath;
 
+#pragma mark NSCoding Delegate Methods
+- (id)initWithCoder:(NSCoder *)decoder {
+	self = [super init];
+	if (self != nil) {
+		self.filepath = [decoder decodeObjectForKey:@"filepath"];
+	}
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:filepath forKey:@"filepath"];
+}
+
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename {
 	self = [super init];
 	if (self != nil) {
@@ -64,8 +77,6 @@
 }
 
 - (void) dealloc {	
-	[self removeFromDocumentDirectory];
-	
 	[data release];
 	[filepath release];
 	[previewDelegate release];

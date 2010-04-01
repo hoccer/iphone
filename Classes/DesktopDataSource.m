@@ -32,14 +32,29 @@
 	[super dealloc];
 }
 
+#pragma mark NSCoding Delegate Methods
+- (id)initWithCoder:(NSCoder *)decoder {
+	self = [super init];
+	if (self != nil) {
+		contentOnDesktop = [[decoder decodeObjectForKey:@"desktopContent"] retain];
+	}
+	
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:contentOnDesktop forKey:@"desktopContent"];	
+}
+
+
+
 - (void)addHocItem: (HocItemData *)hocItem {
 	[contentOnDesktop addObject:hocItem];
 }
 
 - (void)removeHocItem: (HocItemData *)hocItem {
-	NSLog(@"removing: %@ from position %d", hocItem, [contentOnDesktop indexOfObject:hocItem]);
+	[hocItem removeFromFileSystem];
 	[contentOnDesktop removeObject:hocItem];
-	NSLog(@"removed item");
 }
 
 - (BOOL)controllerHasActiveRequest {

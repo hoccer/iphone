@@ -12,7 +12,7 @@
 @class DragAndDropViewController;
 @class HocItemData;
 
-@interface DesktopDataSource : NSObject <DesktopViewDataSource> {
+@interface DesktopDataSource : NSObject <DesktopViewDataSource, NSCoding> {
 	NSMutableArray *contentOnDesktop;
 	
 	UIViewController *viewController;

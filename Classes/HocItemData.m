@@ -28,6 +28,22 @@
 @synthesize delegate;
 
 
+#pragma mark NSCoding Delegate Methods
+- (id)initWithCoder:(NSCoder *)decoder {
+	self = [super init];
+	if (self != nil) {
+		content = [[decoder decodeObjectForKey:@"content"] retain];
+		viewOrigin = [decoder decodeCGPointForKey:@"position"];
+	}
+	
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:content forKey:@"content"];
+	[encoder encodeCGPoint:viewOrigin forKey:@"position"];
+}
+
 - (void) dealloc {
 	[content release];
 	[contentView release];
@@ -44,6 +60,12 @@
 	
 	self.contentView = nil;
 }
+
+- (void)removeFromFileSystem {
+	[content removeFromDocumentDirectory];
+}
+
+
 
 - (void)cancelRequest {
 	if (request == nil) {
@@ -160,5 +182,8 @@
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
 }
+
+
+
 
 @end

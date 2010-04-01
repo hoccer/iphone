@@ -15,7 +15,7 @@
 @class HocLocation;
 
 
-@interface HocItemData : NSObject {
+@interface HocItemData : NSObject <NSCoding> {
 	HoccerRequest *request;
 	Preview *contentView;
 	HoccerContent *content;
@@ -40,5 +40,7 @@
 
 - (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
 - (void)downloadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
+
+- (void)removeFromFileSystem;
 
 @end

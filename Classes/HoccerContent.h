@@ -13,7 +13,7 @@
 @class HoccerContentIPadPreviewDelegate;
 
 
-@interface HoccerContent : NSObject {
+@interface HoccerContent : NSObject <NSCoding> {
 	NSString *filepath;	
 	NSData *data;
 	
