@@ -104,7 +104,6 @@
 		2287BD181162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD191162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */; };
-		2287BD201162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */; };
 		228989671067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		228989681067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		2289896B1067CC1C00FB3E5D /* LineFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */; };
@@ -1342,7 +1341,6 @@
 				22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */,
 				22A8A0921160BA1E004BCD3D /* HocItemData.m in Sources */,
 				2287BD191162512B00FFA07F /* HoccerContent.m in Sources */,
-				2287BD201162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
 				22AE461211633E0500C10B98 /* ContentContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

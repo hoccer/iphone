@@ -27,27 +27,30 @@
 }
 
 - (void)setHocItemData:(HocItemData *)newHocItem {
+	NSLog(@"setting item to: %@", newHocItem);
 	if (hocItemData != newHocItem) {
 		[hocItemData removeObserver:self forKeyPath:@"status"];
 		[hocItemData release];
 		
 		hocItemData = [newHocItem retain]; 
-		[self monitorHocItem:hocItemData];
+		
+		if (hocItemData != nil) {
+			[self monitorHocItem:hocItemData];
+			[self showActivityInfo];
+		} else {
+			[self hideActivityInfo];
+		}
 	}
 }
 
-
-
-- (IBAction) cancelAction: (id) sender{
+- (IBAction) cancelAction: (id) sender {
 	self.view.hidden = YES;	
-	[self.delegate checkAndPerformSelector:@selector(statusViewControllerDidCancelRequest:) withObject:self];
 	
 	[hocItemData cancelRequest];
 	self.hocItemData = nil;
 }
 
-- (void)setUpdate: (NSString *)update
-{
+- (void)setUpdate: (NSString *)update {
 	progressView.progress = 0;
 	progressView.hidden = NO;
 	activitySpinner.hidden = NO;
@@ -66,8 +69,7 @@
 	progressView.progress = percentage;
 }
 
-- (void)showActivityInfo
-{
+- (void)showActivityInfo {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	self.view.hidden = NO;
 	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 32);
@@ -81,8 +83,7 @@
 	[activitySpinner startAnimating];
 }
 
-- (void)hideActivityInfo
-{
+- (void)hideActivityInfo {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	self.view.hidden = YES;
@@ -90,7 +91,6 @@
 }
 
 - (void)monitorHocItem: (HocItemData*) hocItem {
-	self.hocItemData = hocItem;
 	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
 }
 

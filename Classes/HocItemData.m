@@ -13,6 +13,7 @@
 #import "HoccerDownloadRequest.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
+#import "StatusViewController.h"
 #import "Preview.h"
 
 #import "HocLocation.h"
@@ -45,13 +46,22 @@
 }
 
 - (void)cancelRequest {
+	if (request == nil) {
+		return;
+	}
+	
 	[request cancel];
 	[request release];
-	
 	request = nil;
-	
-	if ([delegate respondsToSelector:@selector(hocItemWasCanceled:)]) {
-		[delegate hocItemWasCanceled:self];
+
+	if (isUpload) {
+		if ([delegate respondsToSelector:@selector(hocItemUploadWasCanceled:)]) {
+			[delegate hocItemUploadWasCanceled:self];
+		}
+	} else {
+		if ([delegate respondsToSelector:@selector(hocItemDownloadWasCanceled:)]) {
+			[delegate hocItemDownloadWasCanceled:self];
+		}
 	}
 }
 
@@ -73,13 +83,24 @@
 }
 
 - (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
+		[delegate hocItemWillStartUpload:self];
+	}
+	
 	[content prepareSharing];
 	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:gesture content: content 
 													   type: [content mimeType] filename: [content filename] delegate:self];
+	
+	isUpload = YES;
 }
 
 - (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)gesture {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
+		[delegate hocItemWillStartDownload:self];
+	}
+	
 	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:gesture delegate: self];
+	isUpload = NO;
 }
 
 

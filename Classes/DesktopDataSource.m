@@ -37,7 +37,9 @@
 }
 
 - (void)removeHocItem: (HocItemData *)hocItem {
+	NSLog(@"removing: %@ from position %d", hocItem, [contentOnDesktop indexOfObject:hocItem]);
 	[contentOnDesktop removeObject:hocItem];
+	NSLog(@"removed item");
 }
 
 - (BOOL)controllerHasActiveRequest {
@@ -89,9 +91,6 @@
 
 - (void)removeView: (UIView *)view {
 	HocItemData *item = [self hocItemDataForView:view];
-	if ([item hasActiveRequest]) {
-		[item cancelRequest];
-	}
 	
 	[self removeHocItem:item];
 }

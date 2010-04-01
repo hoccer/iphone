@@ -99,9 +99,8 @@
 	return @"vcf";
 }
 
-- (void) dealloc
-{
-	CFRelease(person);
+- (void) dealloc {
+	if (person != NULL) CFRelease(person);
 	[abPersonVCardCreator release];
 	[unknownPersonController release];
 	

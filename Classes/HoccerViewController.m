@@ -392,18 +392,23 @@
 #pragma mark -
 #pragma mark DesktopViewDelegate
 
+- (void)desktopView:(DesktopView *)desktopView didRemoveView: (UIView *)view {
+	HocItemData *item = [desktopData hocItemDataForView:view];
+	if ([item hasActiveRequest]) {
+		[item cancelRequest];	
+	} else{
+		[desktopData removeHocItem:item];
+	}
+}
+
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
 	NSLog(@"sweeping out");
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
 	
-	self.allowSweepGesture = NO;
-	
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"pass"];
-	
-	// [statusViewController showActivityInfo];
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
@@ -450,14 +455,31 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemWasCanceled: (HocItemData *)item {
-	NSLog(@"hocItemWasCanceled: %@", item);
+- (void)hocItemUploadWasCanceled: (HocItemData *)item {
+	NSLog(@"hocItemUploadWasCanceled: %@", item);
 	statusViewController.hocItemData = nil;
-
 	item.viewOrigin = CGPointMake(200, 300);
+	
 	[desktopView reloadData];
 }
 
+- (void)hocItemDownloadWasCanceled: (HocItemData *)item {
+	NSLog(@"hocItemUploadWasCanceled: %@", item);
+	statusViewController.hocItemData = nil;
+	
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
+}
 
+- (void)hocItemWillStartUpload: (HocItemData *)item {
+
+}
+
+- (void)hocItemWillStartDownload: (HocItemData *)item {
+	NSLog(@"hocItemWillStartUpload: %@", item);
+	
+	statusViewController.hocItemData = item;
+	[statusViewController showActivityInfo];
+}
 
 @end

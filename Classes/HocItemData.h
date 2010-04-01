@@ -24,6 +24,8 @@
 	NSString *status;
 	
 	id <HocItemDataDelegate> delegate;
+	
+	BOOL isUpload;
 }
 
 @property (retain) HoccerContent *content;

@@ -25,6 +25,7 @@
 		self.data = theData;
 		
 		[self saveDataToDocumentDirectory];
+		
 		previewDelegate = [[HoccerContentIPadPreviewDelegate alloc] init];
 	}
 	
@@ -40,8 +41,6 @@
 		
 		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
 		previewDelegate = [[HoccerContentIPadPreviewDelegate alloc] init];
-		
-		NSLog(@"init with filepath: %@", self.filepath);
 	}
 	return self;
 }

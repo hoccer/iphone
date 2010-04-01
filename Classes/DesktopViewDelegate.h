@@ -17,5 +17,6 @@
 @optional
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view;
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view;
+- (void)desktopView:(DesktopView *)desktopView didRemoveView: (UIView *)view;
 
 @end

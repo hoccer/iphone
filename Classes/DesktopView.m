@@ -144,8 +144,9 @@
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
-	NSLog(@"closing");
-	[dataSource removeView:view.containedView];
+	if ([delegate respondsToSelector:@selector(desktopView:didRemoveView:)]) {
+		[delegate desktopView:self didRemoveView: view.containedView];
+	}
 	[self reloadData];
 }
 
