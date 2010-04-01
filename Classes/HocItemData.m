@@ -85,21 +85,24 @@
 
 #pragma mark -
 #pragma mark Download Communication
-- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest
-{
+- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																									   withData: aRequest.result];
 	
 	self.content = hoccerContent;	
 	[request release];
 	request = nil;
+	
+	if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
+		[delegate hocItemWasReceived:self];
+	}
+	
 }
 
 #pragma mark -
 #pragma mark Upload Communication 
 
-- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest
-{
+- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest {
 	[request release];
 	request = nil;
 }

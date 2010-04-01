@@ -424,6 +424,7 @@
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.delegate = self;
 	
 	[desktopData addHocItem:item];
 	[desktopView reloadData];

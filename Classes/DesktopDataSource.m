@@ -89,6 +89,10 @@
 
 - (void)removeView: (UIView *)view {
 	HocItemData *item = [self hocItemDataForView:view];
+	if ([item hasActiveRequest]) {
+		[item cancelRequest];
+	}
+	
 	[self removeHocItem:item];
 }
 

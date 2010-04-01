@@ -68,11 +68,11 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
 	NSLog(@"touches ended in ReceiveViewController");
 	CGPoint currentLocation = [[touches anyObject] locationInView: self]; 
-
+	
 	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
 			sweeping == kSweepDirectionRightIn && currentLocation.x < self.frame.size. width - kSweepAcceptanceDistance) {
 		
-		
+		[self containerView:feedback didMoveToPosition:currentLocation];
 		if ([delegate respondsToSelector:@selector(desktopView:didSweepInView:)]) {
 			[delegate desktopView:self didSweepInView:feedback.containedView];
 		}
@@ -144,6 +144,7 @@
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
+	NSLog(@"closing");
 	[dataSource removeView:view.containedView];
 	[self reloadData];
 }
