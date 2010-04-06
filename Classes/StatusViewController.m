@@ -34,6 +34,10 @@
 		
 		hocItemData = [newHocItem retain]; 
 		[self monitorHocItem:hocItemData];
+	} 
+	
+	if (hocItemData == nil) {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
 }
 
