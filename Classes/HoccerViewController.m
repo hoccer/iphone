@@ -39,7 +39,7 @@
 #import "HocItemData.h"
 #import "StatusViewController.h"
 
-
+#import "HoccingRulesIPhone.h"
 
 @interface ActionElement : NSObject
 {
@@ -100,6 +100,8 @@
 @synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
+@synthesize desktopData;
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -108,18 +110,20 @@
 
 - (void)viewDidLoad {
 	desktopView.delegate = self;
+	gestureInterpreter.delegate = self;
+
 
 	desktopData = [[DesktopDataSource alloc] init];
 	desktopData.viewController = self;
 	
     isPopUpDisplayed = FALSE;
 	
-	self.allowSweepGesture = YES;	
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	
+	hoccingRules = [[HoccingRulesIPhone alloc] init];
+	
 	[self.view insertSubview:statusViewController.view atIndex:1];
-	gestureInterpreter.delegate = self;
 }
 
 - (void)viewDidUnload {
@@ -361,7 +365,7 @@
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
 	NSLog(@"did detect catch");
 	
-	if ([desktopData controllerHasActiveRequest]) {
+	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
 	
@@ -377,7 +381,7 @@
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
-	if ([desktopData controllerHasActiveRequest] || [desktopData count] == 0) {
+	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
 	
@@ -426,7 +430,7 @@
 }
 
 - (UIView *)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
-	if ([desktopData controllerHasActiveRequest]) {
+	if (![hoccingRules hoccerViewControllerMaySweepIn:self]) {
 		return nil;
 	}
 	

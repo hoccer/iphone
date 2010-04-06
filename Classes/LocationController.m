@@ -15,8 +15,7 @@
 @synthesize viewController;
 @synthesize lastLocationUpdate;
 
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		locationManager = [[CLLocationManager alloc] init];
@@ -29,8 +28,7 @@
 	return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[locationManager stopUpdatingLocation];
 	[locationManager release];
 	[viewController release];
