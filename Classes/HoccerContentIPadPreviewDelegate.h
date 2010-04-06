@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerContentPreviewDelegate.h"
 @class HoccerContent;
 
 
@@ -17,10 +18,5 @@
 }
 
 @property (retain) UIDocumentInteractionController *interactionController;
-
-- (void)hoccerContent: (HoccerContent*)hoccerContent previewInViewController: (UIViewController *) viewController;
-- (void)hoccerContent: (HoccerContent*)hoccerContent decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController;
-- (UIImage *)hoccerContentIcon: (HoccerContent *)hoccerContent;
-
 
 @end

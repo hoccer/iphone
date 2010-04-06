@@ -9,8 +9,12 @@
 
 #import "HoccerContent.h"
 #import "Preview.h"
-#import "HoccerContentIPadPreviewDelegate.h"
 
+
+#ifdef UI_USER_INTERFACE_IDIOM
+#import "HoccerContentIPadPreviewDelegate.h"
+#endif
+	
 @implementation HoccerContent
 @synthesize data;
 @synthesize filepath;
@@ -39,7 +43,7 @@
 		
 		[self saveDataToDocumentDirectory];
 		
-		previewDelegate = [[HoccerContentIPadPreviewDelegate alloc] init];
+		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
 	}
 	
 	return self;
@@ -53,7 +57,7 @@
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
 		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
-		previewDelegate = [[HoccerContentIPadPreviewDelegate alloc] init];
+		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
 	}
 	return self;
 }

@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
+#import "HoccerContentPreviewDelegate.h"
 
 @class Preview;
 @class HoccerContentIPadPreviewDelegate;
-
 
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filepath;	
 	NSData *data;
 	
-	HoccerContentIPadPreviewDelegate *previewDelegate;
+	id <HoccerContentPreviewDelegate> previewDelegate;
 }
 
 @property (retain) NSData *data; 

@@ -43,7 +43,6 @@
 
 @implementation HoccerImage
 
-@synthesize data;
 @synthesize image;
 
 - (id)initWithUIImage: (UIImage *)aImage
