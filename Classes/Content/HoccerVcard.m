@@ -65,7 +65,7 @@
 - (UIView *)fullscreenView 
 {
 	unknownPersonController = [[ABUnknownPersonViewController alloc] init];
-	unknownPersonController.displayedPerson = person;
+	unknownPersonController.displayedPerson =self.person;
 	
 	return unknownPersonController.view;
 }

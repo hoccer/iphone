@@ -91,7 +91,6 @@
 - (IBAction)selectImage: (id)sender {}
 - (IBAction)selectText: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
-
 - (IBAction)toggleHelp: (id)sender {}
 
 #pragma mark -
@@ -101,27 +100,12 @@
 	[desktopView resetView];
 }
 
-- (void)presentReceivedContent:(HoccerContent*) hoccerContent {
-	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
-	
-	receivedContentViewController.delegate = self;
-	[receivedContentViewController setHoccerContent: hoccerContent];
-		
-	[self presentModalViewController: receivedContentViewController animated:YES];	
-    [self resetPreview];
-}
-
 - (HelpScrollView *)helpViewController {
 	if (helpViewController == nil) {
 		helpViewController = [[HelpScrollView alloc] init];
 	}
 	
 	return helpViewController;
-}
-
-
-- (void)receivedViewContentControllerDidFinish:(ReceivedContentViewController *)controller {
-	[self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)setContentPreview: (HoccerContent *)content {

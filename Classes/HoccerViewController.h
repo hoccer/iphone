@@ -64,7 +64,6 @@
 
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;
-- (void)presentReceivedContent:(HoccerContent *) hoccerContent;
 
 - (IBAction)toggleSelectContent: (id)sender;
 - (IBAction)toggleHelp: (id)sender;

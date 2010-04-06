@@ -18,9 +18,7 @@
 #define kSweepDirectionRightIn 1
 
 @interface DesktopView ()
-
 - (ContentContainerView *)viewContainingView: (UIView *)view;
-
 @end
 
 

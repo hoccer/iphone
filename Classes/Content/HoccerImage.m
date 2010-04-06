@@ -75,7 +75,7 @@
 {	
 	CGSize size = CGSizeMake(320, 480);
 	
-	UIImage *scaledImage = [image gtm_imageByResizingToSize: size
+	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
 										 preserveAspectRatio: YES
 												   trimToFit: YES];
 

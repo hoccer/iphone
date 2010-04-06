@@ -14,7 +14,8 @@
 #ifdef UI_USER_INTERFACE_IDIOM
 #import "HoccerContentIPadPreviewDelegate.h"
 #endif
-	
+#import "HoccerContentIPhonePreviewDelegate.h"	
+
 @implementation HoccerContent
 @synthesize data;
 @synthesize filepath;
@@ -44,6 +45,9 @@
 		[self saveDataToDocumentDirectory];
 		
 		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
+		if (previewDelegate == nil) {
+			previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPhonePreviewDelegate") alloc] init];
+		}
 	}
 	
 	return self;

@@ -13,6 +13,7 @@
 #import "StatusViewController.h"
 #import "SelectContentViewController.h"
 #import "HelpScrollView.h"
+#import "HocItemData.h"
 
 @interface ActionElement : NSObject
 {
@@ -191,6 +192,13 @@
 		}
 		
 	}
+}
+
+- (void)hocItemWasReceived: (HocItemData *)item {
+	statusViewController.hocItemData = nil;
+	NSLog(@"item: %@", item);
+	[[item content] previewInViewController:self];
+	[desktopView reloadData];
 }
 
 @end
