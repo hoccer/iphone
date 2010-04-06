@@ -17,5 +17,6 @@
 - (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller;
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller;
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller;
+- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller;
 
 @end

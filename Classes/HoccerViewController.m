@@ -303,6 +303,10 @@
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
+	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
+		return;
+	}
+	
 	NSLog(@"setting content preview: %@", content);
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(50, 50);
