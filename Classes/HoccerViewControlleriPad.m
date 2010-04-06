@@ -32,6 +32,7 @@
 	[super viewDidLoad];
 	
 	desktopView.shouldSnapToCenterOnTouchUp = NO;
+	self.defaultOrigin = CGPointMake(200, 300);
 }
 
 
@@ -93,7 +94,7 @@
 - (void)setContentPreview: (HoccerContent*)content {
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
-	item.viewOrigin = CGPointMake(300, 300);
+	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
 	

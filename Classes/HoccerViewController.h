@@ -48,6 +48,8 @@
 							
 	StatusViewController *statusViewController;
 	HoccingRulesIPhone *hoccingRules;
+							
+	CGPoint defaultOrigin;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -58,6 +60,7 @@
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
+@property (assign) CGPoint defaultOrigin;
 
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;

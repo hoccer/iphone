@@ -129,6 +129,7 @@
 		229A82F6116B670400FFAD1B /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
 		229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
 		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
+		229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
@@ -1481,6 +1482,7 @@
 				2287BD181162512B00FFA07F /* HoccerContent.m in Sources */,
 				2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
 				22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */,
+				229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,7 +49,7 @@
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
 @synthesize desktopData;
-
+@synthesize defaultOrigin;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,6 +69,7 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	
 	[self.view insertSubview:statusViewController.view atIndex:1];
+	self.defaultOrigin = CGPointMake(32, 72);
 }
 
 - (void)viewDidUnload {
@@ -130,7 +131,7 @@
 	
 	NSLog(@"setting content preview: %@", content);
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
-	item.viewOrigin = CGPointMake(50, 50);
+	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
 	
@@ -280,14 +281,14 @@
 }
 
 - (void)hocItemUploadFailed: (HocItemData *)item {
-	item.viewOrigin = CGPointMake(200, 300);
+	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
 - (void)hocItemUploadWasCanceled: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	item.viewOrigin = CGPointMake(200, 300);
+	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
