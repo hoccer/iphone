@@ -32,7 +32,6 @@
 	[super viewDidLoad];
 	
 	desktopView.shouldSnapToCenterOnTouchUp = NO;
-	desktopView.dataSource = desktopData;
 }
 
 
@@ -99,7 +98,6 @@
 	item.delegate = self;
 	
 	[desktopData addHocItem:item];
-	[desktopView reloadData];
 	[desktopView reloadData];
 }
 

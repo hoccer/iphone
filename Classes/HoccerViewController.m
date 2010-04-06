@@ -116,8 +116,10 @@
 	
 	self.allowSweepGesture = YES;	
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
+	desktopView.dataSource = desktopData;
 	
 	[self.view insertSubview:statusViewController.view atIndex:1];
+	gestureInterpreter.delegate = self;
 }
 
 - (void)viewDidUnload {
@@ -127,6 +129,7 @@
 	[delayedAction release];
 
 	[desktopView release];	
+	[desktopData release];
 	[helpViewController release];
 	
 	[auxiliaryView release];
@@ -160,9 +163,6 @@
 	
 	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
-	
-	gestureInterpreter.delegate = self;
-	self.allowSweepGesture = NO;
 }
 
 - (IBAction)toggleHelp: (id)sender {
@@ -173,7 +173,6 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
-		gestureInterpreter.delegate = self;	
 	}
 }
 
@@ -185,7 +184,6 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
-		gestureInterpreter.delegate = (NSObject *) self.helpViewController;
 	}
 }
 
@@ -206,25 +204,18 @@
 	[desktopView resetView];
 }
 
-- (void)startPreviewFlyOutAniamation {
-	[desktopView startFlyOutUpwardsAnimation];
-}
-
 - (void)showSelectContentView {
 	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
 	selectContentViewController.delegate = self;
 	
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
-	
-	gestureInterpreter.delegate = nil;
 }
 
 - (void)showHelpView {
 	self.helpViewController.delegate = self;
 	
 	[self showPopOver:self.helpViewController];
-	gestureInterpreter.delegate = (NSObject *) self.helpViewController;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -308,7 +299,14 @@
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
+	NSLog(@"setting content preview: %@", content);
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.viewOrigin = CGPointMake(50, 50);
+	item.content = content;
+	item.delegate = self;
 	
+	[desktopData addHocItem:item];
+	[desktopView reloadData];
 }
 
 #pragma mark -
@@ -318,7 +316,6 @@
 	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
-	gestureInterpreter.delegate = self;
 	self.allowSweepGesture = NO;
 	
 	[self setContentPreview: content];
@@ -337,7 +334,6 @@
 	
 	HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
 	
-	gestureInterpreter.delegate = self;
 	self.allowSweepGesture = NO;
 	[self setContentPreview: content];
 	
@@ -357,35 +353,41 @@
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
 {
 	[self dismissModalViewControllerAnimated:YES];
-	gestureInterpreter.delegate = self;
 }
 
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
+	NSLog(@"did detect catch");
+	
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
-	self.allowSweepGesture = NO;
 	
 	[FeedbackProvider playCatchFeedback];
-	// request = [[HoccerDownloadRequest alloc] initWithLocation: locationController.location gesture: @"distribute" delegate: self];
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.delegate = self;
 	
-	// [statusViewController showActivityInfo];
+	[desktopData addHocItem:item];
+	[desktopView reloadData];
+	
+	[item downloadWithLocation:locationController.location gesture:@"distribute"];
+
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
-	if ([desktopData controllerHasActiveRequest]) {
+	if ([desktopData controllerHasActiveRequest] || [desktopData count] == 0) {
 		return;
 	}
 	
-	[FeedbackProvider playThrowFeedback];
-	[self startPreviewFlyOutAniamation];
-	
 	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"distribute"];
 	
-	// [statusViewController showActivityInfo];
+	[FeedbackProvider playThrowFeedback];
+	[desktopView animateView: [desktopData viewAtIndex:0]];
+	
+	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
+	[statusViewController showActivityInfo];
 }
 
 

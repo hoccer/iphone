@@ -65,8 +65,6 @@
 	[content removeFromDocumentDirectory];
 }
 
-
-
 - (void)cancelRequest {
 	if (request == nil) {
 		return;

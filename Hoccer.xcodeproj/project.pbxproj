@@ -115,6 +115,7 @@
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
+		229A7F33116B490700FFAD1B /* StatusViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */; };
 		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
@@ -456,6 +457,8 @@
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
+		229A7F31116B490700FFAD1B /* StatusViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewControllerTest.h; sourceTree = "<group>"; };
+		229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewControllerTest.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* DesktopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopView.h; sourceTree = "<group>"; };
 		229A9122114E737A0069A0EA /* DesktopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopView.m; sourceTree = "<group>"; };
 		229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentFactoryIPhone.h; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				22D49E311068D09700B03B61 /* FeatureHistoryTests.m */,
 				228275BF106A107A00AAC17E /* RegExpTests.h */,
 				228275C0106A107A00AAC17E /* RegExpTests.m */,
+				229A7F31116B490700FFAD1B /* StatusViewControllerTest.h */,
+				229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1379,6 +1384,7 @@
 				2271A00C108347C800F84755 /* FeedbackProvider.m in Sources */,
 				229D9D58114FC18400459ED9 /* Preview.m in Sources */,
 				229D9D5D114FC1B200459ED9 /* HoccerVcard.m in Sources */,
+				229A7F33116B490700FFAD1B /* StatusViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

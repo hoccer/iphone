@@ -17,6 +17,13 @@
 #define kNoSweeping 0
 #define kSweepDirectionRightIn 1
 
+@interface DesktopView ()
+
+- (ContentContainerView *)viewContainingView: (UIView *)view;
+
+@end
+
+
 
 @implementation DesktopView
 
@@ -24,6 +31,7 @@
 
 @synthesize dataSource;
 @synthesize delegate;
+@synthesize removeAnimation;
 
 @synthesize shouldSnapToCenterOnTouchUp;
 
@@ -32,6 +40,10 @@
     [super dealloc];
 }
 
+- (void)animateView: (UIView *)view {
+	ContentContainerView *containerView = [self viewContainingView:view];
+	containerView.hidden = YES;
+}
 
 #pragma mark -
 #pragma mark TouchEvents
@@ -155,6 +167,19 @@
 	if ([delegate respondsToSelector:@selector(desktopView:didSweepOutView:)]) {
 		[delegate desktopView:self didSweepOutView: view.containedView];
 	}
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (ContentContainerView *)viewContainingView: (UIView *)view {
+	for (UIView *subview in self.subviews) {
+		if ([subview.subviews count] > 0 && [subview.subviews objectAtIndex:0] == view) {
+			return (ContentContainerView *)subview;
+		}
+	}
+	
+	return nil;
 }
 
 @end

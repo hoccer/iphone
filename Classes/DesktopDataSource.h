@@ -31,4 +31,6 @@
 - (HocItemData *)hocItemDataForView: (UIView *)controller;
 - (HocItemData *)hocItemDataAtIndex: (NSInteger) index;
 
+- (NSInteger) count;
+
 @end

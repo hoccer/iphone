@@ -110,5 +110,9 @@
 	[self removeHocItem:item];
 }
 
+- (NSInteger) count {
+	return [contentOnDesktop count];
+}
+
 
 @end

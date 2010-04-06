@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "DesktopViewDataSource.h"
 #import "DesktopViewDelegate.h"
 #import "ContentContainerViewDelegate.h"
@@ -21,12 +22,14 @@
 	CGPoint initialTouchPoint;
 	
 	BOOL shouldSnapToCenterOnTouchUp;
+	CAAnimation *removeAnimation;
 }
 
 @property (assign) id delegate;
 @property (retain) id dataSource;
 
 @property (retain) UIView* feedback; 
+@property (retain) CAAnimation *removeAnimation;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)startMoveToCenterAnimation;
@@ -34,5 +37,7 @@
 
 - (void)resetView;
 - (void)reloadData;
+
+- (void)animateView: (UIView *)view;
 
 @end

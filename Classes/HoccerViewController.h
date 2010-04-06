@@ -66,7 +66,6 @@
 
 - (void)showError: (NSString *)message;
 
-- (void)startPreviewFlyOutAniamation;
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;
 - (void)presentReceivedContent:(HoccerContent *) hoccerContent;
