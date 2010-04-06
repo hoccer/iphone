@@ -33,13 +33,7 @@
 		[hocItemData release];
 		
 		hocItemData = [newHocItem retain]; 
-		
-		if (hocItemData != nil) {
-			[self monitorHocItem:hocItemData];
-			[self showActivityInfo];
-		} else {
-			[self hideActivityInfo];
-		}
+		[self monitorHocItem:hocItemData];
 	}
 }
 
@@ -71,9 +65,10 @@
 
 - (void)showActivityInfo {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
 	self.view.hidden = NO;
 	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 32);
-	
+
 	[UIView beginAnimations:@"slideIn" context:nil];
 	[UIView setAnimationDuration:0.4];
 	

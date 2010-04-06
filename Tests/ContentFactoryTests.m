@@ -25,7 +25,7 @@
 	
 	NSData *data = [@"http://www.artcom.de/" dataUsingEncoding: NSUTF8StringEncoding];
 		
-	id <HoccerContent> content = [HoccerContentFactory createContentFromResponse:response withData:data];
+	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse:response withData:data];
 	STAssertTrue([content isKindOfClass: [HoccerUrl class]], @"should be right kind");
 	
 	[response release];
@@ -37,7 +37,7 @@
 												   expectedContentLength:21 
 														textEncodingName:@"UTF-8"];
 	
-	id <HoccerContent> content = [HoccerContentFactory createContentFromResponse:response withData:nil];
+	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse:response withData:nil];
 	STAssertTrue([content isKindOfClass: [HoccerImage class]], @"should be right kind");
 	
 	[response release];
@@ -52,7 +52,7 @@
 	NSData *data = [@"bla bla bla" dataUsingEncoding: NSUTF8StringEncoding];
 
 	
-	id <HoccerContent> content = [HoccerContentFactory createContentFromResponse:response withData: data];
+	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse:response withData: data];
 	STAssertTrue([content isMemberOfClass: [HoccerText class]], @"should be right kind");
 	
 	[response release];

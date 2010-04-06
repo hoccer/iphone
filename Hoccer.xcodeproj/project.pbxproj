@@ -23,11 +23,7 @@
 		223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		224F8A9C108CBB4300F69B53 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
 		226496261070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
-		226496271070DD56006D33E2 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
-		22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
-		22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E9A108321C600F84755 /* ABPersonCreatorTest.m */; };
-		2271A00C108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271A01A10835B8900F84755 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
 		2271A01B10835B8900F84755 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
@@ -44,18 +40,12 @@
 		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22791C59108C570F00059D05 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
-		22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22798F46105FABAD0035C643 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
 		22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22798F45105FABAD0035C643 /* DebugViewController.xib */; };
 		22798FE9105FC9D90035C643 /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
 		22798FEA105FC9D90035C643 /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
 		22798FEE105FCA1E0035C643 /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
-		22799025105FD87D0035C643 /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
-		22799026105FD8810035C643 /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
-		22799027105FD8870035C643 /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
-		22799046105FDCEB0035C643 /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
 		22799047105FDCEB0035C643 /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
-		227990F5105FE97D0035C643 /* ContentFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F4105FE97D0035C643 /* ContentFactoryTests.m */; };
 		227990FB105FEA140035C643 /* ReceivedContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentViewController.m */; };
 		227990FC105FEA140035C643 /* ReceivedContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227990FA105FEA140035C643 /* ReceivedContentView.xib */; };
 		227A94D7109713AB008CE547 /* HelpScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94D5109713AB008CE547 /* HelpScreen.m */; };
@@ -64,11 +54,7 @@
 		227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 227A94F710971A9C008CE547 /* HelpScrollView.xib */; };
 		227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A960810973CED008CE547 /* MediaPlayer.framework */; };
 		227A963710974BD3008CE547 /* HelpContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A963610974BD3008CE547 /* HelpContent.m */; };
-		227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF57107B3BF400B47ABE /* VcardWriterTests.m */; };
-		227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CDD107DE1A80012BBA6 /* VcardParserTests.m */; };
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
-		227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
-		227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5E3B107DF4F70012BBA6 /* MockedParserDelegate.m */; };
 		227CA0DB10AC029600418A4D /* Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0DA10AC029600418A4D /* Throw_Icon.png */; };
 		227CA0E610AC090000418A4D /* Help_Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 227CA0E510AC090000418A4D /* Help_Catch_Icon.png */; };
 		227CA17910AC296E00418A4D /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 227CA17810AC296E00418A4D /* throw_180.mp4 */; };
@@ -96,17 +82,12 @@
 		2281FFE710A9A13200DFA0BF /* Play_Video_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFE610A9A13200DFA0BF /* Play_Video_Button.png */; };
 		2281FFF510A9A38A00DFA0BF /* Back_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFF310A9A38A00DFA0BF /* Back_Button.png */; };
 		2281FFF610A9A38A00DFA0BF /* Back_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFF410A9A38A00DFA0BF /* Back_Highlighted.png */; };
-		228275C1106A107A00AAC17E /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
-		228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
-		228276E6106A374300AAC17E /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		228276E7106A374300AAC17E /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		2287BD181162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD191162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */; };
 		228989671067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
-		228989681067CB9200FB3E5D /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
-		2289896B1067CC1C00FB3E5D /* LineFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */; };
 		228989741067CC4200FB3E5D /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
@@ -115,20 +96,47 @@
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
-		229A7F33116B490700FFAD1B /* StatusViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
+		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
+		229A8298116B63C600FFAD1B /* StatusViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */; };
+		229A82C7116B664000FFAD1B /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
+		229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
+		229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
+		229A82CE116B665900FFAD1B /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
+		229A82CF116B665900FFAD1B /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		229A82D0116B665900FFAD1B /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
+		229A82D1116B665900FFAD1B /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
+		229A82D2116B665900FFAD1B /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
+		229A82D3116B665900FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
+		229A82DC116B66A900FFAD1B /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
+		229A82DD116B66A900FFAD1B /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
+		229A82DE116B66B100FFAD1B /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
+		229A82DF116B66B100FFAD1B /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
+		229A82E0116B66B100FFAD1B /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
+		229A82E1116B66B100FFAD1B /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
+		229A82E2116B66B100FFAD1B /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
+		229A82E7116B66CF00FFAD1B /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
+		229A82E8116B66E900FFAD1B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
+		229A82E9116B66E900FFAD1B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4121055556200ABE5A2 /* NSString+SBJSON.m */; };
+		229A82EA116B66E900FFAD1B /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4141055556200ABE5A2 /* SBJSON.m */; };
+		229A82EB116B66E900FFAD1B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4161055556200ABE5A2 /* SBJsonBase.m */; };
+		229A82EC116B66E900FFAD1B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
+		229A82ED116B66E900FFAD1B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
+		229A82F2116B670400FFAD1B /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
+		229A82F4116B670400FFAD1B /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
+		229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
+		229A82F6116B670400FFAD1B /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
 		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
-		229D9D58114FC18400459ED9 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
-		229D9D5D114FC1B200459ED9 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
-		229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
@@ -264,13 +272,9 @@
 		22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */; };
 		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
-		22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
-		22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
 		22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
 		22D49E2E1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
-		22D49E2F1068D07C00B03B61 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
-		22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */; };
 		22D72FE710A8498B000AEA79 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D72FE610A8498B000AEA79 /* Arrow.png */; };
 		22D7300A10A84EF8000AEA79 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
 		22D7303E10A85CA0000AEA79 /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7303D10A85CA0000AEA79 /* Header.png */; };
@@ -1210,6 +1214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22762F62105E78AF003BF968 /* 2_values.txt in Resources */,
+				229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,33 +1369,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22798E2E105F7F4C0035C643 /* AccelerationRecorder.m in Sources */,
-				22799025105FD87D0035C643 /* HoccerImage.m in Sources */,
-				22799026105FD8810035C643 /* HoccerUrl.m in Sources */,
-				22799027105FD8870035C643 /* HoccerContentFactory.m in Sources */,
-				22799046105FDCEB0035C643 /* HoccerText.m in Sources */,
-				227990F5105FE97D0035C643 /* ContentFactoryTests.m in Sources */,
-				228989681067CB9200FB3E5D /* LineFeature.m in Sources */,
-				2289896B1067CC1C00FB3E5D /* LineFeatureTests.m in Sources */,
-				22D49E2F1068D07C00B03B61 /* FeatureHistory.m in Sources */,
-				22D49E321068D09700B03B61 /* FeatureHistoryTests.m in Sources */,
-				228275C1106A107A00AAC17E /* RegExpTests.m in Sources */,
-				228275E5106A157A00AAC17E /* NSString+Regexp.m in Sources */,
-				228276E6106A374300AAC17E /* CatchDetector.m in Sources */,
-				226496271070DD56006D33E2 /* ThrowDetector.m in Sources */,
-				229DAF23107B385B00B47ABE /* VcardWriter.m in Sources */,
-				22BC5D91107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */,
-				22BC5F03107B9A0200497EF4 /* NSString+StringWithData.m in Sources */,
-				227B5DE6107DEB830012BBA6 /* VcardWriterTests.m in Sources */,
-				227B5E16107DEE3A0012BBA6 /* VcardParserTests.m in Sources */,
-				227B5E18107DEE3F0012BBA6 /* VcardParser.m in Sources */,
-				227B5E3C107DF4F70012BBA6 /* MockedParserDelegate.m in Sources */,
-				22719E8F1083207700F84755 /* ABPersonCreator.m in Sources */,
-				22719E9B108321C600F84755 /* ABPersonCreatorTest.m in Sources */,
-				2271A00C108347C800F84755 /* FeedbackProvider.m in Sources */,
-				229D9D58114FC18400459ED9 /* Preview.m in Sources */,
-				229D9D5D114FC1B200459ED9 /* HoccerVcard.m in Sources */,
-				229A7F33116B490700FFAD1B /* StatusViewControllerTest.m in Sources */,
+				229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */,
+				229A8298116B63C600FFAD1B /* StatusViewControllerTest.m in Sources */,
+				229A82C7116B664000FFAD1B /* HocItemData.m in Sources */,
+				229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */,
+				229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */,
+				229A82CE116B665900FFAD1B /* HoccerUploadRequest.m in Sources */,
+				229A82CF116B665900FFAD1B /* UploadRequest.m in Sources */,
+				229A82D0116B665900FFAD1B /* PeerGroupPollingRequest.m in Sources */,
+				229A82D1116B665900FFAD1B /* PeerGroupRequest.m in Sources */,
+				229A82D2116B665900FFAD1B /* DownloadRequest.m in Sources */,
+				229A82D3116B665900FFAD1B /* HoccerRequest.m in Sources */,
+				229A82DC116B66A900FFAD1B /* HoccerContentFactory.m in Sources */,
+				229A82DD116B66A900FFAD1B /* HoccerContentFactoryIPhone.m in Sources */,
+				229A82DE116B66B100FFAD1B /* HoccerContent.m in Sources */,
+				229A82DF116B66B100FFAD1B /* HoccerImage.m in Sources */,
+				229A82E0116B66B100FFAD1B /* HoccerUrl.m in Sources */,
+				229A82E1116B66B100FFAD1B /* HoccerText.m in Sources */,
+				229A82E2116B66B100FFAD1B /* HoccerVcard.m in Sources */,
+				229A82E7116B66CF00FFAD1B /* Preview.m in Sources */,
+				229A82E8116B66E900FFAD1B /* NSObject+SBJSON.m in Sources */,
+				229A82E9116B66E900FFAD1B /* NSString+SBJSON.m in Sources */,
+				229A82EA116B66E900FFAD1B /* SBJSON.m in Sources */,
+				229A82EB116B66E900FFAD1B /* SBJsonBase.m in Sources */,
+				229A82EC116B66E900FFAD1B /* SBJsonParser.m in Sources */,
+				229A82ED116B66E900FFAD1B /* SBJsonWriter.m in Sources */,
+				229A82F2116B670400FFAD1B /* VcardWriter.m in Sources */,
+				229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */,
+				229A82F4116B670400FFAD1B /* VcardParser.m in Sources */,
+				229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */,
+				229A82F6116B670400FFAD1B /* ACPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
