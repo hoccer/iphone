@@ -260,7 +260,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>UIResponder</string>
-					<string>HoccerViewController</string>
+					<string>HoccerViewControllerIPhone</string>
 					<string>{{92, 466}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{229, 286}, {320, 480}}</string>
@@ -369,7 +369,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>didDissmissContentToThrow:</string>
 							<string>selectContacts:</string>
 							<string>selectImage:</string>
 							<string>selectText:</string>
@@ -378,7 +377,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -408,6 +406,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/HoccerViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">HoccerViewControllerIPhone</string>
+					<string key="superclassName">HoccerViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/HoccerViewControllerIPhone.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

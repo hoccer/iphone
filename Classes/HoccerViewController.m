@@ -41,62 +41,10 @@
 
 #import "HoccingRulesIPhone.h"
 
-@interface ActionElement : NSObject
-{
-	id target;
-	SEL selector;
-}
-
-+ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)selector;
-- (id)initWithTargat: (id)aTarget selector: (SEL)selector;
-- (void)perform;
-
-@end
-
-
-@implementation ActionElement
-
-+ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)aSelector {
-	return [[[ActionElement alloc] initWithTargat:aTarget selector:aSelector] autorelease];
-}
-
-- (id)initWithTargat: (id)aTarget selector: (SEL)aSelector {
-	self = [super init];
-	if (self != nil) {
-		target = aTarget;
-		selector = aSelector;	
-	}
-	
-	return self;
-}
-
-- (void)perform {
-	[target performSelector:selector];
-}
-
-@end
-
-@interface HoccerViewController ()
-
-@property (retain) ActionElement* delayedAction;
-
-- (void)showPopOver: (UIViewController *)popOverView;
-- (void)hidePopOverAnimated: (BOOL) animate;
-- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
-
-- (void)showSelectContentView;
-- (void)showHelpView;
-- (void)removePopOverFromSuperview;
-
-@end
-
 @implementation HoccerViewController
 
 @synthesize delegate; 
-@synthesize auxiliaryView;
-@synthesize allowSweepGesture;
 @synthesize helpViewController;
-@synthesize delayedAction;
 @synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
@@ -112,12 +60,9 @@
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
 
-
 	desktopData = [[DesktopDataSource alloc] init];
 	desktopData.viewController = self;
-	
-    isPopUpDisplayed = FALSE;
-	
+		
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	
@@ -130,120 +75,32 @@
 }
 
 - (void)dealloc {
-	[delayedAction release];
 
 	[desktopView release];	
 	[desktopData release];
 	[helpViewController release];
 	
-	[auxiliaryView release];
 	[super dealloc];
 }
 
 #pragma mark -
 #pragma mark User Action
 
-- (IBAction)selectContacts: (id)sender {
-	[self hidePopOverAnimated: YES];
-	
-	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-	
-	[self presentModalViewController:picker animated:YES];
-	[picker release];
-}
+- (IBAction)selectContacts: (id)sender {}
+- (IBAction)selectImage: (id)sender {}
+- (IBAction)selectText: (id)sender {}
+- (IBAction)toggleSelectContent: (id)sender {}
 
-- (IBAction)selectImage: (id)sender {
-	[self hidePopOverAnimated: NO];
-	
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.delegate = self;
-	[self presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
-}
-
-- (IBAction)selectText: (id)sender {
-	[self hidePopOverAnimated: YES];
-	
-	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
-	[self setContentPreview: content];
-}
-
-- (IBAction)toggleHelp: (id)sender {
-	if (!isPopUpDisplayed) {			
-		[self showHelpView];
-	} else if (auxiliaryView != self.helpViewController) {
-		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHelpView)];
-		[self hidePopOverAnimated: YES];
-	} else {
-		[self hidePopOverAnimated: YES];
-	}
-}
-
-- (IBAction)toggleSelectContent: (id)sender {
-	if (!isPopUpDisplayed) {			
-		[self showSelectContentView];
-	} else if (![auxiliaryView isKindOfClass:[SelectContentViewController class]]) {
-		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSelectContentView)];
-		[self hidePopOverAnimated: YES];
-	} else {
-		[self hidePopOverAnimated: YES];
-	}
-}
-
+- (IBAction)toggleHelp: (id)sender {}
 
 #pragma mark -
 #pragma mark View Manipulation
-
-- (void)showError: (NSString *)message {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil 
-											  cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
-	
-	[alertView show];
-	[alertView release];
-}
-
 
 - (void)resetPreview {
 	[desktopView resetView];
 }
 
-- (void)showSelectContentView {
-	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
-	selectContentViewController.delegate = self;
-	
-	[self showPopOver: selectContentViewController];
-	[selectContentViewController release];
-}
-
-- (void)showHelpView {
-	self.helpViewController.delegate = self;
-	
-	[self showPopOver:self.helpViewController];
-}
-
-- (void)showPopOver: (UIViewController *)popOverView  {
-	self.auxiliaryView = popOverView;
-	
-	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = desktopView.frame.size;
-	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
-	popOverView.view.frame = selectContentFrame;	
-	
-	[desktopView addSubview:popOverView.view];
-	
-	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-	[UIView setAnimationDuration:0.2];
-	
-	selectContentFrame.origin = CGPointMake(0,0);
-	popOverView.view.frame = selectContentFrame;
-	[UIView commitAnimations];
-	
-	 isPopUpDisplayed = TRUE;
-}
-
-- (void)presentReceivedContent:(HoccerContent*) hoccerContent
-{
+- (void)presentReceivedContent:(HoccerContent*) hoccerContent {
 	receivedContentViewController = [[ReceivedContentViewController alloc] initWithNibName:@"ReceivedContentView" bundle:nil];
 	
 	receivedContentViewController.delegate = self;
@@ -252,42 +109,6 @@
 	[self presentModalViewController: receivedContentViewController animated:YES];	
     [self resetPreview];
 }
-
-- (void)hidePopOverAnimated: (BOOL) animate {
-	if (self.auxiliaryView != nil) {		
-		CGRect selectContentFrame = self.auxiliaryView.view.frame;
-		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
-		
-		if (animate) {
-			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-			[UIView setAnimationDidStopSelector:@selector(hideAnimationDidStop:finished:context:)];
-			[UIView setAnimationDelegate:self];
-			[UIView setAnimationDuration:0.2];
-			self.auxiliaryView.view.frame = selectContentFrame;
-			
-			[UIView commitAnimations];
-		} else {
-			self.auxiliaryView.view.frame = selectContentFrame;
-			[self removePopOverFromSuperview];
-		}
-
-	}
-}
-
-- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
-	[self removePopOverFromSuperview];
-}
-
-- (void)removePopOverFromSuperview {
-	[auxiliaryView.view removeFromSuperview];	 
-	self.auxiliaryView = nil;
-	
-	isPopUpDisplayed = NO;
-	
-	[self.delayedAction perform];
-	self.delayedAction = nil;
-}
-
 
 - (HelpScrollView *)helpViewController {
 	if (helpViewController == nil) {
@@ -323,9 +144,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
-	
-	self.allowSweepGesture = NO;
-	
+		
 	[self setContentPreview: content];
 	[self dismissModalViewControllerAnimated:YES];
 }
@@ -341,8 +160,6 @@
 	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
 	
 	HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
-	
-	self.allowSweepGesture = NO;
 	[self setContentPreview: content];
 	
 	[self dismissModalViewControllerAnimated:YES];
@@ -412,7 +229,6 @@
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
-	NSLog(@"sweeping out");
 	if ([desktopData controllerHasActiveRequest]) {
 		return;
 	}
@@ -451,7 +267,6 @@
 #pragma mark HocItemDataDelegate
 
 - (void)hocItemWasSend: (HocItemData *)item {
-	NSLog(@"hocItemWasSend:");
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];
@@ -459,21 +274,18 @@
 }
 
 - (void)hocItemWasReceived: (HocItemData *)item {
-	NSLog(@"hocItemWasReceived:");
 	statusViewController.hocItemData = nil;
 
 	[desktopView reloadData];
 }
 
 - (void)hocItemUploadFailed: (HocItemData *)item {
-	NSLog(@"hocItemUploadWasFailed: %@", item);
 	item.viewOrigin = CGPointMake(200, 300);
 	
 	[desktopView reloadData];
 }
 
 - (void)hocItemUploadWasCanceled: (HocItemData *)item {
-	NSLog(@"hocItemUploadWasCanceled: %@", item);
 	statusViewController.hocItemData = nil;
 	item.viewOrigin = CGPointMake(200, 300);
 	
@@ -481,7 +293,6 @@
 }
 
 - (void)hocItemDownloadWasCanceled: (HocItemData *)item {
-	NSLog(@"hocItemUploadWasCanceled: %@", item);
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];
@@ -496,8 +307,6 @@
 }
 
 - (void)hocItemWillStartDownload: (HocItemData *)item {
-	NSLog(@"hocItemWillStartUpload: %@", item);
-	
 	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
 }

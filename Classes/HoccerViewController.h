@@ -27,13 +27,12 @@
 @class ContentContainerView;
 
 @class DesktopDataSource;
-@class ActionElement;
 @class LocationController;
 @class HocItemData;
 @class HoccingRulesIPhone;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
-						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, 
+						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
 						GesturesInterpreterDelegate, DesktopViewDelegate, HocItemDataDelegate> {
 
 	IBOutlet DesktopView *desktopView;
@@ -42,25 +41,16 @@
 	ReceivedContentViewController *receivedContentViewController;
 						
 	HelpScrollView *helpViewController;
-							
-	UIViewController *auxiliaryView;
-	BOOL isPopUpDisplayed;
-	BOOL allowSweepGesture;
-							
-	ActionElement *delayedAction;
-							
+
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
 							
 	StatusViewController *statusViewController;
-							
 	HoccingRulesIPhone *hoccingRules;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
-@property (nonatomic, retain) UIViewController *auxiliaryView;
-@property (nonatomic, assign) BOOL allowSweepGesture;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
@@ -68,8 +58,6 @@
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
-
-- (void)showError: (NSString *)message;
 
 - (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;

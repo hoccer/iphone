@@ -128,6 +128,7 @@
 		229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		229A82F6116B670400FFAD1B /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
 		229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
+		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
 		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
@@ -466,6 +467,8 @@
 		229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewControllerTest.m; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
+		229A839A116B708B00FFAD1B /* HoccerViewControllerIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewControllerIPhone.h; sourceTree = "<group>"; };
+		229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewControllerIPhone.m; sourceTree = "<group>"; };
 		229A9121114E737A0069A0EA /* DesktopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopView.h; sourceTree = "<group>"; };
 		229A9122114E737A0069A0EA /* DesktopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopView.m; sourceTree = "<group>"; };
 		229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentFactoryIPhone.h; sourceTree = "<group>"; };
@@ -615,6 +618,9 @@
 				22A5B6B4115CC57F00579AC5 /* DesktopData */,
 				22AE46DE11634EA800C10B98 /* DesktopView */,
 				22979EF9115A183F002B59C2 /* iPad */,
+				229A8399116B704B00FFAD1B /* iPhone */,
+				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
 				22B06B2911523B4400D2ECFE /* SelectContentViewController.h */,
@@ -627,10 +633,6 @@
 				229D9F7E114FEE0200459ED9 /* LocationController.m */,
 				22B06BEF1152777500D2ECFE /* StatusViewController.h */,
 				22B06BF01152777500D2ECFE /* StatusViewController.m */,
-				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
-				229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */,
-				229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -921,6 +923,17 @@
 				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		229A8399116B704B00FFAD1B /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */,
+				229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */,
+				229A839A116B708B00FFAD1B /* HoccerViewControllerIPhone.h */,
+				229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */,
+			);
+			name = iPhone;
 			sourceTree = "<group>";
 		};
 		229DAF1C107B377C00B47ABE /* AddressBook */ = {
@@ -1362,6 +1375,7 @@
 				22AE461211633E0500C10B98 /* ContentContainerView.m in Sources */,
 				229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */,
 				229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */,
+				229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
