@@ -69,7 +69,7 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	
 	[self.view insertSubview:statusViewController.view atIndex:1];
-	self.defaultOrigin = CGPointMake(32, 72);
+	self.defaultOrigin = CGPointMake(12, 42);
 }
 
 - (void)viewDidUnload {
