@@ -22,14 +22,12 @@
 	CGPoint initialTouchPoint;
 	
 	BOOL shouldSnapToCenterOnTouchUp;
-	CAAnimation *removeAnimation;
 }
 
 @property (assign) id delegate;
 @property (retain) id dataSource;
 
 @property (retain) UIView* feedback; 
-@property (retain) CAAnimation *removeAnimation;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)startMoveToCenterAnimation;
@@ -38,6 +36,6 @@
 - (void)resetView;
 - (void)reloadData;
 
-- (void)animateView: (UIView *)view;
+- (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation;
 
 @end

@@ -27,7 +27,6 @@
 }
 
 - (void)setHocItemData:(HocItemData *)newHocItem {
-	NSLog(@"setting item to: %@", newHocItem);
 	if (hocItemData != newHocItem) {
 		[hocItemData removeObserver:self forKeyPath:@"status"];
 		[hocItemData release];

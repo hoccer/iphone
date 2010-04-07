@@ -29,7 +29,6 @@
 
 @synthesize dataSource;
 @synthesize delegate;
-@synthesize removeAnimation;
 
 @synthesize shouldSnapToCenterOnTouchUp;
 
@@ -38,9 +37,10 @@
     [super dealloc];
 }
 
-- (void)animateView: (UIView *)view {
+- (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation {
 	ContentContainerView *containerView = [self viewContainingView:view];
-	containerView.hidden = YES;
+
+	[[containerView layer] addAnimation:animation forKey:@"centerAnimation"];
 }
 
 #pragma mark -
