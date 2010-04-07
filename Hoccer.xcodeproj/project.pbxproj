@@ -143,6 +143,14 @@
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
+		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
+		22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
+		22A74C09116C945A00F3E4B4 /* HocHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HocHistory.m */; };
+		22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A74C08116C945A00F3E4B4 /* HocHistory.xib */; };
+		22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
+		22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
+		22A74C2A116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
+		22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22A8A03A1160AB35004BCD3D /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		22A8A0911160BA1E004BCD3D /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
 		22A8A0921160BA1E004BCD3D /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
@@ -487,6 +495,15 @@
 		229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriterTests.m; path = Tests/Vcard/VcardWriterTests.m; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
+		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = HocHistory.xcdatamodel; sourceTree = "<group>"; };
+		22A74C06116C945A00F3E4B4 /* HocHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocHistory.h; sourceTree = "<group>"; };
+		22A74C07116C945A00F3E4B4 /* HocHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocHistory.m; sourceTree = "<group>"; };
+		22A74C08116C945A00F3E4B4 /* HocHistory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HocHistory.xib; sourceTree = "<group>"; };
+		22A74C0F116C948700F3E4B4 /* HistoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryData.h; sourceTree = "<group>"; };
+		22A74C10116C948700F3E4B4 /* HistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryData.m; sourceTree = "<group>"; };
+		22A74C27116C9A6800F3E4B4 /* HoccerHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHistoryItem.h; sourceTree = "<group>"; };
+		22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHistoryItem.m; sourceTree = "<group>"; };
 		22A8A0381160AB35004BCD3D /* HoccerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerRequest.h; sourceTree = "<group>"; };
 		22A8A0391160AB35004BCD3D /* HoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerRequest.m; sourceTree = "<group>"; };
 		22A8A08F1160BA1E004BCD3D /* HocItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemData.h; sourceTree = "<group>"; };
@@ -570,6 +587,7 @@
 				227A960910973CED008CE547 /* MediaPlayer.framework in Frameworks */,
 				2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */,
 				229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */,
+				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +626,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22A74C05116C941E00F3E4B4 /* HocHistory */,
 				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
 				22977B2511105C2D00B55D3F /* Wifi */,
 				2271E19E109EDCD5003D5C68 /* TermOfUse */,
@@ -987,6 +1006,20 @@
 			name = DesktopData;
 			sourceTree = "<group>";
 		};
+		22A74C05116C941E00F3E4B4 /* HocHistory */ = {
+			isa = PBXGroup;
+			children = (
+				22A74C06116C945A00F3E4B4 /* HocHistory.h */,
+				22A74C07116C945A00F3E4B4 /* HocHistory.m */,
+				22A74C08116C945A00F3E4B4 /* HocHistory.xib */,
+				22A74C0F116C948700F3E4B4 /* HistoryData.h */,
+				22A74C10116C948700F3E4B4 /* HistoryData.m */,
+				22A74C27116C9A6800F3E4B4 /* HoccerHistoryItem.h */,
+				22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */,
+			);
+			name = HocHistory;
+			sourceTree = "<group>";
+		};
 		22AE46DE11634EA800C10B98 /* DesktopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1100,7 @@
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
 				22AD327B11107C7700BC7DEC /* icon.png */,
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
+				22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1084,6 +1118,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				229779FA111031C100B55D3F /* AudioToolbox.framework */,
+				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1225,6 +1260,7 @@
 				22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */,
 				22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */,
 				22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */,
+				22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1419,10 @@
 				229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */,
 				229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */,
 				229A8440116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m in Sources */,
+				22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */,
+				22A74C09116C945A00F3E4B4 /* HocHistory.m in Sources */,
+				22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */,
+				22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,6 +1529,8 @@
 				2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
 				22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */,
 				229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */,
+				22A74C2A116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */,
+				22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

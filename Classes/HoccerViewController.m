@@ -37,6 +37,7 @@
 #import "LocationController.h"
 
 #import "HocItemData.h"
+#import "HocHistory.h"
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
@@ -45,6 +46,7 @@
 
 @synthesize delegate; 
 @synthesize helpViewController;
+@synthesize hoccerHistoryController;
 @synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
@@ -66,6 +68,9 @@
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	
+	hoccerHistoryController = [[HocHistory alloc] init];
+	NSLog(@"hoccer history controller: %@", hoccerHistoryController);
+	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	
 	[self.view insertSubview:statusViewController.view atIndex:1];
@@ -80,6 +85,7 @@
 	[desktopView release];	
 	[desktopData release];
 	[helpViewController release];
+	[hoccerHistoryController release];
 	
 	[super dealloc];
 }
@@ -90,7 +96,9 @@
 - (IBAction)selectContacts: (id)sender {}
 - (IBAction)selectImage: (id)sender {}
 - (IBAction)selectText: (id)sender {}
+- (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
+- (IBAction)toggleHistory: (id)sender {}
 - (IBAction)toggleHelp: (id)sender {}
 
 #pragma mark -

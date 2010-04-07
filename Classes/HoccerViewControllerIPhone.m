@@ -13,6 +13,7 @@
 #import "StatusViewController.h"
 #import "SelectContentViewController.h"
 #import "HelpScrollView.h"
+#import "HocHistory.h"
 #import "HocItemData.h"
 
 @interface ActionElement : NSObject
@@ -61,6 +62,7 @@
 
 - (void)showSelectContentView;
 - (void)showHelpView;
+- (void)showHistoryView;
 - (void)removePopOverFromSuperview;
 
 @end
@@ -75,7 +77,6 @@
 	
 	isPopUpDisplayed = FALSE;
 }
-
 
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
@@ -125,6 +126,17 @@
 	}
 }
 
+- (IBAction)toggleHistory: (id)sender {
+	if (!isPopUpDisplayed) {			
+		[self showHistoryView];
+	} else if (![auxiliaryView isKindOfClass:[HocHistory class]]) {
+		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
+		[self hidePopOverAnimated: YES];
+	} else {
+		[self hidePopOverAnimated: YES];
+	}
+}
+
 - (void)showSelectContentView {
 	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
 	selectContentViewController.delegate = self;
@@ -138,6 +150,11 @@
 	
 	[self showPopOver:self.helpViewController];
 }
+
+- (void)showHistoryView {
+	[self showPopOver: self.hoccerHistoryController];
+}
+
 
 - (void)showPopOver: (UIViewController *)popOverView  {
 	self.auxiliaryView = popOverView;
@@ -196,9 +213,11 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	NSLog(@"item: %@", item);
+
 	[[item content] previewInViewController:self];
 	[desktopView reloadData];
+	
+	[hoccerHistoryController addContentToHistory:item.content];
 }
 
 @end

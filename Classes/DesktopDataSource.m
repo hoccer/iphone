@@ -10,6 +10,7 @@
 
 #import "HocItemData.h"
 #import "HoccerContent.h"
+#import "Preview.h"
 
 @implementation DesktopDataSource
 @synthesize viewController;
@@ -113,6 +114,12 @@
 - (NSInteger) count {
 	return [contentOnDesktop count];
 }
+
+
+
+
+
+
 
 
 @end
