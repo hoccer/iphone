@@ -16,6 +16,8 @@
 #import "HocHistory.h"
 #import "HocItemData.h"
 
+#import "HoccingRulesIPhone.h"
+
 @interface ActionElement : NSObject
 {
 	id target;
@@ -75,6 +77,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 }
 

@@ -7,16 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccingRules.h"
+
 @class HoccerViewController;
 
-@interface HoccingRulesIPhone : NSObject {
+@interface HoccingRulesIPhone : NSObject <HoccingRules> {
 
 }
-
-- (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller;
-- (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller;
-- (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller;
-- (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller;
-- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller;
 
 @end

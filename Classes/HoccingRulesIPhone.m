@@ -33,7 +33,7 @@
 		return YES;
 	}
 	
-	return NO;;
+	return NO;
 }
 
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {

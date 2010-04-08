@@ -14,7 +14,6 @@
 #import "SweepInRecognizerDelegate.h"
 #import "SweepOutRecognizerDelegate.h"
 
-
 @class SweepRecognizer;
 
 @interface DesktopView : UIView <ContentContainerViewDelegate, SweepInRecognizerDelegate, SweepOutRecognizerDelegate> {
@@ -33,14 +32,8 @@
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
 
 - (void)addSweepRecognizer: (SweepRecognizer *)recognizer;
-
-- (void)startMoveToCenterAnimation;
-- (void)startMoveOutAnimation: (NSInteger)direction;
-
 - (void)reloadData;
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation;
-
-
 
 @end

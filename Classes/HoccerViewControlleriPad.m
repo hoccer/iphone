@@ -16,7 +16,9 @@
 
 #import "DesktopDataSource.h"
 #import "HocItemData.h";
+#import "HoccerText.h"
 
+#import "HoccingRulesIPad.h"
 
 @interface HoccerViewControlleriPad () 
 
@@ -31,10 +33,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	hoccingRules = [[HoccingRulesIPad alloc] init];
 	desktopView.shouldSnapToCenterOnTouchUp = NO;
 	self.defaultOrigin = CGPointMake(200, 300);
 }
-
 
 - (void) dealloc {
 	[popOver release];
@@ -42,7 +44,6 @@
 	
 	[super dealloc];
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
@@ -88,18 +89,8 @@
 		self.popOver = nil;
 	}
 	
-	[super selectText: sender];
-}
-
-- (void)setContentPreview: (HoccerContent*)content {
-	
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
-	item.viewOrigin = self.defaultOrigin;
-	item.content = content;
-	item.delegate = self;
-	
-	[desktopData addHocItem:item];
-	[desktopView reloadData];
+	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
+	[self setContentPreview: content];
 }
 
 - (void)presentReceivedContent:(HoccerContent*) content {}

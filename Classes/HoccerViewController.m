@@ -69,9 +69,6 @@
 	desktopView.dataSource = desktopData;
 	
 	hoccerHistoryController = [[HocHistory alloc] init];
-	NSLog(@"hoccer history controller: %@", hoccerHistoryController);
-	
-	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	
 	[self.view insertSubview:statusViewController.view atIndex:1];
 	self.defaultOrigin = CGPointMake(12, 42);
@@ -84,8 +81,12 @@
 
 	[desktopView release];	
 	[desktopData release];
+	[locationController release];
+	[gestureInterpreter release];
 	[helpViewController release];
 	[hoccerHistoryController release];
+	[statusViewController release];
+	[hoccingRules release];
 	
 	[super dealloc];
 }

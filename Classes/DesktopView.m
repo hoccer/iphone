@@ -121,23 +121,6 @@
 	self.currentlyTouchedViews = nil;
 }
 
-// we should not need this here
-- (void)startMoveToCenterAnimation {
-	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-	[UIView setAnimationDuration:0.5];
-	// feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
-
-	[UIView commitAnimations];
-}
-
-- (void)startMoveOutAnimation: (NSInteger)direction {
-	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
-	[UIView setAnimationDuration:0.5];
-	// feedback.center = CGPointMake(feedback.center.x + direction * feedback.frame.size.width, feedback.center.y);
-	
-	[UIView commitAnimations];
-}
-
 #pragma mark -
 #pragma mark DataSource Methods
 

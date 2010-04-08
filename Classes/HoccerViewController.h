@@ -39,8 +39,6 @@
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
 		
-	ReceivedContentViewController *receivedContentViewController;
-						
 	HelpScrollView *helpViewController;
 	HocHistory *hoccerHistoryController;
 

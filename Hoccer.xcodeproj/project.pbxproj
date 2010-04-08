@@ -100,6 +100,7 @@
 		22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C06116DCE8600230C1E /* SweepRecognizer.m */; };
 		22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
 		22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
+		22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903EC5116DF48600230C1E /* HoccingRulesIPad.m */; };
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
@@ -482,6 +483,9 @@
 		22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepOutRecognizer.m; sourceTree = "<group>"; };
 		22903E36116DEA2E00230C1E /* SweepInRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepInRecognizerDelegate.h; sourceTree = "<group>"; };
 		22903E39116DEA9400230C1E /* SweepOutRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepOutRecognizerDelegate.h; sourceTree = "<group>"; };
+		22903EC4116DF48600230C1E /* HoccingRulesIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPad.h; sourceTree = "<group>"; };
+		22903EC5116DF48600230C1E /* HoccingRulesIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPad.m; sourceTree = "<group>"; };
+		22903EC7116DF4E100230C1E /* HoccingRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRules.h; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22977AC211104F1C00B55D3F /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
@@ -982,6 +986,8 @@
 		22979EF9115A183F002B59C2 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				22903EC4116DF48600230C1E /* HoccingRulesIPad.h */,
+				22903EC5116DF48600230C1E /* HoccingRulesIPad.m */,
 				22B1CC18115925E600EFD709 /* HoccerViewControlleriPad.h */,
 				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
 			);
@@ -995,6 +1001,7 @@
 				229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */,
 				229A839A116B708B00FFAD1B /* HoccerViewControllerIPhone.h */,
 				229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */,
+				22903EC7116DF4E100230C1E /* HoccingRules.h */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -1589,6 +1596,7 @@
 				22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */,
 				22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
+				22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
