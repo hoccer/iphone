@@ -10,31 +10,61 @@
 #import "NSObject+DelegateHelper.h"
 #import "ContentContainerView.h"
 
-#define kSweepInBorder 30
-#define kSweepAcceptanceDistance 100
-
-#define kSweepDirectionLeftIn -1
-#define kNoSweeping 0
-#define kSweepDirectionRightIn 1
+#import "SweepInRecognizer.h"
+#import "SweepOutRecognizer.h"
 
 @interface DesktopView ()
 - (ContentContainerView *)viewContainingView: (UIView *)view;
+- (NSArray *)findTouchedViews: (CGPoint) point;
 @end
-
-
 
 @implementation DesktopView
 
-@synthesize feedback;
-
 @synthesize dataSource;
+@synthesize currentlyTouchedViews;
 @synthesize delegate;
-
 @synthesize shouldSnapToCenterOnTouchUp;
 
+- (id) initWithFrame: (CGRect)frame {
+	self = [super initWithFrame:frame];
+	if (self != nil) {
+		sweepRecognizers = [[NSMutableArray alloc] init];
+		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
+		recognizer2.delegate = self;
+		[self addSweepRecognizer:recognizer2];
+		
+		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
+		recognizer.delegate = self;
+		[self addSweepRecognizer:recognizer];
+	}
+	return self;
+}
+
+- (id) initWithCoder: (NSCoder *)aDecoder {
+	self = [super initWithCoder:aDecoder];
+	if (self != nil) {
+		sweepRecognizers = [[NSMutableArray alloc] init];
+		
+		SweepInRecognizer *recognizer = [[SweepInRecognizer alloc] init];
+		recognizer.delegate = self;
+		[self addSweepRecognizer:recognizer];
+		
+		SweepOutRecognizer *recognizer2 = [[SweepOutRecognizer alloc] init];
+		recognizer2.delegate = self;
+		[self addSweepRecognizer:recognizer2];
+	}
+	return self;
+}
+
 - (void)dealloc {
-	[feedback release];
+	[sweepRecognizers release];
+	[dataSource release];
+	
     [super dealloc];
+}
+
+- (void)addSweepRecognizer: (SweepRecognizer *)recognizer {
+	[sweepRecognizers addObject:recognizer];
 }
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation {
@@ -46,69 +76,56 @@
 #pragma mark -
 #pragma mark TouchEvents
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	initialTouchPoint = [[touches anyObject] locationInView: self]; 
-
-	if (initialTouchPoint.x < kSweepInBorder) {
-		NSLog(@"starting sweep in from left");
-		sweeping = kSweepDirectionLeftIn;
-		
-		[delegate desktopView: self needsEmptyViewAtPoint: initialTouchPoint];
-	} else if (initialTouchPoint.x > self.superview.frame.size.width - kSweepInBorder){
-		NSLog(@"starting sweep in from right");
-		sweeping = kSweepDirectionRightIn;
-
-		[delegate desktopView: self needsEmptyViewAtPoint: initialTouchPoint];
-	}
+	CGPoint initialTouchPoint = [[touches anyObject] locationInView: self]; 
 	
-	if (feedback == nil) {
-		sweeping = kNoSweeping;
+	self.currentlyTouchedViews = [self findTouchedViews:initialTouchPoint];
+
+	for (SweepInRecognizer *recognizer in sweepRecognizers) {
+		[recognizer desktopView:self touchesBegan:touches withEvent:event];
 	}
-	
-	[self touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
-	CGPoint currentLocation = [[touches anyObject] locationInView: self]; 
+	UITouch* touch = [touches anyObject];
 
-	if (sweeping != kNoSweeping) {
-		feedback.center = CGPointMake(sweeping * feedback.frame.size.width / 2 + currentLocation.x, currentLocation.y);
+	CGPoint prevLocation = [touch previousLocationInView: self];
+	CGPoint currentLocation = [touch locationInView: self];
+	
+	for (ContentContainerView *view in currentlyTouchedViews) {
+		[view moveBy:CGSizeMake(currentLocation.x - prevLocation.x, currentLocation.y - prevLocation.y)];
+	}
+	
+	for (SweepInRecognizer *recognizer in sweepRecognizers) {
+		[recognizer desktopView:self touchesMoved:touches withEvent:event];
 	}
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	NSLog(@"touches ended in ReceiveViewController");
 	CGPoint currentLocation = [[touches anyObject] locationInView: self]; 
-	
-	if (sweeping == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
-			sweeping == kSweepDirectionRightIn && currentLocation.x < self.frame.size. width - kSweepAcceptanceDistance) {
-		
-		[self containerView:feedback didMoveToPosition:currentLocation];
-		if ([delegate respondsToSelector:@selector(desktopView:didSweepInView:)]) {
-			[delegate desktopView:self didSweepInView:feedback.containedView];
-		}
-		
-		if (shouldSnapToCenterOnTouchUp) {
-			[self startMoveToCenterAnimation];
-		}
-		
-		sweeping = kNoSweeping;
-		return;
+	for (ContentContainerView *view in currentlyTouchedViews) {
+		[self containerView:view didMoveToPosition:currentLocation];
 	}
 	
-	if (sweeping != kNoSweeping) {
-		[self startMoveOutAnimation: sweeping];
+	for (SweepInRecognizer *recognizer in sweepRecognizers) {
+		[recognizer desktopView:self touchesEnded:touches withEvent:event];
 	}
-
+	
+	self.currentlyTouchedViews = nil;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	sweeping = kNoSweeping;
+	for (SweepInRecognizer *recognizer in sweepRecognizers) {
+		[recognizer desktopView:self touchesCancelled:touches withEvent:event];
+	}
+	
+	self.currentlyTouchedViews = nil;
 }
 
+// we should not need this here
 - (void)startMoveToCenterAnimation {
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
+	// feedback.center = CGPointMake(feedback.superview.frame.size.width / 2, feedback.frame.size.height / 2 + 105);
 
 	[UIView commitAnimations];
 }
@@ -116,13 +133,9 @@
 - (void)startMoveOutAnimation: (NSInteger)direction {
 	[UIView beginAnimations:@"myFlyOutAnimation" context:NULL];
 	[UIView setAnimationDuration:0.5];
-	feedback.center = CGPointMake(initialTouchPoint.x + direction * feedback.frame.size.width, initialTouchPoint.y);
+	// feedback.center = CGPointMake(feedback.center.x + direction * feedback.frame.size.width, feedback.center.y);
 	
 	[UIView commitAnimations];
-}
-
--  (void)resetView {
-	feedback.hidden = YES;
 }
 
 #pragma mark -
@@ -140,17 +153,13 @@
 		containerView.origin = [dataSource positionForViewAtIndex: i];
 		
 		[self addSubview: containerView];
-		
-		if (i == numberOfItems - 1) {
-			feedback = containerView;
-		}
 	}
 }
 
 #pragma mark -
 #pragma mark ContentContainerViewDelegate Methods
 - (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point {
-	[dataSource view: view.containedView didMoveToPoint:point];
+	[dataSource view: view.containedView didMoveToPoint:view.frame.origin];
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
@@ -160,10 +169,41 @@
 	[self reloadData];
 }
 
-- (void)containerViewDidSweepOut: (ContentContainerView *)view {
+#pragma mark -
+#pragma mark SweepInGesturesRecognizer Delegate
+
+- (void)sweepInRecognizerDidBeginSweeping: (SweepInRecognizer *)recognizer {
+	[delegate desktopView:self needsEmptyViewAtPoint:recognizer.touchPoint];
+	self.currentlyTouchedViews = [self findTouchedViews:recognizer.touchPoint];
+}
+
+- (void)sweepInRecognizerDidRecognizeSweepIn: (SweepInRecognizer *)recognizer {
+	[delegate desktopView: self didSweepInView: [[currentlyTouchedViews lastObject] containedView]];
+}
+
+
+#pragma mark -
+#pragma mark SweepOutGestureRecognizer Delegate
+
+- (void)sweepOutRecognizerDidRecognizeSweepOut: (SweepOutRecognizer *)recognizer {
 	NSLog(@"did sweep out");
+	ContentContainerView *view = [currentlyTouchedViews lastObject];
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.duration = 0.3;
+	animation.removedOnCompletion = NO;
+	animation.fillMode = kCAFillModeForwards;
+	
+	if (recognizer.sweepDirection == kSweepDirectionLeftOut) {
+		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(-view.frame.size.width, view.center.y)];
+	} else {
+		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(self.frame.size.width + view.frame.size.width, view.center.y)];
+	}
+	
+	[[view layer] addAnimation:animation forKey:@"removeAnimation"];
+
 	if ([delegate respondsToSelector:@selector(desktopView:didSweepOutView:)]) {
-		[delegate desktopView:self didSweepOutView: view.containedView];
+		[delegate desktopView:self didSweepOutView: [view containedView]];
 	}
 }
 
@@ -178,6 +218,18 @@
 	}
 	
 	return nil;
+}
+
+- (NSArray *)findTouchedViews: (CGPoint) point {
+	NSMutableArray *touchedViews = [[NSMutableArray alloc] init];
+	
+	for (UIView *view in self.subviews) {
+		if ([[view layer] hitTest: point]) {
+			[touchedViews addObject:view];
+		}
+	}
+	
+	return [touchedViews autorelease];
 }
 
 @end

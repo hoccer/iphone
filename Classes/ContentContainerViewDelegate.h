@@ -14,6 +14,4 @@
 - (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point;
 - (void)containerViewDidClose:(ContentContainerView *)view;
 
-- (void)containerViewDidSweepOut: (ContentContainerView *)view;
-
 @end

@@ -29,9 +29,8 @@
 @property (assign) CGPoint origin;
 
 - (id) initWithView: (UIView *)insideView;
+- (void)moveBy: (CGSize)distance;
 
 - (void)resetViewAnimated: (BOOL)animated;
-- (void)startFlySidewaysAnimation: (CGPoint) endPoint;
-- (void)startFlyOutUpwardsAnimation;
 
 @end

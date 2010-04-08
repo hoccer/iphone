@@ -41,8 +41,8 @@
 		
 		// Execute the fetch -- create a mutable copy of the result.
 		NSError *error = nil;
-		
 		hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+		
 		if (hoccerHistoryItemArray == nil) {
 			NSLog(@"error!");
 		}

@@ -104,10 +104,6 @@
 #pragma mark -
 #pragma mark View Manipulation
 
-- (void)resetPreview {
-	[desktopView resetView];
-}
-
 - (HelpScrollView *)helpViewController {
 	if (helpViewController == nil) {
 		helpViewController = [[HelpScrollView alloc] init];
@@ -251,18 +247,18 @@
 	[statusViewController showActivityInfo];
 }
 
-- (UIView *)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
+- (void)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
 	if (![hoccingRules hoccerViewControllerMaySweepIn:self]) {
-		return nil;
+		return;
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	item.viewOrigin = CGPointMake(point.x - item.contentView.frame.size.width / 2, 
+								  point.y - item.contentView.frame.size.height / 2);
 	item.delegate = self;
 	
 	[desktopData addHocItem:item];
 	[desktopView reloadData];
-	
-	return item.contentView;
 }
 
 #pragma mark -

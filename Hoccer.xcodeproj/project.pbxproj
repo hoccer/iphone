@@ -92,6 +92,14 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		22903A1E116DC2D500230C1E /* HocHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HocHistory.m */; };
+		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
+		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
+		22903B51116DC2E700230C1E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
+		22903C07116DCE8600230C1E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C06116DCE8600230C1E /* SweepRecognizer.m */; };
+		22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C06116DCE8600230C1E /* SweepRecognizer.m */; };
+		22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
+		22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
@@ -149,8 +157,9 @@
 		22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A74C08116C945A00F3E4B4 /* HocHistory.xib */; };
 		22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
-		22A74C2A116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
 		22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
+		22A74D9C116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74D9B116CE3B500F3E4B4 /* SweepInRecognizer.m */; };
+		22A74D9D116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74D9B116CE3B500F3E4B4 /* SweepInRecognizer.m */; };
 		22A8A03A1160AB35004BCD3D /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		22A8A0911160BA1E004BCD3D /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
 		22A8A0921160BA1E004BCD3D /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
@@ -467,6 +476,12 @@
 		228989711067CC4200FB3E5D /* HoccerUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadRequest.m; path = Communication/HoccerUploadRequest.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
+		22903C05116DCE8600230C1E /* SweepRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepRecognizer.h; sourceTree = "<group>"; };
+		22903C06116DCE8600230C1E /* SweepRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepRecognizer.m; sourceTree = "<group>"; };
+		22903C09116DCF9B00230C1E /* SweepOutRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepOutRecognizer.h; sourceTree = "<group>"; };
+		22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepOutRecognizer.m; sourceTree = "<group>"; };
+		22903E36116DEA2E00230C1E /* SweepInRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepInRecognizerDelegate.h; sourceTree = "<group>"; };
+		22903E39116DEA9400230C1E /* SweepOutRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepOutRecognizerDelegate.h; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22977AC211104F1C00B55D3F /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
@@ -504,6 +519,8 @@
 		22A74C10116C948700F3E4B4 /* HistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryData.m; sourceTree = "<group>"; };
 		22A74C27116C9A6800F3E4B4 /* HoccerHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHistoryItem.h; sourceTree = "<group>"; };
 		22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHistoryItem.m; sourceTree = "<group>"; };
+		22A74D9A116CE3B500F3E4B4 /* SweepInRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepInRecognizer.h; sourceTree = "<group>"; };
+		22A74D9B116CE3B500F3E4B4 /* SweepInRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepInRecognizer.m; sourceTree = "<group>"; };
 		22A8A0381160AB35004BCD3D /* HoccerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerRequest.h; sourceTree = "<group>"; };
 		22A8A0391160AB35004BCD3D /* HoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerRequest.m; sourceTree = "<group>"; };
 		22A8A08F1160BA1E004BCD3D /* HocItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemData.h; sourceTree = "<group>"; };
@@ -617,6 +634,7 @@
 				22B1CBD71159160600EFD709 /* MediaPlayer.framework in Frameworks */,
 				22B1CBD81159160600EFD709 /* QuartzCore.framework in Frameworks */,
 				22B1CBD91159160600EFD709 /* AudioToolbox.framework in Frameworks */,
+				22903B51116DC2E700230C1E /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +948,26 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		22903E37116DEA6900230C1E /* SweepInRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				22A74D9A116CE3B500F3E4B4 /* SweepInRecognizer.h */,
+				22A74D9B116CE3B500F3E4B4 /* SweepInRecognizer.m */,
+				22903E36116DEA2E00230C1E /* SweepInRecognizerDelegate.h */,
+			);
+			name = SweepInRecognizer;
+			sourceTree = "<group>";
+		};
+		22903E38116DEA7C00230C1E /* SweepOutRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				22903C09116DCF9B00230C1E /* SweepOutRecognizer.h */,
+				22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */,
+				22903E39116DEA9400230C1E /* SweepOutRecognizerDelegate.h */,
+			);
+			name = SweepOutRecognizer;
+			sourceTree = "<group>";
+		};
 		22977B2511105C2D00B55D3F /* Wifi */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,9 +1058,21 @@
 			name = HocHistory;
 			sourceTree = "<group>";
 		};
+		22A74D9E116CEB7600F3E4B4 /* SweepRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				22903E38116DEA7C00230C1E /* SweepOutRecognizer */,
+				22903E37116DEA6900230C1E /* SweepInRecognizer */,
+				22903C05116DCE8600230C1E /* SweepRecognizer.h */,
+				22903C06116DCE8600230C1E /* SweepRecognizer.m */,
+			);
+			name = SweepRecognizer;
+			sourceTree = "<group>";
+		};
 		22AE46DE11634EA800C10B98 /* DesktopView */ = {
 			isa = PBXGroup;
 			children = (
+				22A74D9E116CEB7600F3E4B4 /* SweepRecognizer */,
 				22AE461011633E0500C10B98 /* ContentContainerView.h */,
 				22AE461111633E0500C10B98 /* ContentContainerView.m */,
 				22AE475C1163622100C10B98 /* ContentContainerViewDelegate.h */,
@@ -1423,6 +1473,9 @@
 				22A74C09116C945A00F3E4B4 /* HocHistory.m in Sources */,
 				22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */,
 				22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */,
+				22A74D9C116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
+				22903C07116DCE8600230C1E /* SweepRecognizer.m in Sources */,
+				22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1529,8 +1582,13 @@
 				2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */,
 				22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */,
 				229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */,
-				22A74C2A116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */,
 				22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */,
+				22A74D9D116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
+				22903A1E116DC2D500230C1E /* HocHistory.m in Sources */,
+				22903A1F116DC2D500230C1E /* HistoryData.m in Sources */,
+				22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */,
+				22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */,
+				22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

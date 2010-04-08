@@ -64,95 +64,25 @@
 }
 
 #pragma mark -
-#pragma mark Touch Event
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"touches began");
-	touchStartPoint = [[touches anyObject]locationInView: self.superview];	
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{	
-
-	UITouch* touch = [touches anyObject];
-	CGPoint prevLocation = [touch previousLocationInView: self.superview];
-	CGPoint currentLocation = [touch locationInView: self.superview];
-	
-	NSLog(@"touches moved: %f, %f", currentLocation.x, currentLocation.y);
-
-	CGRect myRect = self.frame;
-	myRect.origin.x += currentLocation.x - prevLocation.x; 
-	myRect.origin.y += currentLocation.y - prevLocation.y; 
-	
-	self.frame = myRect;
-	
-	if (!gestureDetected) {
-		CGFloat width = self.superview.frame.size.width; 
-		if (currentLocation.x < kSweepBorder) {
-			CGFloat height = currentLocation.y - [touch locationInView:self].y;
-			[self startFlySidewaysAnimation: CGPointMake(-width, height)];
-			gestureDetected = YES;	
-			
-			if ([delegate respondsToSelector:@selector(containerViewDidSweepOut:)]) {
-				[delegate containerViewDidSweepOut:self];
-			}
-		} else if (currentLocation.x > width - kSweepBorder ) {
-			CGFloat height = currentLocation.y - [touch locationInView:self].y;
-
-			[self startFlySidewaysAnimation: CGPointMake(width, height)];
-			gestureDetected = YES;	
-			
-			if ([delegate respondsToSelector:@selector(containerViewDidSweepOut:)]) {
-				[delegate containerViewDidSweepOut:self];
-			}		
-		}
-	}
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
-	if (!gestureDetected && shouldSnapBackOnTouchUp) {
-		[self resetViewAnimated:YES];
-	}
-	
-	if ([delegate respondsToSelector:@selector(containerView:didMoveToPosition:)]) {
-		[delegate containerView:self didMoveToPosition:self.frame.origin];
-	}
-	
-	gestureDetected = NO;
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-	gestureDetected = NO;
-}
-
-#pragma mark -
 #pragma mark animations
-- (void)startFlyOutUpwardsAnimation
-{
-	[UIView beginAnimations:@"myFlyOutUpwardsAnimation" context:NULL];
-	[UIView setAnimationDuration:0.2];
-	CGRect myRect = self.frame;
-	myRect.origin = CGPointMake(origin.x, -200);
-	
-	self.frame = myRect;
-	[UIView commitAnimations];
-}
-
-- (void)startFlySidewaysAnimation: (CGPoint) endPoint
-{
-	CGRect myRect = self.frame;
-	myRect.origin = endPoint;
-	
-	[UIView beginAnimations:@"myFlyOutSidewaysAnimation" context:NULL];
-	[UIView setAnimationDuration:0.3];	
-	self.frame = myRect;
-	[UIView commitAnimations];
-}
-
 - (void)resetViewAnimated: (BOOL)animated {
 	CGRect myRect = self.frame;
 	myRect.origin = origin;
 	
 	self.frame = myRect;
 	self.userInteractionEnabled = YES;
+}
+
+- (void)moveBy: (CGSize) distance {
+	CGRect myRect = self.frame;
+	myRect.origin.x += distance.width; 
+	myRect.origin.y += distance.height; 
+	
+	self.frame = myRect;
+}
+
+- (BOOL)willStayInView: (UIView *)view afterMovedBy: (CGSize) distance {
+	return YES;
 }
 
 

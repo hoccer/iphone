@@ -65,7 +65,6 @@
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
 
-- (void)resetPreview;
 - (void)setContentPreview: (HoccerContent *)content;
 
 - (IBAction)toggleSelectContent: (id)sender;

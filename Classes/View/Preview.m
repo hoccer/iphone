@@ -41,10 +41,6 @@
 	[imageView release];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-	NSLog(@"touches began");
-}
-
 
 
 @end

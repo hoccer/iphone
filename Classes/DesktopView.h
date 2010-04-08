@@ -11,31 +11,36 @@
 #import "DesktopViewDataSource.h"
 #import "DesktopViewDelegate.h"
 #import "ContentContainerViewDelegate.h"
+#import "SweepInRecognizerDelegate.h"
+#import "SweepOutRecognizerDelegate.h"
 
-@interface DesktopView : UIView <ContentContainerViewDelegate> {
+
+@class SweepRecognizer;
+
+@interface DesktopView : UIView <ContentContainerViewDelegate, SweepInRecognizerDelegate, SweepOutRecognizerDelegate> {
 	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
-	
-	ContentContainerView* feedback;
-	
-	int sweeping;
-	CGPoint initialTouchPoint;
+
+	NSMutableArray *sweepRecognizers;
+	NSArray *currentlyTouchedViews;
 	
 	BOOL shouldSnapToCenterOnTouchUp;
 }
 
 @property (assign) id delegate;
 @property (retain) id dataSource;
-
-@property (retain) UIView* feedback; 
+@property (retain) NSArray *currentlyTouchedViews;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
+
+- (void)addSweepRecognizer: (SweepRecognizer *)recognizer;
 
 - (void)startMoveToCenterAnimation;
 - (void)startMoveOutAnimation: (NSInteger)direction;
 
-- (void)resetView;
 - (void)reloadData;
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation;
+
+
 
 @end
