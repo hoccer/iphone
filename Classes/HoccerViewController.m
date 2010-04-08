@@ -78,7 +78,6 @@
 }
 
 - (void)dealloc {
-
 	[desktopView release];	
 	[desktopData release];
 	[locationController release];
@@ -267,6 +266,7 @@
 
 - (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
+	[statusViewController hideActivityInfo];
 	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
@@ -274,7 +274,8 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-
+	[statusViewController hideActivityInfo];
+	
 	[desktopView reloadData];
 }
 

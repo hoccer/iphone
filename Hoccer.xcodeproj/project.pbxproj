@@ -664,6 +664,7 @@
 				22AE46DE11634EA800C10B98 /* DesktopView */,
 				22979EF9115A183F002B59C2 /* iPad */,
 				229A8399116B704B00FFAD1B /* iPhone */,
+				22903EC7116DF4E100230C1E /* HoccingRules.h */,
 				28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
@@ -1001,7 +1002,6 @@
 				229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */,
 				229A839A116B708B00FFAD1B /* HoccerViewControllerIPhone.h */,
 				229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */,
-				22903EC7116DF4E100230C1E /* HoccingRules.h */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
