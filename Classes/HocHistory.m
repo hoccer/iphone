@@ -10,6 +10,8 @@
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
+#import "HistoryItemViewController.h"
+
 
 @implementation HocHistory
 @synthesize hoccerHistoryItemArray;
@@ -125,7 +127,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	cell.textLabel.text = [[hoccerHistoryItemArray objectAtIndex:[indexPath row]] filepath];
+	cell.textLabel.text = [[[hoccerHistoryItemArray objectAtIndex:[indexPath row]] filepath] lastPathComponent];
     return cell;
 }
 
@@ -174,14 +176,14 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    NSLog(@"preview");
+	// Navigation logic may go here. Create and push another view controller.
+	
+	 HistoryItemViewController *detailViewController = [[HistoryItemViewController alloc] initWithNibName:@"HistoryItemViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
-	 */
 }
 
 

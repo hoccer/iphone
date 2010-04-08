@@ -16,9 +16,12 @@
 	ActionElement *delayedAction;
 	
 	BOOL isPopUpDisplayed;
+	
+	UITabBar *tabBar;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
+@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
 
 @end

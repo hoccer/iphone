@@ -63,16 +63,6 @@
 	}
 }
 
-#pragma mark -
-#pragma mark animations
-- (void)resetViewAnimated: (BOOL)animated {
-	CGRect myRect = self.frame;
-	myRect.origin = origin;
-	
-	self.frame = myRect;
-	self.userInteractionEnabled = YES;
-}
-
 - (void)moveBy: (CGSize) distance {
 	CGRect myRect = self.frame;
 	myRect.origin.x += distance.width; 

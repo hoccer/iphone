@@ -72,6 +72,7 @@
 @implementation HoccerViewControllerIPhone
 @synthesize delayedAction;
 @synthesize auxiliaryView;
+@synthesize tabBar;
 
 
 - (void)viewDidLoad {
@@ -79,6 +80,9 @@
 	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
+	
+	UINavigationController *navigationController = (UINavigationController* )self.parentViewController;
+	navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -115,6 +119,7 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
+		tabBar.selectedItem = nil;
 	}
 }
 
@@ -126,6 +131,7 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
+		tabBar.selectedItem = nil;
 	}
 }
 
@@ -137,6 +143,7 @@
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
+		tabBar.selectedItem = nil;
 	}
 }
 
@@ -178,6 +185,24 @@
 	
 	isPopUpDisplayed = TRUE;
 }
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+	switch (item.tag) {
+		case 1:
+			[self toggleSelectContent:self];
+			break;
+		case 2:
+			[self toggleHistory:self];
+			break;
+		case 3:
+			[self toggleHelp:self];
+			break;
+		default:
+			NSLog(@"this should not happen");
+			break;
+	}
+}
+
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	[self removePopOverFromSuperview];

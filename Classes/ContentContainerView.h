@@ -31,6 +31,4 @@
 - (id) initWithView: (UIView *)insideView;
 - (void)moveBy: (CGSize)distance;
 
-- (void)resetViewAnimated: (BOOL)animated;
-
 @end
