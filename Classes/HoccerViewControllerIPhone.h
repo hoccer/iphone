@@ -18,6 +18,7 @@
 	BOOL isPopUpDisplayed;
 	
 	UITabBar *tabBar;
+	IBOutlet UINavigationController *navigationController;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;

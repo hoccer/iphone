@@ -81,8 +81,14 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	UINavigationController *navigationController = (UINavigationController* )self.parentViewController;
 	navigationController.navigationBar.tintColor = [UIColor blackColor];
+	navigationController.view.frame = CGRectMake(0, 0, 
+												 self.view.frame.size.width, 
+												 self.view.frame.size.height - tabBar.frame.size.height); 
+
+	[self.view addSubview:navigationController.view];
+	NSLog(@"loaded navigation controller: %@, %@", navigationController, self.hoccerHistoryController);
+	self.hoccerHistoryController.parentNavigationController = navigationController;
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -162,9 +168,10 @@
 }
 
 - (void)showHistoryView {
+	// [self.navigationController pushViewController:self.hoccerHistoryController animated:YES];
+	
 	[self showPopOver: self.hoccerHistoryController];
 }
-
 
 - (void)showPopOver: (UIViewController *)popOverView  {
 	self.auxiliaryView = popOverView;
@@ -175,9 +182,9 @@
 	popOverView.view.frame = selectContentFrame;	
 	
 	[desktopView addSubview:popOverView.view];
-	
+
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDuration:0.3];
 	
 	selectContentFrame.origin = CGPointMake(0,0);
 	popOverView.view.frame = selectContentFrame;

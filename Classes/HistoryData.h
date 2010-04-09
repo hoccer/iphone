@@ -13,6 +13,7 @@
 	NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	
+	
 
 }
 
@@ -20,6 +21,7 @@
 - (NSManagedObjectContext *) managedObjectContext;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
 - (NSString *)applicationDocumentsDirectory;
+
 
 
 @end

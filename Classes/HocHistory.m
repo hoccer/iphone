@@ -16,6 +16,8 @@
 @implementation HocHistory
 @synthesize hoccerHistoryItemArray;
 @synthesize managedObjectContext;
+@synthesize parentNavigationController;
+
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -26,7 +28,6 @@
 	if (self != nil) {
 		HistoryData *historyData = [[HistoryData alloc] init];
 		self.managedObjectContext = [historyData managedObjectContext];
-		NSLog(@"context: %@", self.managedObjectContext);
 		
 		[historyData release];
 		
@@ -176,13 +177,13 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"preview");
+    NSLog(@"preview, %@", parentNavigationController);
 	// Navigation logic may go here. Create and push another view controller.
 	
 	 HistoryItemViewController *detailViewController = [[HistoryItemViewController alloc] initWithNibName:@"HistoryItemViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
+	 [self.parentNavigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 }
 
@@ -204,7 +205,6 @@
 
 
 - (void)addContentToHistory: (HoccerContent *) content {
-	NSLog(@"managedContext: %@", managedObjectContext);
 	HoccerHistoryItem *item =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
 	item.filepath = content.filepath;
@@ -219,7 +219,6 @@
 		NSLog(@"error: %@", error);
 	}
 }
-
 
 @end
 

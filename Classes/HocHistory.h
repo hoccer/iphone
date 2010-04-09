@@ -15,10 +15,14 @@
 @interface HocHistory : UITableViewController {
 	NSMutableArray *hoccerHistoryItemArray;
 	NSManagedObjectContext *managedObjectContext;
+	
+	UINavigationController *parentNavigationController;
 }
 
 @property (nonatomic, retain) NSMutableArray *hoccerHistoryItemArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, retain) UINavigationController *parentNavigationController;
 
 - (void)addContentToHistory: (HoccerContent *) content;
 
