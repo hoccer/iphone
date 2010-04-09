@@ -168,7 +168,11 @@
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(-100, view.center.y)];
+	if (recognizer.sweepDirection == kSweepDirectionLeftOut) {
+		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(-view.frame.size.width, view.center.y)];
+	} else {
+		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(self.frame.size.width + view.frame.size.width, view.center.y)];
+	}
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	[[view layer] addAnimation:animation forKey:nil];

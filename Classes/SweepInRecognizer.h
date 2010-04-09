@@ -17,14 +17,14 @@
 @class DesktopView;
 
 @interface SweepInRecognizer : SweepRecognizer {
-	NSInteger sweepingDirection;
+	NSInteger sweepDirection;
 	CGPoint touchPoint;
 	
 	id <SweepInRecognizerDelegate> delegate;
 	BOOL isSweeping;
 }
 
-@property (nonatomic, readonly) NSInteger sweepingDirection;
+@property (nonatomic, readonly) NSInteger sweepDirection;
 @property (nonatomic, assign) CGPoint touchPoint;
 @property (nonatomic, assign) id <SweepInRecognizerDelegate> delegate;
 
