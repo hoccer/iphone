@@ -161,7 +161,18 @@
 }
 
 - (void)sweepInRecognizerDidRecognizeSweepIn: (SweepInRecognizer *)recognizer {
-	[delegate desktopView: self didSweepInView: [[currentlyTouchedViews lastObject] containedView]];
+	ContentContainerView *view = [currentlyTouchedViews lastObject];
+	
+	if (shouldSnapToCenterOnTouchUp) {
+		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+		animation.duration = 0.3;
+		animation.fromValue = [NSValue valueWithCGPoint: view.center];
+		[view.layer addAnimation:animation forKey:nil];
+		
+		view.layer.position = CGPointMake(self.frame.size.width / 2, 140);		
+	}
+
+	[delegate desktopView: self didSweepInView: view.containedView];
 }
 
 - (void)sweepInRecognizerDidCancelSweepIn: (SweepInRecognizer *)recognizer {
@@ -184,7 +195,6 @@
 #pragma mark SweepOutGestureRecognizer Delegate
 
 - (void)sweepOutRecognizerDidRecognizeSweepOut: (SweepOutRecognizer *)recognizer {
-	NSLog(@"did sweep out");
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
