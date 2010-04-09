@@ -87,8 +87,14 @@
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
-	NSLog(@"loaded navigation controller: %@, %@", navigationController, self.hoccerHistoryController);
 	self.hoccerHistoryController.parentNavigationController = navigationController;
+	
+	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
+	
+	CGRect statusRect = statusViewController.view.frame;
+	statusRect.origin.y = 44;
+	statusViewController.view.frame = statusRect;
+
 }
 
 - (IBAction)selectContacts: (id)sender {

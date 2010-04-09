@@ -70,9 +70,9 @@
 	
 	hoccerHistoryController = [[HocHistory alloc] init];
 	
-	[self.view insertSubview:statusViewController.view atIndex:1];
+// 	[self.view addSubview:statusViewController.view];
 	
-	self.defaultOrigin = CGPointMake(12, 42);
+	self.defaultOrigin = CGPointMake(7, 22);
 }
 
 - (void)viewDidUnload {

@@ -67,21 +67,23 @@
 }
 
 - (void)showActivityInfo {
+	NSLog(@"showactivity");
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
 	self.view.hidden = NO;
-	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 32);
-
-	[UIView beginAnimations:@"slideIn" context:nil];
-	[UIView setAnimationDuration:0.4];
 	
-	self.view.center = CGPointMake(self.view.superview.frame.size.width / 2, 68);
-	[UIView commitAnimations];
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+	animation.fromValue = [NSValue valueWithCGRect:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 0)];
+	animation.duration = 0.4;
 	
+    [self.view.layer addAnimation:animation forKey:nil];					   
+							
 	[activitySpinner startAnimating];
 }
 
 - (void)hideActivityInfo {
+	NSLog(@"hideactivity");
+
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	self.view.hidden = YES;
