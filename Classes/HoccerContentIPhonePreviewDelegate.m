@@ -34,4 +34,8 @@
 	[self.viewController dismissModalViewControllerAnimated:YES];
 }
 
+- (UIImage *)hoccerContentIcon: (HoccerContent *)hoccerContent {
+	return nil;
+}
+
 @end

@@ -145,19 +145,30 @@
 */
 
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		HoccerHistoryItem *item = [hoccerHistoryItemArray objectAtIndex:[indexPath row]];
+		HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
+		[content removeFromDocumentDirectory];
+		
+		[hoccerHistoryItemArray removeObject:item];
+		[managedObjectContext deleteObject:item];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		
+		NSError *error;
+		if (![managedObjectContext save:&error]) {
+			NSLog(@"error: %@", error);
+		}
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 
 /*
@@ -180,7 +191,6 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"preview, %@", parentNavigationController);
 	// Navigation logic may go here. Create and push another view controller.
 	
 	HoccerHistoryItem *item = [hoccerHistoryItemArray objectAtIndex:[indexPath row]];

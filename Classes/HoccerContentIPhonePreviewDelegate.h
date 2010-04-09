@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerContentPreviewDelegate.h"
 
 
-@interface HoccerContentIPhonePreviewDelegate : NSObject {
+@interface HoccerContentIPhonePreviewDelegate : NSObject  <HoccerContentPreviewDelegate> {
 	UIViewController *viewController;
 }
 
