@@ -15,6 +15,7 @@
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
 #import "HocItemData.h"
+#import "DesktopDataSource.h"
 
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
@@ -252,11 +253,13 @@
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-
-	[[item content] previewInViewController:self];
-	[desktopView reloadData];
+	[statusViewController hideActivityInfo];
 	
 	[hoccerHistoryController addContentToHistory:item.content];
+
+	// [[item content] previewInViewController:self];
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
 }
 
 

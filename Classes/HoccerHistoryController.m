@@ -199,8 +199,6 @@
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
 	
-	// HistoryItemViewController *detailViewController = [[HistoryItemViewController alloc] initWithNibName:@"HistoryItemViewController" bundle:nil];
-     // ...
      // Pass the selected object to the new view controller.
 	[self.parentNavigationController pushViewController:detailViewController animated:YES];
 	[detailViewController release];
