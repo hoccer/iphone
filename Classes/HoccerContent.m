@@ -33,6 +33,27 @@
 	[encoder encodeObject:filepath forKey:@"filepath"];
 }
 
+- (id) initWithFilename: (NSString *)filename
+{
+	self = [super init];
+	if (self != nil) {
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
+		
+		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
+		
+		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
+		if (previewDelegate == nil) {
+			previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPhonePreviewDelegate") alloc] init];
+		}
+	}
+	
+	
+	return self;
+}
+
+
+
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename {
 	self = [super init];
 	if (self != nil) {

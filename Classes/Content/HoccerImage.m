@@ -60,8 +60,8 @@
 }
 
 - (UIImage*) image {
-	if (image == nil && data != nil) {
-		image = [[UIImage imageWithData:data] retain];
+	if (image == nil && self.data != nil) {
+		image = [[UIImage imageWithData:self.data] retain];
 	}
 	return image;
 } 
@@ -111,7 +111,7 @@
 
 - (BOOL)isDataReady
 {
-	return (data != nil);
+	return (self.data != nil);
 }
 
 - (void)saveDataToContentStorage

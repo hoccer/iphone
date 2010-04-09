@@ -6,14 +6,17 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HocHistory.h"
+#import "HoccerHistoryController.h"
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
 #import "HistoryItemViewController.h"
 
+#import "HoccerContentFactory.h";
+#import "ReceivedContentViewController.h"
 
-@implementation HocHistory
+
+@implementation HoccerHistoryController
 @synthesize hoccerHistoryItemArray;
 @synthesize managedObjectContext;
 @synthesize parentNavigationController;
@@ -180,11 +183,17 @@
     NSLog(@"preview, %@", parentNavigationController);
 	// Navigation logic may go here. Create and push another view controller.
 	
-	 HistoryItemViewController *detailViewController = [[HistoryItemViewController alloc] initWithNibName:@"HistoryItemViewController" bundle:nil];
+	HoccerHistoryItem *item = [hoccerHistoryItemArray objectAtIndex:[indexPath row]];
+	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
+	
+	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
+	[detailViewController setHoccerContent:content];
+	
+	// HistoryItemViewController *detailViewController = [[HistoryItemViewController alloc] initWithNibName:@"HistoryItemViewController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-	 [self.parentNavigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
+	[self.parentNavigationController pushViewController:detailViewController animated:YES];
+	[detailViewController release];
 }
 
 
@@ -208,6 +217,7 @@
 	HoccerHistoryItem *item =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
 	item.filepath = content.filepath;
+	item.mimeType = [content mimeType];
 	item.creationDate = [NSDate date];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];

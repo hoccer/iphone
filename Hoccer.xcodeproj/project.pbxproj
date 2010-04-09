@@ -92,7 +92,7 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
-		22903A1E116DC2D500230C1E /* HocHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HocHistory.m */; };
+		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
 		22903B51116DC2E700230C1E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
@@ -158,7 +158,7 @@
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
 		22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
-		22A74C09116C945A00F3E4B4 /* HocHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HocHistory.m */; };
+		22A74C09116C945A00F3E4B4 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A74C08116C945A00F3E4B4 /* HocHistory.xib */; };
 		22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
@@ -523,8 +523,8 @@
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
 		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = HocHistory.xcdatamodel; sourceTree = "<group>"; };
-		22A74C06116C945A00F3E4B4 /* HocHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocHistory.h; sourceTree = "<group>"; };
-		22A74C07116C945A00F3E4B4 /* HocHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocHistory.m; sourceTree = "<group>"; };
+		22A74C06116C945A00F3E4B4 /* HoccerHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHistoryController.h; sourceTree = "<group>"; };
+		22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHistoryController.m; sourceTree = "<group>"; };
 		22A74C08116C945A00F3E4B4 /* HocHistory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HocHistory.xib; sourceTree = "<group>"; };
 		22A74C0F116C948700F3E4B4 /* HistoryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryData.h; sourceTree = "<group>"; };
 		22A74C10116C948700F3E4B4 /* HistoryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryData.m; sourceTree = "<group>"; };
@@ -1061,8 +1061,8 @@
 		22A74C05116C941E00F3E4B4 /* HocHistory */ = {
 			isa = PBXGroup;
 			children = (
-				22A74C06116C945A00F3E4B4 /* HocHistory.h */,
-				22A74C07116C945A00F3E4B4 /* HocHistory.m */,
+				22A74C06116C945A00F3E4B4 /* HoccerHistoryController.h */,
+				22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */,
 				22A74C08116C945A00F3E4B4 /* HocHistory.xib */,
 				22A74C0F116C948700F3E4B4 /* HistoryData.h */,
 				22A74C10116C948700F3E4B4 /* HistoryData.m */,
@@ -1489,7 +1489,7 @@
 				229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */,
 				229A8440116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m in Sources */,
 				22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */,
-				22A74C09116C945A00F3E4B4 /* HocHistory.m in Sources */,
+				22A74C09116C945A00F3E4B4 /* HoccerHistoryController.m in Sources */,
 				22A74C11116C948700F3E4B4 /* HistoryData.m in Sources */,
 				22A74C29116C9A6800F3E4B4 /* HoccerHistoryItem.m in Sources */,
 				22A74D9C116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
@@ -1604,7 +1604,7 @@
 				229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */,
 				22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */,
 				22A74D9D116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
-				22903A1E116DC2D500230C1E /* HocHistory.m in Sources */,
+				22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */,
 				22903A1F116DC2D500230C1E /* HistoryData.m in Sources */,
 				22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */,
 				22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */,

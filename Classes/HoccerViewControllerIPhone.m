@@ -13,7 +13,7 @@
 #import "StatusViewController.h"
 #import "SelectContentViewController.h"
 #import "HelpScrollView.h"
-#import "HocHistory.h"
+#import "HoccerHistoryController.h"
 #import "HocItemData.h"
 
 #import "HoccingRulesIPhone.h"
@@ -151,7 +151,7 @@
 - (IBAction)toggleHistory: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showHistoryView];
-	} else if (![auxiliaryView isKindOfClass:[HocHistory class]]) {
+	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
 		[self hidePopOverAnimated: YES];
 	} else {

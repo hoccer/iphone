@@ -42,8 +42,8 @@
 	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
 	self.textView.font = [UIFont systemFontOfSize: [UIFont systemFontSize] + 2];
 	
-	if (data != nil) {
-		self.textView.text = [NSString stringWithData:data usingEncoding:NSUTF8StringEncoding];
+	if (self.data != nil) {
+		self.textView.text = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
 	}
 	
 	[view insertSubview: textView atIndex: 1];

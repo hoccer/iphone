@@ -54,7 +54,6 @@
 }
 
 - (void)removeHocItem: (HocItemData *)hocItem {
-	[hocItem removeFromFileSystem];
 	[contentOnDesktop removeObject:hocItem];
 }
 

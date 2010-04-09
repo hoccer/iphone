@@ -37,7 +37,7 @@
 #import "LocationController.h"
 
 #import "HocItemData.h"
-#import "HocHistory.h"
+#import "HoccerHistoryController.h"
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
@@ -68,7 +68,7 @@
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	
-	hoccerHistoryController = [[HocHistory alloc] init];
+	hoccerHistoryController = [[HoccerHistoryController alloc] init];
 	
 // 	[self.view addSubview:statusViewController.view];
 	

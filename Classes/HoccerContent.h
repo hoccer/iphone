@@ -15,9 +15,10 @@
 
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filepath;	
-	NSData *data;
-	
 	id <HoccerContentPreviewDelegate> previewDelegate;
+	
+	@private
+	NSData *data;
 }
 
 @property (retain) NSData *data; 
@@ -26,6 +27,7 @@
 @property (nonatomic, readonly) NSURL *fileUrl;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
+- (id) initWithFilename: (NSString *)filename;
 - (void) removeFromDocumentDirectory;
 - (void) saveDataToDocumentDirectory;
 

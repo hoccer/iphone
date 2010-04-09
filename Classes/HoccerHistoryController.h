@@ -12,7 +12,7 @@
 
 @class HoccerContent;
 
-@interface HocHistory : UITableViewController {
+@interface HoccerHistoryController : UITableViewController {
 	NSMutableArray *hoccerHistoryItemArray;
 	NSManagedObjectContext *managedObjectContext;
 	

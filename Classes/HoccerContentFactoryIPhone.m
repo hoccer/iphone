@@ -15,7 +15,7 @@
 
 @implementation HoccerContentFactoryIPhone
 
-- (HoccerContent*)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
+- (HoccerContent *)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	HoccerContent* hoccerContent = nil;
 	
 	NSString *mimeType = [response MIMEType];
@@ -34,9 +34,30 @@
 		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
 	}
 	
-	
 	return [hoccerContent autorelease];
 }
+
+- (HoccerContent *)createContentFromFile: (NSString *)filename withMimeType: (NSString *)mimeType {
+	HoccerContent* hoccerContent = nil;
+		
+	if ([mimeType isEqual: @"text/x-vcard"]) {
+		hoccerContent = [[HoccerVcard alloc] initWithFilename: filename];
+	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
+		hoccerContent = [[HoccerImage alloc] initWithFilename: filename];
+	} else if ([mimeType isEqual: @"text/plain"]) {
+		if ([HoccerUrl isDataAUrl: nil]) {
+			hoccerContent = [[HoccerUrl alloc] initWithFilename: filename];
+		} else {
+			hoccerContent = [[HoccerText alloc] initWithFilename: filename];
+		}
+	} else {
+		hoccerContent = [[HoccerContent alloc] initWithFilename: filename];
+	}
+	
+	return [hoccerContent autorelease];
+	
+} 
+
 
 - (BOOL) isSupportedType: (NSString *)mimeType
 {
