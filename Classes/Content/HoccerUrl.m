@@ -21,6 +21,14 @@
 	return YES;
 }
 
+- (void) dealloc
+{
+	[webView release];
+	[super dealloc];
+}
+
+
+
 - (void)saveDataToContentStorage 
 {
 	NSURL *url = nil;
@@ -44,7 +52,7 @@
 	webView.scalesPageToFit = YES;
 	
 	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:self.content]]];	
-	return [webView  autorelease];
+	return webView;
 }
 
 

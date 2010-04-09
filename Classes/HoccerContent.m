@@ -126,7 +126,11 @@
 }
 
 - (UIView *)fullscreenView{
-	return nil;
+	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(10, 60, 300, 350)];
+	webView.scalesPageToFit = YES;
+		
+	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL fileURLWithPath:self.filepath]]];	
+	return [webView  autorelease];
 }
 
 - (Preview *)desktopItemView{

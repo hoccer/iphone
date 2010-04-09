@@ -118,7 +118,6 @@
 		return;
 	}
 	
-	NSLog(@"setting content preview: %@", content);
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
