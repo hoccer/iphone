@@ -21,6 +21,7 @@
 	CGPoint touchPoint;
 	
 	id <SweepInRecognizerDelegate> delegate;
+	BOOL isSweeping;
 }
 
 @property (nonatomic, readonly) NSInteger sweepingDirection;
@@ -28,9 +29,9 @@
 @property (nonatomic, assign) id <SweepInRecognizerDelegate> delegate;
 
 
+- (void)desktopView: (DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)desktopView: (DesktopView*)view touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)desktopView: (DesktopView*)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)desktopView: (DesktopView*)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)desktopView: (DesktopView*)view touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)desktopView: (DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 
 @end

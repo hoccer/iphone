@@ -67,7 +67,6 @@
 }
 
 - (void)showActivityInfo {
-	NSLog(@"showactivity");
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
 	self.view.hidden = NO;
@@ -82,8 +81,6 @@
 }
 
 - (void)hideActivityInfo {
-	NSLog(@"hideactivity");
-
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	self.view.hidden = YES;

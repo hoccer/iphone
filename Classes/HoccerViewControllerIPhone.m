@@ -17,6 +17,7 @@
 #import "HocItemData.h"
 
 #import "HoccingRulesIPhone.h"
+#import "GesturesInterpreter.h"
 
 @interface ActionElement : NSObject
 {
@@ -77,7 +78,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
+
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
@@ -94,7 +95,7 @@
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 44;
 	statusViewController.view.frame = statusRect;
-
+	statusViewController.view.hidden = YES;
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -180,6 +181,7 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
+	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
@@ -197,25 +199,14 @@
 	[UIView commitAnimations];
 	
 	isPopUpDisplayed = TRUE;
+	
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																			target:self action:@selector(hidePopOverAnimated:)];
+	
+	UINavigationItem *navigationItem = [navigationController visibleViewController].navigationItem;
+	navigationItem.rightBarButtonItem = cancel;
+	[cancel release];
 }
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-	switch (item.tag) {
-		case 1:
-			[self toggleSelectContent:self];
-			break;
-		case 2:
-			[self toggleHistory:self];
-			break;
-		case 3:
-			[self toggleHelp:self];
-			break;
-		default:
-			NSLog(@"this should not happen");
-			break;
-	}
-}
-
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	[self removePopOverFromSuperview];
@@ -248,10 +239,17 @@
 			self.auxiliaryView.view.frame = selectContentFrame;
 			[self removePopOverFromSuperview];
 		}
-		
 	}
+	
+	self.gestureInterpreter.delegate = self;
+	UINavigationItem *navigationItem = [navigationController visibleViewController].navigationItem;
+	[navigationItem setRightBarButtonItem:nil animated:YES];
+	
+	tabBar.selectedItem = nil;
 }
 
+#pragma mark -
+#pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 
@@ -260,5 +258,28 @@
 	
 	[hoccerHistoryController addContentToHistory:item.content];
 }
+
+
+#pragma mark -
+#pragma mark TapBar delegate Methods
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+	switch (item.tag) {
+		case 1:
+			[self toggleSelectContent:self];
+			break;
+		case 2:
+			[self toggleHistory:self];
+			break;
+		case 3:
+			[self toggleHelp:self];
+			break;
+		default:
+			NSLog(@"this should not happen");
+			break;
+	}
+}
+
+
 
 @end

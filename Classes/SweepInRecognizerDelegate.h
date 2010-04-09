@@ -13,5 +13,6 @@
 
 - (void)sweepInRecognizerDidBeginSweeping: (SweepInRecognizer *)recognizer;
 - (void)sweepInRecognizerDidRecognizeSweepIn: (SweepInRecognizer *)recognizer;
+- (void)sweepInRecognizerDidCancelSweepIn: (SweepInRecognizer *)recognizer;
 
 @end

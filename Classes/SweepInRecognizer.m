@@ -10,7 +10,7 @@
 #import "DesktopView.h"
 
 #define kSweepInBorder 50
-#define kSweepAcceptanceDistance 100
+#define kSweepAcceptanceDistance 50
 
 @implementation SweepInRecognizer
 
@@ -19,26 +19,30 @@
 @synthesize touchPoint;
 
 - (void)desktopView: (DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSLog(@"touchesBegan");
 	self.touchPoint = [[touches anyObject] locationInView: view]; 
 
 	if (touchPoint.x < kSweepInBorder) {
-		NSLog(@"starting sweep in from left");
 		sweepingDirection = kSweepDirectionLeftIn;
 	} else if (touchPoint.x > view.frame.size.width - kSweepInBorder){
-		NSLog(@"starting sweep in from right");
 		sweepingDirection = kSweepDirectionRightIn;
 	}
 	
-	if (sweepingDirection != kNoSweeping) {
-		[delegate sweepInRecognizerDidBeginSweeping: self];
-	}
+	isSweeping = NO;
 	
 }
 
 - (void)desktopView: (DesktopView*)view touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
+	if (sweepingDirection != kNoSweeping && !isSweeping) {
+		[delegate sweepInRecognizerDidBeginSweeping: self];
+		
+		isSweeping = YES;
+	}
 }
 
 - (void)desktopView: (DesktopView*)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSLog(@"touchesEnded");
+
 	CGPoint currentLocation = [[touches anyObject] locationInView: view]; 
 	if (sweepingDirection == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
 		sweepingDirection == kSweepDirectionRightIn && currentLocation.x < view.frame.size. width - kSweepAcceptanceDistance) {
@@ -47,20 +51,20 @@
 			[delegate sweepInRecognizerDidRecognizeSweepIn:self];
 		}
 		
-		// if (shouldSnapToCenterOnTouchUp) {
-		//	[self startMoveToCenterAnimation];
-		// }
-		
 		sweepingDirection = kNoSweeping;
 		return;
 	}
 	
 	if (sweepingDirection != kNoSweeping) {
-		// [self startMoveOutAnimation: sweepingDirection];
+		if ([delegate respondsToSelector:@selector(sweepInRecognizerDidCancelSweepIn:)]) {
+			[delegate sweepInRecognizerDidCancelSweepIn:self];
+		} 
 	}
 }
 
 - (void)desktopView: (DesktopView*)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSLog(@"touchesCanceled");
+
 	sweepingDirection = kNoSweeping;
 }
 

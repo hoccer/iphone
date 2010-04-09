@@ -39,7 +39,7 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">301</int>
+				<int key="NSvFlags">-2147483347</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUILabel" id="435518619">
@@ -200,7 +200,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>StatusViewController</string>
 					<string>UIResponder</string>
-					<string>{{348, 697}, {319, 31}}</string>
+					<string>{{354, 494}, {319, 31}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

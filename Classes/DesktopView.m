@@ -164,6 +164,17 @@
 	[delegate desktopView: self didSweepInView: [[currentlyTouchedViews lastObject] containedView]];
 }
 
+- (void)sweepInRecognizerDidCancelSweepIn: (SweepInRecognizer *)recognizer {
+	ContentContainerView *view = [currentlyTouchedViews lastObject];
+
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(-100, view.center.y)];
+	animation.removedOnCompletion = NO;
+	animation.fillMode = kCAFillModeForwards;
+	[[view layer] addAnimation:animation forKey:nil];
+	
+	[dataSource removeView: view.containedView];
+}
 
 #pragma mark -
 #pragma mark SweepOutGestureRecognizer Delegate
