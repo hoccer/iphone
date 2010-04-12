@@ -12,6 +12,7 @@
 #import "HistoryData.h"
 #import "HocItemData.h"
 #import "HistoryItemViewController.h"
+#import "HoccerViewController.h"
 
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
@@ -21,6 +22,7 @@
 @synthesize hoccerHistoryItemArray;
 @synthesize managedObjectContext;
 @synthesize parentNavigationController;
+@synthesize hoccerViewController;
 
 
 #pragma mark -
@@ -134,8 +136,6 @@
 		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	}
 	
-	
-	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -207,12 +207,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	// Navigation logic may go here. Create and push another view controller.
-	
 	HoccerHistoryItem *item = [hoccerHistoryItemArray objectAtIndex:[indexPath row]];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
+	detailViewController.delegate = self;
 	detailViewController.navigationItem.title = [content.filepath lastPathComponent];
 	
      // Pass the selected object to the new view controller.
@@ -253,6 +253,12 @@
 	if (![managedObjectContext save:&error]) {
 		NSLog(@"error: %@", error);
 	}
+}
+
+- (void)receiveContentController: (ReceivedContentViewController *)controller wantsToResendContent: (HoccerContent *)content {
+	[hoccerViewController setContentPreview: content];
+	[hoccerViewController hidePopOverAnimated: YES];
+
 }
 
 @end

@@ -69,6 +69,7 @@
 	desktopView.dataSource = desktopData;
 	
 	hoccerHistoryController = [[HoccerHistoryController alloc] init];
+	hoccerHistoryController.hoccerViewController = self;
 	
 // 	[self.view addSubview:statusViewController.view];
 	
@@ -196,7 +197,6 @@
 	}
 	
 	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"distribute"];
-	
 	[FeedbackProvider playThrowFeedback];
 	
 	UIView *view = [desktopData viewAtIndex:0];

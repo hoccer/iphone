@@ -61,7 +61,6 @@
 @property (retain) ActionElement* delayedAction;
 
 - (void)showPopOver: (UIViewController *)popOverView;
-- (void)hidePopOverAnimated: (BOOL) animate;
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 
 - (void)showSelectContentView;
@@ -296,6 +295,7 @@
 			break;
 	}
 }
+
 
 
 

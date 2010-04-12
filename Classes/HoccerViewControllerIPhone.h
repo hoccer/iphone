@@ -25,5 +25,7 @@
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
+- (void)hidePopOverAnimated: (BOOL) animate;
+
 
 @end

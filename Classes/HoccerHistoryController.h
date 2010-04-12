@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "HoccerHistoryItem.h"
 
+@class HoccerViewController;
+
 @class HocItemData;
 
 @interface HoccerHistoryController : UITableViewController {
@@ -17,12 +19,16 @@
 	NSManagedObjectContext *managedObjectContext;
 	
 	UINavigationController *parentNavigationController;
+	
+	HoccerViewController *hoccerViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray *hoccerHistoryItemArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;
+@property (nonatomic, assign) HoccerViewController *hoccerViewController;
+
 
 - (void)addContentToHistory: (HocItemData *) content;
 

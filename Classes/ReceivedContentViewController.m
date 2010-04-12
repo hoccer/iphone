@@ -40,8 +40,7 @@
 	[super dealloc];
 }
 
-- (IBAction)onSave: (id)sender
-{
+- (IBAction)save: (id)sender	{
 	if ([hoccerContent needsWaiting] && [hoccerContent isKindOfClass: [HoccerImage class]]){
 		[self setWaiting];
 		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
@@ -52,13 +51,11 @@
 	}
 }
 
-- (IBAction)onDismiss: (id)sender
-{
-	[self hideReceivedContentView];
+- (IBAction)resend: (id)sender {
+	[delegate checkAndPerformSelector:@selector(receiveContentController:wantsToResendContent:) withObject:self withObject:hoccerContent];
 }
 
-- (void)setHoccerContent: (HoccerContent*) content 
-{	
+- (void)setHoccerContent: (HoccerContent*) content {	
 	if (hoccerContent != content) {
 		[hoccerContent release];
 		hoccerContent = [content retain];
@@ -82,13 +79,12 @@
 #pragma mark -
 #pragma mark ReceivedContentView Delegate Methods
 
--  (void)hideReceivedContentView 
-{
+-  (void)hideReceivedContentView {
+	[self setWaiting];
 	[self.delegate checkAndPerformSelector:@selector(receivedViewContentControllerDidFinish:) withObject: self];
 }
 
-- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event
-{
+- (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
 	for (UIView* view in self.view.subviews) {
 		if ([view isKindOfClass:[UITextView class]])
 			[view resignFirstResponder];
@@ -96,8 +92,7 @@
 }
 
 
--  (void)setWaiting
-{
+-  (void)setWaiting {
 	activity.hidden = NO;
 	[activity startAnimating];
 	

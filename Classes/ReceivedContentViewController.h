@@ -25,8 +25,8 @@
 @property (nonatomic, retain) HoccerContent* hoccerContent;
 
 
-- (IBAction)onSave: (id)sender;
-- (IBAction)onDismiss: (id)sender;
+- (IBAction)save: (id)sender;
+- (IBAction)resend: (id)sender;
 
 - (void)setHoccerContent: (HoccerContent *) content;
 -  (void)setWaiting;
