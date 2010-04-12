@@ -13,5 +13,6 @@
 @protocol SweepOutRecognizerDelegate <NSObject>
 
 - (void)sweepOutRecognizerDidRecognizeSweepOut: (SweepOutRecognizer *)recognizer;
+- (void)sweepOutRecognizerDidCancelSweepOut: (SweepOutRecognizer *)recognizer;
 
 @end

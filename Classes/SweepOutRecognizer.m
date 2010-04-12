@@ -62,6 +62,13 @@
 }
 
 - (void)desktopView: (DesktopView *)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	if (!gestureDetected) {
+		if ([delegate respondsToSelector:@selector(sweepOutRecognizerDidCancelSweepOut:)]) {
+			[delegate sweepOutRecognizerDidCancelSweepOut:self];
+		}
+	}
+	
 	gestureDetected = NO;
 	detecting = NO;
 	self.sweepDirection = kNoSweeping;

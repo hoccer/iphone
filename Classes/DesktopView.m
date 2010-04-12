@@ -215,6 +215,26 @@
 	}
 }
 
+- (void)sweepOutRecognizerDidCancelSweepOut: (SweepOutRecognizer *)recognizer {
+	if (!shouldSnapToCenterOnTouchUp) {
+		return;
+	}
+	
+	ContentContainerView *view = [currentlyTouchedViews lastObject];
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.duration = 0.1;
+	animation.removedOnCompletion = NO;
+	animation.fillMode = kCAFillModeForwards;
+
+	animation.fromValue = [NSValue valueWithCGPoint: view.center];
+	view.origin = CGPointMake(7, 22);
+	
+	[view.layer addAnimation:animation forKey:nil];
+}
+
+
+
 #pragma mark -
 #pragma mark Private Methods
 
