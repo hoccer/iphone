@@ -63,7 +63,7 @@
 
 - (void)desktopView: (DesktopView *)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-	if (!gestureDetected) {
+	if (detecting && !gestureDetected) {
 		if ([delegate respondsToSelector:@selector(sweepOutRecognizerDidCancelSweepOut:)]) {
 			[delegate sweepOutRecognizerDidCancelSweepOut:self];
 		}

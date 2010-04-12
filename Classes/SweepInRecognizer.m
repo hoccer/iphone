@@ -29,7 +29,6 @@
 	}
 	
 	isSweeping = NO;
-	
 }
 
 - (void)desktopView: (DesktopView*)view touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		

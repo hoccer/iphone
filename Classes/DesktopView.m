@@ -165,11 +165,11 @@
 	
 	if (shouldSnapToCenterOnTouchUp) {
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-		animation.duration = 0.3;
+		animation.duration = 0.2;
 		animation.fromValue = [NSValue valueWithCGPoint: view.center];
-		[view.layer addAnimation:animation forKey:nil];
 		
-		view.layer.position = CGPointMake(self.frame.size.width / 2, 140);		
+		view.layer.position = CGPointMake(self.frame.size.width / 2, 140);
+		[view.layer addAnimation:animation forKey:nil];
 	}
 
 	[delegate desktopView: self didSweepInView: view.containedView];
@@ -198,7 +198,7 @@
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.duration = 0.3;
+	animation.duration = 0.2;
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
@@ -223,17 +223,13 @@
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.duration = 0.1;
-	animation.removedOnCompletion = NO;
-	animation.fillMode = kCAFillModeForwards;
+	animation.duration = 0.2;
 
 	animation.fromValue = [NSValue valueWithCGPoint: view.center];
 	view.origin = CGPointMake(7, 22);
 	
 	[view.layer addAnimation:animation forKey:nil];
 }
-
-
 
 #pragma mark -
 #pragma mark Private Methods
@@ -252,7 +248,7 @@
 	NSMutableArray *touchedViews = [[NSMutableArray alloc] init];
 	
 	for (UIView *view in self.subviews) {
-		if ([[view layer] hitTest: point]) {
+		if ([[view layer] hitTest: point] && [view.layer.animationKeys count] == 0) {
 			[touchedViews addObject:view];
 		}
 	}
