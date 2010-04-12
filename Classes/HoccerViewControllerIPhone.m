@@ -84,6 +84,8 @@
 	isPopUpDisplayed = FALSE;
 	
 	navigationController.navigationBar.tintColor = [UIColor blackColor];
+	navigationItem = [[navigationController visibleViewController].navigationItem retain];
+
 	navigationController.view.frame = CGRectMake(0, 0, 
 												 self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -98,6 +100,14 @@
 	statusViewController.view.frame = statusRect;
 	statusViewController.view.hidden = YES;
 }
+
+- (void) dealloc
+{
+	[navigationItem release];
+	[super dealloc];
+}
+
+
 
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
@@ -167,18 +177,22 @@
 	
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
+	
+	navigationItem.title = @"Select";
 }
 
 - (void)showHelpView {
 	self.helpViewController.delegate = self;
 	
 	[self showPopOver:self.helpViewController];
+	
+	navigationItem.title = @"Help";
 }
 
 - (void)showHistoryView {
-	// [self.navigationController pushViewController:self.hoccerHistoryController animated:YES];
-	
 	[self showPopOver: self.hoccerHistoryController];
+	
+	navigationItem.title = @"History";
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -204,7 +218,6 @@
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																			target:self action:@selector(hidePopOverAnimated:)];
 	
-	UINavigationItem *navigationItem = [navigationController visibleViewController].navigationItem;
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 }
@@ -243,9 +256,10 @@
 	}
 	
 	self.gestureInterpreter.delegate = self;
-	UINavigationItem *navigationItem = [navigationController visibleViewController].navigationItem;
-	[navigationItem setRightBarButtonItem:nil animated:YES];
 	
+	[navigationController popToRootViewControllerAnimated:YES];
+	[navigationItem setRightBarButtonItem:nil animated:YES];
+	navigationItem.title = @"Hoccer";
 	tabBar.selectedItem = nil;
 }
 

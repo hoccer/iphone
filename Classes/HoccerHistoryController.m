@@ -198,6 +198,7 @@
 	
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
+	detailViewController.navigationItem.title = [content.filepath lastPathComponent];
 	
      // Pass the selected object to the new view controller.
 	[self.parentNavigationController pushViewController:detailViewController animated:YES];
