@@ -267,6 +267,8 @@
 - (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
+	[hoccerHistoryController addContentToHistory:item];
+
 	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
@@ -275,7 +277,8 @@
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
-	
+	[hoccerHistoryController addContentToHistory:item];
+
 	[desktopView reloadData];
 }
 

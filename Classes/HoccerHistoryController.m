@@ -10,6 +10,7 @@
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
+#import "HocItemData.h"
 #import "HistoryItemViewController.h"
 
 #import "HoccerContentFactory.h";
@@ -126,12 +127,26 @@
     
     static NSString *CellIdentifier = @"Cell";
     
+	static NSDateFormatter *dateFormatter = nil;
+	if (dateFormatter == nil) {
+		dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	}
+	
+	
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	cell.textLabel.text = [[[hoccerHistoryItemArray objectAtIndex:[indexPath row]] filepath] lastPathComponent];
+	HoccerHistoryItem *item = [hoccerHistoryItemArray objectAtIndex:[indexPath row]];
+	cell.textLabel.text = [[item filepath] lastPathComponent];
+	
+	NSString *transferKind = [item.upload boolValue] ? @"uploaded" : @"downloaded";
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transferKind, [dateFormatter stringFromDate: item.creationDate]];
+	
     return cell;
 }
 
@@ -222,15 +237,16 @@
 }
 
 
-- (void)addContentToHistory: (HoccerContent *) content {
-	HoccerHistoryItem *item =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
+- (void)addContentToHistory: (HocItemData *) hocItem {
+	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
-	item.filepath = content.filepath;
-	item.mimeType = [content mimeType];
-	item.creationDate = [NSDate date];
+	historyItem.filepath = hocItem.content.filepath;
+	historyItem.mimeType = [hocItem.content mimeType];
+	historyItem.creationDate = [NSDate date];
+	historyItem.upload = [NSNumber numberWithBool: hocItem.isUpload];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	[hoccerHistoryItemArray insertObject:item atIndex:0];
+	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	
 	NSError *error;

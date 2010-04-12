@@ -26,7 +26,7 @@
 
 @synthesize status;
 @synthesize delegate;
-
+@synthesize isUpload;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {

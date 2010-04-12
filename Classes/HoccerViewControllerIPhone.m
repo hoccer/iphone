@@ -269,7 +269,7 @@
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	
-	[hoccerHistoryController addContentToHistory:item.content];
+	[hoccerHistoryController addContentToHistory:item];
 
 	[[item content] previewInViewController:navigationController];
 	[desktopData removeHocItem:item];

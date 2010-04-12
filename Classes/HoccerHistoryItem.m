@@ -16,5 +16,6 @@
 @dynamic filepath;
 @dynamic creationDate;
 @dynamic mimeType;
+@dynamic upload;
 
 @end

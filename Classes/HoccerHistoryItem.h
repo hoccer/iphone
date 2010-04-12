@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSString *filepath;
 @property (nonatomic, retain) NSDate *creationDate;
 @property (nonatomic, retain) NSString *mimeType;
+@property (nonatomic, assign) NSNumber *upload;
 
 @end
