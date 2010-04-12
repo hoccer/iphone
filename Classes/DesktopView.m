@@ -156,11 +156,15 @@
 #pragma mark SweepInGesturesRecognizer Delegate
 
 - (void)sweepInRecognizerDidBeginSweeping: (SweepInRecognizer *)recognizer {
-	[delegate desktopView:self needsEmptyViewAtPoint:recognizer.touchPoint];
+	sweepIn = [delegate desktopView:self needsEmptyViewAtPoint:recognizer.touchPoint];
 	self.currentlyTouchedViews = [self findTouchedViews:recognizer.touchPoint];
 }
 
 - (void)sweepInRecognizerDidRecognizeSweepIn: (SweepInRecognizer *)recognizer {
+	if (!sweepIn) {
+		return;
+	}
+	
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 	
 	if (shouldSnapToCenterOnTouchUp) {
@@ -173,9 +177,14 @@
 	}
 
 	[delegate desktopView: self didSweepInView: view.containedView];
+	sweepIn = NO; 
 }
 
 - (void)sweepInRecognizerDidCancelSweepIn: (SweepInRecognizer *)recognizer {
+	if (!sweepIn) {
+		return;
+	}
+	
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -189,6 +198,8 @@
 	[[view layer] addAnimation:animation forKey:nil];
 	
 	[dataSource removeView: view.containedView];
+	
+	sweepIn = NO; 
 }
 
 #pragma mark -

@@ -257,8 +257,7 @@
 
 - (void)receiveContentController: (ReceivedContentViewController *)controller wantsToResendContent: (HoccerContent *)content {
 	[hoccerViewController setContentPreview: content];
-	[hoccerViewController hidePopOverAnimated: YES];
-
+	[hoccerViewController showDesktop];
 }
 
 @end

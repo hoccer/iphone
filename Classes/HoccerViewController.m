@@ -103,6 +103,8 @@
 - (IBAction)toggleHistory: (id)sender {}
 - (IBAction)toggleHelp: (id)sender {}
 
+- (void)showDesktop {}
+
 #pragma mark -
 #pragma mark View Manipulation
 
@@ -247,9 +249,9 @@
 	[statusViewController showActivityInfo];
 }
 
-- (void)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
+- (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
 	if (![hoccingRules hoccerViewControllerMaySweepIn:self]) {
-		return;
+		return NO;
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
@@ -259,6 +261,8 @@
 	
 	[desktopData addHocItem:item];
 	[desktopView reloadData];
+	
+	return YES;
 }
 
 #pragma mark -

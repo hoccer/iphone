@@ -74,5 +74,7 @@
 - (IBAction)selectText: (id)sender;
 - (IBAction)showHistory: (id)sender;
 
+- (void)showDesktop;
+
 @end
 

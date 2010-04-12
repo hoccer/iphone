@@ -67,6 +67,7 @@
 - (void)showHelpView;
 - (void)showHistoryView;
 - (void)removePopOverFromSuperview;
+- (void)hidePopOverAnimated: (BOOL) animate;
 
 @end
 
@@ -169,6 +170,11 @@
 		tabBar.selectedItem = nil;
 	}
 }
+
+- (void)showDesktop {
+	[self hidePopOverAnimated:YES];
+}
+
 
 - (void)showSelectContentView {
 	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];

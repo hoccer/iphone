@@ -12,7 +12,7 @@
 
 @protocol DesktopViewDelegate <NSObject>
 
-- (void)desktopView: (DesktopView *)desktopView needsEmptyViewAtPoint: (CGPoint)point;
+- (BOOL)desktopView: (DesktopView *)desktopView needsEmptyViewAtPoint: (CGPoint)point;
 
 @optional
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view;

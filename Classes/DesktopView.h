@@ -24,6 +24,7 @@
 	NSArray *currentlyTouchedViews;
 	
 	BOOL shouldSnapToCenterOnTouchUp;
+	BOOL sweepIn;
 }
 
 @property (assign) id delegate;
