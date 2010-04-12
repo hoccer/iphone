@@ -703,6 +703,7 @@
 		2205A6E21057C27F005C5036 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				2299279211730E86007564B6 /* iPhone */,
 				2287BD1C116251CD00FFA07F /* iPad */,
 				2287BD161162512B00FFA07F /* HoccerContent.h */,
 				2287BD171162512B00FFA07F /* HoccerContent.m */,
@@ -951,8 +952,6 @@
 		2287BD1C116251CD00FFA07F /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				229A843E116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.h */,
-				229A843F116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m */,
 				2287BD1D1162534100FFA07F /* HoccerContentIPadPreviewDelegate.h */,
 				2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */,
 				229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */,
@@ -1000,6 +999,15 @@
 				22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		2299279211730E86007564B6 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				229A843E116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.h */,
+				229A843F116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m */,
+			);
+			name = iPhone;
 			sourceTree = "<group>";
 		};
 		229A8399116B704B00FFAD1B /* iPhone */ = {

@@ -21,7 +21,8 @@
 	receivedContentViewController.delegate = self;
 	[receivedContentViewController setHoccerContent: hoccerContent];
 	
-	[self.viewController presentModalViewController: receivedContentViewController animated:YES];	
+	//[self.viewController presentModalViewController: receivedContentViewController animated:YES];	
+	[(UINavigationController *) self.viewController pushViewController:receivedContentViewController animated:YES];
 	[receivedContentViewController release];
 }
 

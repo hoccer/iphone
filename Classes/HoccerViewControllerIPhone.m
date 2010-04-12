@@ -257,7 +257,7 @@
 	
 	[hoccerHistoryController addContentToHistory:item.content];
 
-	// [[item content] previewInViewController:self];
+	[[item content] previewInViewController:navigationController];
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
