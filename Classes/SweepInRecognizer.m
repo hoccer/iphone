@@ -19,7 +19,6 @@
 @synthesize touchPoint;
 
 - (void)desktopView: (DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"touchesBegan");
 	self.touchPoint = [[touches anyObject] locationInView: view]; 
 
 	if (touchPoint.x < kSweepInBorder) {
@@ -40,8 +39,6 @@
 }
 
 - (void)desktopView: (DesktopView*)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"touchesEnded");
-
 	CGPoint currentLocation = [[touches anyObject] locationInView: view]; 
 	if (sweepDirection == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
 		sweepDirection == kSweepDirectionRightIn && currentLocation.x < view.frame.size. width - kSweepAcceptanceDistance) {
@@ -62,8 +59,6 @@
 }
 
 - (void)desktopView: (DesktopView*)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"touchesCanceled");
-
 	sweepDirection = kNoSweeping;
 }
 

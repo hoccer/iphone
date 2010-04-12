@@ -27,7 +27,6 @@
 	self.lastTouch = [touches anyObject];
 	CGPoint currentLocation = [lastTouch locationInView: view];
 
-	NSLog(@"currentLocation.x: %f", currentLocation.x);
 	if ([view.currentlyTouchedViews count] > 0 && (kSweepBorder < currentLocation.x && currentLocation.x < view.frame.size.width - kSweepBorder)) {
 		detecting = YES;
 	}
