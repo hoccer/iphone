@@ -36,5 +36,8 @@
 - (void)reloadData;
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation;
+- (void)insertView: (UIView *)view withAnimation: (CAAnimation *)animation;
+- (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation;
+
 
 @end

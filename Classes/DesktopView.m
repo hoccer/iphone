@@ -131,13 +131,28 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
+		ContentContainerView *containerView = [[[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]] autorelease];
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex: i];
 		
 		[self addSubview: containerView];
 	}
 }
+
+- (void)insertView: (UIView *)view withAnimation: (CAAnimation *)animation {
+ 	ContentContainerView *containerView = [[[ContentContainerView alloc] initWithView: view] autorelease];
+	containerView.delegate = self;
+	containerView.origin = view.frame.origin;
+	
+	[self addSubview: containerView];
+	[containerView.layer addAnimation:animation forKey:nil];
+}
+
+- (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation {
+
+}
+
+
 
 #pragma mark -
 #pragma mark ContentContainerViewDelegate Methods
