@@ -12,7 +12,7 @@
 
 - (NSInteger) numberOfItems;
 - (UIView *) viewAtIndex: (NSInteger)index;
-- (CGPoint) positionForViewAtIndex: (NSInteger)index;
+- (CGPoint) positionForView: (UIView *)view;
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point;
 - (void)removeView: (UIView *)view;

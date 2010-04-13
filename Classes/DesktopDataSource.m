@@ -95,9 +95,14 @@
 	return (UIView *) contentAtIndex.contentView; 	
 }
 
-- (CGPoint) positionForViewAtIndex: (NSInteger)index {
+- (CGPoint)positionForViewAtIndex: (NSInteger)index {
 	return [self hocItemDataAtIndex:index].viewOrigin;
 }
+
+- (CGPoint)positionForView: (UIView *)view {
+	return [self hocItemDataForView:view].viewOrigin;
+}
+
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
 	HocItemData *item = [self hocItemDataForView:view];

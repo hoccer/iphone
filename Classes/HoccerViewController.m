@@ -176,8 +176,6 @@
 #pragma mark GesturesInterpreter Delegate Methods
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
-	NSLog(@"did detect catch");
-	
 	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
@@ -185,9 +183,10 @@
 	[FeedbackProvider playCatchFeedback];
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.delegate = self;
+	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
 	
 	[desktopData addHocItem:item];
-	[desktopView reloadData];
+	[desktopView insertView:item.contentView withAnimation:nil];
 	
 	[item downloadWithLocation:locationController.location gesture:@"distribute"];
 

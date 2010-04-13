@@ -45,11 +45,11 @@
 	if (self != nil) {
 		sweepRecognizers = [[NSMutableArray alloc] init];
 		
-		SweepInRecognizer *recognizer = [[SweepInRecognizer alloc] init];
+		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
 		recognizer.delegate = self;
 		[self addSweepRecognizer:recognizer];
 		
-		SweepOutRecognizer *recognizer2 = [[SweepOutRecognizer alloc] init];
+		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
 		recognizer2.delegate = self;
 		[self addSweepRecognizer:recognizer2];
 	}
@@ -129,23 +129,31 @@
 		[subview removeFromSuperview];
 	}
 	
+	if ([self.subviews count] > 0) {
+		[[self.subviews objectAtIndex:0] removeFromSuperview];
+		
+	}
+	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *containerView = [[[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]] autorelease];
+		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
 		containerView.delegate = self;
-		containerView.origin = [dataSource positionForViewAtIndex: i];
+		containerView.origin = [dataSource positionForView: [dataSource viewAtIndex: i]];
 		
 		[self addSubview: containerView];
+		// [containerView release];
 	}
 }
 
 - (void)insertView: (UIView *)view withAnimation: (CAAnimation *)animation {
- 	ContentContainerView *containerView = [[[ContentContainerView alloc] initWithView: view] autorelease];
+ 	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view];
 	containerView.delegate = self;
-	containerView.origin = view.frame.origin;
+	containerView.origin = [dataSource positionForView: view];
 	
 	[self addSubview: containerView];
-	[containerView.layer addAnimation:animation forKey:nil];
+	if (animation != nil) {
+		[containerView.layer addAnimation:animation forKey:nil];
+	}
 }
 
 - (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation {
@@ -190,7 +198,7 @@
 		view.layer.position = CGPointMake(self.frame.size.width / 2, 140);
 		[view.layer addAnimation:animation forKey:nil];
 	}
-
+	
 	[delegate desktopView: self didSweepInView: view.containedView];
 	sweepIn = NO; 
 }

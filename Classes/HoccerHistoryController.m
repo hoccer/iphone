@@ -37,7 +37,7 @@
 		
 		[historyData release];
 		
-		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 		[request setEntity:entity];
 		
