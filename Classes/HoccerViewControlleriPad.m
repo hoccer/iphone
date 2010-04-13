@@ -30,7 +30,7 @@
 
 @implementation HoccerViewControlleriPad
 @synthesize popOver;
-@synthesize historyData;
+@synthesize historyDataSource;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -39,13 +39,14 @@
 	desktopView.shouldSnapToCenterOnTouchUp = NO;
 	self.defaultOrigin = CGPointMake(200, 300);
 	
-	historyData = [[HistoryDesktopDataSource alloc] init]; 
+	historyDataSource = [[HistoryDesktopDataSource alloc] init]; 
+	historyDataSource.historyData = historyData;
 }
 
 - (void) dealloc {
 	[popOver release];
 	[desktopData release];
-	[historyData release];
+	[historyDataSource release];
 	
 	[super dealloc];
 }
@@ -101,10 +102,10 @@
 - (void)presentReceivedContent:(HoccerContent*) content {}
 
 - (void)toggleHistory:(id)sender {
-	if (desktopView.dataSource == historyData) {
+	if (desktopView.dataSource == historyDataSource) {
 		desktopView.dataSource = desktopData; 
 	} else {
-		desktopView.dataSource = historyData;
+		desktopView.dataSource = historyDataSource;
 	}
 	[desktopView reloadData];
 }

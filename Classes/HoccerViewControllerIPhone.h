@@ -14,6 +14,7 @@
 @interface HoccerViewControllerIPhone : HoccerViewController {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
+	HoccerHistoryController *hoccerHistoryController;
 	
 	BOOL isPopUpDisplayed;
 	
@@ -24,7 +25,6 @@
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
-
-
+@property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 
 @end

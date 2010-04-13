@@ -72,6 +72,7 @@
 @end
 
 @implementation HoccerViewControllerIPhone
+@synthesize hoccerHistoryController;
 @synthesize delayedAction;
 @synthesize auxiliaryView;
 @synthesize tabBar;
@@ -91,7 +92,11 @@
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
+
+	self.hoccerHistoryController = [[HoccerHistoryController alloc] init];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
+	self.hoccerHistoryController.hoccerViewController = self;
+	self.hoccerHistoryController.historyData = historyData;
 	
 	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
 	
@@ -103,6 +108,7 @@
 
 - (void) dealloc
 {
+	[hoccerHistoryController release];
 	[navigationItem release];
 	[super dealloc];
 }
@@ -274,7 +280,7 @@
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	
-	[hoccerHistoryController addContentToHistory:item];
+	[historyData addContentToHistory:item];
 
 	[[item content] previewInViewController:navigationController];
 	[desktopData removeHocItem:item];

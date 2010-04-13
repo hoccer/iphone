@@ -24,6 +24,7 @@
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;
 @property (nonatomic, assign) HoccerViewController *hoccerViewController;
+@property (nonatomic, retain) HistoryData *historyData;
 
 
 - (void)addContentToHistory: (HocItemData *) content;

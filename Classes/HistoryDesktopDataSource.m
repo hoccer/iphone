@@ -14,23 +14,21 @@
 #import "HoccerContentFactory.h"
 
 @implementation HistoryDesktopDataSource
+@synthesize historyData;
 
-- (id) init
+- (void) dealloc
 {
-	self = [super init];
-	if (self != nil) {
-		data = [[HistoryData alloc] init];
-	}
-	return self;
+	[historyData release];
+	[super dealloc];
 }
 
 
 - (NSInteger) numberOfItems {
-	return [data count];
+	return [historyData count];
 }
 
 - (UIView *) viewAtIndex: (NSInteger)index {
-	HoccerHistoryItem *historyItem = [data itemAtIndex:index];
+	HoccerHistoryItem *historyItem = [historyData itemAtIndex:index];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] 
 							  createContentFromFile:[historyItem.filepath lastPathComponent] withMimeType:historyItem.mimeType];
 

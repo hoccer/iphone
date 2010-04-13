@@ -13,7 +13,9 @@
 
 @interface HistoryDesktopDataSource : NSObject <DesktopViewDataSource> {
 	@private
-	HistoryData *data;
+	HistoryData *historyData;
 }
+
+@property (nonatomic, retain) HistoryData* historyData;
 
 @end

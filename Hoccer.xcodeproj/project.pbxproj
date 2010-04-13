@@ -101,10 +101,6 @@
 		22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
 		22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903C0A116DCF9B00230C1E /* SweepOutRecognizer.m */; };
 		22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903EC5116DF48600230C1E /* HoccingRulesIPad.m */; };
-		22903F1E116DFFD700230C1E /* HistoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903F1C116DFFD700230C1E /* HistoryItemViewController.m */; };
-		22903F1F116DFFD700230C1E /* HistoryItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22903F1D116DFFD700230C1E /* HistoryItemViewController.xib */; };
-		22903F20116DFFD700230C1E /* HistoryItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22903F1C116DFFD700230C1E /* HistoryItemViewController.m */; };
-		22903F21116DFFD700230C1E /* HistoryItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22903F1D116DFFD700230C1E /* HistoryItemViewController.xib */; };
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
@@ -492,9 +488,6 @@
 		22903EC4116DF48600230C1E /* HoccingRulesIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPad.h; sourceTree = "<group>"; };
 		22903EC5116DF48600230C1E /* HoccingRulesIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPad.m; sourceTree = "<group>"; };
 		22903EC7116DF4E100230C1E /* HoccingRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRules.h; sourceTree = "<group>"; };
-		22903F1B116DFFD700230C1E /* HistoryItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryItemViewController.h; sourceTree = "<group>"; };
-		22903F1C116DFFD700230C1E /* HistoryItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryItemViewController.m; sourceTree = "<group>"; };
-		22903F1D116DFFD700230C1E /* HistoryItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryItemViewController.xib; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22977AC211104F1C00B55D3F /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
@@ -1080,9 +1073,6 @@
 				22A74C10116C948700F3E4B4 /* HistoryData.m */,
 				22A74C27116C9A6800F3E4B4 /* HoccerHistoryItem.h */,
 				22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */,
-				22903F1B116DFFD700230C1E /* HistoryItemViewController.h */,
-				22903F1C116DFFD700230C1E /* HistoryItemViewController.m */,
-				22903F1D116DFFD700230C1E /* HistoryItemViewController.xib */,
 				22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */,
 				22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */,
 			);
@@ -1342,7 +1332,6 @@
 				22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */,
 				22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */,
 				22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */,
-				22903F1F116DFFD700230C1E /* HistoryItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1413,7 +1402,6 @@
 				22B1CBF41159160D00EFD709 /* HelpOverview.xib in Resources */,
 				22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */,
 				22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */,
-				22903F21116DFFD700230C1E /* HistoryItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1509,7 +1497,6 @@
 				22A74D9C116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
 				22903C07116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
-				22903F1E116DFFD700230C1E /* HistoryItemViewController.m in Sources */,
 				22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1625,7 +1612,6 @@
 				22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 				22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */,
-				22903F20116DFFD700230C1E /* HistoryItemViewController.m in Sources */,
 				22E006F0117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

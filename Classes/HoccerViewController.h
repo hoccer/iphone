@@ -29,6 +29,7 @@
 @class DesktopDataSource;
 @class LocationController;
 @class HocItemData;
+@class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
 
@@ -40,7 +41,7 @@
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	HelpScrollView *helpViewController;
-	HoccerHistoryController *hoccerHistoryController;
+	HistoryData *historyData;
 
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
@@ -55,7 +56,6 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 
 @property (nonatomic, retain) HelpScrollView *helpViewController;
-@property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;

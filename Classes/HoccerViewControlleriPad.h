@@ -15,10 +15,10 @@
 @interface HoccerViewControlleriPad : HoccerViewController <UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate> {
 	UIPopoverController *popOver;
 	
-	HistoryDesktopDataSource *historyData;
+	HistoryDesktopDataSource *historyDataSource;
 }
 
-@property (nonatomic, retain) HistoryDesktopDataSource *historyData;
+@property (nonatomic, retain) HistoryDesktopDataSource *historyDataSource;
 
 - (void)toggleHistory:(id)sender;
 

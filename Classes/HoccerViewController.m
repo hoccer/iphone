@@ -37,16 +37,15 @@
 #import "LocationController.h"
 
 #import "HocItemData.h"
-#import "HoccerHistoryController.h"
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
+#import "HistoryData.h"
 
 @implementation HoccerViewController
 
 @synthesize delegate; 
 @synthesize helpViewController;
-@synthesize hoccerHistoryController;
 @synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
@@ -68,8 +67,7 @@
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	
-	hoccerHistoryController = [[HoccerHistoryController alloc] init];
-	hoccerHistoryController.hoccerViewController = self;
+	historyData = [[HistoryData alloc] init];
 	
 // 	[self.view addSubview:statusViewController.view];
 	
@@ -85,7 +83,6 @@
 	[locationController release];
 	[gestureInterpreter release];
 	[helpViewController release];
-	[hoccerHistoryController release];
 	[statusViewController release];
 	[hoccingRules release];
 	
@@ -275,7 +272,7 @@
 - (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
-	[hoccerHistoryController addContentToHistory:item];
+	[historyData addContentToHistory:item];
 
 	
 	[desktopData removeHocItem:item];
@@ -285,7 +282,7 @@
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
-	[hoccerHistoryController addContentToHistory:item];
+	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
 }

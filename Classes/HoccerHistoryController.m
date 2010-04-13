@@ -11,7 +11,6 @@
 #import "HoccerContent.h"
 #import "HistoryData.h"
 #import "HocItemData.h"
-#import "HistoryItemViewController.h"
 #import "HoccerViewController.h"
 
 #import "HoccerContentFactory.h";
@@ -21,13 +20,13 @@
 @implementation HoccerHistoryController
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
+@synthesize historyData;
 
 
 #pragma mark -
 #pragma mark View lifecycle
 
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		historyData = [[HistoryData alloc] init];
@@ -35,8 +34,7 @@
 	return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[historyData release];
 
 	[super dealloc];
