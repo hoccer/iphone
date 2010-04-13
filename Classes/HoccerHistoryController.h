@@ -13,18 +13,14 @@
 @class HoccerViewController;
 
 @class HocItemData;
+@class HistoryData;
 
 @interface HoccerHistoryController : UITableViewController {
-	NSMutableArray *hoccerHistoryItemArray;
-	NSManagedObjectContext *managedObjectContext;
+	HistoryData *historyData;
 	
 	UINavigationController *parentNavigationController;
-	
 	HoccerViewController *hoccerViewController;
 }
-
-@property (nonatomic, retain) NSMutableArray *hoccerHistoryItemArray;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;
 @property (nonatomic, assign) HoccerViewController *hoccerViewController;

@@ -7,8 +7,42 @@
 //
 
 #import "HistoryData.h"
+#import "HoccerHistoryItem.h"
+#import "HoccerContent.h"
+#import "HocItemData.h"
+#import "HoccerContentFactory.h"
 
 @implementation HistoryData
+@synthesize hoccerHistoryItemArray;
+
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"HoccerHistoryItem" inManagedObjectContext:self.managedObjectContext];
+		[request setEntity:entity];
+		
+		// Order the events by creation date, most recent first.
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO];
+		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+		[request setSortDescriptors:sortDescriptors];
+		[sortDescriptor release];
+		[sortDescriptors release];
+		
+		// Execute the fetch -- create a mutable copy of the result.
+		NSError *error = nil;
+		hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+		
+		if (hoccerHistoryItemArray == nil) {
+			NSLog(@"error!");
+		}
+	}
+	return self;
+}
+
+
 
 #pragma mark -
 #pragma mark Core Data stack
@@ -80,5 +114,50 @@
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     return basePath;
 }
+
+
+#pragma mark -
+#pragma mark Data Manipulation Methods
+
+- (NSInteger)count {
+	return [hoccerHistoryItemArray count];
+}
+
+- (id)itemAtIndex: (NSInteger)index {
+	return [hoccerHistoryItemArray objectAtIndex:index];
+}
+
+- (void)removeItem: (HoccerHistoryItem *)item {
+	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
+	[content removeFromDocumentDirectory];
+	
+	[hoccerHistoryItemArray removeObject:item];
+	[managedObjectContext deleteObject:item];
+	
+	NSError *error;
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"error: %@", error);
+	}
+}
+
+
+- (void)addContentToHistory: (HocItemData *) hocItem {
+	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
+	
+	historyItem.filepath = hocItem.content.filepath;
+	historyItem.mimeType = [hocItem.content mimeType];
+	historyItem.creationDate = [NSDate date];
+	historyItem.upload = [NSNumber numberWithBool: hocItem.isUpload];
+	
+	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
+	
+	NSError *error;
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"error: %@", error);
+	}
+}
+
+
+
 
 @end

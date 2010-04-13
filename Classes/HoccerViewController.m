@@ -186,7 +186,12 @@
 	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
 	
 	[desktopData addHocItem:item];
-	[desktopView insertView:item.contentView withAnimation:nil];
+	
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.fromValue = [NSValue valueWithCGPoint:
+						   CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50)];
+	
+	[desktopView insertView:item.contentView withAnimation:animation];
 	
 	[item downloadWithLocation:locationController.location gesture:@"distribute"];
 

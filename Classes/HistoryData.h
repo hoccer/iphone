@@ -9,19 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class HocItemData;
+@class HoccerHistoryItem;
+
 @interface HistoryData : NSObject {
 	NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	
 	
-
+	NSMutableArray *hoccerHistoryItemArray;
 }
+
+@property (nonatomic, retain) NSMutableArray *hoccerHistoryItemArray;
 
 - (NSManagedObjectModel *)managedObjectModel;
 - (NSManagedObjectContext *) managedObjectContext;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
 - (NSString *)applicationDocumentsDirectory;
 
-
+- (NSInteger)count;
+- (id)itemAtIndex: (NSInteger)index;
+- (void)addContentToHistory: (HocItemData *) hocItem;
+- (void)removeItem: (HoccerHistoryItem *)item;
 
 @end
