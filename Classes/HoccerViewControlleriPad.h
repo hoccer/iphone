@@ -10,9 +10,16 @@
 #import "HoccerViewController.h"
 
 @class DesktopDataSource;
+@class HistoryDesktopDataSource;
 
 @interface HoccerViewControlleriPad : HoccerViewController <UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate> {
 	UIPopoverController *popOver;
+	
+	HistoryDesktopDataSource *historyData;
 }
+
+@property (nonatomic, retain) HistoryDesktopDataSource *historyData;
+
+- (void)toggleHistory:(id)sender;
 
 @end

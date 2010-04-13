@@ -138,17 +138,17 @@
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
 		containerView.delegate = self;
-		containerView.origin = [dataSource positionForView: [dataSource viewAtIndex: i]];
+		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
 		[self addSubview: containerView];
 		// [containerView release];
 	}
 }
 
-- (void)insertView: (UIView *)view withAnimation: (CAAnimation *)animation {
+- (void)insertView: (UIView *)view atPoint:(CGPoint)point withAnimation: (CAAnimation *)animation {
  	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view];
 	containerView.delegate = self;
-	containerView.origin = [dataSource positionForView: view];
+	containerView.origin = point;
 	
 	[self addSubview: containerView];
 	if (animation != nil) {
@@ -284,6 +284,7 @@
 	for (UIView *view in self.subviews) {
 		if ([[view layer] hitTest: point] && [view.layer.animationKeys count] == 0) {
 			[touchedViews addObject:view];
+			return [touchedViews autorelease];
 		}
 	}
 	

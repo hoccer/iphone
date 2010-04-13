@@ -19,6 +19,7 @@
 #import "HoccerText.h"
 
 #import "HoccingRulesIPad.h"
+#import "HistoryDesktopDataSource.h"
 
 @interface HoccerViewControlleriPad () 
 
@@ -29,6 +30,7 @@
 
 @implementation HoccerViewControlleriPad
 @synthesize popOver;
+@synthesize historyData;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -36,11 +38,14 @@
 	hoccingRules = [[HoccingRulesIPad alloc] init];
 	desktopView.shouldSnapToCenterOnTouchUp = NO;
 	self.defaultOrigin = CGPointMake(200, 300);
+	
+	historyData = [[HistoryDesktopDataSource alloc] init]; 
 }
 
 - (void) dealloc {
 	[popOver release];
 	[desktopData release];
+	[historyData release];
 	
 	[super dealloc];
 }
@@ -95,8 +100,13 @@
 
 - (void)presentReceivedContent:(HoccerContent*) content {}
 
-- (UIViewController* )documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-	return self;
+- (void)toggleHistory:(id)sender {
+	if (desktopView.dataSource == historyData) {
+		desktopView.dataSource = desktopData; 
+	} else {
+		desktopView.dataSource = historyData;
+	}
+	[desktopView reloadData];
 }
 
 #pragma mark -

@@ -191,7 +191,7 @@
 	animation.fromValue = [NSValue valueWithCGPoint:
 						   CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50)];
 	
-	[desktopView insertView:item.contentView withAnimation:animation];
+	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
 	[item downloadWithLocation:locationController.location gesture:@"distribute"];
 

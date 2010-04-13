@@ -307,6 +307,8 @@
 		22D730B710A879AA000AEA79 /* Photobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D730B610A879AA000AEA79 /* Photobox.png */; };
 		22D7313B10A88600000AEA79 /* Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7313A10A88600000AEA79 /* Catch_Icon.png */; };
 		22D7314E10A88E34000AEA79 /* Close_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7314D10A88E34000AEA79 /* Close_Highlighted.png */; };
+		22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */; };
+		22E006F0117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */; };
 		2861DCB910ADA03500EA2FFA /* menue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2861DCB810ADA03500EA2FFA /* menue.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
@@ -582,6 +584,8 @@
 		22D730B610A879AA000AEA79 /* Photobox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photobox.png; sourceTree = "<group>"; };
 		22D7313A10A88600000AEA79 /* Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Catch_Icon.png; sourceTree = "<group>"; };
 		22D7314D10A88E34000AEA79 /* Close_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close_Highlighted.png; sourceTree = "<group>"; };
+		22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDesktopDataSource.h; sourceTree = "<group>"; };
+		22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDesktopDataSource.m; sourceTree = "<group>"; };
 		2861DCB810ADA03500EA2FFA /* menue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menue.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
@@ -1079,6 +1083,8 @@
 				22903F1B116DFFD700230C1E /* HistoryItemViewController.h */,
 				22903F1C116DFFD700230C1E /* HistoryItemViewController.m */,
 				22903F1D116DFFD700230C1E /* HistoryItemViewController.xib */,
+				22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */,
+				22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */,
 			);
 			name = HocHistory;
 			sourceTree = "<group>";
@@ -1504,6 +1510,7 @@
 				22903C07116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 				22903F1E116DFFD700230C1E /* HistoryItemViewController.m in Sources */,
+				22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1619,6 +1626,7 @@
 				22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 				22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */,
 				22903F20116DFFD700230C1E /* HistoryItemViewController.m in Sources */,
+				22E006F0117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
