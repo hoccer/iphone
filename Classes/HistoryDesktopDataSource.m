@@ -16,9 +16,21 @@
 @implementation HistoryDesktopDataSource
 @synthesize historyData;
 
-- (void) dealloc
+- (id) init
 {
+	self = [super init];
+	if (self != nil) {
+		views = [[NSMutableArray alloc] init];
+	}
+	return self;
+}
+
+
+
+- (void) dealloc {
 	[historyData release];
+	[views release];
+	
 	[super dealloc];
 }
 
@@ -28,11 +40,14 @@
 }
 
 - (UIView *) viewAtIndex: (NSInteger)index {
+	[views removeAllObjects];
+	
 	HoccerHistoryItem *historyItem = [historyData itemAtIndex:index];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] 
 							  createContentFromFile:[historyItem.filepath lastPathComponent] withMimeType:historyItem.mimeType];
-
-	return [content desktopItemView];
+	
+	UIView *preview = [content desktopItemView];
+	return preview;
 }
 
 - (CGPoint)positionForViewAtIndex: (NSInteger)index {
@@ -49,8 +64,16 @@
 	
 }
 
+- (void)removeViewAtIndex: (NSInteger)index {
+	[historyData removeItem: [historyData itemAtIndex:index]];
+}
+
+
 - (void)removeView: (UIView *)view {
+	NSInteger index = [views indexOfObject:view];
 	
+	[historyData removeItem: [historyData itemAtIndex:index]];
+	[views removeObjectAtIndex:index];
 }
 
 @end

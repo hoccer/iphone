@@ -36,6 +36,8 @@
 		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
 		recognizer.delegate = self;
 		[self addSweepRecognizer:recognizer];
+		
+		volatileView = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -52,6 +54,8 @@
 		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
 		recognizer2.delegate = self;
 		[self addSweepRecognizer:recognizer2];
+		
+		volatileView = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -59,6 +63,7 @@
 - (void)dealloc {
 	[sweepRecognizers release];
 	[dataSource release];
+	[volatileView release];
 	
     [super dealloc];
 }
@@ -125,14 +130,11 @@
 #pragma mark DataSource Methods
 
 - (void)reloadData {
-	for (UIView *subview in self.subviews) {
+	for (UIView *subview in volatileView) {
 		[subview removeFromSuperview];
 	}
 	
-	if ([self.subviews count] > 0) {
-		[[self.subviews objectAtIndex:0] removeFromSuperview];
-		
-	}
+	[volatileView removeAllObjects];
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
@@ -141,6 +143,7 @@
 		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
 		[self addSubview: containerView];
+		[volatileView addObject: containerView];
 		// [containerView release];
 	}
 }
@@ -169,8 +172,10 @@
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
-	if ([delegate respondsToSelector:@selector(desktopView:didRemoveView:)]) {
-		[delegate desktopView:self didRemoveView: view.containedView];
+	NSInteger index = [volatileView indexOfObject:view];
+	
+	if ([delegate respondsToSelector:@selector(desktopView:didRemoveViewAtIndex:)]) {
+		[delegate desktopView:self didRemoveViewAtIndex: index];
 	}
 	[self reloadData];
 }

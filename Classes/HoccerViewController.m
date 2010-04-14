@@ -51,6 +51,7 @@
 @synthesize statusViewController;
 @synthesize desktopData;
 @synthesize defaultOrigin;
+@synthesize hoccability;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,11 +67,10 @@
 		
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
+	locationController.delegate = self;
+	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
 	historyData = [[HistoryData alloc] init];
-	
-// 	[self.view addSubview:statusViewController.view];
-	
 	self.defaultOrigin = CGPointMake(7, 22);
 }
 
@@ -220,8 +220,8 @@
 #pragma mark -
 #pragma mark DesktopViewDelegate
 
-- (void)desktopView:(DesktopView *)desktopView didRemoveView: (UIView *)view {
-	HocItemData *item = [desktopData hocItemDataForView:view];
+- (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
+	HocItemData *item = [desktopData hocItemDataAtIndex:index];
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
@@ -318,5 +318,10 @@
 	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
 }
+
+- (void) locationControllerDidUpdateLocationController: (LocationController *)controller {
+	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
+}
+
 
 @end

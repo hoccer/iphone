@@ -123,7 +123,7 @@
 	return [hoccerHistoryItemArray count];
 }
 
-- (id)itemAtIndex: (NSInteger)index {
+- (HoccerHistoryItem *)itemAtIndex: (NSInteger)index {
 	return [hoccerHistoryItemArray objectAtIndex:index];
 }
 

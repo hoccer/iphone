@@ -10,12 +10,11 @@
 
 @protocol DesktopViewDataSource <NSObject>
 
-- (NSInteger) numberOfItems;
-- (UIView *) viewAtIndex: (NSInteger)index;
-- (CGPoint) positionForViewAtIndex: (NSInteger)index;
+- (NSInteger)numberOfItems;
+- (UIView *)viewAtIndex: (NSInteger)index;
+- (CGPoint)positionForViewAtIndex: (NSInteger)index;
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point;
 - (void)removeView: (UIView *)view;
-
 
 @end

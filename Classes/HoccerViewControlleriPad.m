@@ -20,6 +20,7 @@
 
 #import "HoccingRulesIPad.h"
 #import "HistoryDesktopDataSource.h"
+#import "StatusViewController.h"
 
 @interface HoccerViewControlleriPad () 
 
@@ -41,6 +42,9 @@
 	
 	historyDataSource = [[HistoryDesktopDataSource alloc] init]; 
 	historyDataSource.historyData = historyData;
+	
+	[self.view addSubview:statusViewController.view];
+	statusViewController.view.hidden = YES;
 }
 
 - (void) dealloc {
@@ -132,7 +136,6 @@
 
 #pragma mark -
 #pragma mark private Methods
-
 - (UIPopoverController *)popOverWithController: (UIViewController*)controller {
 	if (popOver == nil) {
 		
@@ -143,6 +146,17 @@
 	}
 	
 	return popOver;
+}
+
+
+#pragma mark -
+#pragma mark DesktopView Delegate
+- (void)desktopView:(DesktopView *)aDesktopView didRemoveViewAtIndex: (NSInteger)index {
+	if (aDesktopView.dataSource == historyDataSource) {
+		[historyDataSource removeViewAtIndex:index];
+	} else {
+		[super desktopView:aDesktopView didRemoveViewAtIndex:index];
+	}
 }
 
 @end

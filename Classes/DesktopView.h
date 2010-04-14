@@ -21,6 +21,7 @@
 	id <DesktopViewDataSource> dataSource;
 
 	NSMutableArray *sweepRecognizers;
+	NSMutableArray *volatileView;
 	NSArray *currentlyTouchedViews;
 	
 	BOOL shouldSnapToCenterOnTouchUp;

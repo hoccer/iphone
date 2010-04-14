@@ -99,7 +99,6 @@
 	self.hoccerHistoryController.historyData = historyData;
 	
 	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
-	
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 44;
 	statusViewController.view.frame = statusRect;

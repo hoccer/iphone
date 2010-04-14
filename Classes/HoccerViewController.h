@@ -15,7 +15,7 @@
 #import "GesturesInterpreterDelegate.h"
 #import "HocItemDataDelegate.h"
 #import "DesktopViewDelegate.h"
-
+#import "LocationControllerDelegate.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -35,7 +35,7 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-						GesturesInterpreterDelegate, DesktopViewDelegate, HocItemDataDelegate> {
+						GesturesInterpreterDelegate, DesktopViewDelegate, HocItemDataDelegate, LocationControllerDelegate> {
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
@@ -51,6 +51,7 @@
 	HoccingRulesIPhone *hoccingRules;
 							
 	CGPoint defaultOrigin;
+	UILabel *hoccability;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -59,6 +60,7 @@
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
+@property (nonatomic, assign) IBOutlet UILabel *hoccability;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;

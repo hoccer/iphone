@@ -17,10 +17,18 @@
 	CLLocationManager *locationManager;
 	NSDate *lastLocationUpdate;
 	MKReverseGeocoder *geocoder;
+	NSInteger hoccability;
+	
+	id <LocationControllerDelegate> delegate;
 }
 
 @property (retain) IBOutlet HoccerViewController *viewController;
 @property (retain) NSDate *lastLocationUpdate;
 @property (readonly) HocLocation *location;
+@property (assign) NSInteger hoccability;
+@property (assign) id <LocationControllerDelegate> delegate;
+
+- (BOOL)hasLocation;
+- (BOOL)hasBSSID;
 
 @end

@@ -24,8 +24,7 @@ static WifiScanner *wifiScannerInstance;
 	return wifiScannerInstance;
 }
 
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		void* libHandle = dlopen("/System/Library/SystemConfiguration/WiFiManager.bundle/WiFiManager", RTLD_LAZY);
@@ -77,8 +76,7 @@ static WifiScanner *wifiScannerInstance;
 	[self performSelectorOnMainThread:@selector(setScannedNetworks:) withObject:newScanNetworks waitUntilDone:NO];
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	self.scannedNetworks = nil;
 	[super dealloc];
 }

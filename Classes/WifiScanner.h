@@ -18,8 +18,9 @@
 	int (*scan)(void *, NSArray **, void*);
 	
 	NSArray *scannedNetworks;
-	
 	BOOL repeat;
+	
+	id delegate;
 }
 
 @property (readonly) NSArray *bssids;

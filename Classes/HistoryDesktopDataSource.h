@@ -12,10 +12,14 @@
 @class HistoryData;
 
 @interface HistoryDesktopDataSource : NSObject <DesktopViewDataSource> {
-	@private
+
+@private
 	HistoryData *historyData;
+	NSMutableArray *views;
 }
 
 @property (nonatomic, retain) HistoryData* historyData;
+
+- (void)removeViewAtIndex: (NSInteger)index;
 
 @end
