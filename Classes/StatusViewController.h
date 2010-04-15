@@ -23,7 +23,8 @@
 @property (retain) HocItemData* hocItemData;
 
 - (void)setUpdate: (NSString *)update;
-- (void)setError: (NSString *)message;
+- (void)setError: (NSError *)error;
+- (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
 - (void)showActivityInfo;
 - (void)hideActivityInfo;

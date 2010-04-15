@@ -38,6 +38,7 @@
 
 #import "HocItemData.h"
 #import "StatusViewController.h"
+#import "HoccerMessageResolver.h"
 
 #import "HoccingRulesIPhone.h"
 #import "HistoryData.h"
@@ -70,6 +71,8 @@
 	locationController.delegate = self;
 	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
+	messageResolver = [[HoccerMessageResolver alloc] init];
+	
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 }
@@ -85,6 +88,7 @@
 	[helpViewController release];
 	[statusViewController release];
 	[hoccingRules release];
+	[HoccerMessageResolver release];
 	
 	[super dealloc];
 }
@@ -190,7 +194,7 @@
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
-	[item downloadWithLocation:locationController.location gesture:@"distribute"];
+	[item downloadWithLocation:locationController.location gesture:@"catch"];
 
 }
 
@@ -199,7 +203,7 @@
 		return;
 	}
 	
-	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"distribute"];
+	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
 	[FeedbackProvider playThrowFeedback];
 	
 	UIView *view = [desktopData viewAtIndex:0];
@@ -235,7 +239,7 @@
 	}
 	
 	HocItemData *item = [desktopData hocItemDataForView: view];
-	[item downloadWithLocation:locationController.location gesture:@"pass"];
+	[item downloadWithLocation:locationController.location gesture:@"sweepIn"];
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
@@ -244,7 +248,7 @@
 	}
 	
 	HocItemData *item = [desktopData hocItemDataForView: view];
-	[item uploadWithLocation:locationController.location gesture:@"pass"];
+	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 	
 	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
@@ -290,6 +294,7 @@
 - (void)hocItemUploadFailed: (HocItemData *)item {
 	item.viewOrigin = self.defaultOrigin;
 	
+	
 	[desktopView reloadData];
 }
 
@@ -321,6 +326,13 @@
 
 - (void) locationControllerDidUpdateLocationController: (LocationController *)controller {
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
+	
+	NSError *message = [messageResolver messageForLocationInformation:controller.location];
+	if (message) {
+		[statusViewController setError: message];
+	} else {
+		[statusViewController hideActivityInfo];
+	}
 }
 
 

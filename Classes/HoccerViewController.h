@@ -32,6 +32,7 @@
 @class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
+@class HoccerMessageResolver;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
@@ -51,7 +52,9 @@
 	HoccingRulesIPhone *hoccingRules;
 							
 	CGPoint defaultOrigin;
+
 	UILabel *hoccability;
+	HoccerMessageResolver *messageResolver;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

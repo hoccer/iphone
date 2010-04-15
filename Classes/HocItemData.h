@@ -24,6 +24,7 @@
 	NSString *status;
 	
 	id <HocItemDataDelegate> delegate;
+	NSString *gesture;
 	
 	BOOL isUpload;
 }
@@ -32,6 +33,7 @@
 @property (retain) Preview* contentView;
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
+@property (retain) NSString *gesture;
 
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, assign) id <HocItemDataDelegate> delegate; 

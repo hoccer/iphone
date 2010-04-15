@@ -55,7 +55,15 @@
 	statusLabel.text = update;
 }
 
-- (void)setError: (NSString *)message {
+- (void)setError:(NSError *)error {
+	if ([error localizedDescription]) {
+		statusLabel.text = [error localizedDescription];
+	}
+	
+	self.view.hidden = NO;
+}
+
+- (void)setErrorMessage: (NSString *)message {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	[self setUpdate:message];
 }

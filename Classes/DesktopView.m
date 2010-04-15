@@ -157,10 +157,12 @@
 	if (animation != nil) {
 		[containerView.layer addAnimation:animation forKey:nil];
 	}
+
+	[volatileView addObject: containerView];
 }
 
 - (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation {
-
+	[self doesNotRecognizeSelector: _cmd];
 }
 
 

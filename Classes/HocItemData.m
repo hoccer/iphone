@@ -18,6 +18,14 @@
 
 #import "HocLocation.h"
 
+@interface HocItemData ()
+
+- (NSString *)transferTypeFromGestureName: (NSString *)name;
+
+@end
+
+
+
 @implementation HocItemData
 
 @synthesize content;
@@ -27,6 +35,7 @@
 @synthesize status;
 @synthesize delegate;
 @synthesize isUpload;
+@synthesize gesture;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -48,6 +57,7 @@
 	[content release];
 	[contentView release];
 	[request release];
+	[gesture release];
 	
 	[super dealloc];
 }
@@ -102,24 +112,26 @@
 	return contentView;
 }
 
-- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture {
+- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)aGesture {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
 		[delegate hocItemWillStartUpload:self];
 	}
 	
+	self.gesture = aGesture;
 	[content prepareSharing];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:gesture content: content 
+	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:[self transferTypeFromGestureName:gesture] content: content 
 													   type: [content mimeType] filename: [content filename] delegate:self];
 	
 	isUpload = YES;
 }
 
-- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)gesture {
+- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)aGesture {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
 		[delegate hocItemWillStartDownload:self];
 	}
 	
-	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:gesture delegate: self];
+	self.gesture = aGesture;
+	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:[self transferTypeFromGestureName:gesture] delegate: self];
 	isUpload = NO;
 }
 
@@ -137,7 +149,6 @@
 	if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
 		[delegate hocItemWasReceived:self];
 	}
-	
 }
 
 #pragma mark -
@@ -179,6 +190,20 @@
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
 {
+}
+
+#pragma mark -
+#pragma mark Private Methods
+- (NSString *)transferTypeFromGestureName: (NSString *)name {
+	if ([name isEqual:@"throw"] || [name isEqual:@"catch"]) {
+		return @"distribute";
+	}
+	
+	if ([name isEqual:@"sweepIn"] || [name isEqual:@"sweepOut"]) {
+		return @"pass";
+	}
+									  
+	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture name is unknown"  userInfo:nil];
 }
 
 

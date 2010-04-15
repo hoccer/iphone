@@ -53,8 +53,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation {
 	NSLog(@"new location accurracy: %f", newLocation.horizontalAccuracy);
-
 	[self updateHoccability];
+	
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
 		return;
 	
@@ -64,6 +64,7 @@
 	[geocoder start];
 	
 	self.lastLocationUpdate = [NSDate date];
+	[self updateHoccability];
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)aGeocoder didFindPlacemark: (MKPlacemark *)placemark {
@@ -71,8 +72,7 @@
 	geocoder = nil;
 }
 
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error
-{
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error {
 }
 
 - (HocLocation *)location {

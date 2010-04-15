@@ -55,7 +55,6 @@ static WifiScanner *wifiScannerInstance;
 - (NSArray *)bssids 
 {
 	if (scannedNetworks == nil) {
-		NSLog(@"not yet scanned");
 		return nil;
 	}
 	
