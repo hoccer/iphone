@@ -107,7 +107,6 @@
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
-		229A8298116B63C600FFAD1B /* StatusViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */; };
 		229A82C7116B664000FFAD1B /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
 		229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
 		229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
@@ -291,6 +290,9 @@
 		22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEA1159160D00EFD709 /* SelectContentTableView.xib */; };
 		22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEB1159160D00EFD709 /* StatusViewController.xib */; };
 		22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */; };
+		22B65A0311770304003E7058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
+		22B65A0611770346003E7058 /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
+		22B65A0F117703E1003E7058 /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
@@ -495,8 +497,6 @@
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
-		229A7F31116B490700FFAD1B /* StatusViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewControllerTest.h; sourceTree = "<group>"; };
-		229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewControllerTest.m; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
 		229A839A116B708B00FFAD1B /* HoccerViewControllerIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewControllerIPhone.h; sourceTree = "<group>"; };
@@ -626,6 +626,7 @@
 				229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */,
 				229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */,
 				229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */,
+				22B65A0311770304003E7058 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,11 +654,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				22888E8E1175EB9300FB5968 /* LocationContoller */,
-				22A74C05116C941E00F3E4B4 /* HocHistory */,
-				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
 				22977B2511105C2D00B55D3F /* Wifi */,
+				22888E8E1175EB9300FB5968 /* LocationContoller */,
+				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
 				2271E19E109EDCD5003D5C68 /* TermOfUse */,
+				22A74C05116C941E00F3E4B4 /* HocHistory */,
 				227A94D310971302008CE547 /* Help */,
 				229DAF1C107B377C00B47ABE /* AddressBook */,
 				227990C3105FE2F20035C643 /* Debug */,
@@ -815,8 +816,6 @@
 				22D49E311068D09700B03B61 /* FeatureHistoryTests.m */,
 				228275BF106A107A00AAC17E /* RegExpTests.h */,
 				228275C0106A107A00AAC17E /* RegExpTests.m */,
-				229A7F31116B490700FFAD1B /* StatusViewControllerTest.h */,
-				229A7F32116B490700FFAD1B /* StatusViewControllerTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -1516,7 +1515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */,
-				229A8298116B63C600FFAD1B /* StatusViewControllerTest.m in Sources */,
 				229A82C7116B664000FFAD1B /* HocItemData.m in Sources */,
 				229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */,
 				229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */,
@@ -1545,6 +1543,8 @@
 				229A82F4116B670400FFAD1B /* VcardParser.m in Sources */,
 				229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */,
 				229A82F6116B670400FFAD1B /* ACPerson.m in Sources */,
+				22B65A0611770346003E7058 /* RegExpTests.m in Sources */,
+				22B65A0F117703E1003E7058 /* NSString+Regexp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -66,11 +66,9 @@
 	self.lastLocationUpdate = [NSDate date];
 }
 
-- (void)reverseGeocoder:(MKReverseGeocoder *)aGeocoder didFindPlacemark: (MKPlacemark *)placemark
-{
+- (void)reverseGeocoder:(MKReverseGeocoder *)aGeocoder didFindPlacemark: (MKPlacemark *)placemark {
 	[geocoder release];
 	geocoder = nil;
-	// [viewController setLocation:placemark withAccuracy: locationManager.location.horizontalAccuracy];
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error
@@ -91,10 +89,12 @@
 }
 
 - (void)updateHoccability {
+	self.hoccability = 0;
+	
 	if ([self hasLocation]) {
-		if (locationManager.location.horizontalAccuracy < 100) {
+		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
-		} else if (locationManager.location.horizontalAccuracy < 1000) {
+		} else if (locationManager.location.horizontalAccuracy < 500) {
 			self.hoccability = 1;
 		}
 	}
@@ -108,9 +108,7 @@
 	} 
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	NSLog(@"new bssids");
-	
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {	
 	[self updateHoccability];
 }
 

@@ -42,8 +42,6 @@
 	return self;
 }
 
-
-
 #pragma mark -
 #pragma mark Core Data stack
 

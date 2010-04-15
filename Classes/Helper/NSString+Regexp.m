@@ -29,8 +29,7 @@
 	return (result == 0) ? YES : NO;
 }
 
-- (BOOL)matchesFeaturePattern: (NSString *)featurePattern
-{
+- (BOOL)matchesFeaturePattern: (NSString *)featurePattern {
 	NSMutableString *string = [NSMutableString stringWithString: featurePattern];
 
 	[string replaceOccurrencesOfString:@"<*" withString:@"<[a-zA-Z]*"
@@ -51,18 +50,15 @@
 	return [self matches: string];
 }
 
-- (BOOL)startsWith: (NSString *)startString
-{
+- (BOOL)startsWith: (NSString *)startString {
 	return [self matches: [NSString stringWithFormat: @"^%@", startString]];
 }
 
-- (BOOL)endsWith: (NSString *)endString
-{
+- (BOOL)endsWith: (NSString *)endString {
 	return [self matches: [NSString stringWithFormat: @"%@$", endString]];
 }
 
-- (BOOL)contains: (NSString *)substring
-{
+- (BOOL)contains: (NSString *)substring {
 	return ([self rangeOfString:substring].location != NSNotFound);
 }
 
