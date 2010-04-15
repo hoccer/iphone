@@ -12,6 +12,6 @@
 
 @protocol LocationControllerDelegate <NSObject>
 
-- (void) locationControllerDidUpdateLocationController: (LocationController *)controller; 
+- (void) locationControllerDidUpdateLocation: (LocationController *)controller; 
 
 @end

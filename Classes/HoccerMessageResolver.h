@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 @class HocLocation;
 
-#define kHoccerMessageImpreciseLocation 1
 #define kHoccerMessageNoCatcher 2
 #define kHoccerMessageNoThrower 3
 #define kHoccerMessageNoSecondSweeper 4
@@ -18,7 +17,6 @@
 
 }
 
-- (NSError *)messageForLocationInformation: (HocLocation *)hocLocation;
 - (NSError *)messageForLocationInformation:(HocLocation *)hocLocation event: (NSString *)event;
 
 @end

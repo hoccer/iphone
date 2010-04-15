@@ -6,43 +6,47 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HelpMessageTest.h"
+#import <CoreLocation/CoreLocation.h>
+#import "LocationControllerTest.h"
 #import "HoccerMessageResolver.h"
 #import "HocLocation.h"
+#import "LocationController.h"
 
 #define kGoodAccuracy 199 // good accuracy is better than 200m 
 #define kBadAccuracy 501 // bad accuracy is worse than 500m
-#define kVeryVeryBadAccuracy 5001 // to bad! worse than 5000m  
+#define kVeryBadAccuracy 5001 // to bad! worse than 5000m  
 
-@implementation HelpMessageTest
+@implementation LocationControllerTest
 
-- (void) testItShouldBeCreatable {
-	HoccerMessageResolver *errorResolver = [[HoccerMessageResolver alloc] init];
-
-	STAssertNotNil(errorResolver, @"HoccerMessageResolver should be created");
+- (void) testLocationControllerShouldBeCreatable {
+	LocationController *locationController = [[LocationController alloc] init];
+	
+	STAssertNotNil(locationController, @"location controller should be created");
+	[locationController release];
 }
 
-- (void) testItShouldReturnImpreciseMessageWhenLocationIsBad {
-	HoccerMessageResolver *errorResolver = [[HoccerMessageResolver alloc] init];
-	HocLocation *hocLocation = [[HocLocation alloc] initWithLocation:[self locationWithAccuracy:kBadAccuracy] bssids:nil];
+- (void) testItShouldReturnImpreciseLocationMessageWhenTheLocationAccuracyIsBad {
+	LocationController *locationController = [[LocationController alloc] init];
+	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kBadAccuracy] fromLocation:nil];
 	
-	NSError* message = [errorResolver messageForLocationInformation: hocLocation];
+	NSError* message = [locationController messageForLocationInformation];
+	
+	STAssertNotNil(message, @"message should be created");
 	STAssertEquals([message code], kHoccerMessageImpreciseLocation, @"return code should be 'impreciseLocation'");
 	
-	[hocLocation release];
-	[errorResolver release];
+	[locationController release];
 }
 
-- (void) testItShouldReturnNilWhenLocationIsGood {
-	HoccerMessageResolver *errorResolver = [[HoccerMessageResolver alloc] init];
-	HocLocation *hocLocation = [[HocLocation alloc] initWithLocation:[self locationWithAccuracy:kGoodAccuracy] bssids:nil];
+- (void) testItShouldReturnNoMessageIfLocationIsAccurate {
+	LocationController *locationController = [[LocationController alloc] init];
+	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kGoodAccuracy] fromLocation:nil];
 	
-	NSError* message = [errorResolver messageForLocationInformation: hocLocation];
-	STAssertNil(message, @"should return no message");
+	NSError* message = [locationController messageForLocationInformation];
 	
-	[hocLocation release];
-	[errorResolver release];
+	STAssertNil(message, @"message should be created");	
+	[locationController release];
 }
+
 
 - (void) testItShouldReturnNeedsCatcherMessageWhenLocationIsGoodAndNoCatcher {
 	HoccerMessageResolver *errorResolver = [[HoccerMessageResolver alloc] init];

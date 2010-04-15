@@ -324,10 +324,10 @@
 	[statusViewController showActivityInfo];
 }
 
-- (void) locationControllerDidUpdateLocationController: (LocationController *)controller {
+- (void) locationControllerDidUpdateLocation: (LocationController *)controller {
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
 	
-	NSError *message = [messageResolver messageForLocationInformation:controller.location];
+	NSError *message = [controller messageForLocationInformation];
 	if (message) {
 		[statusViewController setError: message];
 	} else {

@@ -25,6 +25,9 @@ static WifiScanner *wifiScannerInstance;
 }
 
 - (id) init {
+#if TARGET_IPHONE_SIMULATOR 
+	return [super init];
+#else 
 	self = [super init];
 	if (self != nil) {
 		void* libHandle = dlopen("/System/Library/SystemConfiguration/WiFiManager.bundle/WiFiManager", RTLD_LAZY);
@@ -42,6 +45,7 @@ static WifiScanner *wifiScannerInstance;
 	}
 	
 	return self;
+#endif
 }
 
 - (void)scanNetwork {

@@ -9,20 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
 
+#define kHoccerMessageImpreciseLocation 1
+
 @class HocLocation;
 
 @interface LocationController : NSObject <MKReverseGeocoderDelegate, CLLocationManagerDelegate> {
-	HoccerViewController *viewController;
-	
 	CLLocationManager *locationManager;
 	NSDate *lastLocationUpdate;
 	MKReverseGeocoder *geocoder;
 	NSInteger hoccability;
 	
 	id <LocationControllerDelegate> delegate;
+	@private 
+	CLLocation *currentLocation;
 }
 
-@property (retain) IBOutlet HoccerViewController *viewController;
 @property (retain) NSDate *lastLocationUpdate;
 @property (readonly) HocLocation *location;
 @property (assign) NSInteger hoccability;
@@ -30,5 +31,7 @@
 
 - (BOOL)hasLocation;
 - (BOOL)hasBSSID;
+- (NSError *)messageForLocationInformation;
+
 
 @end

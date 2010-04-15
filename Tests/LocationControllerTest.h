@@ -17,8 +17,7 @@
 //#import "application_headers" as required
 
 
-@interface HelpMessageTest : SenTestCase {
-
+@interface LocationControllerTest : SenTestCase {
 }
 
 - (CLLocation *)locationWithAccuracy:(float)accuracy;

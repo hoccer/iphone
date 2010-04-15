@@ -99,8 +99,7 @@
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegates
 
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
-{
+- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
 	[request release];
 	request = nil;
 	
@@ -109,16 +108,14 @@
 								withObject: error];
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
-{
+- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
 	[self.delegate checkAndPerformSelector:@selector(request:didPublishUpdate:)
 								withObject: self
 								withObject: update];
 }
 
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress 
-{
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
 	[self.delegate checkAndPerformSelector:@selector(request:didPublishDownloadedPercentageUpdate:)
 								withObject: self
 								withObject: progress];

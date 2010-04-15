@@ -9,10 +9,9 @@
 #import "HoccerMessageResolver.h"
 #import "HocLocation.h"
 
-#define hoccerMessageErrorDomain @"Y60HoccerErrorDomain" 
+#define hoccerMessageErrorDomain @"HoccerErrorDomain"
 
 @interface HoccerMessageResolver ()
-- (NSDictionary *)userInfoForImpreciseLocation;
 - (NSDictionary *)userInfoForNoCatcher;
 - (NSDictionary *)userInfoForNoThrower;
 - (NSDictionary *)userInfoForNoSecondSweeper;
@@ -22,13 +21,6 @@
 
 @implementation HoccerMessageResolver
 
-- (NSError *)messageForLocationInformation: (HocLocation *)hocLocation {
-	if (hocLocation.location.horizontalAccuracy < 200) {
-		return nil;
-	}
-	
-	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
-}
 
 - (NSError *)messageForLocationInformation:(HocLocation *)hocLocation event: (NSString *)event {
 	if ([event isEqual:@"throw"]) {
@@ -43,12 +35,7 @@
 	
 }
 
-- (NSDictionary *)userInfoForImpreciseLocation {
-	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is bad!" forKey:NSLocalizedDescriptionKey];
-	
-	return [userInfo autorelease];
-}
+
 
 - (NSDictionary *)userInfoForNoCatcher {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
@@ -71,7 +58,6 @@
 	[userInfo setObject:@"The second sweeper was not found!" forKey:NSLocalizedDescriptionKey];
 	
 	return [userInfo autorelease];
-	
 }
 
 
