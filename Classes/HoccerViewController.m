@@ -71,8 +71,6 @@
 	locationController.delegate = self;
 	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
-	messageResolver = [[HoccerMessageResolver alloc] init];
-	
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 }
@@ -88,7 +86,6 @@
 	[helpViewController release];
 	[statusViewController release];
 	[hoccingRules release];
-	[HoccerMessageResolver release];
 	
 	[super dealloc];
 }
@@ -291,10 +288,8 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemUploadFailed: (HocItemData *)item {
+- (void)hocItem: (HocItemData*) item uploadFailedWithError: (NSError *)error {
 	item.viewOrigin = self.defaultOrigin;
-	
-	
 	[desktopView reloadData];
 }
 
@@ -312,7 +307,7 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemDownloadFailed: (HocItemData *)item {
+- (void)hocItem: (HocItemData *)item downloadFailedWithError: (NSError *)error  {
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];

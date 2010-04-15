@@ -14,8 +14,8 @@
 - (void)hocItemWillStartUpload: (HocItemData *)item;
 - (void)hocItemWillStartDownload: (HocItemData *)item;
 
-- (void)hocItemUploadFailed: (HocItemData *)item;
-- (void)hocItemDownloadFailed: (HocItemData *)item;
+- (void)hocItem:(HocItemData *)item uploadFailedWithError: (NSError *)error;
+- (void)hocItem:(HocItemData *)item downloadFailedWithError: (NSError *)error;
 
 - (void)hocItemUploadWasCanceled: (HocItemData *)item;
 - (void)hocItemDownloadWasCanceled: (HocItemData *)item;

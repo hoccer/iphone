@@ -7,16 +7,3 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HocLocation;
-
-#define kHoccerMessageNoCatcher 2
-#define kHoccerMessageNoThrower 3
-#define kHoccerMessageNoSecondSweeper 4
-
-@interface HoccerMessageResolver : NSObject {
-
-}
-
-- (NSError *)messageForLocationInformation:(HocLocation *)hocLocation event: (NSString *)event;
-
-@end

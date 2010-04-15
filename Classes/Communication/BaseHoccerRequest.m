@@ -62,8 +62,7 @@
 #pragma mark -
 #pragma mark private helper methods
 
-- (id) createJSONFromResult: (NSData *) resultData 
-{
+- (id) createJSONFromResult: (NSData *) resultData {
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
@@ -89,20 +88,17 @@
 
 #pragma mark -
 #pragma mark NSURLConnection delegate methods
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	[receivedData appendData:data];
 }
 
-- (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error 
-{
+- (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error {
 	self.connection = nil;
 	
 	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse 
-{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)aResponse {
 	self.response = aResponse;
 }
 

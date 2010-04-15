@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "HocItemDataDelegate.h"
 
+#define kHoccerMessageNoCatcher 2
+#define kHoccerMessageNoThrower 3
+#define kHoccerMessageNoSecondSweeper 4
+
 @class HoccerRequest;
 @class HoccerContent;
 @class Preview;
@@ -22,11 +26,11 @@
 	
 	CGPoint viewOrigin;
 	NSString *status;
+
+	NSString *gesture;
+	BOOL isUpload;
 	
 	id <HocItemDataDelegate> delegate;
-	NSString *gesture;
-	
-	BOOL isUpload;
 }
 
 @property (retain) HoccerContent *content;

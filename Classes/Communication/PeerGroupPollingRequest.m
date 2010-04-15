@@ -53,13 +53,10 @@
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 		return;
 	}
-	
-	
+
 	NSString *dataString = [[NSString alloc] initWithData: receivedData encoding: NSUTF8StringEncoding];
-	
 	[dataString release];
 	self.connection = nil;
-	
 	
 	if (statusCode >= 400) {
 		NSError *error = [self createErrorFromResult: self.result];
@@ -80,10 +77,7 @@
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}
-	
-	// NSString *expires = [NSString stringWithFormat:@"%d", [self.result valueForKey:@"expires"]];
-	// [self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) 
-	// withObject: self withObject:expires];
+
 	[receivedData setLength:0];
 }
 

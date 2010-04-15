@@ -18,9 +18,15 @@
 
 #import "HocLocation.h"
 
+#define hoccerMessageErrorDomain @"HoccerErrorDomain"
+
 @interface HocItemData ()
 
 - (NSString *)transferTypeFromGestureName: (NSString *)name;
+- (NSDictionary *)userInfoForNoCatcher;
+- (NSDictionary *)userInfoForNoThrower;
+- (NSDictionary *)userInfoForNoSecondSweeper;
+- (NSError *)createAppropriateError;
 
 @end
 
@@ -168,28 +174,30 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
+	if ([error code] == 500) {
+		error = [self createAppropriateError];
+	}
+	
 	self.status = [error localizedDescription];
 	[request release];
 	request = nil;
 	
 	if (isUpload) {
-		if ([delegate respondsToSelector:@selector(hocItemUploadFailed:)]) {
-			[delegate hocItemUploadFailed: self];
+		if ([delegate respondsToSelector:@selector(hocItem:uploadFailedWithError:)]) {
+			[delegate hocItem:self uploadFailedWithError: error];
 		}
 	} else {
-		if ([delegate respondsToSelector:@selector(hocItemDownloadFailed:)]) {
-			[delegate hocItemDownloadFailed: self];
+		if ([delegate respondsToSelector:@selector(hocItem:downloadFailedWithError:)]) {
+			[delegate hocItem:self downloadFailedWithError:error];
 		}
 	}
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update 
-{
+- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
 	self.status = update;
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress
-{
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
 }
 
 #pragma mark -
@@ -206,7 +214,46 @@
 	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture name is unknown"  userInfo:nil];
 }
 
+#pragma mark -
+#pragma mark Private UserInfo Methods 
 
+- (NSError *)createAppropriateError {
+	if ([gesture isEqual:@"throw"]) {
+		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoCatcher userInfo:[self userInfoForNoCatcher]];
+	}
+	
+	if ([gesture isEqual:@"catch"]) {
+		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoThrower userInfo:[self userInfoForNoThrower]];
+	}
+	
+	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoSecondSweeper userInfo:[self userInfoForNoSecondSweeper]];
+}
+
+- (NSDictionary *)userInfoForNoCatcher {
+	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+	[userInfo setObject:@"Nobody coughed your content!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+	
+	return [userInfo autorelease];
+	
+}
+
+- (NSDictionary *)userInfoForNoThrower {
+	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+	[userInfo setObject:@"Nothing way thrown to you!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+
+	return [userInfo autorelease];
+	
+}
+
+- (NSDictionary *)userInfoForNoSecondSweeper {
+	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+	[userInfo setObject:@"No second sweeper was found!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+	
+	return [userInfo autorelease];
+}
 
 
 @end

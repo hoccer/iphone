@@ -829,18 +829,13 @@
 		22762D17105E4408003BF968 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				22B65C5511775ED4003E7058 /* GestureTests */,
 				229DAF55107B3BD000B47ABE /* vcard */,
 				22762D7E105E4F98003BF968 /* AcceletometerTestFramework */,
 				22762D76105E4A24003BF968 /* AccelerometerTestFrameworkTests.h */,
 				22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */,
 				227990F3105FE97D0035C643 /* ContentFactoryTests.h */,
 				227990F4105FE97D0035C643 /* ContentFactoryTests.m */,
-				228989691067CC1C00FB3E5D /* LineFeatureTests.h */,
-				2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */,
-				22D49E301068D09700B03B61 /* FeatureHistoryTests.h */,
-				22D49E311068D09700B03B61 /* FeatureHistoryTests.m */,
-				228275BF106A107A00AAC17E /* RegExpTests.h */,
-				228275C0106A107A00AAC17E /* RegExpTests.m */,
 				22B65A5C117709DA003E7058 /* LocationControllerTest.h */,
 				22B65A5D117709DA003E7058 /* LocationControllerTest.m */,
 			);
@@ -1159,6 +1154,19 @@
 				22B1CBEB1159160D00EFD709 /* StatusViewController.xib */,
 			);
 			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		22B65C5511775ED4003E7058 /* GestureTests */ = {
+			isa = PBXGroup;
+			children = (
+				228989691067CC1C00FB3E5D /* LineFeatureTests.h */,
+				2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */,
+				22D49E301068D09700B03B61 /* FeatureHistoryTests.h */,
+				22D49E311068D09700B03B61 /* FeatureHistoryTests.m */,
+				228275BF106A107A00AAC17E /* RegExpTests.h */,
+				228275C0106A107A00AAC17E /* RegExpTests.m */,
+			);
+			name = GestureTests;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
