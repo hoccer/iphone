@@ -101,7 +101,7 @@
 	if ([self hasLocation]) {
 		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
-		} else if (locationManager.location.horizontalAccuracy < 500) {
+		} else if (locationManager.location.horizontalAccuracy < 2000) {
 			self.hoccability = 1;
 		}
 	}
@@ -144,8 +144,8 @@
 
 - (NSDictionary *)userInfoForBadLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is very bad!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Hoccer needs your location to find the person you are throwing to. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Your location is very bad! You can not hoc with such a location" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Hoccer needs your location to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }

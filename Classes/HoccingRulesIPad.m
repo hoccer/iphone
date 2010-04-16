@@ -23,7 +23,7 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller {
-	if (![controller.desktopData controllerHasActiveRequest]) {
+	if (![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	
@@ -31,7 +31,7 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
-	if ([controller.desktopData count] > 0 && ![controller.desktopData controllerHasActiveRequest]) {
+	if ([controller.desktopData count] > 0 && ![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	

@@ -57,7 +57,7 @@
 	[contentOnDesktop removeObject:hocItem];
 }
 
-- (BOOL)controllerHasActiveRequest {
+- (BOOL)hasActiveRequest {
 	for (HocItemData *item in contentOnDesktop) {
 		if ([item hasActiveRequest]) {
 			return YES;

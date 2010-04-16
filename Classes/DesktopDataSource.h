@@ -26,7 +26,7 @@
 - (void)addHocItem: (HocItemData *)controller;
 - (void)removeHocItem: (HocItemData *)controller;
 
-- (BOOL)controllerHasActiveRequest;
+- (BOOL)hasActiveRequest;
 
 - (HocItemData *)hocItemDataForView: (UIView *)controller;
 - (HocItemData *)hocItemDataAtIndex: (NSInteger) index;

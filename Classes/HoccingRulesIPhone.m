@@ -17,7 +17,7 @@
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 1 && ![controller.desktopData controllerHasActiveRequest]) {
+	if ([controller.desktopData count] == 1 && ![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	
@@ -29,7 +29,7 @@
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 0 && ![controller.desktopData controllerHasActiveRequest]) {
+	if ([controller.desktopData count] == 0 && ![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	
@@ -41,7 +41,7 @@
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 0 && ![controller.desktopData controllerHasActiveRequest]) {
+	if ([controller.desktopData count] == 0 && ![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	
@@ -53,7 +53,7 @@
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 1 && ![controller.desktopData controllerHasActiveRequest]) {
+	if ([controller.desktopData count] == 1 && ![controller.desktopData hasActiveRequest]) {
 		return YES;
 	}
 	

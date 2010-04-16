@@ -232,7 +232,7 @@
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
-	if ([desktopData controllerHasActiveRequest]) {
+	if ([desktopData hasActiveRequest]) {
 		return;
 	}
 	
@@ -241,7 +241,7 @@
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
-	if ([desktopData controllerHasActiveRequest]) {
+	if ([desktopData hasActiveRequest]) {
 		return;
 	}
 	
@@ -320,6 +320,9 @@
 	[statusViewController showActivityInfo];
 }
 
+#pragma mark -
+#pragma mark LocationController Delegate Methods
+
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
 	if (controller.hoccability == 0) {
 		blocked = YES;
@@ -330,10 +333,12 @@
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
 	
 	NSError *message = [controller messageForLocationInformation];
-	if (message) {
-		[statusViewController setError: message];
-	} else {
-		[statusViewController hideActivityInfo];
+	if (![desktopData hasActiveRequest]) {
+		if (message) {
+			[statusViewController setError: message];			
+		} else {
+			[statusViewController hideActivityInfo];
+		}
 	}
 }
 
