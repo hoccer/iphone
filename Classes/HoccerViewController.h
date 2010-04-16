@@ -53,6 +53,8 @@
 	CGPoint defaultOrigin;
 
 	UILabel *hoccability;
+							
+	BOOL blocked;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -65,6 +67,7 @@
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
+@property (assign) BOOL blocked;
 
 - (void)setContentPreview: (HoccerContent *)content;
 

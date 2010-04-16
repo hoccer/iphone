@@ -13,6 +13,10 @@
 @implementation HoccingRulesIPhone
 
 - (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller {
+	if (controller.blocked) {
+		return NO;
+	}
+	
 	if ([controller.desktopData count] == 1 && ![controller.desktopData controllerHasActiveRequest]) {
 		return YES;
 	}
@@ -21,6 +25,10 @@
 }
 
 - (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {
+	if (controller.blocked) {
+		return NO;
+	}
+	
 	if ([controller.desktopData count] == 0 && ![controller.desktopData controllerHasActiveRequest]) {
 		return YES;
 	}
@@ -29,6 +37,10 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller {
+	if (controller.blocked) {
+		return NO;
+	}
+	
 	if ([controller.desktopData count] == 0 && ![controller.desktopData controllerHasActiveRequest]) {
 		return YES;
 	}
@@ -37,6 +49,10 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
+	if (controller.blocked) {
+		return NO;
+	}
+	
 	if ([controller.desktopData count] == 1 && ![controller.desktopData controllerHasActiveRequest]) {
 		return YES;
 	}
@@ -45,6 +61,10 @@
 }
 
 - (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {
+	if (controller.blocked) {
+		return NO;
+	}
+	
 	if ([controller.desktopData count] == 1) {
 		return NO;
 	}

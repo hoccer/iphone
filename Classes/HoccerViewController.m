@@ -53,6 +53,7 @@
 @synthesize desktopData;
 @synthesize defaultOrigin;
 @synthesize hoccability;
+@synthesize blocked;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -320,6 +321,12 @@
 }
 
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
+	if (controller.hoccability == 0) {
+		blocked = YES;
+	} else {
+		blocked = NO;
+	}
+
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
 	
 	NSError *message = [controller messageForLocationInformation];
