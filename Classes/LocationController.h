@@ -10,6 +10,7 @@
 #import "HoccerViewController.h"
 
 #define kHoccerMessageImpreciseLocation 1
+#define kHoccerBadLocation 2
 
 @class HocLocation;
 
@@ -18,8 +19,8 @@
 	NSDate *lastLocationUpdate;
 	MKReverseGeocoder *geocoder;
 	NSInteger hoccability;
-	
 	id <LocationControllerDelegate> delegate;
+
 	@private 
 	CLLocation *currentLocation;
 }

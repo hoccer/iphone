@@ -174,7 +174,13 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
-	if ([error code] == 500) {
+	NSDictionary *errorResponse = [[error userInfo] objectForKey:@"HoccerErrorDescription"];
+	NSLog(@"errorResponse :%@", errorResponse);
+	
+	if ([error code] == 500 && 
+			( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
+			  [[errorResponse objectForKey:@"state"] isEqual:@"no_peers"] ) ) {
+		
 		error = [self createAppropriateError];
 	}
 	
@@ -211,7 +217,7 @@
 		return @"pass";
 	}
 									  
-	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture name is unknown"  userInfo:nil];
+	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture to transfer is unknown"  userInfo:nil];
 }
 
 #pragma mark -
@@ -231,8 +237,8 @@
 
 - (NSDictionary *)userInfoForNoCatcher {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Nobody coughed your content!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Nobody caught your content!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"You can use hoccer to throw content to someone near you. Timing is important. The other person needs to catch just after you have thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 	
@@ -240,8 +246,8 @@
 
 - (NSDictionary *)userInfoForNoThrower {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Nothing way thrown to you!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Nothing was thrown to you!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"You can use hoccer to catch something that way thrown by someone near you. Timing is important. You need to catch just after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
 
 	return [userInfo autorelease];
 	
@@ -250,7 +256,7 @@
 - (NSDictionary *)userInfoForNoSecondSweeper {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:@"No second sweeper was found!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"More Help here!!" forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Asure that you really sweept over the edges of both devices." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }

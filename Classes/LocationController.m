@@ -17,6 +17,7 @@
 @property (retain) CLLocation *currentLocation;
 - (void)updateHoccability;
 - (NSDictionary *)userInfoForImpreciseLocation;
+- (NSDictionary *)userInfoForBadLocation;
 @end
 
 
@@ -46,7 +47,8 @@
 
 - (void) dealloc {
 	[[WifiScanner sharedScanner] removeObserver:self forKeyPath:@"bssids"];
-	
+	[lastLocationUpdate release];
+	[geocoder release];
 	[locationManager stopUpdatingLocation];
 	[locationManager release];
 	
@@ -56,6 +58,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation {
 	self.currentLocation = newLocation;
+	NSLog(@"location update");
 	[self updateHoccability];
 	
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
@@ -94,6 +97,7 @@
 - (void)updateHoccability {
 	self.hoccability = 0;
 	
+	NSLog(@"accuracy: %f", locationManager.location.horizontalAccuracy);
 	if ([self hasLocation]) {
 		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
@@ -106,17 +110,21 @@
 		self.hoccability += 1;
 	}
 	
-	if ([delegate respondsToSelector:@selector(locationControllerDidUpdateLocationController:)]) {
+	if ([delegate respondsToSelector:@selector(locationControllerDidUpdateLocation:)]) {
 		[delegate locationControllerDidUpdateLocation: self];
 	} 
 }
 
 - (NSError *)messageForLocationInformation {
-	if (self.location.location.horizontalAccuracy < 200) {
-		return nil;
+	if (![self hasLocation] ||  self.location.location.horizontalAccuracy > 2000) {
+		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerBadLocation userInfo:[self userInfoForBadLocation]];
 	}
 	
-	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
+	if (self.location.location.horizontalAccuracy > 200) {
+		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
+	}
+	
+	return nil;
 }
 
 
@@ -128,9 +136,19 @@
 #pragma mark private userInfo Methods
 - (NSDictionary *)userInfoForImpreciseLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is bad!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Your location is imprecise!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Hoccer needs your location to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
+
+	return [userInfo autorelease];
+}
+
+- (NSDictionary *)userInfoForBadLocation {
+	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+	[userInfo setObject:@"Your location is very bad!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Hoccer needs your location to find the person you are throwing to. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }
+
 
 @end

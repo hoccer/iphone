@@ -78,6 +78,7 @@
 	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
 	if ([aResult valueForKey:@"message"]) {
 		[userInfo setObject:[aResult valueForKey:@"message"] forKey:NSLocalizedDescriptionKey];
+		[userInfo setObject:aResult forKey:@"HoccerErrorDescription"];
 	}
 	
 	NSInteger statusCode = [self.response statusCode];
