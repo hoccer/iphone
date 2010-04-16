@@ -36,6 +36,7 @@
 	self = [super init];
 	if (self != nil) {
 		oldHoccability = -1;
+		
 		locationManager = [[CLLocationManager alloc] init];
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
@@ -161,7 +162,7 @@
 		[suggestions addObject:@"going outside"];
 	}
 	
-	[suggestion appendString:@"Hoccer needs your location to find your exchange partner. You can improve your location by "];
+	[suggestion appendString:@"Hoccer needs to locate you precisely to find your exchange partner. You can improve your location by "];
 	[suggestion appendString:[suggestions componentsJoinedByString:@" or "]];
 
 	return [suggestion autorelease];
