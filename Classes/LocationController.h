@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
 
-#define kHoccerMessageImpreciseLocation 1
+#define kHoccerImpreciseLocation 1
 #define kHoccerBadLocation 2
 
 @class HocLocation;
@@ -23,12 +23,14 @@
 	@private 
 	CLLocation *currentLocation;
 	NSInteger oldHoccability;
+	NSArray *bssids;
 }
 
 @property (retain) NSDate *lastLocationUpdate;
 @property (readonly) HocLocation *location;
 @property (assign) NSInteger hoccability;
 @property (assign) id <LocationControllerDelegate> delegate;
+@property (retain) NSArray *bssids;
 
 - (BOOL)hasLocation;
 - (BOOL)hasBSSID;

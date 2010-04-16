@@ -206,6 +206,7 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
+	[statusViewController hideActivityInfo];
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	

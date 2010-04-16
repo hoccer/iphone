@@ -18,6 +18,8 @@
 - (void)updateHoccability;
 - (NSDictionary *)userInfoForImpreciseLocation;
 - (NSDictionary *)userInfoForBadLocation;
+
+- (NSString *)impoveSuggestion;
 @end
 
 
@@ -28,6 +30,7 @@
 @synthesize hoccability;
 @synthesize delegate;
 @synthesize currentLocation;
+@synthesize bssids;
 
 - (id) init {
 	self = [super init];
@@ -51,6 +54,7 @@
 	[lastLocationUpdate release];
 	[locationManager stopUpdatingLocation];
 	[locationManager release];
+	[bssids release];
 	
 	[super dealloc];
 }
@@ -58,7 +62,6 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation {
 	self.currentLocation = newLocation;
-	NSLog(@"location update");
 	[self updateHoccability];
 	
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
@@ -74,11 +77,15 @@
 }
 
 - (BOOL)hasLocation {
-	return (locationManager.location.horizontalAccuracy != 0);
+	return (currentLocation.horizontalAccuracy != 0);
+}
+
+- (BOOL)hasBadLocation {
+	return (![self hasLocation] || self.location.location.horizontalAccuracy > 200);
 }
 
 - (BOOL)hasBSSID {
-	return [[WifiScanner sharedScanner].bssids count] != 0;
+	return self.bssids != nil;
 }
 
 - (void)updateHoccability {
@@ -106,12 +113,13 @@
 }
 
 - (NSError *)messageForLocationInformation {
+	NSLog(@"accuracy: %f, %d", self.location.location.horizontalAccuracy, [self hasLocation]);
 	if (![self hasLocation] ||  self.location.location.horizontalAccuracy > 2000) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerBadLocation userInfo:[self userInfoForBadLocation]];
 	}
 	
 	if (self.location.location.horizontalAccuracy > 200) {
-		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
+		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
 	}
 	
 	return nil;
@@ -119,6 +127,7 @@
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {	
+	self.bssids = [WifiScanner sharedScanner].bssids;
 	[self updateHoccability];
 }
 
@@ -127,17 +136,35 @@
 - (NSDictionary *)userInfoForImpreciseLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:@"Your location accuracy is imprecise!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Hoccer needs to locate you precisly to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:[self impoveSuggestion] forKey:NSLocalizedRecoverySuggestionErrorKey];
 
 	return [userInfo autorelease];
 }
 
 - (NSDictionary *)userInfoForBadLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is very imprecise! You can not hoc with such a location" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Hoccer needs your location to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Your location accuracy is to imprecise for hoccing" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:[self impoveSuggestion] forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
+}
+
+- (NSString *)impoveSuggestion {
+	NSMutableArray *suggestions = [[NSMutableArray alloc] initWithCapacity:2];
+	NSMutableString *suggestion = [[NSMutableString alloc] init];
+	
+	if (![self hasBSSID]) {
+		[suggestions addObject:@"turning on the phones wifi"];
+	}
+	
+	if ([self hasBadLocation]) {
+		[suggestions addObject:@"going outside"];
+	}
+	
+	[suggestion appendString:@"Hoccer needs your location to find your exchange partner. You can improve your location by "];
+	[suggestion appendString:[suggestions componentsJoinedByString:@" or "]];
+
+	return [suggestion autorelease];
 }
 
 
