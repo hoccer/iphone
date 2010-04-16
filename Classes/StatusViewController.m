@@ -12,16 +12,29 @@
 #import "NSObject+DelegateHelper.h"
 #import "HocItemData.h"
 
+@interface StatusViewController ()
+
+- (void)showRecoverySuggestion;
+- (void)hideRecoverySuggestion;
+
+@end
+
+
 @implementation StatusViewController
 
 @synthesize delegate;
 @synthesize hocItemData;
+
+- (void)viewDidLoad {
+	[self hideRecoverySuggestion];
+}
 
 - (void)dealloc {
 	[statusLabel release];
 	[activitySpinner release];
 	[progressView release];
 	[hocItemData release];
+	[hintButton release];
 	
     [super dealloc];
 }
@@ -48,16 +61,26 @@
 }
 
 - (void)setUpdate: (NSString *)update {
+	NSLog(@"setting update");
 	progressView.progress = 0;
 	progressView.hidden = NO;
 	activitySpinner.hidden = NO;
 	statusLabel.hidden = NO;
 	statusLabel.text = update;
+	
+	hintButton.hidden = YES;
+	[self hideRecoverySuggestion];
 }
 
 - (void)setError:(NSError *)error {
 	if ([error localizedDescription]) {
 		statusLabel.text = [error localizedDescription];
+		NSLog(@"recovery suggestion:@", [error localizedRecoverySuggestion]);
+		if ([error localizedRecoverySuggestion]) {
+			hintButton.hidden = NO;
+			hintText.text = [error localizedRecoverySuggestion];
+		}
+		
 	}
 	
 	self.view.hidden = NO;
@@ -105,5 +128,23 @@
 	}
 }
 
+- (void)showRecoverySuggestion {
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
+	hintText.hidden = NO;
+}
+
+- (void)hideRecoverySuggestion {
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 31); 
+	hintText.hidden = YES;
+}
+
+
+- (IBAction)toggelRecoveryHelp: (id)sender {
+	if (self.view.frame.size.height > 31) {
+		[self hideRecoverySuggestion];
+	} else {
+		[self showRecoverySuggestion];
+	}
+}
 
 @end

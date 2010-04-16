@@ -32,6 +32,7 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
+		oldHoccability = -1;
 		locationManager = [[CLLocationManager alloc] init];
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
@@ -48,7 +49,6 @@
 - (void) dealloc {
 	[[WifiScanner sharedScanner] removeObserver:self forKeyPath:@"bssids"];
 	[lastLocationUpdate release];
-	[geocoder release];
 	[locationManager stopUpdatingLocation];
 	[locationManager release];
 	
@@ -64,21 +64,8 @@
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
 		return;
 	
-	geocoder = [[MKReverseGeocoder alloc] initWithCoordinate: newLocation.coordinate];
-	geocoder.delegate = self;
-	
-	[geocoder start];
-	
 	self.lastLocationUpdate = [NSDate date];
 	[self updateHoccability];
-}
-
-- (void)reverseGeocoder:(MKReverseGeocoder *)aGeocoder didFindPlacemark: (MKPlacemark *)placemark {
-	[geocoder release];
-	geocoder = nil;
-}
-
-- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError: (NSError *)error {
 }
 
 - (HocLocation *)location {
@@ -97,7 +84,6 @@
 - (void)updateHoccability {
 	self.hoccability = 0;
 	
-	NSLog(@"accuracy: %f", locationManager.location.horizontalAccuracy);
 	if ([self hasLocation]) {
 		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
@@ -110,9 +96,13 @@
 		self.hoccability += 1;
 	}
 	
-	if ([delegate respondsToSelector:@selector(locationControllerDidUpdateLocation:)]) {
-		[delegate locationControllerDidUpdateLocation: self];
-	} 
+	if (hoccability != oldHoccability) {
+		if ([delegate respondsToSelector:@selector(locationControllerDidUpdateLocation:)]) {
+			[delegate locationControllerDidUpdateLocation: self];
+			oldHoccability = hoccability;
+		} 
+	}
+
 }
 
 - (NSError *)messageForLocationInformation {
@@ -136,15 +126,15 @@
 #pragma mark private userInfo Methods
 - (NSDictionary *)userInfoForImpreciseLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is imprecise!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Hoccer needs your location to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"Your location accuracy is imprecise!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Hoccer needs to locate you precisly to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
 
 	return [userInfo autorelease];
 }
 
 - (NSDictionary *)userInfoForBadLocation {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your location is very bad! You can not hoc with such a location" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"Your location is very imprecise! You can not hoc with such a location" forKey:NSLocalizedDescriptionKey];
 	[userInfo setObject:@"Hoccer needs your location to find your exchange partner. You can improve your location by going outside." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];

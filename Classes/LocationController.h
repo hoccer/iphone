@@ -14,15 +14,15 @@
 
 @class HocLocation;
 
-@interface LocationController : NSObject <MKReverseGeocoderDelegate, CLLocationManagerDelegate> {
+@interface LocationController : NSObject <CLLocationManagerDelegate> {
 	CLLocationManager *locationManager;
 	NSDate *lastLocationUpdate;
-	MKReverseGeocoder *geocoder;
 	NSInteger hoccability;
 	id <LocationControllerDelegate> delegate;
 
 	@private 
 	CLLocation *currentLocation;
+	NSInteger oldHoccability;
 }
 
 @property (retain) NSDate *lastLocationUpdate;

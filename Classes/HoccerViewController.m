@@ -290,6 +290,8 @@
 }
 
 - (void)hocItem: (HocItemData*) item uploadFailedWithError: (NSError *)error {
+	[statusViewController setError:error];
+
 	item.viewOrigin = self.defaultOrigin;
 	[desktopView reloadData];
 }
@@ -310,7 +312,7 @@
 
 - (void)hocItem: (HocItemData *)item downloadFailedWithError: (NSError *)error  {
 	statusViewController.hocItemData = nil;
-	
+	[statusViewController setError:error];
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
@@ -324,6 +326,8 @@
 #pragma mark LocationController Delegate Methods
 
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
+	NSLog(@"hoccability: %d", controller.hoccability);
+	
 	if (controller.hoccability == 0) {
 		blocked = YES;
 	} else {

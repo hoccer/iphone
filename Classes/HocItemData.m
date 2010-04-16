@@ -247,7 +247,7 @@
 - (NSDictionary *)userInfoForNoThrower {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:@"Nothing was thrown to you!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"You can use hoccer to catch something that way thrown by someone near you. Timing is important. You need to catch just after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"You can use hoccer to catch something that was thrown by someone near you. \nTiming is important. You need to catch just after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
 
 	return [userInfo autorelease];
 	
@@ -255,7 +255,7 @@
 
 - (NSDictionary *)userInfoForNoSecondSweeper {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"No second sweeper was found!" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"No second sweeper found!" forKey:NSLocalizedDescriptionKey];
 	[userInfo setObject:@"Asure that you really sweept over the edges of both devices." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];

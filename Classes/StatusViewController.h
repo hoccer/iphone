@@ -15,6 +15,9 @@
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UIActivityIndicatorView *activitySpinner;
 	IBOutlet UILabel *statusLabel;
+
+	IBOutlet UIButton *hintButton;
+	IBOutlet UITextView *hintText;
 	
 	HocItemData *hocItemData;
 }
@@ -30,6 +33,7 @@
 - (void)hideActivityInfo;
 
 - (IBAction) cancelAction: (id) sender;
+- (IBAction)toggelRecoveryHelp: (id)sender;
 
 - (void)monitorHocItem: (HocItemData *)hocItem;
 @end
