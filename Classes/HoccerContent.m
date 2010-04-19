@@ -33,8 +33,7 @@
 	[encoder encodeObject:filepath forKey:@"filepath"];
 }
 
-- (id) initWithFilename: (NSString *)filename
-{
+- (id) initWithFilename: (NSString *)filename {
 	self = [super init];
 	if (self != nil) {
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
@@ -48,11 +47,8 @@
 		}
 	}
 	
-	
 	return self;
 }
-
-
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename {
 	self = [super init];
@@ -180,6 +176,28 @@
 
 - (NSURL *)fileUrl {
 	return [NSURL fileURLWithPath:self.filepath];
+}
+
+- (NSString *)uniqueFilenameFromFilename: (NSString *)filename {
+	if (![[NSFileManager defaultManager] fileExistsAtPath:filename]) {
+		return filename;
+	};
+	
+	NSString *extension = [filename pathExtension];
+	NSString *baseFilename = [filename stringByDeletingPathExtension];
+	
+	
+	NSInteger i = 1;
+	NSString* newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
+	newFilename = [newFilename stringByAppendingPathExtension: extension];
+	while ([[NSFileManager defaultManager] fileExistsAtPath:newFilename]) {
+		i++;
+		
+		newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
+		newFilename = [newFilename stringByAppendingPathExtension: extension];
+	}
+	
+	return newFilename;
 }
 
 @end

@@ -50,4 +50,6 @@
 - (void)decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController;
 - (void)previewInViewController: (UIViewController *)viewController;
 
+- (NSString *)uniqueFilenameFromFilename: (NSString *)filename;
+
 @end
