@@ -13,7 +13,7 @@
 #import "HocItemData.h"
 
 @interface StatusViewController ()
-
+@property (retain) NSError *badLocationHint;
 - (void)showRecoverySuggestion;
 - (void)hideRecoverySuggestion;
 
@@ -24,6 +24,7 @@
 
 @synthesize delegate;
 @synthesize hocItemData;
+@synthesize badLocationHint;
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
@@ -35,6 +36,8 @@
 	[progressView release];
 	[hocItemData release];
 	[hintButton release];
+	[cancelButton release];
+	[badLocationHint release];
 	
     [super dealloc];
 }
@@ -58,6 +61,10 @@
 	
 	[hocItemData cancelRequest];
 	self.hocItemData = nil;
+	
+	if (badLocationHint != nil) {
+		[self showLocationHint:badLocationHint];
+	}
 }
 
 - (void)setUpdate: (NSString *)update {
@@ -69,21 +76,9 @@
 	statusLabel.text = update;
 	
 	hintButton.hidden = YES;
-	[self hideRecoverySuggestion];
-}
+	cancelButton.hidden = NO;
 
-- (void)setError:(NSError *)error {
-	if ([error localizedDescription]) {
-		statusLabel.text = [error localizedDescription];
-		NSLog(@"recovery suggestion:@", [error localizedRecoverySuggestion]);
-		if ([error localizedRecoverySuggestion]) {
-			hintButton.hidden = NO;
-			hintText.text = [error localizedRecoverySuggestion];
-		}
-		
-	}
-	
-	self.view.hidden = NO;
+	[self hideRecoverySuggestion];
 }
 
 - (void)setErrorMessage: (NSString *)message {
@@ -127,6 +122,31 @@
 		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
 	}
 }
+
+- (void)setError:(NSError *)error {
+	if ([error localizedDescription]) {
+		statusLabel.text = [error localizedDescription];
+		if ([error localizedRecoverySuggestion]) {
+			hintButton.hidden = NO;
+			hintText.text = [error localizedRecoverySuggestion];
+		}
+		
+	}
+	cancelButton.hidden = NO;
+	self.view.hidden = NO;
+}
+
+- (void)showLocationHint: (NSError *)hint {
+	if (hint != nil) {
+		[self setError: hint];
+		cancelButton.hidden = YES;
+	} else {
+		[self hideActivityInfo];
+	}
+
+	self.badLocationHint = hint;
+}
+
 
 - (void)showRecoverySuggestion {
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);

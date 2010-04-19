@@ -18,8 +18,11 @@
 
 	IBOutlet UIButton *hintButton;
 	IBOutlet UITextView *hintText;
+	IBOutlet UIButton *cancelButton;
 	
 	HocItemData *hocItemData;
+	
+	NSError *badLocationHint;
 }
 
 @property (assign) id delegate;
@@ -29,6 +32,7 @@
 - (void)setError: (NSError *)error;
 - (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
+- (void)showLocationHint: (NSError *)hint;
 - (void)showActivityInfo;
 - (void)hideActivityInfo;
 

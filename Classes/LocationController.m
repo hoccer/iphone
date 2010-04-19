@@ -41,7 +41,7 @@
 		locationManager.delegate = self;
 		[locationManager startUpdatingLocation];
 		
-		[WifiScanner sharedScanner];
+		[WifiScanner sharedScanner].delegate = self;
 		[self updateHoccability];
 		
 		[[WifiScanner sharedScanner] addObserver:self forKeyPath:@"bssids" options:NSKeyValueObservingOptionNew context:nil];
@@ -69,6 +69,11 @@
 		return;
 	
 	self.lastLocationUpdate = [NSDate date];
+	[self updateHoccability];
+}
+
+- (void)wifiScannerDidUpdateBssids: (WifiScanner *)scanner {
+	self.bssids = [WifiScanner sharedScanner].bssids;
 	[self updateHoccability];
 }
 
@@ -114,7 +119,6 @@
 }
 
 - (NSError *)messageForLocationInformation {
-	NSLog(@"accuracy: %f, %d", self.location.location.horizontalAccuracy, [self hasLocation]);
 	if (![self hasLocation] ||  self.location.location.horizontalAccuracy > 2000) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerBadLocation userInfo:[self userInfoForBadLocation]];
 	}
@@ -124,12 +128,6 @@
 	}
 	
 	return nil;
-}
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {	
-	self.bssids = [WifiScanner sharedScanner].bssids;
-	[self updateHoccability];
 }
 
 #pragma mark -

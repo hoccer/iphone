@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "WifiScannerDelegate.h"
 
 @interface WifiScanner : NSObject {
 	void* wifiHandle;
@@ -20,11 +20,12 @@
 	NSArray *scannedNetworks;
 	BOOL repeat;
 	
-	id delegate;
+	id <WifiScannerDelegate> delegate;
 }
 
 @property (readonly) NSArray *bssids;
 @property (nonatomic, retain) NSArray *scannedNetworks;
+@property (nonatomic, assign) id <WifiScannerDelegate> delegate;
 
 + (WifiScanner *)sharedScanner;
 - (void)scanNetwork;

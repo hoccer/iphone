@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
+#import "WifiScannerDelegate.h"
 
 #define kHoccerImpreciseLocation 1
 #define kHoccerBadLocation 2
 
 @class HocLocation;
 
-@interface LocationController : NSObject <CLLocationManagerDelegate> {
+@interface LocationController : NSObject <CLLocationManagerDelegate, WifiScannerDelegate> {
 	CLLocationManager *locationManager;
 	NSDate *lastLocationUpdate;
 	NSInteger hoccability;

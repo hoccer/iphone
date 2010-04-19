@@ -15,6 +15,7 @@ static WifiScanner *wifiScannerInstance;
 @implementation WifiScanner
 
 @synthesize scannedNetworks;
+@synthesize delegate;
 
 + (WifiScanner *)sharedScanner {
 	if (wifiScannerInstance == nil) {
@@ -56,6 +57,17 @@ static WifiScanner *wifiScannerInstance;
 	}
 }
 
+- (void)setScannedNetworks:(NSArray *)networks {
+	if (scannedNetworks != networks) {
+		[scannedNetworks release];
+		scannedNetworks = [networks retain];
+	} 
+	
+	if ([delegate respondsToSelector:@selector(wifiScannerDidUpdateBssids:)]) {
+		[delegate wifiScannerDidUpdateBssids: self]; 
+	}
+}
+
 - (NSArray *)bssids 
 {
 	if (scannedNetworks == nil) {
@@ -78,6 +90,8 @@ static WifiScanner *wifiScannerInstance;
 	
 	[self performSelectorOnMainThread:@selector(setScannedNetworks:) withObject:newScanNetworks waitUntilDone:NO];
 	[newScanNetworks release];
+	
+
 }
 
 - (void) dealloc {

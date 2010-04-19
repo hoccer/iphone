@@ -526,6 +526,7 @@
 		229A9122114E737A0069A0EA /* DesktopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopView.m; sourceTree = "<group>"; };
 		229AA916115B753A00290513 /* HoccerContentFactoryIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentFactoryIPhone.h; sourceTree = "<group>"; };
 		229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerContentFactoryIPhone.m; sourceTree = "<group>"; };
+		229D6133117C3E0500058A4C /* WifiScannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScannerDelegate.h; sourceTree = "<group>"; };
 		229D9F7D114FEE0200459ED9 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		229D9F7E114FEE0200459ED9 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		229DAF11107B331F00B47ABE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -1016,6 +1017,7 @@
 				22977AC311104F1C00B55D3F /* WifiScanner.m */,
 				22977B2611105C4500B55D3F /* HocLocation.h */,
 				22977B2711105C4500B55D3F /* HocLocation.m */,
+				229D6133117C3E0500058A4C /* WifiScannerDelegate.h */,
 			);
 			name = Wifi;
 			sourceTree = "<group>";
