@@ -63,6 +63,8 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
 		   fromLocation:(CLLocation *)oldLocation {
 	self.currentLocation = newLocation;
+	NSLog(@"accuracy %f", currentLocation.horizontalAccuracy);
+	NSLog(@"hasLocation %d", currentLocation.horizontalAccuracy != 0.0);
 	[self updateHoccability];
 	
 	if ([[NSDate date] timeIntervalSinceDate: lastLocationUpdate] < 10)
@@ -83,7 +85,7 @@
 }
 
 - (BOOL)hasLocation {
-	return (currentLocation.horizontalAccuracy != 0);
+	return (currentLocation.horizontalAccuracy != 0.0 && [currentLocation.timestamp timeIntervalSinceNow] > -10);
 }
 
 - (BOOL)hasBadLocation {
