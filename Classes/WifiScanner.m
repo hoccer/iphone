@@ -90,12 +90,10 @@ static WifiScanner *wifiScannerInstance;
 	
 	[self performSelectorOnMainThread:@selector(setScannedNetworks:) withObject:newScanNetworks waitUntilDone:NO];
 	[newScanNetworks release];
-	
-
 }
 
 - (void) dealloc {
-	self.scannedNetworks = nil;
+	[scannedNetworks release];
 	[super dealloc];
 }
 
