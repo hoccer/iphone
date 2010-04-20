@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */; };
+		220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -32,11 +34,9 @@
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
 		2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
-		22762F62105E78AF003BF968 /* 2_values.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22762F61105E78AF003BF968 /* 2_values.txt */; };
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		227687C2109047E4000528E8 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
 		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
-		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22791C59108C570F00059D05 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		22798F46105FABAD0035C643 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
 		22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22798F45105FABAD0035C643 /* DebugViewController.xib */; };
@@ -102,45 +102,12 @@
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
-		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
-		229A82C7116B664000FFAD1B /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0901160BA1E004BCD3D /* HocItemData.m */; };
-		229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
-		229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
-		229A82CE116B665900FFAD1B /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
-		229A82CF116B665900FFAD1B /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
-		229A82D0116B665900FFAD1B /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
-		229A82D1116B665900FFAD1B /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
-		229A82D2116B665900FFAD1B /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
-		229A82D3116B665900FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
-		229A82DC116B66A900FFAD1B /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
-		229A82DD116B66A900FFAD1B /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
-		229A82DE116B66B100FFAD1B /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
-		229A82DF116B66B100FFAD1B /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
-		229A82E0116B66B100FFAD1B /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
-		229A82E1116B66B100FFAD1B /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
-		229A82E2116B66B100FFAD1B /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
-		229A82E7116B66CF00FFAD1B /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
-		229A82E8116B66E900FFAD1B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
-		229A82E9116B66E900FFAD1B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4121055556200ABE5A2 /* NSString+SBJSON.m */; };
-		229A82EA116B66E900FFAD1B /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4141055556200ABE5A2 /* SBJSON.m */; };
-		229A82EB116B66E900FFAD1B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4161055556200ABE5A2 /* SBJsonBase.m */; };
-		229A82EC116B66E900FFAD1B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
-		229A82ED116B66E900FFAD1B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
-		229A82F2116B670400FFAD1B /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
-		229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
-		229A82F4116B670400FFAD1B /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
-		229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
-		229A82F6116B670400FFAD1B /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
-		229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
 		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
 		229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A8440116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A843F116B807600FFAD1B /* HoccerContentIPhonePreviewDelegate.m */; };
 		229A9123114E737A0069A0EA /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
 		229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
-		229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
-		229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
-		229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
@@ -281,18 +248,6 @@
 		22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEA1159160D00EFD709 /* SelectContentTableView.xib */; };
 		22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CBEB1159160D00EFD709 /* StatusViewController.xib */; };
 		22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CC19115925E600EFD709 /* HoccerViewControlleriPad.m */; };
-		22B65A0311770304003E7058 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
-		22B65A0611770346003E7058 /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
-		22B65A0F117703E1003E7058 /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
-		22B65A32117708AD003E7058 /* FeatureHistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E311068D09700B03B61 /* FeatureHistoryTests.m */; };
-		22B65A35117708D8003E7058 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
-		22B65A36117708D8003E7058 /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
-		22B65A37117708D8003E7058 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
-		22B65A38117708D8003E7058 /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
-		22B65A39117708D8003E7058 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
-		22B65A3C117708FC003E7058 /* UIAcceleration+TestSetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FA7105E7D88003BF968 /* UIAcceleration+TestSetters.m */; };
-		22B65A3D117708FC003E7058 /* MockedAccelerometerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DD9105E541D003BF968 /* MockedAccelerometerDelegate.m */; };
-		22B65A3E117708FC003E7058 /* UIAccelerometer+TestPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */; };
 		22B65A4A1177095A003E7058 /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22B65A5111770975003E7058 /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
 		22B65A5211770975003E7058 /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
@@ -303,19 +258,35 @@
 		22B65A5711770976003E7058 /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
 		22B65A5811770976003E7058 /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		22B65A5911770976003E7058 /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
-		22B65A5E117709DA003E7058 /* LocationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A5D117709DA003E7058 /* LocationControllerTest.m */; };
-		22B65A9D11770FCB003E7058 /* HoccerMessageResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A9C11770FCB003E7058 /* HoccerMessageResolver.m */; };
 		22B65A9E11770FCB003E7058 /* HoccerMessageResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A9C11770FCB003E7058 /* HoccerMessageResolver.m */; };
 		22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A9C11770FCB003E7058 /* HoccerMessageResolver.m */; };
-		22B65AAB11771650003E7058 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
-		22B65AEE117716B6003E7058 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		22B65B0311771A1C003E7058 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
-		22B65B2E11771CFE003E7058 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
-		22B65BEC11775775003E7058 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
-		22B65BEF1177577F003E7058 /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
-		22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22C0B27A117DD80D009E3E3C /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		22C0B27B117DD80D009E3E3C /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		22C0B37D117DF276009E3E3C /* libGHUnitIPhone3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */; };
+		22C0B37E117DF288009E3E3C /* GHUnitIPhoneTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */; };
+		22C0B383117DF29B009E3E3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		22C0B38F117DF455009E3E3C /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B2DF117DEF5D009E3E3C /* Makefile */; };
+		22C0B3A5117DF597009E3E3C /* LocationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A5D117709DA003E7058 /* LocationControllerTest.m */; };
+		22C0B3BF117DF804009E3E3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		22C0B3C0117DF80F009E3E3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
+		22C0B3D4117DF9EA009E3E3C /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
+		22C0B3D8117DF9F9009E3E3C /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
+		22C0B3D9117DF9F9009E3E3C /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		22C0B3DD117DFA37009E3E3C /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
+		22C0B3DE117DFA37009E3E3C /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
+		22C0B3DF117DFA37009E3E3C /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
+		22C0B3E0117DFA37009E3E3C /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22C0B402117DFB93009E3E3C /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275C0106A107A00AAC17E /* RegExpTests.m */; };
+		22C0B417117DFC3C009E3E3C /* MockedAccelerometerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DD9105E541D003BF968 /* MockedAccelerometerDelegate.m */; };
+		22C0B418117DFC3C009E3E3C /* UIAccelerometer+TestPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762DDB105E541D003BF968 /* UIAccelerometer+TestPlayback.m */; };
+		22C0B419117DFC3C009E3E3C /* GesturesInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FB7105E84B5003BF968 /* GesturesInterpreter.m */; };
+		22C0B41A117DFC3C009E3E3C /* LineFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989661067CB9200FB3E5D /* LineFeature.m */; };
+		22C0B41B117DFC3C009E3E3C /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
+		22C0B41C117DFC3C009E3E3C /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
+		22C0B41D117DFC3C009E3E3C /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
 		22D72FE710A8498B000AEA79 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D72FE610A8498B000AEA79 /* Arrow.png */; };
 		22D7300A10A84EF8000AEA79 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
@@ -338,16 +309,6 @@
 		E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
 		E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64B7800109491AA0005ACA3 /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		22798DFF105F7DBD0035C643 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = Hoccer;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -397,7 +358,6 @@
 		2271E32B109F355A003D5C68 /* ACThinProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThinProgressView.m; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
-		22762D03105E412A003BF968 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22762D04105E412A003BF968 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		22762D76105E4A24003BF968 /* AccelerometerTestFrameworkTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerTestFrameworkTests.h; path = Tests/AccelerometerTestFrameworkTests.h; sourceTree = "<group>"; };
 		22762D77105E4A24003BF968 /* AccelerometerTestFrameworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerometerTestFrameworkTests.m; path = Tests/AccelerometerTestFrameworkTests.m; sourceTree = "<group>"; };
@@ -589,6 +549,30 @@
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
 		22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
+		22C0B1F4117DCE85009E3E3C /* HoccerClientTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientTestCase.h; sourceTree = "<group>"; };
+		22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClientTestCase.m; sourceTree = "<group>"; };
+		22C0B266117DD6FF009E3E3C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "/Users/robertp/Downloads/OCMock 1.55/OCMock.framework"; sourceTree = "<absolute>"; };
+		22C0B277117DD80D009E3E3C /* HoccerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClient.h; sourceTree = "<group>"; };
+		22C0B278117DD80D009E3E3C /* HoccerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClient.m; sourceTree = "<group>"; };
+		22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientDelegate.h; sourceTree = "<group>"; };
+		22C0B2D2117DEF5D009E3E3C /* GHAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHAsyncTestCase.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHAsyncTestCase.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D3117DEF5D009E3E3C /* GHTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTest.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTest.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D4117DEF5D009E3E3C /* GHTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestCase.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestCase.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D5117DEF5D009E3E3C /* GHTestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestGroup.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestGroup.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D6117DEF5D009E3E3C /* GHTesting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTesting.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTesting.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D7117DEF5D009E3E3C /* GHTestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestMacros.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestMacros.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D8117DEF5D009E3E3C /* GHTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestRunner.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestRunner.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2D9117DEF5D009E3E3C /* GHTestSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestSuite.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestSuite.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2DA117DEF5D009E3E3C /* GHUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHUnit.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUnit.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2DB117DEF5D009E3E3C /* GHUnitIPhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHUnitIPhoneAppDelegate.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUnitIPhoneAppDelegate.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHUnitIPhoneTestMain.m; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUnitIPhoneTestMain.m"; sourceTree = SOURCE_ROOT; };
+		22C0B2DD117DEF5D009E3E3C /* GHUNSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GHUNSObject+Swizzle.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUNSObject+Swizzle.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIPhone3_0.a; path = "../../../Downloads/libGHUnitIPhone3_0-0/libGHUnitIPhone3_0.a"; sourceTree = SOURCE_ROOT; };
+		22C0B2DF117DEF5D009E3E3C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = "../../../Downloads/libGHUnitIPhone3_0-0/Makefile"; sourceTree = SOURCE_ROOT; };
+		22C0B2E0117DEF5D009E3E3C /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSException+GHTestFailureExceptions.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/NSException+GHTestFailureExceptions.h"; sourceTree = SOURCE_ROOT; };
+		22C0B2E1117DEF5D009E3E3C /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+GHValueFormatter.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/NSValue+GHValueFormatter.h"; sourceTree = SOURCE_ROOT; };
+		22C0B36D117DF212009E3E3C /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22C0B36F117DF212009E3E3C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		22C72D091096036B00CB3BD8 /* GTMUIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMUIImage+Resize.h"; sourceTree = "<group>"; };
 		22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMUIImage+Resize.m"; sourceTree = "<group>"; };
 		22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureHistory.h; path = GesturesInterpreter/FeatureHistory.h; sourceTree = "<group>"; };
@@ -641,21 +625,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22762D00105E412A003BF968 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */,
-				22BC5D4C107B46D900497EF4 /* AddressBook.framework in Frameworks */,
-				229D9D6E114FC1E000459ED9 /* AudioToolbox.framework in Frameworks */,
-				229D9D82114FC21500459ED9 /* AddressBookUI.framework in Frameworks */,
-				229D9E4B114FC22100459ED9 /* Foundation.framework in Frameworks */,
-				22B65A0311770304003E7058 /* QuartzCore.framework in Frameworks */,
-				22B65AEE117716B6003E7058 /* UIKit.framework in Frameworks */,
-				22B65B2E11771CFE003E7058 /* CoreLocation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		22B1CBCF1159160600EFD709 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -671,6 +640,18 @@
 				22B1CBD81159160600EFD709 /* QuartzCore.framework in Frameworks */,
 				22B1CBD91159160600EFD709 /* AudioToolbox.framework in Frameworks */,
 				22903B51116DC2E700230C1E /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22C0B36B117DF212009E3E3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22C0B37D117DF276009E3E3C /* libGHUnitIPhone3_0.a in Frameworks */,
+				22C0B383117DF29B009E3E3C /* CoreGraphics.framework in Frameworks */,
+				22C0B3BF117DF804009E3E3C /* Foundation.framework in Frameworks */,
+				22C0B3C0117DF80F009E3E3C /* UIKit.framework in Frameworks */,
+				22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +671,7 @@
 				227990C3105FE2F20035C643 /* Debug */,
 				22762FB9105E8512003BF968 /* AccelerationRecorder */,
 				2205A6E21057C27F005C5036 /* Content */,
+				22C0B276117DD7D4009E3E3C /* HoccerClient */,
 				223BC3411055320A00ABE5A2 /* Communication */,
 				223BC43C10555AD300ABE5A2 /* Helper */,
 				224F8A88108CB80400F69B53 /* View */,
@@ -718,8 +700,8 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* Hoccer.app */,
-				22762D03105E412A003BF968 /* Test.octest */,
 				22B1CBDE1159160600EFD709 /* Hoccer-iPad.app */,
+				22C0B36D117DF212009E3E3C /* Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -745,6 +727,13 @@
 				22791C58108C570F00059D05 /* HoccerVcard.m */,
 			);
 			name = Content;
+			sourceTree = "<group>";
+		};
+		220FAF2F117E0135004DD560 /* Y60AsyncTestHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Y60AsyncTestHelper;
 			sourceTree = "<group>";
 		};
 		223BC3411055320A00ABE5A2 /* Communication */ = {
@@ -830,6 +819,9 @@
 		22762D17105E4408003BF968 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				220FAF2F117E0135004DD560 /* Y60AsyncTestHelper */,
+				22C0B2D1117DEF08009E3E3C /* GHUnit */,
+				22C0B1E4117DBFFC009E3E3C /* HoccerClient */,
 				22B65C5511775ED4003E7058 /* GestureTests */,
 				229DAF55107B3BD000B47ABE /* vcard */,
 				22762D7E105E4F98003BF968 /* AcceletometerTestFramework */,
@@ -1171,6 +1163,48 @@
 			name = GestureTests;
 			sourceTree = "<group>";
 		};
+		22C0B1E4117DBFFC009E3E3C /* HoccerClient */ = {
+			isa = PBXGroup;
+			children = (
+				22C0B1F4117DCE85009E3E3C /* HoccerClientTestCase.h */,
+				22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */,
+			);
+			name = HoccerClient;
+			sourceTree = "<group>";
+		};
+		22C0B276117DD7D4009E3E3C /* HoccerClient */ = {
+			isa = PBXGroup;
+			children = (
+				22C0B277117DD80D009E3E3C /* HoccerClient.h */,
+				22C0B278117DD80D009E3E3C /* HoccerClient.m */,
+				22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */,
+			);
+			name = HoccerClient;
+			sourceTree = "<group>";
+		};
+		22C0B2D1117DEF08009E3E3C /* GHUnit */ = {
+			isa = PBXGroup;
+			children = (
+				22C0B2D2117DEF5D009E3E3C /* GHAsyncTestCase.h */,
+				22C0B2D3117DEF5D009E3E3C /* GHTest.h */,
+				22C0B2D4117DEF5D009E3E3C /* GHTestCase.h */,
+				22C0B2D5117DEF5D009E3E3C /* GHTestGroup.h */,
+				22C0B2D6117DEF5D009E3E3C /* GHTesting.h */,
+				22C0B2D7117DEF5D009E3E3C /* GHTestMacros.h */,
+				22C0B2D8117DEF5D009E3E3C /* GHTestRunner.h */,
+				22C0B2D9117DEF5D009E3E3C /* GHTestSuite.h */,
+				22C0B2DA117DEF5D009E3E3C /* GHUnit.h */,
+				22C0B2DB117DEF5D009E3E3C /* GHUnitIPhoneAppDelegate.h */,
+				22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */,
+				22C0B2DD117DEF5D009E3E3C /* GHUNSObject+Swizzle.h */,
+				22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */,
+				22C0B2DF117DEF5D009E3E3C /* Makefile */,
+				22C0B2E0117DEF5D009E3E3C /* NSException+GHTestFailureExceptions.h */,
+				22C0B2E1117DEF5D009E3E3C /* NSValue+GHValueFormatter.h */,
+			);
+			name = GHUnit;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1217,7 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				22762D04105E412A003BF968 /* Test-Info.plist */,
 				227630E1105E99E5003BF968 /* HoccerTests-Info.plist */,
+				22C0B36F117DF212009E3E3C /* Tests-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1238,6 +1273,7 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				229779FA111031C100B55D3F /* AudioToolbox.framework */,
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
+				22C0B266117DD6FF009E3E3C /* OCMock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1262,25 +1298,6 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Hoccer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22762D02105E412A003BF968 /* Test */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 22762D07105E412B003BF968 /* Build configuration list for PBXNativeTarget "Test" */;
-			buildPhases = (
-				22762CFE105E412A003BF968 /* Resources */,
-				22762CFF105E412A003BF968 /* Sources */,
-				22762D00105E412A003BF968 /* Frameworks */,
-				22762D01105E412A003BF968 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				22798E00105F7DBD0035C643 /* PBXTargetDependency */,
-			);
-			name = Test;
-			productName = Test;
-			productReference = 22762D03105E412A003BF968 /* Test.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		22B1CB601159160600EFD709 /* Hoccer-iPad */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22B1CBDA1159160600EFD709 /* Build configuration list for PBXNativeTarget "Hoccer-iPad" */;
@@ -1296,6 +1313,23 @@
 			name = "Hoccer-iPad";
 			productName = Hoccer;
 			productReference = 22B1CBDE1159160600EFD709 /* Hoccer-iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22C0B36C117DF212009E3E3C /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22C0B373117DF213009E3E3C /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				22C0B369117DF212009E3E3C /* Resources */,
+				22C0B36A117DF212009E3E3C /* Sources */,
+				22C0B36B117DF212009E3E3C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 22C0B36D117DF212009E3E3C /* Tests.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1314,8 +1348,8 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Hoccer */,
-				22762D02105E412A003BF968 /* Test */,
 				22B1CB601159160600EFD709 /* Hoccer-iPad */,
+				22C0B36C117DF212009E3E3C /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1383,15 +1417,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		22762CFE105E412A003BF968 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				22762F62105E78AF003BF968 /* 2_values.txt in Resources */,
-				229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		22B1CB611159160600EFD709 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1453,23 +1478,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		22762D01105E412A003BF968 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+		22C0B369117DF212009E3E3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-/* End PBXShellScriptBuildPhase section */
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -1547,59 +1563,7 @@
 				22B65A5411770975003E7058 /* CatchDetector.m in Sources */,
 				22B65A5511770975003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9E11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		22762CFF105E412A003BF968 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */,
-				229A82C7116B664000FFAD1B /* HocItemData.m in Sources */,
-				229A82CC116B665900FFAD1B /* BaseHoccerRequest.m in Sources */,
-				229A82CD116B665900FFAD1B /* HoccerDownloadRequest.m in Sources */,
-				229A82CE116B665900FFAD1B /* HoccerUploadRequest.m in Sources */,
-				229A82CF116B665900FFAD1B /* UploadRequest.m in Sources */,
-				229A82D0116B665900FFAD1B /* PeerGroupPollingRequest.m in Sources */,
-				229A82D1116B665900FFAD1B /* PeerGroupRequest.m in Sources */,
-				229A82D2116B665900FFAD1B /* DownloadRequest.m in Sources */,
-				229A82D3116B665900FFAD1B /* HoccerRequest.m in Sources */,
-				229A82DC116B66A900FFAD1B /* HoccerContentFactory.m in Sources */,
-				229A82DD116B66A900FFAD1B /* HoccerContentFactoryIPhone.m in Sources */,
-				229A82DE116B66B100FFAD1B /* HoccerContent.m in Sources */,
-				229A82DF116B66B100FFAD1B /* HoccerImage.m in Sources */,
-				229A82E0116B66B100FFAD1B /* HoccerUrl.m in Sources */,
-				229A82E1116B66B100FFAD1B /* HoccerText.m in Sources */,
-				229A82E2116B66B100FFAD1B /* HoccerVcard.m in Sources */,
-				229A82E7116B66CF00FFAD1B /* Preview.m in Sources */,
-				229A82E8116B66E900FFAD1B /* NSObject+SBJSON.m in Sources */,
-				229A82E9116B66E900FFAD1B /* NSString+SBJSON.m in Sources */,
-				229A82EA116B66E900FFAD1B /* SBJSON.m in Sources */,
-				229A82EB116B66E900FFAD1B /* SBJsonBase.m in Sources */,
-				229A82EC116B66E900FFAD1B /* SBJsonParser.m in Sources */,
-				229A82ED116B66E900FFAD1B /* SBJsonWriter.m in Sources */,
-				229A82F2116B670400FFAD1B /* VcardWriter.m in Sources */,
-				229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */,
-				229A82F4116B670400FFAD1B /* VcardParser.m in Sources */,
-				229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */,
-				229A82F6116B670400FFAD1B /* ACPerson.m in Sources */,
-				22B65A0611770346003E7058 /* RegExpTests.m in Sources */,
-				22B65A0F117703E1003E7058 /* NSString+Regexp.m in Sources */,
-				22B65A32117708AD003E7058 /* FeatureHistoryTests.m in Sources */,
-				22B65A35117708D8003E7058 /* GesturesInterpreter.m in Sources */,
-				22B65A36117708D8003E7058 /* LineFeature.m in Sources */,
-				22B65A37117708D8003E7058 /* FeatureHistory.m in Sources */,
-				22B65A38117708D8003E7058 /* CatchDetector.m in Sources */,
-				22B65A39117708D8003E7058 /* ThrowDetector.m in Sources */,
-				22B65A3C117708FC003E7058 /* UIAcceleration+TestSetters.m in Sources */,
-				22B65A3D117708FC003E7058 /* MockedAccelerometerDelegate.m in Sources */,
-				22B65A3E117708FC003E7058 /* UIAccelerometer+TestPlayback.m in Sources */,
-				22B65A5E117709DA003E7058 /* LocationControllerTest.m in Sources */,
-				22B65A9D11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
-				22B65AAB11771650003E7058 /* AccelerationRecorder.m in Sources */,
-				22B65B0311771A1C003E7058 /* HocLocation.m in Sources */,
-				22B65BEC11775775003E7058 /* LocationController.m in Sources */,
-				22B65BEF1177577F003E7058 /* WifiScanner.m in Sources */,
+				22C0B27A117DD80D009E3E3C /* HoccerClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1679,18 +1643,38 @@
 				22B65A5811770976003E7058 /* CatchDetector.m in Sources */,
 				22B65A5911770976003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
+				22C0B27B117DD80D009E3E3C /* HoccerClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22C0B36A117DF212009E3E3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22C0B37E117DF288009E3E3C /* GHUnitIPhoneTestMain.m in Sources */,
+				22C0B38F117DF455009E3E3C /* Makefile in Sources */,
+				22C0B3A5117DF597009E3E3C /* LocationControllerTest.m in Sources */,
+				22C0B3D4117DF9EA009E3E3C /* LocationController.m in Sources */,
+				22C0B3D8117DF9F9009E3E3C /* WifiScanner.m in Sources */,
+				22C0B3D9117DF9F9009E3E3C /* HocLocation.m in Sources */,
+				22C0B3DD117DFA37009E3E3C /* GTMUIImage+Resize.m in Sources */,
+				22C0B3DE117DFA37009E3E3C /* NSObject+DelegateHelper.m in Sources */,
+				22C0B3DF117DFA37009E3E3C /* NSString+Regexp.m in Sources */,
+				22C0B3E0117DFA37009E3E3C /* NSString+StringWithData.m in Sources */,
+				22C0B402117DFB93009E3E3C /* RegExpTests.m in Sources */,
+				22C0B417117DFC3C009E3E3C /* MockedAccelerometerDelegate.m in Sources */,
+				22C0B418117DFC3C009E3E3C /* UIAccelerometer+TestPlayback.m in Sources */,
+				22C0B419117DFC3C009E3E3C /* GesturesInterpreter.m in Sources */,
+				22C0B41A117DFC3C009E3E3C /* LineFeature.m in Sources */,
+				22C0B41B117DFC3C009E3E3C /* FeatureHistory.m in Sources */,
+				22C0B41C117DFC3C009E3E3C /* CatchDetector.m in Sources */,
+				22C0B41D117DFC3C009E3E3C /* ThrowDetector.m in Sources */,
+				220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */,
+				220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		22798E00105F7DBD0035C643 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1D6058900D05DD3D006BFB54 /* Hoccer */;
-			targetProxy = 22798DFF105F7DBD0035C643 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -1719,68 +1703,6 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		22762D05105E412B003BF968 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Resources\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "Test-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Test;
-				TEST_HOST = "";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		22762D06105E412B003BF968 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Resources\"",
-				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				INFOPLIST_FILE = "Test-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Test;
-				TEST_HOST = "";
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -1813,37 +1735,6 @@
 			};
 			name = Distribution;
 		};
-		227CA1ED10AC410900418A4D /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/Resources\"",
-				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				INFOPLIST_FILE = "Test-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = Test;
-				TEST_HOST = "";
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
-			};
-			name = Distribution;
-		};
 		22B1CBDB1159160600EFD709 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1857,6 +1748,10 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1874,6 +1769,10 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1891,9 +1790,96 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Distribution;
+		};
+		22C0B370117DF213009E3E3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Debug;
+		};
+		22C0B371117DF213009E3E3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				SDKROOT = iphoneos3.2;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		22C0B372117DF213009E3E3C /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Tests;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Distribution;
 		};
@@ -1942,22 +1928,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22762D07105E412B003BF968 /* Build configuration list for PBXNativeTarget "Test" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				22762D05105E412B003BF968 /* Debug */,
-				22762D06105E412B003BF968 /* Release */,
-				227CA1ED10AC410900418A4D /* Distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		22B1CBDA1159160600EFD709 /* Build configuration list for PBXNativeTarget "Hoccer-iPad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22B1CBDB1159160600EFD709 /* Debug */,
 				22B1CBDC1159160600EFD709 /* Release */,
 				22B1CBDD1159160600EFD709 /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22C0B373117DF213009E3E3C /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22C0B370117DF213009E3E3C /* Debug */,
+				22C0B371117DF213009E3E3C /* Release */,
+				22C0B372117DF213009E3E3C /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -102,8 +102,7 @@
 	
 	NSError* message = [locationController messageForLocationInformation];
 	STAssertNotNil([message localizedRecoverySuggestion], @"message should contain recovery suggestion");
-	STAssertTrue([[message localizedRecoverySuggestion] contains:@"going
-				  outside"], @"message should contain go outside hint");
+	STAssertTrue([[message localizedRecoverySuggestion] contains:@"going outside"], @"message should contain go outside hint");
 	
 	[locationController release];
 }

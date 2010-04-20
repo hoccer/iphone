@@ -27,8 +27,7 @@
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture 
-													isSeeder: NO delegate: self];
+		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture isSeeder: NO delegate: self];
 	}
 	
 	return self;
