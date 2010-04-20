@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class HoccerClient;
 
 @protocol HoccerClientDelegate
 
-- (void)hoccerClient: (HoccerClient*)hoccerClient didFailWithError: (NSError *);
+- (void)hoccerClient: (HoccerClient*)hoccerClient didFailWithError: (NSError *)error;
 - (void)hoccerClientDidFinishLoading: (HoccerClient*)hoccerClient;
 
 @end

@@ -9,16 +9,22 @@
 #import <OCMock/OCMock.h>
 #import "HoccerClientTestCase.h"
 #import "HoccerClient.h"
+#import "HoccerClientDelegate.h"
 
 @implementation HoccerClientTestCase
 
+- (BOOL)shouldRunOnMainThread {
+	return NO;
+}
+
 - (void) testSendingWithHoccerClient {
+	id mockedDelegate = [OCMockObject mockForProtocol:@protocol(HoccerClientDelegate)];
+	
 	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	client.delegate = self;
-//	
-//	[client uploadWithGesture:@"sweep"];
-// 	GHFail(@"my first failing ghunit test");
+	client.userAgent = @"Hoccer/iPhone";
+	client.delegate = self;
+	
+	[client uploadWithGesture:@"sweep"];
 }
 
 @end

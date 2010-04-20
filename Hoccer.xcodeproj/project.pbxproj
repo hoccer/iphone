@@ -13,6 +13,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */; };
 		220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		220FAF35117E019E004DD560 /* Y60AsyncTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FAF34117E019E004DD560 /* Y60AsyncTestHelper.m */; };
+		220FAF38117E02C2004DD560 /* Y60AsyncTestHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FAF37117E02C2004DD560 /* Y60AsyncTestHelperTest.m */; };
+		220FAF7E117E09BE004DD560 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C0B266117DD6FF009E3E3C /* OCMock.framework */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -316,6 +319,10 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		220FAF33117E019E004DD560 /* Y60AsyncTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelper.h; sourceTree = "<group>"; };
+		220FAF34117E019E004DD560 /* Y60AsyncTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelper.m; sourceTree = "<group>"; };
+		220FAF36117E02C2004DD560 /* Y60AsyncTestHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelperTest.h; sourceTree = "<group>"; };
+		220FAF37117E02C2004DD560 /* Y60AsyncTestHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelperTest.m; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -652,6 +659,7 @@
 				22C0B3BF117DF804009E3E3C /* Foundation.framework in Frameworks */,
 				22C0B3C0117DF80F009E3E3C /* UIKit.framework in Frameworks */,
 				22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */,
+				220FAF7E117E09BE004DD560 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +740,10 @@
 		220FAF2F117E0135004DD560 /* Y60AsyncTestHelper */ = {
 			isa = PBXGroup;
 			children = (
+				220FAF33117E019E004DD560 /* Y60AsyncTestHelper.h */,
+				220FAF34117E019E004DD560 /* Y60AsyncTestHelper.m */,
+				220FAF36117E02C2004DD560 /* Y60AsyncTestHelperTest.h */,
+				220FAF37117E02C2004DD560 /* Y60AsyncTestHelperTest.m */,
 			);
 			name = Y60AsyncTestHelper;
 			sourceTree = "<group>";
@@ -1671,6 +1683,8 @@
 				22C0B41D117DFC3C009E3E3C /* ThrowDetector.m in Sources */,
 				220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */,
 				220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */,
+				220FAF35117E019E004DD560 /* Y60AsyncTestHelper.m in Sources */,
+				220FAF38117E02C2004DD560 /* Y60AsyncTestHelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1806,7 +1820,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1836,6 +1853,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
@@ -1863,6 +1884,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				INFOPLIST_FILE = "Tests-Info.plist";
