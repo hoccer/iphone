@@ -23,30 +23,25 @@
 @synthesize delegate;
 
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate
-{
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		request = [[PeerGroupRequest alloc] initWithLocation: location 
-													 gesture: gesture 
-													isSeeder: NO
-													delegate: self];
+		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture 
+													isSeeder: NO delegate: self];
 	}
 	
 	return self;
 }
 
-- (void)cancel 
-{
+- (void)cancel {
 	[request cancel];
 	[request release];
 	
 	request = nil;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
 	[request release];
 	[super dealloc];
 }
@@ -55,8 +50,7 @@
 #pragma mark -
 #pragma mark Download Delegate Methods
 
-- (void)finishedRequest: (PeerGroupRequest *)aRequest 
-{
+- (void)finishedRequest: (PeerGroupRequest *)aRequest {
 	BaseHoccerRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
 	
 	[request release];
@@ -64,8 +58,7 @@
 }
 
 
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest 
-{
+- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
 	[self checkAndPerformSelector: @selector(request:didPublishUpdate:)
 					   withObject: self withObject: [aRequest.result valueForKey:@"message"]];
 	
@@ -75,17 +68,13 @@
 	request = downloadRequest;
 }
 
-- (void)readyForStartingDownload: (BaseHoccerRequest *)aRequest
-{
-	NSLog(@"downlaoding (downloadrequest): %@", [aRequest.response MIMEType]); 
-
+- (void)readyForStartingDownload: (BaseHoccerRequest *)aRequest {
 	[delegate checkAndPerformSelector:@selector(requestIsReadyToStartDownload:) withObject:aRequest];
 }
 
 
 
-- (void)finishedDownload: (BaseHoccerRequest *)aRequest 
-{
+- (void)finishedDownload: (BaseHoccerRequest *)aRequest {
 	[request release];
 	request = nil;
 	
