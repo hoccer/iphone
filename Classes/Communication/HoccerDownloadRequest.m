@@ -22,7 +22,7 @@
 @synthesize status;
 @synthesize delegate;
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate {
+- (id)initWithLocation:(HocLocation *)location gesture:(NSString *)gesture delegate:(id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
@@ -50,28 +50,26 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
-	// NSLog(@"status: %@", self.status);
 	
 	NSArray *pieces = [self.status objectForKey:@"uploads"];
 	if (downloadRequest == nil && [pieces count] > 0) {
 		NSDictionary *piece = [pieces objectAtIndex:0];
 		NSURL *downloadUrl = [NSURL URLWithString:[piece objectForKey:@"uri"]];
 		downloadRequest = [[DownloadRequest alloc] initWithURL:downloadUrl delegate:self];
-		NSLog(@"starting download");
 	}
 }
 
+- (void)peerGroupRequestDidFinish:(PeerGroupRequest *)aRequest {
+	
+}  
+
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
-	NSLog(@"%s, %@", _cmd, aRequest.result);
 	[downloadRequest release];
 	downloadRequest = nil;
 	
 	[self.delegate checkAndPerformSelector:@selector(requestDidFinishDownload:)
 					withObject:aRequest];
 }
-
-
-
 
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegates

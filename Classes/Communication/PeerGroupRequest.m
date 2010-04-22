@@ -40,24 +40,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture {
-	CLLocation *location = hocLocation.location;
-	
-	NSMutableString *body = [NSMutableString string];
-	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
-	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
-	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
-	[body appendFormat:@"event[type]=%@", gesture];
-	
-	if (hocLocation.bssids != nil) {
-		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
-		[body appendFormat:@"&event[bssids]=%@", ids];
-	}
-
-	NSLog(@"request body: %@", body);
-	return [body dataUsingEncoding: NSUTF8StringEncoding];
-}
-
 - (void)startRequest {
 	if (canceled) {
 		return;
@@ -80,7 +62,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	self.result = [self createJSONFromResult: receivedData];
 	
 	[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
-	if ([self.response statusCode] == 202) {
+	if ([[self.result objectForKey:@"state"] isEqual:@"waiting"]) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 		return;
 	}
@@ -89,7 +71,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		NSError *error = [self createErrorFromResult: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 	} else {
-		[self.delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
+		[self.delegate checkAndPerformSelector:@selector(peerGroupRequestDidFinish:) withObject: self];
 	}
 
 	self.connection = nil;
@@ -98,6 +80,27 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 -(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)theRequest redirectResponse:(NSURLResponse *)redirectResponse {
 	self.request = theRequest;
     return theRequest;
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture {
+	CLLocation *location = hocLocation.location;
+	
+	NSMutableString *body = [NSMutableString string];
+	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
+	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
+	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
+	[body appendFormat:@"event[type]=%@", gesture];
+	
+	if (hocLocation.bssids != nil) {
+		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
+		[body appendFormat:@"&event[bssids]=%@", ids];
+	}
+	
+	NSLog(@"request body: %@", body);
+	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 

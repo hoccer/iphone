@@ -44,8 +44,7 @@
 - (void)uploadWithGesture: (NSString *)theGesture {
 	self.gesture = theGesture;
 	
-	NSLog(@"%@", content);
-	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:gesture content:content type:@"plain/text" filename:@"unit_text.txt" delegate:self];
+	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:gesture content:content type:[content mimeType] filename:[content filename] delegate:self];
 }
 
 - (void)downloadWithGesture:(NSString *)theGesture {
@@ -61,7 +60,7 @@
 	NSDictionary *errorResponse = [[error userInfo] objectForKey:@"HoccerErrorDescription"];
 	NSLog(@"errorResponse :%@", errorResponse);
 	
-	if ([error code] == 500 || ( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
+	if ([error code] == 410 || ( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
 		 [[errorResponse objectForKey:@"state"] isEqual:@"no_peers"] ) )  {
 			
 		error = [self createAppropriateError];
@@ -74,20 +73,6 @@
 
 - (void)requestDidFinishDownload: (HoccerDownloadRequest *)theRequest {
 	[delegate checkAndPerformSelector: @selector(hoccerClientDidFinishLoading:) withObject: self];
-}
-
-#pragma mark -
-#pragma mark Private Methods
-- (NSString *)transferTypeFromGestureName: (NSString *)name {
-	if ([name isEqual:@"throw"] || [name isEqual:@"catch"]) {
-		return @"distribute";
-	}
-	
-	if ([name isEqual:@"sweepIn"] || [name isEqual:@"sweepOut"]) {
-		return @"pass";
-	}
-	
-	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:[NSString stringWithFormat:@"The gesture %@ is unknown", name] userInfo:nil];
 }
 
 #pragma mark -

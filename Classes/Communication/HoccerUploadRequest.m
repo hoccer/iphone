@@ -77,7 +77,7 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
-
+	
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 
@@ -86,9 +86,16 @@
 	}
 }
 
-- (void)uploadRequestDidFinished: (UploadRequest *)aRequest {
-	NSLog(@"%s", _cmd);
+- (void)peerGroupRequestDidFinish: (PeerGroupRequest *)aRequest {
+	[request release];
+	request = nil;
 	
+	pollingDidFinish = YES;
+	[self didFinishUpload];
+}
+									
+									
+- (void)uploadRequestDidFinished: (UploadRequest *)aRequest {
 	[upload release];
 	upload = nil;
 	
