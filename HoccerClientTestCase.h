@@ -14,11 +14,18 @@
 
 #import <UIKit/UIKit.h>
 #import "GHUnit.h"
+
+@class MockHoccerClientDelegate;
+@class HocLocation;
+@class HoccerContent;
 //#import "application_headers" as required
 
 
 @interface HoccerClientTestCase : GHTestCase {
-
+	MockHoccerClientDelegate *mockedDelegate;
 }
+
+- (HocLocation *)fakeHocLocation;
+- (HoccerContent *)fakeContent;
 
 @end

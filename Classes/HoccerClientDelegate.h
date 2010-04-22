@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class HoccerClient;
 
-@protocol HoccerClientDelegate
+@protocol HoccerClientDelegate <NSObject>
 
 - (void)hoccerClient: (HoccerClient*)hoccerClient didFailWithError: (NSError *)error;
 - (void)hoccerClientDidFinishLoading: (HoccerClient*)hoccerClient;

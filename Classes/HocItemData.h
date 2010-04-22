@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "HocItemDataDelegate.h"
 
-#define kHoccerMessageNoCatcher 2
-#define kHoccerMessageNoThrower 3
-#define kHoccerMessageNoSecondSweeper 4
-#define kHoccerMessageCollision 5
-
 @class HoccerRequest;
 @class HoccerContent;
 @class Preview;

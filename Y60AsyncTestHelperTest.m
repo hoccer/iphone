@@ -39,10 +39,8 @@
 }
 
 - (void)changeValue {
-	NSLog(@"change value");
 	self.value = 10;
 }
-
 
 
 @end

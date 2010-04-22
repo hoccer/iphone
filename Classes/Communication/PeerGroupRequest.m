@@ -45,8 +45,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture seeder: (BOOL) seeder
-{
+- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture seeder: (BOOL) seeder {
 	
 	CLLocation *location = hocLocation.location;
 	
