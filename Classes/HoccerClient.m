@@ -68,6 +68,7 @@
 			error = [self createAppropriateCollisionError];
 		}
 	
+	NSLog(@"failed");
 	[delegate checkAndPerformSelector: @selector(hoccerClient:didFailWithError:) withObject: self withObject: error];
 }
 
