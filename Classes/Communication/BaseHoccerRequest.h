@@ -1,4 +1,4 @@
-//
+	//
 //  BaseHoccerRequest.h
 //  Hoccer
 //
@@ -32,11 +32,10 @@
 }
 
 @property (assign, nonatomic) id delegate;
+@property (retain) NSMutableURLRequest *request;
 @property (retain) NSHTTPURLResponse *response;
 @property (retain) NSURLConnection *connection;
 @property (retain) id result;
-
-@property (retain) NSMutableURLRequest *request;
 
 - (id) createJSONFromResult: (NSData *) resultData;
 - (NSError *) createErrorFromResult: (id)aResult;

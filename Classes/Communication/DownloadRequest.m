@@ -16,14 +16,10 @@
 
 @implementation DownloadRequest
 
-- (id)initWithObject: (id)aObject delegate: (id)aDelegate
-{
+- (id)initWithURL: (NSURL *)url delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-				
-		NSURL *url = [NSURL URLWithString: [[aObject valueForKey:@"resources"] objectAtIndex:0]];
-
 		[self.request setURL: url];
 		[self startRequest];
 		
@@ -33,16 +29,11 @@
 	return self;
 }
 					
-- (void) dealloc
-{
+- (void) dealloc {
 	[super dealloc];
 }
 
-
-
-					  
-- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
-{
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	int statusCode = [self.response statusCode];
 	
 	if (statusCode == 202) {
@@ -50,22 +41,19 @@
 		return;
 	}
 			
-	NSLog(@"download connection did finish");
-			
 	self.result = receivedData;	
 	self.connection = nil;
 	
 	if (statusCode >= 400) {
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: nil];
 	} else {
-		[self.delegate checkAndPerformSelector:@selector(finishedDownload:) withObject: self];
+		[self.delegate checkAndPerformSelector:@selector(downloadRequestDidFinish:) withObject: self];
 	}
 	
 	isDownloading = NO;
 }
 		
-- (void)startRequest 
-{
+- (void)startRequest  {
 	if (canceled) {
 		return;
 	}

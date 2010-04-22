@@ -43,12 +43,14 @@
 
 - (void)uploadWithGesture: (NSString *)theGesture {
 	self.gesture = theGesture;
-	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:[self transferTypeFromGestureName:gesture] content:content type:@"plain/text" filename:@"unit_text.txt" delegate:self];
+	
+	NSLog(@"%@", content);
+	request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:gesture content:content type:@"plain/text" filename:@"unit_text.txt" delegate:self];
 }
 
 - (void)downloadWithGesture:(NSString *)theGesture {
 	self.gesture = theGesture;
-	request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:[self transferTypeFromGestureName:gesture] delegate:self];
+	request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:gesture delegate:self];
 }
 
 - (void)requestDidFinishUpload: (HoccerUploadRequest *)theRequest {
@@ -59,24 +61,20 @@
 	NSDictionary *errorResponse = [[error userInfo] objectForKey:@"HoccerErrorDescription"];
 	NSLog(@"errorResponse :%@", errorResponse);
 	
-	if ([error code] == 500 || 
-		( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
+	if ([error code] == 500 || ( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
 		 [[errorResponse objectForKey:@"state"] isEqual:@"no_peers"] ) )  {
 			
-			error = [self createAppropriateError];
-		} else if ([error code] == 409) {
+		error = [self createAppropriateError];
+	} else if ([error code] == 409) {
 			error = [self createAppropriateCollisionError];
-		}
+	}
 	
-	NSLog(@"failed");
 	[delegate checkAndPerformSelector: @selector(hoccerClient:didFailWithError:) withObject: self withObject: error];
 }
 
 - (void)requestDidFinishDownload: (HoccerDownloadRequest *)theRequest {
 	[delegate checkAndPerformSelector: @selector(hoccerClientDidFinishLoading:) withObject: self];
 }
-
-
 
 #pragma mark -
 #pragma mark Private Methods

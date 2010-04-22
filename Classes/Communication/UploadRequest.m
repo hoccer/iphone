@@ -20,13 +20,11 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 
 @implementation UploadRequest
 
-- (id)initWithResult: (id) aResult data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate
-{
+- (id)initWithURL: (NSURL *)uploadUrl data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		
 		self.delegate = aDelegate;
-		NSURL *uploadUrl = [NSURL URLWithString: [aResult valueForKey:@"upload_uri"]];
 		
 		[self.request setURL: uploadUrl];
 		[self.request setHTTPMethod: @"PUT"];
@@ -53,7 +51,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	self.result = [self createJSONFromResult: receivedData];
 	self.connection = nil;
 	
-	[delegate checkAndPerformSelector:@selector(finishedUpload:) withObject: self];
+	[delegate checkAndPerformSelector:@selector(uploadRequestDidFinished:) withObject: self];
 }
 
 - (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten 
@@ -83,6 +81,8 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	
 	[bodyData appendData: data];
 	[bodyData appendData: [[NSString stringWithFormat: @"\r\n--%@--\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]];
+	
+	NSLog(@"body: %@", [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding]);
 		
 	return bodyData;
 }

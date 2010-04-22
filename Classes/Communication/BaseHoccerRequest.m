@@ -19,13 +19,11 @@
 @synthesize connection;
 @synthesize request;
 
-- (id)init
-{
+- (id)init {
 	self = [super init];
 	if (self != nil) {
 		receivedData = [[NSMutableData alloc] init]; 
 		request = [[NSMutableURLRequest alloc] init];
-		
 		
 		NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
 		NSString *userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
@@ -37,8 +35,7 @@
 	return self;
 }
 
-- (void)cancel 
-{
+- (void)cancel {
 	[self.connection cancel];
 	self.connection = nil;
 	
@@ -46,8 +43,7 @@
 }
 
 
-- (void)dealloc 
-{
+- (void)dealloc {
 	[receivedData release];
 	
 	[connection release];

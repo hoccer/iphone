@@ -10,7 +10,6 @@
 #import "NSObject+DelegateHelper.h"
 
 #import "PeerGroupRequest.h"
-#import "PeerGroupPollingRequest.h"
 #import "DownloadRequest.h"
 
 #import "BaseHoccerRequest.h"
@@ -20,14 +19,14 @@
 
 @implementation HoccerDownloadRequest
 
+@synthesize status;
 @synthesize delegate;
-
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture isSeeder: NO delegate: self];
+		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture delegate: self];
 	}
 	
 	return self;
@@ -49,33 +48,23 @@
 #pragma mark -
 #pragma mark Download Delegate Methods
 
-- (void)finishedRequest: (PeerGroupRequest *)aRequest {
-	BaseHoccerRequest *pollingRequest = [[PeerGroupPollingRequest alloc] initWithObject: aRequest.result andDelegate: self];
+- (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
+	self.status = update;
+	// NSLog(@"status: %@", self.status);
 	
-	[request release];
-	request = pollingRequest;
+	NSArray *pieces = [self.status objectForKey:@"uploads"];
+	if (downloadRequest == nil && [pieces count] > 0) {
+		NSDictionary *piece = [pieces objectAtIndex:0];
+		NSURL *downloadUrl = [NSURL URLWithString:[piece objectForKey:@"uri"]];
+		downloadRequest = [[DownloadRequest alloc] initWithURL:downloadUrl delegate:self];
+		NSLog(@"starting download");
+	}
 }
 
-
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
-	[self checkAndPerformSelector: @selector(request:didPublishUpdate:)
-					   withObject: self withObject: [aRequest.result valueForKey:@"message"]];
-	
-	BaseHoccerRequest *downloadRequest = [[DownloadRequest alloc] initWithObject:aRequest.result delegate:self];
-	
-	[request release];
-	request = downloadRequest;
-}
-
-- (void)readyForStartingDownload: (BaseHoccerRequest *)aRequest {
-	[delegate checkAndPerformSelector:@selector(requestIsReadyToStartDownload:) withObject:aRequest];
-}
-
-
-
-- (void)finishedDownload: (BaseHoccerRequest *)aRequest {
-	[request release];
-	request = nil;
+- (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
+	NSLog(@"%s, %@", _cmd, aRequest.result);
+	[downloadRequest release];
+	downloadRequest = nil;
 	
 	[self.delegate checkAndPerformSelector:@selector(requestDidFinishDownload:)
 					withObject:aRequest];

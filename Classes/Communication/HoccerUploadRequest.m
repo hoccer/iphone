@@ -12,7 +12,6 @@
 #import "NSObject+DelegateHelper.h"
 
 #import "PeerGroupRequest.h"
-#import "PeerGroupPollingRequest.h"
 #import "UploadRequest.h"
 
 
@@ -29,30 +28,28 @@
 @synthesize delegate;
 @synthesize content;
 @synthesize type, filename;
+@synthesize status;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (HoccerContent*)theContent 
-				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate
-{
+				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		isCanceled = NO;
 		self.delegate = aDelegate;
-		
-		self.content = theContent;
 		self.type = aType;
+		self.content = theContent;
 		self.filename = aFilename;
 		
-		request =[[PeerGroupRequest alloc] initWithLocation: location 
-													gesture: gesture 
-												   isSeeder: YES
-												   delegate: self];
-		
+		request =[[PeerGroupRequest alloc] initWithLocation: location gesture: gesture delegate: self];
 	}
 	return self;
 }
 
 - (void)dealloc 
 {
+	[uploadUrl release];
+	[type release];
+	[filename release];
 	[upload release];
 	[content release];
 
@@ -77,28 +74,21 @@
 #pragma mark -
 #pragma mark Upload Delegate Methods
 
-- (void)finishedRequest: (BaseHoccerRequest *) aRequest {
-	[request release];
-	request = [[PeerGroupPollingRequest alloc] initWithObject:aRequest.result 
-												  andDelegate:self];
-	
-	timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startDownloadWhenDataIsReady:) 
-										   userInfo: [NSDictionary dictionaryWithObject:aRequest forKey:@"request"] repeats:YES];
+
+- (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
+	self.status = update;
+
+	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
+	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
+		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 
+											   userInfo: [NSDictionary dictionaryWithObject:uploadUri forKey:@"uploadUri"] repeats:YES];
+		[timer retain];
+	}
 }
 
-- (void)finishedPolling: (PeerGroupPollingRequest *)aRequest {
-	[request release];
-	request = nil;
+- (void)uploadRequestDidFinished: (UploadRequest *)aRequest {
+	NSLog(@"%s", _cmd);
 	
-	pollingDidFinish = YES;
-	
-	[self checkAndPerformSelector: @selector(request:didPublishUpdate:)
-					   withObject: self withObject: [aRequest.result valueForKey:@"message"]];
-	
-	[self didFinishUpload];
-}
-
-- (void)finishedUpload: (UploadRequest *)aRequest {
 	[upload release];
 	upload = nil;
 	
@@ -112,7 +102,6 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
 	[self cancel];
-	NSLog(@"error: %@", error);
 	
 	[request release];
 	request = nil;
@@ -140,18 +129,21 @@
 	}
 }
 
-- (void) startDownloadWhenDataIsReady: (NSTimer *)theTimer {
+- (void) startUploadWhenDataIsReady: (NSTimer *)theTimer {
 	if (isCanceled) {
 		[timer invalidate];
+		[timer release];
+		timer = nil;
 		return;
 	}
 	
 	if ([content isDataReady]) {
-		BaseHoccerRequest *aRequest = [[theTimer userInfo] valueForKey:@"request"];
-		[timer invalidate];
-		
-		upload = [[UploadRequest alloc] initWithResult:aRequest.result data:self.content.data type: self.type 
+		NSURL *uploadURL = [NSURL URLWithString: [[timer userInfo] objectForKey:@"uploadUri"]];
+		upload = [[UploadRequest alloc] initWithURL:uploadURL data:self.content.data type: self.type 
 											  filename: self.filename delegate: self];
+		[timer invalidate];
+		[timer release];
+		timer = nil;
 	}
 }
 

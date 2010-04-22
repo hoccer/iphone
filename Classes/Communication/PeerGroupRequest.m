@@ -14,74 +14,92 @@
 const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
-- (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder;
+- (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
+- (void)startRequest;
 @end
 
 @implementation PeerGroupRequest
 
-// @synthesize result;
-
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate
-{
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture  delegate: (id)aDelegate {
 	self = [super init];
+	
 	if (self != nil) {
 		self.delegate = aDelegate;
 		
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"peers"];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"events"];
 		NSURL *url = [NSURL URLWithString: urlString];
 			
 		[self.request setURL: url];
 		[self.request setHTTPMethod: @"POST"];
-		[self.request setHTTPBody: [self bodyWithLocation: location gesture: gesture seeder: seeder]];	
+		[self.request setHTTPBody: [self bodyWithLocation: location gesture: gesture]];	
 			
-		self.connection = [NSURLConnection connectionWithRequest:self.request delegate:self]; 
-		if (!connection)  {
-			NSLog(@"Error while executing url connection");
-		}
-		
+		[self startRequest];		
 		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: @"Connecting..."];
 	}
 	
 	return self;	
 }
 
-- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture seeder: (BOOL) seeder {
-	
+- (NSData *)bodyWithLocation: (HocLocation *)hocLocation gesture: (NSString *)gesture {
 	CLLocation *location = hocLocation.location;
 	
 	NSMutableString *body = [NSMutableString string];
-	[body appendFormat:@"peer[latitude]=%f&", location.coordinate.latitude];
-	[body appendFormat:@"peer[longitude]=%f&", location.coordinate.longitude];
-	[body appendFormat:@"peer[accuracy]=%f&", location.horizontalAccuracy];
-	[body appendFormat:@"peer[gesture]=%@&", gesture];
-	[body appendFormat:@"peer[seeder]=%d", seeder];
+	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
+	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
+	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
+	[body appendFormat:@"event[type]=%@", gesture];
 	
 	if (hocLocation.bssids != nil) {
 		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
-		
-		[body appendFormat:@"&peer[bssids]=%@", ids];
+		[body appendFormat:@"&event[bssids]=%@", ids];
 	}
 
 	NSLog(@"request body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
-{
-	int statusCode = [self.response statusCode];
+- (void)startRequest {
+	if (canceled) {
+		return;
+	}
 	
+	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
+	if (!self.connection)  {
+		NSLog(@"Error while executing url connection");
+	}
+	
+	[receivedData setLength:0];
+	NSLog(@"polling peer group");
+}
+
+
+#pragma mark -
+#pragma mark NSURLConnection Delegate Methods
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self createJSONFromResult: receivedData];
-	self.connection = nil;
 	
-	NSLog(@"received");
-	if (statusCode >= 400) {
-		NSLog(@"failed");
+	[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
+	if ([self.response statusCode] == 202) {
+		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
+		return;
+	}
+	
+	if ([self.response statusCode] >= 400) {
 		NSError *error = [self createErrorFromResult: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 	} else {
 		[self.delegate checkAndPerformSelector:@selector(finishedRequest:) withObject: self];
 	}
+
+	self.connection = nil;
 }
+
+-(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)theRequest redirectResponse:(NSURLResponse *)redirectResponse {
+	self.request = theRequest;
+    return theRequest;
+}
+
 
 
 @end

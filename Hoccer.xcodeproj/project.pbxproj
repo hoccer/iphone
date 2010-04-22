@@ -15,7 +15,6 @@
 		220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
 		220FAF35117E019E004DD560 /* Y60AsyncTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FAF34117E019E004DD560 /* Y60AsyncTestHelper.m */; };
 		220FAF38117E02C2004DD560 /* Y60AsyncTestHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FAF37117E02C2004DD560 /* Y60AsyncTestHelperTest.m */; };
-		220FAF7E117E09BE004DD560 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C0B266117DD6FF009E3E3C /* OCMock.framework */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -25,7 +24,6 @@
 		223BC41F1055556200ABE5A2 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
 		223BC4201055556200ABE5A2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
 		223BC44010555B2700ABE5A2 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
-		223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		224F8A9C108CBB4300F69B53 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
@@ -103,6 +101,14 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		2298E35E11809D240078DBBD /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		2298E35F11809D240078DBBD /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
+		2298E36011809D240078DBBD /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
+		2298E36111809D240078DBBD /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
+		2298E36211809D240078DBBD /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		2298E36311809D240078DBBD /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
+		2298E37811809D390078DBBD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
+		2298E37911809D390078DBBD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
@@ -119,7 +125,6 @@
 		22A112F0117EFDCF00641E3A /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		22A112F1117EFDCF00641E3A /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		22A112F2117EFDCF00641E3A /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
-		22A112F3117EFDCF00641E3A /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		22A112F4117EFDCF00641E3A /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		22A112F5117EFDCF00641E3A /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22A112F6117EFDCF00641E3A /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
@@ -209,7 +214,6 @@
 		22B1CBA11159160600EFD709 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
 		22B1CBA21159160600EFD709 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
 		22B1CBA31159160600EFD709 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
-		22B1CBA41159160600EFD709 /* PeerGroupPollingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */; };
 		22B1CBA51159160600EFD709 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22B1CBA71159160600EFD709 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		22B1CBA81159160600EFD709 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798F44105FABAD0035C643 /* DebugViewController.m */; };
@@ -358,8 +362,6 @@
 		223BC41A1055556200ABE5A2 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		223BC43E10555B2700ABE5A2 /* NSObject+DelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DelegateHelper.h"; path = "Helper/NSObject+DelegateHelper.h"; sourceTree = "<group>"; };
 		223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DelegateHelper.m"; path = "Helper/NSObject+DelegateHelper.m"; sourceTree = "<group>"; };
-		223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupPollingRequest.h; path = Communication/PeerGroupPollingRequest.h; sourceTree = "<group>"; };
-		223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupPollingRequest.m; path = Communication/PeerGroupPollingRequest.m; sourceTree = "<group>"; };
 		224F8A9A108CBB4300F69B53 /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = View/Preview.h; sourceTree = "<group>"; };
 		224F8A9B108CBB4300F69B53 /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preview.m; path = View/Preview.m; sourceTree = "<group>"; };
 		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
@@ -575,7 +577,6 @@
 		22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
 		22C0B1F4117DCE85009E3E3C /* HoccerClientTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientTestCase.h; sourceTree = "<group>"; };
 		22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClientTestCase.m; sourceTree = "<group>"; };
-		22C0B266117DD6FF009E3E3C /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "/Users/robertp/Downloads/OCMock 1.55/OCMock.framework"; sourceTree = "<absolute>"; };
 		22C0B277117DD80D009E3E3C /* HoccerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClient.h; sourceTree = "<group>"; };
 		22C0B278117DD80D009E3E3C /* HoccerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClient.m; sourceTree = "<group>"; };
 		22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientDelegate.h; sourceTree = "<group>"; };
@@ -676,7 +677,8 @@
 				22C0B3BF117DF804009E3E3C /* Foundation.framework in Frameworks */,
 				22C0B3C0117DF80F009E3E3C /* UIKit.framework in Frameworks */,
 				22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */,
-				220FAF7E117E09BE004DD560 /* OCMock.framework in Frameworks */,
+				2298E37811809D390078DBBD /* AddressBook.framework in Frameworks */,
+				2298E37911809D390078DBBD /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,23 +770,14 @@
 		223BC3411055320A00ABE5A2 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
+				2298E3221180976F0078DBBD /* Subrequests */,
 				223BC40D1055556200ABE5A2 /* JSON */,
-				2289896C1067CC4200FB3E5D /* BaseHoccerRequest.h */,
-				2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */,
+				22A8A0381160AB35004BCD3D /* HoccerRequest.h */,
+				22A8A0391160AB35004BCD3D /* HoccerRequest.m */,
 				2289896E1067CC4200FB3E5D /* HoccerDownloadRequest.h */,
 				2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */,
 				228989701067CC4200FB3E5D /* HoccerUploadRequest.h */,
 				228989711067CC4200FB3E5D /* HoccerUploadRequest.m */,
-				228989721067CC4200FB3E5D /* UploadRequest.h */,
-				228989731067CC4200FB3E5D /* UploadRequest.m */,
-				223BC4A51055671C00ABE5A2 /* PeerGroupPollingRequest.h */,
-				223BC4A61055671C00ABE5A2 /* PeerGroupPollingRequest.m */,
-				223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */,
-				223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */,
-				2273358B10566826004228B4 /* DownloadRequest.h */,
-				2273358C10566826004228B4 /* DownloadRequest.m */,
-				22A8A0381160AB35004BCD3D /* HoccerRequest.h */,
-				22A8A0391160AB35004BCD3D /* HoccerRequest.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -1054,6 +1047,21 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		2298E3221180976F0078DBBD /* Subrequests */ = {
+			isa = PBXGroup;
+			children = (
+				228989721067CC4200FB3E5D /* UploadRequest.h */,
+				228989731067CC4200FB3E5D /* UploadRequest.m */,
+				2273358B10566826004228B4 /* DownloadRequest.h */,
+				2273358C10566826004228B4 /* DownloadRequest.m */,
+				223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */,
+				223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */,
+				2289896C1067CC4200FB3E5D /* BaseHoccerRequest.h */,
+				2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */,
+			);
+			name = Subrequests;
+			sourceTree = "<group>";
+		};
 		2299279211730E86007564B6 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1302,7 +1310,6 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				229779FA111031C100B55D3F /* AudioToolbox.framework */,
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
-				22C0B266117DD6FF009E3E3C /* OCMock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1532,7 +1539,6 @@
 				223BC41F1055556200ABE5A2 /* SBJsonParser.m in Sources */,
 				223BC4201055556200ABE5A2 /* SBJsonWriter.m in Sources */,
 				223BC44010555B2700ABE5A2 /* NSObject+DelegateHelper.m in Sources */,
-				223BC4A71055671C00ABE5A2 /* PeerGroupPollingRequest.m in Sources */,
 				2273358D10566826004228B4 /* DownloadRequest.m in Sources */,
 				22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */,
 				22798F46105FABAD0035C643 /* DebugViewController.m in Sources */,
@@ -1611,7 +1617,6 @@
 				22B1CBA11159160600EFD709 /* SBJsonParser.m in Sources */,
 				22B1CBA21159160600EFD709 /* SBJsonWriter.m in Sources */,
 				22B1CBA31159160600EFD709 /* NSObject+DelegateHelper.m in Sources */,
-				22B1CBA41159160600EFD709 /* PeerGroupPollingRequest.m in Sources */,
 				22B1CBA51159160600EFD709 /* DownloadRequest.m in Sources */,
 				22B1CBA71159160600EFD709 /* AccelerationRecorder.m in Sources */,
 				22B1CBA81159160600EFD709 /* DebugViewController.m in Sources */,
@@ -1706,7 +1711,6 @@
 				22A112F0117EFDCF00641E3A /* HoccerDownloadRequest.m in Sources */,
 				22A112F1117EFDCF00641E3A /* HoccerUploadRequest.m in Sources */,
 				22A112F2117EFDCF00641E3A /* UploadRequest.m in Sources */,
-				22A112F3117EFDCF00641E3A /* PeerGroupPollingRequest.m in Sources */,
 				22A112F4117EFDCF00641E3A /* PeerGroupRequest.m in Sources */,
 				22A112F5117EFDCF00641E3A /* DownloadRequest.m in Sources */,
 				22A112F6117EFDCF00641E3A /* HoccerRequest.m in Sources */,
@@ -1719,6 +1723,12 @@
 				22A11307117F3F0A00641E3A /* HoccerContent.m in Sources */,
 				22A11308117F3F0A00641E3A /* HoccerText.m in Sources */,
 				22A1130B117F3F6300641E3A /* Preview.m in Sources */,
+				2298E35E11809D240078DBBD /* VcardWriter.m in Sources */,
+				2298E35F11809D240078DBBD /* ABPersonVCardCreator.m in Sources */,
+				2298E36011809D240078DBBD /* VcardParser.m in Sources */,
+				2298E36111809D240078DBBD /* ABPersonCreator.m in Sources */,
+				2298E36211809D240078DBBD /* ACPerson.m in Sources */,
+				2298E36311809D240078DBBD /* HoccerVcard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
