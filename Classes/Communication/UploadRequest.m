@@ -48,7 +48,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
 {	
-	self.result = [self createJSONFromResult: receivedData];
+	self.result = [self parseJsonToDictionary: receivedData];
 	self.connection = nil;
 	
 	[delegate checkAndPerformSelector:@selector(uploadRequestDidFinished:) withObject: self];

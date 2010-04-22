@@ -130,14 +130,23 @@
 	client.content = [self fakeContent];
 	[client performSelectorOnMainThread: @selector(uploadWithGesture:) withObject:@"sweepOut" waitUntilDone: NO];
 	
+	MockHoccerClientDelegate *mockedDelegate2 = [[MockHoccerClientDelegate alloc] init];
 	HoccerClient *client2 = [[HoccerClient alloc] init];
 	client2.userAgent = @"Hoccer/iPhone";
+	client2.delegate = mockedDelegate2;
 	client2.hocLocation = [self fakeHocLocation];
 	[client2 performSelectorOnMainThread:@selector(downloadWithGesture:) withObject:@"sweepIn" waitUntilDone:NO];
 	
-	NSLog(@"test thread: %@", [NSThread currentThread]);
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
+	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:2], @"should be called once");
+	
+	[mockedDelegate2 release];
+	[client release];
+	[client2 release];
 } 
+
+
+
 
 - (HocLocation *)fakeHocLocation {
 	CLLocationCoordinate2D coordinate;

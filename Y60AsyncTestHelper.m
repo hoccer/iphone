@@ -15,7 +15,7 @@
 	NSDate *startTime = [NSDate date];
 	
 	while ([[NSDate date] timeIntervalSinceDate:startTime] < seconds) {
-		if ([target performSelector:selector] == value) {
+		if ((NSInteger)[target performSelector:selector] == value) {
 			return YES;
 		}
 		

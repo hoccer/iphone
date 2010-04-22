@@ -21,7 +21,6 @@
 @interface HoccerClient ()
 @property (copy) NSString *gesture;
 
-- (NSString *)transferTypeFromGestureName: (NSString *)name;
 - (NSDictionary *)userInfoForNoCatcher;
 - (NSDictionary *)userInfoForNoThrower;
 - (NSDictionary *)userInfoForNoSecondSweeper;

@@ -20,7 +20,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 @implementation PeerGroupRequest
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture  delegate: (id)aDelegate {
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate {
 	self = [super init];
 	
 	if (self != nil) {
@@ -41,9 +41,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 }
 
 - (void)startRequest {
-	if (canceled) {
-		return;
-	}
+	if (canceled) { return; }
 	
 	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
@@ -51,7 +49,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 	
 	[receivedData setLength:0];
-	NSLog(@"polling peer group");
 }
 
 
@@ -59,7 +56,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 #pragma mark NSURLConnection Delegate Methods
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
-	self.result = [self createJSONFromResult: receivedData];
+	self.result = [self parseJsonToDictionary: receivedData];
 	
 	[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
 	if ([[self.result objectForKey:@"state"] isEqual:@"waiting"]) {
@@ -68,7 +65,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 	
 	if ([self.response statusCode] >= 400) {
-		NSError *error = [self createErrorFromResult: self.result];
+		NSError *error = [self parseJsonToError: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 	} else {
 		[self.delegate checkAndPerformSelector:@selector(peerGroupRequestDidFinish:) withObject: self];
@@ -99,7 +96,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		[body appendFormat:@"&event[bssids]=%@", ids];
 	}
 	
-	NSLog(@"request body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

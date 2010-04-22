@@ -21,8 +21,6 @@
 
 @end
 
-
-
 @implementation HoccerUploadRequest
 
 @synthesize delegate;
@@ -73,7 +71,6 @@
 
 #pragma mark -
 #pragma mark Upload Delegate Methods
-
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;

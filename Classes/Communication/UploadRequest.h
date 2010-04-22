@@ -13,5 +13,6 @@
 @interface UploadRequest : BaseHoccerRequest {
 }
 
-- (id)initWithResult: (id) aResult data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate;
+- (id)initWithURL: (NSURL *)uploadUrl data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate;
+
 @end

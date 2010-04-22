@@ -37,8 +37,8 @@
 @property (retain) NSURLConnection *connection;
 @property (retain) id result;
 
-- (id) createJSONFromResult: (NSData *) resultData;
-- (NSError *) createErrorFromResult: (id)aResult;
+- (id) parseJsonToDictionary: (NSData *) resultData;
+- (NSError *) parseJsonToError: (id)aResult;
 
 - (void)cancel;
 

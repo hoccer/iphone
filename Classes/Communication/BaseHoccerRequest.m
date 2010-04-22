@@ -58,7 +58,7 @@
 #pragma mark -
 #pragma mark private helper methods
 
-- (id) createJSONFromResult: (NSData *) resultData {
+- (id)parseJsonToDictionary: (NSData *) resultData {
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
@@ -70,7 +70,7 @@
 	return jsonResult;
 }
 
-- (NSError *)createErrorFromResult: (id)aResult {
+- (NSError *)parseJsonToError: (id)aResult {
 	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
 	if ([aResult valueForKey:@"message"]) {
 		[userInfo setObject:[aResult valueForKey:@"message"] forKey:NSLocalizedDescriptionKey];
