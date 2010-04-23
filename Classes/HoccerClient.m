@@ -56,12 +56,13 @@
 	self.gesture = aRequest.gesture;
 	
 	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
-		request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self];
+		request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self.delegate];
+		
 		return;
 	} 
 	
 	if ([aRequest.gesture isEqual:@"SweepIn"] || [aRequest.gesture isEqual:@"Catch"]) {
-		request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self];
+		request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self.delegate];
 		return;
 	}
 	
@@ -69,7 +70,7 @@
 }
 
 - (void)requestDidFinishUpload: (HoccerUploadRequest *)theRequest {
-	[delegate checkAndPerformSelector: @selector(hoccerClientDidFinishLoading:) withObject: self];	
+	[delegate checkAndPerformSelector: @selector(hoccerConnectionDidFinishLoading:) withObject: self];	
 }
 
 - (void)request: (BaseHoccerRequest *)request didFailWithError: (NSError *)error {

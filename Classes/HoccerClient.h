@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HoccerClientDelegate.h"
+#import "HoccerConnectionDelegate.h"
 
 #define kHoccerMessageNoCatcher 2
 #define kHoccerMessageNoThrower 3
@@ -23,7 +23,7 @@
 	HocLocation *hocLocation;
 	HoccerContent *content;
 	
-	id <HoccerClientDelegate> delegate;
+	id <HoccerConnectionDelegate> delegate;
 	BaseHoccerRequest *request;
 	
 	NSString *gesture;
@@ -33,7 +33,7 @@
 @property (retain) HocLocation *hocLocation;
 @property (retain) HoccerContent *content;
 
-@property (nonatomic, assign) NSObject <HoccerClientDelegate> *delegate;
+@property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 
 
 - (void)uploadWithGesture: (NSString *)gesture;

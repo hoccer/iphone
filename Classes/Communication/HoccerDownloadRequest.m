@@ -57,16 +57,12 @@
 	}
 }
 
-- (void)peerGroupRequestDidFinish:(PeerGroupRequest *)aRequest {
-	
-}  
-
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
 	[downloadRequest release];
 	downloadRequest = nil;
 	
-	[self.delegate checkAndPerformSelector:@selector(requestDidFinishDownload:)
-					withObject:aRequest];
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:)
+					withObject:self];
 }
 
 #pragma mark -
@@ -76,20 +72,20 @@
 	[request release];
 	request = nil;
 	
-	[self.delegate checkAndPerformSelector: @selector(request:didFailWithError:) 
+	[self.delegate checkAndPerformSelector: @selector(hoccerConnection:didFailWithError:) 
 								withObject: self 
 								withObject: error];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	[self.delegate checkAndPerformSelector:@selector(request:didPublishUpdate:)
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishUpdate:)
 								withObject: self
 								withObject: update];
 }
 
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
-	[self.delegate checkAndPerformSelector:@selector(request:didPublishDownloadedPercentageUpdate:)
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishDownloadedPercentageUpdate:)
 								withObject: self
 								withObject: progress];
 }

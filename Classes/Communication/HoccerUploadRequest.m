@@ -106,20 +106,20 @@
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
 	[self cancel];
-	
 	[request release];
 	request = nil;
-	[self.delegate checkAndPerformSelector: @selector(request:didFailWithError:) 
+	
+	[self.delegate checkAndPerformSelector: @selector(hoccerConnection:didFailWithError:) 
 								withObject: self withObject: error];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	[self.delegate checkAndPerformSelector:@selector(request:didPublishUpdate:)
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishUpdate:)
 								withObject: self withObject: update];
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
-	[self.delegate checkAndPerformSelector:@selector(request:didPublishDownloadedPercentageUpdate:)
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishDownloadedPercentageUpdate:)
 								withObject: self withObject: progress];
 }
 
@@ -129,7 +129,7 @@
 
 - (void) didFinishUpload {
 	if (uploadDidFinish && pollingDidFinish) {
-		[self.delegate checkAndPerformSelector:@selector(requestDidFinishUpload:) withObject: self];
+		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}
 }
 

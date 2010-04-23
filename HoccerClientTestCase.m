@@ -9,14 +9,14 @@
 #import <OCMock/OCMock.h>
 #import "HoccerClientTestCase.h"
 #import "HoccerClient.h"
-#import "HoccerClientDelegate.h"
+#import "HoccerConnectionDelegate.h"
 #import "Y60AsyncTestHelper.h"
 
 #import "HocLocation.h"
 #import "HoccerVcard.h"
 #import "HoccerRequest.h"
 
-@interface MockHoccerClientDelegate : NSObject <HoccerClientDelegate> 
+@interface MockHoccerConnectionDelegate : NSObject <HoccerConnectionDelegate> 
 {
 	NSInteger hoccerClientDidFailCalls;
 	NSInteger hoccerClientDidFinishCalls;
@@ -27,23 +27,23 @@
 @property (assign) NSInteger hoccerClientDidFinishCalls;
 @property (retain) NSError *error;
 
-- (void)hoccerClient: (HoccerClient*)hoccerClient didFailWithError: (NSError *)error;
-- (void)hoccerClientDidFinishLoading: (HoccerClient*)hoccerClient;
+- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error;
+- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection;
 
 @end
 
-@implementation MockHoccerClientDelegate
+@implementation MockHoccerConnectionDelegate
 @synthesize hoccerClientDidFailCalls;
 @synthesize hoccerClientDidFinishCalls;
 @synthesize error;
 
-- (void)hoccerClient: (HoccerClient*)hoccerClient didFailWithError: (NSError *)theError {
+- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)theError {
 	hoccerClientDidFailCalls += 1;
 	
 	self.error = theError;
 }
 
-- (void)hoccerClientDidFinishLoading: (HoccerClient*)hoccerClient {
+- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
 	hoccerClientDidFinishCalls += 1;
 }
 
@@ -64,7 +64,7 @@
 
 
 - (void)setUp {
-	mockedDelegate = [[MockHoccerClientDelegate alloc] init];
+	mockedDelegate = [[MockHoccerConnectionDelegate alloc] init];
 }
 
 - (void)tearDown {
@@ -128,18 +128,16 @@
 	client.userAgent = @"Hoccer/iPhone";
 	client.delegate = mockedDelegate;
 	
-	HoccerRequest *request = [HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]];
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:request waitUntilDone: NO];
-	
-	HoccerRequest *request2 = [HoccerRequest sweepInWithLocation:[self fakeHocLocation]];
-	MockHoccerClientDelegate *mockedDelegate2 = [[MockHoccerClientDelegate alloc] init];
+	MockHoccerConnectionDelegate *mockedDelegate2 = [[MockHoccerConnectionDelegate alloc] init];
 	HoccerClient *client2 = [[HoccerClient alloc] init];
 	client2.userAgent = @"Hoccer/iPhone";
 	client2.delegate = mockedDelegate2;
-	[client2 performSelectorOnMainThread:@selector(connectionWithRequest:) withObject:request2 waitUntilDone:NO];
+	
+	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
+	[client2 performSelectorOnMainThread:@selector(connectionWithRequest:) withObject:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]] waitUntilDone:NO];
 	
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:2], @"should be called once");
+	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:4], @"should be called once");
 	
 	[mockedDelegate2 release];
 	[client release];

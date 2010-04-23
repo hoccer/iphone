@@ -584,7 +584,7 @@
 		22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClientTestCase.m; sourceTree = "<group>"; };
 		22C0B277117DD80D009E3E3C /* HoccerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClient.h; sourceTree = "<group>"; };
 		22C0B278117DD80D009E3E3C /* HoccerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClient.m; sourceTree = "<group>"; };
-		22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientDelegate.h; sourceTree = "<group>"; };
+		22C0B27C117DD81E009E3E3C /* HoccerConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerConnectionDelegate.h; sourceTree = "<group>"; };
 		22C0B2D2117DEF5D009E3E3C /* GHAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHAsyncTestCase.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHAsyncTestCase.h"; sourceTree = SOURCE_ROOT; };
 		22C0B2D3117DEF5D009E3E3C /* GHTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTest.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTest.h"; sourceTree = SOURCE_ROOT; };
 		22C0B2D4117DEF5D009E3E3C /* GHTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTestCase.h; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHTestCase.h"; sourceTree = SOURCE_ROOT; };
@@ -1217,9 +1217,9 @@
 		22C0B276117DD7D4009E3E3C /* HoccerClient */ = {
 			isa = PBXGroup;
 			children = (
+				22C0B27C117DD81E009E3E3C /* HoccerConnectionDelegate.h */,
 				22C0B277117DD80D009E3E3C /* HoccerClient.h */,
 				22C0B278117DD80D009E3E3C /* HoccerClient.m */,
-				22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */,
 				22BE73D5118196CD0011034A /* HoccerRequest.h */,
 				22BE73D6118196CD0011034A /* HoccerRequest.m */,
 			);
