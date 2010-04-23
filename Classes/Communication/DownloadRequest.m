@@ -20,9 +20,12 @@
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		[self.request setURL: url];
-		[self startRequest];
 		
+		NSMutableURLRequest *downloadRequest = [NSMutableURLRequest requestWithURL:url];
+		[downloadRequest setValue: self.userAgent forHTTPHeaderField:@"User-Agent"];
+		self.request = downloadRequest;
+
+		[self startRequest];
 		isDownloading = NO;
 	}
 	

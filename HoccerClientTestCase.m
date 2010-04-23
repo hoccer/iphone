@@ -149,7 +149,7 @@
 	coordinate.latitude = 14;
 	coordinate.longitude = 23;
 	
-	CLLocation *location = [[CLLocation alloc] initWithCoordinate:coordinate altitude:1 horizontalAccuracy:0.01 verticalAccuracy:100 timestamp:[NSDate date]];
+	CLLocation *location = [[CLLocation alloc] initWithCoordinate:coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:100 timestamp:[NSDate date]];
 	HocLocation *hocLocation = [[HocLocation alloc] initWithLocation:location bssids:nil];
 	
 	[location release];

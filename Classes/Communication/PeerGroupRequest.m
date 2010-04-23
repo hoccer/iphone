@@ -26,12 +26,13 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	if (self != nil) {
 		self.delegate = aDelegate;
 		
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", kHoccerServer, @"events"];
-		NSURL *url = [NSURL URLWithString: urlString];
-			
-		[self.request setURL: url];
-		[self.request setHTTPMethod: @"POST"];
-		[self.request setHTTPBody: [self bodyWithLocation: location gesture: gesture]];	
+		NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"%@%@", kHoccerServer, @"events"]];
+		
+		NSMutableURLRequest *eventRequest = [NSMutableURLRequest requestWithURL:url];
+		[eventRequest setHTTPMethod: @"POST"];
+		[eventRequest setHTTPBody: [self bodyWithLocation: location gesture: gesture]];	
+		[eventRequest setValue: self.userAgent forHTTPHeaderField:@"User-Agent"];
+		self.request = eventRequest;
 			
 		[self startRequest];		
 		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: @"Connecting..."];

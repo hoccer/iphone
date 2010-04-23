@@ -24,7 +24,7 @@
 	HocLocation *hocLocation;
 	HoccerContent *content;
 	
-	id <HoccerConnectionDelegate> delegate;
+	NSObject <HoccerConnectionDelegate> *delegate;
 	
 	NSString *gesture;
 }
@@ -35,6 +35,6 @@
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 
-- (void)connectionWithRequest: (HoccerRequest *)aRequest;
+- (HoccerConnection *)connectionWithRequest: (HoccerRequest *)aRequest;
 
 @end

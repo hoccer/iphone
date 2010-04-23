@@ -13,6 +13,7 @@
 
 @implementation BaseHoccerRequest
 
+@synthesize userAgent;
 @synthesize delegate;
 @synthesize response;
 @synthesize result;
@@ -23,12 +24,9 @@
 	self = [super init];
 	if (self != nil) {
 		receivedData = [[NSMutableData alloc] init]; 
-		request = [[NSMutableURLRequest alloc] init];
 		
 		NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
-		NSString *userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
-		
-		[request setValue: userAgent forHTTPHeaderField:@"User-Agent"];
+		self.userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
 		
 		canceled = NO;
 	}

@@ -23,15 +23,16 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 - (id)initWithURL: (NSURL *)uploadUrl data: (NSData *)bodyData type: (NSString *)type filename: (NSString *)filename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
-		
 		self.delegate = aDelegate;
 		
-		[self.request setURL: uploadUrl];
-		[self.request setHTTPMethod: @"PUT"];
-		[self.request setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
+		NSMutableURLRequest *uploadRequest = [NSMutableURLRequest requestWithURL:uploadUrl];
+		[uploadRequest setHTTPMethod: @"PUT"];
+		[uploadRequest setValue: [NSString stringWithFormat: @"multipart/form-data; boundary=%@", kBorder]
 				 forHTTPHeaderField:@"Content-Type"];
 		
-		[self.request setHTTPBody: [self bodyWithData: bodyData type: type filename: filename]];
+		[uploadRequest setHTTPBody: [self bodyWithData: bodyData type: type filename: filename]];
+		[uploadRequest setValue: self.userAgent forHTTPHeaderField:@"User-Agent"];
+		self.request = uploadRequest;
 		
 		self.connection = [NSURLConnection connectionWithRequest: self.request delegate:self]; 
 		if (!connection)  {
