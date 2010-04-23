@@ -14,14 +14,11 @@
 @class DownloadRequest;
 
 @interface HoccerDownloadConnection : HoccerConnection {
-	BaseHoccerRequest *request;
 	DownloadRequest *downloadRequest;
 	
 	NSDictionary *status;
-	id delegate;
 }
 
-@property (nonatomic, assign) id delegate;
 @property (retain) NSDictionary *status;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;

@@ -18,13 +18,12 @@
 @implementation HoccerDownloadConnection
 
 @synthesize status;
-@synthesize delegate;
 
-- (id)initWithLocation:(HocLocation *)location gesture:(NSString *)gesture delegate:(id)aDelegate {
+- (id)initWithLocation:(HocLocation *)location gesture:(NSString *)aGesture delegate:(id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.delegate = aDelegate;
-		request = [[PeerGroupRequest alloc] initWithLocation: location gesture: gesture delegate: self];
+		request = [[PeerGroupRequest alloc] initWithLocation:location gesture:aGesture delegate:self];
 	}
 	
 	return self;
@@ -67,15 +66,6 @@
 
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegates
-
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
-	[request release];
-	request = nil;
-	
-	[self.delegate checkAndPerformSelector: @selector(hoccerConnection:didFailWithError:) 
-								withObject: self 
-								withObject: error];
-}
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
 	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishUpdate:)

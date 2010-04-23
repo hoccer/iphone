@@ -7,10 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HoccerConnectionDelegate.h"
 
+@class BaseHoccerRequest;
 
 @interface HoccerConnection : NSObject {
+	NSString *gesture;
+	
+	BaseHoccerRequest *request;
+	NSObject <HoccerConnectionDelegate> *delegate;
 }
+
+@property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
+@property (copy) NSString *gesture;
 
 - (void)cancel;
 

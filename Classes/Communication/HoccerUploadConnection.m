@@ -23,12 +23,11 @@
 
 @implementation HoccerUploadConnection
 
-@synthesize delegate;
 @synthesize content;
 @synthesize type, filename;
 @synthesize status;
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (HoccerContent*)theContent 
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)aGesture content: (HoccerContent*)theContent 
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
@@ -38,7 +37,7 @@
 		self.content = theContent;
 		self.filename = aFilename;
 		
-		request =[[PeerGroupRequest alloc] initWithLocation: location gesture: gesture delegate: self];
+		request =[[PeerGroupRequest alloc] initWithLocation: location gesture: aGesture delegate: self];
 	}
 	return self;
 }

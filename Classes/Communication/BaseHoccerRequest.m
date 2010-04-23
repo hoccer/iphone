@@ -63,9 +63,9 @@
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
 	SBJSON *json = [[SBJSON alloc] init];
 	id jsonResult = [json objectWithString: dataString error: &error];
+	
 	[json release];
 	[dataString release];
-	
 	return jsonResult;
 }
 

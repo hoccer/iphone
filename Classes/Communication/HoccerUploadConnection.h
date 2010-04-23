@@ -15,14 +15,11 @@
 
 
 @interface HoccerUploadConnection : HoccerConnection {
-	BaseHoccerRequest *request;
 	BaseHoccerRequest *upload;
 	
 	HoccerContent* content;
 	NSString *type;
 	NSString *filename;
-	
-	id delegate;
 	
 	BOOL uploadDidFinish, pollingDidFinish;
 	BOOL isCanceled;
@@ -33,7 +30,6 @@
 	NSDictionary *status;
 }
 
-@property (nonatomic, assign) id delegate;
 @property (retain) HoccerContent* content;
 @property (retain) NSString *type;
 @property (retain) NSString *filename;
