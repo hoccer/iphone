@@ -41,29 +41,15 @@
 
 @synthesize delegate;
 
-- (void)uploadWithGesture: (NSString *)theGesture {
-	self.gesture = theGesture;
-	
-	request = [[HoccerUploadConnection alloc] initWithLocation:hocLocation gesture:gesture content:content type:[content mimeType] filename:[content filename] delegate:self];
-}
-
-- (void)downloadWithGesture:(NSString *)theGesture {
-	self.gesture = theGesture;
-	request = [[HoccerDownloadConnection alloc] initWithLocation:hocLocation gesture:gesture delegate:self];
-}
-
-- (void)connectionWithRequest: (HoccerRequest *)aRequest {
+- (HoccerConnection *)connectionWithRequest: (HoccerRequest *)aRequest {
 	self.gesture = aRequest.gesture;
 	
 	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
-		request = [[HoccerUploadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self.delegate];
-		
-		return;
+		return [[HoccerUploadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self.delegate];
 	} 
 	
 	if ([aRequest.gesture isEqual:@"SweepIn"] || [aRequest.gesture isEqual:@"Catch"]) {
-		request = [[HoccerDownloadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self.delegate];
-		return;
+		return [[HoccerDownloadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self.delegate];
 	}
 	
 	@throw [NSException exceptionWithName:@"HoccerException" reason:[NSString stringWithFormat:@"The gesture %@ is unknown", aRequest.gesture] userInfo:nil];
@@ -145,5 +131,12 @@
 	
 	return [userInfo autorelease];
 }
+
+- (void) dealloc
+{
+	[super dealloc];
+}
+
+
 
 @end

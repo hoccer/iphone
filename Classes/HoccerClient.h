@@ -17,6 +17,7 @@
 @class BaseHoccerRequest;
 @class HocLocation;
 @class HoccerContent;
+@class HoccerRequest;
 
 @interface HoccerClient : NSObject {
 	NSString *userAgent;
@@ -24,7 +25,6 @@
 	HoccerContent *content;
 	
 	id <HoccerConnectionDelegate> delegate;
-	BaseHoccerRequest *request;
 	
 	NSString *gesture;
 }
@@ -35,8 +35,6 @@
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 
-
-- (void)uploadWithGesture: (NSString *)gesture;
-- (void)downloadWithGesture:(NSString *)gesture;
+- (void)connectionWithRequest: (HoccerRequest *)aRequest;
 
 @end
