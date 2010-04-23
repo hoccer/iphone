@@ -25,7 +25,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	
 	if (self != nil) {
 		self.delegate = aDelegate;
-		
 		NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"%@%@", kHoccerServer, @"events"]];
 		
 		NSMutableURLRequest *eventRequest = [NSMutableURLRequest requestWithURL:url];
@@ -97,6 +96,8 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		[body appendFormat:@"&event[bssids]=%@", ids];
 	}
 	
+	
+	NSLog(@"body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

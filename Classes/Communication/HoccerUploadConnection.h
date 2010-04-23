@@ -26,8 +26,6 @@
 	
 	NSURL *uploadUrl;
 	NSTimer *timer;
-	
-	NSDictionary *status;
 }
 
 @property (retain) HoccerContent* content;

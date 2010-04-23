@@ -20,6 +20,7 @@
 - (id)initWithLocation:(HocLocation *)location gesture:(NSString *)aGesture delegate:(id)aDelegate {
 	self = [super init];
 	if (self != nil) {
+		self.gesture = aGesture;
 		self.delegate = aDelegate;
 		request = [[PeerGroupRequest alloc] initWithLocation:location gesture:aGesture delegate:self];
 	}
@@ -45,7 +46,8 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
-	
+	NSLog(@"download status: %@", status);
+
 	NSArray *pieces = [self.status objectForKey:@"uploads"];
 	if (downloadRequest == nil && [pieces count] > 0) {
 		NSDictionary *piece = [pieces objectAtIndex:0];
@@ -55,6 +57,7 @@
 }
 
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
+	NSLog(@"download did finsih");
 	[downloadRequest release];
 	downloadRequest = nil;
 	

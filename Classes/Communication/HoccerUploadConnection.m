@@ -30,6 +30,8 @@
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
+		self.gesture = aGesture;
+
 		isCanceled = NO;
 		self.delegate = aDelegate;
 		self.type = aType;
@@ -72,7 +74,8 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
-	NSLog(@"status: %@", status);
+	
+	NSLog(@"upload status: %@", status);
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 
@@ -84,12 +87,11 @@
 - (void)peerGroupRequestDidFinish: (PeerGroupRequest *)aRequest {
 	[request release];
 	request = nil;
-	
+	       
 	pollingDidFinish = YES;
 	[self didFinishUpload];
 }
-									
-									
+																
 - (void)uploadRequestDidFinished: (UploadRequest *)aRequest {
 	[upload release];
 	upload = nil;
@@ -101,15 +103,6 @@
 
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegates
-
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
-	[self cancel];
-	[request release];
-	request = nil;
-	
-	[self.delegate checkAndPerformSelector: @selector(hoccerConnection:didFailWithError:) 
-								withObject: self withObject: error];
-}
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
 	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishUpdate:)
@@ -126,6 +119,7 @@
 #pragma mark Private Methods
 
 - (void) didFinishUpload {
+	NSLog(@"upload did finish");
 	if (uploadDidFinish && pollingDidFinish) {
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}

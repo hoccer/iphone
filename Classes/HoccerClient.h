@@ -21,7 +21,6 @@
 
 @interface HoccerClient : NSObject {
 	NSString *userAgent;
-	HocLocation *hocLocation;
 	HoccerContent *content;
 	
 	NSObject <HoccerConnectionDelegate> *delegate;
@@ -30,7 +29,6 @@
 }
 
 @property (copy) NSString *userAgent;
-@property (retain) HocLocation *hocLocation;
 @property (retain) HoccerContent *content;
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;

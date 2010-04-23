@@ -19,19 +19,19 @@
 
 @implementation HoccerClient
 
-@synthesize hocLocation;
 @synthesize content;
 @synthesize userAgent;
 
 @synthesize delegate;
 
 - (HoccerConnection *)connectionWithRequest: (HoccerRequest *)aRequest {
+
 	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
-		return [[HoccerUploadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self.delegate];
+		return [[HoccerUploadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self.delegate];
 	} 
 	
 	if ([aRequest.gesture isEqual:@"SweepIn"] || [aRequest.gesture isEqual:@"Catch"]) {
-		return [[HoccerDownloadConnection alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self.delegate];
+		return [[HoccerDownloadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture delegate:self.delegate];
 	}
 	
 	@throw [NSException exceptionWithName:@"HoccerException" reason:[NSString stringWithFormat:@"The gesture %@ is unknown", aRequest.gesture] userInfo:nil];
