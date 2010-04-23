@@ -42,6 +42,7 @@
 
 
 - (void)dealloc {
+	[userAgent release];
 	[receivedData release];
 	
 	[connection release];
