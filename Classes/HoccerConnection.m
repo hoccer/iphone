@@ -6,12 +6,10 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HoccerRequest.h"
+#import "HoccerConnection.h"
 
 
-@implementation HoccerRequest
-
-@synthesize requestStamp;
+@implementation HoccerConnection
 
 - (void)cancel {
 }

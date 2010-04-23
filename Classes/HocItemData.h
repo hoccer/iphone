@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "HocItemDataDelegate.h"
 
-@class HoccerRequest;
+@class HoccerConnection;
 @class HoccerContent;
 @class Preview;
 @class HocLocation;
 
 
 @interface HocItemData : NSObject <NSCoding> {
-	HoccerRequest *request;
+	HoccerConnection *request;
 	Preview *contentView;
 	HoccerContent *content;
 	

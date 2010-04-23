@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
-#import "HoccerRequest.h"
+#import "HoccerConnection.h"
 
 @class BaseHoccerRequest;
 @class HocLocation;
 
 
-@interface HoccerUploadRequest : HoccerRequest {
+@interface HoccerUploadRequest : HoccerConnection {
 	BaseHoccerRequest *request;
 	BaseHoccerRequest *upload;
 	

@@ -15,8 +15,6 @@
 #import "BaseHoccerRequest.h"
 #import "HocLocation.h"
 
-
-
 @implementation HoccerDownloadRequest
 
 @synthesize status;

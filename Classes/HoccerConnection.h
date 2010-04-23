@@ -9,11 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface HoccerRequest : NSObject {
-	NSTimeInterval requestStamp;
+@interface HoccerConnection : NSObject {
 }
-
-@property (assign) NSTimeInterval requestStamp;
 
 - (void)cancel;
 

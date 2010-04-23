@@ -7,7 +7,7 @@
 //
 
 #import "HocItemData.h"
-#import "HoccerRequest.h"
+#import "HoccerConnection.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerUploadRequest.h"
 #import "HoccerDownloadRequest.h"

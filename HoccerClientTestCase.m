@@ -126,6 +126,8 @@
 	HoccerClient *client = [[HoccerClient alloc] init];
 	client.userAgent = @"Hoccer/iPhone";
 	client.delegate = mockedDelegate;
+	
+	// HoccerConnection *request = [HoccerConnection requestWithLocation: content:];
 	client.hocLocation = [self fakeHocLocation];
 	client.content = [self fakeContent];
 	[client performSelectorOnMainThread: @selector(uploadWithGesture:) withObject:@"sweepOut" waitUntilDone: NO];
@@ -144,9 +146,6 @@
 	[client release];
 	[client2 release];
 } 
-
-
-
 
 - (HocLocation *)fakeHocLocation {
 	CLLocationCoordinate2D coordinate;
