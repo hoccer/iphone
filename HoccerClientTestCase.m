@@ -14,6 +14,7 @@
 
 #import "HocLocation.h"
 #import "HoccerVcard.h"
+#import "HoccerRequest.h"
 
 @interface MockHoccerClientDelegate : NSObject <HoccerClientDelegate> 
 {
@@ -127,17 +128,15 @@
 	client.userAgent = @"Hoccer/iPhone";
 	client.delegate = mockedDelegate;
 	
-	// HoccerConnection *request = [HoccerConnection requestWithLocation: content:];
-	client.hocLocation = [self fakeHocLocation];
-	client.content = [self fakeContent];
-	[client performSelectorOnMainThread: @selector(uploadWithGesture:) withObject:@"sweepOut" waitUntilDone: NO];
+	HoccerRequest *request = [HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]];
+	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:request waitUntilDone: NO];
 	
+	HoccerRequest *request2 = [HoccerRequest sweepInWithLocation:[self fakeHocLocation]];
 	MockHoccerClientDelegate *mockedDelegate2 = [[MockHoccerClientDelegate alloc] init];
 	HoccerClient *client2 = [[HoccerClient alloc] init];
 	client2.userAgent = @"Hoccer/iPhone";
 	client2.delegate = mockedDelegate2;
-	client2.hocLocation = [self fakeHocLocation];
-	[client2 performSelectorOnMainThread:@selector(downloadWithGesture:) withObject:@"sweepIn" waitUntilDone:NO];
+	[client2 performSelectorOnMainThread:@selector(connectionWithRequest:) withObject:request2 waitUntilDone:NO];
 	
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:2], @"should be called once");

@@ -13,6 +13,7 @@
 
 #import "HocLocation.h"
 #import "HoccerContent.h"
+#import "HoccerRequest.h"
 
 #import "NSObject+DelegateHelper.h"
 
@@ -51,6 +52,22 @@
 	request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:gesture delegate:self];
 }
 
+- (void)connectionWithRequest: (HoccerRequest *)aRequest {
+	self.gesture = aRequest.gesture;
+	
+	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
+		request = [[HoccerUploadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] filename:[aRequest.content filename] delegate:self];
+		return;
+	} 
+	
+	if ([aRequest.gesture isEqual:@"SweepIn"] || [aRequest.gesture isEqual:@"Catch"]) {
+		request = [[HoccerDownloadRequest alloc] initWithLocation:hocLocation gesture:aRequest.gesture delegate:self];
+		return;
+	}
+	
+	@throw [NSException exceptionWithName:@"HoccerException" reason:[NSString stringWithFormat:@"The gesture %@ is unknown", aRequest.gesture] userInfo:nil];
+}
+
 - (void)requestDidFinishUpload: (HoccerUploadRequest *)theRequest {
 	[delegate checkAndPerformSelector: @selector(hoccerClientDidFinishLoading:) withObject: self];	
 }
@@ -78,11 +95,11 @@
 #pragma mark Private UserInfo Methods 
 
 - (NSError *)createAppropriateError {
-	if ([gesture isEqual:@"throw"]) {
+	if ([gesture isEqual:@"Throw"]) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoCatcher userInfo:[self userInfoForNoCatcher]];
 	}
 	
-	if ([gesture isEqual:@"catch"]) {
+	if ([gesture isEqual:@"Catch"]) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoThrower userInfo:[self userInfoForNoThrower]];
 	}
 	

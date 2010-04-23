@@ -286,6 +286,9 @@
 		22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A9C11770FCB003E7058 /* HoccerMessageResolver.m */; };
 		22BC5D90107B4C3B00497EF4 /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		22BC5F02107B9A0200497EF4 /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */; };
+		22BE73D7118196CD0011034A /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE73D6118196CD0011034A /* HoccerRequest.m */; };
+		22BE73D8118196CD0011034A /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE73D6118196CD0011034A /* HoccerRequest.m */; };
+		22BE73D9118196CD0011034A /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE73D6118196CD0011034A /* HoccerRequest.m */; };
 		22C0B27A117DD80D009E3E3C /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
 		22C0B27B117DD80D009E3E3C /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
 		22C0B37D117DF276009E3E3C /* libGHUnitIPhone3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */; };
@@ -575,6 +578,8 @@
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22BC5F00107B9A0200497EF4 /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
 		22BC5F01107B9A0200497EF4 /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
+		22BE73D5118196CD0011034A /* HoccerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerRequest.h; sourceTree = "<group>"; };
+		22BE73D6118196CD0011034A /* HoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerRequest.m; sourceTree = "<group>"; };
 		22C0B1F4117DCE85009E3E3C /* HoccerClientTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClientTestCase.h; sourceTree = "<group>"; };
 		22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClientTestCase.m; sourceTree = "<group>"; };
 		22C0B277117DD80D009E3E3C /* HoccerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerClient.h; sourceTree = "<group>"; };
@@ -1215,6 +1220,8 @@
 				22C0B277117DD80D009E3E3C /* HoccerClient.h */,
 				22C0B278117DD80D009E3E3C /* HoccerClient.m */,
 				22C0B27C117DD81E009E3E3C /* HoccerClientDelegate.h */,
+				22BE73D5118196CD0011034A /* HoccerRequest.h */,
+				22BE73D6118196CD0011034A /* HoccerRequest.m */,
 			);
 			name = HoccerClient;
 			sourceTree = "<group>";
@@ -1599,6 +1606,7 @@
 				22B65A5511770975003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9E11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				22C0B27A117DD80D009E3E3C /* HoccerClient.m in Sources */,
+				22BE73D8118196CD0011034A /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1678,6 +1686,7 @@
 				22B65A5911770976003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				22C0B27B117DD80D009E3E3C /* HoccerClient.m in Sources */,
+				22BE73D9118196CD0011034A /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1729,6 +1738,7 @@
 				2298E36111809D240078DBBD /* ABPersonCreator.m in Sources */,
 				2298E36211809D240078DBBD /* ACPerson.m in Sources */,
 				2298E36311809D240078DBBD /* HoccerVcard.m in Sources */,
+				22BE73D7118196CD0011034A /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
