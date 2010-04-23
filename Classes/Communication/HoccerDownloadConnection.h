@@ -13,7 +13,7 @@
 @class HocLocation;
 @class DownloadRequest;
 
-@interface HoccerDownloadRequest : HoccerConnection {
+@interface HoccerDownloadConnection : HoccerConnection {
 	BaseHoccerRequest *request;
 	DownloadRequest *downloadRequest;
 	

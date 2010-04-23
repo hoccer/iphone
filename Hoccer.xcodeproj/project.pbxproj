@@ -86,8 +86,8 @@
 		2287BD191162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */; };
 		228989741067CC4200FB3E5D /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
-		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
-		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
+		228989751067CC4200FB3E5D /* HoccerDownloadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */; };
+		228989761067CC4200FB3E5D /* HoccerUploadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadConnection.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
 		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
@@ -122,8 +122,8 @@
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		22A112EF117EFDCF00641E3A /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
-		22A112F0117EFDCF00641E3A /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
-		22A112F1117EFDCF00641E3A /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
+		22A112F0117EFDCF00641E3A /* HoccerDownloadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */; };
+		22A112F1117EFDCF00641E3A /* HoccerUploadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadConnection.m */; };
 		22A112F2117EFDCF00641E3A /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
 		22A112F4117EFDCF00641E3A /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		22A112F5117EFDCF00641E3A /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
@@ -223,8 +223,8 @@
 		22B1CBAC1159160600EFD709 /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
 		22B1CBAD1159160600EFD709 /* ReceivedContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentViewController.m */; };
 		22B1CBAF1159160600EFD709 /* BaseHoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */; };
-		22B1CBB01159160600EFD709 /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
-		22B1CBB11159160600EFD709 /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
+		22B1CBB01159160600EFD709 /* HoccerDownloadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */; };
+		22B1CBB11159160600EFD709 /* HoccerUploadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadConnection.m */; };
 		22B1CBB21159160600EFD709 /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
 		22B1CBB41159160600EFD709 /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
 		22B1CBB71159160600EFD709 /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -484,10 +484,10 @@
 		2289896A1067CC1C00FB3E5D /* LineFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineFeatureTests.m; path = Tests/LineFeatureTests.m; sourceTree = "<group>"; };
 		2289896C1067CC4200FB3E5D /* BaseHoccerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHoccerRequest.h; path = Communication/BaseHoccerRequest.h; sourceTree = "<group>"; };
 		2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHoccerRequest.m; path = Communication/BaseHoccerRequest.m; sourceTree = "<group>"; };
-		2289896E1067CC4200FB3E5D /* HoccerDownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerDownloadRequest.h; path = Communication/HoccerDownloadRequest.h; sourceTree = "<group>"; };
-		2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerDownloadRequest.m; path = Communication/HoccerDownloadRequest.m; sourceTree = "<group>"; };
-		228989701067CC4200FB3E5D /* HoccerUploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerUploadRequest.h; path = Communication/HoccerUploadRequest.h; sourceTree = "<group>"; };
-		228989711067CC4200FB3E5D /* HoccerUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadRequest.m; path = Communication/HoccerUploadRequest.m; sourceTree = "<group>"; };
+		2289896E1067CC4200FB3E5D /* HoccerDownloadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerDownloadConnection.h; path = Communication/HoccerDownloadConnection.h; sourceTree = "<group>"; };
+		2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerDownloadConnection.m; path = Communication/HoccerDownloadConnection.m; sourceTree = "<group>"; };
+		228989701067CC4200FB3E5D /* HoccerUploadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerUploadConnection.h; path = Communication/HoccerUploadConnection.h; sourceTree = "<group>"; };
+		228989711067CC4200FB3E5D /* HoccerUploadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadConnection.m; path = Communication/HoccerUploadConnection.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
 		22903C05116DCE8600230C1E /* SweepRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepRecognizer.h; sourceTree = "<group>"; };
@@ -777,12 +777,6 @@
 			children = (
 				2298E3221180976F0078DBBD /* Subrequests */,
 				223BC40D1055556200ABE5A2 /* JSON */,
-				22A8A0381160AB35004BCD3D /* HoccerConnection.h */,
-				22A8A0391160AB35004BCD3D /* HoccerConnection.m */,
-				2289896E1067CC4200FB3E5D /* HoccerDownloadRequest.h */,
-				2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */,
-				228989701067CC4200FB3E5D /* HoccerUploadRequest.h */,
-				228989711067CC4200FB3E5D /* HoccerUploadRequest.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -1222,6 +1216,12 @@
 				22C0B278117DD80D009E3E3C /* HoccerClient.m */,
 				22BE73D5118196CD0011034A /* HoccerRequest.h */,
 				22BE73D6118196CD0011034A /* HoccerRequest.m */,
+				22A8A0381160AB35004BCD3D /* HoccerConnection.h */,
+				22A8A0391160AB35004BCD3D /* HoccerConnection.m */,
+				2289896E1067CC4200FB3E5D /* HoccerDownloadConnection.h */,
+				2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */,
+				228989701067CC4200FB3E5D /* HoccerUploadConnection.h */,
+				228989711067CC4200FB3E5D /* HoccerUploadConnection.m */,
 			);
 			name = HoccerClient;
 			sourceTree = "<group>";
@@ -1555,8 +1555,8 @@
 				22799047105FDCEB0035C643 /* HoccerText.m in Sources */,
 				227990FB105FEA140035C643 /* ReceivedContentViewController.m in Sources */,
 				228989741067CC4200FB3E5D /* BaseHoccerRequest.m in Sources */,
-				228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */,
-				228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */,
+				228989751067CC4200FB3E5D /* HoccerDownloadConnection.m in Sources */,
+				228989761067CC4200FB3E5D /* HoccerUploadConnection.m in Sources */,
 				228989771067CC4200FB3E5D /* UploadRequest.m in Sources */,
 				228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */,
 				229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */,
@@ -1634,8 +1634,8 @@
 				22B1CBAC1159160600EFD709 /* HoccerText.m in Sources */,
 				22B1CBAD1159160600EFD709 /* ReceivedContentViewController.m in Sources */,
 				22B1CBAF1159160600EFD709 /* BaseHoccerRequest.m in Sources */,
-				22B1CBB01159160600EFD709 /* HoccerDownloadRequest.m in Sources */,
-				22B1CBB11159160600EFD709 /* HoccerUploadRequest.m in Sources */,
+				22B1CBB01159160600EFD709 /* HoccerDownloadConnection.m in Sources */,
+				22B1CBB11159160600EFD709 /* HoccerUploadConnection.m in Sources */,
 				22B1CBB21159160600EFD709 /* UploadRequest.m in Sources */,
 				22B1CBB41159160600EFD709 /* NSString+Regexp.m in Sources */,
 				22B1CBB71159160600EFD709 /* VcardWriter.m in Sources */,
@@ -1717,8 +1717,8 @@
 				220FAF35117E019E004DD560 /* Y60AsyncTestHelper.m in Sources */,
 				220FAF38117E02C2004DD560 /* Y60AsyncTestHelperTest.m in Sources */,
 				22A112EF117EFDCF00641E3A /* BaseHoccerRequest.m in Sources */,
-				22A112F0117EFDCF00641E3A /* HoccerDownloadRequest.m in Sources */,
-				22A112F1117EFDCF00641E3A /* HoccerUploadRequest.m in Sources */,
+				22A112F0117EFDCF00641E3A /* HoccerDownloadConnection.m in Sources */,
+				22A112F1117EFDCF00641E3A /* HoccerUploadConnection.m in Sources */,
 				22A112F2117EFDCF00641E3A /* UploadRequest.m in Sources */,
 				22A112F4117EFDCF00641E3A /* PeerGroupRequest.m in Sources */,
 				22A112F5117EFDCF00641E3A /* DownloadRequest.m in Sources */,

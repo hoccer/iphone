@@ -7,7 +7,7 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
-#import "HoccerUploadRequest.h"
+#import "HoccerUploadConnection.h"
 
 #import "NSObject+DelegateHelper.h"
 
@@ -15,13 +15,13 @@
 #import "UploadRequest.h"
 
 
-@interface HoccerUploadRequest ()
+@interface HoccerUploadConnection ()
 
 - (void) didFinishUpload;
 
 @end
 
-@implementation HoccerUploadRequest
+@implementation HoccerUploadConnection
 
 @synthesize delegate;
 @synthesize content;

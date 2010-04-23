@@ -14,7 +14,7 @@
 @class HocLocation;
 
 
-@interface HoccerUploadRequest : HoccerConnection {
+@interface HoccerUploadConnection : HoccerConnection {
 	BaseHoccerRequest *request;
 	BaseHoccerRequest *upload;
 	

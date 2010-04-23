@@ -9,8 +9,8 @@
 #import "HocItemData.h"
 #import "HoccerConnection.h"
 #import "BaseHoccerRequest.h"
-#import "HoccerUploadRequest.h"
-#import "HoccerDownloadRequest.h"
+#import "HoccerUploadConnection.h"
+#import "HoccerDownloadConnection.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 #import "StatusViewController.h"
@@ -111,7 +111,7 @@
 	
 	self.gesture = aGesture;
 	[content prepareSharing];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:[self transferTypeFromGestureName:gesture] content: content 
+	request = [[HoccerUploadConnection alloc] initWithLocation:location gesture:[self transferTypeFromGestureName:gesture] content: content 
 													   type: [content mimeType] filename: [content filename] delegate:self];
 	
 	isUpload = YES;
@@ -123,7 +123,7 @@
 	}
 	
 	self.gesture = aGesture;
-	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:[self transferTypeFromGestureName:gesture] delegate: self];
+	request = [[HoccerDownloadConnection alloc] initWithLocation: location gesture:[self transferTypeFromGestureName:gesture] delegate: self];
 	isUpload = NO;
 }
 

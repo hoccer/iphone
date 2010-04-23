@@ -6,7 +6,7 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import "HoccerDownloadRequest.h"
+#import "HoccerDownloadConnection.h"
 #import "NSObject+DelegateHelper.h"
 
 #import "PeerGroupRequest.h"
@@ -15,7 +15,7 @@
 #import "BaseHoccerRequest.h"
 #import "HocLocation.h"
 
-@implementation HoccerDownloadRequest
+@implementation HoccerDownloadConnection
 
 @synthesize status;
 @synthesize delegate;
