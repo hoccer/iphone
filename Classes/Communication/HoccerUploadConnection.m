@@ -25,7 +25,6 @@
 
 @synthesize content;
 @synthesize type, filename;
-@synthesize status;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)aGesture content: (HoccerContent*)theContent 
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate {
@@ -73,7 +72,7 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
-	
+	NSLog(@"status: %@", status);
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 

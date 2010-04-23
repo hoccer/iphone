@@ -17,8 +17,6 @@
 
 @implementation HoccerDownloadConnection
 
-@synthesize status;
-
 - (id)initWithLocation:(HocLocation *)location gesture:(NSString *)aGesture delegate:(id)aDelegate {
 	self = [super init];
 	if (self != nil) {

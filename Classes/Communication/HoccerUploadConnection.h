@@ -33,7 +33,6 @@
 @property (retain) HoccerContent* content;
 @property (retain) NSString *type;
 @property (retain) NSString *filename;
-@property (retain) NSDictionary *status;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture content: (HoccerContent *)theContent 
 				  type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate;

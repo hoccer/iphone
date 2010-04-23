@@ -16,9 +16,12 @@
 	
 	BaseHoccerRequest *request;
 	NSObject <HoccerConnectionDelegate> *delegate;
+
+	NSDictionary *status;
 }
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
+@property (retain) NSDictionary *status;
 @property (copy) NSString *gesture;
 
 - (void)cancel;

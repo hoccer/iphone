@@ -704,7 +704,6 @@
 				22762FB9105E8512003BF968 /* AccelerationRecorder */,
 				2205A6E21057C27F005C5036 /* Content */,
 				22C0B276117DD7D4009E3E3C /* HoccerClient */,
-				223BC3411055320A00ABE5A2 /* Communication */,
 				223BC43C10555AD300ABE5A2 /* Helper */,
 				224F8A88108CB80400F69B53 /* View */,
 				22A5B6B4115CC57F00579AC5 /* DesktopData */,
@@ -770,15 +769,6 @@
 				220FAF37117E02C2004DD560 /* Y60AsyncTestHelperTest.m */,
 			);
 			name = Y60AsyncTestHelper;
-			sourceTree = "<group>";
-		};
-		223BC3411055320A00ABE5A2 /* Communication */ = {
-			isa = PBXGroup;
-			children = (
-				2298E3221180976F0078DBBD /* Subrequests */,
-				223BC40D1055556200ABE5A2 /* JSON */,
-			);
-			name = Communication;
 			sourceTree = "<group>";
 		};
 		223BC40D1055556200ABE5A2 /* JSON */ = {
@@ -1211,6 +1201,8 @@
 		22C0B276117DD7D4009E3E3C /* HoccerClient */ = {
 			isa = PBXGroup;
 			children = (
+				223BC40D1055556200ABE5A2 /* JSON */,
+				2298E3221180976F0078DBBD /* Subrequests */,
 				22C0B27C117DD81E009E3E3C /* HoccerConnectionDelegate.h */,
 				22C0B277117DD80D009E3E3C /* HoccerClient.h */,
 				22C0B278117DD80D009E3E3C /* HoccerClient.m */,

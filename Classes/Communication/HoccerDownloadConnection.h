@@ -15,8 +15,6 @@
 
 @interface HoccerDownloadConnection : HoccerConnection {
 	DownloadRequest *downloadRequest;
-	
-	NSDictionary *status;
 }
 
 @property (retain) NSDictionary *status;

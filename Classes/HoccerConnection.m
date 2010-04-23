@@ -27,6 +27,7 @@
 @implementation HoccerConnection
 @synthesize delegate;
 @synthesize gesture;
+@synthesize status;
 
 - (void)cancel {
 }
