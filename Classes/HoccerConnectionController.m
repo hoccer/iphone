@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HocItemData.h"
+#import "HoccerConnectionController.h"
 #import "HoccerConnection.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerUploadConnection.h"
@@ -18,7 +18,7 @@
 
 #import "HocLocation.h"
 
-@implementation HocItemData
+@implementation HoccerConnectionController
 
 @synthesize content;
 @synthesize contentView;

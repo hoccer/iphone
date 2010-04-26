@@ -10,7 +10,7 @@
 #import "DesktopViewDataSource.h"
 
 @class DragAndDropViewController;
-@class HocItemData;
+@class HoccerConnectionController;
 
 @interface DesktopDataSource : NSObject <DesktopViewDataSource, NSCoding> {
 	NSMutableArray *contentOnDesktop;
@@ -23,13 +23,13 @@
 - (NSInteger) numberOfItems;
 - (UIView *)viewAtIndex: (NSInteger) index;
 
-- (void)addHocItem: (HocItemData *)controller;
-- (void)removeHocItem: (HocItemData *)controller;
+- (void)addHocItem: (HoccerConnectionController *)controller;
+- (void)removeHocItem: (HoccerConnectionController *)controller;
 
 - (BOOL)hasActiveRequest;
 
-- (HocItemData *)hocItemDataForView: (UIView *)controller;
-- (HocItemData *)hocItemDataAtIndex: (NSInteger) index;
+- (HoccerConnectionController *)hocItemDataForView: (UIView *)controller;
+- (HoccerConnectionController *)hocItemDataAtIndex: (NSInteger) index;
 
 - (NSInteger) count;
 

@@ -12,7 +12,7 @@
 
 @class HoccerViewController;
 
-@class HocItemData;
+@class HoccerConnectionController;
 @class HistoryData;
 
 @interface HoccerHistoryController : UITableViewController {
@@ -27,6 +27,6 @@
 @property (nonatomic, retain) HistoryData *historyData;
 
 
-- (void)addContentToHistory: (HocItemData *) content;
+- (void)addContentToHistory: (HoccerConnectionController *) content;
 
 @end

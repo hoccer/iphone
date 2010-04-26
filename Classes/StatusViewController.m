@@ -10,7 +10,7 @@
 
 #import "StatusViewController.h"
 #import "NSObject+DelegateHelper.h"
-#import "HocItemData.h"
+#import "HoccerConnectionController.h"
 
 @interface StatusViewController ()
 @property (retain) NSError *badLocationHint;
@@ -42,7 +42,7 @@
     [super dealloc];
 }
 
-- (void)setHocItemData:(HocItemData *)newHocItem {
+- (void)setHocItemData:(HoccerConnectionController *)newHocItem {
 	if (hocItemData != newHocItem) {
 		[hocItemData removeObserver:self forKeyPath:@"status"];
 		[hocItemData release];
@@ -113,7 +113,7 @@
 	[activitySpinner stopAnimating];
 }
 
-- (void)monitorHocItem: (HocItemData*) hocItem {
+- (void)monitorHocItem: (HoccerConnectionController*) hocItem {
 	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
 }
 

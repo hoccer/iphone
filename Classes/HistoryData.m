@@ -9,7 +9,7 @@
 #import "HistoryData.h"
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
-#import "HocItemData.h"
+#import "HoccerConnectionController.h"
 #import "HoccerContentFactory.h"
 
 @implementation HistoryData
@@ -139,7 +139,7 @@
 }
 
 
-- (void)addContentToHistory: (HocItemData *) hocItem {
+- (void)addContentToHistory: (HoccerConnectionController *) hocItem {
 	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
 	historyItem.filepath = hocItem.content.filepath;

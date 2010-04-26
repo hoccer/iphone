@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HocItemData;
+@class HoccerConnectionController;
 
 @protocol HocItemDataDelegate <NSObject>
 @optional
-- (void)hocItemWillStartUpload: (HocItemData *)item;
-- (void)hocItemWillStartDownload: (HocItemData *)item;
+- (void)hocItemWillStartUpload: (HoccerConnectionController *)item;
+- (void)hocItemWillStartDownload: (HoccerConnectionController *)item;
 
-- (void)hocItem:(HocItemData *)item uploadFailedWithError: (NSError *)error;
-- (void)hocItem:(HocItemData *)item downloadFailedWithError: (NSError *)error;
+- (void)hocItem:(HoccerConnectionController *)item uploadFailedWithError: (NSError *)error;
+- (void)hocItem:(HoccerConnectionController *)item downloadFailedWithError: (NSError *)error;
 
-- (void)hocItemUploadWasCanceled: (HocItemData *)item;
-- (void)hocItemDownloadWasCanceled: (HocItemData *)item;
+- (void)hocItemUploadWasCanceled: (HoccerConnectionController *)item;
+- (void)hocItemDownloadWasCanceled: (HoccerConnectionController *)item;
 
-- (void)hocItemWasSend: (HocItemData *)item;
-- (void)hocItemWasReceived: (HocItemData *)item;
+- (void)hocItemWasSend: (HoccerConnectionController *)item;
+- (void)hocItemWasReceived: (HoccerConnectionController *)item;
 
 @end

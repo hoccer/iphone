@@ -36,7 +36,7 @@
 #import "GesturesInterpreter.h"
 #import "LocationController.h"
 
-#import "HocItemData.h"
+#import "HoccerConnectionController.h"
 #import "StatusViewController.h"
 #import "HoccerMessageResolver.h"
 
@@ -120,7 +120,7 @@
 		return;
 	}
 	
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
@@ -180,7 +180,7 @@
 	}
 	
 	[FeedbackProvider playCatchFeedback];
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
 	item.delegate = self;
 	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
 	
@@ -223,7 +223,7 @@
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
-	HocItemData *item = [desktopData hocItemDataAtIndex:index];
+	HoccerConnectionController *item = [desktopData hocItemDataAtIndex:index];
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
@@ -236,7 +236,7 @@
 		return;
 	}
 	
-	HocItemData *item = [desktopData hocItemDataForView: view];
+	HoccerConnectionController *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"sweepIn"];
 }
 
@@ -245,7 +245,7 @@
 		return;
 	}
 	
-	HocItemData *item = [desktopData hocItemDataForView: view];
+	HoccerConnectionController *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 	
 	statusViewController.hocItemData = item;
@@ -257,7 +257,7 @@
 		return NO;
 	}
 	
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(point.x - item.contentView.frame.size.width / 2, 
 								  point.y - item.contentView.frame.size.height / 2);
 	item.delegate = self;
@@ -271,7 +271,7 @@
 #pragma mark -
 #pragma mark HocItemDataDelegate
 
-- (void)hocItemWasSend: (HocItemData *)item {
+- (void)hocItemWasSend: (HoccerConnectionController *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
@@ -281,7 +281,7 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemWasReceived: (HocItemData *)item {
+- (void)hocItemWasReceived: (HoccerConnectionController *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
@@ -289,35 +289,35 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HocItemData*) item uploadFailedWithError: (NSError *)error {
+- (void)hocItem: (HoccerConnectionController*) item uploadFailedWithError: (NSError *)error {
 	[statusViewController setError:error];
 
 	item.viewOrigin = self.defaultOrigin;
 	[desktopView reloadData];
 }
 
-- (void)hocItemUploadWasCanceled: (HocItemData *)item {
+- (void)hocItemUploadWasCanceled: (HoccerConnectionController *)item {
 	statusViewController.hocItemData = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
-- (void)hocItemDownloadWasCanceled: (HocItemData *)item {
+- (void)hocItemDownloadWasCanceled: (HoccerConnectionController *)item {
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HocItemData *)item downloadFailedWithError: (NSError *)error  {
+- (void)hocItem: (HoccerConnectionController *)item downloadFailedWithError: (NSError *)error  {
 	statusViewController.hocItemData = nil;
 	[statusViewController setError:error];
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItemWillStartDownload: (HocItemData *)item {
+- (void)hocItemWillStartDownload: (HoccerConnectionController *)item {
 	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
 }
@@ -326,8 +326,6 @@
 #pragma mark LocationController Delegate Methods
 
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	NSLog(@"hoccability: %d", controller.hoccability);
-	
 	if (controller.hoccability == 0) {
 		blocked = YES;
 	} else {
