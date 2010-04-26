@@ -12,6 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="217"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -80,35 +82,45 @@
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{0, 411}, {320, 49}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
 						<reference key="IBUIBackgroundColor" ref="535761461"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUITabBarItem" id="379352711">
 								<int key="IBUITag">1</int>
+								<string key="IBUITitle">Select Content</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">nav_bar_content_btn.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
-								<int key="IBUISystemItemIdentifier">10</int>
 							</object>
 							<object class="IBUITabBarItem" id="395053497">
 								<int key="IBUITag">2</int>
+								<string key="IBUITitle">History</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">nav_bar_history_btn.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
-								<int key="IBUISystemItemIdentifier">0</int>
 							</object>
 							<object class="IBUITabBarItem" id="195199696">
 								<int key="IBUITag">3</int>
+								<string key="IBUITitle">Settings</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">nav_bar_settings_btn.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
-								<int key="IBUISystemItemIdentifier">11</int>
 							</object>
 						</object>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -154,7 +166,6 @@
 									<int key="NSvFlags">292</int>
 									<string key="NSFrame">{{119, 48}, {83, 21}}</string>
 									<reference key="NSSuperview" ref="264601323"/>
-									<reference key="NSWindow"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
 									<int key="IBUIContentMode">7</int>
@@ -171,9 +182,8 @@
 									<int key="IBUITextAlignment">1</int>
 								</object>
 							</object>
-							<string key="NSFrame">{{0, 29}, {320, 378}}</string>
+							<string key="NSFrameSize">{320, 387}</string>
 							<reference key="NSSuperview"/>
-							<reference key="NSWindow"/>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MC43NQA</bytes>
@@ -182,6 +192,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="513324182">
+							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">Hoccer</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -425,7 +436,7 @@
 					<string>NavigationControllerDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{524, 247}, {320, 480}}</string>
+					<string>{{561, 644}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -1005,6 +1016,21 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">Hoccer.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>nav_bar_content_btn.png</string>
+				<string>nav_bar_history_btn.png</string>
+				<string>nav_bar_settings_btn.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{36, 36}</string>
+				<string>{36, 36}</string>
+				<string>{36, 36}</string>
+			</object>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>
 	</data>
 </archive>

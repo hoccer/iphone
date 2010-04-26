@@ -28,8 +28,6 @@
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
-	
-	self.view.layer.delegate = self;
 }
 
 - (void)dealloc {

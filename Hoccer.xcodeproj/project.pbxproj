@@ -13,6 +13,16 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2219BDB91185976D007AB243 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219BDB81185976D007AB243 /* NavigationControllerDelegate.m */; };
 		2219BDBA1185976D007AB243 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219BDB81185976D007AB243 /* NavigationControllerDelegate.m */; };
+		2219BE9A1185C717007AB243 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219BE991185C717007AB243 /* StatusView.m */; };
+		2219BE9B1185C717007AB243 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2219BE991185C717007AB243 /* StatusView.m */; };
+		2219BF361185D58B007AB243 /* hoccer_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF2E1185D58B007AB243 /* hoccer_bar.png */; };
+		2219BF371185D58B007AB243 /* hoccer_logo_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF2F1185D58B007AB243 /* hoccer_logo_bar.png */; };
+		2219BF381185D58B007AB243 /* lochblech_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF301185D58B007AB243 /* lochblech_bg.png */; };
+		2219BF391185D58B007AB243 /* nav_bar_content_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF311185D58B007AB243 /* nav_bar_content_btn.png */; };
+		2219BF3A1185D58B007AB243 /* nav_bar_history_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF321185D58B007AB243 /* nav_bar_history_btn.png */; };
+		2219BF3B1185D58B007AB243 /* nav_bar_settings_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF331185D58B007AB243 /* nav_bar_settings_btn.png */; };
+		2219BF3C1185D58B007AB243 /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF341185D58B007AB243 /* nav_bar.png */; };
+		2219BF3D1185D58B007AB243 /* statusbar_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2219BF351185D58B007AB243 /* statusbar_small.png */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -359,6 +369,16 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2219BDB71185976D007AB243 /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
 		2219BDB81185976D007AB243 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
+		2219BE981185C717007AB243 /* StatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		2219BE991185C717007AB243 /* StatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
+		2219BF2E1185D58B007AB243 /* hoccer_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoccer_bar.png; path = Resources/assets/hoccer_bar.png; sourceTree = "<group>"; };
+		2219BF2F1185D58B007AB243 /* hoccer_logo_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoccer_logo_bar.png; path = Resources/assets/hoccer_logo_bar.png; sourceTree = "<group>"; };
+		2219BF301185D58B007AB243 /* lochblech_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lochblech_bg.png; path = Resources/assets/lochblech_bg.png; sourceTree = "<group>"; };
+		2219BF311185D58B007AB243 /* nav_bar_content_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar_content_btn.png; path = Resources/assets/nav_bar_content_btn.png; sourceTree = "<group>"; };
+		2219BF321185D58B007AB243 /* nav_bar_history_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar_history_btn.png; path = Resources/assets/nav_bar_history_btn.png; sourceTree = "<group>"; };
+		2219BF331185D58B007AB243 /* nav_bar_settings_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar_settings_btn.png; path = Resources/assets/nav_bar_settings_btn.png; sourceTree = "<group>"; };
+		2219BF341185D58B007AB243 /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar.png; path = Resources/assets/nav_bar.png; sourceTree = "<group>"; };
+		2219BF351185D58B007AB243 /* statusbar_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_small.png; path = Resources/assets/statusbar_small.png; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -753,6 +773,21 @@
 			name = Content;
 			sourceTree = "<group>";
 		};
+		2219BF261185D54E007AB243 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2219BF2E1185D58B007AB243 /* hoccer_bar.png */,
+				2219BF2F1185D58B007AB243 /* hoccer_logo_bar.png */,
+				2219BF301185D58B007AB243 /* lochblech_bg.png */,
+				2219BF311185D58B007AB243 /* nav_bar_content_btn.png */,
+				2219BF321185D58B007AB243 /* nav_bar_history_btn.png */,
+				2219BF331185D58B007AB243 /* nav_bar_settings_btn.png */,
+				2219BF341185D58B007AB243 /* nav_bar.png */,
+				2219BF351185D58B007AB243 /* statusbar_small.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		223BC3411055320A00ABE5A2 /* Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +854,8 @@
 				224F8A9B108CBB4300F69B53 /* Preview.m */,
 				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
 				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
+				2219BE981185C717007AB243 /* StatusView.h */,
+				2219BE991185C717007AB243 /* StatusView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1206,6 +1243,7 @@
 			isa = PBXGroup;
 			children = (
 				22AD329B11107D7500BC7DEC /* iTunesArtwork.png */,
+				2219BF261185D54E007AB243 /* Assets */,
 				227B3A6610A06DFC000326FD /* image */,
 				227A95EF10973B90008CE547 /* Video */,
 				22762DE5105E5688003BF968 /* fixtures */,
@@ -1386,6 +1424,14 @@
 				22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */,
 				22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */,
 				22A74C0A116C945A00F3E4B4 /* HocHistory.xib in Resources */,
+				2219BF361185D58B007AB243 /* hoccer_bar.png in Resources */,
+				2219BF371185D58B007AB243 /* hoccer_logo_bar.png in Resources */,
+				2219BF381185D58B007AB243 /* lochblech_bg.png in Resources */,
+				2219BF391185D58B007AB243 /* nav_bar_content_btn.png in Resources */,
+				2219BF3A1185D58B007AB243 /* nav_bar_history_btn.png in Resources */,
+				2219BF3B1185D58B007AB243 /* nav_bar_settings_btn.png in Resources */,
+				2219BF3C1185D58B007AB243 /* nav_bar.png in Resources */,
+				2219BF3D1185D58B007AB243 /* statusbar_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1554,6 +1600,7 @@
 				22B65A5511770975003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9E11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				2219BDB91185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
+				2219BE9A1185C717007AB243 /* StatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1687,6 +1734,7 @@
 				22B65A5911770976003E7058 /* ThrowDetector.m in Sources */,
 				22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				2219BDBA1185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
+				2219BE9B1185C717007AB243 /* StatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

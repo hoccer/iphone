@@ -83,8 +83,10 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	navigationController.navigationBar.tintColor = [UIColor blackColor];
+	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
 
 	navigationController.view.frame = CGRectMake(0, 0, 
 												 self.view.frame.size.width, 
@@ -96,6 +98,11 @@
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
+	
+	
+	// desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+	// navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
 	CGRect statusRect = statusViewController.view.frame;
@@ -266,7 +273,7 @@
 	
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
-	navigationItem.title = @"Hoccer";
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
 	tabBar.selectedItem = nil;
 }
 
