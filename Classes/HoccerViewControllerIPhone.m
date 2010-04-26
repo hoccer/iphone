@@ -100,9 +100,9 @@
 	self.hoccerHistoryController.historyData = historyData;
 	
 	
-	// desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
-	// navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
 	CGRect statusRect = statusViewController.view.frame;

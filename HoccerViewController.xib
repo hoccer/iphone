@@ -12,8 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="217"/>
-			<integer value="6"/>
+			<integer value="210"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -36,9 +35,6 @@
 			</object>
 			<object class="IBProxyObject" id="843779117">
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-			</object>
-			<object class="IBUICustomObject" id="11039530">
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="563091896">
@@ -96,7 +92,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
 							</object>
-							<object class="IBUITabBarItem" id="395053497">
+							<object class="IBUITabBarItem" id="584568462">
 								<int key="IBUITag">2</int>
 								<string key="IBUITitle">History</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -136,9 +132,6 @@
 			</object>
 			<object class="IBUINavigationController" id="372773631">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
-				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
-					<bool key="IBUIPrompted">NO</bool>
-				</object>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="interfaceOrientation">1</int>
 				</object>
@@ -147,7 +140,7 @@
 				<object class="IBUINavigationBar" key="IBUINavigationBar" id="831189130">
 					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
-					<string key="NSFrame">{{0, -44}, {0, 44}}</string>
+					<string key="NSFrameSize">{0, 0}</string>
 					<bool key="IBUIOpaque">NO</bool>
 					<bool key="IBUIClipsSubviews">YES</bool>
 					<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -157,7 +150,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="424575191">
 						<object class="IBUIView" key="IBUIView" id="264601323">
-							<reference key="NSNextResponder"/>
+							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">308</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -182,8 +175,7 @@
 									<int key="IBUITextAlignment">1</int>
 								</object>
 							</object>
-							<string key="NSFrameSize">{320, 387}</string>
-							<reference key="NSSuperview"/>
+							<string key="NSFrame">{{0, 24}, {320, 387}}</string>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MC43NQA</bytes>
@@ -192,7 +184,6 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="513324182">
-							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">Hoccer</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -207,6 +198,9 @@
 						<bool key="IBUIHorizontal">NO</bool>
 					</object>
 				</object>
+			</object>
+			<object class="IBUICustomObject" id="974217445">
+				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -260,14 +254,6 @@
 					</object>
 					<int key="connectionID">223</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="372773631"/>
-						<reference key="destination" ref="11039530"/>
-					</object>
-					<int key="connectionID">225</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -319,7 +305,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="195199696"/>
 							<reference ref="379352711"/>
-							<reference ref="395053497"/>
+							<reference ref="584568462"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -379,12 +365,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">224</int>
-						<reference key="object" ref="11039530"/>
+						<reference key="object" ref="974217445"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">226</int>
-						<reference key="object" ref="395053497"/>
+						<int key="objectID">227</int>
+						<reference key="object" ref="584568462"/>
 						<reference key="parent" ref="986704132"/>
 					</object>
 				</object>
@@ -411,7 +397,7 @@
 					<string>222.IBPluginDependency</string>
 					<string>224.CustomClassName</string>
 					<string>224.IBPluginDependency</string>
-					<string>226.IBPluginDependency</string>
+					<string>227.IBPluginDependency</string>
 					<string>6.IBEditorWindowLastContentRect</string>
 					<string>6.IBPluginDependency</string>
 				</object>
@@ -427,7 +413,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{762, 585}, {320, 480}}</string>
+					<string>{{87, 114}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -436,7 +422,7 @@
 					<string>NavigationControllerDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{561, 644}, {320, 480}}</string>
+					<string>{{505, 303}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -456,7 +442,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">226</int>
+			<int key="maxID">227</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

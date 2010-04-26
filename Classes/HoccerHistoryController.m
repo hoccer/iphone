@@ -138,7 +138,7 @@
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
-	// [detailViewController setHoccerContent:content];
+	[detailViewController setHoccerContent:content];
 	detailViewController.delegate = self;
 	detailViewController.navigationItem.title = [content.filepath lastPathComponent];
 	

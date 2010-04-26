@@ -18,4 +18,8 @@
 	navigationController.navigationBar.frame = frame;
 }
 
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+	
+}
+
 @end
