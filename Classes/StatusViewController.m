@@ -28,8 +28,9 @@
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
-	
-	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"statusbar_small.png"]];
+	self.view.backgroundColor = [UIColor clearColor];
+	// self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"statusbar_small.png"]];
+
 }
 
 - (void)dealloc {
