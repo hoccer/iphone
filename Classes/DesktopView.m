@@ -288,7 +288,7 @@
 - (NSArray *)findTouchedViews: (CGPoint) point {
 	NSMutableArray *touchedViews = [[NSMutableArray alloc] init];
 	
-	for (UIView *view in self.subviews) {
+	for (UIView *view in volatileView) {
 		if ([[view layer] hitTest: point] && [view.layer.animationKeys count] == 0) {
 			[touchedViews addObject:view];
 			return [touchedViews autorelease];

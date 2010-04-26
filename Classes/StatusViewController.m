@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
+	
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"statusbar_small.png"]];
 }
 
 - (void)dealloc {
@@ -97,11 +99,19 @@
 
 	self.view.hidden = NO;
 	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-	animation.fromValue = [NSValue valueWithCGRect:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 0)];
-	animation.duration = 0.4;
+	CGFloat currentYPos = self.view.center.y;
+	self.view.center = CGPointMake(self.view.center.x, currentYPos - 35);
+	[UIView beginAnimations:@"slideDown" context:nil];
 	
-    [self.view.layer addAnimation:animation forKey:nil];					   
+	self.view.center = CGPointMake(self.view.center.x, currentYPos);
+	[UIView setAnimationDuration:0.2];
+	[UIView commitAnimations];
+	
+	//CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+//	animation.fromValue = [NSValue valueWithCGRect:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 0)];
+//	animation.duration = 0.2;
+//	
+//    [self.view.layer addAnimation:animation forKey:nil];					   
 							
 	[activitySpinner startAnimating];
 }
@@ -154,14 +164,14 @@
 }
 
 - (void)hideRecoverySuggestion {
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 31); 
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
 	hintText.hidden = YES;
 }
 
 
 - (IBAction)toggelRecoveryHelp: (id)sender {
 	NSLog(@"show help");
-	if (self.view.frame.size.height > 31) {
+	if (self.view.frame.size.height > 35) {
 		[self hideRecoverySuggestion];
 	} else {
 		[self showRecoverySuggestion];

@@ -104,11 +104,10 @@
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
 	navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
-	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
+	[desktopView insertSubview:statusViewController.view atIndex: 0];
 	CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = 53;
+	statusRect.origin.y = 0;
 	statusViewController.view.frame = statusRect;
-	statusViewController.view.hidden = YES;
 }
 
 - (void) dealloc {
@@ -192,6 +191,7 @@
 	[selectContentViewController release];
 	
 	navigationItem.title = @"Select";
+	navigationItem.titleView = nil;
 }
 
 - (void)showHelpView {
@@ -200,12 +200,14 @@
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = @"Help";
+	navigationItem.titleView = nil;
 }
 
 - (void)showHistoryView {
 	[self showPopOver: self.hoccerHistoryController];
 	
 	navigationItem.title = @"History";
+	navigationItem.titleView = nil;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
