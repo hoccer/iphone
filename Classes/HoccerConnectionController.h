@@ -13,7 +13,7 @@
 @class HoccerContent;
 @class Preview;
 @class HocLocation;
-
+@class HoccerClient;
 
 @interface HoccerConnectionController : NSObject <NSCoding> {
 	HoccerConnection *request;
@@ -26,6 +26,7 @@
 	NSString *gesture;
 	BOOL isUpload;
 	
+	HoccerClient *hoccerClient;
 	id <HocItemDataDelegate> delegate;
 }
 
