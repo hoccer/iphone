@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
+	
+	self.view.layer.delegate = self;
 }
 
 - (void)dealloc {
@@ -160,11 +162,22 @@
 
 
 - (IBAction)toggelRecoveryHelp: (id)sender {
+	NSLog(@"show help");
 	if (self.view.frame.size.height > 31) {
 		[self hideRecoverySuggestion];
 	} else {
 		[self showRecoverySuggestion];
 	}
 }
+
+
+#pragma mark -
+#pragma mark CALayer Delegate 
+
+//- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
+//	NSLog(@"draw layer");
+//}
+
+
 
 @end

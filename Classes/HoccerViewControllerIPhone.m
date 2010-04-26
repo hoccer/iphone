@@ -99,7 +99,7 @@
 	
 	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
 	CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = 44;
+	statusRect.origin.y = 53;
 	statusViewController.view.frame = statusRect;
 	statusViewController.view.hidden = YES;
 }
@@ -281,6 +281,10 @@
 	[[item content] previewInViewController:navigationController];
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
+	
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 
