@@ -77,7 +77,6 @@
 @synthesize auxiliaryView;
 @synthesize tabBar;
 
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
@@ -105,14 +104,11 @@
 	statusViewController.view.hidden = YES;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[hoccerHistoryController release];
 	[navigationItem release];
 	[super dealloc];
 }
-
-
 
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
