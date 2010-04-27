@@ -27,6 +27,7 @@
 	
 	CGPoint viewOrigin;
 	NSString *status;
+	NSNumber *progress;
 
 	NSString *gesture;
 	BOOL isUpload;
@@ -39,6 +40,7 @@
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
 @property (retain) NSString *gesture;
+@property (retain) NSNumber *progress;
 
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, assign) id <HocItemDataDelegate> delegate; 

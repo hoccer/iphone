@@ -44,6 +44,7 @@
 @synthesize delegate;
 @synthesize isUpload;
 @synthesize gesture;
+@synthesize progress;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -66,6 +67,8 @@
 	[contentView release];
 	[request release];
 	[gesture release];
+	[status release];
+	[progress release];
 	
 	[super dealloc];
 }
@@ -207,7 +210,9 @@
 	self.status = update;
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
+	NSLog(@"progress: %@", theProgress);
+	self.progress = theProgress;
 }
 
 #pragma mark -

@@ -48,6 +48,7 @@
 - (void)setHocItemData:(HocItemData *)newHocItem {
 	if (hocItemData != newHocItem) {
 		[hocItemData removeObserver:self forKeyPath:@"status"];
+		[hocItemData removeObserver:self forKeyPath:@"progress"];
 		[hocItemData release];
 		
 		hocItemData = [newHocItem retain]; 
@@ -108,12 +109,6 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView commitAnimations];
 	
-	//CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-//	animation.fromValue = [NSValue valueWithCGRect:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 0)];
-//	animation.duration = 0.2;
-//	
-//    [self.view.layer addAnimation:animation forKey:nil];					   
-							
 	[activitySpinner startAnimating];
 }
 
@@ -126,11 +121,16 @@
 
 - (void)monitorHocItem: (HocItemData*) hocItem {
 	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+	[hocItem addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqual:@"status"]) {
 		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
+	}
+	
+	if ([keyPath isEqual:@"progress"]) {
+		[self setProgressUpdate: [[change objectForKey:NSKeyValueChangeNewKey] floatValue]];
 	}
 }
 
