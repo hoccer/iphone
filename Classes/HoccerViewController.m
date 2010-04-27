@@ -339,9 +339,9 @@
 	NSError *message = [controller messageForLocationInformation];
 	if (![desktopData hasActiveRequest]) {
 		if (message) {
-			[statusViewController showLocationHint: message];			
+			[statusViewController setLocationHint: message];			
 		} else {
-			[statusViewController showLocationHint: nil];
+			[statusViewController setLocationHint: nil];
 		}
 	}
 }

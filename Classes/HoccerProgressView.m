@@ -27,6 +27,17 @@
     }
     return self;
 }
+
+- (void) dealloc
+{
+	[progressLeft release];
+	[progressRight release];
+	[progressCenter release];
+	[super dealloc];
+}
+
+
+
 - (void)awakeFromNib {
 	[self setUp];
 }
@@ -70,11 +81,6 @@
 
 - (void)drawRect:(CGRect)rect {
     [self recalculatePositions];
-}
-
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 

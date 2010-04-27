@@ -20,8 +20,11 @@
 	IBOutlet UITextView *hintText;
 	IBOutlet UIButton *cancelButton;
 	
+	IBOutlet UIImageView *backgroundImage;
+	
 	HocItemData *hocItemData;
 	
+	NSInteger hoccabiliy;
 	NSError *badLocationHint;
 }
 
@@ -32,7 +35,7 @@
 - (void)setError: (NSError *)error;
 - (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
-- (void)showLocationHint: (NSError *)hint;
+- (void)setLocationHint: (NSError *)hint;
 - (void)showActivityInfo;
 - (void)hideActivityInfo;
 

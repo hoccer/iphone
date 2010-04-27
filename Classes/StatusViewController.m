@@ -17,6 +17,15 @@
 - (void)showRecoverySuggestion;
 - (void)hideRecoverySuggestion;
 
+- (void)setConnectingState;
+- (void)setTransferState;
+- (void)setCompleteState;
+- (void)setErrorState;
+- (void)hideUpdateState;
+
+- (void)showLocationHint;
+- (void)hideLocationHint;
+
 @end
 
 
@@ -29,8 +38,6 @@
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
-	// self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"statusbar_small.png"]];
-
 }
 
 - (void)dealloc {
@@ -41,6 +48,7 @@
 	[hintButton release];
 	[cancelButton release];
 	[badLocationHint release];
+	[backgroundImage release];
 	
     [super dealloc];
 }
@@ -61,40 +69,165 @@
 }
 
 - (IBAction) cancelAction: (id) sender {
-	self.view.hidden = YES;	
-	
 	[hocItemData cancelRequest];
 	self.hocItemData = nil;
 	
-	if (badLocationHint != nil) {
-		[self showLocationHint:badLocationHint];
+	[self hideUpdateState];
+}
+
+#pragma mark -
+#pragma mark Managing Status Bar Size
+
+- (void)showRecoverySuggestion {
+	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
+	hintText.hidden = NO;
+}
+
+- (void)hideRecoverySuggestion {
+	backgroundImage.image = [UIImage imageNamed:@"statusbar_small.png"];
+
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
+	hintText.hidden = YES;
+}
+
+
+- (IBAction)toggelRecoveryHelp: (id)sender {
+	if (self.view.frame.size.height > 35) {
+		[self hideRecoverySuggestion];
+	} else {
+		[self showRecoverySuggestion];
+	}
+}	
+
+
+#pragma mark -
+#pragma mark Managing Hoccability / Location Hints
+
+- (void)setLocationHint: (NSError *)hint {
+	self.badLocationHint = hint;
+	
+	if (hint != nil) {
+		[self showLocationHint];
+	} else {
+		[self hideActivityInfo];
 	}
 }
 
-- (void)setUpdate: (NSString *)update {
-	NSLog(@"setting update");
-	progressView.progress = 0;
-	progressView.hidden = NO;
+- (void)showLocationHint {
+	if (self.badLocationHint != nil && self.hocItemData != nil) {
+		[self showActivityInfo];
+		cancelButton.hidden = YES;
+	}
+}
+
+- (void)hideLocationHint {
+	if (self.hocItemData == nil) {
+		[self hideLocationHint];
+		cancelButton.hidden = NO;
+	}
+}
+
+
+#pragma mark -
+#pragma mark Managing Updates
+
+- (void)setConnectingState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	self.view.hidden = NO;
+
+	progressView.hidden = YES;
+	
 	activitySpinner.hidden = NO;
 	statusLabel.hidden = NO;
-	statusLabel.text = update;
-	
-	hintButton.hidden = YES;
 	cancelButton.hidden = NO;
-
+	hintButton.hidden = YES;
+	
 	[self hideRecoverySuggestion];
 }
 
-- (void)setErrorMessage: (NSString *)message {
+- (void)setTransferState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+	self.view.hidden = NO;
+
+	progressView.hidden = NO;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	hintButton.hidden = YES;
+	
+	[self hideRecoverySuggestion];
+}
+
+- (void)setCompleteState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	self.view.hidden = NO;
+
+	progressView.hidden = NO;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	hintButton.hidden = YES;
+	
+	[self hideRecoverySuggestion];
+}
+
+- (void)setErrorState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	self.view.hidden = NO;
+
+	progressView.hidden = YES;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	hintButton.hidden = YES;
+	
+	[self showRecoverySuggestion];
+}
+
+- (void)hideUpdateState {
+	self.view.hidden = YES;	
+
+	[self showLocationHint];
+}
+
+
+- (void)setUpdate: (NSString *)update {
+	statusLabel.text = update;
+	[self setConnectingState];
+}
+
+- (void)setErrorMessage: (NSString *)message {
 	[self setUpdate:message];
+	[self setErrorState];
 }
 
 
 - (void)setProgressUpdate: (CGFloat) percentage {
-	progressView.hidden = NO;
 	progressView.progress = percentage;
+	[self setTransferState];
 }
+
+- (void)setError:(NSError *)error {
+	if ([error localizedDescription]) {
+		statusLabel.text = [error localizedDescription];
+		if ([error localizedRecoverySuggestion]) {
+			hintButton.hidden = NO;
+			hintText.text = [error localizedRecoverySuggestion];
+		}
+		
+	}
+
+	[self setErrorState];
+}
+
+
+#pragma mark -
+#pragma mark Showing and Hiding StatusBar
 
 - (void)showActivityInfo {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -119,6 +252,10 @@
 	[activitySpinner stopAnimating];
 }
 
+
+#pragma mark -
+#pragma mark Monitoring Changes
+
 - (void)monitorHocItem: (HocItemData*) hocItem {
 	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
 	[hocItem addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
@@ -134,58 +271,8 @@
 	}
 }
 
-- (void)setError:(NSError *)error {
-	if ([error localizedDescription]) {
-		statusLabel.text = [error localizedDescription];
-		if ([error localizedRecoverySuggestion]) {
-			hintButton.hidden = NO;
-			hintText.text = [error localizedRecoverySuggestion];
-		}
-		
-	}
-	cancelButton.hidden = NO;
-	self.view.hidden = NO;
-}
-
-- (void)showLocationHint: (NSError *)hint {
-	if (hint != nil) {
-		[self setError: hint];
-		cancelButton.hidden = YES;
-	} else {
-		[self hideActivityInfo];
-	}
-
-	self.badLocationHint = hint;
-}
 
 
-- (void)showRecoverySuggestion {
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
-	hintText.hidden = NO;
-}
-
-- (void)hideRecoverySuggestion {
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
-	hintText.hidden = YES;
-}
-
-
-- (IBAction)toggelRecoveryHelp: (id)sender {
-	NSLog(@"show help");
-	if (self.view.frame.size.height > 35) {
-		[self hideRecoverySuggestion];
-	} else {
-		[self showRecoverySuggestion];
-	}
-}
-
-
-#pragma mark -
-#pragma mark CALayer Delegate 
-
-//- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-//	NSLog(@"draw layer");
-//}
 
 
 
