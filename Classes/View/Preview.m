@@ -24,11 +24,11 @@
 
 - (void) setImage: (UIImage *)image
 {
-	NSInteger paddingLeft = 35;
-	NSInteger paddingTop = 35;
+	NSInteger paddingLeft = 17;
+	NSInteger paddingTop = 17;
 	
-	CGFloat frameWidth = self.frame.size.width - (2 * paddingLeft) + 3;
-	CGFloat frameHeight = self.frame.size.height - (2 * paddingTop) + 10;
+	CGFloat frameWidth = self.frame.size.width - (2 * paddingLeft); //+ 3;
+	CGFloat frameHeight = self.frame.size.height - (2 * paddingTop); // + 10;
 		
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
 	UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES

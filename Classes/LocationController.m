@@ -97,7 +97,7 @@
 	if ([self hasLocation]) {
 		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
-		} else if (locationManager.location.horizontalAccuracy < 2000) {
+		} else if (locationManager.location.horizontalAccuracy < 5000) {
 			self.hoccability = 1;
 		}
 	}

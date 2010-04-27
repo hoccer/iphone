@@ -83,10 +83,8 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
-	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
 
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];

@@ -26,6 +26,9 @@
 	
 	NSInteger hoccabiliy;
 	NSError *badLocationHint;
+	
+	@private
+	BOOL showingError;
 }
 
 @property (assign) id delegate;

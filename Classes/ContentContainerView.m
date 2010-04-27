@@ -33,7 +33,7 @@
 		
 		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
 		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
-				forState:UIControlStateHighlighted];
+			forState:UIControlStateHighlighted];
 		
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setFrame: CGRectMake(3, 3, 35, 36)];

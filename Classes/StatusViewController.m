@@ -43,6 +43,7 @@
 	[self hideViewAnimated];
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
+	showingError = NO;
 }
 
 - (void)dealloc {
@@ -125,7 +126,7 @@
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hocItemData == nil) {
+	if (self.badLocationHint != nil && self.hocItemData == nil && !showingError	) {
 		[self setError:self.badLocationHint];
 		[self setLocationState];
 	}
@@ -155,6 +156,7 @@
 	hintButton.hidden = YES;
 	
 	[self showRecoverySuggestion];
+	showingError = NO;
 }
 
 
@@ -171,6 +173,7 @@
 	hintButton.hidden = YES;
 	
 	[self hideRecoverySuggestion];
+	showingError = NO;
 }
 
 - (void)setTransferState {
@@ -186,6 +189,7 @@
 	hintButton.hidden = YES;
 	
 	[self hideRecoverySuggestion];
+	showingError = NO;
 }
 
 - (void)setCompleteState {
@@ -204,6 +208,8 @@
 	[self hideRecoverySuggestion];
 	
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
+	
+	showingError = NO;
 }
 
 - (void)setErrorState {
@@ -218,6 +224,7 @@
 	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
+	showingError = YES;
 	[self showRecoverySuggestion];
 }
 
