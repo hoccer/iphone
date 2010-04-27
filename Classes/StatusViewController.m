@@ -10,6 +10,7 @@
 
 #import "StatusViewController.h"
 #import "NSObject+DelegateHelper.h"
+#import "NSString+Regexp.h"
 #import "HocItemData.h"
 
 @interface StatusViewController ()
@@ -20,12 +21,13 @@
 - (void)setConnectingState;
 - (void)setTransferState;
 - (void)setErrorState;
+- (void)setLocationState;
 - (void)hideUpdateState;
 
 - (void)showLocationHint;
 - (void)hideLocationHint;
 
-- (void)hideActivityInfo;
+- (void)hideViewAnimated;
 - (void)showViewAnimated;
 
 @end
@@ -38,7 +40,7 @@
 @synthesize badLocationHint;
 
 - (void)viewDidLoad {
-	[self hideActivityInfo];
+	[self hideViewAnimated];
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
 }
@@ -112,19 +114,20 @@
 #pragma mark Managing Hoccability / Location Hints
 
 - (void)setLocationHint: (NSError *)hint {
+	NSLog(@"hint: %@", hint);
 	self.badLocationHint = hint;
 	
 	if (hint != nil) {
 		[self showLocationHint];
 	} else {
-		[self hideActivityInfo];
+		[self hideViewAnimated];
 	}
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hocItemData != nil) {
-		[self showViewAnimated];
-		cancelButton.hidden = YES;
+	if (self.badLocationHint != nil && self.hocItemData == nil) {
+		[self setError:self.badLocationHint];
+		[self setLocationState];
 	}
 }
 
@@ -138,6 +141,22 @@
 
 #pragma mark -
 #pragma mark Managing Updates
+
+- (void)setLocationState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[self showViewAnimated];
+	
+	progressView.hidden = YES;
+	
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = YES;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	[self hideRecoverySuggestion];
+}
+
 
 - (void)setConnectingState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -174,14 +193,17 @@
 	
 	[self showViewAnimated];
 
-	progressView.hidden = NO;
+	progressView.hidden = YES;
 	activitySpinner.hidden = YES;
 	statusLabel.hidden = NO;
 	cancelButton.hidden = NO;
 	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_complete.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
+	statusLabel.text = @"Success";
 	[self hideRecoverySuggestion];
+	
+	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
 }
 
 - (void)setErrorState {
@@ -219,7 +241,9 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	[self setTransferState];
+	if ([hocItemData.status contains:@"Transfering"]) {
+		[self setTransferState];		
+	} 
 }
 
 - (void)setError:(NSError *)error {
@@ -243,8 +267,6 @@
 	if (!self.view.hidden) {
 		return;
 	}
-	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
 	self.view.hidden = NO;
 	
@@ -257,8 +279,14 @@
 	[UIView commitAnimations];
 }
 
-- (void)hideActivityInfo {
+- (void)hideViewAnimated {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+//	[UIView beginAnimations:@"slideUp" context:nil];
+//	self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 105);
+//	[UIView setAnimationDuration:0.5];
+//	[UIView commitAnimations];
+	
 	
 	self.view.hidden = YES;
 }

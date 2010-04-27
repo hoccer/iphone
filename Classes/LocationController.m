@@ -160,6 +160,7 @@
 	[suggestion appendString:@"Hoccer needs to locate you precisely to find your exchange partner. You can improve your location by "];
 	[suggestion appendString:[suggestions componentsJoinedByString:@" or "]];
 
+	[suggestions release];
 	return [suggestion autorelease];
 }
 

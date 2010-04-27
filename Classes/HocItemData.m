@@ -211,7 +211,6 @@
 }
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
-	NSLog(@"progress: %@", theProgress);
 	self.progress = theProgress;
 }
 

@@ -58,7 +58,7 @@
 					<object class="IBUILabel" id="435518619">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{33, -1}, {155, 21}}</string>
+						<string key="NSFrame">{{33, -2}, {253.5, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -69,7 +69,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Looking for partners</string>
-						<object class="NSFont" key="IBUIFont" id="408063896">
+						<object class="NSFont" key="IBUIFont" id="14750804">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">12</double>
 							<int key="NSfFlags">16</int>
@@ -156,17 +156,17 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="672049378">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="97354726">
 								<int key="NSID">2</int>
 							</object>
 						</object>
-						<reference key="IBUIFont" ref="408063896"/>
+						<reference key="IBUIFont" ref="14750804"/>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUIProgressView" id="781852746">
+					<object class="IBUIProgressView" id="613854428">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{126.5, 0}, {187, 9}}</string>
@@ -181,7 +181,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="672049378"/>
+					<reference key="NSCustomColorSpace" ref="97354726"/>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -251,7 +251,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="781852746"/>
+						<reference key="destination" ref="613854428"/>
 					</object>
 					<int key="connectionID">26</int>
 				</object>
@@ -279,11 +279,11 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="1016761913"/>
-							<reference ref="435518619"/>
 							<reference ref="14594712"/>
 							<reference ref="982496397"/>
 							<reference ref="314914246"/>
-							<reference ref="781852746"/>
+							<reference ref="613854428"/>
+							<reference ref="435518619"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -325,7 +325,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
-						<reference key="object" ref="781852746"/>
+						<reference key="object" ref="613854428"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>

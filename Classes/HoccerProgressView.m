@@ -36,8 +36,6 @@
 	[super dealloc];
 }
 
-
-
 - (void)awakeFromNib {
 	[self setUp];
 }

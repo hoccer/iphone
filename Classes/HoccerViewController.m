@@ -245,9 +245,9 @@
 	}
 	
 	HocItemData *item = [desktopData hocItemDataForView: view];
-	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
-	
 	statusViewController.hocItemData = item;
+
+	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -281,7 +281,6 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-//	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
