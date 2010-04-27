@@ -85,7 +85,7 @@
 					<object class="IBUIButton" id="314914246">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{7, 3}, {15, 15}}</string>
+						<string key="NSFrameSize">{25, 25}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -106,7 +106,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">statusbar_icon_cancel.png</string>
 						</object>
@@ -156,7 +156,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="415829780">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="102801047">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -170,7 +170,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUIProgressView" id="349908166">
+					<object class="IBUIProgressView" id="160647296">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{126.5, 0}, {187, 9}}</string>
@@ -185,7 +185,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="415829780"/>
+					<reference key="NSCustomColorSpace" ref="102801047"/>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -255,7 +255,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="349908166"/>
+						<reference key="destination" ref="160647296"/>
 					</object>
 					<int key="connectionID">26</int>
 				</object>
@@ -287,7 +287,7 @@
 							<reference ref="14594712"/>
 							<reference ref="982496397"/>
 							<reference ref="314914246"/>
-							<reference ref="349908166"/>
+							<reference ref="160647296"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -329,7 +329,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
-						<reference key="object" ref="349908166"/>
+						<reference key="object" ref="160647296"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -743,7 +743,7 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{15, 15}</string>
+				<string>{25, 25}</string>
 				<string>{320, 35}</string>
 			</object>
 		</object>

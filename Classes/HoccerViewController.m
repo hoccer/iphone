@@ -200,22 +200,21 @@
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
-	
+
+	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
 	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
 	[FeedbackProvider playThrowFeedback];
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.duration = 0.5;
+	animation.duration = 0.2;
 	animation.toValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];
 	
-	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
-//	[statusViewController showActivityInfo];
 }
 
 

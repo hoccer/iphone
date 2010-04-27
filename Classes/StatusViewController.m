@@ -26,7 +26,7 @@
 - (void)hideLocationHint;
 
 - (void)hideActivityInfo;
-- (void)showActivityInfo;
+- (void)showViewAnimated;
 
 @end
 
@@ -119,7 +119,7 @@
 
 - (void)showLocationHint {
 	if (self.badLocationHint != nil && self.hocItemData != nil) {
-		[self showActivityInfo];
+		[self showViewAnimated];
 		cancelButton.hidden = YES;
 	}
 }
@@ -137,14 +137,14 @@
 
 - (void)setConnectingState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	
-	self.view.hidden = NO;
+	[self showViewAnimated];
 
 	progressView.hidden = YES;
 	
 	activitySpinner.hidden = NO;
 	statusLabel.hidden = NO;
 	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
 	[self hideRecoverySuggestion];
@@ -153,12 +153,13 @@
 - (void)setTransferState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
-	self.view.hidden = NO;
+	[self showViewAnimated];
 
 	progressView.hidden = NO;
 	activitySpinner.hidden = YES;
 	statusLabel.hidden = NO;
 	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
 	[self hideRecoverySuggestion];
@@ -167,12 +168,13 @@
 - (void)setCompleteState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	self.view.hidden = NO;
+	[self showViewAnimated];
 
 	progressView.hidden = NO;
 	activitySpinner.hidden = YES;
 	statusLabel.hidden = NO;
 	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_complete.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
 	[self hideRecoverySuggestion];
@@ -181,12 +183,13 @@
 - (void)setErrorState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	self.view.hidden = NO;
+	[self showViewAnimated];
 
 	progressView.hidden = YES;
 	activitySpinner.hidden = YES;
 	statusLabel.hidden = NO;
 	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
 	[self showRecoverySuggestion];
@@ -232,27 +235,28 @@
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar
 
-- (void)showActivityInfo {
+- (void)showViewAnimated {
+	if (!self.view.hidden) {
+		return;
+	}
+	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
 	self.view.hidden = NO;
 	
 	CGFloat currentYPos = self.view.center.y;
-	self.view.center = CGPointMake(self.view.center.x, currentYPos - 35);
+	self.view.center = CGPointMake(self.view.center.x, currentYPos - 105);
 	[UIView beginAnimations:@"slideDown" context:nil];
 	
 	self.view.center = CGPointMake(self.view.center.x, currentYPos);
-	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDuration:0.7];
 	[UIView commitAnimations];
-	
-	[activitySpinner startAnimating];
 }
 
 - (void)hideActivityInfo {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	self.view.hidden = YES;
-	[activitySpinner stopAnimating];
 }
 
 
