@@ -100,6 +100,24 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadRequest.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadRequest.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		228D8DA21186C82C00468DDE /* statusbar_icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9A1186C82B00468DDE /* statusbar_icon_cancel.png */; };
+		228D8DA31186C82C00468DDE /* statusbar_icon_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9B1186C82C00468DDE /* statusbar_icon_complete.png */; };
+		228D8DA41186C82C00468DDE /* statusbar_icon_spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9C1186C82C00468DDE /* statusbar_icon_spinner.png */; };
+		228D8DA51186C82C00468DDE /* statusbar_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9D1186C82C00468DDE /* statusbar_large.png */; };
+		228D8DA61186C82C00468DDE /* statusbar_progress_thumb_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9E1186C82C00468DDE /* statusbar_progress_thumb_bg.png */; };
+		228D8DA71186C82C00468DDE /* statusbar_progress_thumb_L.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9F1186C82C00468DDE /* statusbar_progress_thumb_L.png */; };
+		228D8DA81186C82C00468DDE /* statusbar_progress_thumb_R.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8DA01186C82C00468DDE /* statusbar_progress_thumb_R.png */; };
+		228D8DA91186C82C00468DDE /* statusbar_progress_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8DA11186C82C00468DDE /* statusbar_progress_track.png */; };
+		228D8DAA1186C82C00468DDE /* statusbar_icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9A1186C82B00468DDE /* statusbar_icon_cancel.png */; };
+		228D8DAB1186C82C00468DDE /* statusbar_icon_complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9B1186C82C00468DDE /* statusbar_icon_complete.png */; };
+		228D8DAC1186C82C00468DDE /* statusbar_icon_spinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9C1186C82C00468DDE /* statusbar_icon_spinner.png */; };
+		228D8DAD1186C82C00468DDE /* statusbar_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9D1186C82C00468DDE /* statusbar_large.png */; };
+		228D8DAE1186C82C00468DDE /* statusbar_progress_thumb_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9E1186C82C00468DDE /* statusbar_progress_thumb_bg.png */; };
+		228D8DAF1186C82C00468DDE /* statusbar_progress_thumb_L.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8D9F1186C82C00468DDE /* statusbar_progress_thumb_L.png */; };
+		228D8DB01186C82C00468DDE /* statusbar_progress_thumb_R.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8DA01186C82C00468DDE /* statusbar_progress_thumb_R.png */; };
+		228D8DB11186C82C00468DDE /* statusbar_progress_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8DA11186C82C00468DDE /* statusbar_progress_track.png */; };
+		228D8DB41186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
+		228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
 		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
@@ -525,6 +543,16 @@
 		228989711067CC4200FB3E5D /* HoccerUploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadRequest.m; path = Communication/HoccerUploadRequest.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
+		228D8D9A1186C82B00468DDE /* statusbar_icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_cancel.png; path = Resources/assets/statusbar_icon_cancel.png; sourceTree = "<group>"; };
+		228D8D9B1186C82C00468DDE /* statusbar_icon_complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_complete.png; path = Resources/assets/statusbar_icon_complete.png; sourceTree = "<group>"; };
+		228D8D9C1186C82C00468DDE /* statusbar_icon_spinner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_icon_spinner.png; path = Resources/assets/statusbar_icon_spinner.png; sourceTree = "<group>"; };
+		228D8D9D1186C82C00468DDE /* statusbar_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_large.png; path = Resources/assets/statusbar_large.png; sourceTree = "<group>"; };
+		228D8D9E1186C82C00468DDE /* statusbar_progress_thumb_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_progress_thumb_bg.png; path = Resources/assets/statusbar_progress_thumb_bg.png; sourceTree = "<group>"; };
+		228D8D9F1186C82C00468DDE /* statusbar_progress_thumb_L.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_progress_thumb_L.png; path = Resources/assets/statusbar_progress_thumb_L.png; sourceTree = "<group>"; };
+		228D8DA01186C82C00468DDE /* statusbar_progress_thumb_R.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_progress_thumb_R.png; path = Resources/assets/statusbar_progress_thumb_R.png; sourceTree = "<group>"; };
+		228D8DA11186C82C00468DDE /* statusbar_progress_track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = statusbar_progress_track.png; path = Resources/assets/statusbar_progress_track.png; sourceTree = "<group>"; };
+		228D8DB21186C87900468DDE /* HoccerProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerProgressView.h; sourceTree = "<group>"; };
+		228D8DB31186C87900468DDE /* HoccerProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerProgressView.m; sourceTree = "<group>"; };
 		22903C05116DCE8600230C1E /* SweepRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepRecognizer.h; sourceTree = "<group>"; };
 		22903C06116DCE8600230C1E /* SweepRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepRecognizer.m; sourceTree = "<group>"; };
 		22903C09116DCF9B00230C1E /* SweepOutRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepOutRecognizer.h; sourceTree = "<group>"; };
@@ -776,6 +804,14 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				228D8D9A1186C82B00468DDE /* statusbar_icon_cancel.png */,
+				228D8D9B1186C82C00468DDE /* statusbar_icon_complete.png */,
+				228D8D9C1186C82C00468DDE /* statusbar_icon_spinner.png */,
+				228D8D9D1186C82C00468DDE /* statusbar_large.png */,
+				228D8D9E1186C82C00468DDE /* statusbar_progress_thumb_bg.png */,
+				228D8D9F1186C82C00468DDE /* statusbar_progress_thumb_L.png */,
+				228D8DA01186C82C00468DDE /* statusbar_progress_thumb_R.png */,
+				228D8DA11186C82C00468DDE /* statusbar_progress_track.png */,
 				2219BF2E1185D58B007AB243 /* hoccer_bar.png */,
 				2219BF2F1185D58B007AB243 /* hoccer_logo_bar.png */,
 				2219BF301185D58B007AB243 /* lochblech_bg.png */,
@@ -856,6 +892,8 @@
 				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
 				2219BE981185C717007AB243 /* StatusView.h */,
 				2219BE991185C717007AB243 /* StatusView.m */,
+				228D8DB21186C87900468DDE /* HoccerProgressView.h */,
+				228D8DB31186C87900468DDE /* HoccerProgressView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1432,6 +1470,14 @@
 				2219BF3B1185D58B007AB243 /* nav_bar_settings_btn.png in Resources */,
 				2219BF3C1185D58B007AB243 /* nav_bar.png in Resources */,
 				2219BF3D1185D58B007AB243 /* statusbar_small.png in Resources */,
+				228D8DA21186C82C00468DDE /* statusbar_icon_cancel.png in Resources */,
+				228D8DA31186C82C00468DDE /* statusbar_icon_complete.png in Resources */,
+				228D8DA41186C82C00468DDE /* statusbar_icon_spinner.png in Resources */,
+				228D8DA51186C82C00468DDE /* statusbar_large.png in Resources */,
+				228D8DA61186C82C00468DDE /* statusbar_progress_thumb_bg.png in Resources */,
+				228D8DA71186C82C00468DDE /* statusbar_progress_thumb_L.png in Resources */,
+				228D8DA81186C82C00468DDE /* statusbar_progress_thumb_R.png in Resources */,
+				228D8DA91186C82C00468DDE /* statusbar_progress_track.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1502,6 +1548,14 @@
 				22B1CBF41159160D00EFD709 /* HelpOverview.xib in Resources */,
 				22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */,
 				22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */,
+				228D8DAA1186C82C00468DDE /* statusbar_icon_cancel.png in Resources */,
+				228D8DAB1186C82C00468DDE /* statusbar_icon_complete.png in Resources */,
+				228D8DAC1186C82C00468DDE /* statusbar_icon_spinner.png in Resources */,
+				228D8DAD1186C82C00468DDE /* statusbar_large.png in Resources */,
+				228D8DAE1186C82C00468DDE /* statusbar_progress_thumb_bg.png in Resources */,
+				228D8DAF1186C82C00468DDE /* statusbar_progress_thumb_L.png in Resources */,
+				228D8DB01186C82C00468DDE /* statusbar_progress_thumb_R.png in Resources */,
+				228D8DB11186C82C00468DDE /* statusbar_progress_track.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1601,6 +1655,7 @@
 				22B65A9E11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				2219BDB91185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
 				2219BE9A1185C717007AB243 /* StatusView.m in Sources */,
+				228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1735,6 +1790,7 @@
 				22B65A9F11770FCB003E7058 /* HoccerMessageResolver.m in Sources */,
 				2219BDBA1185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
 				2219BE9B1185C717007AB243 /* StatusView.m in Sources */,
+				228D8DB41186C87900468DDE /* HoccerProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
