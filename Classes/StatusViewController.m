@@ -19,12 +19,14 @@
 
 - (void)setConnectingState;
 - (void)setTransferState;
-- (void)setCompleteState;
 - (void)setErrorState;
 - (void)hideUpdateState;
 
 - (void)showLocationHint;
 - (void)hideLocationHint;
+
+- (void)hideActivityInfo;
+- (void)showActivityInfo;
 
 @end
 
@@ -36,6 +38,7 @@
 @synthesize badLocationHint;
 
 - (void)viewDidLoad {
+	[self hideActivityInfo];
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
 }

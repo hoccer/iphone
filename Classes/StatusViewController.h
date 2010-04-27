@@ -36,8 +36,8 @@
 - (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
 - (void)setLocationHint: (NSError *)hint;
-- (void)showActivityInfo;
-- (void)hideActivityInfo;
+
+- (void)setCompleteState;
 
 - (IBAction) cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;

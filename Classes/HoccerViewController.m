@@ -215,7 +215,7 @@
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];
 	
 	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
-	[statusViewController showActivityInfo];
+//	[statusViewController showActivityInfo];
 }
 
 
@@ -249,7 +249,6 @@
 	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 	
 	statusViewController.hocItemData = item;
-	[statusViewController showActivityInfo];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -273,7 +272,7 @@
 
 - (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 
 	
@@ -283,7 +282,7 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+//	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
@@ -319,7 +318,7 @@
 
 - (void)hocItemWillStartDownload: (HocItemData *)item {
 	statusViewController.hocItemData = item;
-	[statusViewController showActivityInfo];
+//	[statusViewController showActivityInfo];
 }
 
 #pragma mark -

@@ -211,7 +211,7 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
-	[statusViewController hideActivityInfo];
+//	[statusViewController hideActivityInfo];
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
@@ -283,7 +283,7 @@
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+//	[statusViewController hideActivityInfo];
 	
 	[historyData addContentToHistory:item];
 

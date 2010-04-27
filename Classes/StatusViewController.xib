@@ -58,7 +58,7 @@
 					<object class="IBUILabel" id="435518619">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{33, 0}, {155, 21}}</string>
+						<string key="NSFrame">{{33, -1}, {155, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -136,7 +136,7 @@
 					<object class="IBUITextView" id="982496397">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{26, 20}, {287.5, 76}}</string>
+						<string key="NSFrame">{{26, 14}, {287.5, 76}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -156,7 +156,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="8902057">
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="415829780">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -170,7 +170,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUIProgressView" id="789121539">
+					<object class="IBUIProgressView" id="349908166">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{126.5, 0}, {187, 9}}</string>
@@ -185,7 +185,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="8902057"/>
+					<reference key="NSCustomColorSpace" ref="415829780"/>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -255,7 +255,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">progressView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="789121539"/>
+						<reference key="destination" ref="349908166"/>
 					</object>
 					<int key="connectionID">26</int>
 				</object>
@@ -287,7 +287,7 @@
 							<reference ref="14594712"/>
 							<reference ref="982496397"/>
 							<reference ref="314914246"/>
-							<reference ref="789121539"/>
+							<reference ref="349908166"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -329,7 +329,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">25</int>
-						<reference key="object" ref="789121539"/>
+						<reference key="object" ref="349908166"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
