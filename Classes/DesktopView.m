@@ -142,7 +142,7 @@
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
-		[self addSubview: containerView];
+		[self insertSubview: containerView atIndex:0];
 		[volatileView addObject: containerView];
 		// [containerView release];
 	}
@@ -153,7 +153,7 @@
 	containerView.delegate = self;
 	containerView.origin = point;
 	
-	[self addSubview: containerView];
+	[self insertSubview: containerView atIndex:0];
 	if (animation != nil) {
 		[containerView.layer addAnimation:animation forKey:nil];
 	}
