@@ -154,7 +154,7 @@
 	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
 	hintButton.hidden = YES;
 	
-	[self hideRecoverySuggestion];
+	[self showRecoverySuggestion];
 }
 
 
