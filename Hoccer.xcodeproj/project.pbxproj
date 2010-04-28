@@ -128,6 +128,8 @@
 		228D8F401187225800468DDE /* container_btn_double-save.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8F361187225800468DDE /* container_btn_double-save.png */; };
 		228D8F411187225800468DDE /* container_btn_single-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8F371187225800468DDE /* container_btn_single-close.png */; };
 		228D8F421187225800468DDE /* container_image-land.png in Resources */ = {isa = PBXBuildFile; fileRef = 228D8F381187225800468DDE /* container_image-land.png */; };
+		228D8FAB11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
+		228D8FAC11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
 		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
@@ -568,6 +570,8 @@
 		228D8F361187225800468DDE /* container_btn_double-save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "container_btn_double-save.png"; path = "Resources/assets/container_btn_double-save.png"; sourceTree = "<group>"; };
 		228D8F371187225800468DDE /* container_btn_single-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "container_btn_single-close.png"; path = "Resources/assets/container_btn_single-close.png"; sourceTree = "<group>"; };
 		228D8F381187225800468DDE /* container_image-land.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "container_image-land.png"; path = "Resources/assets/container_image-land.png"; sourceTree = "<group>"; };
+		228D8FA911874DC300468DDE /* TabRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizer.h; sourceTree = "<group>"; };
+		228D8FAA11874DC300468DDE /* TabRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabRecognizer.m; sourceTree = "<group>"; };
 		22903C05116DCE8600230C1E /* SweepRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepRecognizer.h; sourceTree = "<group>"; };
 		22903C06116DCE8600230C1E /* SweepRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SweepRecognizer.m; sourceTree = "<group>"; };
 		22903C09116DCF9B00230C1E /* SweepOutRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SweepOutRecognizer.h; sourceTree = "<group>"; };
@@ -577,6 +581,7 @@
 		22903EC4116DF48600230C1E /* HoccingRulesIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPad.h; sourceTree = "<group>"; };
 		22903EC5116DF48600230C1E /* HoccingRulesIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPad.m; sourceTree = "<group>"; };
 		22903EC7116DF4E100230C1E /* HoccingRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRules.h; sourceTree = "<group>"; };
+		2292528C118827E3008B4FFB /* TabRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizerDelegate.h; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22977AC211104F1C00B55D3F /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
@@ -1091,6 +1096,16 @@
 			name = LocationContoller;
 			sourceTree = "<group>";
 		};
+		228D8FA811874DA600468DDE /* TapRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				228D8FA911874DC300468DDE /* TabRecognizer.h */,
+				228D8FAA11874DC300468DDE /* TabRecognizer.m */,
+				2292528C118827E3008B4FFB /* TabRecognizerDelegate.h */,
+			);
+			name = TapRecognizer;
+			sourceTree = "<group>";
+		};
 		22903E37116DEA6900230C1E /* SweepInRecognizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1218,6 +1233,7 @@
 		22A74D9E116CEB7600F3E4B4 /* SweepRecognizer */ = {
 			isa = PBXGroup;
 			children = (
+				228D8FA811874DA600468DDE /* TapRecognizer */,
 				22903E38116DEA7C00230C1E /* SweepOutRecognizer */,
 				22903E37116DEA6900230C1E /* SweepInRecognizer */,
 				22903C05116DCE8600230C1E /* SweepRecognizer.h */,
@@ -1686,6 +1702,7 @@
 				2219BDB91185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
 				2219BE9A1185C717007AB243 /* StatusView.m in Sources */,
 				228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */,
+				228D8FAC11874DC300468DDE /* TabRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1821,6 +1838,7 @@
 				2219BDBA1185976D007AB243 /* NavigationControllerDelegate.m in Sources */,
 				2219BE9B1185C717007AB243 /* StatusView.m in Sources */,
 				228D8DB41186C87900468DDE /* HoccerProgressView.m in Sources */,
+				228D8FAB11874DC300468DDE /* TabRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

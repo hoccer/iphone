@@ -13,10 +13,11 @@
 #import "ContentContainerViewDelegate.h"
 #import "SweepInRecognizerDelegate.h"
 #import "SweepOutRecognizerDelegate.h"
+#import "TabRecognizerDelegate.h"
 
 @class SweepRecognizer;
 
-@interface DesktopView : UIView <ContentContainerViewDelegate, SweepInRecognizerDelegate, SweepOutRecognizerDelegate> {
+@interface DesktopView : UIView <ContentContainerViewDelegate, SweepInRecognizerDelegate, SweepOutRecognizerDelegate, TabRecognizerDelegate> {
 	id <DesktopViewDelegate> delegate;
 	id <DesktopViewDataSource> dataSource;
 

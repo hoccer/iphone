@@ -21,6 +21,9 @@
 	CGPoint origin;
 	
 	UIView *containedView;
+	
+	UIImageView *overlay;
+	
 }
 
 @property (nonatomic, assign) id delegate;
@@ -30,5 +33,7 @@
 
 - (id) initWithView: (UIView *)insideView;
 - (void)moveBy: (CGSize)distance;
+
+- (IBAction)toggleOverlay: (id)sender;
 
 @end

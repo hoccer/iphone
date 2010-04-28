@@ -12,10 +12,12 @@
 
 #import "SweepInRecognizer.h"
 #import "SweepOutRecognizer.h"
+#import "TabRecognizer.h"
 
 @interface DesktopView ()
 - (ContentContainerView *)viewContainingView: (UIView *)view;
 - (NSArray *)findTouchedViews: (CGPoint) point;
+- (void)setUpRecognizer;
 @end
 
 @implementation DesktopView
@@ -28,16 +30,7 @@
 - (id) initWithFrame: (CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		sweepRecognizers = [[NSMutableArray alloc] init];
-		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
-		recognizer2.delegate = self;
-		[self addSweepRecognizer:recognizer2];
-		
-		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
-		recognizer.delegate = self;
-		[self addSweepRecognizer:recognizer];
-		
-		volatileView = [[NSMutableArray alloc] init];
+		[self setUpRecognizer];
 	}
 	return self;
 }
@@ -45,20 +38,29 @@
 - (id) initWithCoder: (NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
 	if (self != nil) {
-		sweepRecognizers = [[NSMutableArray alloc] init];
-		
-		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
-		recognizer.delegate = self;
-		[self addSweepRecognizer:recognizer];
-		
-		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
-		recognizer2.delegate = self;
-		[self addSweepRecognizer:recognizer2];
-		
-		volatileView = [[NSMutableArray alloc] init];
+		[self setUpRecognizer];
 	}
 	return self;
 }
+
+- (void)setUpRecognizer {
+	sweepRecognizers = [[NSMutableArray alloc] init];
+	
+	SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
+	recognizer.delegate = self;
+	[self addSweepRecognizer:recognizer];
+	
+	SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
+	recognizer2.delegate = self;
+	[self addSweepRecognizer:recognizer2];
+	
+	TabRecognizer *recognizer3 = [[[TabRecognizer alloc] init] autorelease];
+	recognizer3.delegate = self;
+	[self addSweepRecognizer:recognizer3];
+	
+	volatileView = [[NSMutableArray alloc] init];
+}
+
 
 - (void)dealloc {
 	[sweepRecognizers release];
@@ -271,6 +273,18 @@
 	
 	[view.layer addAnimation:animation forKey:nil];
 }
+
+#pragma mark -
+#pragma mark Tab Recognizer Delegate Methods
+- (void)tabRecognizer: (TabRecognizer*) recognizer didDetectTabs: (NSInteger)numberOfTabs {
+	if (numberOfTabs == 1) {
+		if ([recognizer.tabedView isKindOfClass:[ContentContainerView class]]) {
+			[(ContentContainerView *)recognizer.tabedView toggleOverlay:self];
+		}
+	}
+}
+
+
 
 #pragma mark -
 #pragma mark Private Methods

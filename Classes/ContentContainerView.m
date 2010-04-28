@@ -26,30 +26,36 @@
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
 		
+		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_bild_overlay.png"]];
+		overlay.frame = self.frame;
+		overlay.hidden = YES;
+		overlay.userInteractionEnabled = YES;
+		
 		button = [UIButton buttonWithType:UIButtonTypeCustom];
-		
-		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
-		
-		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
-			forState:UIControlStateHighlighted];
-		
+		[button setImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setFrame: CGRectMake(3, 3, 35, 36)];
+		[button setFrame: CGRectMake(3, 3, 70, 61)];
+		button.center = self.center;
 		
-		[self addSubview: button];
+		[overlay addSubview:button];
+		
+		[self addSubview:overlay];
 	}
 	return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[containedView release];
 	[button release];
+	[overlay release];
 	
 	[super dealloc];
 }
+
+- (IBAction)toggleOverlay: (id)sender {
+	overlay.hidden = !overlay.hidden;
+}
+
 
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;
