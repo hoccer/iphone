@@ -314,6 +314,7 @@
 
 - (IBAction)saveButton: (id)sender {
 	NSLog(@"save: %@", nil);
+	[content saveDataToContentStorage];
 }
 
 
