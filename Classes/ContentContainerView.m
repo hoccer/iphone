@@ -27,8 +27,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 @synthesize origin;
 @synthesize containedView;
 
-- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
-{
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
 		containedView = [subview retain];
@@ -41,28 +40,13 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		overlay.hidden = YES;
 		overlay.userInteractionEnabled = YES;
 		
-		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-		[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
-		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setFrame: CGRectMake(0, 0, 65, 61)];
-		
-		
-		UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-		[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
-		[button2 addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
-		
-		NSMutableArray *buttons = [NSMutableArray array]; 
-		[buttons addObject:button];
-		[buttons addObject:button2];
-
 		UIView *buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 110)]; 
 		NSInteger xpos = 0;
-		for (UIView *aButton in buttons) {
-			aButton.frame = ACPositionedRect(aButton.frame, xpos, 0);
-			[buttonContainer addSubview:aButton];
+		for (UIView *button in buttons) {
+			button.frame = ACPositionedRect(button.frame, xpos, 0);
+			[buttonContainer addSubview:button];
 			
-			xpos += aButton.frame.size.width;
+			xpos += button.frame.size.width;
 		}
 		
 		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);

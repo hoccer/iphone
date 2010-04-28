@@ -30,7 +30,7 @@
 
 @property (assign) CGPoint origin;
 
-- (id) initWithView: (UIView *)insideView;
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
 - (void)moveBy: (CGSize)distance;
 
 - (IBAction)toggleOverlay: (id)sender;

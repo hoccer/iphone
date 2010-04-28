@@ -14,10 +14,49 @@
 #import "SweepOutRecognizer.h"
 #import "TabRecognizer.h"
 
+
+@interface ContentActions : NSObject {
+	ContentContainerView *containerView;
+}
+
+- (id)initWithContainerView: (ContentContainerView *)view;
+- (IBAction)closeView: (id)sender;
+- (IBAction)saveButton: (id)sender;
+
+@end
+
+@implementation ContentActions 
+
+- (id)initWithContainerView: (ContentContainerView *)view {
+	self = [super init];
+	if (self != nil) {
+		containerView = [view retain];
+	}
+	
+	return self;
+}
+
+- (IBAction)closeView: (id)sender {
+	NSLog(@"close View: %@", containerView);
+}
+
+- (IBAction)saveButton: (id)sender {
+	NSLog(@"save: %@", containerView);
+}
+
+- (void) dealloc {
+	[containerView release];
+	[super dealloc];
+}
+
+@end
+
 @interface DesktopView ()
 - (ContentContainerView *)viewContainingView: (UIView *)view;
 - (NSArray *)findTouchedViews: (CGPoint) point;
 - (void)setUpRecognizer;
+
+- (NSArray *)actionButtons;
 @end
 
 @implementation DesktopView
@@ -140,7 +179,7 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
+		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i] actionButtons: [self actionButtons]];
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
@@ -151,7 +190,7 @@
 }
 
 - (void)insertView: (UIView *)view atPoint:(CGPoint)point withAnimation: (CAAnimation *)animation {
- 	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view];
+ 	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view actionButtons: [self actionButtonsForContainerView:(ContentContainerView *)view]];
 	containerView.delegate = self;
 	containerView.origin = point;
 	
@@ -310,6 +349,27 @@
 	}
 	
 	return [touchedViews autorelease];
+}
+
+- (NSArray *)actionButtons {
+	// ContentActions *buttonTarget = [[[ContentActions alloc] initWithContainerView:view] autorelease];
+	
+	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
+	// [button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+	[button setFrame: CGRectMake(0, 0, 65, 61)];
+	
+	
+	UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+	[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
+	// [button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+	[button2 setFrame: CGRectMake(0, 0, 65, 61)];
+	
+	NSMutableArray *buttons = [NSMutableArray array]; 
+	[buttons addObject:button];
+	[buttons addObject:button2];
+	
+	return buttons;
 }
 
 @end
