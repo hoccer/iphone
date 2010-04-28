@@ -35,7 +35,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
 		
-		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_bild_overlay.png"]];
+		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
 		overlay.frame = ACRectShrinked(self.frame, 15, 15);
 		overlay.hidden = YES;
 		overlay.userInteractionEnabled = YES;
