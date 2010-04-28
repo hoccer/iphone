@@ -12,7 +12,6 @@
 
 @interface ContentContainerView : UIView {
 	id <ContentContainerViewDelegate> delegate;
-	UIButton *button;
 	
 	CGPoint touchStartPoint;
 	BOOL gestureDetected;

@@ -6,10 +6,20 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ContentContainerView.h"
 #import "NSObject+DelegateHelper.h"
 
 #define kSweepBorder 50
+
+CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
+	return CGRectMake(x, y, rect.size.width, rect.size.height);
+}
+
+CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
+	return CGRectMake(rect.origin.x + paddingX, rect.origin.y + paddingY, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
+}
+
 
 @implementation ContentContainerView
 
@@ -17,7 +27,7 @@
 @synthesize origin;
 @synthesize containedView;
 
-- (id) initWithView: (UIView *)subview
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
 {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
@@ -27,17 +37,37 @@
 		[self addSubview:subview];
 		
 		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_bild_overlay.png"]];
-		overlay.frame = self.frame;
+		overlay.frame = ACRectShrinked(self.frame, 15, 15);
 		overlay.hidden = YES;
 		overlay.userInteractionEnabled = YES;
 		
-		button = [UIButton buttonWithType:UIButtonTypeCustom];
-		[button setImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
+		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setFrame: CGRectMake(3, 3, 70, 61)];
-		button.center = self.center;
+		[button setFrame: CGRectMake(0, 0, 65, 61)];
 		
-		[overlay addSubview:button];
+		
+		UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+		[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
+		[button2 addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
+		
+		NSMutableArray *buttons = [NSMutableArray array]; 
+		[buttons addObject:button];
+		[buttons addObject:button2];
+
+		UIView *buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 110)]; 
+		NSInteger xpos = 0;
+		for (UIView *aButton in buttons) {
+			aButton.frame = ACPositionedRect(aButton.frame, xpos, 0);
+			[buttonContainer addSubview:aButton];
+			
+			xpos += aButton.frame.size.width;
+		}
+		
+		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
+		buttonContainer.center = overlay.center;
+		[overlay addSubview:buttonContainer];
 		
 		[self addSubview:overlay];
 	}
@@ -46,7 +76,6 @@
 
 - (void) dealloc {
 	[containedView release];
-	[button release];
 	[overlay release];
 	
 	[super dealloc];
