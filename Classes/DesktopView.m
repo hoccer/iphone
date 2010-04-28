@@ -15,42 +15,6 @@
 #import "TabRecognizer.h"
 
 
-@interface ContentActions : NSObject {
-	ContentContainerView *containerView;
-}
-
-- (id)initWithContainerView: (ContentContainerView *)view;
-- (IBAction)closeView: (id)sender;
-- (IBAction)saveButton: (id)sender;
-
-@end
-
-@implementation ContentActions 
-
-- (id)initWithContainerView: (ContentContainerView *)view {
-	self = [super init];
-	if (self != nil) {
-		containerView = [view retain];
-	}
-	
-	return self;
-}
-
-- (IBAction)closeView: (id)sender {
-	NSLog(@"close View: %@", containerView);
-}
-
-- (IBAction)saveButton: (id)sender {
-	NSLog(@"save: %@", containerView);
-}
-
-- (void) dealloc {
-	[containerView release];
-	[super dealloc];
-}
-
-@end
-
 @interface DesktopView ()
 - (NSArray *)findTouchedViews: (CGPoint) point;
 - (void)setUpRecognizer;

@@ -234,17 +234,15 @@
 
 
 - (NSArray *)actionButtons {
-	// ContentActions *buttonTarget = [[[ContentActions alloc] initWithContainerView:view] autorelease];
-	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
-	// [button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+	[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 	[button setFrame: CGRectMake(0, 0, 65, 61)];
 	
 	
 	UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
 	[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
-	// [button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+	[button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 	[button2 setFrame: CGRectMake(0, 0, 65, 61)];
 	
 	NSMutableArray *buttons = [NSMutableArray array]; 
@@ -308,6 +306,15 @@
 	return [userInfo autorelease];
 }
 
+#pragma mark -
+#pragma mark User Actions
+- (IBAction)closeView: (id)sender {
+	NSLog(@"close View: %@", nil);
+}
+
+- (IBAction)saveButton: (id)sender {
+	NSLog(@"save: %@", nil);
+}
 
 
 
