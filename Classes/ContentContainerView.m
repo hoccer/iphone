@@ -6,10 +6,20 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ContentContainerView.h"
 #import "NSObject+DelegateHelper.h"
 
 #define kSweepBorder 50
+
+CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
+	return CGRectMake(x, y, rect.size.width, rect.size.height);
+}
+
+CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
+	return CGRectMake(rect.origin.x + paddingX, rect.origin.y + paddingY, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
+}
+
 
 @implementation ContentContainerView
 
@@ -17,8 +27,7 @@
 @synthesize origin;
 @synthesize containedView;
 
-- (id) initWithView: (UIView *)subview
-{
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
 		containedView = [subview retain];
@@ -26,30 +35,40 @@
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
 		
-		button = [UIButton buttonWithType:UIButtonTypeCustom];
+		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
+		overlay.frame = ACRectShrinked(self.frame, 15, 15);
+		overlay.hidden = YES;
+		overlay.userInteractionEnabled = YES;
 		
-		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
+		UIView *buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 110)]; 
+		NSInteger xpos = 0;
+		for (UIView *button in buttons) {
+			button.frame = ACPositionedRect(button.frame, xpos, 0);
+			[buttonContainer addSubview:button];
+			
+			xpos += button.frame.size.width;
+		}
 		
-		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
-			forState:UIControlStateHighlighted];
+		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
+		buttonContainer.center = overlay.center;
+		[overlay addSubview:buttonContainer];
 		
-		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setFrame: CGRectMake(3, 3, 35, 36)];
-		
-		[self addSubview: button];
+		[self addSubview:overlay];
 	}
 	return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[containedView release];
-	[button release];
+	[overlay release];
 	
 	[super dealloc];
 }
+
+- (IBAction)toggleOverlay: (id)sender {
+	overlay.hidden = !overlay.hidden;
+}
+
 
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;

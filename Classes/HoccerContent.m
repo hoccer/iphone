@@ -117,7 +117,7 @@
 	//overwrite in subclasses: text
 }
 
-- (void)saveDataToContentStorage{
+- (void)saveDataToContentStorage {
 	//overwrite in subclasses: text, img, vcards	
 }
 

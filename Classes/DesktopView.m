@@ -12,10 +12,12 @@
 
 #import "SweepInRecognizer.h"
 #import "SweepOutRecognizer.h"
+#import "TabRecognizer.h"
+
 
 @interface DesktopView ()
-- (ContentContainerView *)viewContainingView: (UIView *)view;
 - (NSArray *)findTouchedViews: (CGPoint) point;
+- (void)setUpRecognizer;
 @end
 
 @implementation DesktopView
@@ -28,16 +30,7 @@
 - (id) initWithFrame: (CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		sweepRecognizers = [[NSMutableArray alloc] init];
-		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
-		recognizer2.delegate = self;
-		[self addSweepRecognizer:recognizer2];
-		
-		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
-		recognizer.delegate = self;
-		[self addSweepRecognizer:recognizer];
-		
-		volatileView = [[NSMutableArray alloc] init];
+		[self setUpRecognizer];
 	}
 	return self;
 }
@@ -45,20 +38,29 @@
 - (id) initWithCoder: (NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
 	if (self != nil) {
-		sweepRecognizers = [[NSMutableArray alloc] init];
-		
-		SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
-		recognizer.delegate = self;
-		[self addSweepRecognizer:recognizer];
-		
-		SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
-		recognizer2.delegate = self;
-		[self addSweepRecognizer:recognizer2];
-		
-		volatileView = [[NSMutableArray alloc] init];
+		[self setUpRecognizer];
 	}
 	return self;
 }
+
+- (void)setUpRecognizer {
+	sweepRecognizers = [[NSMutableArray alloc] init];
+	
+	SweepInRecognizer *recognizer = [[[SweepInRecognizer alloc] init] autorelease];
+	recognizer.delegate = self;
+	[self addSweepRecognizer:recognizer];
+	
+	SweepOutRecognizer *recognizer2 = [[[SweepOutRecognizer alloc] init] autorelease];
+	recognizer2.delegate = self;
+	[self addSweepRecognizer:recognizer2];
+	
+	TabRecognizer *recognizer3 = [[[TabRecognizer alloc] init] autorelease];
+	recognizer3.delegate = self;
+	[self addSweepRecognizer:recognizer3];
+	
+	volatileView = [[NSMutableArray alloc] init];
+}
+
 
 - (void)dealloc {
 	[sweepRecognizers release];
@@ -73,9 +75,7 @@
 }
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation {
-	ContentContainerView *containerView = [self viewContainingView:view];
-
-	[[containerView layer] addAnimation:animation forKey:@"centerAnimation"];
+	[[view layer] addAnimation:animation forKey:@"centerAnimation"];
 }
 
 #pragma mark -
@@ -138,7 +138,7 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i]];
+		ContentContainerView *containerView = (ContentContainerView *)[dataSource viewAtIndex:i];
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
@@ -149,7 +149,7 @@
 }
 
 - (void)insertView: (UIView *)view atPoint:(CGPoint)point withAnimation: (CAAnimation *)animation {
- 	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view];
+ 	ContentContainerView *containerView = (ContentContainerView *)view;
 	containerView.delegate = self;
 	containerView.origin = point;
 	
@@ -170,7 +170,7 @@
 #pragma mark -
 #pragma mark ContentContainerViewDelegate Methods
 - (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point {
-	[dataSource view: view.containedView didMoveToPoint:view.frame.origin];
+	[dataSource view: view didMoveToPoint:view.frame.origin];
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
@@ -206,7 +206,7 @@
 		[view.layer addAnimation:animation forKey:nil];
 	}
 	
-	[delegate desktopView: self didSweepInView: view.containedView];
+	[delegate desktopView: self didSweepInView: view];
 	sweepIn = NO; 
 }
 
@@ -227,7 +227,7 @@
 	animation.fillMode = kCAFillModeForwards;
 	[[view layer] addAnimation:animation forKey:nil];
 	
-	[dataSource removeView: view.containedView];
+	[dataSource removeView: view];
 	
 	sweepIn = NO; 
 }
@@ -252,7 +252,7 @@
 	[[view layer] addAnimation:animation forKey:@"removeAnimation"];
 
 	if ([delegate respondsToSelector:@selector(desktopView:didSweepOutView:)]) {
-		[delegate desktopView:self didSweepOutView: [view containedView]];
+		[delegate desktopView:self didSweepOutView: view];
 	}
 }
 
@@ -273,17 +273,19 @@
 }
 
 #pragma mark -
-#pragma mark Private Methods
-
-- (ContentContainerView *)viewContainingView: (UIView *)view {
-	for (UIView *subview in self.subviews) {
-		if ([subview.subviews count] > 0 && [subview.subviews objectAtIndex:0] == view) {
-			return (ContentContainerView *)subview;
+#pragma mark Tab Recognizer Delegate Methods
+- (void)tabRecognizer: (TabRecognizer*) recognizer didDetectTabs: (NSInteger)numberOfTabs {
+	if (numberOfTabs == 1) {
+		if ([recognizer.tabedView isKindOfClass:[ContentContainerView class]]) {
+			[(ContentContainerView *)recognizer.tabedView toggleOverlay:self];
 		}
 	}
-	
-	return nil;
 }
+
+
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (NSArray *)findTouchedViews: (CGPoint) point {
 	NSMutableArray *touchedViews = [[NSMutableArray alloc] init];

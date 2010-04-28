@@ -12,7 +12,6 @@
 
 @interface ContentContainerView : UIView {
 	id <ContentContainerViewDelegate> delegate;
-	UIButton *button;
 	
 	CGPoint touchStartPoint;
 	BOOL gestureDetected;
@@ -21,6 +20,9 @@
 	CGPoint origin;
 	
 	UIView *containedView;
+	
+	UIImageView *overlay;
+	
 }
 
 @property (nonatomic, assign) id delegate;
@@ -28,7 +30,9 @@
 
 @property (assign) CGPoint origin;
 
-- (id) initWithView: (UIView *)insideView;
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
 - (void)moveBy: (CGSize)distance;
+
+- (IBAction)toggleOverlay: (id)sender;
 
 @end

@@ -11,7 +11,7 @@
 #import "DesktopView.h"
 #import "HoccerText.h"
 #import "StatusViewController.h"
-#import "SelectContentViewController.h"
+#import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
 #import "HocItemData.h"
@@ -104,7 +104,9 @@
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
 	navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
-	[desktopView insertSubview:statusViewController.view atIndex: 0];
+	
+	[desktopView addSubview:statusViewController.view];
+	//[desktopView insertSubview:statusViewController.view atIndex: 0];
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 0;
 	statusViewController.view.frame = statusRect;
@@ -157,7 +159,7 @@
 - (IBAction)toggleSelectContent: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
-	} else if (![auxiliaryView isKindOfClass:[SelectContentViewController class]]) {
+	} else if (![auxiliaryView isKindOfClass:[SelectContentController class]]) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSelectContentView)];
 		[self hidePopOverAnimated: YES];
 	} else {
@@ -184,7 +186,7 @@
 
 
 - (void)showSelectContentView {
-	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
+	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
 	selectContentViewController.delegate = self;
 	
 	[self showPopOver: selectContentViewController];
@@ -211,12 +213,11 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
-//	[statusViewController hideActivityInfo];
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
 	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = desktopView.frame.size;
+	//selectContentFrame.size = desktopView.frame.size;
 	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = selectContentFrame;	
 	
@@ -225,7 +226,7 @@
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
 	
-	selectContentFrame.origin = CGPointMake(0,0);
+	selectContentFrame.origin = CGPointMake(0, desktopView.frame.size.height - selectContentFrame.size.height);
 	popOverView.view.frame = selectContentFrame;
 	[UIView commitAnimations];
 	
