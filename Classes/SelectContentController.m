@@ -7,6 +7,7 @@
 //
 
 #import "SelectContentController.h"
+#import "NSObject+DelegateHelper.h"
 
 
 @implementation SelectContentController

@@ -52,11 +52,8 @@
 @end
 
 @interface DesktopView ()
-- (ContentContainerView *)viewContainingView: (UIView *)view;
 - (NSArray *)findTouchedViews: (CGPoint) point;
 - (void)setUpRecognizer;
-
-- (NSArray *)actionButtons;
 @end
 
 @implementation DesktopView
@@ -114,9 +111,7 @@
 }
 
 - (void)animateView: (UIView *)view withAnimation: (CAAnimation *)animation {
-	ContentContainerView *containerView = [self viewContainingView:view];
-
-	[[containerView layer] addAnimation:animation forKey:@"centerAnimation"];
+	[[view layer] addAnimation:animation forKey:@"centerAnimation"];
 }
 
 #pragma mark -
@@ -179,7 +174,7 @@
 	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
-		ContentContainerView *containerView = [[ContentContainerView alloc] initWithView:[dataSource viewAtIndex: i] actionButtons: [self actionButtons]];
+		ContentContainerView *containerView = (ContentContainerView *)[dataSource viewAtIndex:i];
 		containerView.delegate = self;
 		containerView.origin = [dataSource positionForViewAtIndex:i];
 		
@@ -190,7 +185,7 @@
 }
 
 - (void)insertView: (UIView *)view atPoint:(CGPoint)point withAnimation: (CAAnimation *)animation {
- 	ContentContainerView *containerView = [[ContentContainerView alloc] initWithView: view actionButtons: [self actionButtonsForContainerView:(ContentContainerView *)view]];
+ 	ContentContainerView *containerView = (ContentContainerView *)view;
 	containerView.delegate = self;
 	containerView.origin = point;
 	
@@ -211,7 +206,7 @@
 #pragma mark -
 #pragma mark ContentContainerViewDelegate Methods
 - (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point {
-	[dataSource view: view.containedView didMoveToPoint:view.frame.origin];
+	[dataSource view: view didMoveToPoint:view.frame.origin];
 }
 
 - (void)containerViewDidClose:(ContentContainerView *)view {
@@ -247,7 +242,7 @@
 		[view.layer addAnimation:animation forKey:nil];
 	}
 	
-	[delegate desktopView: self didSweepInView: view.containedView];
+	[delegate desktopView: self didSweepInView: view];
 	sweepIn = NO; 
 }
 
@@ -268,7 +263,7 @@
 	animation.fillMode = kCAFillModeForwards;
 	[[view layer] addAnimation:animation forKey:nil];
 	
-	[dataSource removeView: view.containedView];
+	[dataSource removeView: view];
 	
 	sweepIn = NO; 
 }
@@ -293,7 +288,7 @@
 	[[view layer] addAnimation:animation forKey:@"removeAnimation"];
 
 	if ([delegate respondsToSelector:@selector(desktopView:didSweepOutView:)]) {
-		[delegate desktopView:self didSweepOutView: [view containedView]];
+		[delegate desktopView:self didSweepOutView: view];
 	}
 }
 
@@ -328,16 +323,6 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (ContentContainerView *)viewContainingView: (UIView *)view {
-	for (UIView *subview in self.subviews) {
-		if ([subview.subviews count] > 0 && [subview.subviews objectAtIndex:0] == view) {
-			return (ContentContainerView *)subview;
-		}
-	}
-	
-	return nil;
-}
-
 - (NSArray *)findTouchedViews: (CGPoint) point {
 	NSMutableArray *touchedViews = [[NSMutableArray alloc] init];
 	
@@ -349,27 +334,6 @@
 	}
 	
 	return [touchedViews autorelease];
-}
-
-- (NSArray *)actionButtons {
-	// ContentActions *buttonTarget = [[[ContentActions alloc] initWithContainerView:view] autorelease];
-	
-	UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
-	// [button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-	[button setFrame: CGRectMake(0, 0, 65, 61)];
-	
-	
-	UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-	[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
-	// [button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
-	[button2 setFrame: CGRectMake(0, 0, 65, 61)];
-	
-	NSMutableArray *buttons = [NSMutableArray array]; 
-	[buttons addObject:button];
-	[buttons addObject:button2];
-	
-	return buttons;
 }
 
 @end
