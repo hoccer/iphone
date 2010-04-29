@@ -316,7 +316,11 @@
 
 - (void)hocItemWillStartDownload: (HocItemData *)item {
 	statusViewController.hocItemData = item;
-//	[statusViewController showActivityInfo];
+}
+
+- (void)hocItemWasClosed:(HocItemData *)item {
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
 }
 
 #pragma mark -

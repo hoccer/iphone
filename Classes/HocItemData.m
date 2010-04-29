@@ -115,12 +115,17 @@
 
 - (Preview *)contentView {
 	if (contentView == nil) {
-		contentView = [[ContentContainerView alloc] initWithView:[content desktopItemView] actionButtons: [self actionButtons]];
+		Preview *preview = [content desktopItemView];
+		if (preview != nil) {
+			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
+		}
 	}
 	
 	if (contentView == nil) {
-		contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-		contentView.backgroundColor = [UIColor whiteColor];
+		UIView *preview = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)] autorelease];
+		preview.backgroundColor = [UIColor whiteColor];
+
+		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}
 	
 	return contentView;
@@ -310,6 +315,9 @@
 #pragma mark User Actions
 - (IBAction)closeView: (id)sender {
 	NSLog(@"close View: %@", nil);
+	if ([delegate respondsToSelector:@selector(hocItemWasClosed:)]) {
+		[delegate hocItemWasClosed: self];
+	} 
 }
 
 - (IBAction)saveButton: (id)sender {
