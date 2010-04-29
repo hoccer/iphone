@@ -11,12 +11,6 @@
 #import "Preview.h"
 #import "NSString+StringWithData.h"
 
-@interface HoccerText ()
-
-@property (retain) UITextView* textView;
-
-@end
-
 @implementation HoccerText
 
 @synthesize textView;

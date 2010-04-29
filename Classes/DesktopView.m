@@ -139,13 +139,15 @@
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		UIView *view = [dataSource viewAtIndex:i];
+		view.backgroundColor = [UIColor redColor];
 		if ([view isKindOfClass: [ContentContainerView class]]) {
 			ContentContainerView *containerView = (ContentContainerView *)view;
 			containerView.delegate = self;
-			containerView.origin = [dataSource positionForViewAtIndex:i];
+			containerView.origin = CGPointMake(20, 60); // [dataSource positionForViewAtIndex:i];
 		}
 		
-		[self insertSubview: view atIndex:0];
+		[self addSubview:view];
+		// [self insertSubview: view atIndex:0];
 		[volatileView addObject: view];
 	}
 }

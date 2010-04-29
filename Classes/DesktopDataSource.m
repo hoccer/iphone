@@ -103,7 +103,6 @@
 	return [self hocItemDataForView:view].viewOrigin;
 }
 
-
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
 	HocItemData *item = [self hocItemDataForView:view];
 	item.viewOrigin = point;
