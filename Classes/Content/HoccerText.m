@@ -20,6 +20,7 @@
 @implementation HoccerText
 
 @synthesize textView;
+@synthesize view;
 
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
@@ -30,27 +31,9 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
 	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
-	
-	[view addSubview:backgroundImage];
-	[view sendSubviewToBack:backgroundImage];
-		
-	self.textView =  [[[UITextView alloc] initWithFrame:CGRectMake(40, 45, 240, 170)] autorelease];
-	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
-	self.textView.font = [UIFont systemFontOfSize: [UIFont systemFontSize] + 2];
-	
-	if (self.data != nil) {
-		self.textView.text = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
-	}
-	
-	[view insertSubview: textView atIndex: 1];
-	[self.textView becomeFirstResponder];
-	
-	[backgroundImage release];
-	return [view autorelease];
+	return self.view;
 }
 	
 - (void)dealloc
