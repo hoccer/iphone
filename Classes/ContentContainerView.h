@@ -22,11 +22,13 @@
 	UIView *containedView;
 	
 	UIImageView *overlay;
+	UIView *buttonContainer;
 	
 }
 
 @property (nonatomic, assign) id delegate;
 @property (readonly) UIView* containedView;
+@property (retain) UIView *buttonContainer;
 
 @property (assign) CGPoint origin;
 
@@ -34,5 +36,7 @@
 - (void)moveBy: (CGSize)distance;
 
 - (IBAction)toggleOverlay: (id)sender;
+- (void)showSpinner;
+- (void)hideSpinner;
 
 @end

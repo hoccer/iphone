@@ -114,11 +114,10 @@
 
 - (void)saveDataToContentStorage
 {
-	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
+	UIImageWriteToSavedPhotosAlbum(self.image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
--(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 
-				contextInfo: (void *) contextInfo {
+-(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
 	[target checkAndPerformSelector: selector];
 }
 

@@ -10,7 +10,7 @@
 
 #import "HocItemData.h"
 #import "HoccerContent.h"
-#import "Preview.h"
+#import "ContentContainerView.h"
 
 @implementation DesktopDataSource
 @synthesize viewController;

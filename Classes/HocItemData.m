@@ -14,8 +14,9 @@
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 #import "StatusViewController.h"
-#import "Preview.h"
 #import "ContentContainerView.h"
+#import "Preview.h"
+#import "HoccerImage.h"
 
 #import "HocLocation.h"
 
@@ -113,7 +114,7 @@
 	return request != nil;
 }
 
-- (Preview *)contentView {
+- (ContentContainerView *)contentView {
 	if (contentView == nil) {
 		Preview *preview = [content desktopItemView];
 		if (preview != nil) {
@@ -321,9 +322,19 @@
 }
 
 - (IBAction)saveButton: (id)sender {
-	NSLog(@"save: %@", nil);
+	if ([content isKindOfClass:[HoccerImage class]]) {
+		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
+		[self.contentView showSpinner];
+	}
+	
 	[content saveDataToContentStorage];
 }
+
+- (void)finishedSaving {
+	[self.contentView hideSpinner];
+}
+
+
 
 
 

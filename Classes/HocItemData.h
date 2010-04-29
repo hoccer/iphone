@@ -16,13 +16,13 @@
 
 @class HoccerRequest;
 @class HoccerContent;
-@class Preview;
+@class ContentContainerView;
 @class HocLocation;
 
 
 @interface HocItemData : NSObject <NSCoding> {
 	HoccerRequest *request;
-	Preview *contentView;
+	ContentContainerView *contentView;
 	HoccerContent *content;
 	
 	CGPoint viewOrigin;
@@ -36,7 +36,7 @@
 }
 
 @property (retain) HoccerContent *content;
-@property (retain) Preview* contentView;
+@property (retain) ContentContainerView* contentView;
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
 @property (retain) NSString *gesture;

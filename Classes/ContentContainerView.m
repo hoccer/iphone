@@ -17,7 +17,7 @@ CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
 }
 
 CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
-	return CGRectMake(rect.origin.x + paddingX, rect.origin.y + paddingY, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
+	return CGRectMake(rect.origin.x , rect.origin.y, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
 }
 
 
@@ -25,6 +25,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 @synthesize delegate;
 @synthesize origin;
+@synthesize buttonContainer;
 @synthesize containedView;
 
 - (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
@@ -36,11 +37,14 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		[self addSubview:subview];
 		
 		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
-		overlay.frame = ACRectShrinked(self.frame, 15, 15);
+		overlay.bounds = ACRectShrinked(self.frame, 15, 15);
 		overlay.hidden = YES;
+		overlay.center = self.center;
 		overlay.userInteractionEnabled = YES;
+
+		[self addSubview:overlay];
 		
-		UIView *buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 110)]; 
+		buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 130)]; 
 		NSInteger xpos = 0;
 		for (UIView *button in buttons) {
 			button.frame = ACPositionedRect(button.frame, xpos, 0);
@@ -48,12 +52,11 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 			
 			xpos += button.frame.size.width;
 		}
-		
+
 		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
 		buttonContainer.center = overlay.center;
+
 		[overlay addSubview:buttonContainer];
-		
-		[self addSubview:overlay];
 	}
 	return self;
 }
@@ -61,6 +64,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 - (void) dealloc {
 	[containedView release];
 	[overlay release];
+	[buttonContainer release];
 	
 	[super dealloc];
 }
@@ -68,7 +72,6 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 - (IBAction)toggleOverlay: (id)sender {
 	overlay.hidden = !overlay.hidden;
 }
-
 
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;
@@ -86,6 +89,21 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 - (BOOL)willStayInView: (UIView *)view afterMovedBy: (CGSize) distance {
 	return YES;
+}
+
+- (void)showSpinner {
+	UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+	indicator.center = overlay.center;
+	indicator.hidden = NO;
+	[indicator startAnimating];
+	[overlay addSubview:indicator];
+	
+	buttonContainer.hidden = YES;
+}
+
+- (void)hideSpinner {
+	[[[overlay subviews] objectAtIndex:1] removeFromSuperview];
+	buttonContainer.hidden = NO;
 }
 
 
