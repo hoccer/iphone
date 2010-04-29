@@ -117,7 +117,7 @@
 
 - (void)setContentPreview: (HoccerContent *)content {
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
-		return;
+		[desktopData removeHocItem: [desktopData hocItemDataAtIndex:0]];
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
