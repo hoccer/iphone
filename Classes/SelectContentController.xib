@@ -44,7 +44,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIButton" id="290761714">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrameSize">{107, 85}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -79,7 +79,7 @@
 					</object>
 					<object class="IBUIButton" id="443259905">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{107, 0}, {106, 85}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -104,7 +104,7 @@
 					</object>
 					<object class="IBUIButton" id="132943034">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{213, 0}, {107, 85}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -129,7 +129,7 @@
 					</object>
 					<object class="IBUIButton" id="1037085032">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{0, 85}, {107, 75}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -154,7 +154,7 @@
 					</object>
 					<object class="IBUIButton" id="295972197">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{107, 85}, {106, 75}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -179,7 +179,7 @@
 					</object>
 					<object class="IBUIButton" id="729163375">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">260</int>
+						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{213, 85}, {107, 75}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>

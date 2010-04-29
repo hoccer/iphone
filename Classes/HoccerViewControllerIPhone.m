@@ -106,7 +106,6 @@
 	
 	
 	[desktopView addSubview:statusViewController.view];
-	//[desktopView insertSubview:statusViewController.view atIndex: 0];
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 0;
 	statusViewController.view.frame = statusRect;
@@ -143,6 +142,17 @@
 	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 }
+
+- (IBAction)selectCamera: (id)sender {
+	[self hidePopOverAnimated: NO];
+	
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	imagePicker.delegate = self;
+	[self presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
 
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
@@ -191,9 +201,6 @@
 	
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
-	
-	navigationItem.title = @"Select";
-	navigationItem.titleView = nil;
 }
 
 - (void)showHelpView {
@@ -216,18 +223,18 @@
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
-	CGRect selectContentFrame = popOverView.view.frame;
-	//selectContentFrame.size = desktopView.frame.size;
-	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
-	popOverView.view.frame = selectContentFrame;	
+	CGRect popOverFrame = popOverView.view.frame;
+	popOverFrame.size = desktopView.frame.size;
+	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+	popOverView.view.frame = popOverFrame;	
 	
 	[desktopView addSubview:popOverView.view];
 
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
 	
-	selectContentFrame.origin = CGPointMake(0, desktopView.frame.size.height - selectContentFrame.size.height);
-	popOverView.view.frame = selectContentFrame;
+	popOverFrame.origin = CGPointMake(0, 0);
+	popOverView.view.frame = popOverFrame;
 	[UIView commitAnimations];
 	
 	isPopUpDisplayed = TRUE;
@@ -284,7 +291,6 @@
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-//	[statusViewController hideActivityInfo];
 	
 	[historyData addContentToHistory:item];
 

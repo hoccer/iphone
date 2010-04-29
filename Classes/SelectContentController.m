@@ -56,7 +56,8 @@
 }
 
 - (IBAction)camera: (id)sender; {
-	
+	[delegate checkAndPerformSelector:@selector(selectCamera:) withObject: self];
+
 }
 
 - (IBAction)image: (id)sender; {
@@ -80,5 +81,8 @@
 	
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	[delegate checkAndPerformSelector:@selector(toggleSelectContent:) withObject:self];
+}
 
 @end
