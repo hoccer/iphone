@@ -173,15 +173,6 @@
 	[dataSource view: view didMoveToPoint:view.frame.origin];
 }
 
-- (void)containerViewDidClose:(ContentContainerView *)view {
-	NSInteger index = [volatileView indexOfObject:view];
-	
-	if ([delegate respondsToSelector:@selector(desktopView:didRemoveViewAtIndex:)]) {
-		[delegate desktopView:self didRemoveViewAtIndex: index];
-	}
-	[self reloadData];
-}
-
 #pragma mark -
 #pragma mark SweepInGesturesRecognizer Delegate
 

@@ -76,12 +76,6 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	self.frame = frame;
 }
 
-- (void)closeView: (id)sender {
-	if ([delegate respondsToSelector:@selector(containerViewDidClose:)]) {
-		[delegate containerViewDidClose:self];
-	}
-}
-
 - (void)moveBy: (CGSize) distance {
 	CGRect myRect = self.frame;
 	myRect.origin.x += distance.width; 

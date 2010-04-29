@@ -24,6 +24,8 @@
 
 @implementation HoccerVcard
 
+@synthesize view;
+
 - (id)initWitPerson: (ABRecordRef)aPerson {
 	self = [super init];
 	if (self != nil) {		
@@ -71,26 +73,10 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	[[NSBundle mainBundle] loadNibNamed:@"ContactsView" owner:self options:nil];
+	self.view.name.text = self.name;
 	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Contactbox" ofType:@"png"];
-	
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
-	
-	[view addSubview:backgroundImage];
-	[view sendSubviewToBack:backgroundImage];
-	[backgroundImage release];
-	
-	UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(106, 56, 165, 20)];
-	label.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-	label.textColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
-	
-	[view addSubview: label];
-	
-	label.text = self.name; 
-	[label release];
-	
-	return [view autorelease];
+	return self.view;
 }
 
 - (NSString *)mimeType {
