@@ -15,11 +15,11 @@
 @synthesize delegate;
 
 - (void)desktopView: (DesktopView*)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (tabCount > 0 && [view.currentlyTouchedViews count] == 1) {
+	if (tabCount > 0) {
 		self.tabedView = [view.currentlyTouchedViews lastObject];
 
 		[touchUpTimer invalidate];
-		self.touchUpTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(dispatchTaps) userInfo:nil repeats:NO];
+		self.touchUpTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(dispatchTabs) userInfo:nil repeats:NO];
 	}
 }
 
@@ -42,7 +42,7 @@
 	tabCount++;
 }
 
-- (void)dispatchTaps {
+- (void)dispatchTabs {
 	if ([delegate respondsToSelector:@selector(tabRecognizer:didDetectTabs:)]) {
 		[delegate tabRecognizer:self didDetectTabs: tabCount];
 	}

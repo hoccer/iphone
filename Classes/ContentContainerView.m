@@ -73,6 +73,10 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	overlay.hidden = !overlay.hidden;
 }
 
+- (void)hideOverlay {
+	overlay.hidden = YES;
+}
+
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;
 	frame.origin = newOrigin;

@@ -36,6 +36,7 @@
 - (void)moveBy: (CGSize)distance;
 
 - (IBAction)toggleOverlay: (id)sender;
+- (void)hideOverlay;
 - (void)showSpinner;
 - (void)hideSpinner;
 
