@@ -244,7 +244,6 @@
 		22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD32AE11107FA200BC7DEC /* Icon-Small.png */; };
 		22AE461211633E0500C10B98 /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AE461111633E0500C10B98 /* ContentContainerView.m */; };
 		22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AE461111633E0500C10B98 /* ContentContainerView.m */; };
-		22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
 		22B06B2D11523B4400D2ECFE /* SelectContentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */; };
 		22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
 		22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
@@ -337,7 +336,6 @@
 		22B1CBC91159160600EFD709 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		22B1CBCB1159160600EFD709 /* DesktopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A9122114E737A0069A0EA /* DesktopView.m */; };
 		22B1CBCC1159160600EFD709 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D9F7E114FEE0200459ED9 /* LocationController.m */; };
-		22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */; };
 		22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
 		22B1CBD01159160600EFD709 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		22B1CBD11159160600EFD709 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -721,8 +719,6 @@
 		22AE46ED11634FA600C10B98 /* DesktopViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopViewDelegate.h; sourceTree = "<group>"; };
 		22AE475C1163622100C10B98 /* ContentContainerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentContainerViewDelegate.h; sourceTree = "<group>"; };
 		22AE49E31163ABF400C10B98 /* HocItemDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemDataDelegate.h; sourceTree = "<group>"; };
-		22B06B2911523B4400D2ECFE /* SelectContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContentViewController.h; sourceTree = "<group>"; };
-		22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContentViewController.m; sourceTree = "<group>"; };
 		22B06B2B11523B4400D2ECFE /* SelectContentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelectContentTableView.xib; path = Classes/SelectContentTableView.xib; sourceTree = "<group>"; };
 		22B06BEF1152777500D2ECFE /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		22B06BF01152777500D2ECFE /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
@@ -862,8 +858,6 @@
 				28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */,
 				1D3623240D0F684500981E51 /* HoccerAppDelegate.h */,
 				1D3623250D0F684500981E51 /* HoccerAppDelegate.m */,
-				22B06B2911523B4400D2ECFE /* SelectContentViewController.h */,
-				22B06B2A11523B4400D2ECFE /* SelectContentViewController.m */,
 				227990F8105FEA140035C643 /* ReceivedContentViewController.h */,
 				227990F9105FEA140035C643 /* ReceivedContentViewController.m */,
 				2271A00A108347C800F84755 /* FeedbackProvider.h */,
@@ -1925,7 +1919,6 @@
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,
 				229A9123114E737A0069A0EA /* DesktopView.m in Sources */,
 				229D9F7F114FEE0200459ED9 /* LocationController.m in Sources */,
-				22B06B2C11523B4400D2ECFE /* SelectContentViewController.m in Sources */,
 				22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */,
 				229AA918115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */,
 				22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */,
@@ -2063,7 +2056,6 @@
 				22B1CBC91159160600EFD709 /* HocLocation.m in Sources */,
 				22B1CBCB1159160600EFD709 /* DesktopView.m in Sources */,
 				22B1CBCC1159160600EFD709 /* LocationController.m in Sources */,
-				22B1CBCD1159160600EFD709 /* SelectContentViewController.m in Sources */,
 				22B1CBCE1159160600EFD709 /* StatusViewController.m in Sources */,
 				22B1CC25115926D800EFD709 /* HoccerViewControlleriPad.m in Sources */,
 				229AA919115B753A00290513 /* HoccerContentFactoryIPhone.m in Sources */,

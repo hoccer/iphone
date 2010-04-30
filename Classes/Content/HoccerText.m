@@ -26,6 +26,12 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
+
+	if (self.data) {
+		[self.view setEditMode];
+	} else {
+		self.view.textView.text = self.content;
+	}
 	
 	return self.view;
 }
