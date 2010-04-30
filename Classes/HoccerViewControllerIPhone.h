@@ -11,7 +11,7 @@
 
 @class ActionElement;
 
-@interface HoccerViewControllerIPhone : HoccerViewController {
+@interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate> {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
 	HoccerHistoryController *hoccerHistoryController;

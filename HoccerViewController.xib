@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="179"/>
+			<integer value="216"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -224,9 +224,6 @@
 					</object>
 				</object>
 			</object>
-			<object class="IBUICustomObject" id="974217445">
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -283,9 +280,9 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="372773631"/>
-						<reference key="destination" ref="974217445"/>
+						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">230</int>
+					<int key="connectionID">231</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -399,11 +396,6 @@
 						<reference key="parent" ref="264601323"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">224</int>
-						<reference key="object" ref="974217445"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">227</int>
 						<reference key="object" ref="584568462"/>
 						<reference key="parent" ref="986704132"/>
@@ -440,8 +432,6 @@
 					<string>218.IBPluginDependency</string>
 					<string>221.IBPluginDependency</string>
 					<string>222.IBPluginDependency</string>
-					<string>224.CustomClassName</string>
-					<string>224.IBPluginDependency</string>
 					<string>227.IBPluginDependency</string>
 					<string>228.IBPluginDependency</string>
 					<string>229.IBPluginDependency</string>
@@ -466,8 +456,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>NavigationControllerDelegate</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -491,7 +479,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">230</int>
+			<int key="maxID">231</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -670,14 +658,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/JSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NavigationControllerDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/NavigationControllerDelegate.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

@@ -19,7 +19,11 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+	CGRect viewFrame = viewController.view.frame;
+	viewFrame.origin.y = viewFrame.origin.y + 9;
+	viewFrame.size.height = viewFrame.size.height - 9;
 	
+	viewController.view.frame = viewFrame;
 }
 
 @end
