@@ -55,4 +55,10 @@
 	[textView becomeFirstResponder];	
 }
 
+- (BOOL)allowsOverlay {
+	return !textView.editable;
+}
+
+
+
 @end

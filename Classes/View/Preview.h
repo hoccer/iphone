@@ -13,5 +13,7 @@
 }
 
 - (void) setImage: (UIImage *)image;
+- (BOOL) allowsOverlay;
+
 
 @end

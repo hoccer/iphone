@@ -41,6 +41,10 @@
 	[imageView release];
 }
 
+- (BOOL)allowsOverlay {
+	return YES;
+}
+
 
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ContentContainerViewDelegate.h";
+@class Preview;
 
 @interface ContentContainerView : UIView {
 	id <ContentContainerViewDelegate> delegate;
@@ -19,15 +20,14 @@
 	BOOL shouldSnapBackOnTouchUp;
 	CGPoint origin;
 	
-	UIView *containedView;
+	Preview *containedView;
 	
 	UIImageView *overlay;
-	UIView *buttonContainer;
-	
+	UIView *buttonContainer;	
 }
 
 @property (nonatomic, assign) id delegate;
-@property (readonly) UIView* containedView;
+@property (readonly) Preview* containedView;
 @property (retain) UIView *buttonContainer;
 
 @property (assign) CGPoint origin;

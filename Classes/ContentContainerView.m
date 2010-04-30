@@ -69,7 +69,9 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (IBAction)toggleOverlay: (id)sender {
-	overlay.hidden = !overlay.hidden;
+	if ([containedView allowsOverlay]) {
+		overlay.hidden = !overlay.hidden;
+	}
 }
 
 - (void)hideOverlay {
