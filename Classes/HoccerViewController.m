@@ -185,8 +185,8 @@
 	[desktopData addHocItem:item];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.fromValue = [NSValue valueWithCGPoint:
-						   CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50)];
+	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 50)];
+	animation.duration = 0.2;
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
@@ -198,21 +198,21 @@
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
-
+	[FeedbackProvider playThrowFeedback];
+	
 	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
 	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
-	[FeedbackProvider playThrowFeedback];
+
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.duration = 0.2;
-	animation.toValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
+	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
-	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];
-	
+	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
 }
 
 
