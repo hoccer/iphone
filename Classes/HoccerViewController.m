@@ -180,12 +180,12 @@
 	[FeedbackProvider playCatchFeedback];
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.delegate = self;
-	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
+	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
 	
 	[desktopData addHocItem:item];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 50)];
+	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
 	animation.duration = 0.2;
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
