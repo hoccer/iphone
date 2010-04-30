@@ -207,7 +207,7 @@
 	statusLabel.text = @"Success";
 	[self hideRecoverySuggestion];
 	
-	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
+	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
 	
 	showingError = NO;
 }

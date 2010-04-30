@@ -289,13 +289,14 @@
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
-	
-	[historyData addContentToHistory:item];
-
-	[[item content] previewInViewController:navigationController];
-	[desktopData removeHocItem:item];
-	[desktopView reloadData];
+	[super hocItemWasReceived:item];
+//	statusViewController.hocItemData = nil;
+//	
+//	[historyData addContentToHistory:item];
+//
+//	[[item content] previewInViewController:navigationController];
+//	[desktopData removeHocItem:item];
+//	[desktopView reloadData];
 	
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

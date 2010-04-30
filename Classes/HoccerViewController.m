@@ -279,6 +279,7 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
+	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
