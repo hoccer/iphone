@@ -194,9 +194,11 @@
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 		animation.duration = 0.2;
 		animation.fromValue = [NSValue valueWithCGPoint: view.center];
+		animation.delegate = self;
 		
-		view.layer.position = CGPointMake(self.frame.size.width / 2, 140);
+		view.layer.position = CGPointMake(7 + view.frame.size.width / 2, 110 + view.frame.size.height / 2);
 		[view.layer addAnimation:animation forKey:nil];
+		[dataSource view: view didMoveToPoint:CGPointMake(7, 110)];
 	}
 	
 	[delegate desktopView: self didSweepInView: view];
@@ -294,5 +296,8 @@
 	
 	return [touchedViews autorelease];
 }
+
+#pragma mark -
+#pragma mark CAAnimation Delegate Methods
 
 @end
