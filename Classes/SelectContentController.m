@@ -70,7 +70,6 @@
 
 - (IBAction)text: (id)sender; {
 	[delegate checkAndPerformSelector:@selector(selectText:) withObject: self];
-
 }
 
 - (IBAction)contact: (id)sender; {

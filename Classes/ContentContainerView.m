@@ -17,7 +17,7 @@ CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
 }
 
 CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
-	return CGRectMake(rect.origin.x , rect.origin.y, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
+	return CGRectMake(rect.origin.x + paddingX, rect.origin.y + paddingY, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
 }
 
 
@@ -37,9 +37,8 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		[self addSubview:subview];
 		
 		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
-		overlay.bounds = ACRectShrinked(self.frame, 15, 15);
+		overlay.frame = ACRectShrinked(self.frame, 15, 15);
 		overlay.hidden = YES;
-		overlay.center = self.center;
 		overlay.userInteractionEnabled = YES;
 
 		[self addSubview:overlay];
@@ -54,7 +53,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		}
 
 		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
-		buttonContainer.center = overlay.center;
+		buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
 
 		[overlay addSubview:buttonContainer];
 	}
@@ -97,7 +96,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 - (void)showSpinner {
 	UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
-	indicator.center = overlay.center;
+	indicator.center = buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
 	indicator.hidden = NO;
 	[indicator startAnimating];
 	[overlay addSubview:indicator];
