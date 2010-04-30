@@ -55,6 +55,23 @@
 
 @end
 
+@implementation UINavigationBar (UINavigationBarCategory)
+-(void)setBackgroundImage:(UIImage*)image{
+	if(image == NULL){ //might be called with NULL argument
+		return;
+	}
+	UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
+	aTabBarBackground.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
+	[self addSubview:aTabBarBackground];
+	[self sendSubviewToBack:aTabBarBackground];
+	[aTabBarBackground release];
+}
+
+
+@end
+
+
+
 
 @interface HoccerViewControllerIPhone ()
 
@@ -83,7 +100,8 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	// navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	[navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
@@ -100,7 +118,6 @@
 	
 	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
-	navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	[desktopView addSubview:statusViewController.view];
 	CGRect statusRect = statusViewController.view.frame;
@@ -341,20 +358,20 @@
 #pragma mark -
 #pragma mark UINavigationController Delegate Methods
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-	CGRect frame = navigationController.navigationBar.frame;
-	frame.size.height = 53;
-	
-	navigationController.navigationBar.frame = frame;
-}
-
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-	CGRect viewFrame = viewController.view.frame;
-	viewFrame.origin.y = viewFrame.origin.y + 9;
-	viewFrame.size.height = viewFrame.size.height - 9;
-	
-	viewController.view.frame = viewFrame;
-}
+//- (void)navigationController:(UINavigationController *)aNavigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//	CGRect frame = aNavigationController.navigationBar.frame;
+//	frame.size.height = 53;
+//	
+//	aNavigationController.navigationBar.frame = frame;
+//}
+//
+//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//	CGRect viewFrame = viewController.view.frame;
+//	viewFrame.origin.y = viewFrame.origin.y + 9;
+//	viewFrame.size.height = viewFrame.size.height - 9;
+//	
+//	viewController.view.frame = viewFrame;
+//}
 
 
 
