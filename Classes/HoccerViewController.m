@@ -22,7 +22,6 @@
 
 #import "DesktopView.h"
 #import "ReceivedContentViewController.h"
-#import "SelectContentViewController.h"
 
 #import "HelpScrollView.h"
 
