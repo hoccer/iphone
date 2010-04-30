@@ -50,6 +50,8 @@
 @synthesize gesture;
 @synthesize progress;
 
+@synthesize viewFromNib;
+
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
@@ -123,9 +125,9 @@
 	}
 	
 	if (contentView == nil) {
-		UIView *preview = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)] autorelease];
-		preview.backgroundColor = [UIColor whiteColor];
-
+		[[NSBundle mainBundle] loadNibNamed:@"EmptyContent" owner:self options:nil];
+		UIView *preview = viewFromNib;
+		viewFromNib = nil;
 		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}
 	

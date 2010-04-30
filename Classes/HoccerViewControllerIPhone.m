@@ -88,8 +88,7 @@
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
 
-	navigationController.view.frame = CGRectMake(0, 0, 
-												 self.view.frame.size.width, 
+	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
@@ -99,11 +98,9 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-	
 	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
 	navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
-	
 	
 	[desktopView addSubview:statusViewController.view];
 	CGRect statusRect = statusViewController.view.frame;
@@ -209,6 +206,10 @@
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = @"Help";
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																			target:self action:@selector(hidePopOverAnimated:)];
+	navigationItem.rightBarButtonItem = cancel;
+	[cancel release];
 	navigationItem.titleView = nil;
 }
 
@@ -216,6 +217,10 @@
 	[self showPopOver: self.hoccerHistoryController];
 	
 	navigationItem.title = @"History";
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																			target:self action:@selector(hidePopOverAnimated:)];
+	navigationItem.rightBarButtonItem = cancel;
+	[cancel release];
 	navigationItem.titleView = nil;
 }
 
@@ -238,12 +243,6 @@
 	[UIView commitAnimations];
 	
 	isPopUpDisplayed = TRUE;
-	
-	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
-	
-	navigationItem.rightBarButtonItem = cancel;
-	[cancel release];
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{

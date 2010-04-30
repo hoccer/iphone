@@ -160,9 +160,7 @@
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
-								property:(ABPropertyID)property 
-							  identifier:(ABMultiValueIdentifier)identifier
-{
+								property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
 	return NO;
 }
 
@@ -327,8 +325,6 @@
 #pragma mark LocationController Delegate Methods
 
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	NSLog(@"hoccability: %d", controller.hoccability);
-	
 	if (controller.hoccability == 0) {
 		blocked = YES;
 	} else {

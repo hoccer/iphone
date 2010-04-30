@@ -33,6 +33,8 @@
 	BOOL isUpload;
 	
 	id <HocItemDataDelegate> delegate;
+	
+	UIView *viewFromNib;
 }
 
 @property (retain) HoccerContent *content;
@@ -44,6 +46,7 @@
 
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, assign) id <HocItemDataDelegate> delegate; 
+@property (assign) IBOutlet UIView* viewFromNib;
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

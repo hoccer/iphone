@@ -223,6 +223,8 @@
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		229E3C05118AD2DF0036BCE5 /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229E3C04118AD2DF0036BCE5 /* EmptyContent.xib */; };
+		229E3C06118AD2DF0036BCE5 /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229E3C04118AD2DF0036BCE5 /* EmptyContent.xib */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
@@ -692,6 +694,7 @@
 		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
 		229DAF56107B3BF400B47ABE /* VcardWriterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriterTests.h; path = Tests/Vcard/VcardWriterTests.h; sourceTree = "<group>"; };
 		229DAF57107B3BF400B47ABE /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriterTests.m; path = Tests/Vcard/VcardWriterTests.m; sourceTree = "<group>"; };
+		229E3C04118AD2DF0036BCE5 /* EmptyContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyContent.xib; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
 		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -1333,6 +1336,7 @@
 		229255CD11898BB3008B4FFB /* ContentPreview XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				229E3C04118AD2DF0036BCE5 /* EmptyContent.xib */,
 				2292556811898394008B4FFB /* ContactsView.xib */,
 				229255D611898CAC008B4FFB /* TextView.xib */,
 			);
@@ -1776,6 +1780,7 @@
 				22925566118982D9008B4FFB /* container_contact_editbtn.png in Resources */,
 				2292556911898394008B4FFB /* ContactsView.xib in Resources */,
 				229255D711898CAC008B4FFB /* TextView.xib in Resources */,
+				229E3C05118AD2DF0036BCE5 /* EmptyContent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1847,6 +1852,7 @@
 				22B1CBF51159160D00EFD709 /* SelectContentTableView.xib in Resources */,
 				22B1CBF61159160D00EFD709 /* StatusViewController.xib in Resources */,
 				229255D811898CAC008B4FFB /* TextView.xib in Resources */,
+				229E3C06118AD2DF0036BCE5 /* EmptyContent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
