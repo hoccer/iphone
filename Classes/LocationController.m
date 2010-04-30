@@ -80,7 +80,7 @@
 }
 
 - (BOOL)hasLocation {
-	return (currentLocation.horizontalAccuracy != 0.0 && [currentLocation.timestamp timeIntervalSinceNow] > -50);
+	return (currentLocation.horizontalAccuracy != 0.0);
 }
 
 - (BOOL)hasBadLocation {
