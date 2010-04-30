@@ -133,6 +133,19 @@
 	[imagePicker release];
 }
 
+- (IBAction)selectVideo: (id)sender {
+	
+	
+	[self hidePopOverAnimated: NO];
+	
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	
+	imagePicker.delegate = self;
+	imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+	[self presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
 - (IBAction)selectText: (id)sender {
 	[self hidePopOverAnimated: YES];
 	

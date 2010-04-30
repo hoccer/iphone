@@ -65,7 +65,7 @@
 }
 
 - (IBAction)video: (id)sender; {
-	
+	[delegate checkAndPerformSelector:@selector(selectVideo:) withObject: self];
 }
 
 - (IBAction)text: (id)sender; {

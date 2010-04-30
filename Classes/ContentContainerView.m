@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ContentContainerView.h"
 #import "NSObject+DelegateHelper.h"
+#import "Preview.h"
 
 #define kSweepBorder 50
 
