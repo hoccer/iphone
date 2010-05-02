@@ -55,21 +55,31 @@
 
 @end
 
-@implementation UINavigationBar (UINavigationBarCategory)
--(void)setBackgroundImage:(UIImage*)image{
-	if(image == NULL) { 
-		return;
-	}
-	UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
-	aTabBarBackground.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
-	[self addSubview:aTabBarBackground];
-	[self sendSubviewToBack:aTabBarBackground];
-	[aTabBarBackground release];
-}
+@interface CustomNavigationBar : UINavigationBar
+{}
+@end
 
+@implementation CustomNavigationBar
+
+- (void)drawRect: (CGRect)dirtyRect {
+	UIImage *image = [UIImage imageNamed: @"hoccer_bar.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
 
 @end
 
+@interface CustomTabBar : UITabBar
+{}
+@end
+
+@implementation CustomTabBar
+
+- (void)drawRect: (CGRect)dirtyRect {
+	UIImage *image = [UIImage imageNamed: @"nav_bar.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+@end
 
 
 
@@ -101,7 +111,6 @@
 	isPopUpDisplayed = FALSE;
 	
 	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
-	[navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];

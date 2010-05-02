@@ -19,6 +19,7 @@
 #import "HoccerText.h"
 #import "Preview.h"
 #import "ContentContainerView.h"
+#import "ACAddressBookPerson.h"
 
 #import "DesktopView.h"
 #import "ReceivedContentViewController.h"
@@ -144,6 +145,9 @@
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+	
+	ACAddressBookPerson *addressBookPerson = [[ACAddressBookPerson alloc] initWithId: (ABRecordID) ABRecordGetRecordID(person)];
+	[addressBookPerson release];
 	
 	ABRecordID contactId = ABRecordGetRecordID(person);
 	ABAddressBookRef addressBook = ABAddressBookCreate();

@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ACPerson : NSObject {
-	ABRecordRef person;
+@interface ACAddressBookPerson : NSObject {
+	ABRecordID personId;
+	ABRecordRef personRecordRef;
 }
 
-- (id)initWithPerson: (ABRecordRef)aPeron;
+- (id)initWithId: (ABRecordID)recordId;
 - (NSString *)name;
 
 

@@ -34,7 +34,7 @@
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762F62105E78AF003BF968 /* 2_values.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22762F61105E78AF003BF968 /* 2_values.txt */; };
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
-		227687C2109047E4000528E8 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		227687C2109047E4000528E8 /* ACAddressBookPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACAddressBookPerson.m */; };
 		22783D891067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22783D8A1067ABBB00B244F7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
 		22791C59108C570F00059D05 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
@@ -173,7 +173,7 @@
 		229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		229A82F4116B670400FFAD1B /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
-		229A82F6116B670400FFAD1B /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		229A82F6116B670400FFAD1B /* ACAddressBookPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACAddressBookPerson.m */; };
 		229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
 		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
 		229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
@@ -281,7 +281,7 @@
 		22B1CBBC1159160600EFD709 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		22B1CBBD1159160600EFD709 /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		22B1CBBE1159160600EFD709 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
-		22B1CBBF1159160600EFD709 /* ACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACPerson.m */; };
+		22B1CBBF1159160600EFD709 /* ACAddressBookPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACAddressBookPerson.m */; };
 		22B1CBC01159160600EFD709 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
 		22B1CBC11159160600EFD709 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
 		22B1CBC21159160600EFD709 /* HelpScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94D5109713AB008CE547 /* HelpScreen.m */; };
@@ -468,8 +468,8 @@
 		22762FBA105E8589003BF968 /* AccelerationRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerationRecorder.h; path = AccelerationRecorder/AccelerationRecorder.h; sourceTree = "<group>"; };
 		22762FBB105E8589003BF968 /* AccelerationRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerationRecorder.m; path = AccelerationRecorder/AccelerationRecorder.m; sourceTree = "<group>"; };
 		227630E1105E99E5003BF968 /* HoccerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoccerTests-Info.plist"; sourceTree = "<group>"; };
-		227687C0109047E4000528E8 /* ACPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACPerson.h; path = AddressBook/ACPerson.h; sourceTree = "<group>"; };
-		227687C1109047E4000528E8 /* ACPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACPerson.m; path = AddressBook/ACPerson.m; sourceTree = "<group>"; };
+		227687C0109047E4000528E8 /* ACAddressBookPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACAddressBookPerson.h; path = AddressBook/ACAddressBookPerson.h; sourceTree = "<group>"; };
+		227687C1109047E4000528E8 /* ACAddressBookPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACAddressBookPerson.m; path = AddressBook/ACAddressBookPerson.m; sourceTree = "<group>"; };
 		22783D881067ABBB00B244F7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22791C57108C570F00059D05 /* HoccerVcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerVcard.h; path = Content/HoccerVcard.h; sourceTree = "<group>"; };
 		22791C58108C570F00059D05 /* HoccerVcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerVcard.m; path = Content/HoccerVcard.m; sourceTree = "<group>"; };
@@ -1306,8 +1306,8 @@
 				22719D7B1083149D00F84755 /* VcardParserDelegate.h */,
 				22719E8D1083207700F84755 /* ABPersonCreator.h */,
 				22719E8E1083207700F84755 /* ABPersonCreator.m */,
-				227687C0109047E4000528E8 /* ACPerson.h */,
-				227687C1109047E4000528E8 /* ACPerson.m */,
+				227687C0109047E4000528E8 /* ACAddressBookPerson.h */,
+				227687C1109047E4000528E8 /* ACAddressBookPerson.m */,
 			);
 			name = AddressBook;
 			sourceTree = "<group>";
@@ -1826,7 +1826,7 @@
 				2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */,
 				22791C59108C570F00059D05 /* HoccerVcard.m in Sources */,
 				224F8A9C108CBB4300F69B53 /* Preview.m in Sources */,
-				227687C2109047E4000528E8 /* ACPerson.m in Sources */,
+				227687C2109047E4000528E8 /* ACAddressBookPerson.m in Sources */,
 				E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */,
 				22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */,
 				227A94D7109713AB008CE547 /* HelpScreen.m in Sources */,
@@ -1903,7 +1903,7 @@
 				229A82F3116B670400FFAD1B /* ABPersonVCardCreator.m in Sources */,
 				229A82F4116B670400FFAD1B /* VcardParser.m in Sources */,
 				229A82F5116B670400FFAD1B /* ABPersonCreator.m in Sources */,
-				229A82F6116B670400FFAD1B /* ACPerson.m in Sources */,
+				229A82F6116B670400FFAD1B /* ACAddressBookPerson.m in Sources */,
 				22B65A0611770346003E7058 /* RegExpTests.m in Sources */,
 				22B65A0F117703E1003E7058 /* NSString+Regexp.m in Sources */,
 				22B65A32117708AD003E7058 /* FeatureHistoryTests.m in Sources */,
@@ -1961,7 +1961,7 @@
 				22B1CBBC1159160600EFD709 /* FeedbackProvider.m in Sources */,
 				22B1CBBD1159160600EFD709 /* HoccerVcard.m in Sources */,
 				22B1CBBE1159160600EFD709 /* Preview.m in Sources */,
-				22B1CBBF1159160600EFD709 /* ACPerson.m in Sources */,
+				22B1CBBF1159160600EFD709 /* ACAddressBookPerson.m in Sources */,
 				22B1CBC01159160600EFD709 /* AboutViewController.m in Sources */,
 				22B1CBC11159160600EFD709 /* GTMUIImage+Resize.m in Sources */,
 				22B1CBC21159160600EFD709 /* HelpScreen.m in Sources */,
