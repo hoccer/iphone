@@ -34,7 +34,9 @@
 		
 		abPersonVCardCreator = [[ABPersonVCardCreator alloc] initWithPerson:person];		
 		self.data = [abPersonVCardCreator vcard];
+
 		[self saveDataToDocumentDirectory];
+		isFromContentSource = YES;
 	}
 	
 	return self;

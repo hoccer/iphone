@@ -16,6 +16,7 @@
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filepath;	
 	id <HoccerContentPreviewDelegate> previewDelegate;
+	BOOL isFromContentSource;
 	
 	@private
 	NSData *data;
@@ -25,6 +26,7 @@
 @property (retain) NSString* filepath;
 @property (nonatomic, readonly) NSString *extension;
 @property (nonatomic, readonly) NSURL *fileUrl;
+@property (assign) BOOL isFromContentSource;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (id) initWithFilename: (NSString *)filename;

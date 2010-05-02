@@ -21,13 +21,10 @@
 	UITabBar *tabBar;
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
-	
-	UIView *shadow;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
-@property (nonatomic, retain) IBOutlet UIView *shadow;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 
 @end

@@ -54,6 +54,8 @@
 		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
 		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
 								 toTarget:threadClass withObject:self];
+		
+		isFromContentSource = YES;
 	}
 	
 	return self;

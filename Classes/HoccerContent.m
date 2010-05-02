@@ -19,6 +19,7 @@
 @implementation HoccerContent
 @synthesize data;
 @synthesize filepath;
+@synthesize isFromContentSource;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
