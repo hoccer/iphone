@@ -26,8 +26,9 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
-
-	if (self.data) {
+	
+	self.view.delegate = self;
+	if (!self.data) {
 		[self.view setEditMode];
 	} else {
 		self.view.textView.text = self.content;
@@ -43,6 +44,7 @@
 }
 
 - (void)prepareSharing{
+	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 	[self.data writeToFile: filepath atomically: NO];
 }
 
@@ -55,12 +57,6 @@
 	return @"txt";
 }
 
-- (NSData *)data 
-{	
-	[textView resignFirstResponder];
-	return [textView.text dataUsingEncoding: NSUTF8StringEncoding];
-}
-
 - (void)dismissKeyboard
 {
 	[textView resignFirstResponder];
@@ -68,6 +64,10 @@
 
 - (NSString *)content {
 	return [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
+}
+
+- (void)textPreviewDidEndEditing: (TextPreview *)preview {
+	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 @end

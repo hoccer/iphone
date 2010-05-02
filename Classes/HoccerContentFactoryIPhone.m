@@ -17,7 +17,6 @@
 
 - (HoccerContent *)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
 	HoccerContent* hoccerContent = nil;
-	
 	NSString *mimeType = [response MIMEType];
 	
 	if ([mimeType isEqual: @"text/x-vcard"]) {

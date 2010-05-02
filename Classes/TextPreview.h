@@ -13,10 +13,14 @@
 @interface TextPreview : Preview {
 	UITextView *textView;
 	UIButton *editButton;
+	
+	id delegate;
 }
 
 @property (retain) IBOutlet UITextView *textView;
 @property (retain) IBOutlet UIButton *editButton;
+
+@property (assign) id delegate;
 
 - (IBAction)toggleEditMode: (id)sender;
 

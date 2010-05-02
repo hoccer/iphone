@@ -58,7 +58,9 @@
 		
 		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
 		self.data = theData;
-		
+
+		NSLog(@"received: %@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
+
 		[self saveDataToDocumentDirectory];
 		
 		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];

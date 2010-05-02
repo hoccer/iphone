@@ -7,12 +7,13 @@
 //
 
 #import "TextPreview.h"
-
+#import "NSObject+DelegateHelper.h"
 
 @implementation TextPreview
 
 @synthesize textView;
 @synthesize editButton;
+@synthesize delegate;
 
 - (void)awakeFromNib {
 	[self setStaticMode];
@@ -20,6 +21,7 @@
 
 - (IBAction)toggleEditMode: (id)sender {
 	if (textView.editable) {
+		[delegate checkAndPerformSelector:@selector(textPreviewDidEndEditing:)];
 		[self setStaticMode];
 	} else {
 		[self setEditMode];
