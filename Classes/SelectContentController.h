@@ -10,9 +10,14 @@
 
 
 @interface SelectContentController : UIViewController {
+	NSMutableArray *buttons;
+	UIView *buttonsContainer;
+	
 	id delegate;
 }
+
 @property (assign) id delegate;
+@property (retain) IBOutlet UIView *buttonsContainer;
 
 - (IBAction)camera: (id)sender;
 - (IBAction)image: (id)sender;

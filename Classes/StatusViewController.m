@@ -159,7 +159,6 @@
 	showingError = NO;
 }
 
-
 - (void)setConnectingState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	[self showViewAnimated];

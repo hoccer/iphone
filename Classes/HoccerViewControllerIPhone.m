@@ -57,7 +57,7 @@
 
 @implementation UINavigationBar (UINavigationBarCategory)
 -(void)setBackgroundImage:(UIImage*)image{
-	if(image == NULL){ //might be called with NULL argument
+	if(image == NULL) { 
 		return;
 	}
 	UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
@@ -100,7 +100,7 @@
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	// navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	[navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
