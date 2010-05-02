@@ -36,7 +36,6 @@
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSError *)error;
-- (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
 - (void)setLocationHint: (NSError *)hint;
 

@@ -115,13 +115,12 @@
 #pragma mark Managing Hoccability / Location Hints
 
 - (void)setLocationHint: (NSError *)hint {
-	NSLog(@"hint: %@", hint);
 	self.badLocationHint = hint;
 	
 	if (hint != nil) {
 		[self showLocationHint];
 	} else {
-		[self hideViewAnimated];
+		[self hideLocationHint];
 	}
 }
 
@@ -134,7 +133,7 @@
 
 - (void)hideLocationHint {
 	if (self.hocItemData == nil) {
-		[self hideLocationHint];
+		[self hideViewAnimated];
 		cancelButton.hidden = NO;
 	}
 }
@@ -237,11 +236,6 @@
 - (void)setUpdate: (NSString *)update {
 	statusLabel.text = update;
 	[self setConnectingState];
-}
-
-- (void)setErrorMessage: (NSString *)message {
-	[self setUpdate:message];
-	[self setErrorState];
 }
 
 

@@ -37,19 +37,17 @@
 	return self.view;
 }
 	
-- (void)dealloc
-{
+- (void)dealloc {
 	[textView release];	
 	[super dealloc];
 }
 
-- (void)prepareSharing{
+- (void)prepareSharing {
 	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 	[self.data writeToFile: filepath atomically: NO];
 }
 
-- (NSString *)mimeType
-{
+- (NSString *)mimeType {
 	return @"text/plain";
 }
 
