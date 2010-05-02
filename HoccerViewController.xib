@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="216"/>
+			<integer value="179"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -145,18 +145,6 @@
 									<float key="IBUIMinimumFontSize">10</float>
 									<int key="IBUITextAlignment">1</int>
 								</object>
-								<object class="IBUIImageView" id="333398635">
-									<reference key="NSNextResponder" ref="264601323"/>
-									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{0, 374}, {320, 13}}</string>
-									<reference key="NSSuperview" ref="264601323"/>
-									<bool key="IBUIUserInteractionEnabled">NO</bool>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<object class="NSCustomResource" key="IBUIImage">
-										<string key="NSClassName">NSImage</string>
-										<string key="NSResourceName">shadow_bottom.png</string>
-									</object>
-								</object>
 								<object class="IBUIImageView" id="403723230">
 									<reference key="NSNextResponder" ref="264601323"/>
 									<int key="NSvFlags">292</int>
@@ -167,6 +155,18 @@
 									<object class="NSCustomResource" key="IBUIImage">
 										<string key="NSClassName">NSImage</string>
 										<string key="NSResourceName">shadow_top.png</string>
+									</object>
+								</object>
+								<object class="IBUIImageView" id="333398635">
+									<reference key="NSNextResponder" ref="264601323"/>
+									<int key="NSvFlags">268</int>
+									<string key="NSFrame">{{0, 374}, {320, 13}}</string>
+									<reference key="NSSuperview" ref="264601323"/>
+									<bool key="IBUIUserInteractionEnabled">NO</bool>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<object class="NSCustomResource" key="IBUIImage">
+										<string key="NSClassName">NSImage</string>
+										<string key="NSResourceName">shadow_bottom.png</string>
 									</object>
 								</object>
 							</object>
@@ -256,6 +256,14 @@
 					</object>
 					<int key="connectionID">231</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">shadow</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="264601323"/>
+					</object>
+					<int key="connectionID">232</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -322,8 +330,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="284235471"/>
-							<reference ref="403723230"/>
 							<reference ref="333398635"/>
+							<reference ref="403723230"/>
 						</object>
 						<reference key="parent" ref="424575191"/>
 					</object>
@@ -405,7 +413,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{296, 130}, {320, 480}}</string>
+					<string>{{296, 104}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomNavigationBar</string>
@@ -435,7 +443,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">231</int>
+			<int key="maxID">232</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -570,11 +578,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>navigationController</string>
+							<string>shadow</string>
 							<string>tabBar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UINavigationController</string>
+							<string>UIView</string>
 							<string>UITabBar</string>
 						</object>
 					</object>

@@ -137,6 +137,8 @@
 - (void) dealloc {
 	[hoccerHistoryController release];
 	[navigationItem release];
+	[shadow release];
+	
 	[super dealloc];
 }
 
@@ -272,7 +274,7 @@
 	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = popOverFrame;	
 	
-	[desktopView addSubview:popOverView.view];
+	[desktopView insertSubview:popOverView.view atIndex:1];
 
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
