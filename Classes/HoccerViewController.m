@@ -207,7 +207,7 @@
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.duration = 0.2;
-	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
+	animation.toValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
