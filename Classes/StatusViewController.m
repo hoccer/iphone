@@ -88,10 +88,10 @@
 	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
 	hintText.hidden = NO;
 	
-	[UIView beginAnimations:@"growView" context:nil];
+	// [UIView beginAnimations:@"growView" context:nil];
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
-	[UIView setAnimationDuration:0.2];
-	[UIView commitAnimations];
+	// [UIView setAnimationDuration:0.2];
+	// [UIView commitAnimations];
 }
 
 - (void)hideRecoverySuggestion {

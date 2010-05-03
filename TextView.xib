@@ -88,7 +88,7 @@
 					<object class="IBUIButton" id="424571814">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{264, 14}, {24, 25}}</string>
+						<string key="NSFrame">{{261, 12}, {28, 28}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">11</int>
@@ -242,7 +242,7 @@
 					<string>HoccerText</string>
 					<string>UIResponder</string>
 					<string>TextPreview</string>
-					<string>{{711, 719}, {303, 224}}</string>
+					<string>{{648, 711}, {303, 224}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -343,11 +343,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>delegate</string>
 							<string>editButton</string>
 							<string>textView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>UIButton</string>
 							<string>UITextView</string>
 						</object>
@@ -578,7 +580,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{303, 224}</string>
-				<string>{24, 25}</string>
+				<string>{28, 28}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>

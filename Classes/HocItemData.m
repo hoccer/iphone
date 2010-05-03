@@ -328,7 +328,6 @@
 #pragma mark -
 #pragma mark User Actions
 - (IBAction)closeView: (id)sender {
-	NSLog(@"close View: %@", nil);
 	if ([delegate respondsToSelector:@selector(hocItemWasClosed:)]) {
 		[delegate hocItemWasClosed: self];
 	} 
