@@ -137,7 +137,6 @@
 - (void) dealloc {
 	[hoccerHistoryController release];
 	[navigationItem release];
-	[shadow release];
 	
 	[super dealloc];
 }
@@ -326,6 +325,8 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+
+	tabBar.selectedItem = nil;
 }
 
 #pragma mark -

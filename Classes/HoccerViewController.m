@@ -329,22 +329,22 @@
 #pragma mark LocationController Delegate Methods
 
 - (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	if (controller.hoccability == 0) {
-		blocked = YES;
-	} else {
-		blocked = NO;
-	}
-
-	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
-	
-	NSError *message = [controller messageForLocationInformation];
-	if (![desktopData hasActiveRequest]) {
-		if (message) {
-			[statusViewController setLocationHint: message];			
-		} else {
-			[statusViewController setLocationHint: nil];
-		}
-	}
+//	if (controller.hoccability == 0) {
+//		blocked = YES;
+//	} else {
+//		blocked = NO;
+//	}
+//
+//	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
+//	
+//	NSError *message = [controller messageForLocationInformation];
+//	if (![desktopData hasActiveRequest]) {
+//		if (message) {
+//			[statusViewController setLocationHint: message];			
+//		} else {
+//			[statusViewController setLocationHint: nil];
+//		}
+//	}
 }
 
 
