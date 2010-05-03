@@ -57,10 +57,8 @@
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
-		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
+		self.filepath = [self uniqueFilenameFromFilename: [documentsDirectoryUrl stringByAppendingPathComponent: filename]];
 		self.data = theData;
-
-		NSLog(@"received: %@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
 
 		[self saveDataToDocumentDirectory];
 		
@@ -76,7 +74,7 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		NSString *filename = [NSString stringWithFormat:@"%f.%@", [NSDate timeIntervalSinceReferenceDate], self.extension];
+		NSString *filename = [self uniqueFilenameFromFilename: [NSString stringWithFormat:@"%f.%@", [NSDate timeIntervalSinceReferenceDate], self.extension]];
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
