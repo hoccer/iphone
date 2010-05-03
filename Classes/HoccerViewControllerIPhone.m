@@ -284,6 +284,8 @@
 	[UIView commitAnimations];
 	
 	isPopUpDisplayed = TRUE;
+	
+	statusViewController.view.hidden = YES;
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
