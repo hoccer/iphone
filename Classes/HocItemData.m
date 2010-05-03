@@ -259,7 +259,7 @@
 		[button setFrame: CGRectMake(0, 0, 65, 61)];
 		
 		UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-		[button2 setImage:[UIImage imageNamed:@"container_btn_double-save.png"] forState:UIControlStateNormal];
+		[button2 setImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
 		

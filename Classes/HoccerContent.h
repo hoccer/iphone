@@ -53,5 +53,6 @@
 - (void)previewInViewController: (UIViewController *)viewController;
 
 - (NSString *)uniqueFilenameFromFilename: (NSString *)filename;
+- (UIImage *)imageForSaveButton;
 
 @end

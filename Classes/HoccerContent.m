@@ -201,4 +201,9 @@
 	return newFilename;
 }
 
+- (UIImage *)imageForSaveButton {
+	return [UIImage imageNamed:@"container_btn_double-save.png"];
+}
+
+
 @end

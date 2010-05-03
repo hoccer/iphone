@@ -68,4 +68,13 @@
 	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
+- (void)saveDataToContentStorage {
+	[UIPasteboard generalPasteboard].string = [self content];
+}
+
+- (UIImage *)imageForSaveButton {
+	return [UIImage imageNamed:@"container_btn_double-copy.png"];
+}
+
+
 @end
