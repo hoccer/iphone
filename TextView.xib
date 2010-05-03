@@ -88,7 +88,7 @@
 					<object class="IBUIButton" id="424571814">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{261, 12}, {28, 28}}</string>
+						<string key="NSFrame">{{261, 12}, {28, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">11</int>
@@ -580,7 +580,7 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{303, 224}</string>
-				<string>{28, 28}</string>
+				<string>{28, 36}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>

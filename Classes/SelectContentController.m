@@ -43,6 +43,13 @@
 
 @end
 
+@interface SelectContentController ()
+
+- (void)setUpButtons;
+
+@end
+
+
 @implementation SelectContentController
 @synthesize delegate;
 @synthesize buttonsContainer;

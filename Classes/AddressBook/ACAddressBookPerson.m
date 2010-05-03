@@ -28,9 +28,6 @@
 		personRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, personId);
 		CFRetain(personRecordRef);
 		
-		NSLog(@"first_name: %@", [self firstName]);
-		NSLog(@"last_name: %@", [self lastName]);
-		
 		[self createMultiValueWithID: kABPersonPhoneProperty toVcardProperty: @"TEL"];
 	}
 	

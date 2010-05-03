@@ -68,18 +68,8 @@
 
 @end
 
-@interface CustomTabBar : UITabBar
-{}
-@end
 
-@implementation CustomTabBar
 
-- (void)drawRect: (CGRect)dirtyRect {
-	UIImage *image = [UIImage imageNamed: @"nav_bar.png"];
-    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-}
-
-@end
 
 
 
