@@ -362,6 +362,8 @@
 		22D7314E10A88E34000AEA79 /* Close_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7314D10A88E34000AEA79 /* Close_Highlighted.png */; };
 		22D86D7B118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */; };
 		22D86D7C118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */; };
+		22D86D8D118F1DD100F7AC6E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D86D8B118F1DD100F7AC6E /* SettingViewController.m */; };
+		22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */; };
 		22D89070118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
 		22D89071118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
 		22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */; };
@@ -703,6 +705,9 @@
 		22D7313A10A88600000AEA79 /* Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Catch_Icon.png; sourceTree = "<group>"; };
 		22D7314D10A88E34000AEA79 /* Close_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close_Highlighted.png; sourceTree = "<group>"; };
 		22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_double-copy.png"; sourceTree = "<group>"; };
+		22D86D8A118F1DD100F7AC6E /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		22D86D8B118F1DD100F7AC6E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		22D8906E118EDC69001BA9C8 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		22D8906F118EDC69001BA9C8 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
 		22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDesktopDataSource.h; sourceTree = "<group>"; };
@@ -1057,6 +1062,9 @@
 				E64B77FF109491AA0005ACA3 /* AboutViewController.m */,
 				22B65A9B11770FCB003E7058 /* HoccerMessageResolver.h */,
 				22B65A9C11770FCB003E7058 /* HoccerMessageResolver.m */,
+				22D86D8A118F1DD100F7AC6E /* SettingViewController.h */,
+				22D86D8B118F1DD100F7AC6E /* SettingViewController.m */,
+				22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -1712,6 +1720,7 @@
 				E63FE79A118C2CE300DB0DA8 /* select_btn_text.png in Resources */,
 				E63FE79B118C2CE300DB0DA8 /* select_btn_video.png in Resources */,
 				22D86D7B118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
+				22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1881,6 +1890,7 @@
 				229255C1118989C7008B4FFB /* ContactPreview.m in Sources */,
 				229255FB118991CD008B4FFB /* TextPreview.m in Sources */,
 				22D89070118EDC69001BA9C8 /* CustomTabBar.m in Sources */,
+				22D86D8D118F1DD100F7AC6E /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

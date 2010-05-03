@@ -16,7 +16,7 @@
 #import "HoccerHistoryController.h"
 #import "HocItemData.h"
 #import "DesktopDataSource.h"
-
+#import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
 
@@ -67,10 +67,6 @@
 }
 
 @end
-
-
-
-
 
 
 @interface HoccerViewControllerIPhone ()
@@ -231,7 +227,7 @@
 }
 
 - (void)showHelpView {
-	self.helpViewController.delegate = self;
+// 	self.helpViewController.delegate = self;
 	
 	[self showPopOver:self.helpViewController];
 	
