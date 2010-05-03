@@ -242,6 +242,7 @@
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
 	if ([hocItemData.status contains:@"Transfering"]) {
+		hocItemData.status = @"Transfering";
 		[self setTransferState];		
 	} 
 }
