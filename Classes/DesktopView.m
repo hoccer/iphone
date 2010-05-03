@@ -260,9 +260,8 @@
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.duration = 0.2;
-
 	animation.fromValue = [NSValue valueWithCGPoint: view.center];
-	view.origin = CGPointMake(7, 22);
+	view.center = CGPointMake(view.superview.frame.size.width /2, view.center.y);
 	
 	[view.layer addAnimation:animation forKey:nil];
 }
