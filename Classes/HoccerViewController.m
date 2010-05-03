@@ -43,6 +43,8 @@
 #import "HoccingRulesIPhone.h"
 #import "HistoryData.h"
 
+#import "SettingViewController.h"
+
 @implementation HoccerViewController
 
 @synthesize delegate; 
@@ -80,13 +82,13 @@
 }
 
 - (void)dealloc {
-	[desktopView release];	
-	[desktopData release];
-	[locationController release];
-	[gestureInterpreter release];
-	[helpViewController release];
-	[statusViewController release];
-	[hoccingRules release];
+//	[desktopView release];	
+//	[desktopData release];
+//	[locationController release];
+//	[gestureInterpreter release];
+//	[helpViewController release];
+//	[statusViewController release];
+//	[hoccingRules release];
 	
 	[super dealloc];
 }
@@ -107,9 +109,9 @@
 #pragma mark -
 #pragma mark View Manipulation
 
-- (HelpScrollView *)helpViewController {
+- (SettingViewController *)helpViewController {
 	if (helpViewController == nil) {
-		helpViewController = [[HelpScrollView alloc] init];
+		helpViewController = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
 	}
 	
 	return helpViewController;

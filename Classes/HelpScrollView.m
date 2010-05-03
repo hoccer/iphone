@@ -31,9 +31,8 @@
 	
 	pages = [[NSArray arrayWithObjects: 
 			  [[[HelpOverview alloc] init] autorelease],
-			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
-			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
-			  [[[AboutViewController alloc] init] autorelease],			  
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
 			  nil] retain];
 	
 	

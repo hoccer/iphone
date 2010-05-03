@@ -68,14 +68,4 @@
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
 }
 
-
-
-#pragma mark -
-#pragma mark Saving Delegate Methods
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-	[viewController dismissModalViewControllerAnimated:YES];
-}
-
 @end
