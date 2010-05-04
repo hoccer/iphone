@@ -126,7 +126,7 @@
 	
 	if (contentView == nil) {
 		[[NSBundle mainBundle] loadNibNamed:@"EmptyContent" owner:self options:nil];
-		Preview *preview = viewFromNib;
+		Preview *preview = (Preview *)viewFromNib;
 		viewFromNib = nil;
 		preview.allowsOverlay = NO;
 		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];

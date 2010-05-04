@@ -14,8 +14,7 @@
 @implementation Preview
 @synthesize allowsOverlay;
 
-- (id) initWithFrame: (CGRect) frame
-{
+- (id) initWithFrame: (CGRect) frame {
 	self = [super initWithFrame:frame];	
 	if (self != nil) {
 		self.allowsOverlay = YES;
