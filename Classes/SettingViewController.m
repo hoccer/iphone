@@ -61,26 +61,21 @@
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
 	cell.textLabel.text = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]];
-    return cell;
-}
-
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-	if ([indexPath indexAtPosition:0] == 2) {
-		return UITableViewCellAccessoryNone;
+	if ([indexPath indexAtPosition:0] != 2) {
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-	return UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
 }
 
 #pragma mark -

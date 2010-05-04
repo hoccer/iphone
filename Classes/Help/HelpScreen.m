@@ -58,9 +58,7 @@
 }
 
 
-- (IBAction)playVideo: (id)sender
-{
-
+- (IBAction)playVideo: (id)sender {
 	self.player = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:self.content.videoPath]];
 	
 	[player play];
