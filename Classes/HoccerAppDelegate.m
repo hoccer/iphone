@@ -37,10 +37,12 @@
 }
 
 - (void)applicationWillTerminate: (UIApplication *)application {
-	
+	NSLog(@"will terminate");
 }
 
-- (void)dealloc {			
+- (void)dealloc {	
+	NSLog(@"dealloc");
+
     [viewController release];
 	[window release];
 	

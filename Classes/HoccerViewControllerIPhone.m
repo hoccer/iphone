@@ -122,7 +122,11 @@
 
 - (void) dealloc {
 	[hoccerHistoryController release];
+	[navigationController release];
 	[navigationItem release];
+	[tabBar release];
+	[auxiliaryView release];
+	[delayedAction release];
 	
 	[super dealloc];
 }

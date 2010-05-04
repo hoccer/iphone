@@ -398,6 +398,8 @@
 		E643A01F118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
 		E643A020118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
 		E643A021118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
+		E643A050118F7560007A4498 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D86D8B118F1DD100F7AC6E /* SettingViewController.m */; };
+		E643A051118F7560007A4498 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */; };
 		E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
 		E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64B7800109491AA0005ACA3 /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
@@ -1796,6 +1798,7 @@
 				229E3C06118AD2DF0036BCE5 /* EmptyContent.xib in Resources */,
 				22D86D7C118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
 				E643A021118F6BD3007A4498 /* Default.png in Resources */,
+				E643A051118F7560007A4498 /* SettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2035,6 +2038,7 @@
 				229255C0118989C7008B4FFB /* ContactPreview.m in Sources */,
 				229255FC118991CD008B4FFB /* TextPreview.m in Sources */,
 				22D89071118EDC69001BA9C8 /* CustomTabBar.m in Sources */,
+				E643A050118F7560007A4498 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

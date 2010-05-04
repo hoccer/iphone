@@ -19,8 +19,6 @@
 - (void)setUpPages;
 @end
 
-
-
 @implementation HelpScrollView
 
 @synthesize delegate;
