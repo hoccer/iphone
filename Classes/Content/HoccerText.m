@@ -16,6 +16,19 @@
 @synthesize textView;
 @synthesize view;
 
+
++ (BOOL)isDataAUrl: (NSData *)data
+{
+	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	
+	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
+		return NO;
+	}
+	
+	return YES;
+}
+
+
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
 	text.text = self.content;
@@ -69,11 +82,22 @@
 }
 
 - (void)saveDataToContentStorage {
-	[UIPasteboard generalPasteboard].string = [self content];
+	if ([HoccerText isDataAUrl: self.data]) {
+		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:self.content]];
+	} else {
+		[UIPasteboard generalPasteboard].string = [self content];
+	}
+
 }
 
 - (UIImage *)imageForSaveButton {
-	return [UIImage imageNamed:@"container_btn_double-copy.png"];
+	if ([HoccerText isDataAUrl: self.data]) {
+		// placeholder until open icon is available
+		return [UIImage imageNamed:@"container_btn_double-copy.png"];
+	} else {
+		return [UIImage imageNamed:@"container_btn_double-copy.png"];
+
+	}
 }
 
 
