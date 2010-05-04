@@ -18,6 +18,7 @@
 	IBOutlet UILabel *header;
 	IBOutlet UITextView *description;
 	IBOutlet UIImageView *imageView;
+	IBOutlet UIButton *videoButton;
 	MPMoviePlayerController *player;
 	
 	HelpContent *content;

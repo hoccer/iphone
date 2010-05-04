@@ -34,6 +34,9 @@
 	header.text = self.content.name;
 	description.text = self.content.description;
 	imageView.image = [UIImage imageWithContentsOfFile: self.content.imagePath];
+	if (self.content.videoPath == nil) {
+		videoButton.hidden = YES;
+	}
 }
 
 
@@ -69,6 +72,7 @@
 	[header release];
 	[imageView release];
 	[player release];
+	[videoButton release];
 	
 	self.content = nil;
 	

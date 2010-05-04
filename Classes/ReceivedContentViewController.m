@@ -52,6 +52,7 @@
 }
 
 - (IBAction)resend: (id)sender {
+	hoccerContent.persist = YES;
 	[delegate checkAndPerformSelector:@selector(receiveContentController:wantsToResendContent:) withObject:self withObject:hoccerContent];
 }
 

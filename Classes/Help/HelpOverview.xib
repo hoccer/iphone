@@ -56,12 +56,12 @@
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">SG9jY2VyIGlzIHlvdXIgYXBwbGljYXRpb24gZm9yIGFkLWhvYyBkYXRhIGV4Y2hhbmdlLiBVc2UgZ2Vz
-dHVyZXMgdG8gInRocm93IiB5b3VyIGRhdGEgdGhyb3VnaCB0aGUgYWlyIGFuZCBsZXQgdGhlIHJlY2lw
-aWVudHMgImNhdGNoIiBpdC4gVGhlcmUgaXMgbm8gbmVlZCBmb3IgcHJpb3IgZXhjaGFuZ2Ugb2YgY29u
-dGFjdCBkZXRhaWxzLgoKVGhlIGZvbGxvd2luZyBzY3JlZW5zIHByb3ZpZGUgYSB0cmFpbmluZyBtb2Rl
-IHRvIGV4ZXJjaXNlIHRoZSBnZXN0dXJlcyB3aXRoIHlvdXIgbW9iaWxlLCB3aXRob3V0IHNlbGVjdGlu
-ZyBhbmQgc2hhcmluZyBhY3R1YWwgY29udGVudC4</string>
+						<string type="base64-UTF8" key="IBUIText">SG9jY2VyIHNpbXBsaWZpZXMgZGF0YSBleGNoYW5nZSBiZXR3ZWVuIG1vYmlsZSBkZXZpY2VzLiBKdXN0
+IGRyYWcgeW91ciBkYXRhIGZyb20gb25lIG1vYmlsZSBzY3JlZW4gdG8gYW5vdGhlci4gWW91IGNhbiBh
+bHNvIHVzZSBnZXN0dXJlcyB0byB0aHJvdyB5b3VyIGNvbnRlbnQgdGhyb3VnaCB0aGUgYWlyIGFuZCBs
+ZXQgbmVhcmJ5IHJlY2lwaWVucyBjYXRjaCBpdC4gVGhlcmUgaXMgbm8gbmVlZCBmb3IgcHJpb3IgZXhj
+aGFuZ2Ugb2YgY29udGFjdCBkZXRhaWxzLgoKVGhlIGZvbGxvd2luZyBzY3JlZW5zIHByb3ZpZGUgYSB0
+dXRvcmlhbCB0byBnaXZlIHlvdSBhIGdsaW1wc2Ugb2YgaG93IHRvIHVzZSBob2NjZXIuA</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>

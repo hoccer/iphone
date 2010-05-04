@@ -164,6 +164,7 @@
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																									   withData: aRequest.result];
+	hoccerContent.persist = YES;
 	
 	self.content = hoccerContent;	
 	[request release];
@@ -181,6 +182,7 @@
 	[request release];
 	request = nil;
 	
+	self.content.persist = YES;
 	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
 		[delegate hocItemWasSend: self];
 	}
