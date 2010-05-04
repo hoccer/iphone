@@ -323,16 +323,9 @@
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
 	[super hocItemWasReceived:item];
-//	statusViewController.hocItemData = nil;
-//	
-//	[historyData addContentToHistory:item];
-//
-//	[[item content] previewInViewController:navigationController];
-//	[desktopData removeHocItem:item];
-//	[desktopView reloadData];
-	
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+	// NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	// [hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
 }
 
@@ -356,27 +349,5 @@
 			break;
 	}
 }
-
-
-#pragma mark -
-#pragma mark UINavigationController Delegate Methods
-
-//- (void)navigationController:(UINavigationController *)aNavigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//	CGRect frame = aNavigationController.navigationBar.frame;
-//	frame.size.height = 53;
-//	
-//	aNavigationController.navigationBar.frame = frame;
-//}
-//
-//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//	CGRect viewFrame = viewController.view.frame;
-//	viewFrame.origin.y = viewFrame.origin.y + 9;
-//	viewFrame.size.height = viewFrame.size.height - 9;
-//	
-//	viewController.view.frame = viewFrame;
-//}
-
-
-
 
 @end

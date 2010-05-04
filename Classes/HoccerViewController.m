@@ -74,7 +74,7 @@
 	locationController.delegate = self;
 	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
-	historyData = [[HistoryData alloc] init];
+	// historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 }
 
