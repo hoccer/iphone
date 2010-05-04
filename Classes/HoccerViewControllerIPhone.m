@@ -131,6 +131,14 @@
 	[super dealloc];
 }
 
+- (void)setContentPreview: (HoccerContent *)content {
+	[super setContentPreview:content];
+	
+	self.tabBar.selectedItem = nil;
+}
+
+
+
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
 	
@@ -142,6 +150,7 @@
 }
 
 - (IBAction)selectImage: (id)sender {
+	self.tabBar.selectedItem = NO;
 	[self hidePopOverAnimated: NO];
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -151,8 +160,6 @@
 }
 
 - (IBAction)selectVideo: (id)sender {
-	
-	
 	[self hidePopOverAnimated: NO];
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
