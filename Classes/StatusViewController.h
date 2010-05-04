@@ -29,6 +29,7 @@
 	
 	@private
 	BOOL showingError;
+	NSTimer *timer;
 }
 
 @property (assign) id delegate;
@@ -45,5 +46,6 @@
 - (IBAction)toggelRecoveryHelp: (id)sender;
 
 - (void)monitorHocItem: (HocItemData *)hocItem;
+
 @end
 

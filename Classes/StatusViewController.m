@@ -88,10 +88,7 @@
 	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
 	hintText.hidden = NO;
 	
-	// [UIView beginAnimations:@"growView" context:nil];
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
-	// [UIView setAnimationDuration:0.2];
-	// [UIView commitAnimations];
 }
 
 - (void)hideRecoverySuggestion {
@@ -156,6 +153,9 @@
 	
 	[self showRecoverySuggestion];
 	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
 }
 
 - (void)setConnectingState {
@@ -172,6 +172,9 @@
 	
 	[self hideRecoverySuggestion];
 	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
 }
 
 - (void)setTransferState {
@@ -188,6 +191,9 @@
 	
 	[self hideRecoverySuggestion];
 	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
 }
 
 - (void)setCompleteState {
@@ -205,7 +211,7 @@
 	statusLabel.text = @"Success";
 	[self hideRecoverySuggestion];
 	
-	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
+	timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
 	
 	showingError = NO;
 }
@@ -224,6 +230,9 @@
 	
 	showingError = YES;
 	[self showRecoverySuggestion];
+
+	[timer invalidate];
+	timer = nil;
 }
 
 - (void)hideUpdateState {
@@ -287,7 +296,7 @@
 //	self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 105);
 //	[UIView setAnimationDuration:0.5];
 //	[UIView commitAnimations];
-	
+//	
 	
 	self.view.hidden = YES;
 }
