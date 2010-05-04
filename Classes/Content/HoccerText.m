@@ -92,11 +92,9 @@
 
 - (UIImage *)imageForSaveButton {
 	if ([HoccerText isDataAUrl: self.data]) {
-		// placeholder until open icon is available
-		return [UIImage imageNamed:@"container_btn_double-copy.png"];
+		return [UIImage imageNamed:@"container_btn_double-open.png"];
 	} else {
 		return [UIImage imageNamed:@"container_btn_double-copy.png"];
-
 	}
 }
 

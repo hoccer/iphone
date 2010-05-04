@@ -140,6 +140,8 @@
 		229255D811898CAC008B4FFB /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229255D611898CAC008B4FFB /* TextView.xib */; };
 		229255FB118991CD008B4FFB /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 229255FA118991CD008B4FFB /* TextPreview.m */; };
 		229255FC118991CD008B4FFB /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 229255FA118991CD008B4FFB /* TextPreview.m */; };
+		22972C5111902E04006A6A8C /* container_btn_double-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 22972C5011902E04006A6A8C /* container_btn_double-open.png */; };
+		22972C5211902E04006A6A8C /* container_btn_double-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 22972C5011902E04006A6A8C /* container_btn_double-open.png */; };
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
@@ -619,6 +621,7 @@
 		229255D611898CAC008B4FFB /* TextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextView.xib; sourceTree = "<group>"; };
 		229255F9118991CD008B4FFB /* TextPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPreview.h; sourceTree = "<group>"; };
 		229255FA118991CD008B4FFB /* TextPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPreview.m; sourceTree = "<group>"; };
+		22972C5011902E04006A6A8C /* container_btn_double-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_double-open.png"; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22977AC211104F1C00B55D3F /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
@@ -1172,6 +1175,7 @@
 		2292540711889709008B4FFB /* content */ = {
 			isa = PBXGroup;
 			children = (
+				22972C5011902E04006A6A8C /* container_btn_double-open.png */,
 				2292540811889709008B4FFB /* container_btn_double-close.png */,
 				22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */,
 				2292540911889709008B4FFB /* container_btn_double-save.png */,
@@ -1729,6 +1733,7 @@
 				22D86D7B118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
 				22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */,
 				E643A01F118F6BD3007A4498 /* Default.png in Resources */,
+				22972C5111902E04006A6A8C /* container_btn_double-open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,6 +1804,7 @@
 				22D86D7C118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
 				E643A021118F6BD3007A4498 /* Default.png in Resources */,
 				E643A051118F7560007A4498 /* SettingViewController.xib in Resources */,
+				22972C5211902E04006A6A8C /* container_btn_double-open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
