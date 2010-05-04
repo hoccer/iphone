@@ -105,7 +105,7 @@
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
-
+	
 	self.hoccerHistoryController = [[HoccerHistoryController alloc] init];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
