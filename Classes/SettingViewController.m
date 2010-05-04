@@ -21,6 +21,7 @@
 
 @implementation SettingViewController
 @synthesize parentNavigationController;
+@synthesize tableView;
 
 
 #pragma mark -
@@ -29,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
+	self.tableView.backgroundColor = [UIColor clearColor];
 	
 	sections = [[NSMutableArray alloc] init];
 	
@@ -73,6 +76,10 @@
 
 - (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+	if ([indexPath indexAtPosition:0] == 2) {
+		return UITableViewCellAccessoryNone;
+	}
+	
 	return UITableViewCellAccessoryDisclosureIndicator;
 }
 

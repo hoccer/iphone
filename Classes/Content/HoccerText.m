@@ -92,7 +92,7 @@
 
 - (UIImage *)imageForSaveButton {
 	if ([HoccerText isDataAUrl: self.data]) {
-		return [UIImage imageNamed:@"container_btn_double-open.png"];
+		return [UIImage imageNamed:@"container_btn_double-safari.png"];
 	} else {
 		return [UIImage imageNamed:@"container_btn_double-copy.png"];
 	}

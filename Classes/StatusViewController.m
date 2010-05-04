@@ -38,6 +38,7 @@
 @synthesize delegate;
 @synthesize hocItemData;
 @synthesize badLocationHint;
+@synthesize overlaped;
 
 - (void)viewDidLoad {
 	[self hideViewAnimated];
@@ -83,6 +84,8 @@
 
 #pragma mark -
 #pragma mark Managing Status Bar Size
+
+// - (void)setOverlaped:(BOOL)
 
 - (void)showRecoverySuggestion {
 	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
