@@ -120,7 +120,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="424575191">
 						<object class="IBUIView" key="IBUIView" id="264601323">
-							<nil key="NSNextResponder"/>
+							<reference key="NSNextResponder"/>
 							<int key="NSvFlags">308</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -173,11 +173,8 @@
 								</object>
 							</object>
 							<string key="NSFrame">{{0, 24}, {320, 387}}</string>
-<<<<<<< HEAD
-=======
 							<reference key="NSSuperview"/>
 							<reference key="NSWindow"/>
->>>>>>> 8ff470efb4fe9d96aa222910588276a5e1c3cc25
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MC43NQA</bytes>
@@ -383,12 +380,14 @@
 					<string>-2.CustomClassName</string>
 					<string>179.CustomClassName</string>
 					<string>179.IBPluginDependency</string>
+					<string>210.CustomClassName</string>
 					<string>210.IBPluginDependency</string>
 					<string>211.IBPluginDependency</string>
 					<string>212.IBPluginDependency</string>
 					<string>216.IBEditorWindowLastContentRect</string>
 					<string>216.IBPluginDependency</string>
 					<string>217.IBPluginDependency</string>
+					<string>218.CustomClassName</string>
 					<string>218.IBPluginDependency</string>
 					<string>221.IBPluginDependency</string>
 					<string>222.IBPluginDependency</string>
@@ -404,12 +403,14 @@
 					<string>UIResponder</string>
 					<string>DesktopView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>CustomTabBar</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{296, 104}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>CustomNavigationBar</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -864,14 +865,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">UINavigationBar</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="928707899">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UINavigationBar.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">UINavigationController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="410266301">
@@ -882,7 +875,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">UINavigationItem</string>
 					<string key="superclassName">NSObject</string>
-					<reference key="sourceIdentifier" ref="928707899"/>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UINavigationBar.h</string>
+					</object>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIProgressView</string>
