@@ -103,6 +103,8 @@
 }
 
 - (void) dealloc {	
+	[self removeFromDocumentDirectory];
+
 	[data release];
 	[filepath release];
 	[previewDelegate release];
@@ -186,7 +188,6 @@
 	
 	NSString *extension = [filename pathExtension];
 	NSString *baseFilename = [filename stringByDeletingPathExtension];
-	
 	
 	NSInteger i = 1;
 	NSString* newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
