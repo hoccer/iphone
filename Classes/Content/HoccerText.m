@@ -17,8 +17,7 @@
 @synthesize view;
 
 
-+ (BOOL)isDataAUrl: (NSData *)data
-{
++ (BOOL)isDataAUrl: (NSData *)data {
 	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 	
 	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
@@ -27,7 +26,6 @@
 	
 	return YES;
 }
-
 
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
