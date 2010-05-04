@@ -21,6 +21,8 @@
 @synthesize filepath;
 @synthesize isFromContentSource;
 
+@synthesize persist;
+
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
@@ -103,6 +105,10 @@
 }
 
 - (void) dealloc {	
+	if (!persist) {
+		[self removeFromDocumentDirectory];
+	}
+	
 	[data release];
 	[filepath release];
 	[previewDelegate release];

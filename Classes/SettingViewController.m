@@ -38,7 +38,7 @@
 	NSArray *section1 = [NSArray arrayWithObjects:@"Tutorial", nil];
 	[sections addObject:section1];
 
-	NSArray *section3 = [NSArray arrayWithObjects:@"About", nil]; 
+	NSArray *section3 = [NSArray arrayWithObjects:@"About Hoccer", nil]; 
 	[sections addObject:section3];
 	
 	NSArray *section2 = [NSArray arrayWithObjects:@"Visit the Hoccer Website", @"Follow Hoccer on Twitter", nil];
@@ -102,12 +102,14 @@
 
 - (void)showTutorial {
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
+	helpView.navigationItem.title = @"Tutorial";
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
 }
 
 - (void)showAbout {
 	AboutViewController *aboutView = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+	aboutView.navigationItem.title = @"About Hoccer";
 	[parentNavigationController pushViewController:aboutView animated:YES];
 	[aboutView release];
 }
