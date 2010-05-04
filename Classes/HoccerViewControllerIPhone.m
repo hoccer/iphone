@@ -231,13 +231,12 @@
 }
 
 - (void)showHelpView {
-// 	self.helpViewController.delegate = self;
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = @"Help";
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
+																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
@@ -248,7 +247,7 @@
 	
 	navigationItem.title = @"History";
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
+																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
@@ -315,8 +314,6 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
-
-	tabBar.selectedItem = nil;
 }
 
 #pragma mark -
@@ -357,26 +354,12 @@
 	}
 }
 
-
 #pragma mark -
-#pragma mark UINavigationController Delegate Methods
-
-//- (void)navigationController:(UINavigationController *)aNavigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//	CGRect frame = aNavigationController.navigationBar.frame;
-//	frame.size.height = 53;
-//	
-//	aNavigationController.navigationBar.frame = frame;
-//}
-//
-//- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//	CGRect viewFrame = viewController.view.frame;
-//	viewFrame.origin.y = viewFrame.origin.y + 9;
-//	viewFrame.size.height = viewFrame.size.height - 9;
-//	
-//	viewController.view.frame = viewFrame;
-//}
-
-
+#pragma mark User Actions
+- (IBAction)cancelPopOver {
+	tabBar.selectedItem = nil;
+	[self hidePopOverAnimated:YES];
+}
 
 
 @end
