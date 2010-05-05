@@ -242,6 +242,9 @@
 	self.view.hidden = YES;	
 
 	[self showLocationHint];
+	
+	[timer invalidate];
+	timer = nil;
 }
 
 
