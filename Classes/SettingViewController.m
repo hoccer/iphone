@@ -118,7 +118,7 @@
 	if (index == 1) {
 		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
 	} else {
-		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
+		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/?piwik_campaign=iphone_settings"]];
 	}
 }
 
