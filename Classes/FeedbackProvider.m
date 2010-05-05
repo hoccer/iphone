@@ -44,12 +44,10 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 }
 
 + (void)playSweepIn {
-	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(sweepInId);
 }
 
 + (void)playSweepOut {
-	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(sweepOutId);
 }
 
