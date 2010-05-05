@@ -24,30 +24,22 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 
 @implementation FeedbackProvider
 
-+  (void)initialize
-{
++  (void)initialize {
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("catch_sound"), &catchId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("throw_sound"), &throwId);
-	CreateSystemSoundIDFromWAVInRessources(CFSTR("tap_sound"), &tapId);
 }
 
 
-+ (void)playCatchFeedback 
-{
++ (void)playCatchFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(catchId);
 }
 
-+ (void)playThrowFeedback 
-{
++ (void)playThrowFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(throwId);
 }
 
-+ (void)playTapFeedback
-{
-	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-	AudioServicesPlaySystemSound(tapId);
-}
+
 
 @end

@@ -15,7 +15,5 @@
 
 + (void)playCatchFeedback;
 + (void)playThrowFeedback;
-+ (void)playTapFeedback;
-
 
 @end
