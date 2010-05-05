@@ -28,8 +28,8 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 +  (void)initialize {
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("catch_sound"), &catchId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("throw_sound"), &throwId);
-	// CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_in_sound"), &sweepInId);
-	// CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_out_sound"), &sweepInId);
+	CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_in_sound"), &sweepInId);
+	CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_out_sound"), &sweepInId);
 }
 
 

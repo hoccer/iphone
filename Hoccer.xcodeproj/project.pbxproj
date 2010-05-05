@@ -143,6 +143,13 @@
 		2299927811916741006DA5DD /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927611916741006DA5DD /* throw_180.mp4 */; };
 		2299927911916741006DA5DD /* catch_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927511916741006DA5DD /* catch_180.mp4 */; };
 		2299927A11916741006DA5DD /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927611916741006DA5DD /* throw_180.mp4 */; };
+		2299929711916AC5006DA5DD /* history_icon_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929011916AC5006DA5DD /* history_icon_contact.png */; };
+		2299929811916AC5006DA5DD /* history_icon_download.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929111916AC5006DA5DD /* history_icon_download.png */; };
+		2299929911916AC5006DA5DD /* history_icon_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929211916AC5006DA5DD /* history_icon_image.png */; };
+		2299929A11916AC5006DA5DD /* history_icon_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929311916AC5006DA5DD /* history_icon_text.png */; };
+		2299929B11916AC5006DA5DD /* history_icon_upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929411916AC5006DA5DD /* history_icon_upload.png */; };
+		2299929C11916AC5006DA5DD /* history_icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929511916AC5006DA5DD /* history_icon_video.png */; };
+		2299929D11916AC5006DA5DD /* history_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929611916AC5006DA5DD /* history_rowbg.png */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -582,6 +589,13 @@
 		2299926411916650006DA5DD /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = throw_sound.wav; sourceTree = "<group>"; };
 		2299927511916741006DA5DD /* catch_180.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.mp4; sourceTree = "<group>"; };
 		2299927611916741006DA5DD /* throw_180.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.mp4; sourceTree = "<group>"; };
+		2299929011916AC5006DA5DD /* history_icon_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_contact.png; sourceTree = "<group>"; };
+		2299929111916AC5006DA5DD /* history_icon_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_download.png; sourceTree = "<group>"; };
+		2299929211916AC5006DA5DD /* history_icon_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_image.png; sourceTree = "<group>"; };
+		2299929311916AC5006DA5DD /* history_icon_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_text.png; sourceTree = "<group>"; };
+		2299929411916AC5006DA5DD /* history_icon_upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_upload.png; sourceTree = "<group>"; };
+		2299929511916AC5006DA5DD /* history_icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_video.png; sourceTree = "<group>"; };
+		2299929611916AC5006DA5DD /* history_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_rowbg.png; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -832,6 +846,7 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2299928F11916AC5006DA5DD /* history */,
 				2299923B1191617F006DA5DD /* help */,
 				2299922811915C0F006DA5DD /* about */,
 				2292540711889709008B4FFB /* content */,
@@ -1277,6 +1292,21 @@
 			path = Resources/videos;
 			sourceTree = "<group>";
 		};
+		2299928F11916AC5006DA5DD /* history */ = {
+			isa = PBXGroup;
+			children = (
+				2299929011916AC5006DA5DD /* history_icon_contact.png */,
+				2299929111916AC5006DA5DD /* history_icon_download.png */,
+				2299929211916AC5006DA5DD /* history_icon_image.png */,
+				2299929311916AC5006DA5DD /* history_icon_text.png */,
+				2299929411916AC5006DA5DD /* history_icon_upload.png */,
+				2299929511916AC5006DA5DD /* history_icon_video.png */,
+				2299929611916AC5006DA5DD /* history_rowbg.png */,
+			);
+			name = history;
+			path = Resources/assets/history;
+			sourceTree = "<group>";
+		};
 		229A8399116B704B00FFAD1B /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1684,6 +1714,13 @@
 				2299926711916650006DA5DD /* throw_sound.wav in Resources */,
 				2299927711916741006DA5DD /* catch_180.mp4 in Resources */,
 				2299927811916741006DA5DD /* throw_180.mp4 in Resources */,
+				2299929711916AC5006DA5DD /* history_icon_contact.png in Resources */,
+				2299929811916AC5006DA5DD /* history_icon_download.png in Resources */,
+				2299929911916AC5006DA5DD /* history_icon_image.png in Resources */,
+				2299929A11916AC5006DA5DD /* history_icon_text.png in Resources */,
+				2299929B11916AC5006DA5DD /* history_icon_upload.png in Resources */,
+				2299929C11916AC5006DA5DD /* history_icon_video.png in Resources */,
+				2299929D11916AC5006DA5DD /* history_rowbg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

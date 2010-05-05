@@ -45,7 +45,7 @@
 					<object class="IBUIImageView" id="466095233">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{34, 28}, {259, 34}}</string>
+						<string key="NSFrame">{{30, 28}, {259, 34}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -60,7 +60,7 @@
 					<object class="IBUITextView" id="711883592">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{28, 70}, {265, 264}}</string>
+						<string key="NSFrame">{{20, 70}, {280, 264}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -135,8 +135,8 @@ YWluIC8gZ2x5cGhpc2guY29tA</string>
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="466095233"/>
 							<reference ref="711883592"/>
+							<reference ref="466095233"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
