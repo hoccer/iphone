@@ -149,6 +149,8 @@
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
 		22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
+		2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
+		2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -634,6 +636,7 @@
 		22977AC311104F1C00B55D3F /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
+		2299922911915C0F006DA5DD /* artcom_logo_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcom_logo_bw.png; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -892,6 +895,7 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2299922811915C0F006DA5DD /* about */,
 				2292540711889709008B4FFB /* content */,
 				22925556118982D9008B4FFB /* content_contact */,
 				2292540C11889709008B4FFB /* content_image */,
@@ -1327,6 +1331,15 @@
 			name = iPhone;
 			sourceTree = "<group>";
 		};
+		2299922811915C0F006DA5DD /* about */ = {
+			isa = PBXGroup;
+			children = (
+				2299922911915C0F006DA5DD /* artcom_logo_bw.png */,
+			);
+			name = about;
+			path = Resources/assets/about;
+			sourceTree = "<group>";
+		};
 		229A8399116B704B00FFAD1B /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1756,6 +1769,7 @@
 				22972D9F11908DB7006A6A8C /* settings_bg.png in Resources */,
 				22972DA011908DB7006A6A8C /* settings_logo.png in Resources */,
 				22972DA111908DB7006A6A8C /* shadow_bottom.png in Resources */,
+				2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1828,6 +1842,7 @@
 				E643A051118F7560007A4498 /* SettingViewController.xib in Resources */,
 				22972CCC11905864006A6A8C /* help_bg.png in Resources */,
 				22972CF91190630A006A6A8C /* container_btn_double-safari.png in Resources */,
+				2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
