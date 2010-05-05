@@ -124,7 +124,6 @@
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
 	[self cancel];
-	NSLog(@"error: %@", error);
 	
 	[request release];
 	request = nil;

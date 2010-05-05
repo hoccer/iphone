@@ -194,7 +194,6 @@
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
 {
 	NSDictionary *errorResponse = [[error userInfo] objectForKey:@"HoccerErrorDescription"];
-	NSLog(@"errorResponse :%@", errorResponse);
 	
 	if ([error code] == 500 || 
 		( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||

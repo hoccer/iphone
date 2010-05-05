@@ -50,7 +50,6 @@
 		return;
 	}
 			
-	NSLog(@"download connection did finish");
 			
 	self.result = receivedData;	
 	self.connection = nil;

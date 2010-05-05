@@ -63,7 +63,6 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 		[body appendFormat:@"&peer[bssids]=%@", ids];
 	}
 
-	NSLog(@"request body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
@@ -74,9 +73,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	self.result = [self createJSONFromResult: receivedData];
 	self.connection = nil;
 	
-	NSLog(@"received");
 	if (statusCode >= 400) {
-		NSLog(@"failed");
 		NSError *error = [self createErrorFromResult: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 	} else {
