@@ -154,6 +154,9 @@
 		2299930D1191784F006DA5DD /* sweep_out_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299930B1191784F006DA5DD /* sweep_out_sound.wav */; };
 		2299930E1191784F006DA5DD /* sweep_in_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299930A1191784F006DA5DD /* sweep_in_sound.wav */; };
 		2299930F1191784F006DA5DD /* sweep_out_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299930B1191784F006DA5DD /* sweep_out_sound.wav */; };
+		2299935211917C0F006DA5DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299935111917C0F006DA5DD /* Default.png */; };
+		2299935311917C0F006DA5DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299935111917C0F006DA5DD /* Default.png */; };
+		2299935411917C0F006DA5DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299935111917C0F006DA5DD /* Default.png */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -372,9 +375,6 @@
 		E63FE799118C2CE300DB0DA8 /* select_btn_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */; };
 		E63FE79A118C2CE300DB0DA8 /* select_btn_text.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE788118C2CE300DB0DA8 /* select_btn_text.png */; };
 		E63FE79B118C2CE300DB0DA8 /* select_btn_video.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE789118C2CE300DB0DA8 /* select_btn_video.png */; };
-		E643A01F118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
-		E643A020118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
-		E643A021118F6BD3007A4498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E643A01E118F6BD3007A4498 /* Default.png */; };
 		E643A050118F7560007A4498 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D86D8B118F1DD100F7AC6E /* SettingViewController.m */; };
 		E643A051118F7560007A4498 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */; };
 		E64B7801109491AA0005ACA3 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64B77FF109491AA0005ACA3 /* AboutViewController.m */; };
@@ -602,6 +602,7 @@
 		2299929611916AC5006DA5DD /* history_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_rowbg.png; sourceTree = "<group>"; };
 		2299930A1191784F006DA5DD /* sweep_in_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sweep_in_sound.wav; sourceTree = "<group>"; };
 		2299930B1191784F006DA5DD /* sweep_out_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sweep_out_sound.wav; sourceTree = "<group>"; };
+		2299935111917C0F006DA5DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -718,7 +719,6 @@
 		E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_photo.png; sourceTree = "<group>"; };
 		E63FE788118C2CE300DB0DA8 /* select_btn_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_text.png; sourceTree = "<group>"; };
 		E63FE789118C2CE300DB0DA8 /* select_btn_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_video.png; sourceTree = "<group>"; };
-		E643A01E118F6BD3007A4498 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E64B77FE109491AA0005ACA3 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		E64B77FF109491AA0005ACA3 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		E64B7800109491AA0005ACA3 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = "<group>"; };
@@ -1496,8 +1496,8 @@
 				22AD327B11107C7700BC7DEC /* icon.png */,
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
 				22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */,
-				E643A01E118F6BD3007A4498 /* Default.png */,
 				22762DE5105E5688003BF968 /* fixtures */,
+				2299935111917C0F006DA5DD /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1710,7 +1710,6 @@
 				E63FE79B118C2CE300DB0DA8 /* select_btn_video.png in Resources */,
 				22D86D7B118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
 				22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */,
-				E643A01F118F6BD3007A4498 /* Default.png in Resources */,
 				22972CC911905864006A6A8C /* help_bg.png in Resources */,
 				22972CF81190630A006A6A8C /* container_btn_double-safari.png in Resources */,
 				22972D9F11908DB7006A6A8C /* settings_bg.png in Resources */,
@@ -1731,6 +1730,7 @@
 				2299929D11916AC5006DA5DD /* history_rowbg.png in Resources */,
 				2299930C1191784F006DA5DD /* sweep_in_sound.wav in Resources */,
 				2299930D1191784F006DA5DD /* sweep_out_sound.wav in Resources */,
+				2299935211917C0F006DA5DD /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1740,7 +1740,7 @@
 			files = (
 				22762F62105E78AF003BF968 /* 2_values.txt in Resources */,
 				229A8331116B6A7A00FFAD1B /* StatusViewController.xib in Resources */,
-				E643A020118F6BD3007A4498 /* Default.png in Resources */,
+				2299935311917C0F006DA5DD /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,7 +1773,6 @@
 				229255D811898CAC008B4FFB /* TextView.xib in Resources */,
 				229E3C06118AD2DF0036BCE5 /* EmptyContent.xib in Resources */,
 				22D86D7C118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */,
-				E643A021118F6BD3007A4498 /* Default.png in Resources */,
 				E643A051118F7560007A4498 /* SettingViewController.xib in Resources */,
 				22972CCC11905864006A6A8C /* help_bg.png in Resources */,
 				22972CF91190630A006A6A8C /* container_btn_double-safari.png in Resources */,
@@ -1785,6 +1784,7 @@
 				2299927A11916741006DA5DD /* throw_180.mp4 in Resources */,
 				2299930E1191784F006DA5DD /* sweep_in_sound.wav in Resources */,
 				2299930F1191784F006DA5DD /* sweep_out_sound.wav in Resources */,
+				2299935411917C0F006DA5DD /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
