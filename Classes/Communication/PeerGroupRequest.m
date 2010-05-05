@@ -11,7 +11,7 @@
 #import "NSObject+DelegateHelper.h"
 #import "HocLocation.h"
 
-const NSString *kHoccerServer = @"http://beta.hoccer.com/";
+const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture seeder: (BOOL) seeder;
