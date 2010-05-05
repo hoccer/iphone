@@ -137,7 +137,7 @@
 								<object class="IBUIImageView" id="403723230">
 									<reference key="NSNextResponder" ref="264601323"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{0, -1}, {320, 16}}</string>
+									<string key="NSFrameSize">{320, 15}</string>
 									<reference key="NSSuperview" ref="264601323"/>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -385,7 +385,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{296, 104}, {320, 480}}</string>
+					<string>{{525, 301}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomNavigationBar</string>

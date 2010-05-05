@@ -21,6 +21,7 @@
 	UITabBar *tabBar;
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
+
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;

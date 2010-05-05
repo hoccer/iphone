@@ -126,8 +126,9 @@
 	
 	if (contentView == nil) {
 		[[NSBundle mainBundle] loadNibNamed:@"EmptyContent" owner:self options:nil];
-		UIView *preview = viewFromNib;
+		Preview *preview = (Preview *)viewFromNib;
 		viewFromNib = nil;
+		preview.allowsOverlay = NO;
 		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}
 	
@@ -163,6 +164,7 @@
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																									   withData: aRequest.result];
+	hoccerContent.persist = YES;
 	
 	self.content = hoccerContent;	
 	[request release];
@@ -180,6 +182,7 @@
 	[request release];
 	request = nil;
 	
+	self.content.persist = YES;
 	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
 		[delegate hocItemWasSend: self];
 	}

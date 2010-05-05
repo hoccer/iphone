@@ -21,6 +21,7 @@
 
 @implementation SettingViewController
 @synthesize parentNavigationController;
+@synthesize tableView;
 
 
 #pragma mark -
@@ -29,13 +30,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
+	self.tableView.backgroundColor = [UIColor clearColor];
 	
 	sections = [[NSMutableArray alloc] init];
 	
 	NSArray *section1 = [NSArray arrayWithObjects:@"Tutorial", nil];
 	[sections addObject:section1];
 
-	NSArray *section3 = [NSArray arrayWithObjects:@"About", nil]; 
+	NSArray *section3 = [NSArray arrayWithObjects:@"About Hoccer", nil]; 
 	[sections addObject:section3];
 	
 	NSArray *section2 = [NSArray arrayWithObjects:@"Visit the Hoccer Website", @"Follow Hoccer on Twitter", nil];
@@ -58,22 +61,21 @@
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
 	cell.textLabel.text = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]];
+	if ([indexPath indexAtPosition:0] != 2) {
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	
     return cell;
-}
-
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-	return UITableViewCellAccessoryDisclosureIndicator;
 }
 
 #pragma mark -
@@ -100,12 +102,14 @@
 
 - (void)showTutorial {
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
+	helpView.navigationItem.title = @"Tutorial";
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
 }
 
 - (void)showAbout {
 	AboutViewController *aboutView = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
+	aboutView.navigationItem.title = @"About Hoccer";
 	[parentNavigationController pushViewController:aboutView animated:YES];
 	[aboutView release];
 }

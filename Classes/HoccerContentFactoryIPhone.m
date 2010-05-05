@@ -24,11 +24,7 @@
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithData: data filename: [response suggestedFilename]];
 	} else if ([mimeType isEqual: @"text/plain"]) {
-		if ([HoccerUrl isDataAUrl: data]) {
-			hoccerContent = [[HoccerUrl alloc] initWithData: data filename: [response suggestedFilename]];
-		} else {
-			hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
-		}
+		hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
 	} else {
 		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
 	}
@@ -44,11 +40,7 @@
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithFilename: filename];
 	} else if ([mimeType isEqual: @"text/plain"]) {
-		if ([HoccerUrl isDataAUrl: nil]) {
-			hoccerContent = [[HoccerUrl alloc] initWithFilename: filename];
-		} else {
-			hoccerContent = [[HoccerText alloc] initWithFilename: filename];
-		}
+		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else {
 		hoccerContent = [[HoccerContent alloc] initWithFilename: filename];
 	}
@@ -60,8 +52,7 @@
 
 - (BOOL) isSupportedType: (NSString *)mimeType
 {
-	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] 
-			|| [mimeType rangeOfString:@"image/"].location == 0);
+	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] || [mimeType rangeOfString:@"image/"].location == 0);
 }
 
 @end

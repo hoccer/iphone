@@ -6,13 +6,13 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#import <MediaPlayer/MediaPlayer.h>
 #import "HelpScreen.h"
 
 #import "HelpContent.h"
 #import "FeedbackProvider.h"
 
 @implementation HelpScreen
+@synthesize player;
 
 @synthesize content;
 
@@ -21,7 +21,6 @@
 	self = [super initWithNibName:@"HelpScreen" bundle:nil];
 	if (self != nil) {
 		self.content = helpContent;
-
 	}
 	
 	return self;
@@ -35,6 +34,9 @@
 	header.text = self.content.name;
 	description.text = self.content.description;
 	imageView.image = [UIImage imageWithContentsOfFile: self.content.imagePath];
+	if (self.content.videoPath == nil) {
+		videoButton.hidden = YES;
+	}
 }
 
 
@@ -59,11 +61,8 @@
 }
 
 
-- (IBAction)playVideo: (id)sender
-{
-
-	MPMoviePlayerController *player = [[[MPMoviePlayerController alloc] initWithContentURL:
-								[NSURL fileURLWithPath:self.content.videoPath]] autorelease];
+- (IBAction)playVideo: (id)sender {
+	self.player = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:self.content.videoPath]];
 	
 	[player play];
 }
@@ -72,6 +71,8 @@
     [description release];
 	[header release];
 	[imageView release];
+	[player release];
+	[videoButton release];
 	
 	self.content = nil;
 	

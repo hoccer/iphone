@@ -105,7 +105,7 @@
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
-
+	
 	self.hoccerHistoryController = [[HoccerHistoryController alloc] init];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
@@ -131,6 +131,14 @@
 	[super dealloc];
 }
 
+- (void)setContentPreview: (HoccerContent *)content {
+	[super setContentPreview:content];
+	
+	self.tabBar.selectedItem = nil;
+}
+
+
+
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
 	
@@ -142,6 +150,7 @@
 }
 
 - (IBAction)selectImage: (id)sender {
+	self.tabBar.selectedItem = NO;
 	[self hidePopOverAnimated: NO];
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -151,8 +160,6 @@
 }
 
 - (IBAction)selectVideo: (id)sender {
-	
-	
 	[self hidePopOverAnimated: NO];
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -231,13 +238,12 @@
 }
 
 - (void)showHelpView {
-// 	self.helpViewController.delegate = self;
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = @"Help";
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
+																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
@@ -248,7 +254,7 @@
 	
 	navigationItem.title = @"History";
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
+																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
@@ -315,8 +321,6 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
-
-	tabBar.selectedItem = nil;
 }
 
 #pragma mark -
@@ -349,5 +353,13 @@
 			break;
 	}
 }
+
+#pragma mark -
+#pragma mark User Actions
+- (IBAction)cancelPopOver {
+	tabBar.selectedItem = nil;
+	[self hidePopOverAnimated:YES];
+}
+
 
 @end

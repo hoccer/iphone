@@ -12,18 +12,21 @@
 #import "GTMUIImage+Resize.h"
 
 @implementation Preview
+@synthesize allowsOverlay;
 
-- (id) initWithFrame: (CGRect) frame
-{
+- (id) initWithFrame: (CGRect) frame {
 	self = [super initWithFrame:frame];	
 	if (self != nil) {
-
+		self.allowsOverlay = YES;
 	}
 	return self;
 }
 
-- (void) setImage: (UIImage *)image
-{
+-  (void)awakeFromNib {
+	self.allowsOverlay = YES;
+}
+
+- (void) setImage: (UIImage *)image {
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 	
@@ -40,11 +43,5 @@
 	[self insertSubview:imageView atIndex:1];
 	[imageView release];
 }
-
-- (BOOL)allowsOverlay {
-	return YES;
-}
-
-
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
+#import <MediaPlayer/MediaPlayer.h>
 #import <UIKit/UIKit.h>
 #import "GesturesInterpreterDelegate.h"
 
@@ -17,11 +18,14 @@
 	IBOutlet UILabel *header;
 	IBOutlet UITextView *description;
 	IBOutlet UIImageView *imageView;
+	IBOutlet UIButton *videoButton;
+	MPMoviePlayerController *player;
 	
 	HelpContent *content;
 }
 
 @property (nonatomic, retain) HelpContent *content;
+@property (nonatomic, retain) MPMoviePlayerController *player;
 
 - (id)initWithHelpContent: (HelpContent *)helpContent;
 - (IBAction)playVideo: (id)sender;

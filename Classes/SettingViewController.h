@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingViewController : UITableViewController {
+@interface SettingViewController : UIViewController {
 	NSMutableArray *sections;
 	
 	UINavigationController *parentNavigationController;
+	
+	@private
+	UITableView *tableView;
 }
 
 @property (retain) UINavigationController *parentNavigationController;
+@property (retain) IBOutlet UITableView *tableView;
 
 @end

@@ -10,7 +10,8 @@
 
 SystemSoundID catchId = 0;
 SystemSoundID throwId = 0;
-SystemSoundID tapId   = 0;
+SystemSoundID sweepInId = 0;
+SystemSoundID sweepOutId = 0;
 
 void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 {
@@ -24,30 +25,34 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 
 @implementation FeedbackProvider
 
-+  (void)initialize
-{
++  (void)initialize {
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("catch_sound"), &catchId);
 	CreateSystemSoundIDFromWAVInRessources(CFSTR("throw_sound"), &throwId);
-	CreateSystemSoundIDFromWAVInRessources(CFSTR("tap_sound"), &tapId);
+	CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_in_sound"), &sweepInId);
+	CreateSystemSoundIDFromWAVInRessources(CFSTR("sweep_out_sound"), &sweepInId);
 }
 
 
-+ (void)playCatchFeedback 
-{
++ (void)playCatchFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(catchId);
 }
 
-+ (void)playThrowFeedback 
-{
++ (void)playThrowFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 	AudioServicesPlaySystemSound(throwId);
 }
 
-+ (void)playTapFeedback
-{
++ (void)playSweepIn {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-	AudioServicesPlaySystemSound(tapId);
+	AudioServicesPlaySystemSound(sweepInId);
 }
+
++ (void)playSweepOut {
+	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+	AudioServicesPlaySystemSound(sweepOutId);
+}
+
+
 
 @end

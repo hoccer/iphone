@@ -20,6 +20,8 @@
 	
 	@private
 	NSData *data;
+	
+	BOOL persist;
 }
 
 @property (retain) NSData *data; 
@@ -27,6 +29,7 @@
 @property (nonatomic, readonly) NSString *extension;
 @property (nonatomic, readonly) NSURL *fileUrl;
 @property (assign) BOOL isFromContentSource;
+@property (assign) BOOL persist;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (id) initWithFilename: (NSString *)filename;
