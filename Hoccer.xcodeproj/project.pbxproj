@@ -24,9 +24,6 @@
 		224F8A9C108CBB4300F69B53 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
-		2271A01A10835B8900F84755 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
-		2271A01B10835B8900F84755 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
-		2271A04B1083665E00F84755 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
 		2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
 		2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */; };
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
@@ -141,6 +138,12 @@
 		2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
 		2299923D1191617F006DA5DD /* help_sweep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299923C1191617F006DA5DD /* help_sweep_icon.png */; };
 		2299923E1191617F006DA5DD /* help_sweep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299923C1191617F006DA5DD /* help_sweep_icon.png */; };
+		2299926511916650006DA5DD /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926211916650006DA5DD /* catch_sound.wav */; };
+		2299926611916650006DA5DD /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926311916650006DA5DD /* tap_sound.wav */; };
+		2299926711916650006DA5DD /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926411916650006DA5DD /* throw_sound.wav */; };
+		2299926811916650006DA5DD /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926211916650006DA5DD /* catch_sound.wav */; };
+		2299926911916650006DA5DD /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926311916650006DA5DD /* tap_sound.wav */; };
+		2299926A11916650006DA5DD /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926411916650006DA5DD /* throw_sound.wav */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -209,9 +212,6 @@
 		22AE461311633E0500C10B98 /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AE461111633E0500C10B98 /* ContentContainerView.m */; };
 		22B06BF21152777500D2ECFE /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
 		22B06BF31152777500D2ECFE /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B06BF11152777500D2ECFE /* StatusViewController.xib */; };
-		22B1CB661159160600EFD709 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
-		22B1CB671159160600EFD709 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
-		22B1CB681159160600EFD709 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
 		22B1CB721159160600EFD709 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
 		22B1CB751159160600EFD709 /* Photobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D730B610A879AA000AEA79 /* Photobox.png */; };
 		22B1CB761159160600EFD709 /* Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7313A10A88600000AEA79 /* Catch_Icon.png */; };
@@ -421,9 +421,6 @@
 		22719E9A108321C600F84755 /* ABPersonCreatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonCreatorTest.m; path = Tests/Vcard/ABPersonCreatorTest.m; sourceTree = "<group>"; };
 		2271A00A108347C800F84755 /* FeedbackProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackProvider.h; sourceTree = "<group>"; };
 		2271A00B108347C800F84755 /* FeedbackProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackProvider.m; sourceTree = "<group>"; };
-		2271A01810835B8900F84755 /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = catch_sound.wav; path = Resources/catch_sound.wav; sourceTree = "<group>"; };
-		2271A01910835B8900F84755 /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = throw_sound.wav; path = Resources/throw_sound.wav; sourceTree = "<group>"; };
-		2271A04A1083665E00F84755 /* tap_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap_sound.wav; path = Resources/tap_sound.wav; sourceTree = "<group>"; };
 		2271E19F109EDCFE003D5C68 /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		2271E1A0109EDCFE003D5C68 /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
 		2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
@@ -588,6 +585,9 @@
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
 		2299922911915C0F006DA5DD /* artcom_logo_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcom_logo_bw.png; sourceTree = "<group>"; };
 		2299923C1191617F006DA5DD /* help_sweep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_sweep_icon.png; sourceTree = "<group>"; };
+		2299926211916650006DA5DD /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catch_sound.wav; sourceTree = "<group>"; };
+		2299926311916650006DA5DD /* tap_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap_sound.wav; sourceTree = "<group>"; };
+		2299926411916650006DA5DD /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = throw_sound.wav; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -1273,6 +1273,17 @@
 			path = Resources/assets/help;
 			sourceTree = "<group>";
 		};
+		2299926111916650006DA5DD /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2299926211916650006DA5DD /* catch_sound.wav */,
+				2299926311916650006DA5DD /* tap_sound.wav */,
+				2299926411916650006DA5DD /* throw_sound.wav */,
+			);
+			name = sounds;
+			path = Resources/sounds;
+			sourceTree = "<group>";
+		};
 		229A8399116B704B00FFAD1B /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1433,15 +1444,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2299926111916650006DA5DD /* sounds */,
 				229255CD11898BB3008B4FFB /* ContentPreview XIBs */,
 				22AD329B11107D7500BC7DEC /* iTunesArtwork.png */,
 				2219BF261185D54E007AB243 /* Assets */,
 				227B3A6610A06DFC000326FD /* image */,
 				227A95EF10973B90008CE547 /* Video */,
 				22762DE5105E5688003BF968 /* fixtures */,
-				2271A01810835B8900F84755 /* catch_sound.wav */,
-				2271A01910835B8900F84755 /* throw_sound.wav */,
-				2271A04A1083665E00F84755 /* tap_sound.wav */,
 				22798F45105FABAD0035C643 /* DebugViewController.xib */,
 				227A94D6109713AB008CE547 /* HelpScreen.xib */,
 				227A94F710971A9C008CE547 /* HelpScrollView.xib */,
@@ -1593,9 +1602,6 @@
 				2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */,
 				22798F47105FABAD0035C643 /* DebugViewController.xib in Resources */,
 				227990FC105FEA140035C643 /* ReceivedContentView.xib in Resources */,
-				2271A01A10835B8900F84755 /* catch_sound.wav in Resources */,
-				2271A01B10835B8900F84755 /* throw_sound.wav in Resources */,
-				2271A04B1083665E00F84755 /* tap_sound.wav in Resources */,
 				E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */,
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
@@ -1684,6 +1690,9 @@
 				22972DA111908DB7006A6A8C /* shadow_bottom.png in Resources */,
 				2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
 				2299923D1191617F006DA5DD /* help_sweep_icon.png in Resources */,
+				2299926511916650006DA5DD /* catch_sound.wav in Resources */,
+				2299926611916650006DA5DD /* tap_sound.wav in Resources */,
+				2299926711916650006DA5DD /* throw_sound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1701,9 +1710,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22B1CB661159160600EFD709 /* catch_sound.wav in Resources */,
-				22B1CB671159160600EFD709 /* throw_sound.wav in Resources */,
-				22B1CB681159160600EFD709 /* tap_sound.wav in Resources */,
 				22B1CB721159160600EFD709 /* Background.png in Resources */,
 				22B1CB751159160600EFD709 /* Photobox.png in Resources */,
 				22B1CB761159160600EFD709 /* Catch_Icon.png in Resources */,
@@ -1738,6 +1744,9 @@
 				22972CF91190630A006A6A8C /* container_btn_double-safari.png in Resources */,
 				2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
 				2299923E1191617F006DA5DD /* help_sweep_icon.png in Resources */,
+				2299926811916650006DA5DD /* catch_sound.wav in Resources */,
+				2299926911916650006DA5DD /* tap_sound.wav in Resources */,
+				2299926A11916650006DA5DD /* throw_sound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
