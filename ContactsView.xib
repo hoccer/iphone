@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="4"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -70,7 +70,7 @@
 					<object class="IBUILabel" id="851721956">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{85, 15}, {150, 49}}</string>
+						<string key="NSFrame">{{85, 15}, {159, 49}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -80,7 +80,7 @@
 						<string key="IBUIText">Steve P. Jobs</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
-							<double key="NSSize">24</double>
+							<double key="NSSize">22</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="NSColor" key="IBUITextColor">
@@ -90,8 +90,9 @@
 						<nil key="IBUIHighlightedColor"/>
 						<object class="NSColor" key="IBUIShadowColor">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MAA</bytes>
+							<bytes key="NSWhite">MQA</bytes>
 						</object>
+						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 					</object>
@@ -162,13 +163,13 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">4</int>
-						<reference key="object" ref="62889770"/>
+						<int key="objectID">6</int>
+						<reference key="object" ref="851721956"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">6</int>
-						<reference key="object" ref="851721956"/>
+						<int key="objectID">4</int>
+						<reference key="object" ref="62889770"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -191,7 +192,7 @@
 					<string>HoccerVcard</string>
 					<string>UIResponder</string>
 					<string>ContactPreview</string>
-					<string>{{858, -415}, {303, 224}}</string>
+					<string>{{365, 757}, {303, 224}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
