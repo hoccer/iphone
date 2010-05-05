@@ -21,7 +21,7 @@
 	
 	content.name = @"Sweep";
 	content.description = @"In order to share with one person directly, place you mobiles screen to screen and drag the content from one screen to the other mobile.";
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"Help_Catch_Icon" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
 	content.videoPath = nil;
 	
 	return [content autorelease];

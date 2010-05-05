@@ -61,8 +61,6 @@
 		2281002710A9A8DD00DFA0BF /* Help_Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */; };
 		2281009110A9C1A000DFA0BF /* Help_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */; };
 		2281009210A9C1A000DFA0BF /* Help_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008E10A9C1A000DFA0BF /* Help_Button.png */; };
-		2281009310A9C1A000DFA0BF /* Info_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */; };
-		2281009410A9C1A000DFA0BF /* Info_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281009010A9C1A000DFA0BF /* Info_Button.png */; };
 		228100AC10A9CA9900DFA0BF /* Contactbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100AB10A9CA9900DFA0BF /* Contactbox.png */; };
 		228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
 		228100C410A9CDCC00DFA0BF /* HelpOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228100C210A9CDCC00DFA0BF /* HelpOverview.xib */; };
@@ -151,6 +149,8 @@
 		22977B2811105C4500B55D3F /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
 		2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
 		2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
+		2299923D1191617F006DA5DD /* help_sweep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299923C1191617F006DA5DD /* help_sweep_icon.png */; };
+		2299923E1191617F006DA5DD /* help_sweep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299923C1191617F006DA5DD /* help_sweep_icon.png */; };
 		229A7E73116B255700FFAD1B /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerRequest.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A826B116B628D00FFAD1B /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B06BF01152777500D2ECFE /* StatusViewController.m */; };
@@ -222,10 +222,7 @@
 		22B1CB661159160600EFD709 /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01810835B8900F84755 /* catch_sound.wav */; };
 		22B1CB671159160600EFD709 /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A01910835B8900F84755 /* throw_sound.wav */; };
 		22B1CB681159160600EFD709 /* tap_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2271A04A1083665E00F84755 /* tap_sound.wav */; };
-		22B1CB6A1159160600EFD709 /* myicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D1618F1095EE1200858642 /* myicon.png */; };
 		22B1CB6B1159160600EFD709 /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D161961095F27B00858642 /* receive.png */; };
-		22B1CB6F1159160600EFD709 /* artcomtech_286px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */; };
-		22B1CB701159160600EFD709 /* artcomtech_260px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */; };
 		22B1CB711159160600EFD709 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D72FE610A8498B000AEA79 /* Arrow.png */; };
 		22B1CB721159160600EFD709 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
 		22B1CB731159160600EFD709 /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7303D10A85CA0000AEA79 /* Header.png */; };
@@ -241,8 +238,6 @@
 		22B1CB7D1159160600EFD709 /* Help_Throw_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */; };
 		22B1CB7E1159160600EFD709 /* Help_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */; };
 		22B1CB7F1159160600EFD709 /* Help_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008E10A9C1A000DFA0BF /* Help_Button.png */; };
-		22B1CB801159160600EFD709 /* Info_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */; };
-		22B1CB811159160600EFD709 /* Info_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281009010A9C1A000DFA0BF /* Info_Button.png */; };
 		22B1CB821159160600EFD709 /* Contactbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100AB10A9CA9900DFA0BF /* Contactbox.png */; };
 		22B1CB841159160600EFD709 /* Header_About.png in Resources */ = {isa = PBXBuildFile; fileRef = 228100F410A9D50700DFA0BF /* Header_About.png */; };
 		22B1CB851159160600EFD709 /* Accept_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281010010A9DD7300DFA0BF /* Accept_Button.png */; };
@@ -380,9 +375,6 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		28B19B2810A2EF320075CD0D /* artcomtech_286px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */; };
-		28B19B2A10A2F01E0075CD0D /* artcomtech_260px_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */; };
-		28D161901095EE1200858642 /* myicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D1618F1095EE1200858642 /* myicon.png */; };
 		28D161971095F27B00858642 /* receive.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D161961095F27B00858642 /* receive.png */; };
 		28D7ACF80DDB3853001CB0EB /* HoccerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */; };
 		E63FE78A118C2CE300DB0DA8 /* select_btn_1L-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */; };
@@ -531,8 +523,6 @@
 		2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Throw_Icon.png; sourceTree = "<group>"; };
 		2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Highlighted.png; sourceTree = "<group>"; };
 		2281008E10A9C1A000DFA0BF /* Help_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help_Button.png; sourceTree = "<group>"; };
-		2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info_Highlighted.png; sourceTree = "<group>"; };
-		2281009010A9C1A000DFA0BF /* Info_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Info_Button.png; sourceTree = "<group>"; };
 		228100AB10A9CA9900DFA0BF /* Contactbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contactbox.png; sourceTree = "<group>"; };
 		228100C010A9CDCC00DFA0BF /* HelpOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpOverview.h; path = Help/HelpOverview.h; sourceTree = "<group>"; };
 		228100C110A9CDCC00DFA0BF /* HelpOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpOverview.m; path = Help/HelpOverview.m; sourceTree = "<group>"; };
@@ -637,6 +627,7 @@
 		22977B2611105C4500B55D3F /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
 		22977B2711105C4500B55D3F /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
 		2299922911915C0F006DA5DD /* artcom_logo_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcom_logo_bw.png; sourceTree = "<group>"; };
+		2299923C1191617F006DA5DD /* help_sweep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_sweep_icon.png; sourceTree = "<group>"; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -734,9 +725,6 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcomtech_286px_white.png; sourceTree = "<group>"; };
-		28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcomtech_260px_white.png; sourceTree = "<group>"; };
-		28D1618F1095EE1200858642 /* myicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myicon.png; sourceTree = "<group>"; };
 		28D161961095F27B00858642 /* receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receive.png; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* HoccerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* HoccerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewController.m; sourceTree = "<group>"; };
@@ -895,6 +883,7 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2299923B1191617F006DA5DD /* help */,
 				2299922811915C0F006DA5DD /* about */,
 				2292540711889709008B4FFB /* content */,
 				22925556118982D9008B4FFB /* content_contact */,
@@ -1111,8 +1100,6 @@
 				2861DCB810ADA03500EA2FFA /* menue.png */,
 				2281008D10A9C1A000DFA0BF /* Help_Highlighted.png */,
 				2281008E10A9C1A000DFA0BF /* Help_Button.png */,
-				2281008F10A9C1A000DFA0BF /* Info_Highlighted.png */,
-				2281009010A9C1A000DFA0BF /* Info_Button.png */,
 				2281002610A9A8DD00DFA0BF /* Help_Throw_Icon.png */,
 				2281FFF310A9A38A00DFA0BF /* Back_Button.png */,
 				2281FFF410A9A38A00DFA0BF /* Back_Highlighted.png */,
@@ -1127,9 +1114,6 @@
 				22D7300910A84EF8000AEA79 /* Background.png */,
 				22D72FE610A8498B000AEA79 /* Arrow.png */,
 				28D161961095F27B00858642 /* receive.png */,
-				28D1618F1095EE1200858642 /* myicon.png */,
-				28B19B2710A2EF320075CD0D /* artcomtech_286px_white.png */,
-				28B19B2910A2F01E0075CD0D /* artcomtech_260px_white.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -1338,6 +1322,15 @@
 			);
 			name = about;
 			path = Resources/assets/about;
+			sourceTree = "<group>";
+		};
+		2299923B1191617F006DA5DD /* help */ = {
+			isa = PBXGroup;
+			children = (
+				2299923C1191617F006DA5DD /* help_sweep_icon.png */,
+			);
+			name = help;
+			path = Resources/assets/help;
 			sourceTree = "<group>";
 		};
 		229A8399116B704B00FFAD1B /* iPhone */ = {
@@ -1664,13 +1657,10 @@
 				2271A01B10835B8900F84755 /* throw_sound.wav in Resources */,
 				2271A04B1083665E00F84755 /* tap_sound.wav in Resources */,
 				E64B7802109491AA0005ACA3 /* AboutViewController.xib in Resources */,
-				28D161901095EE1200858642 /* myicon.png in Resources */,
 				28D161971095F27B00858642 /* receive.png in Resources */,
 				227A94D8109713AB008CE547 /* HelpScreen.xib in Resources */,
 				227A94F910971A9C008CE547 /* HelpScrollView.xib in Resources */,
 				2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */,
-				28B19B2810A2EF320075CD0D /* artcomtech_286px_white.png in Resources */,
-				28B19B2A10A2F01E0075CD0D /* artcomtech_260px_white.png in Resources */,
 				22D72FE710A8498B000AEA79 /* Arrow.png in Resources */,
 				22D7300A10A84EF8000AEA79 /* Background.png in Resources */,
 				22D7303E10A85CA0000AEA79 /* Header.png in Resources */,
@@ -1686,8 +1676,6 @@
 				2281002710A9A8DD00DFA0BF /* Help_Throw_Icon.png in Resources */,
 				2281009110A9C1A000DFA0BF /* Help_Highlighted.png in Resources */,
 				2281009210A9C1A000DFA0BF /* Help_Button.png in Resources */,
-				2281009310A9C1A000DFA0BF /* Info_Highlighted.png in Resources */,
-				2281009410A9C1A000DFA0BF /* Info_Button.png in Resources */,
 				228100AC10A9CA9900DFA0BF /* Contactbox.png in Resources */,
 				228100C410A9CDCC00DFA0BF /* HelpOverview.xib in Resources */,
 				228100F510A9D50700DFA0BF /* Header_About.png in Resources */,
@@ -1770,6 +1758,7 @@
 				22972DA011908DB7006A6A8C /* settings_logo.png in Resources */,
 				22972DA111908DB7006A6A8C /* shadow_bottom.png in Resources */,
 				2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
+				2299923D1191617F006DA5DD /* help_sweep_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1790,10 +1779,7 @@
 				22B1CB661159160600EFD709 /* catch_sound.wav in Resources */,
 				22B1CB671159160600EFD709 /* throw_sound.wav in Resources */,
 				22B1CB681159160600EFD709 /* tap_sound.wav in Resources */,
-				22B1CB6A1159160600EFD709 /* myicon.png in Resources */,
 				22B1CB6B1159160600EFD709 /* receive.png in Resources */,
-				22B1CB6F1159160600EFD709 /* artcomtech_286px_white.png in Resources */,
-				22B1CB701159160600EFD709 /* artcomtech_260px_white.png in Resources */,
 				22B1CB711159160600EFD709 /* Arrow.png in Resources */,
 				22B1CB721159160600EFD709 /* Background.png in Resources */,
 				22B1CB731159160600EFD709 /* Header.png in Resources */,
@@ -1809,8 +1795,6 @@
 				22B1CB7D1159160600EFD709 /* Help_Throw_Icon.png in Resources */,
 				22B1CB7E1159160600EFD709 /* Help_Highlighted.png in Resources */,
 				22B1CB7F1159160600EFD709 /* Help_Button.png in Resources */,
-				22B1CB801159160600EFD709 /* Info_Highlighted.png in Resources */,
-				22B1CB811159160600EFD709 /* Info_Button.png in Resources */,
 				22B1CB821159160600EFD709 /* Contactbox.png in Resources */,
 				22B1CB841159160600EFD709 /* Header_About.png in Resources */,
 				22B1CB851159160600EFD709 /* Accept_Button.png in Resources */,
@@ -1843,6 +1827,7 @@
 				22972CCC11905864006A6A8C /* help_bg.png in Resources */,
 				22972CF91190630A006A6A8C /* container_btn_double-safari.png in Resources */,
 				2299922B11915C0F006DA5DD /* artcom_logo_bw.png in Resources */,
+				2299923E1191617F006DA5DD /* help_sweep_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
