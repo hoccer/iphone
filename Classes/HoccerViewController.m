@@ -238,6 +238,7 @@
 		return;
 	}
 	
+	[FeedbackProvider playSweepIn];
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"sweepIn"];
 }
@@ -247,6 +248,7 @@
 		return;
 	}
 	
+	[FeedbackProvider playSweepOut];
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	statusViewController.hocItemData = item;
 
