@@ -241,7 +241,7 @@
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
-	navigationItem.title = @"Help";
+	navigationItem.title = @"Settings";
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
