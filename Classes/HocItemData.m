@@ -160,49 +160,26 @@
 	}
 	
 	[content prepareSharing];
-	NSLog(@"hoccerClient: %@", hoccerClient);
 	request = [hoccerClient connectionWithRequest:[HoccerRequest throwWithContent:self.content location:location]];
 	isUpload = YES;
 }
 
-- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)aGesture {
+- (void)catchWithLocation: (HocLocation *)location {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
 		[delegate hocItemWillStartDownload:self];
 	}
 	
-	self.gesture = aGesture;
-	request = [[HoccerDownloadConnection alloc] initWithLocation: location gesture:[self transferTypeFromGestureName:gesture] delegate: self];
+	request = [hoccerClient connectionWithRequest:[HoccerRequest catchWithLocation: location]];
 	isUpload = NO;
 }
 
-
-#pragma mark -
-#pragma mark Download Communication
-- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
-	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
-																									   withData: aRequest.result];
-	hoccerContent.persist = YES;
-	
-	self.content = hoccerContent;	
-	[request release];
-	request = nil;
-	
-	if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
-		[delegate hocItemWasReceived:self];
+- (void)sweepInWithLocation:(HocLocation *)location {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
+		[delegate hocItemWillStartDownload:self];
 	}
-}
-
-#pragma mark -
-#pragma mark Upload Communication 
-
-- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest {
-	[request release];
-	request = nil;
 	
-	self.content.persist = YES;
-	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
-		[delegate hocItemWasSend: self];
-	}
+	request = [hoccerClient connectionWithRequest:[HoccerRequest sweepInWithLocation: location]];
+	isUpload = NO;
 }
 
 #pragma mark -
@@ -220,6 +197,11 @@
 
 #pragma mark -
 #pragma mark HoccerConnection Delegate
+
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
+	self.status = [theStatus objectForKey:@"message"];
+}
+
 - (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
 	self.status = [error localizedDescription];
 	[request release];
@@ -237,9 +219,6 @@
 }
 
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
-	[request release];
-	request = nil;
-		
 	if (isUpload) {
 		self.content.persist = YES;
 		if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
@@ -256,7 +235,8 @@
 		}
 	}
 	
-
+	[request release];
+	request = nil;
 }
 
 
@@ -309,5 +289,31 @@
 	hoccerClient.userAgent = @"Hoccer/iPhone";
 	hoccerClient.delegate = self;
 }
+
+
+
+#pragma mark -
+#pragma mark User Actions
+- (IBAction)closeView: (id)sender {
+	if ([delegate respondsToSelector:@selector(hocItemWasClosed:)]) {
+		[delegate hocItemWasClosed: self];
+	} 
+}
+
+
+- (IBAction)saveButton: (id)sender {
+	if ([content isKindOfClass:[HoccerImage class]]) {
+		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
+		[self.contentView showSpinner];
+	}
+	[content saveDataToContentStorage];	
+}
+
+- (void)finishedSaving {
+	[self.contentView hideSpinner];
+}
+	
+
+
 
 @end

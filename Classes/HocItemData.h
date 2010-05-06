@@ -51,7 +51,8 @@
 - (void)sweepOutWithLocation: (HocLocation *)location;
 - (void)throwWithLocation: (HocLocation *)location;
 
-- (void)downloadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
+- (void)catchWithLocation: (HocLocation *)location;
+- (void)sweepInWithLocation:(HocLocation *)location;
 
 - (void)removeFromFileSystem;
 

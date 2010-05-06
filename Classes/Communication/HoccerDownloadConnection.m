@@ -46,6 +46,11 @@
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
+	
+	if ([delegate respondsToSelector:@selector(hoccerConnection:didUpdateStatus:)]) {
+		[delegate hoccerConnection:self didUpdateStatus:self.status];
+	}
+	
 	NSLog(@"download status: %@", status);
 
 	NSArray *pieces = [self.status objectForKey:@"uploads"];

@@ -11,7 +11,8 @@
 
 @protocol HoccerConnectionDelegate <NSObject>
 
-- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error;
-- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection;
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didFailWithError: (NSError *)error;
+- (void)hoccerConnectionDidFinishLoading: (HoccerConnection *)hoccerConnection;
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)status;
 
 @end
