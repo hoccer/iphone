@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
-		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.SystemVersion">10D573</string>
 		<string key="IBDocument.InterfaceBuilderVersion">762</string>
-		<string key="IBDocument.AppKitVersion">1038.25</string>
-		<string key="IBDocument.HIToolboxVersion">458.00</string>
+		<string key="IBDocument.AppKitVersion">1038.29</string>
+		<string key="IBDocument.HIToolboxVersion">460.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">87</string>
@@ -45,22 +45,22 @@
 					<object class="IBUIImageView" id="466095233">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{17, 56}, {286, 34}}</string>
+						<string key="NSFrame">{{30, 28}, {259, 34}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<int key="IBUIContentMode">4</int>
+						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">artcomtech_260px_white.png</string>
+							<string key="NSResourceName">artcom_logo_bw.png</string>
 						</object>
 					</object>
 					<object class="IBUITextView" id="711883592">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{14, 90}, {289, 243}}</string>
+						<string key="NSFrame">{{20, 70}, {280, 264}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -74,16 +74,17 @@
 						<string type="base64-UTF8" key="IBUIText">SG9jY2VyIGlzIGJyb3VnaHQgdG8geW91IGJ5IEFSVCtDT00gVGVjaG5vbG9naWVzICh0ZWNoLmFydGNv
 bS5kZSkgYW5kIGludGVuZGVkIHRvIHJlZGVmaW5lIHlvdXIgYWQtaG9jIGRhdGEgZXhjaGFuZ2UgZXhw
 ZXJpZW5jZS4KCkp1c3QgInRocm93IiB5b3VyIHNlbGVjdGVkIGNvbnRlbnQgdGhyb3VnaCB0aGUgYWly
-IGFuZCBsZXQgcmVjaXBpZW50cyAiY2F0Y2giIGl0LgoKVGhlcmUgaXMgbm8gbmVlZCBmb3IgcHJpb3Ig
-ZXhjaGFuZ2Ugb2YgY29udGFjdCBkZXRhaWxzLiBQbGVhc2UgYWxzbyBjaGVjayB3d3cuaG9jY2VyLmNv
-bSBmb3IgZnVydGhlcgppbmZvcm1hdGlvbiwgdmlkZW9zIGFuZCBhIHdlYiBiYXNlZCB2ZXJzaW9uLgoK
-Q29udHJpYnV0ZXJzOgpJUGhvbmUgRGV2ZWxvcG1lbnQ6ClJvYmVydCBQYWxtZXIKClNlcnZlciBEZXZl
-bG9wbWVudDoKSm9obi1QYXVsIEJhZGVyIGFuZCBSb2JlcnQgUGFsbWVyCgpEZXNpZ246ClZhbmVzc2Eg
-U2Now6RmZXIsIEpvaG4tUGF1bCBCYWRlciwgQXJuZSBNaWNoZWwsIEp1bGlhIFNjaGlsbGVyLCBFdmEg
-T2ZmZW5iZXJnLCBEYW5pZWwgRmzDvGdlbCwgRmVsaXggQmVjayBhbmQgSm9uYXMgSsOkZ2VyCgpPcmdh
-bml6YXRpb24gYW5kIEJhY2tib25lOgpQYXZlbCBNYXllciwgQW5kcmVhcyBUcmV0b3csIERpcmsgTMO8
-c2VicmluayBhbmQgRGF2aWQgU2llZ2VsCgpWaWRlbyBBY3RzOgpOb3NsaXcgYW5kIFJlYmVjY2EgTGlu
-YQoKSWRlYSBhbmQgVGVhbSBMZWFkOiAKUm9kamEgVHJhcHBlA</string>
+IGFuZCBsZXQgcmVjaXBpZW50cyAKImNhdGNoIiBpdC4KClRoZXJlIGlzIG5vIG5lZWQgZm9yIHByaW9y
+IGV4Y2hhbmdlIG9mIGNvbnRhY3QgZGV0YWlscy4gUGxlYXNlIGFsc28gY2hlY2sgd3d3LmhvY2Nlci5j
+b20gZm9yIGZ1cnRoZXIgaW5mb3JtYXRpb24sIHZpZGVvcyBhbmQgYSB3ZWIgYmFzZWQgdmVyc2lvbi4K
+CkNvbnRyaWJ1dGVyczoKSVBob25lIERldmVsb3BtZW50OgpSb2JlcnQgUGFsbWVyCgpTZXJ2ZXIgRGV2
+ZWxvcG1lbnQ6CkpvaG4tUGF1bCBCYWRlciBhbmQgUm9iZXJ0IFBhbG1lcgoKRGVzaWduOgpQYXVsIEhl
+eWVyLCBWYW5lc3NhIFNjaMOkZmVyLCBKb2huLVBhdWwgQmFkZXIsIEFybmUgTWljaGVsLCBKdWxpYSBT
+Y2hpbGxlciwgRXZhIE9mZmVuYmVyZywgRGFuaWVsIEZsw7xnZWwsIE5pY2EgR2l1bGlhbmksIEZlbGl4
+IEJlY2sgYW5kIEpvbmFzIErDpGdlcgoKT3JnYW5pemF0aW9uIGFuZCBCYWNrYm9uZToKUGF2ZWwgTWF5
+ZXIsIEFuZHJlYXMgVHJldG93LCBEaXJrIEzDvHNlYnJpbmsgYW5kIERhdmlkIFNpZWdlbAoKVmlkZW8g
+QWN0czoKTm9zbGl3IGFuZCBSZWJlY2NhIExpbmEKCklkZWEgYW5kIFRlYW0gTGVhZDogClJvZGphIFRy
+YXBwZQoKU29tZSBpY29ucyBieQpKb3NlcGggV2FpbiAvIGdseXBoaXNoLmNvbQ</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -134,8 +135,8 @@ YQoKSWRlYSBhbmQgVGVhbSBMZWFkOiAKUm9kamEgVHJhcHBlA</string>
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="466095233"/>
 							<reference ref="711883592"/>
+							<reference ref="466095233"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -479,8 +480,8 @@ YQoKSWRlYSBhbmQgVGVhbSBMZWFkOiAKUm9kamEgVHJhcHBlA</string>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../Hoccer.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">artcomtech_260px_white.png</string>
-			<string key="NS.object.0">{260, 30}</string>
+			<string key="NS.key.0">artcom_logo_bw.png</string>
+			<string key="NS.object.0">{300, 35}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>
 	</data>

@@ -15,7 +15,7 @@
 
 + (void)playCatchFeedback;
 + (void)playThrowFeedback;
-+ (void)playTapFeedback;
-
++ (void)playSweepIn;
++ (void)playSweepOut;
 
 @end

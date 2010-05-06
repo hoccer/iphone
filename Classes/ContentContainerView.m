@@ -6,19 +6,30 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "ContentContainerView.h"
 #import "NSObject+DelegateHelper.h"
+#import "Preview.h"
 
 #define kSweepBorder 50
+
+CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
+	return CGRectMake(x, y, rect.size.width, rect.size.height);
+}
+
+CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
+	return CGRectMake(rect.origin.x + paddingX, rect.origin.y + paddingY, rect.size.width - (2 * paddingX), rect.size.height - (2 * paddingY));
+}
+
 
 @implementation ContentContainerView
 
 @synthesize delegate;
 @synthesize origin;
+@synthesize buttonContainer;
 @synthesize containedView;
 
-- (id) initWithView: (UIView *)subview
-{
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
 		containedView = [subview retain];
@@ -26,41 +37,52 @@
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
 		
-		button = [UIButton buttonWithType:UIButtonTypeCustom];
+		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
+		overlay.frame = ACRectShrinked(self.frame, 15, 15);
+		overlay.hidden = YES;
+		overlay.userInteractionEnabled = YES;
+
+		[self addSubview:overlay];
 		
-		NSString *closeButtonPath = [[NSBundle mainBundle] pathForResource:@"Close" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:closeButtonPath] forState:UIControlStateNormal];
-		
-		NSString *highlightedCloseButtonPath = [[NSBundle mainBundle] pathForResource:@"Close_Highlighted" ofType:@"png"];
-		[button setImage:[UIImage imageWithContentsOfFile:highlightedCloseButtonPath] 
-				forState:UIControlStateHighlighted];
-		
-		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setFrame: CGRectMake(3, 3, 35, 36)];
-		
-		[self addSubview: button];
+		buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 130)]; 
+		NSInteger xpos = 0;
+		for (UIView *button in buttons) {
+			button.frame = ACPositionedRect(button.frame, xpos, 0);
+			[buttonContainer addSubview:button];
+			
+			xpos += button.frame.size.width;
+		}
+
+		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
+		buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+
+		[overlay addSubview:buttonContainer];
 	}
 	return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[containedView release];
-	[button release];
+	[overlay release];
+	[buttonContainer release];
 	
 	[super dealloc];
+}
+
+- (IBAction)toggleOverlay: (id)sender {
+	if ([containedView allowsOverlay]) {
+		overlay.hidden = !overlay.hidden;
+	}
+}
+
+- (void)hideOverlay {
+	overlay.hidden = YES;
 }
 
 - (void)setOrigin:(CGPoint)newOrigin {
 	CGRect frame = self.frame;
 	frame.origin = newOrigin;
 	self.frame = frame;
-}
-
-- (void)closeView: (id)sender {
-	if ([delegate respondsToSelector:@selector(containerViewDidClose:)]) {
-		[delegate containerViewDidClose:self];
-	}
 }
 
 - (void)moveBy: (CGSize) distance {
@@ -73,6 +95,21 @@
 
 - (BOOL)willStayInView: (UIView *)view afterMovedBy: (CGSize) distance {
 	return YES;
+}
+
+- (void)showSpinner {
+	UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+	indicator.center = buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+	indicator.hidden = NO;
+	[indicator startAnimating];
+	[overlay addSubview:indicator];
+	
+	buttonContainer.hidden = YES;
+}
+
+- (void)hideSpinner {
+	[[[overlay subviews] objectAtIndex:1] removeFromSuperview];
+	buttonContainer.hidden = NO;
 }
 
 

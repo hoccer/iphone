@@ -19,10 +19,10 @@
 #import "HoccerText.h"
 #import "Preview.h"
 #import "ContentContainerView.h"
+#import "ACAddressBookPerson.h"
 
 #import "DesktopView.h"
 #import "ReceivedContentViewController.h"
-#import "SelectContentViewController.h"
 
 #import "HelpScrollView.h"
 
@@ -42,6 +42,8 @@
 
 #import "HoccingRulesIPhone.h"
 #import "HistoryData.h"
+
+#import "SettingViewController.h"
 
 @implementation HoccerViewController
 
@@ -107,9 +109,9 @@
 #pragma mark -
 #pragma mark View Manipulation
 
-- (HelpScrollView *)helpViewController {
+- (SettingViewController *)helpViewController {
 	if (helpViewController == nil) {
-		helpViewController = [[HelpScrollView alloc] init];
+		helpViewController = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
 	}
 	
 	return helpViewController;
@@ -117,7 +119,7 @@
 
 - (void)setContentPreview: (HoccerContent *)content {
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
-		return;
+		[desktopData removeHocItem: [desktopData hocItemDataAtIndex:0]];
 	}
 	
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
@@ -146,6 +148,9 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	
+	ACAddressBookPerson *addressBookPerson = [[ACAddressBookPerson alloc] initWithId: (ABRecordID) ABRecordGetRecordID(person)];
+	[addressBookPerson release];
+	
 	ABRecordID contactId = ABRecordGetRecordID(person);
 	ABAddressBookRef addressBook = ABAddressBookCreate();
 	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
@@ -160,9 +165,7 @@
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
 	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
-								property:(ABPropertyID)property 
-							  identifier:(ABMultiValueIdentifier)identifier
-{
+								property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
 	return NO;
 }
 
@@ -182,13 +185,13 @@
 	[FeedbackProvider playCatchFeedback];
 	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.delegate = self;
-	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
+	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
 	
 	[desktopData addHocItem:item];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.fromValue = [NSValue valueWithCGPoint:
-						   CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50)];
+	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
+	animation.duration = 0.2;
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
@@ -200,22 +203,21 @@
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
-	
-	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
 	[FeedbackProvider playThrowFeedback];
+	
+	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
+	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
+
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.duration = 0.5;
+	animation.duration = 0.2;
 	animation.toValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
-	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];
-	
-	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
-	[statusViewController showActivityInfo];
+	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
 }
 
 
@@ -236,6 +238,7 @@
 		return;
 	}
 	
+	[FeedbackProvider playSweepIn];
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"sweepIn"];
 }
@@ -245,11 +248,11 @@
 		return;
 	}
 	
+	[FeedbackProvider playSweepOut];
 	HocItemData *item = [desktopData hocItemDataForView: view];
-	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
-	
 	statusViewController.hocItemData = item;
-	[statusViewController showActivityInfo];
+
+	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -273,7 +276,7 @@
 
 - (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 
 	
@@ -283,7 +286,7 @@
 
 - (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
@@ -319,7 +322,11 @@
 
 - (void)hocItemWillStartDownload: (HocItemData *)item {
 	statusViewController.hocItemData = item;
-	[statusViewController showActivityInfo];
+}
+
+- (void)hocItemWasClosed:(HocItemData *)item {
+	[desktopData removeHocItem:item];
+	[desktopView reloadData];
 }
 
 #pragma mark -
@@ -337,9 +344,9 @@
 	NSError *message = [controller messageForLocationInformation];
 	if (![desktopData hasActiveRequest]) {
 		if (message) {
-			[statusViewController showLocationHint: message];			
+			[statusViewController setLocationHint: message];			
 		} else {
-			[statusViewController showLocationHint: nil];
+			[statusViewController setLocationHint: nil];
 		}
 	}
 }

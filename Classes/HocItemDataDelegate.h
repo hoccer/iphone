@@ -23,4 +23,6 @@
 - (void)hocItemWasSend: (HocItemData *)item;
 - (void)hocItemWasReceived: (HocItemData *)item;
 
+- (void)hocItemWasClosed: (HocItemData *)item;
+
 @end

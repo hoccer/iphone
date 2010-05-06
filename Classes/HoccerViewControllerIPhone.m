@@ -11,12 +11,12 @@
 #import "DesktopView.h"
 #import "HoccerText.h"
 #import "StatusViewController.h"
-#import "SelectContentViewController.h"
+#import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
 #import "HocItemData.h"
 #import "DesktopDataSource.h"
-
+#import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
 
@@ -55,6 +55,19 @@
 
 @end
 
+@interface CustomNavigationBar : UINavigationBar
+{}
+@end
+
+@implementation CustomNavigationBar
+
+- (void)drawRect: (CGRect)dirtyRect {
+	UIImage *image = [UIImage imageNamed: @"hoccer_bar.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+
+@end
+
 
 @interface HoccerViewControllerIPhone ()
 
@@ -77,39 +90,51 @@
 @synthesize auxiliaryView;
 @synthesize tabBar;
 
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	navigationController.navigationBar.tintColor = [UIColor blackColor];
+	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
+	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
 
-	navigationController.view.frame = CGRectMake(0, 0, 
-												 self.view.frame.size.width, 
+	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
 	[self.view addSubview:navigationController.view];
-
+	
 	self.hoccerHistoryController = [[HoccerHistoryController alloc] init];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-	[self.view insertSubview:statusViewController.view aboveSubview:navigationController.view];
+	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+	
+	[desktopView addSubview:statusViewController.view];
 	CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = 44;
+	statusRect.origin.y = 0;
 	statusViewController.view.frame = statusRect;
-	statusViewController.view.hidden = YES;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[hoccerHistoryController release];
+	[navigationController release];
 	[navigationItem release];
+	[tabBar release];
+	[auxiliaryView release];
+	[delayedAction release];
+	
 	[super dealloc];
+}
+
+- (void)setContentPreview: (HoccerContent *)content {
+	[super setContentPreview:content];
+	
+	self.tabBar.selectedItem = nil;
 }
 
 
@@ -125,10 +150,22 @@
 }
 
 - (IBAction)selectImage: (id)sender {
+	self.tabBar.selectedItem = NO;
 	[self hidePopOverAnimated: NO];
 	
 	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
 	imagePicker.delegate = self;
+	[self presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
+- (IBAction)selectVideo: (id)sender {
+	[self hidePopOverAnimated: NO];
+	
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	
+	imagePicker.delegate = self;
+	imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
 	[self presentModalViewController:imagePicker animated:YES];
 	[imagePicker release];
 }
@@ -139,6 +176,17 @@
 	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 }
+
+- (IBAction)selectCamera: (id)sender {
+	[self hidePopOverAnimated: NO];
+	
+	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	imagePicker.delegate = self;
+	[self presentModalViewController:imagePicker animated:YES];
+	[imagePicker release];
+}
+
 
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
@@ -155,7 +203,7 @@
 - (IBAction)toggleSelectContent: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
-	} else if (![auxiliaryView isKindOfClass:[SelectContentViewController class]]) {
+	} else if (![auxiliaryView isKindOfClass:[SelectContentController class]]) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSelectContentView)];
 		[self hidePopOverAnimated: YES];
 	} else {
@@ -182,55 +230,57 @@
 
 
 - (void)showSelectContentView {
-	SelectContentViewController *selectContentViewController = [[SelectContentViewController alloc] init];
+	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
 	selectContentViewController.delegate = self;
 	
 	[self showPopOver: selectContentViewController];
 	[selectContentViewController release];
-	
-	navigationItem.title = @"Select";
 }
 
 - (void)showHelpView {
-	self.helpViewController.delegate = self;
-	
+	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
-	navigationItem.title = @"Help";
+	navigationItem.title = @"Settings";
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																			target:self action:@selector(cancelPopOver)];
+	navigationItem.rightBarButtonItem = cancel;
+	[cancel release];
+	navigationItem.titleView = nil;
 }
 
 - (void)showHistoryView {
 	[self showPopOver: self.hoccerHistoryController];
 	
 	navigationItem.title = @"History";
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+																			target:self action:@selector(cancelPopOver)];
+	navigationItem.rightBarButtonItem = cancel;
+	[cancel release];
+	navigationItem.titleView = nil;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
-	[statusViewController hideActivityInfo];
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
-	CGRect selectContentFrame = popOverView.view.frame;
-	selectContentFrame.size = desktopView.frame.size;
-	selectContentFrame.origin= CGPointMake(0, self.view.frame.size.height);
-	popOverView.view.frame = selectContentFrame;	
+	CGRect popOverFrame = popOverView.view.frame;
+	popOverFrame.size = desktopView.frame.size;
+	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+	popOverView.view.frame = popOverFrame;	
 	
-	[desktopView addSubview:popOverView.view];
+	[desktopView insertSubview:popOverView.view atIndex:1];
 
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
 	
-	selectContentFrame.origin = CGPointMake(0,0);
-	popOverView.view.frame = selectContentFrame;
+	popOverFrame.origin = CGPointMake(0, 0);
+	popOverView.view.frame = popOverFrame;
 	[UIView commitAnimations];
 	
 	isPopUpDisplayed = TRUE;
 	
-	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-																			target:self action:@selector(hidePopOverAnimated:)];
-	
-	navigationItem.rightBarButtonItem = cancel;
-	[cancel release];
+	statusViewController.view.hidden = YES;
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
@@ -270,21 +320,24 @@
 	
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
-	navigationItem.title = @"Hoccer";
-	tabBar.selectedItem = nil;
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
 }
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
-	[statusViewController hideActivityInfo];
+	[super hocItemWasReceived:item];
+//	statusViewController.hocItemData = nil;
+//	
+//	[historyData addContentToHistory:item];
+//
+//	[[item content] previewInViewController:navigationController];
+//	[desktopData removeHocItem:item];
+//	[desktopView reloadData];
 	
-	[historyData addContentToHistory:item];
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
-	[[item content] previewInViewController:navigationController];
-	[desktopData removeHocItem:item];
-	[desktopView reloadData];
 }
 
 
@@ -308,7 +361,12 @@
 	}
 }
 
-
+#pragma mark -
+#pragma mark User Actions
+- (IBAction)cancelPopOver {
+	tabBar.selectedItem = nil;
+	[self hidePopOverAnimated:YES];
+}
 
 
 @end

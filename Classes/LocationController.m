@@ -80,7 +80,7 @@
 }
 
 - (BOOL)hasLocation {
-	return (currentLocation.horizontalAccuracy != 0.0 && [currentLocation.timestamp timeIntervalSinceNow] > -50);
+	return (currentLocation.horizontalAccuracy != 0.0);
 }
 
 - (BOOL)hasBadLocation {
@@ -97,7 +97,7 @@
 	if ([self hasLocation]) {
 		if (locationManager.location.horizontalAccuracy < 200) {
 			self.hoccability = 2;
-		} else if (locationManager.location.horizontalAccuracy < 2000) {
+		} else if (locationManager.location.horizontalAccuracy < 5000) {
 			self.hoccability = 1;
 		}
 	}
@@ -116,11 +116,11 @@
 }
 
 - (NSError *)messageForLocationInformation {
-	if (![self hasLocation] ||  self.location.location.horizontalAccuracy > 2000) {
+	if (self.hoccability == 0) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerBadLocation userInfo:[self userInfoForBadLocation]];
 	}
 	
-	if (self.location.location.horizontalAccuracy > 200) {
+	if (self.hoccability == 1) {
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
 	}
 	
@@ -160,6 +160,7 @@
 	[suggestion appendString:@"Hoccer needs to locate you precisely to find your exchange partner. You can improve your location by "];
 	[suggestion appendString:[suggestions componentsJoinedByString:@" or "]];
 
+	[suggestions release];
 	return [suggestion autorelease];
 }
 

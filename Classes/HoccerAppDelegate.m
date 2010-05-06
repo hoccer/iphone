@@ -37,10 +37,12 @@
 }
 
 - (void)applicationWillTerminate: (UIApplication *)application {
-	
+	NSLog(@"will terminate");
 }
 
-- (void)dealloc {			
+- (void)dealloc {	
+	NSLog(@"dealloc");
+
     [viewController release];
 	[window release];
 	
@@ -66,16 +68,6 @@
 	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
 
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
-}
-
-
-
-#pragma mark -
-#pragma mark Saving Delegate Methods
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-	[viewController dismissModalViewControllerAnimated:YES];
 }
 
 @end

@@ -11,6 +11,7 @@
 
 #import "HoccerContent.h"
 #import "ABPersonVCardCreator.h"
+#import "ContactPreview.h"
 
 
 @interface HoccerVcard : HoccerContent {
@@ -18,7 +19,11 @@
 	ABPersonVCardCreator *abPersonVCardCreator;
 	
 	ABUnknownPersonViewController *unknownPersonController;
+	
+	ContactPreview *view;
 }
+
+@property (retain) IBOutlet ContactPreview *view;
 
 - (id)initWitPerson: (ABRecordRef) aPerson;
 

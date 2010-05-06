@@ -19,8 +19,6 @@
 - (void)setUpPages;
 @end
 
-
-
 @implementation HelpScrollView
 
 @synthesize delegate;
@@ -31,9 +29,9 @@
 	
 	pages = [[NSArray arrayWithObjects: 
 			  [[[HelpOverview alloc] init] autorelease],
-			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
-			  [[[HelpScreen  alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
-			  [[[AboutViewController alloc] init] autorelease],			  
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent sweepHelp]] autorelease],
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
 			  nil] retain];
 	
 	
@@ -49,6 +47,7 @@
 	pageControl.numberOfPages = [pages count]; 
 	
 	[self setUpPages];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"help_bg.png"]];
 }
 
 - (void)setUpPages {

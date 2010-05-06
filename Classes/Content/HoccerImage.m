@@ -54,6 +54,8 @@
 		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
 		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
 								 toTarget:threadClass withObject:self];
+		
+		isFromContentSource = YES;
 	}
 	
 	return self;
@@ -83,10 +85,8 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
-	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
 
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
@@ -116,11 +116,10 @@
 
 - (void)saveDataToContentStorage
 {
-	UIImageWriteToSavedPhotosAlbum(image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
+	UIImageWriteToSavedPhotosAlbum(self.image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
--(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error 
-				contextInfo: (void *) contextInfo {
+-(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
 	[target checkAndPerformSelector: selector];
 }
 

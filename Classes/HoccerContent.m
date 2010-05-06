@@ -19,6 +19,9 @@
 @implementation HoccerContent
 @synthesize data;
 @synthesize filepath;
+@synthesize isFromContentSource;
+
+@synthesize persist;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -56,9 +59,9 @@
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
-		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
+		self.filepath = [self uniqueFilenameFromFilename: [documentsDirectoryUrl stringByAppendingPathComponent: filename]];
 		self.data = theData;
-		
+
 		[self saveDataToDocumentDirectory];
 		
 		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
@@ -73,7 +76,7 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		NSString *filename = [NSString stringWithFormat:@"%f.%@", [NSDate timeIntervalSinceReferenceDate], self.extension];
+		NSString *filename = [self uniqueFilenameFromFilename: [NSString stringWithFormat:@"%f.%@", [NSDate timeIntervalSinceReferenceDate], self.extension]];
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 		
@@ -102,6 +105,10 @@
 }
 
 - (void) dealloc {	
+	if (!persist) {
+		[self removeFromDocumentDirectory];
+	}
+	
 	[data release];
 	[filepath release];
 	[previewDelegate release];
@@ -117,7 +124,7 @@
 	//overwrite in subclasses: text
 }
 
-- (void)saveDataToContentStorage{
+- (void)saveDataToContentStorage {
 	//overwrite in subclasses: text, img, vcards	
 }
 
@@ -199,5 +206,10 @@
 	
 	return newFilename;
 }
+
+- (UIImage *)imageForSaveButton {
+	return [UIImage imageNamed:@"container_btn_double-save.png"];
+}
+
 
 @end

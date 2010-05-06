@@ -17,8 +17,6 @@
 	DownloadRequest *downloadRequest;
 }
 
-@property (retain) NSDictionary *status;
-
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;
 - (void)cancel;
 

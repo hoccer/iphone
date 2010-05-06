@@ -42,8 +42,7 @@
 	[[UIApplication sharedApplication] openURL: url];
 }
 
-- (NSString *)descriptionOfSaveButton 
-{
+- (NSString *)descriptionOfSaveButton {
 	return @"Open in Safari";
 }
 

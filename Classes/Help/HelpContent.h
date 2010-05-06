@@ -24,6 +24,7 @@
 + (HelpContent *)catchHelp;
 + (HelpContent *)throwHelp;
 + (HelpContent *)tabHelp;
++ (HelpContent *)sweepHelp;
 
 
 @end

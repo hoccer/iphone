@@ -20,11 +20,15 @@
 	
 	UINavigationController *parentNavigationController;
 	HoccerViewController *hoccerViewController;
+	
+	UITableViewCell *historyCell;
 }
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;
 @property (nonatomic, assign) HoccerViewController *hoccerViewController;
 @property (nonatomic, retain) HistoryData *historyData;
+
+@property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 
 
 - (void)addContentToHistory: (HocItemData *) content;

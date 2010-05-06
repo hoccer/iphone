@@ -11,33 +11,38 @@
 
 @class HoccerConnection;
 @class HoccerContent;
-@class Preview;
+@class ContentContainerView;
 @class HocLocation;
 @class HoccerClient;
 
 @interface HocItemData : NSObject <NSCoding> {
 	HoccerConnection *request;
-	Preview *contentView;
+	ContentContainerView *contentView;
 	HoccerContent *content;
 	
 	CGPoint viewOrigin;
 	NSString *status;
+	NSNumber *progress;
 
 	NSString *gesture;
 	BOOL isUpload;
 	
 	HoccerClient *hoccerClient;
 	id <HocItemDataDelegate> delegate;
+	
+	UIView *viewFromNib;
 }
 
 @property (retain) HoccerContent *content;
-@property (retain) Preview* contentView;
+@property (retain) ContentContainerView* contentView;
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
 @property (retain) NSString *gesture;
+@property (retain) NSNumber *progress;
 
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, assign) id <HocItemDataDelegate> delegate; 
+@property (assign) IBOutlet UIView* viewFromNib;
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

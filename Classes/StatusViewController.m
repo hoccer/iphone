@@ -10,12 +10,25 @@
 
 #import "StatusViewController.h"
 #import "NSObject+DelegateHelper.h"
+#import "NSString+Regexp.h"
 #import "HocItemData.h"
 
 @interface StatusViewController ()
 @property (retain) NSError *badLocationHint;
 - (void)showRecoverySuggestion;
 - (void)hideRecoverySuggestion;
+
+- (void)setConnectingState;
+- (void)setTransferState;
+- (void)setErrorState;
+- (void)setLocationState;
+- (void)hideUpdateState;
+
+- (void)showLocationHint;
+- (void)hideLocationHint;
+
+- (void)hideViewAnimated;
+- (void)showViewAnimated;
 
 @end
 
@@ -25,9 +38,13 @@
 @synthesize delegate;
 @synthesize hocItemData;
 @synthesize badLocationHint;
+@synthesize overlaped;
 
 - (void)viewDidLoad {
+	[self hideViewAnimated];
 	[self hideRecoverySuggestion];
+	self.view.backgroundColor = [UIColor clearColor];
+	showingError = NO;
 }
 
 - (void)dealloc {
@@ -38,6 +55,7 @@
 	[hintButton release];
 	[cancelButton release];
 	[badLocationHint release];
+	[backgroundImage release];
 	
     [super dealloc];
 }
@@ -45,6 +63,7 @@
 - (void)setHocItemData:(HocItemData *)newHocItem {
 	if (hocItemData != newHocItem) {
 		[hocItemData removeObserver:self forKeyPath:@"status"];
+		[hocItemData removeObserver:self forKeyPath:@"progress"];
 		[hocItemData release];
 		
 		hocItemData = [newHocItem retain]; 
@@ -57,70 +76,190 @@
 }
 
 - (IBAction) cancelAction: (id) sender {
-	self.view.hidden = YES;	
-	
 	[hocItemData cancelRequest];
 	self.hocItemData = nil;
 	
-	if (badLocationHint != nil) {
-		[self showLocationHint:badLocationHint];
+	[self hideUpdateState];
+}
+
+#pragma mark -
+#pragma mark Managing Status Bar Size
+
+// - (void)setOverlaped:(BOOL)
+
+- (void)showRecoverySuggestion {
+	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
+	hintText.hidden = NO;
+	
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
+}
+
+- (void)hideRecoverySuggestion {
+	backgroundImage.image = [UIImage imageNamed:@"statusbar_small.png"];
+
+	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
+	hintText.hidden = YES;
+}
+
+
+- (IBAction)toggelRecoveryHelp: (id)sender {
+	if (self.view.frame.size.height > 35) {
+		[self hideRecoverySuggestion];
+	} else {
+		[self showRecoverySuggestion];
+	}
+}	
+
+
+#pragma mark -
+#pragma mark Managing Hoccability / Location Hints
+
+- (void)setLocationHint: (NSError *)hint {
+	self.badLocationHint = hint;
+	
+	if (hint != nil) {
+		[self showLocationHint];
+	} else {
+		[self hideLocationHint];
 	}
 }
 
-- (void)setUpdate: (NSString *)update {
-	NSLog(@"setting update");
-	progressView.progress = 0;
-	progressView.hidden = NO;
-	activitySpinner.hidden = NO;
-	statusLabel.hidden = NO;
-	statusLabel.text = update;
-	
-	hintButton.hidden = YES;
-	cancelButton.hidden = NO;
-
-	[self hideRecoverySuggestion];
+- (void)showLocationHint {
+	if (self.badLocationHint != nil && self.hocItemData == nil && !showingError	) {
+		[self setError:self.badLocationHint];
+		[self setLocationState];
+	}
 }
 
-- (void)setErrorMessage: (NSString *)message {
+- (void)hideLocationHint {
+	if (self.hocItemData == nil) {
+		[self hideViewAnimated];
+		cancelButton.hidden = NO;
+	}
+}
+
+
+#pragma mark -
+#pragma mark Managing Updates
+
+- (void)setLocationState {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	[self setUpdate:message];
+	[self showViewAnimated];
+	
+	progressView.hidden = YES;
+	
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = YES;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	[self showRecoverySuggestion];
+	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
+}
+
+- (void)setConnectingState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	[self showViewAnimated];
+
+	progressView.hidden = YES;
+	
+	activitySpinner.hidden = NO;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	[self hideRecoverySuggestion];
+	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
+}
+
+- (void)setTransferState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+	[self showViewAnimated];
+
+	progressView.hidden = NO;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	[self hideRecoverySuggestion];
+	showingError = NO;
+	
+	[timer invalidate];
+	timer = nil;
+}
+
+- (void)setCompleteState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	[self showViewAnimated];
+
+	progressView.hidden = YES;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_complete.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	statusLabel.text = @"Success";
+	[self hideRecoverySuggestion];
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
+	
+	showingError = NO;
+}
+
+- (void)setErrorState {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	[self showViewAnimated];
+
+	progressView.hidden = YES;
+	activitySpinner.hidden = YES;
+	statusLabel.hidden = NO;
+	cancelButton.hidden = NO;
+	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
+	hintButton.hidden = YES;
+	
+	showingError = YES;
+	[self showRecoverySuggestion];
+
+	[timer invalidate];
+	timer = nil;
+}
+
+- (void)hideUpdateState {
+	self.view.hidden = YES;	
+
+	[self showLocationHint];
+	
+	[timer invalidate];
+	timer = nil;
+}
+
+
+- (void)setUpdate: (NSString *)update {
+	statusLabel.text = update;
+	[self setConnectingState];
 }
 
 
 - (void)setProgressUpdate: (CGFloat) percentage {
-	progressView.hidden = NO;
 	progressView.progress = percentage;
-}
-
-- (void)showActivityInfo {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
-	self.view.hidden = NO;
-	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-	animation.fromValue = [NSValue valueWithCGRect:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 0)];
-	animation.duration = 0.4;
-	
-    [self.view.layer addAnimation:animation forKey:nil];					   
-							
-	[activitySpinner startAnimating];
-}
-
-- (void)hideActivityInfo {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-	self.view.hidden = YES;
-	[activitySpinner stopAnimating];
-}
-
-- (void)monitorHocItem: (HocItemData*) hocItem {
-	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if ([keyPath isEqual:@"status"]) {
-		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
-	}
+	if ([hocItemData.status contains:@"Transfering"]) {
+		hocItemData.status = @"Transfering";
+		[self setTransferState];		
+	} 
 }
 
 - (void)setError:(NSError *)error {
@@ -132,39 +271,64 @@
 		}
 		
 	}
-	cancelButton.hidden = NO;
+
+	[self setErrorState];
+}
+
+
+#pragma mark -
+#pragma mark Showing and Hiding StatusBar
+
+- (void)showViewAnimated {
+	if (!self.view.hidden) {
+		return;
+	}
+
 	self.view.hidden = NO;
+	
+	CGFloat currentYPos = self.view.center.y;
+	self.view.center = CGPointMake(self.view.center.x, currentYPos - 105);
+	[UIView beginAnimations:@"slideDown" context:nil];
+	
+	self.view.center = CGPointMake(self.view.center.x, currentYPos);
+	[UIView setAnimationDuration:0.7];
+	[UIView commitAnimations];
 }
 
-- (void)showLocationHint: (NSError *)hint {
-	if (hint != nil) {
-		[self setError: hint];
-		cancelButton.hidden = YES;
-	} else {
-		[self hideActivityInfo];
+- (void)hideViewAnimated {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+//	[UIView beginAnimations:@"slideUp" context:nil];
+//	self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 105);
+//	[UIView setAnimationDuration:0.5];
+//	[UIView commitAnimations];
+//	
+	
+	self.view.hidden = YES;
+}
+
+
+#pragma mark -
+#pragma mark Monitoring Changes
+
+- (void)monitorHocItem: (HocItemData*) hocItem {
+	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+	[hocItem addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if ([keyPath isEqual:@"status"]) {
+		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
 	}
-
-	self.badLocationHint = hint;
-}
-
-
-- (void)showRecoverySuggestion {
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
-	hintText.hidden = NO;
-}
-
-- (void)hideRecoverySuggestion {
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 31); 
-	hintText.hidden = YES;
-}
-
-
-- (IBAction)toggelRecoveryHelp: (id)sender {
-	if (self.view.frame.size.height > 31) {
-		[self hideRecoverySuggestion];
-	} else {
-		[self showRecoverySuggestion];
+	
+	if ([keyPath isEqual:@"progress"]) {
+		[self setProgressUpdate: [[change objectForKey:NSKeyValueChangeNewKey] floatValue]];
 	}
 }
+
+
+
+
+
 
 @end

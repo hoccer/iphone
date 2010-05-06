@@ -10,7 +10,7 @@
 
 #import "HocItemData.h"
 #import "HoccerContent.h"
-#import "Preview.h"
+#import "ContentContainerView.h"
 
 @implementation DesktopDataSource
 @synthesize viewController;
@@ -102,7 +102,6 @@
 - (CGPoint)positionForView: (UIView *)view {
 	return [self hocItemDataForView:view].viewOrigin;
 }
-
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
 	HocItemData *item = [self hocItemDataForView:view];

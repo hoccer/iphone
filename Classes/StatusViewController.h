@@ -20,25 +20,34 @@
 	IBOutlet UITextView *hintText;
 	IBOutlet UIButton *cancelButton;
 	
+	IBOutlet UIImageView *backgroundImage;
+	
 	HocItemData *hocItemData;
 	
+	NSInteger hoccabiliy;
 	NSError *badLocationHint;
+	
+	@private
+	BOOL showingError;
+	NSTimer *timer;
+	BOOL overlaped;
 }
 
 @property (assign) id delegate;
 @property (retain) HocItemData* hocItemData;
+@property (assign) BOOL overlaped;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSError *)error;
-- (void)setErrorMessage: (NSString *)message;
 - (void)setProgressUpdate: (CGFloat) percentage;
-- (void)showLocationHint: (NSError *)hint;
-- (void)showActivityInfo;
-- (void)hideActivityInfo;
+- (void)setLocationHint: (NSError *)hint;
+
+- (void)setCompleteState;
 
 - (IBAction) cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;
 
 - (void)monitorHocItem: (HocItemData *)hocItem;
+
 @end
 

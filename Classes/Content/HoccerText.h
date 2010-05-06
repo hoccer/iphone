@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
-
+#import "TextPreview.h"
 
 @interface HoccerText : HoccerContent <UITextViewDelegate> {
 	UITextView *textView;
+	TextPreview *view;
 }
 
 @property (nonatomic, readonly) NSString *content;
+@property (retain) IBOutlet TextPreview *view;
+@property (retain) IBOutlet UITextView *textView;
 
 @end

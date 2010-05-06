@@ -14,9 +14,21 @@
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 #import "StatusViewController.h"
+#import "ContentContainerView.h"
 #import "Preview.h"
+#import "HoccerImage.h"
 
 #import "HocLocation.h"
+
+#define hoccerMessageErrorDomain @"HoccerErrorDomain"
+
+
+@interface HocItemData ()
+
+- (NSString *)transferTypeFromGestureName: (NSString *)name;
+- (NSArray *)actionButtons;
+@end
+
 
 @implementation HocItemData
 
@@ -28,6 +40,9 @@
 @synthesize delegate;
 @synthesize isUpload;
 @synthesize gesture;
+@synthesize progress;
+
+@synthesize viewFromNib;
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -50,6 +65,8 @@
 	[contentView release];
 	[request release];
 	[gesture release];
+	[status release];
+	[progress release];
 	
 	[super dealloc];
 }
@@ -91,14 +108,20 @@
 	return request != nil;
 }
 
-- (Preview *)contentView {
+- (ContentContainerView *)contentView {
 	if (contentView == nil) {
-		contentView = [[content desktopItemView] retain];
+		Preview *preview = [content desktopItemView];
+		if (preview != nil) {
+			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
+		}
 	}
 	
 	if (contentView == nil) {
-		contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-		contentView.backgroundColor = [UIColor whiteColor];
+		[[NSBundle mainBundle] loadNibNamed:@"EmptyContent" owner:self options:nil];
+		Preview *preview = (Preview *)viewFromNib;
+		viewFromNib = nil;
+		preview.allowsOverlay = NO;
+		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}
 	
 	return contentView;
@@ -133,6 +156,7 @@
 - (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
 	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
 																									   withData: aRequest.result];
+	hoccerContent.persist = YES;
 	
 	self.content = hoccerContent;	
 	[request release];
@@ -150,6 +174,7 @@
 	[request release];
 	request = nil;
 	
+	self.content.persist = YES;
 	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
 		[delegate hocItemWasSend: self];
 	}
@@ -178,8 +203,57 @@
 	self.status = update;
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
+	self.progress = theProgress;
 }
+
+
+
+- (NSString *)transferTypeFromGestureName: (NSString *)name {
+	if ([name isEqual:@"throw"] || [name isEqual:@"catch"]) {
+		return @"distribute";
+	}
+	
+	if ([name isEqual:@"sweepIn"] || [name isEqual:@"sweepOut"]) {
+		return @"pass";
+	}
+	
+	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture to transfer is unknown"  userInfo:nil];
+}
+
+
+#pragma mark -
+#pragma mark Private Methods
+- (NSArray *)actionButtons {
+	if (content.isFromContentSource) {
+		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		[button setImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
+		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button setFrame: CGRectMake(0, 0, 65, 61)];
+		
+		NSMutableArray *buttons = [NSMutableArray array]; 
+		[buttons addObject:button];
+		
+		return buttons;
+	} else {
+		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		[button setImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
+		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button setFrame: CGRectMake(0, 0, 65, 61)];
+		
+		UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+		[button2 setImage:[content imageForSaveButton] forState:UIControlStateNormal];
+		[button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
+		
+		NSMutableArray *buttons = [NSMutableArray array]; 
+		[buttons addObject:button];
+		[buttons addObject:button2];
+		
+		return buttons;
+	}
+}
+
 
 
 @end

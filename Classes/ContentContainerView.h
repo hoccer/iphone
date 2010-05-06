@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #import "ContentContainerViewDelegate.h";
+@class Preview;
 
 @interface ContentContainerView : UIView {
 	id <ContentContainerViewDelegate> delegate;
-	UIButton *button;
 	
 	CGPoint touchStartPoint;
 	BOOL gestureDetected;
@@ -20,15 +20,24 @@
 	BOOL shouldSnapBackOnTouchUp;
 	CGPoint origin;
 	
-	UIView *containedView;
+	Preview *containedView;
+	
+	UIImageView *overlay;
+	UIView *buttonContainer;	
 }
 
 @property (nonatomic, assign) id delegate;
-@property (readonly) UIView* containedView;
+@property (readonly) Preview* containedView;
+@property (retain) UIView *buttonContainer;
 
 @property (assign) CGPoint origin;
 
-- (id) initWithView: (UIView *)insideView;
+- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
 - (void)moveBy: (CGSize)distance;
+
+- (IBAction)toggleOverlay: (id)sender;
+- (void)hideOverlay;
+- (void)showSpinner;
+- (void)hideSpinner;
 
 @end

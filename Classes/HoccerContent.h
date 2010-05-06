@@ -16,15 +16,20 @@
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filepath;	
 	id <HoccerContentPreviewDelegate> previewDelegate;
+	BOOL isFromContentSource;
 	
 	@private
 	NSData *data;
+	
+	BOOL persist;
 }
 
 @property (retain) NSData *data; 
 @property (retain) NSString* filepath;
 @property (nonatomic, readonly) NSString *extension;
 @property (nonatomic, readonly) NSURL *fileUrl;
+@property (assign) BOOL isFromContentSource;
+@property (assign) BOOL persist;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (id) initWithFilename: (NSString *)filename;
@@ -51,5 +56,6 @@
 - (void)previewInViewController: (UIViewController *)viewController;
 
 - (NSString *)uniqueFilenameFromFilename: (NSString *)filename;
+- (UIImage *)imageForSaveButton;
 
 @end

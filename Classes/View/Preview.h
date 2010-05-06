@@ -10,8 +10,12 @@
 
 
 @interface Preview : UIView {
+	BOOL allowsOverlay;
 }
 
+@property (assign) BOOL allowsOverlay;
+
 - (void) setImage: (UIImage *)image;
+
 
 @end

@@ -11,15 +11,21 @@
 #import "Preview.h"
 #import "NSString+StringWithData.h"
 
-@interface HoccerText ()
-
-@property (retain) UITextView* textView;
-
-@end
-
 @implementation HoccerText
 
 @synthesize textView;
+@synthesize view;
+
+
++ (BOOL)isDataAUrl: (NSData *)data {
+	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	
+	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
+		return NO;
+	}
+	
+	return YES;
+}
 
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
@@ -30,52 +36,34 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
+	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
 	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
-	
-	[view addSubview:backgroundImage];
-	[view sendSubviewToBack:backgroundImage];
-		
-	self.textView =  [[[UITextView alloc] initWithFrame:CGRectMake(40, 45, 240, 170)] autorelease];
-	self.textView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
-	self.textView.font = [UIFont systemFontOfSize: [UIFont systemFontSize] + 2];
-	
-	if (self.data != nil) {
-		self.textView.text = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
+	self.view.delegate = self;
+	if (!self.data) {
+		[self.view setEditMode];
+	} else {
+		self.view.textView.text = self.content;
 	}
 	
-	[view insertSubview: textView atIndex: 1];
-	[self.textView becomeFirstResponder];
-	
-	[backgroundImage release];
-	return [view autorelease];
+	return self.view;
 }
 	
-- (void)dealloc
-{
+- (void)dealloc {
 	[textView release];	
 	[super dealloc];
 }
 
-- (void)prepareSharing{
+- (void)prepareSharing {
+	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 	[self.data writeToFile: filepath atomically: NO];
 }
 
-- (NSString *)mimeType
-{
+- (NSString *)mimeType {
 	return @"text/plain";
 }
 
 - (NSString *)extension {
 	return @"txt";
-}
-
-- (NSData *)data 
-{	
-	[textView resignFirstResponder];
-	return [textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 - (void)dismissKeyboard
@@ -86,5 +74,27 @@
 - (NSString *)content {
 	return [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
 }
+
+- (void)textPreviewDidEndEditing: (TextPreview *)preview {
+	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
+}
+
+- (void)saveDataToContentStorage {
+	if ([HoccerText isDataAUrl: self.data]) {
+		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:self.content]];
+	} else {
+		[UIPasteboard generalPasteboard].string = [self content];
+	}
+
+}
+
+- (UIImage *)imageForSaveButton {
+	if ([HoccerText isDataAUrl: self.data]) {
+		return [UIImage imageNamed:@"container_btn_double-safari.png"];
+	} else {
+		return [UIImage imageNamed:@"container_btn_double-copy.png"];
+	}
+}
+
 
 @end
