@@ -47,18 +47,6 @@
 						<int key="NSvFlags">256</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIImageView" id="888025062">
-								<reference key="NSNextResponder" ref="85227126"/>
-								<int key="NSvFlags">-2147483356</int>
-								<string key="NSFrame">{{0, -2}, {320, 64}}</string>
-								<reference key="NSSuperview" ref="85227126"/>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">history_soll.png</string>
-								</object>
-							</object>
 							<object class="IBUIImageView" id="292532092">
 								<reference key="NSNextResponder" ref="85227126"/>
 								<int key="NSvFlags">292</int>
@@ -66,6 +54,9 @@
 								<reference key="NSSuperview" ref="85227126"/>
 								<int key="IBUIContentMode">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
+									<string key="IBUIAccessibilityLabel">item_direction</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
@@ -85,6 +76,9 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
+									<string key="IBUIAccessibilityLabel">item_name</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Image_0123.jpg</string>
 								<object class="NSFont" key="IBUIFont">
@@ -106,6 +100,9 @@
 								<string key="NSFrame">{{-1, 0}, {50, 62}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
+									<string key="IBUIAccessibilityLabel">item_type_image</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
@@ -115,7 +112,7 @@
 							<object class="IBUILabel" id="717076961">
 								<reference key="NSNextResponder" ref="85227126"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{69, 31}, {120, 21}}</string>
+								<string key="NSFrame">{{73, 31}, {116, 21}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -202,7 +199,6 @@
 							<reference ref="973561326"/>
 							<reference ref="717076961"/>
 							<reference ref="292532092"/>
-							<reference ref="888025062"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -219,11 +215,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
 						<reference key="object" ref="717076961"/>
-						<reference key="parent" ref="139147627"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="888025062"/>
 						<reference key="parent" ref="139147627"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -245,14 +236,12 @@
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
-					<string>8.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>HoccerHistoryController</string>
 					<string>UIResponder</string>
 					<string>{{657, 687}, {320, 62}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -561,13 +550,11 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>history_icon_image.png</string>
 				<string>history_icon_upload.png</string>
-				<string>history_soll.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{50, 62}</string>
 				<string>{16, 62}</string>
-				<string>{320, 62}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>
