@@ -22,6 +22,8 @@
 @synthesize hoccerViewController;
 @synthesize historyData;
 
+@synthesize historyCell;
+
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -42,6 +44,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	self.tableView.rowHeight = 62;
+	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark -
@@ -64,8 +69,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
-    
 	static NSDateFormatter *dateFormatter = nil;
+
 	if (dateFormatter == nil) {
 		dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
@@ -74,16 +79,23 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-    }
+		[[NSBundle mainBundle] loadNibNamed:@"HistoryView" owner:self options:nil];
+        cell = self.historyCell;
+		self.historyCell = nil;
+	}
     
 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-	cell.textLabel.text = [[item filepath] lastPathComponent];
-	
-	NSString *transferKind = [item.upload boolValue] ? @"uploaded" : @"downloaded";
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transferKind, [dateFormatter stringFromDate: item.creationDate]];
-	
-    return cell;
+//	cell.textLabel.text = [[item filepath] lastPathComponent];
+//	cell.textLabel.backgroundColor = [UIColor redColor];
+//
+//	NSString *transferKind = [item.upload boolValue] ? @"uploaded" : @"downloaded";
+//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transferKind, [dateFormatter stringFromDate: item.creationDate]];
+//	cell.imageView.image = [UIImage imageNamed:@"history_icon_contact.png"];
+//	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+//
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	return cell;
 }
 
 
