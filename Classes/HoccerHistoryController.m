@@ -10,7 +10,7 @@
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
-#import "HoccerConnectionController.h"
+#import "HocItemData.h"
 #import "HoccerViewController.h"
 
 #import "HoccerContentFactory.h";
@@ -164,7 +164,7 @@
 }
 
 
-- (void)addContentToHistory: (HoccerConnectionController *) hocItem {
+- (void)addContentToHistory: (HocItemData *) hocItem {
 	[historyData addContentToHistory:hocItem];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];

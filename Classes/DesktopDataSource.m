@@ -8,7 +8,7 @@
 
 #import "DesktopDataSource.h"
 
-#import "HoccerConnectionController.h"
+#import "HocItemData.h"
 #import "HoccerContent.h"
 #import "Preview.h"
 
@@ -49,16 +49,16 @@
 
 
 
-- (void)addHocItem: (HoccerConnectionController *)hocItem {
+- (void)addHocItem: (HocItemData *)hocItem {
 	[contentOnDesktop addObject:hocItem];
 }
 
-- (void)removeHocItem: (HoccerConnectionController *)hocItem {
+- (void)removeHocItem: (HocItemData *)hocItem {
 	[contentOnDesktop removeObject:hocItem];
 }
 
 - (BOOL)hasActiveRequest {
-	for (HoccerConnectionController *item in contentOnDesktop) {
+	for (HocItemData *item in contentOnDesktop) {
 		if ([item hasActiveRequest]) {
 			return YES;
 		}
@@ -67,8 +67,8 @@
 	return NO;
 }
 
-- (HoccerConnectionController *)hocItemDataForView: (UIView *)view {
-	for (HoccerConnectionController *item in contentOnDesktop) {
+- (HocItemData *)hocItemDataForView: (UIView *)view {
+	for (HocItemData *item in contentOnDesktop) {
 		if ((UIView *)item.contentView == view) {
 			return item;
 		}
@@ -77,7 +77,7 @@
 	return nil;
 }
 
-- (HoccerConnectionController *)hocItemDataAtIndex: (NSInteger) index {
+- (HocItemData *)hocItemDataAtIndex: (NSInteger) index {
 	return [contentOnDesktop objectAtIndex:index];
 }
 
@@ -89,7 +89,7 @@
 }
 
 - (UIView *)viewAtIndex: (NSInteger)index {
-	HoccerConnectionController *contentAtIndex = [contentOnDesktop objectAtIndex:index];
+	HocItemData *contentAtIndex = [contentOnDesktop objectAtIndex:index];
 	[contentAtIndex.content decorateViewWithGestureRecognition:contentAtIndex.contentView inViewController:self.viewController];
 
 	return (UIView *) contentAtIndex.contentView; 	
@@ -105,12 +105,12 @@
 
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
-	HoccerConnectionController *item = [self hocItemDataForView:view];
+	HocItemData *item = [self hocItemDataForView:view];
 	item.viewOrigin = point;
 }
 
 - (void)removeView: (UIView *)view {
-	HoccerConnectionController *item = [self hocItemDataForView:view];
+	HocItemData *item = [self hocItemDataForView:view];
 	
 	[self removeHocItem:item];
 }

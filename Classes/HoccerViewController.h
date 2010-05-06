@@ -28,7 +28,7 @@
 
 @class DesktopDataSource;
 @class LocationController;
-@class HoccerConnectionController;
+@class HocItemData;
 @class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;

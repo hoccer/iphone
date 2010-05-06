@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class HoccerConnectionController;
+@class HocItemData;
 @class HoccerHistoryItem;
 
 @interface HistoryData : NSObject {
@@ -29,7 +29,7 @@
 
 - (NSInteger)count;
 - (id)itemAtIndex: (NSInteger)index;
-- (void)addContentToHistory: (HoccerConnectionController *) hocItem;
+- (void)addContentToHistory: (HocItemData *) hocItem;
 - (void)removeItem: (HoccerHistoryItem *)item;
 
 @end

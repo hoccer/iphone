@@ -15,7 +15,7 @@
 @class HocLocation;
 @class HoccerClient;
 
-@interface HoccerConnectionController : NSObject <NSCoding> {
+@interface HocItemData : NSObject <NSCoding> {
 	HoccerConnection *request;
 	Preview *contentView;
 	HoccerContent *content;

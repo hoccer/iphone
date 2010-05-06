@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HoccerConnectionController;
+@class HocItemData;
 
 
 @interface StatusViewController : UIViewController {
@@ -20,13 +20,13 @@
 	IBOutlet UITextView *hintText;
 	IBOutlet UIButton *cancelButton;
 	
-	HoccerConnectionController *hocItemData;
+	HocItemData *hocItemData;
 	
 	NSError *badLocationHint;
 }
 
 @property (assign) id delegate;
-@property (retain) HoccerConnectionController* hocItemData;
+@property (retain) HocItemData* hocItemData;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSError *)error;
@@ -39,6 +39,6 @@
 - (IBAction) cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;
 
-- (void)monitorHocItem: (HoccerConnectionController *)hocItem;
+- (void)monitorHocItem: (HocItemData *)hocItem;
 @end
 

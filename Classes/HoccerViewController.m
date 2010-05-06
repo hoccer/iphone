@@ -36,7 +36,7 @@
 #import "GesturesInterpreter.h"
 #import "LocationController.h"
 
-#import "HoccerConnectionController.h"
+#import "HocItemData.h"
 #import "StatusViewController.h"
 #import "HoccerMessageResolver.h"
 
@@ -120,7 +120,7 @@
 		return;
 	}
 	
-	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
@@ -180,7 +180,7 @@
 	}
 	
 	[FeedbackProvider playCatchFeedback];
-	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.delegate = self;
 	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 50);
 	
@@ -223,7 +223,7 @@
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
-	HoccerConnectionController *item = [desktopData hocItemDataAtIndex:index];
+	HocItemData *item = [desktopData hocItemDataAtIndex:index];
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
@@ -236,7 +236,7 @@
 		return;
 	}
 	
-	HoccerConnectionController *item = [desktopData hocItemDataForView: view];
+	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item downloadWithLocation:locationController.location gesture:@"sweepIn"];
 }
 
@@ -245,7 +245,7 @@
 		return;
 	}
 	
-	HoccerConnectionController *item = [desktopData hocItemDataForView: view];
+	HocItemData *item = [desktopData hocItemDataForView: view];
 	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
 	
 	statusViewController.hocItemData = item;
@@ -257,7 +257,7 @@
 		return NO;
 	}
 	
-	HoccerConnectionController *item = [[[HoccerConnectionController alloc] init] autorelease];
+	HocItemData *item = [[[HocItemData alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(point.x - item.contentView.frame.size.width / 2, 
 								  point.y - item.contentView.frame.size.height / 2);
 	item.delegate = self;
@@ -271,7 +271,7 @@
 #pragma mark -
 #pragma mark HocItemDataDelegate
 
-- (void)hocItemWasSend: (HoccerConnectionController *)item {
+- (void)hocItemWasSend: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
@@ -281,7 +281,7 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItemWasReceived: (HoccerConnectionController *)item {
+- (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	[historyData addContentToHistory:item];
@@ -289,35 +289,35 @@
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HoccerConnectionController*) item uploadFailedWithError: (NSError *)error {
+- (void)hocItem: (HocItemData*) item uploadFailedWithError: (NSError *)error {
 	[statusViewController setError:error];
 
 	item.viewOrigin = self.defaultOrigin;
 	[desktopView reloadData];
 }
 
-- (void)hocItemUploadWasCanceled: (HoccerConnectionController *)item {
+- (void)hocItemUploadWasCanceled: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
-- (void)hocItemDownloadWasCanceled: (HoccerConnectionController *)item {
+- (void)hocItemDownloadWasCanceled: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HoccerConnectionController *)item downloadFailedWithError: (NSError *)error  {
+- (void)hocItem: (HocItemData *)item downloadFailedWithError: (NSError *)error  {
 	statusViewController.hocItemData = nil;
 	[statusViewController setError:error];
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItemWillStartDownload: (HoccerConnectionController *)item {
+- (void)hocItemWillStartDownload: (HocItemData *)item {
 	statusViewController.hocItemData = item;
 	[statusViewController showActivityInfo];
 }

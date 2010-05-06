@@ -14,7 +14,7 @@
 #import "SelectContentViewController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
-#import "HoccerConnectionController.h"
+#import "HocItemData.h"
 #import "DesktopDataSource.h"
 
 #import "HoccingRulesIPhone.h"
@@ -276,7 +276,7 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
-- (void)hocItemWasReceived: (HoccerConnectionController *)item {
+- (void)hocItemWasReceived: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController hideActivityInfo];
 	
