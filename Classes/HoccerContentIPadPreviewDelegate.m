@@ -30,12 +30,12 @@
 }
 
 - (void)hoccerContent: (HoccerContent*)hoccerContent decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController {
-	[self createInteractionControllerForFile:hoccerContent.fileUrl];
-	self.viewControllerForPreview = viewController;
-	
-	for (UIGestureRecognizer *recognizer in self.interactionController.gestureRecognizers) {
-		[view addGestureRecognizer:recognizer];
-	} 
+//	[self createInteractionControllerForFile:hoccerContent.fileUrl];
+//	self.viewControllerForPreview = viewController;
+//	
+//	for (UIGestureRecognizer *recognizer in self.interactionController.gestureRecognizers) {
+//		[view addGestureRecognizer:recognizer];
+//	} 
 }
 
 - (UIImage *)hoccerContentIcon: (HoccerContent *)hoccerContent {

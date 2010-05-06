@@ -68,6 +68,11 @@
 		228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
 		228D8FAB11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
 		228D8FAC11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
+		228EC3481192D39A00B486F2 /* container_text-land.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292542911889709008B4FFB /* container_text-land.png */; };
+		228EC3491192D39A00B486F2 /* container_text_edit-land.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292542A11889709008B4FFB /* container_text_edit-land.png */; };
+		228EC34A1192D39A00B486F2 /* container_text_edit_linie.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292542B11889709008B4FFB /* container_text_edit_linie.png */; };
+		228EC34B1192D39A00B486F2 /* container_text_edit_savebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292542C11889709008B4FFB /* container_text_edit_savebtn.png */; };
+		228EC34C1192D39A00B486F2 /* container_text_editbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292542D11889709008B4FFB /* container_text_editbtn.png */; };
 		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
@@ -1827,6 +1832,11 @@
 				229994061191858D006DA5DD /* container_image-land.png in Resources */,
 				22999414119186B5006DA5DD /* help_catch_icon.png in Resources */,
 				22999415119186B5006DA5DD /* help_throw_icon.png in Resources */,
+				228EC3481192D39A00B486F2 /* container_text-land.png in Resources */,
+				228EC3491192D39A00B486F2 /* container_text_edit-land.png in Resources */,
+				228EC34A1192D39A00B486F2 /* container_text_edit_linie.png in Resources */,
+				228EC34B1192D39A00B486F2 /* container_text_edit_savebtn.png in Resources */,
+				228EC34C1192D39A00B486F2 /* container_text_editbtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
