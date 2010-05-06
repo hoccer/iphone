@@ -50,7 +50,7 @@
 							<object class="IBUIButton" id="634792137">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{-1, 1}, {107, 85}}</string>
+								<string key="NSFrameSize">{107, 85}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -73,9 +73,9 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
-								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="1025633758">
+								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_1R-over.png</string>
+									<string key="NSResourceName">select_btn_1L-over.png</string>
 								</object>
 								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
@@ -85,7 +85,7 @@
 							<object class="IBUIButton" id="211107697">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{106, 1}, {106, 85}}</string>
+								<string key="NSFrame">{{107, 0}, {106, 85}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -110,7 +110,7 @@
 							<object class="IBUIButton" id="756404479">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{212, 1}, {108, 85}}</string>
+								<string key="NSFrame">{{213, 0}, {107, 85}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -123,7 +123,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="983922564"/>
-								<reference key="IBUIHighlightedBackgroundImage" ref="1025633758"/>
+								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">select_btn_1R-over.png</string>
+								</object>
 								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">select_btn_1R-out.png</string>
@@ -132,7 +135,7 @@
 							<object class="IBUIButton" id="362281544">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{-1, 85}, {107, 75}}</string>
+								<string key="NSFrame">{{0, 85}, {107, 75}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -157,10 +160,11 @@
 							<object class="IBUIButton" id="712592176">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{106, 85}, {106, 75}}</string>
+								<string key="NSFrame">{{107, 85}, {106, 75}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIEnabled">NO</bool>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">2</int>
 								<reference key="IBUIFont" ref="432859868"/>
@@ -174,15 +178,16 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">select_btn_2M-over.png</string>
 								</object>
-								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
+								<object class="NSCustomResource" key="IBUIDisabledBackgroundImage" id="681421952">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">select_btn_2M-out.png</string>
 								</object>
+								<reference key="IBUINormalBackgroundImage" ref="681421952"/>
 							</object>
 							<object class="IBUIButton" id="361295602">
 								<reference key="NSNextResponder" ref="873135308"/>
 								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{212, 85}, {108, 75}}</string>
+								<string key="NSFrame">{{213, 85}, {107, 75}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -343,7 +348,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>SelectContentController</string>
 					<string>UIResponder</string>
-					<string>{{212, 483}, {320, 160}}</string>
+					<string>{{386, 585}, {320, 160}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -668,6 +673,7 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>select_btn_1L-out.png</string>
+				<string>select_btn_1L-over.png</string>
 				<string>select_btn_1M-out.png</string>
 				<string>select_btn_1M-over.png</string>
 				<string>select_btn_1R-out.png</string>
@@ -681,17 +687,18 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{107, 85}</string>
+				<string>{107, 85}</string>
 				<string>{106, 85}</string>
 				<string>{106, 85}</string>
-				<string>{106, 85}</string>
-				<string>{108, 85}</string>
-				<string>{108, 85}</string>
+				<string>{107, 85}</string>
+				<string>{107, 85}</string>
+				<string>{107, 75}</string>
+				<string>{107, 75}</string>
 				<string>{106, 75}</string>
 				<string>{106, 75}</string>
-				<string>{106, 75}</string>
-				<string>{106, 75}</string>
-				<string>{108, 75}</string>
-				<string>{108, 75}</string>
+				<string>{107, 75}</string>
+				<string>{107, 75}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">87</string>
