@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2209D2681193200D0024876D /* Y60AsyncTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209D2651193200D0024876D /* Y60AsyncTestHelper.m */; };
+		2209D2691193200D0024876D /* Y60AsyncTestHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209D2671193200D0024876D /* Y60AsyncTestHelperTest.m */; };
 		220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */; };
 		220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
@@ -400,6 +402,10 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2209D2641193200D0024876D /* Y60AsyncTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelper.h; sourceTree = "<group>"; };
+		2209D2651193200D0024876D /* Y60AsyncTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelper.m; sourceTree = "<group>"; };
+		2209D2661193200D0024876D /* Y60AsyncTestHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelperTest.h; sourceTree = "<group>"; };
+		2209D2671193200D0024876D /* Y60AsyncTestHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelperTest.m; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1474,6 +1480,10 @@
 		22C0B1E4117DBFFC009E3E3C /* HoccerClient */ = {
 			isa = PBXGroup;
 			children = (
+				2209D2641193200D0024876D /* Y60AsyncTestHelper.h */,
+				2209D2651193200D0024876D /* Y60AsyncTestHelper.m */,
+				2209D2661193200D0024876D /* Y60AsyncTestHelperTest.h */,
+				2209D2671193200D0024876D /* Y60AsyncTestHelperTest.m */,
 				22C0B1F4117DCE85009E3E3C /* HoccerClientTestCase.h */,
 				22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */,
 			);
@@ -2099,6 +2109,8 @@
 				2298E36211809D240078DBBD /* ACAddressBookPerson.m in Sources */,
 				2298E36311809D240078DBBD /* HoccerVcard.m in Sources */,
 				22BE73D7118196CD0011034A /* HoccerRequest.m in Sources */,
+				2209D2681193200D0024876D /* Y60AsyncTestHelper.m in Sources */,
+				2209D2691193200D0024876D /* Y60AsyncTestHelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

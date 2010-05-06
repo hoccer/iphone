@@ -15,6 +15,8 @@
 
 @interface HoccerDownloadConnection : HoccerConnection {
 	DownloadRequest *downloadRequest;
+	
+	BOOL downloaded;
 }
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;

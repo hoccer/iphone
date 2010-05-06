@@ -116,6 +116,7 @@
 	
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
 	GHAssertEquals([mockedDelegate.error code], kHoccerMessageCollision, @"should return no catcher error");
+	[NSThread sleepForTimeInterval:1];
 }
 
 
@@ -134,6 +135,7 @@
 	
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:4], @"should be called once");
+	[NSThread sleepForTimeInterval:3];
 	
 	[mockedDelegate2 release];
 	[client release];

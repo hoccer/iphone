@@ -47,8 +47,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegate Methods
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection 
-{	
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {	
 	self.result = [self parseJsonToDictionary: receivedData];
 	self.connection = nil;
 	

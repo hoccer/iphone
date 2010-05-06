@@ -59,18 +59,18 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	self.result = [self parseJsonToDictionary: receivedData];
 	
 	[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
-	if ([[self.result objectForKey:@"state"] isEqual:@"waiting"]) {
-		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
-		return;
-	}
-	
+
 	if ([self.response statusCode] >= 400) {
 		NSError *error = [self parseJsonToError: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
-	} else {
-		[self.delegate checkAndPerformSelector:@selector(peerGroupRequestDidFinish:) withObject: self];
+		return;
 	}
 
+	if (!canceled) {
+		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
+
+	}
+	
 	self.connection = nil;
 }
 

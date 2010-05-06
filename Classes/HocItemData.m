@@ -41,11 +41,13 @@
 @synthesize contentView;
 @synthesize viewOrigin;
 
-@synthesize status;
 @synthesize delegate;
 @synthesize isUpload;
 @synthesize gesture;
+
+@synthesize statusMessage;
 @synthesize progress;
+@synthesize status;
 
 @synthesize viewFromNib;
 
@@ -81,6 +83,7 @@
 	[contentView release];
 	[request release];
 	[gesture release];
+	[statusMessage release];
 	[status release];
 	[progress release];
 	[hoccerClient release];
@@ -183,27 +186,15 @@
 }
 
 #pragma mark -
-#pragma mark BaseHoccerRequest Delegate Methods
-
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	self.status = update;
-}
-
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
-	self.progress = theProgress;
-}
-
-
-
-#pragma mark -
 #pragma mark HoccerConnection Delegate
 
 - (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
-	self.status = [theStatus objectForKey:@"message"];
+	self.status = theStatus;
+	self.statusMessage = [theStatus objectForKey:@"message"];
 }
 
 - (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
-	self.status = [error localizedDescription];
+	self.statusMessage = [error localizedDescription];
 	[request release];
 	request = nil;
 	
@@ -235,8 +226,12 @@
 		}
 	}
 	
-	[request release];
+	// [request release];
 	request = nil;
+}
+
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
+	self.progress = theProgress;
 }
 
 

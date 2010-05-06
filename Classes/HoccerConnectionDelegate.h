@@ -13,6 +13,8 @@
 
 - (void)hoccerConnection: (HoccerConnection *)hoccerConnection didFailWithError: (NSError *)error;
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection *)hoccerConnection;
+
 - (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)status;
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)progress;
 
 @end

@@ -22,8 +22,9 @@
 	HoccerContent *content;
 	
 	CGPoint viewOrigin;
-	NSString *status;
+	NSString *statusMessage;
 	NSNumber *progress;
+	NSDictionary *status;
 
 	NSString *gesture;
 	BOOL isUpload;
@@ -39,9 +40,11 @@
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
 @property (retain) NSString *gesture;
-@property (retain) NSNumber *progress;
 
-@property (nonatomic, copy) NSString *status;
+@property (retain) NSNumber *progress;
+@property (nonatomic, copy) NSString *statusMessage;
+@property (nonatomic, retain) NSDictionary *status;
+
 @property (nonatomic, assign) id <HocItemDataDelegate> delegate; 
 @property (assign) IBOutlet UIView* viewFromNib;
 

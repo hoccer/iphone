@@ -23,6 +23,8 @@
 		self.gesture = aGesture;
 		self.delegate = aDelegate;
 		request = [[PeerGroupRequest alloc] initWithLocation:location gesture:aGesture delegate:self];
+		
+		downloaded = NO;
 	}
 	
 	return self;
@@ -59,12 +61,17 @@
 		NSURL *downloadUrl = [NSURL URLWithString:[piece objectForKey:@"uri"]];
 		downloadRequest = [[DownloadRequest alloc] initWithURL:downloadUrl delegate:self];
 	}
+	
+	if ([[self.status objectForKey:@"status_code"] intValue] == 200 && downloaded) {
+		[request cancel];
+	}
 }
 
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
 	NSLog(@"download did finsih");
 	[downloadRequest release];
 	downloadRequest = nil;
+	downloaded = YES;
 	
 	self.responseBody = aRequest.result;
 	self.responseHeader = aRequest.response;
@@ -83,7 +90,7 @@
 
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
-	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishDownloadedPercentageUpdate:)
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didUpdateTransfereProgress:)
 								withObject: self
 								withObject: progress];
 }

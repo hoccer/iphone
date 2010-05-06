@@ -13,6 +13,7 @@
 
 #import "PeerGroupRequest.h"
 #import "UploadRequest.h"
+#import "DownloadRequest.h"
 
 
 @interface HoccerUploadConnection ()
@@ -75,6 +76,10 @@
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
 	self.status = update;
 	
+	if ([delegate respondsToSelector:@selector(hoccerConnection:didUpdateStatus:)]) {
+		[delegate hoccerConnection:self didUpdateStatus:self.status];
+	}
+	
 	NSLog(@"upload status: %@", status);
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
@@ -82,16 +87,15 @@
 											   userInfo: [NSDictionary dictionaryWithObject:uploadUri forKey:@"uploadUri"] repeats:YES];
 		[timer retain];
 	}
+	
+	if (uploadDidFinish && [[status objectForKey:@"status_code"] intValue] == 200) {
+		[request cancel];
+		pollingDidFinish = YES;
+		
+		[self didFinishUpload];
+	}
 }
 
-- (void)peerGroupRequestDidFinish: (PeerGroupRequest *)aRequest {
-	[request release];
-	request = nil;
-	       
-	pollingDidFinish = YES;
-	[self didFinishUpload];
-}
-																
 - (void)uploadRequestDidFinished: (UploadRequest *)aRequest {
 	[upload release];
 	upload = nil;
@@ -104,13 +108,8 @@
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegates
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishUpdate:)
-								withObject: self withObject: update];
-}
-
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
-	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didPublishDownloadedPercentageUpdate:)
+- (void)request: (DownloadRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
+	[self.delegate checkAndPerformSelector:@selector(hoccerConnection:didUpdateTransfereProgress:)
 								withObject: self withObject: progress];
 }
 
