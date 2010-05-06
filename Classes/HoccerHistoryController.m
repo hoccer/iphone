@@ -130,6 +130,7 @@
 	// Navigation logic may go here. Create and push another view controller.
 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
+	content.persist = YES;
 	
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
