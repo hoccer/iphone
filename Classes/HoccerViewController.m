@@ -195,7 +195,9 @@
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
-	[item downloadWithLocation:locationController.location gesture:@"catch"];
+	
+	
+	// [item downloadWithLocation:locationController.location gesture:@"catch"];
 
 }
 
@@ -206,7 +208,7 @@
 	[FeedbackProvider playThrowFeedback];
 	
 	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
-	[[desktopData hocItemDataAtIndex:0] uploadWithLocation:locationController.location gesture:@"throw"];
+	[[desktopData hocItemDataAtIndex:0] throwWithLocation:locationController.location];
 
 	
 	UIView *view = [desktopData viewAtIndex:0];
@@ -252,7 +254,7 @@
 	HocItemData *item = [desktopData hocItemDataForView: view];
 	statusViewController.hocItemData = item;
 
-	[item uploadWithLocation:locationController.location gesture:@"sweepOut"];
+	[item sweepOutWithLocation:locationController.location];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {

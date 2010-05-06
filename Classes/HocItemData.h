@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HocItemDataDelegate.h"
+#import "HoccerConnectionDelegate.h"
 
 @class HoccerConnection;
 @class HoccerContent;
@@ -15,7 +16,7 @@
 @class HocLocation;
 @class HoccerClient;
 
-@interface HocItemData : NSObject <NSCoding> {
+@interface HocItemData : NSObject <NSCoding, HoccerConnectionDelegate> {
 	HoccerConnection *request;
 	ContentContainerView *contentView;
 	HoccerContent *content;
@@ -47,7 +48,9 @@
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;
 
-- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
+- (void)sweepOutWithLocation: (HocLocation *)location;
+- (void)throwWithLocation: (HocLocation *)location;
+
 - (void)downloadWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
 
 - (void)removeFromFileSystem;

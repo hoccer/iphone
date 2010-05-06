@@ -18,7 +18,7 @@
 @synthesize gesture;
 
 
-+ (HocLocation *)sweepOutWithContent: (HoccerContent *)content location: (HocLocation *)location {
++ (HoccerRequest *)sweepOutWithContent: (HoccerContent *)content location: (HocLocation *)location {
 	HoccerRequest *request = [[HoccerRequest alloc] init];
 	request.location = location;
 	request.content = content;
@@ -27,7 +27,7 @@
 	return [request autorelease];
 }
 
-+ (HocLocation *)sweepInWithLocation: (HocLocation *)location {
++ (HoccerRequest *)sweepInWithLocation: (HocLocation *)location {
 	HoccerRequest *request = [[HoccerRequest alloc] init];
 	request.location = location;
 	request.gesture = @"SweepIn";
@@ -35,7 +35,7 @@
 	return [request autorelease];
 }
 
-+ (HocLocation *)throwWithContent: (HoccerContent *)content location: (HocLocation *)location {
++ (HoccerRequest *)throwWithContent: (HoccerContent *)content location: (HocLocation *)location {
 	HoccerRequest *request = [[HoccerRequest alloc] init];
 	request.location = location;
 	request.content = content;
@@ -44,7 +44,7 @@
 	return [request autorelease];
 }
 
-+ (HocLocation *)catchWithLocation: (HocLocation *)location {
++ (HoccerRequest *)catchWithLocation: (HocLocation *)location {
 	HoccerRequest *request = [[HoccerRequest alloc] init];
 	request.location = location;
 	request.gesture = @"Catch";

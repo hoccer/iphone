@@ -67,6 +67,10 @@
 		228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
 		228D8FAB11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
 		228D8FAC11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
+		228EC2B21192C56000B486F2 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		228EC2B31192C56100B486F2 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		228EC2B41192C56900B486F2 /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE73D6118196CD0011034A /* HoccerRequest.m */; };
+		228EC2B51192C56900B486F2 /* HoccerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BE73D6118196CD0011034A /* HoccerRequest.m */; };
 		22903A1E116DC2D500230C1E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
 		22903A1F116DC2D500230C1E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
 		22903A20116DC2D500230C1E /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
@@ -1958,6 +1962,8 @@
 				229255FB118991CD008B4FFB /* TextPreview.m in Sources */,
 				22D89070118EDC69001BA9C8 /* CustomTabBar.m in Sources */,
 				22D86D8D118F1DD100F7AC6E /* SettingViewController.m in Sources */,
+				228EC2B21192C56000B486F2 /* HoccerClient.m in Sources */,
+				228EC2B41192C56900B486F2 /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2041,6 +2047,8 @@
 				229255FC118991CD008B4FFB /* TextPreview.m in Sources */,
 				22D89071118EDC69001BA9C8 /* CustomTabBar.m in Sources */,
 				E643A050118F7560007A4498 /* SettingViewController.m in Sources */,
+				228EC2B31192C56100B486F2 /* HoccerClient.m in Sources */,
+				228EC2B51192C56900B486F2 /* HoccerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

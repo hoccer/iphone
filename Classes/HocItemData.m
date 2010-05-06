@@ -8,6 +8,8 @@
 
 #import "HocItemData.h"
 #import "HoccerConnection.h"
+#import "HoccerClient.h"
+#import "HoccerRequest.h"
 #import "BaseHoccerRequest.h"
 #import "HoccerUploadConnection.h"
 #import "HoccerDownloadConnection.h"
@@ -27,6 +29,9 @@
 
 - (NSString *)transferTypeFromGestureName: (NSString *)name;
 - (NSArray *)actionButtons;
+
+- (void)setUpHoccerClient;
+
 @end
 
 
@@ -43,6 +48,17 @@
 @synthesize progress;
 
 @synthesize viewFromNib;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		[self setUpHoccerClient];
+	}
+	return self;
+}
+
+
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -67,6 +83,7 @@
 	[gesture release];
 	[status release];
 	[progress release];
+	[hoccerClient release];
 	
 	[super dealloc];
 }
@@ -127,16 +144,24 @@
 	return contentView;
 }
 
-- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)aGesture {
+- (void)sweepOutWithLocation: (HocLocation *)location {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
 		[delegate hocItemWillStartUpload:self];
 	}
 	
-	self.gesture = aGesture;
 	[content prepareSharing];
-	request = [[HoccerUploadConnection alloc] initWithLocation:location gesture:[self transferTypeFromGestureName:gesture] content: content 
-													   type: [content mimeType] filename: [content filename] delegate:self];
+	request = [hoccerClient connectionWithRequest:[HoccerRequest sweepOutWithContent:self.content location:location]];
+	isUpload = YES;
+}
+
+- (void)throwWithLocation: (HocLocation *)location {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
+		[delegate hocItemWillStartUpload:self];
+	}
 	
+	[content prepareSharing];
+	NSLog(@"hoccerClient: %@", hoccerClient);
+	request = [hoccerClient connectionWithRequest:[HoccerRequest throwWithContent:self.content location:location]];
 	isUpload = YES;
 }
 
@@ -183,7 +208,19 @@
 #pragma mark -
 #pragma mark BaseHoccerRequest Delegate Methods
 
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
+- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
+	self.status = update;
+}
+
+- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
+	self.progress = theProgress;
+}
+
+
+
+#pragma mark -
+#pragma mark HoccerConnection Delegate
+- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
 	self.status = [error localizedDescription];
 	[request release];
 	request = nil;
@@ -199,16 +236,32 @@
 	}
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	self.status = update;
+- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
+	[request release];
+	request = nil;
+		
+	if (isUpload) {
+		self.content.persist = YES;
+		if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
+			[delegate hocItemWasSend: self];
+		}
+	} else {
+		if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
+			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
+																											   withData: hoccerConnection.responseBody];
+			self.content = hoccerContent;
+			self.content.persist = YES;
+
+			[delegate hocItemWasReceived:self];
+		}
+	}
+	
+
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
-	self.progress = theProgress;
-}
 
-
-
+#pragma mark -
+#pragma mark Private Methods
 - (NSString *)transferTypeFromGestureName: (NSString *)name {
 	if ([name isEqual:@"throw"] || [name isEqual:@"catch"]) {
 		return @"distribute";
@@ -221,9 +274,6 @@
 	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture to transfer is unknown"  userInfo:nil];
 }
 
-
-#pragma mark -
-#pragma mark Private Methods
 - (NSArray *)actionButtons {
 	if (content.isFromContentSource) {
 		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -254,6 +304,10 @@
 	}
 }
 
-
+- (void)setUpHoccerClient {
+	hoccerClient = [[HoccerClient alloc] init];
+	hoccerClient.userAgent = @"Hoccer/iPhone";
+	hoccerClient.delegate = self;
+}
 
 @end

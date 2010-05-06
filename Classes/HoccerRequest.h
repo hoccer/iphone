@@ -22,10 +22,10 @@
 @property (retain) NSString *gesture;
 
 
-+ (HocLocation *)sweepOutWithContent: (HoccerContent *)content location: (HocLocation *)location;
-+ (HocLocation *)sweepInWithLocation: (HocLocation *)location;
++ (HoccerRequest *)sweepOutWithContent: (HoccerContent *)content location: (HocLocation *)location;
++ (HoccerRequest *)sweepInWithLocation: (HocLocation *)location;
 
-+ (HocLocation *)throwWithContent: (HoccerContent *)content location: (HocLocation *)location;
-+ (HocLocation *)catchWithLocation: (HocLocation *)location;
++ (HoccerRequest *)throwWithContent: (HoccerContent *)content location: (HocLocation *)location;
++ (HoccerRequest *)catchWithLocation: (HocLocation *)location;
 
 @end

@@ -29,9 +29,11 @@
 @synthesize gesture;
 @synthesize status;
 
+@synthesize responseBody;
+@synthesize responseHeader;
+
 - (void)cancel {
 }
-
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
 	[request release];

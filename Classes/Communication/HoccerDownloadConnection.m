@@ -61,6 +61,8 @@
 	[downloadRequest release];
 	downloadRequest = nil;
 	
+	self.responseBody = aRequest.result;
+	self.responseHeader = aRequest.response;
 	[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:)
 					withObject:self];
 }
