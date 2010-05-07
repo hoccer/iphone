@@ -41,7 +41,6 @@
 - (void) testItShouldReturnNoMessageIfLocationIsAccurate {
 	LocationController *locationController = [[LocationController alloc] init];
 	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kGoodAccuracy] fromLocation:nil];
-	[locationController updateHoccability];
 	NSError* message = [locationController messageForLocationInformation];
 	
 	STAssertNil(message, @"message should not be created");	
@@ -87,7 +86,6 @@
 	LocationController *locationController = [[LocationController alloc] init];
 	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kVeryBadAccuracy] fromLocation:nil];
 	locationController.bssids = [NSArray arrayWithObjects:@"1234567890", nil];
-	[locationController updateHoccability];
 
 	NSError* message = [locationController messageForLocationInformation];
 	STAssertNotNil([message localizedRecoverySuggestion], @"message should contain recovery suggestion");

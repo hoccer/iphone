@@ -46,6 +46,12 @@
 	hoccerClientDidFinishCalls += 1;
 }
 
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)status; {
+}
+
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)progress; {
+	
+}
 
 - (void) dealloc {
 	self.error = nil;
