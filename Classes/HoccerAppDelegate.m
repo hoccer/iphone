@@ -10,6 +10,7 @@
 #import "HoccerViewController.h"
 #import "TermOfUse.h"
 #import "StatusViewController.h"
+#import "HoccerText.h"
 
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
@@ -34,6 +35,19 @@
 	}
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL: (NSURL *)url {
+	if (!url) {
+		return NO;
+	}
+
+	NSString *urlString = [url absoluteString];
+	NSRange colon = [urlString rangeOfString:@":"];
+	NSString *request = [urlString substringFromIndex:(colon.location + 1)];
+	[viewController setContentPreview:[[HoccerText alloc] initWithData:[request dataUsingEncoding: NSUTF8StringEncoding] filename:@"url.txt"]];
+
+	return YES;
 }
 
 - (void)applicationWillTerminate: (UIApplication *)application {

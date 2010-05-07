@@ -32,5 +32,16 @@
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UIFileSharingEnabled</key>
 	<string>YES</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Hoccer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>hoccer</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
