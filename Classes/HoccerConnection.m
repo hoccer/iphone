@@ -31,6 +31,7 @@
 
 @synthesize responseBody;
 @synthesize responseHeader;
+@synthesize location;
 
 - (void)cancel {
 }
@@ -54,6 +55,21 @@
 								withObject: error];
 }
 
+- (void)startConnection {
+	[self doesNotRecognizeSelector:_cmd];
+}
+
+- (void) dealloc
+{
+	[gesture release];
+	[request release];
+	[location release];
+	[status release];
+	
+	[responseBody release];
+	[responseHeader release];
+	[super dealloc];
+}
 
 
 #pragma mark -

@@ -27,25 +27,28 @@
 @synthesize content;
 @synthesize type, filename;
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)aGesture content: (HoccerContent*)theContent 
+- (id)initWithLocation: (HocLocation *)aLocation gesture: (NSString *)aGesture content: (HoccerContent*)theContent 
 				   type: (NSString *)aType filename: (NSString *)aFilename delegate: (id)aDelegate {
 	self = [super init];
 	if (self != nil) {
 		self.gesture = aGesture;
+		self.location = aLocation;
+
 
 		isCanceled = NO;
 		self.delegate = aDelegate;
 		self.type = aType;
 		self.content = theContent;
 		self.filename = aFilename;
-		
-		request =[[PeerGroupRequest alloc] initWithLocation: location gesture: aGesture delegate: self];
 	}
 	return self;
 }
 
-- (void)dealloc 
-{
+- (void)startConnection {
+	request =[[PeerGroupRequest alloc] initWithLocation: self.location gesture: self.gesture delegate: self];
+}
+
+- (void)dealloc {
 	[uploadUrl release];
 	[type release];
 	[filename release];
@@ -74,13 +77,18 @@
 #pragma mark Upload Delegate Methods
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
+	if (isCanceled) {
+		return;
+	}
+	
+	
 	self.status = update;
 	
 	if ([delegate respondsToSelector:@selector(hoccerConnection:didUpdateStatus:)]) {
 		[delegate hoccerConnection:self didUpdateStatus:self.status];
 	}
 	
-	NSLog(@"upload status: %@", status);
+	// NSLog(@"upload status: %@", status);
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 
@@ -118,8 +126,12 @@
 #pragma mark Private Methods
 
 - (void) didFinishUpload {
-	NSLog(@"upload did finish");
+	if (isCanceled) {
+		return;
+	}
+	
 	if (uploadDidFinish && pollingDidFinish) {
+		NSLog(@"upload did finish");
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}
 }

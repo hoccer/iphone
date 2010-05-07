@@ -58,7 +58,9 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
 	
-	[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
+	if (!canceled) {
+		[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
+	}
 
 	if ([self.response statusCode] >= 400) {
 		NSError *error = [self parseJsonToError: self.result];

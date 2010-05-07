@@ -33,6 +33,7 @@
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 
-- (HoccerConnection *)connectionWithRequest: (HoccerRequest *)aRequest;
+- (HoccerConnection *)connectionWithRequest: (HoccerRequest *)request;
+- (HoccerConnection *)unstartedConnectionWithRequest:(HoccerRequest *)request;
 
 @end

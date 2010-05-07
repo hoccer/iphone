@@ -14,6 +14,7 @@
 #import "HocLocation.h"
 #import "HoccerVcard.h"
 #import "HoccerRequest.h"
+#import "HoccerConnection.h"
 
 @interface MockHoccerConnectionDelegate : NSObject <HoccerConnectionDelegate> 
 {
@@ -114,7 +115,8 @@
 	client.delegate = mockedDelegate;
 	
 	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	
+	[NSThread sleepForTimeInterval:0.3];
+
 	HoccerClient *client2 = [[HoccerClient alloc] init];
 	client2.userAgent = @"Hoccer/iPhone";
 	[client2 performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
@@ -135,17 +137,46 @@
 	client2.userAgent = @"Hoccer/iPhone";
 	client2.delegate = mockedDelegate2;
 	
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	[client2 performSelectorOnMainThread:@selector(connectionWithRequest:) withObject:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]] waitUntilDone:NO];
-	
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+
+	[NSThread sleepForTimeInterval:0.3];
+
+	HoccerConnection *connection2 = [client2 unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]]];
+	[connection2 performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+		
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:4], @"should be called once");
-	[NSThread sleepForTimeInterval:3];
+	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
 	
 	[mockedDelegate2 release];
 	[client release];
 	[client2 release];
 } 
+
+- (void)testItShouldReturnGoneWhenOneClientDeletesResource {
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	
+	HoccerClient *client2 = [[HoccerClient alloc] init];
+	client2.userAgent =@"Hoccer/iPhone";
+	client2.delegate = mockedDelegate;
+	
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+	
+	[NSThread sleepForTimeInterval:0.3];
+	
+	HoccerConnection *connection2 = [client2 unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]]];
+	[connection2 performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+	
+	[connection cancel];
+	
+	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
+	[NSThread sleepForTimeInterval:1];
+
+	[client release];
+	[client2 release];
+}
 
 - (HocLocation *)fakeHocLocation {
 	CLLocationCoordinate2D coordinate;

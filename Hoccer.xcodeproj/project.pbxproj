@@ -1267,14 +1267,14 @@
 		2298E3221180976F0078DBBD /* Subrequests */ = {
 			isa = PBXGroup;
 			children = (
+				2289896C1067CC4200FB3E5D /* BaseHoccerRequest.h */,
+				2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */,
 				228989721067CC4200FB3E5D /* UploadRequest.h */,
 				228989731067CC4200FB3E5D /* UploadRequest.m */,
 				2273358B10566826004228B4 /* DownloadRequest.h */,
 				2273358C10566826004228B4 /* DownloadRequest.m */,
 				223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */,
 				223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */,
-				2289896C1067CC4200FB3E5D /* BaseHoccerRequest.h */,
-				2289896D1067CC4200FB3E5D /* BaseHoccerRequest.m */,
 			);
 			name = Subrequests;
 			sourceTree = "<group>";

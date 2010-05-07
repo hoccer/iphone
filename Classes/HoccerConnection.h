@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerConnectionDelegate.h"
+#import "HocLocation.h"
 
 @class BaseHoccerRequest;
 
@@ -16,6 +17,7 @@
 	
 	BaseHoccerRequest *request;
 	NSObject <HoccerConnectionDelegate> *delegate;
+	HocLocation *location;
 	NSDictionary *status;
 	
 	NSData *responseBody;
@@ -25,11 +27,12 @@
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 @property (retain) NSDictionary *status;
 @property (copy) NSString *gesture;
+@property (retain) HocLocation *location;
 
 @property (nonatomic, retain) NSData *responseBody;
 @property (nonatomic, retain) NSHTTPURLResponse *responseHeader;
 
-
 - (void)cancel;
+- (void)startConnection;
 
 @end
