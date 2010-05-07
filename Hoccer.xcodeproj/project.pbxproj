@@ -2279,10 +2279,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
@@ -2293,6 +2290,8 @@
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
 				);
 				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
 					"-framework",
 					Foundation,
 					"-framework",

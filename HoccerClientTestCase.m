@@ -6,7 +6,6 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import <OCMock/OCMock.h>
 #import "HoccerClientTestCase.h"
 #import "HoccerClient.h"
 #import "HoccerConnectionDelegate.h"
