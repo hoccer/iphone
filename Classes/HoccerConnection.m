@@ -113,7 +113,7 @@
 - (NSDictionary *)userInfoForNoThrower {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:@"Nothing was thrown to you!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"You can use hoccer to catch something that was thrown by someone near you. Timing is important. You need to catch just after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:@"You can use Hoccer to catch something thrown by someone near you. Timing is important. You need to catch right after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 	
