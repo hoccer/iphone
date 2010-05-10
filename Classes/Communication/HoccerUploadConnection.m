@@ -59,8 +59,8 @@
 }
 
 
-- (void)cancel 
-{
+- (void)cancel {
+	[super cancel];
 	isCanceled = YES;
 	
 	[request cancel];
@@ -81,14 +81,16 @@
 		return;
 	}
 	
-	
 	self.status = update;
 	
 	if ([delegate respondsToSelector:@selector(hoccerConnection:didUpdateStatus:)]) {
 		[delegate hoccerConnection:self didUpdateStatus:self.status];
 	}
 	
-	// NSLog(@"upload status: %@", status);
+	if (eventURL == nil) {
+		eventURL = [request.eventUri retain];
+	}
+	
 	NSString *uploadUri = [self.status objectForKey:@"upload_uri"];
 	if (!uploadDidFinish && upload == nil && timer == nil && uploadUri != nil) {
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startUploadWhenDataIsReady:) 

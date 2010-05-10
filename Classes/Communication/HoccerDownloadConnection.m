@@ -44,6 +44,7 @@
 }
 
 - (void)cancel {
+	[super cancel];
 	canceled = YES;
 	
 	[request cancel];
@@ -54,6 +55,7 @@
 
 - (void)dealloc {
 	[request release];
+
 	[super dealloc];
 }
 
@@ -64,7 +66,12 @@
 	if (canceled) {
 		return;
 	}
+	NSLog(@"download status: %@",  update);
 	self.status = update;
+	
+	if (eventURL == nil) {
+		eventURL = [request.eventUri retain];
+	}
 	
 	if ([delegate respondsToSelector:@selector(hoccerConnection:didUpdateStatus:)]) {
 		[delegate hoccerConnection:self didUpdateStatus:self.status];
@@ -124,7 +131,6 @@
 #pragma mark Private Methods
 
 - (void)downloadFinished {
-	NSLog(@"%s", _cmd);
 	if ([[self.status objectForKey:@"status_code"] intValue] == 200 && downloaded) {
 		NSLog(@"delegate: %@", self.delegate);
 		[request cancel];

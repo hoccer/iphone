@@ -7,7 +7,8 @@
 //
 
 #import "HoccerConnection.h"
-#import "BaseHoccerRequest.h"
+#import "PeerGroupRequest.h"
+#import "DeleteRequest.h"
 #import "HoccerClient.h"
 #import "NSObject+DelegateHelper.h"
 
@@ -33,7 +34,14 @@
 @synthesize responseHeader;
 @synthesize location;
 
+@synthesize eventURL;
+
 - (void)cancel {
+	if (eventURL == nil) {
+		eventURL = [request.eventUri retain];
+	}
+	
+	deleteRequest = [[DeleteRequest alloc] initWithPeerGroupUri: request.eventUri];
 }
 
 - (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error {
@@ -55,22 +63,23 @@
 								withObject: error];
 }
 
+// abstract
 - (void)startConnection {
 	[self doesNotRecognizeSelector:_cmd];
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
+	NSLog(@"dealloc connection");
 	[gesture release];
 	[request release];
 	[location release];
 	[status release];
+	[eventURL release];
 	
 	[responseBody release];
 	[responseHeader release];
 	[super dealloc];
 }
-
 
 #pragma mark -
 #pragma mark Private UserInfo Methods 

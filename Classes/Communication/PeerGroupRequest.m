@@ -34,21 +34,13 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		self.request = eventRequest;
 			
 		[self startRequest];		
-		[self.delegate checkAndPerformSelector: @selector(request:didPublishUpdate:) withObject: self withObject: @"Connecting..."];
 	}
 	
 	return self;	
 }
 
-- (void)startRequest {
-	if (canceled) { return; }
-	
-	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
-	if (!self.connection)  {
-		NSLog(@"Error while executing url connection");
-	}
-	
-	[receivedData setLength:0];
+- (NSURL *)eventUri {
+	return [self.request URL];
 }
 
 
@@ -103,6 +95,15 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
-
+- (void)startRequest {
+	if (canceled) { return; }
+	
+	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
+	if (!self.connection)  {
+		NSLog(@"Error while executing url connection");
+	}
+	
+	[receivedData setLength:0];
+}
 
 @end

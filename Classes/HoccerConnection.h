@@ -10,18 +10,22 @@
 #import "HoccerConnectionDelegate.h"
 #import "HocLocation.h"
 
-@class BaseHoccerRequest;
+@class PeerGroupRequest;
+@class DeleteRequest;
 
 @interface HoccerConnection : NSObject {
 	NSString *gesture;
 	
-	BaseHoccerRequest *request;
+	PeerGroupRequest *request;
 	NSObject <HoccerConnectionDelegate> *delegate;
 	HocLocation *location;
 	NSDictionary *status;
 	
 	NSData *responseBody;
 	NSHTTPURLResponse *responseHeader;
+	
+	DeleteRequest *deleteRequest;
+	NSURL *eventURL;
 }
 
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
@@ -31,6 +35,7 @@
 
 @property (nonatomic, retain) NSData *responseBody;
 @property (nonatomic, retain) NSHTTPURLResponse *responseHeader;
+@property (readonly) NSURL *eventURL;
 
 - (void)cancel;
 - (void)startConnection;

@@ -65,6 +65,9 @@
 		228989751067CC4200FB3E5D /* HoccerDownloadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289896F1067CC4200FB3E5D /* HoccerDownloadConnection.m */; };
 		228989761067CC4200FB3E5D /* HoccerUploadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989711067CC4200FB3E5D /* HoccerUploadConnection.m */; };
 		228989771067CC4200FB3E5D /* UploadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228989731067CC4200FB3E5D /* UploadRequest.m */; };
+		228CF87711944FB90023FE34 /* DeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF87611944FB90023FE34 /* DeleteRequest.m */; };
+		228CF87811944FB90023FE34 /* DeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF87611944FB90023FE34 /* DeleteRequest.m */; };
+		228CF87911944FB90023FE34 /* DeleteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 228CF87611944FB90023FE34 /* DeleteRequest.m */; };
 		228D8DB41186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
 		228D8DB51186C87900468DDE /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8DB31186C87900468DDE /* HoccerProgressView.m */; };
 		228D8FAB11874DC300468DDE /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 228D8FAA11874DC300468DDE /* TabRecognizer.m */; };
@@ -525,6 +528,8 @@
 		228989711067CC4200FB3E5D /* HoccerUploadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerUploadConnection.m; path = Communication/HoccerUploadConnection.m; sourceTree = "<group>"; };
 		228989721067CC4200FB3E5D /* UploadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadRequest.h; path = Communication/UploadRequest.h; sourceTree = "<group>"; };
 		228989731067CC4200FB3E5D /* UploadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadRequest.m; path = Communication/UploadRequest.m; sourceTree = "<group>"; };
+		228CF87511944FB90023FE34 /* DeleteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteRequest.h; sourceTree = "<group>"; };
+		228CF87611944FB90023FE34 /* DeleteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteRequest.m; sourceTree = "<group>"; };
 		228D8DB21186C87900468DDE /* HoccerProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerProgressView.h; sourceTree = "<group>"; };
 		228D8DB31186C87900468DDE /* HoccerProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerProgressView.m; sourceTree = "<group>"; };
 		228D8FA911874DC300468DDE /* TabRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizer.h; sourceTree = "<group>"; };
@@ -1275,6 +1280,8 @@
 				2273358C10566826004228B4 /* DownloadRequest.m */,
 				223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */,
 				223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */,
+				228CF87511944FB90023FE34 /* DeleteRequest.h */,
+				228CF87611944FB90023FE34 /* DeleteRequest.m */,
 			);
 			name = Subrequests;
 			sourceTree = "<group>";
@@ -1974,6 +1981,7 @@
 				22D86D8D118F1DD100F7AC6E /* SettingViewController.m in Sources */,
 				228EC2B21192C56000B486F2 /* HoccerClient.m in Sources */,
 				228EC2B41192C56900B486F2 /* HoccerRequest.m in Sources */,
+				228CF87811944FB90023FE34 /* DeleteRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2059,6 +2067,7 @@
 				E643A050118F7560007A4498 /* SettingViewController.m in Sources */,
 				228EC2B31192C56100B486F2 /* HoccerClient.m in Sources */,
 				228EC2B51192C56900B486F2 /* HoccerRequest.m in Sources */,
+				228CF87911944FB90023FE34 /* DeleteRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2111,6 +2120,7 @@
 				22BE73D7118196CD0011034A /* HoccerRequest.m in Sources */,
 				2209D2681193200D0024876D /* Y60AsyncTestHelper.m in Sources */,
 				2209D2691193200D0024876D /* Y60AsyncTestHelperTest.m in Sources */,
+				228CF87711944FB90023FE34 /* DeleteRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

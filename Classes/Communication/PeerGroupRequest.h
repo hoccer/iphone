@@ -17,5 +17,6 @@
 }
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate;
+- (NSURL *)eventUri;
 
 @end
