@@ -23,8 +23,10 @@
 	
 	NSData *responseBody;
 	NSHTTPURLResponse *responseHeader;
-	
 	DeleteRequest *deleteRequest;
+	
+	BOOL canceled;
+	
 	NSURL *eventURL;
 }
 

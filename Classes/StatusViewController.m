@@ -68,6 +68,9 @@
 		
 		hocItemData = [newHocItem retain]; 
 		[self monitorHocItem:hocItemData];
+		
+		statusLabel.text = @"Connecting";
+		[self setConnectingState];
 	} 
 	
 	if (hocItemData == nil) {
@@ -249,15 +252,17 @@
 
 
 - (void)setUpdate: (NSString *)update {
-	statusLabel.text = update;
-	[self setConnectingState];
+	if ([[hocItemData.status objectForKey:@"status_code"] intValue] != 200) {
+		statusLabel.text = update;
+		[self setConnectingState];
+	} 	
 }
 
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
 	if ([[hocItemData.status objectForKey:@"status_code"] intValue] == 200) {
-		hocItemData.statusMessage = @"Transfering";
+		statusLabel.text = @"Transfering";
 		[self setTransferState];		
 	} 
 }

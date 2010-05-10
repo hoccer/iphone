@@ -16,8 +16,6 @@
 @interface HoccerDownloadConnection : HoccerConnection {
 	DownloadRequest *downloadRequest;
 	BOOL downloaded;
-	
-	BOOL canceled;
 }
 
 

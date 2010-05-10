@@ -22,7 +22,6 @@
 	NSString *filename;
 	
 	BOOL uploadDidFinish, pollingDidFinish;
-	BOOL isCanceled;
 	
 	NSURL *uploadUrl;
 	NSTimer *timer;

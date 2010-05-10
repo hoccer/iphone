@@ -35,7 +35,7 @@
 		self.location = aLocation;
 
 
-		isCanceled = NO;
+		canceled = NO;
 		self.delegate = aDelegate;
 		self.type = aType;
 		self.content = theContent;
@@ -61,7 +61,7 @@
 
 - (void)cancel {
 	[super cancel];
-	isCanceled = YES;
+	canceled = YES;
 	
 	[request cancel];
 	[request release];
@@ -77,7 +77,7 @@
 #pragma mark Upload Delegate Methods
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
-	if (isCanceled) {
+	if (canceled) {
 		return;
 	}
 	
@@ -128,7 +128,7 @@
 #pragma mark Private Methods
 
 - (void) didFinishUpload {
-	if (isCanceled) {
+	if (canceled) {
 		return;
 	}
 	
@@ -139,7 +139,7 @@
 }
 
 - (void) startUploadWhenDataIsReady: (NSTimer *)theTimer {
-	if (isCanceled) {
+	if (canceled) {
 		[timer invalidate];
 		[timer release];
 		timer = nil;
