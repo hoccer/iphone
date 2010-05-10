@@ -338,7 +338,6 @@
 		22C0B37D117DF276009E3E3C /* libGHUnitIPhone3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */; };
 		22C0B37E117DF288009E3E3C /* GHUnitIPhoneTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */; };
 		22C0B383117DF29B009E3E3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		22C0B38F117DF455009E3E3C /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B2DF117DEF5D009E3E3C /* Makefile */; };
 		22C0B3A5117DF597009E3E3C /* LocationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B65A5D117709DA003E7058 /* LocationControllerTest.m */; };
 		22C0B3BF117DF804009E3E3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		22C0B3C0117DF80F009E3E3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -709,7 +708,6 @@
 		22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHUnitIPhoneTestMain.m; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUnitIPhoneTestMain.m"; sourceTree = SOURCE_ROOT; };
 		22C0B2DD117DEF5D009E3E3C /* GHUNSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GHUNSObject+Swizzle.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/GHUNSObject+Swizzle.h"; sourceTree = SOURCE_ROOT; };
 		22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIPhone3_0.a; path = "../../../Downloads/libGHUnitIPhone3_0-0/libGHUnitIPhone3_0.a"; sourceTree = SOURCE_ROOT; };
-		22C0B2DF117DEF5D009E3E3C /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = "../../../Downloads/libGHUnitIPhone3_0-0/Makefile"; sourceTree = SOURCE_ROOT; };
 		22C0B2E0117DEF5D009E3E3C /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSException+GHTestFailureExceptions.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/NSException+GHTestFailureExceptions.h"; sourceTree = SOURCE_ROOT; };
 		22C0B2E1117DEF5D009E3E3C /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+GHValueFormatter.h"; path = "../../../Downloads/libGHUnitIPhone3_0-0/NSValue+GHValueFormatter.h"; sourceTree = SOURCE_ROOT; };
 		22C0B36D117DF212009E3E3C /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1533,7 +1531,6 @@
 				22C0B2DC117DEF5D009E3E3C /* GHUnitIPhoneTestMain.m */,
 				22C0B2DD117DEF5D009E3E3C /* GHUNSObject+Swizzle.h */,
 				22C0B2DE117DEF5D009E3E3C /* libGHUnitIPhone3_0.a */,
-				22C0B2DF117DEF5D009E3E3C /* Makefile */,
 				22C0B2E0117DEF5D009E3E3C /* NSException+GHTestFailureExceptions.h */,
 				22C0B2E1117DEF5D009E3E3C /* NSValue+GHValueFormatter.h */,
 			);
@@ -2076,7 +2073,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				22C0B37E117DF288009E3E3C /* GHUnitIPhoneTestMain.m in Sources */,
-				22C0B38F117DF455009E3E3C /* Makefile in Sources */,
 				22C0B3A5117DF597009E3E3C /* LocationControllerTest.m in Sources */,
 				22C0B3D4117DF9EA009E3E3C /* LocationController.m in Sources */,
 				22C0B3D8117DF9F9009E3E3C /* WifiScanner.m in Sources */,

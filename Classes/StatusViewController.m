@@ -20,7 +20,7 @@
 
 - (void)setConnectingState;
 - (void)setTransferState;
-- (void)setErrorState;
+- (void)setErrorStateWithRecovery: (BOOL)recovery;
 - (void)setLocationState;
 - (void)hideUpdateState;
 
@@ -222,7 +222,7 @@
 	showingError = NO;
 }
 
-- (void)setErrorState {
+- (void)setErrorStateWithRecovery: (BOOL)recovery {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	[self showViewAnimated];
@@ -235,7 +235,12 @@
 	hintButton.hidden = YES;
 	
 	showingError = YES;
-	[self showRecoverySuggestion];
+	if (recovery) {
+		[self showRecoverySuggestion];
+	} else {
+		[self hideRecoverySuggestion];
+	}
+
 
 	[timer invalidate];
 	timer = nil;
@@ -250,14 +255,12 @@
 	timer = nil;
 }
 
-
 - (void)setUpdate: (NSString *)update {
 	if ([[hocItemData.status objectForKey:@"status_code"] intValue] != 200) {
 		statusLabel.text = update;
 		[self setConnectingState];
 	} 	
 }
-
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
@@ -277,7 +280,7 @@
 		
 	}
 
-	[self setErrorState];
+	[self setErrorStateWithRecovery:([error localizedRecoverySuggestion] != nil)];
 }
 
 

@@ -18,7 +18,7 @@
 
 @interface HoccerUploadConnection ()
 
-- (void) didFinishUpload;
+- (void) checkCompleteness;
 
 @end
 
@@ -33,7 +33,6 @@
 	if (self != nil) {
 		self.gesture = aGesture;
 		self.location = aLocation;
-
 
 		canceled = NO;
 		self.delegate = aDelegate;
@@ -102,7 +101,7 @@
 		[request cancel];
 		pollingDidFinish = YES;
 		
-		[self didFinishUpload];
+		[self checkCompleteness];
 	}
 }
 
@@ -111,7 +110,7 @@
 	upload = nil;
 	
 	uploadDidFinish = YES;
-	[self didFinishUpload];
+	[self checkCompleteness];
 }
 
 
@@ -127,7 +126,7 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void) didFinishUpload {
+- (void) checkCompleteness {
 	if (canceled) {
 		return;
 	}

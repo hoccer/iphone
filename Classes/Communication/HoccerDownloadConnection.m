@@ -17,7 +17,7 @@
 
 @interface HoccerDownloadConnection ()
 
-- (void)downloadFinished;
+- (void)checkCompleteness;
 
 @end
 
@@ -86,7 +86,7 @@
 			}
 	}
 	
-	[self downloadFinished];
+	[self checkCompleteness];
 }
 
 
@@ -102,7 +102,7 @@
 	self.responseBody = aRequest.result;
 	self.responseHeader = aRequest.response;
 	
-	[self downloadFinished];
+	[self checkCompleteness];
 }
 
 #pragma mark -
@@ -132,7 +132,7 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)downloadFinished {
+- (void)checkCompleteness {
 	if ([[self.status objectForKey:@"status_code"] intValue] == 200 && downloaded) {
 		NSLog(@"delegate: %@", self.delegate);
 		[request cancel];
