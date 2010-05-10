@@ -78,10 +78,12 @@
 	}
 	
 	NSArray *pieces = [self.status objectForKey:@"uploads"];
-	if (downloadRequest == nil && [pieces count] > 0) {
+	if (downloadRequest == nil && [pieces count] > 0 ) {
 		NSDictionary *piece = [pieces objectAtIndex:0];
-		NSURL *downloadUrl = [NSURL URLWithString:[piece objectForKey:@"uri"]];
-		downloadRequest = [[DownloadRequest alloc] initWithURL:downloadUrl delegate:self];
+			NSURL *downloadUrl = [NSURL URLWithString:[piece objectForKey:@"uri"]];
+			if (downloadUrl) {
+				downloadRequest = [[DownloadRequest alloc] initWithURL:downloadUrl delegate:self];			
+			}
 	}
 	
 	[self downloadFinished];
