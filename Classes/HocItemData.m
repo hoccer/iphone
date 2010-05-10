@@ -7,10 +7,12 @@
 //
 
 #import "HocItemData.h"
+#import "HoccerConnection.h"
+#import "HoccerClient.h"
 #import "HoccerRequest.h"
 #import "BaseHoccerRequest.h"
-#import "HoccerUploadRequest.h"
-#import "HoccerDownloadRequest.h"
+#import "HoccerUploadConnection.h"
+#import "HoccerDownloadConnection.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 #import "StatusViewController.h"
@@ -22,20 +24,15 @@
 
 #define hoccerMessageErrorDomain @"HoccerErrorDomain"
 
+
 @interface HocItemData ()
 
 - (NSString *)transferTypeFromGestureName: (NSString *)name;
 - (NSArray *)actionButtons;
 
-- (NSDictionary *)userInfoForNoCatcher;
-- (NSDictionary *)userInfoForNoThrower;
-- (NSDictionary *)userInfoForNoSecondSweeper;
-- (NSDictionary *)userInfoForInterception;
-- (NSError *)createAppropriateError;
-- (NSError *)createAppropriateCollisionError;
+- (void)setUpHoccerClient;
 
 @end
-
 
 
 @implementation HocItemData
@@ -44,13 +41,26 @@
 @synthesize contentView;
 @synthesize viewOrigin;
 
-@synthesize status;
 @synthesize delegate;
 @synthesize isUpload;
 @synthesize gesture;
+
+@synthesize statusMessage;
 @synthesize progress;
+@synthesize status;
 
 @synthesize viewFromNib;
+
+- (id) init
+{
+	self = [super init];
+	if (self != nil) {
+		[self setUpHoccerClient];
+	}
+	return self;
+}
+
+
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -73,8 +83,10 @@
 	[contentView release];
 	[request release];
 	[gesture release];
+	[statusMessage release];
 	[status release];
 	[progress release];
+	[hoccerClient release];
 	
 	[super dealloc];
 }
@@ -135,77 +147,54 @@
 	return contentView;
 }
 
-- (void)uploadWithLocation: (HocLocation *)location gesture: (NSString *)aGesture {
+- (void)sweepOutWithLocation: (HocLocation *)location {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
 		[delegate hocItemWillStartUpload:self];
 	}
 	
-	self.gesture = aGesture;
 	[content prepareSharing];
-	request = [[HoccerUploadRequest alloc] initWithLocation:location gesture:[self transferTypeFromGestureName:gesture] content: content 
-													   type: [content mimeType] filename: [content filename] delegate:self];
-	
+	request = [hoccerClient connectionWithRequest:[HoccerRequest sweepOutWithContent:self.content location:location]];
 	isUpload = YES;
 }
 
-- (void)downloadWithLocation:(HocLocation *)location gesture:(NSString *)aGesture {
+- (void)throwWithLocation: (HocLocation *)location {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
+		[delegate hocItemWillStartUpload:self];
+	}
+	
+	[content prepareSharing];
+	request = [hoccerClient connectionWithRequest:[HoccerRequest throwWithContent:self.content location:location]];
+	isUpload = YES;
+}
+
+- (void)catchWithLocation: (HocLocation *)location {
 	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
 		[delegate hocItemWillStartDownload:self];
 	}
 	
-	self.gesture = aGesture;
-	request = [[HoccerDownloadRequest alloc] initWithLocation: location gesture:[self transferTypeFromGestureName:gesture] delegate: self];
+	request = [hoccerClient connectionWithRequest:[HoccerRequest catchWithLocation: location]];
 	isUpload = NO;
 }
 
-
-#pragma mark -
-#pragma mark Download Communication
-- (void)requestDidFinishDownload: (BaseHoccerRequest *)aRequest {
-	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: aRequest.response 
-																									   withData: aRequest.result];
-	hoccerContent.persist = YES;
-	
-	self.content = hoccerContent;	
-	[request release];
-	request = nil;
-	
-	if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
-		[delegate hocItemWasReceived:self];
+- (void)sweepInWithLocation:(HocLocation *)location {
+	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
+		[delegate hocItemWillStartDownload:self];
 	}
+	
+	request = [hoccerClient connectionWithRequest:[HoccerRequest sweepInWithLocation: location]];
+	isUpload = NO;
 }
 
 #pragma mark -
-#pragma mark Upload Communication 
+#pragma mark HoccerConnection Delegate
 
-- (void)requestDidFinishUpload: (BaseHoccerRequest *)aRequest {
-	[request release];
-	request = nil;
-	
-	self.content.persist = YES;
-	if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
-		[delegate hocItemWasSend: self];
-	}
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
+	self.status = theStatus;
+	self.statusMessage = [theStatus objectForKey:@"message"];
 }
 
-#pragma mark -
-#pragma mark BaseHoccerRequest Delegate Methods
-
-- (void)request:(BaseHoccerRequest *)aRequest didFailWithError: (NSError *)error 
-{
-	NSDictionary *errorResponse = [[error userInfo] objectForKey:@"HoccerErrorDescription"];
-	NSLog(@"errorResponse :%@", errorResponse);
-	
-	if ([error code] == 500 || 
-		( [[errorResponse objectForKey:@"state"] isEqual:@"no_seeders"] ||
-			  [[errorResponse objectForKey:@"state"] isEqual:@"no_peers"] ) )  {
-		
-		error = [self createAppropriateError];
-	} else if ([error code] == 409) {
-		error = [self createAppropriateCollisionError];
-	}
-	
-	self.status = [error localizedDescription];
+- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
+	self.statusMessage = [error localizedDescription];
 	[request release];
 	request = nil;
 	
@@ -220,13 +209,31 @@
 	}
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	self.status = update;
+- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
+	if (isUpload) {
+		self.content.persist = YES;
+		if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
+			[delegate hocItemWasSend: self];
+		}
+	} else {
+		if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
+			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
+																											   withData: hoccerConnection.responseBody];
+			self.content = hoccerContent;
+			self.content.persist = YES;
+
+			[delegate hocItemWasReceived:self];
+		}
+	}
+	
+	// [request release];
+	request = nil;
 }
 
-- (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)theProgress {
+- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
 	self.progress = theProgress;
 }
+
 
 #pragma mark -
 #pragma mark Private Methods
@@ -238,11 +245,9 @@
 	if ([name isEqual:@"sweepIn"] || [name isEqual:@"sweepOut"]) {
 		return @"pass";
 	}
-									  
+	
 	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture to transfer is unknown"  userInfo:nil];
 }
-
-
 
 - (NSArray *)actionButtons {
 	if (content.isFromContentSource) {
@@ -274,59 +279,13 @@
 	}
 }
 
-#pragma mark -
-#pragma mark Private UserInfo Methods 
-
-- (NSError *)createAppropriateError {
-	if ([gesture isEqual:@"throw"]) {
-		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoCatcher userInfo:[self userInfoForNoCatcher]];
-	}
-	
-	if ([gesture isEqual:@"catch"]) {
-		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoThrower userInfo:[self userInfoForNoThrower]];
-	}
-	
-	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageNoSecondSweeper userInfo:[self userInfoForNoSecondSweeper]];
-}
-
-- (NSError *)createAppropriateCollisionError {
-	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerMessageCollision userInfo:[self userInfoForInterception]];
+- (void)setUpHoccerClient {
+	hoccerClient = [[HoccerClient alloc] init];
+	hoccerClient.userAgent = @"Hoccer/iPhone";
+	hoccerClient.delegate = self;
 }
 
 
-- (NSDictionary *)userInfoForNoCatcher {
-	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Nobody caught your content!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"You can use Hoccer to throw content to someone near you. Timing is important. The other person needs to catch right after you have thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
-	
-	return [userInfo autorelease];
-	
-}
-
-- (NSDictionary *)userInfoForNoThrower {
-	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Nothing was thrown to you!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"You can use Hoccer to catch something thrown by someone near you. Timing is important. You need to catch right after the other person has thrown." forKey:NSLocalizedRecoverySuggestionErrorKey];
-
-	return [userInfo autorelease];
-	
-}
-
-- (NSDictionary *)userInfoForNoSecondSweeper {
-	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"No second device found!" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Asure that you really sweept over the edges of both devices." forKey:NSLocalizedRecoverySuggestionErrorKey];
-	
-	return [userInfo autorelease];
-}
-
-- (NSDictionary *)userInfoForInterception {
-	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
-	[userInfo setObject:@"Your hoc has been intercepted" forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:@"Hoccer wants to guarantee that only the right person gets the content. Unfortunatly someone else tried to hoc at your location. Try it again." forKey:NSLocalizedRecoverySuggestionErrorKey];
-	
-	return [userInfo autorelease];
-}
 
 #pragma mark -
 #pragma mark User Actions
@@ -336,21 +295,19 @@
 	} 
 }
 
+
 - (IBAction)saveButton: (id)sender {
 	if ([content isKindOfClass:[HoccerImage class]]) {
 		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
 		[self.contentView showSpinner];
 	}
-	
-	[content saveDataToContentStorage];
+	[content saveDataToContentStorage];	
 }
 
 - (void)finishedSaving {
 	[self.contentView hideSpinner];
 }
-
-
-
+	
 
 
 

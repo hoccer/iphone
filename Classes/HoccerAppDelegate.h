@@ -14,7 +14,7 @@
 @class BaseHoccerRequest;
 @class StatusViewController;
 @class LocationController;
-@class HoccerRequest;
+@class HoccerConnection;
 
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"

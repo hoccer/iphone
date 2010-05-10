@@ -13,32 +13,27 @@
 
 @implementation BaseHoccerRequest
 
+@synthesize userAgent;
 @synthesize delegate;
 @synthesize response;
 @synthesize result;
 @synthesize connection;
 @synthesize request;
 
-- (id)init
-{
+- (id)init {
 	self = [super init];
 	if (self != nil) {
 		receivedData = [[NSMutableData alloc] init]; 
-		request = [[NSMutableURLRequest alloc] init];
-		
 		
 		NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey: @"CFBundleVersion"];
-		NSString *userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
-		
-		[request setValue: userAgent forHTTPHeaderField:@"User-Agent"];
+		self.userAgent = [NSString stringWithFormat: @"Hoccer /%@ iPhone", version];
 		
 		canceled = NO;
 	}
 	return self;
 }
 
-- (void)cancel 
-{
+- (void)cancel {
 	[self.connection cancel];
 	self.connection = nil;
 	
@@ -46,8 +41,8 @@
 }
 
 
-- (void)dealloc 
-{
+- (void)dealloc {
+	[userAgent release];
 	[receivedData release];
 	
 	[connection release];
@@ -62,19 +57,19 @@
 #pragma mark -
 #pragma mark private helper methods
 
-- (id) createJSONFromResult: (NSData *) resultData {
+- (id)parseJsonToDictionary: (NSData *) resultData {
 	NSError *error;
 
 	NSString *dataString = [[NSString alloc] initWithData: resultData encoding: NSUTF8StringEncoding];
 	SBJSON *json = [[SBJSON alloc] init];
 	id jsonResult = [json objectWithString: dataString error: &error];
+	
 	[json release];
 	[dataString release];
-	
 	return jsonResult;
 }
 
-- (NSError *)createErrorFromResult: (id)aResult {
+- (NSError *)parseJsonToError: (id)aResult {
 	NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
 	if ([aResult valueForKey:@"message"]) {
 		[userInfo setObject:[aResult valueForKey:@"message"] forKey:NSLocalizedDescriptionKey];
@@ -90,12 +85,15 @@
 #pragma mark -
 #pragma mark NSURLConnection delegate methods
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	if (canceled) { return; }
+	
 	[receivedData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error {
+	if (canceled) { return; }
+
 	self.connection = nil;
-	
 	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 }
 

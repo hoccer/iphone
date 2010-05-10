@@ -84,7 +84,7 @@
 		self.historyCell = nil;
 	}
     
-	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+// 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 //	cell.textLabel.text = [[item filepath] lastPathComponent];
 //	cell.textLabel.backgroundColor = [UIColor redColor];
 //

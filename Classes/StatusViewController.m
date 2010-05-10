@@ -20,7 +20,7 @@
 
 - (void)setConnectingState;
 - (void)setTransferState;
-- (void)setErrorState;
+- (void)setErrorStateWithRecovery: (BOOL)recovery;
 - (void)setLocationState;
 - (void)hideUpdateState;
 
@@ -62,12 +62,15 @@
 
 - (void)setHocItemData:(HocItemData *)newHocItem {
 	if (hocItemData != newHocItem) {
-		[hocItemData removeObserver:self forKeyPath:@"status"];
+		[hocItemData removeObserver:self forKeyPath:@"statusMessage"];
 		[hocItemData removeObserver:self forKeyPath:@"progress"];
 		[hocItemData release];
 		
 		hocItemData = [newHocItem retain]; 
 		[self monitorHocItem:hocItemData];
+		
+		statusLabel.text = @"Connecting";
+		[self setConnectingState];
 	} 
 	
 	if (hocItemData == nil) {
@@ -219,7 +222,7 @@
 	showingError = NO;
 }
 
-- (void)setErrorState {
+- (void)setErrorStateWithRecovery: (BOOL)recovery {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	[self showViewAnimated];
@@ -232,7 +235,12 @@
 	hintButton.hidden = YES;
 	
 	showingError = YES;
-	[self showRecoverySuggestion];
+	if (recovery) {
+		[self showRecoverySuggestion];
+	} else {
+		[self hideRecoverySuggestion];
+	}
+
 
 	[timer invalidate];
 	timer = nil;
@@ -247,17 +255,17 @@
 	timer = nil;
 }
 
-
 - (void)setUpdate: (NSString *)update {
-	statusLabel.text = update;
-	[self setConnectingState];
+	if ([[hocItemData.status objectForKey:@"status_code"] intValue] != 200) {
+		statusLabel.text = update;
+		[self setConnectingState];
+	} 	
 }
-
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	if ([hocItemData.status contains:@"Transfering"]) {
-		hocItemData.status = @"Transfering";
+	if ([[hocItemData.status objectForKey:@"status_code"] intValue] == 200) {
+		statusLabel.text = @"Transfering";
 		[self setTransferState];		
 	} 
 }
@@ -272,7 +280,7 @@
 		
 	}
 
-	[self setErrorState];
+	[self setErrorStateWithRecovery:([error localizedRecoverySuggestion] != nil)];
 }
 
 
@@ -312,12 +320,12 @@
 #pragma mark Monitoring Changes
 
 - (void)monitorHocItem: (HocItemData*) hocItem {
-	[hocItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+	[hocItem addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
 	[hocItem addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if ([keyPath isEqual:@"status"]) {
+	if ([keyPath isEqual:@"statusMessage"]) {
 		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
 	}
 	

@@ -192,8 +192,7 @@
 	
 	NSString *extension = [filename pathExtension];
 	NSString *baseFilename = [filename stringByDeletingPathExtension];
-	
-	
+
 	NSInteger i = 1;
 	NSString* newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
 	newFilename = [newFilename stringByAppendingPathExtension: extension];

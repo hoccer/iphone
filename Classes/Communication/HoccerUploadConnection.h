@@ -8,29 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
-#import "HoccerRequest.h"
+#import "HoccerConnection.h"
 
 @class BaseHoccerRequest;
 @class HocLocation;
 
 
-@interface HoccerUploadRequest : HoccerRequest {
-	BaseHoccerRequest *request;
+@interface HoccerUploadConnection : HoccerConnection {
 	BaseHoccerRequest *upload;
 	
 	HoccerContent* content;
 	NSString *type;
 	NSString *filename;
 	
-	id delegate;
-	
 	BOOL uploadDidFinish, pollingDidFinish;
-	BOOL isCanceled;
 	
+	NSURL *uploadUrl;
 	NSTimer *timer;
 }
 
-@property (nonatomic, assign) id delegate;
 @property (retain) HoccerContent* content;
 @property (retain) NSString *type;
 @property (retain) NSString *filename;

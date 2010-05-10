@@ -1,4 +1,4 @@
-//
+	//
 //  BaseHoccerRequest.h
 //  Hoccer
 //
@@ -19,9 +19,10 @@
 
 
 @interface BaseHoccerRequest : NSObject {
+	NSString *userAgent;
 	id delegate;
 
-	NSMutableURLRequest *request;
+	NSURLRequest *request;
 	NSMutableData *receivedData;
 
 	NSURLConnection *connection;
@@ -32,14 +33,14 @@
 }
 
 @property (assign, nonatomic) id delegate;
+@property (copy) NSString* userAgent;
+@property (retain) NSURLRequest *request;
 @property (retain) NSHTTPURLResponse *response;
 @property (retain) NSURLConnection *connection;
 @property (retain) id result;
 
-@property (retain) NSMutableURLRequest *request;
-
-- (id) createJSONFromResult: (NSData *) resultData;
-- (NSError *) createErrorFromResult: (id)aResult;
+- (id) parseJsonToDictionary: (NSData *) resultData;
+- (NSError *) parseJsonToError: (id)aResult;
 
 - (void)cancel;
 

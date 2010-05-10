@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseHoccerRequest.h"
-#import "HoccerRequest.h"
+#import "HoccerConnection.h"
 
 @class HocLocation;
+@class DownloadRequest;
 
-
-@interface HoccerDownloadRequest : HoccerRequest {
-	BaseHoccerRequest *request;
-	id delegate;
+@interface HoccerDownloadConnection : HoccerConnection {
+	DownloadRequest *downloadRequest;
+	BOOL downloaded;
 }
 
-@property (nonatomic, assign) id delegate;
+
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id) aDelegate;
 - (void)cancel;

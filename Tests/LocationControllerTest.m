@@ -15,7 +15,7 @@
 
 #define kGoodAccuracy 199 // good accuracy is better than 200m 
 #define kBadAccuracy 501 // bad accuracy is worse than 500m
-#define kVeryBadAccuracy 2001 // to bad! worse than 2000m  
+#define kVeryBadAccuracy 5001 // to bad! worse than 2000m  
 
 @implementation LocationControllerTest
 
@@ -41,7 +41,6 @@
 - (void) testItShouldReturnNoMessageIfLocationIsAccurate {
 	LocationController *locationController = [[LocationController alloc] init];
 	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kGoodAccuracy] fromLocation:nil];
-	
 	NSError* message = [locationController messageForLocationInformation];
 	
 	STAssertNil(message, @"message should not be created");	
@@ -87,7 +86,7 @@
 	LocationController *locationController = [[LocationController alloc] init];
 	[locationController locationManager:[[CLLocationManager alloc] init] didUpdateToLocation:[self locationWithAccuracy:kVeryBadAccuracy] fromLocation:nil];
 	locationController.bssids = [NSArray arrayWithObjects:@"1234567890", nil];
-	
+
 	NSError* message = [locationController messageForLocationInformation];
 	STAssertNotNil([message localizedRecoverySuggestion], @"message should contain recovery suggestion");
 	STAssertFalse([[message localizedRecoverySuggestion] contains:@"wifi"], @"message should not contain wifi");

@@ -13,8 +13,10 @@
 @class HocLocation;
 
 @interface PeerGroupRequest : BaseHoccerRequest {
+	BOOL hasReceivedURL;
 }
 
-- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture isSeeder: (BOOL)seeder delegate: (id)aDelegate;
+- (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate;
+- (NSURL *)eventUri;
 
 @end

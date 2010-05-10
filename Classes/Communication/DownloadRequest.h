@@ -14,7 +14,6 @@
 	NSInteger downloaded;
 }
 
-
-- (id)initWithObject: (id)aObject delegate: (id)aDelegate;
+- (id)initWithURL: (NSURL *)url delegate: (id)aDelegate;
 
 @end
