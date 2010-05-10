@@ -73,7 +73,7 @@
 
 	if (dateFormatter == nil) {
 		dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	}
 	
@@ -84,7 +84,7 @@
 		self.historyCell = nil;
 	}
     
-// 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+ 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 //	cell.textLabel.text = [[item filepath] lastPathComponent];
 //	cell.textLabel.backgroundColor = [UIColor redColor];
 //
@@ -92,7 +92,14 @@
 //	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transferKind, [dateFormatter stringFromDate: item.creationDate]];
 //	cell.imageView.image = [UIImage imageNamed:@"history_icon_contact.png"];
 //	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-//
+
+	
+	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
+	((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
+	
+	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
+	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
+	
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;

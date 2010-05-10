@@ -53,6 +53,7 @@
 								<string key="NSFrame">{{49, 0}, {16, 62}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
 								<int key="IBUIContentMode">4</int>
+								<int key="IBUITag">3</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 									<string key="IBUIAccessibilityLabel">item_direction</string>
@@ -66,7 +67,7 @@
 							<object class="IBUILabel" id="520233837">
 								<reference key="NSNextResponder" ref="85227126"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{54, 9}, {127, 21}}</string>
+								<string key="NSFrame">{{57, 9}, {224, 21}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -75,6 +76,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 									<string key="IBUIAccessibilityLabel">item_name</string>
@@ -92,13 +94,16 @@
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUILineBreakMode">5</int>
 							</object>
 							<object class="IBUIImageView" id="973561326">
 								<reference key="NSNextResponder" ref="85227126"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{-1, 0}, {50, 62}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
+								<int key="IBUITag">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 									<string key="IBUIAccessibilityLabel">item_type_image</string>
@@ -112,11 +117,12 @@
 							<object class="IBUILabel" id="717076961">
 								<reference key="NSNextResponder" ref="85227126"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{73, 31}, {116, 21}}</string>
+								<string key="NSFrame">{{73, 31}, {199, 21}}</string>
 								<reference key="NSSuperview" ref="85227126"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">2</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">04.05.2001 - 12:34</string>
@@ -131,6 +137,7 @@
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
 							</object>
 						</object>
@@ -195,10 +202,10 @@
 						<reference key="object" ref="139147627"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="520233837"/>
 							<reference ref="973561326"/>
 							<reference ref="717076961"/>
 							<reference ref="292532092"/>
+							<reference ref="520233837"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -265,7 +272,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">8</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -280,6 +287,13 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/HoccerHistoryController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../../../Downloads/libGHUnitIPhone3_0-0/GHUNSObject+Swizzle.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
