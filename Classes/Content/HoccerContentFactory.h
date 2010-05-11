@@ -19,5 +19,6 @@
 - (HoccerContent*) createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data;
 - (HoccerContent *)createContentFromFile: (NSString *)filename withMimeType: (NSString *)mimeType;
 - (BOOL) isSupportedType: (NSString *)mimeType;
+- (UIImage *)thumbForMimeType: (NSString *)mimeType;
 
 @end

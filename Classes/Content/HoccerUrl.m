@@ -54,5 +54,8 @@
 	return webView;
 }
 
+- (UIImage *)historyThumbButton {
+	return [UIImage imageNamed:@"history_icon_image.png"];
+}
 
 @end

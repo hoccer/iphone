@@ -210,5 +210,9 @@
 	return [UIImage imageNamed:@"container_btn_double-save.png"];
 }
 
+- (UIImage *)historyThumbButton {
+	return [UIImage imageNamed:@"history_icon_image.png"];
+} 
+
 
 @end

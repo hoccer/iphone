@@ -44,7 +44,21 @@ static HoccerContentFactory* sharedInstance = nil;
 	return NO;
 }
 
-
+- (UIImage *)thumbForMimeType: (NSString *)mimeType {
+	UIImage *hoccerImage = nil;
+	
+	if ([mimeType isEqual: @"text/x-vcard"]) {
+		hoccerImage = [UIImage imageNamed:@"history_icon_contact.png"];
+	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
+		hoccerImage = [UIImage imageNamed:@"history_icon_image.png"];
+	} else if ([mimeType isEqual: @"text/plain"]) {
+	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
+	} else {
+	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
+	}
+					   
+	return [hoccerImage autorelease];
+}
 
 
 

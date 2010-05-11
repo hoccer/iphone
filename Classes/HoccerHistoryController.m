@@ -85,21 +85,13 @@
 	}
     
  	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-//	cell.textLabel.text = [[item filepath] lastPathComponent];
-//	cell.textLabel.backgroundColor = [UIColor redColor];
-//
-//	NSString *transferKind = [item.upload boolValue] ? @"uploaded" : @"downloaded";
-//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", transferKind, [dateFormatter stringFromDate: item.creationDate]];
-//	cell.imageView.image = [UIImage imageNamed:@"history_icon_contact.png"];
-//	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 
-	
 	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 	((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 	
 	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
-	
+	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;

@@ -96,5 +96,9 @@
 	}
 }
 
+- (UIImage *)historyThumbButton {
+	return [UIImage imageNamed:@"history_icon_text.png"];
+}
+
 
 @end

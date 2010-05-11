@@ -107,6 +107,9 @@
 	return [personCreator previewName];
 }
 
+- (UIImage *)historyThumbButton {
+	return [UIImage imageNamed:@"history_icon_contact.png"];
+}
 
 
 @end

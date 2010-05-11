@@ -57,5 +57,6 @@
 
 - (NSString *)uniqueFilenameFromFilename: (NSString *)filename;
 - (UIImage *)imageForSaveButton;
+- (UIImage *)historyThumbButton;
 
 @end
