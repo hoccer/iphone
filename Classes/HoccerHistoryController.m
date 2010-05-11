@@ -15,6 +15,7 @@
 
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
+#import "AdMobView.h"
 
 
 @implementation HoccerHistoryController
@@ -58,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if (section == 0) {
-		return [historyData count];
+		return [historyData count] + 1;
 	}
 	
 	return 0;
@@ -84,6 +85,13 @@
 		self.historyCell = nil;
 	}
     
+	if ([historyData count] == [indexPath row]) {
+		// [cell.subviews objectAtIndex:0] 
+		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
+		return cell;
+	}
+
+	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
  	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 
 	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
@@ -92,7 +100,6 @@
 	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;
 }
@@ -169,6 +176,49 @@
 	[hoccerViewController setContentPreview: content];
 	[hoccerViewController showDesktop];
 }
+
+
+#pragma mark -
+#pragma mark HoccerAdMobDelegate
+
+- (NSString *)publisherId {
+	return @"a14be7bb0e2b7b0"; // this should be prefilled; if not, get it from www.admob.com
+}
+
+- (UIViewController *)currentViewController {
+	return self;
+}
+
+- (void)didReceiveAd:(AdMobView *)adView; {
+	NSLog(@"view: %@ in %s", adView, _cmd);
+}
+
+// Sent when a AdMobView successfully makes a subsequent ad request (via requestFreshAd).
+// For example an AdView object that shows three ads in its lifetime will see the following
+// methods called:  didReceiveAd:, didReceiveRefreshedAd:, and didReceiveRefreshedAd:.
+- (void)didReceiveRefreshedAd:(AdMobView *)adView; {
+	NSLog(@"view: %@ in %s", adView, _cmd);
+}
+
+// Sent when an ad request failed to load an ad.
+// Note that this will only ever be sent once per AdMobView, regardless of whether
+// new ads are subsequently requested in the same AdMobView.
+- (void)didFailToReceiveAd:(AdMobView *)adView; {
+	NSLog(@"view: %@ in %s", adView, _cmd);
+}
+
+// Sent when subsequent AdMobView ad requests fail (via requestFreshAd).
+- (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
+	
+	NSLog(@"view: %@ in %s", adView, _cmd);
+
+}
+
+- (BOOL)useTestAd {
+	return YES;
+}
+
+
 
 @end
 

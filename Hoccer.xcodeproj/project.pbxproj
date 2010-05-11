@@ -194,7 +194,6 @@
 		22999414119186B5006DA5DD /* help_catch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22999410119186B5006DA5DD /* help_catch_icon.png */; };
 		22999415119186B5006DA5DD /* help_throw_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22999411119186B5006DA5DD /* help_throw_icon.png */; };
 		229995B41191D6A6006DA5DD /* HistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229995B31191D6A6006DA5DD /* HistoryView.xib */; };
-		229995F11191E054006DA5DD /* history_soll.png in Resources */ = {isa = PBXBuildFile; fileRef = 229995F01191E054006DA5DD /* history_soll.png */; };
 		229A7E73116B255700FFAD1B /* HoccerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A8A0391160AB35004BCD3D /* HoccerConnection.m */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A839C116B708B00FFAD1B /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A839B116B708B00FFAD1B /* HoccerViewControllerIPhone.m */; };
@@ -363,6 +362,18 @@
 		22C0B41C117DFC3C009E3E3C /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		22C0B41D117DFC3C009E3E3C /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
 		22C72D0B1096036B00CB3BD8 /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */; };
+		22CCDCD71199B79D00CDFAA2 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
+		22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */; };
+		22CCDD091199B81C00CDFAA2 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */; };
+		22CCDD0A1199B81C00CDFAA2 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */; };
+		22CCDD0B1199B81C00CDFAA2 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF91199B81C00CDFAA2 /* NSCharacterSet_Extensions.m */; };
+		22CCDD0C1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCFB1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m */; };
+		22CCDD0D1199B81C00CDFAA2 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCFD1199B81C00CDFAA2 /* NSScanner_Extensions.m */; };
+		22CCDD0E1199B81C00CDFAA2 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD001199B81C00CDFAA2 /* CJSONDataSerializer.m */; };
+		22CCDD0F1199B81C00CDFAA2 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD021199B81C00CDFAA2 /* CJSONDeserializer.m */; };
+		22CCDD101199B81C00CDFAA2 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD041199B81C00CDFAA2 /* CJSONScanner.m */; };
+		22CCDD111199B81C00CDFAA2 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD061199B81C00CDFAA2 /* CJSONSerializer.m */; };
+		22CCDD121199B81C00CDFAA2 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD081199B81C00CDFAA2 /* CSerializedJSONData.m */; };
 		22D7300A10A84EF8000AEA79 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7300910A84EF8000AEA79 /* Background.png */; };
 		22D730B710A879AA000AEA79 /* Photobox.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D730B610A879AA000AEA79 /* Photobox.png */; };
 		22D7313B10A88600000AEA79 /* Catch_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D7313A10A88600000AEA79 /* Catch_Icon.png */; };
@@ -620,7 +631,6 @@
 		22999410119186B5006DA5DD /* help_catch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_catch_icon.png; sourceTree = "<group>"; };
 		22999411119186B5006DA5DD /* help_throw_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_throw_icon.png; sourceTree = "<group>"; };
 		229995B31191D6A6006DA5DD /* HistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryView.xib; sourceTree = "<group>"; };
-		229995F01191E054006DA5DD /* history_soll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history_soll.png; path = ../../../Desktop/history/history_soll.png; sourceTree = SOURCE_ROOT; };
 		229A7E65116B245B00FFAD1B /* HoccerContentPreviewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerContentPreviewDelegate.h; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
@@ -719,6 +729,30 @@
 		22C0B36F117DF212009E3E3C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		22C72D091096036B00CB3BD8 /* GTMUIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMUIImage+Resize.h"; sourceTree = "<group>"; };
 		22C72D0A1096036B00CB3BD8 /* GTMUIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMUIImage+Resize.m"; sourceTree = "<group>"; };
+		22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
+		22CCDCD51199B79D00CDFAA2 /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
+		22CCDCD61199B79D00CDFAA2 /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
+		22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		22CCDCF31199B81C00CDFAA2 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		22CCDCF61199B81C00CDFAA2 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		22CCDCF81199B81C00CDFAA2 /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		22CCDCF91199B81C00CDFAA2 /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		22CCDCFA1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		22CCDCFB1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		22CCDCFC1199B81C00CDFAA2 /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSScanner_Extensions.h; sourceTree = "<group>"; };
+		22CCDCFD1199B81C00CDFAA2 /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSScanner_Extensions.m; sourceTree = "<group>"; };
+		22CCDCFF1199B81C00CDFAA2 /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDataSerializer.h; sourceTree = "<group>"; };
+		22CCDD001199B81C00CDFAA2 /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDataSerializer.m; sourceTree = "<group>"; };
+		22CCDD011199B81C00CDFAA2 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		22CCDD021199B81C00CDFAA2 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		22CCDD031199B81C00CDFAA2 /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		22CCDD041199B81C00CDFAA2 /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		22CCDD051199B81C00CDFAA2 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		22CCDD061199B81C00CDFAA2 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		22CCDD071199B81C00CDFAA2 /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
+		22CCDD081199B81C00CDFAA2 /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
 		22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureHistory.h; path = GesturesInterpreter/FeatureHistory.h; sourceTree = "<group>"; };
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D49E301068D09700B03B61 /* FeatureHistoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureHistoryTests.h; sourceTree = "<group>"; };
@@ -783,6 +817,8 @@
 				2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */,
 				229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */,
 				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
+				22CCDCD71199B79D00CDFAA2 /* libAdMob.a in Frameworks */,
+				22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +860,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				22CCDCD31199B79D00CDFAA2 /* AdMob */,
 				22977B2511105C2D00B55D3F /* Wifi */,
 				22888E8E1175EB9300FB5968 /* LocationContoller */,
 				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
@@ -894,7 +931,6 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				229995F01191E054006DA5DD /* history_soll.png */,
 				2299928F11916AC5006DA5DD /* history */,
 				2299923B1191617F006DA5DD /* help */,
 				2299922811915C0F006DA5DD /* about */,
@@ -1542,6 +1578,60 @@
 			name = GHUnit;
 			sourceTree = "<group>";
 		};
+		22CCDCD31199B79D00CDFAA2 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				22CCDCF21199B81C00CDFAA2 /* TouchJSON */,
+				22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */,
+				22CCDCD51199B79D00CDFAA2 /* AdMobView.h */,
+				22CCDCD61199B79D00CDFAA2 /* libAdMob.a */,
+			);
+			path = AdMob;
+			sourceTree = "<group>";
+		};
+		22CCDCF21199B81C00CDFAA2 /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				22CCDCF31199B81C00CDFAA2 /* CDataScanner.h */,
+				22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */,
+				22CCDCF51199B81C00CDFAA2 /* Extensions */,
+				22CCDCFE1199B81C00CDFAA2 /* JSON */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		22CCDCF51199B81C00CDFAA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				22CCDCF61199B81C00CDFAA2 /* CDataScanner_Extensions.h */,
+				22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */,
+				22CCDCF81199B81C00CDFAA2 /* NSCharacterSet_Extensions.h */,
+				22CCDCF91199B81C00CDFAA2 /* NSCharacterSet_Extensions.m */,
+				22CCDCFA1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.h */,
+				22CCDCFB1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m */,
+				22CCDCFC1199B81C00CDFAA2 /* NSScanner_Extensions.h */,
+				22CCDCFD1199B81C00CDFAA2 /* NSScanner_Extensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		22CCDCFE1199B81C00CDFAA2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				22CCDCFF1199B81C00CDFAA2 /* CJSONDataSerializer.h */,
+				22CCDD001199B81C00CDFAA2 /* CJSONDataSerializer.m */,
+				22CCDD011199B81C00CDFAA2 /* CJSONDeserializer.h */,
+				22CCDD021199B81C00CDFAA2 /* CJSONDeserializer.m */,
+				22CCDD031199B81C00CDFAA2 /* CJSONScanner.h */,
+				22CCDD041199B81C00CDFAA2 /* CJSONScanner.m */,
+				22CCDD051199B81C00CDFAA2 /* CJSONSerializer.h */,
+				22CCDD061199B81C00CDFAA2 /* CJSONSerializer.m */,
+				22CCDD071199B81C00CDFAA2 /* CSerializedJSONData.h */,
+				22CCDD081199B81C00CDFAA2 /* CSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1613,6 +1703,7 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				229779FA111031C100B55D3F /* AudioToolbox.framework */,
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
+				22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1829,7 +1920,6 @@
 				22999412119186B5006DA5DD /* help_catch_icon.png in Resources */,
 				22999413119186B5006DA5DD /* help_throw_icon.png in Resources */,
 				229995B41191D6A6006DA5DD /* HistoryView.xib in Resources */,
-				229995F11191E054006DA5DD /* history_soll.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1989,6 +2079,16 @@
 				228EC2B21192C56000B486F2 /* HoccerClient.m in Sources */,
 				228EC2B41192C56900B486F2 /* HoccerRequest.m in Sources */,
 				228CF87811944FB90023FE34 /* DeleteRequest.m in Sources */,
+				22CCDD091199B81C00CDFAA2 /* CDataScanner.m in Sources */,
+				22CCDD0A1199B81C00CDFAA2 /* CDataScanner_Extensions.m in Sources */,
+				22CCDD0B1199B81C00CDFAA2 /* NSCharacterSet_Extensions.m in Sources */,
+				22CCDD0C1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m in Sources */,
+				22CCDD0D1199B81C00CDFAA2 /* NSScanner_Extensions.m in Sources */,
+				22CCDD0E1199B81C00CDFAA2 /* CJSONDataSerializer.m in Sources */,
+				22CCDD0F1199B81C00CDFAA2 /* CJSONDeserializer.m in Sources */,
+				22CCDD101199B81C00CDFAA2 /* CJSONScanner.m in Sources */,
+				22CCDD111199B81C00CDFAA2 /* CJSONSerializer.m in Sources */,
+				22CCDD121199B81C00CDFAA2 /* CSerializedJSONData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2144,6 +2244,11 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2157,6 +2262,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2186,6 +2296,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2207,6 +2322,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;
@@ -2228,6 +2344,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;
@@ -2249,6 +2366,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 				);
 				PRODUCT_NAME = "Hoccer-iPad";
 				SDKROOT = iphoneos3.2;

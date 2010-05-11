@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "HoccerHistoryItem.h"
+#import "AdMobDelegateProtocol.h"
 
 @class HoccerViewController;
 
 @class HocItemData;
 @class HistoryData;
 
-@interface HoccerHistoryController : UITableViewController {
+@interface HoccerHistoryController : UITableViewController <AdMobDelegate> {
 	HistoryData *historyData;
 	
 	UINavigationController *parentNavigationController;
