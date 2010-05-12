@@ -182,7 +182,7 @@
 #pragma mark HoccerAdMobDelegate
 
 - (NSString *)publisherId {
-	return @"a14be7bb0e2b7b0"; // this should be prefilled; if not, get it from www.admob.com
+	return @"a14be990ce86624"; // this should be prefilled; if not, get it from www.admob.com
 }
 
 - (UIViewController *)currentViewController {
@@ -214,9 +214,6 @@
 
 }
 
-- (BOOL)useTestAd {
-	return YES;
-}
 
 
 
