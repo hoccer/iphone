@@ -60,10 +60,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rows = 0;
 	if (section == 0) {
-		return [historyData count] + 1;
+		rows = [historyData count] + 1;
 	}
 	
-
+	if (rows < 6) {
+		rows = 6;
+	};
+	
+	return rows;
 }
 
 
@@ -85,7 +89,7 @@
 		self.historyCell = nil;
 	}
     
-	if ([historyData count] == [indexPath row]) {
+	if ([indexPath row] >= [historyData count]) {
 		// [cell.subviews objectAtIndex:0] 
 		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
 		return cell;
@@ -101,7 +105,6 @@
 	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
-
 
 	return cell;
 }
@@ -191,7 +194,7 @@
 }
 
 - (UIViewController *)currentViewController {
-	return parentNavigationController;
+	return hoccerViewController;
 }
 
 - (void)didReceiveAd:(AdMobView *)adView; {

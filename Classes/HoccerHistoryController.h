@@ -19,6 +19,7 @@
 @interface HoccerHistoryController : UITableViewController <AdMobDelegate> {
 	HistoryData *historyData;
 	
+	UIViewController *rootViewController;
 	UINavigationController *parentNavigationController;
 	HoccerViewController *hoccerViewController;
 	
