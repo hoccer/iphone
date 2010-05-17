@@ -58,18 +58,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSInteger rows = 0;
 	if (section == 0) {
 		return [historyData count] + 1;
 	}
 	
-	return 0;
+
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
+	static NSString *CellIdentifier = @"Cell";
 	static NSDateFormatter *dateFormatter = nil;
 
 	if (dateFormatter == nil) {
@@ -92,15 +92,17 @@
 	}
 
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
- 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-
+ 	
+	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 	((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
-	
+		
 	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+
+
 	return cell;
 }
 
@@ -133,7 +135,10 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	// Navigation logic may go here. Create and push another view controller.
+	if ([indexPath row] >= [historyData count]) {
+		return;
+	}
+	
 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	content.persist = YES;
@@ -182,11 +187,11 @@
 #pragma mark HoccerAdMobDelegate
 
 - (NSString *)publisherId {
-	return @"a14be990ce86624"; // this should be prefilled; if not, get it from www.admob.com
+	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
 }
 
 - (UIViewController *)currentViewController {
-	return self;
+	return parentNavigationController;
 }
 
 - (void)didReceiveAd:(AdMobView *)adView; {
