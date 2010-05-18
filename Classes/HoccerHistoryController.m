@@ -20,11 +20,20 @@
 #define kBannerCount 1
 
 
+
+
+
+
+@interface HoccerHistoryController()
+
+- (BOOL)rowIsValidListItem: (NSIndexPath *)path;
+
+@end
+
 @implementation HoccerHistoryController
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
 @synthesize historyData;
-
 @synthesize historyCell;
 
 
@@ -92,43 +101,43 @@
 		self.historyCell = nil;
 	}
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-
+	cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+	
 	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
 	if ([indexPath row] == 1) {
 		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
 		return cell;
 	} else if (row < [historyData count]) {
-		
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
-		NSLog(@"method: %s", _cmd);
 
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+		cell.selectionStyle =  UITableViewCellSelectionStyleBlue;
 	}
+
 		
 	return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+	if ([self rowIsValidListItem: indexPath]) {
+		return NO;	
+	}
+	
+	return YES;
 }
-*/
-
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+	
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
 		[self.tableView beginUpdates];
 		if ([historyData count] + kBannerCount <= 6) {
@@ -136,26 +145,31 @@
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
 		
-		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+		NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+		HoccerHistoryItem *item = [historyData itemAtIndex: row];
+		
 		[historyData removeItem:item];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		
 		[self.tableView endUpdates];
+		[self.tableView reloadData];
 	}   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if ([indexPath row] >= [historyData count]) {
+	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
+
+	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+
+	if (row >= [historyData count]) {
+		
 		return;
 	}
 	
-	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+	HoccerHistoryItem *item = [historyData itemAtIndex:row];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	content.persist = YES;
 	
@@ -249,7 +263,9 @@
 }
 
 
-
+- (BOOL)rowIsValidListItem: (NSIndexPath *)path {
+	return ([historyData count] == 0 || [path row] >= [historyData count] + kBannerCount || [path row] == 1);
+}
 
 @end
 

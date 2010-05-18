@@ -58,6 +58,34 @@
 		2281010310A9DFFE00DFA0BF /* Header_Terms-of-Use.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281010210A9DFFE00DFA0BF /* Header_Terms-of-Use.png */; };
 		2281FFE710A9A13200DFA0BF /* Play_Video_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2281FFE610A9A13200DFA0BF /* Play_Video_Button.png */; };
 		228275E6106A157A00AAC17E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 228275E4106A157A00AAC17E /* NSString+Regexp.m */; };
+		2284F83411A2BAEA004EFF7F /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C07116C945A00F3E4B4 /* HoccerHistoryController.m */; };
+		2284F83711A2BAFD004EFF7F /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
+		2284F83D11A2BB11004EFF7F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
+		2284F83E11A2BB11004EFF7F /* HoccerContentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FED105FCA1E0035C643 /* HoccerContentFactory.m */; };
+		2284F83F11A2BB11004EFF7F /* HoccerContentFactoryIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229AA917115B753A00290513 /* HoccerContentFactoryIPhone.m */; };
+		2284F84011A2BB11004EFF7F /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE6105FC9D90035C643 /* HoccerImage.m */; };
+		2284F84111A2BB11004EFF7F /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22798FE8105FC9D90035C643 /* HoccerUrl.m */; };
+		2284F84211A2BB11004EFF7F /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
+		2284F84311A2BB11004EFF7F /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
+		2284F84411A2BB20004EFF7F /* ReceivedContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227990F9105FEA140035C643 /* ReceivedContentViewController.m */; };
+		2284F84511A2BB2B004EFF7F /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C10116C948700F3E4B4 /* HistoryData.m */; };
+		2284F97011A2BB5C004EFF7F /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */; };
+		2284F97111A2BB5C004EFF7F /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */; };
+		2284F97211A2BB5C004EFF7F /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF91199B81C00CDFAA2 /* NSCharacterSet_Extensions.m */; };
+		2284F97311A2BB5C004EFF7F /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCFB1199B81C00CDFAA2 /* NSDictionary_JSONExtensions.m */; };
+		2284F97411A2BB5C004EFF7F /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCFD1199B81C00CDFAA2 /* NSScanner_Extensions.m */; };
+		2284F97511A2BB5C004EFF7F /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD001199B81C00CDFAA2 /* CJSONDataSerializer.m */; };
+		2284F97611A2BB5C004EFF7F /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD021199B81C00CDFAA2 /* CJSONDeserializer.m */; };
+		2284F97711A2BB5C004EFF7F /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD041199B81C00CDFAA2 /* CJSONScanner.m */; };
+		2284F97811A2BB5C004EFF7F /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD061199B81C00CDFAA2 /* CJSONSerializer.m */; };
+		2284F97911A2BB5C004EFF7F /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD081199B81C00CDFAA2 /* CSerializedJSONData.m */; };
+		2284F97D11A2BB80004EFF7F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
+		2284F98011A2BB89004EFF7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
+		2284F98311A2BB9A004EFF7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
+		2284F98611A2BBA7004EFF7F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A960810973CED008CE547 /* MediaPlayer.framework */; };
+		2284F98711A2BBA7004EFF7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22783D881067ABBB00B244F7 /* MapKit.framework */; };
+		2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */; };
+		2284F98E11A2BC56004EFF7F /* HoccerHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */; };
 		2287BD181162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD191162512B00FFA07F /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
 		2287BD1F1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD1E1162534100FFA07F /* HoccerContentIPadPreviewDelegate.m */; };
@@ -148,7 +176,6 @@
 		2298E36011809D240078DBBD /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		2298E36111809D240078DBBD /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		2298E36211809D240078DBBD /* ACAddressBookPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACAddressBookPerson.m */; };
-		2298E36311809D240078DBBD /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22791C58108C570F00059D05 /* HoccerVcard.m */; };
 		2298E37811809D390078DBBD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		2298E37911809D390078DBBD /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		2299922A11915C0F006DA5DD /* artcom_logo_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299922911915C0F006DA5DD /* artcom_logo_bw.png */; };
@@ -221,8 +248,6 @@
 		22A112FA117EFDDA00641E3A /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4161055556200ABE5A2 /* SBJsonBase.m */; };
 		22A112FB117EFDDA00641E3A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
 		22A112FC117EFDDA00641E3A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
-		22A11307117F3F0A00641E3A /* HoccerContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287BD171162512B00FFA07F /* HoccerContent.m */; };
-		22A11308117F3F0A00641E3A /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22799045105FDCEB0035C643 /* HoccerText.m */; };
 		22A1130B117F3F6300641E3A /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
@@ -851,6 +876,13 @@
 				22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */,
 				2298E37811809D390078DBBD /* AddressBook.framework in Frameworks */,
 				2298E37911809D390078DBBD /* AddressBookUI.framework in Frameworks */,
+				2284F83711A2BAFD004EFF7F /* libAdMob.a in Frameworks */,
+				2284F97D11A2BB80004EFF7F /* QuartzCore.framework in Frameworks */,
+				2284F98011A2BB89004EFF7F /* CoreData.framework in Frameworks */,
+				2284F98311A2BB9A004EFF7F /* AudioToolbox.framework in Frameworks */,
+				2284F98611A2BBA7004EFF7F /* MediaPlayer.framework in Frameworks */,
+				2284F98711A2BBA7004EFF7F /* MapKit.framework in Frameworks */,
+				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2214,19 +2246,37 @@
 				22A112FA117EFDDA00641E3A /* SBJsonBase.m in Sources */,
 				22A112FB117EFDDA00641E3A /* SBJsonParser.m in Sources */,
 				22A112FC117EFDDA00641E3A /* SBJsonWriter.m in Sources */,
-				22A11307117F3F0A00641E3A /* HoccerContent.m in Sources */,
-				22A11308117F3F0A00641E3A /* HoccerText.m in Sources */,
 				22A1130B117F3F6300641E3A /* Preview.m in Sources */,
 				2298E35E11809D240078DBBD /* VcardWriter.m in Sources */,
 				2298E35F11809D240078DBBD /* ABPersonVCardCreator.m in Sources */,
 				2298E36011809D240078DBBD /* VcardParser.m in Sources */,
 				2298E36111809D240078DBBD /* ABPersonCreator.m in Sources */,
 				2298E36211809D240078DBBD /* ACAddressBookPerson.m in Sources */,
-				2298E36311809D240078DBBD /* HoccerVcard.m in Sources */,
 				22BE73D7118196CD0011034A /* HoccerRequest.m in Sources */,
 				2209D2681193200D0024876D /* Y60AsyncTestHelper.m in Sources */,
 				2209D2691193200D0024876D /* Y60AsyncTestHelperTest.m in Sources */,
 				228CF87711944FB90023FE34 /* DeleteRequest.m in Sources */,
+				2284F83411A2BAEA004EFF7F /* HoccerHistoryController.m in Sources */,
+				2284F83D11A2BB11004EFF7F /* HoccerContent.m in Sources */,
+				2284F83E11A2BB11004EFF7F /* HoccerContentFactory.m in Sources */,
+				2284F83F11A2BB11004EFF7F /* HoccerContentFactoryIPhone.m in Sources */,
+				2284F84011A2BB11004EFF7F /* HoccerImage.m in Sources */,
+				2284F84111A2BB11004EFF7F /* HoccerUrl.m in Sources */,
+				2284F84211A2BB11004EFF7F /* HoccerText.m in Sources */,
+				2284F84311A2BB11004EFF7F /* HoccerVcard.m in Sources */,
+				2284F84411A2BB20004EFF7F /* ReceivedContentViewController.m in Sources */,
+				2284F84511A2BB2B004EFF7F /* HistoryData.m in Sources */,
+				2284F97011A2BB5C004EFF7F /* CDataScanner.m in Sources */,
+				2284F97111A2BB5C004EFF7F /* CDataScanner_Extensions.m in Sources */,
+				2284F97211A2BB5C004EFF7F /* NSCharacterSet_Extensions.m in Sources */,
+				2284F97311A2BB5C004EFF7F /* NSDictionary_JSONExtensions.m in Sources */,
+				2284F97411A2BB5C004EFF7F /* NSScanner_Extensions.m in Sources */,
+				2284F97511A2BB5C004EFF7F /* CJSONDataSerializer.m in Sources */,
+				2284F97611A2BB5C004EFF7F /* CJSONDeserializer.m in Sources */,
+				2284F97711A2BB5C004EFF7F /* CJSONScanner.m in Sources */,
+				2284F97811A2BB5C004EFF7F /* CJSONSerializer.m in Sources */,
+				2284F97911A2BB5C004EFF7F /* CSerializedJSONData.m in Sources */,
+				2284F98E11A2BC56004EFF7F /* HoccerHistoryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2393,6 +2443,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2422,6 +2473,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2454,6 +2506,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
+					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",

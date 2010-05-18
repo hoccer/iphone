@@ -15,9 +15,7 @@
 @implementation HistoryData
 @synthesize hoccerHistoryItemArray;
 
-
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
