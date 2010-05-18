@@ -201,6 +201,8 @@
 }
 
 - (IBAction)toggleSelectContent: (id)sender {
+	NSLog(@"method: %s", _cmd);
+
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
 	} else if (![auxiliaryView isKindOfClass:[SelectContentController class]]) {
@@ -213,6 +215,8 @@
 }
 
 - (IBAction)toggleHistory: (id)sender {
+	NSLog(@"method: %s", _cmd);
+
 	if (!isPopUpDisplayed) {			
 		[self showHistoryView];
 	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
@@ -298,9 +302,12 @@
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
+	NSLog(@"method: %s", _cmd);
+	
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
+		
 		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];

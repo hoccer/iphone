@@ -90,24 +90,24 @@
         cell = self.historyCell;
 		self.historyCell = nil;
 	}
+	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
     
 	if ([indexPath row] == [historyData count]) {
 		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
 		return cell;
 	} else if ([indexPath row] < [historyData count]) {
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-
 		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
+		NSLog(@"method: %s", _cmd);
+
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
 	}
 		
-
 	return cell;
 }
 
@@ -127,9 +127,17 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+		[self.tableView beginUpdates];
 		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
 		[historyData removeItem:item];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+		
+		if ([historyData count] + kBannerCount <= 6) {
+			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+		}
+		
+		[self.tableView endUpdates];
 	}   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

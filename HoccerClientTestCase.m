@@ -123,7 +123,7 @@
 	[client2 performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:location] waitUntilDone: NO];
 	
 	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertEquals([mockedDelegate.error code], kHoccerMessageCollision, @"should return no catcher error");
+	GHAssertEquals([mockedDelegate.error code], kHoccerMessageCollision, @"should return collision error");
 	[NSThread sleepForTimeInterval:1];
 }
 
