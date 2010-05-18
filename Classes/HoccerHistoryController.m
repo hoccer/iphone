@@ -19,14 +19,11 @@
 
 #define kBannerCount 1
 
-
-
-
-
-
 @interface HoccerHistoryController()
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
+- (BOOL)hasPropaganda;
+- (NSInteger) adjustedIndexForAds: (NSIndexPath *)indexPath;
 
 @end
 
@@ -102,8 +99,8 @@
 	}
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	
-	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
-	if ([indexPath row] == 1) {
+	NSInteger row = [self adjustedIndexForAds:indexPath];
+	if ([self hasPropaganda] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
 		UIView *adView = [AdMobView requestAdWithDelegate:self];
@@ -134,7 +131,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-	if ([self rowIsValidListItem: indexPath]) {
+	if (![self rowIsValidListItem: indexPath]) {
 		return NO;	
 	}
 	
@@ -144,7 +141,6 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
 		[self.tableView beginUpdates];
@@ -153,7 +149,7 @@
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
 		
-		NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+		NSInteger row = [self adjustedIndexForAds:indexPath];
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
 		[historyData removeItem:item];
@@ -170,7 +166,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
 
-	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+	NSInteger row = [self adjustedIndexForAds: indexPath];
 
 	if (row >= [historyData count]) {
 		return;
@@ -271,7 +267,31 @@
 
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
-	return ([historyData count] == 0 || [path row] >= [historyData count] + kBannerCount || [path row] == 1);
+	if ([self hasPropaganda] && [path row] == 1) {
+		return NO;
+	}
+	
+	if ([path row] >= [historyData count] + kBannerCount) {
+		return NO;
+	}
+	
+	if ([historyData count] == 0) {
+		return NO;
+	}
+	
+	return YES;
+}
+
+- (BOOL)hasPropaganda {
+	return !(kBannerCount == 0);
+}
+
+- (NSInteger) adjustedIndexForAds: (NSIndexPath *)indexPath {
+	if ([self hasPropaganda]) {
+		return ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+	} else {
+		return [indexPath row];
+	}
 }
 
 @end
