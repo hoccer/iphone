@@ -101,14 +101,18 @@
 		self.historyCell = nil;
 	}
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-	cell.selectionStyle =  UITableViewCellSelectionStyleNone;
 	
 	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
 	if ([indexPath row] == 1) {
-		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
-		return cell;
+		[cell viewWithTag:5].hidden = YES;
+		
+		UIView *adView = [AdMobView requestAdWithDelegate:self];
+		adView.center = cell.contentView.center;
+		[cell.contentView addSubview:adView];
 	} else if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
+		
+		[cell viewWithTag:5].hidden = NO;
 		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
@@ -118,8 +122,12 @@
 		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
 		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
-		cell.selectionStyle =  UITableViewCellSelectionStyleBlue;
+		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
+	} else {	
+		[cell viewWithTag:5].hidden = YES;
+		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
 	}
+
 
 		
 	return cell;
@@ -165,7 +173,6 @@
 	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
 
 	if (row >= [historyData count]) {
-		
 		return;
 	}
 	
