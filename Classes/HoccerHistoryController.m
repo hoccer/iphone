@@ -128,14 +128,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
 		[self.tableView beginUpdates];
-		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-		[historyData removeItem:item];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
-		
 		if ([historyData count] + kBannerCount <= 6) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
+		
+		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+		[historyData removeItem:item];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		
 		[self.tableView endUpdates];
 	}   

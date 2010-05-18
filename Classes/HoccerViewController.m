@@ -273,11 +273,10 @@
 #pragma mark -
 #pragma mark HocItemDataDelegate
 
-- (void)hocItemWasSend: (HocItemData *)item {
+- (void)hocItemWasSent: (HocItemData *)item {
 	statusViewController.hocItemData = nil;
 	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
-
 	
 	[desktopData removeHocItem:item];
 	[desktopView reloadData];

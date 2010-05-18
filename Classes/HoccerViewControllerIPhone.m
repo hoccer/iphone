@@ -332,6 +332,22 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
+- (void)hocItemWasSent: (HocItemData *)item {
+	NSLog(@"elements in history: %d", [historyData count]);
+	[super hocItemWasSent:item];
+	NSLog(@"elements in history after super: %d", [historyData count]);
+	
+	//	statusViewController.hocItemData = nil;
+	//	
+	//	[historyData addContentToHistory:item];
+	//
+	//	[[item content] previewInViewController:navigationController];
+	//	[desktopData removeHocItem:item];
+	//	[desktopView reloadData];
+	
+	[hoccerHistoryController updateHistoryList];
+}
+
 - (void)hocItemWasReceived: (HocItemData *)item {
 	NSLog(@"elements in history: %d", [historyData count]);
 	[super hocItemWasReceived:item];
