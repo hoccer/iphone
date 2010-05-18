@@ -10,6 +10,34 @@
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
 
+@interface SettingsAction : NSObject {
+	NSString *description;
+	SEL selector;
+}
+
+@property (copy) NSString *description;
+@property (assign) SEL selector;
+
++ (SettingsAction *)actionWithDescription: (NSString *)description selector: (SEL)selector;
+
+@end
+
+
+@implementation SettingsAction
+@synthesize description;
+@synthesize selector;
+
++ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector; {
+	SettingsAction *action = [[SettingsAction alloc] init];
+	action.description = theDescription;
+	action.selector = theSelector;
+	
+	return [action autorelease];
+}
+
+@end
+
+
 @interface SettingViewController ()
 
 - (void)showTutorial;
@@ -35,14 +63,22 @@
 	
 	sections = [[NSMutableArray alloc] init];
 	
-	NSArray *section1 = [NSArray arrayWithObjects:@"Tutorial", nil];
+	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial)];
+	
+	NSArray *section1 = [NSArray arrayWithObjects:tutorialAction, nil];
 	[sections addObject:section1];
 
-	NSArray *section3 = [NSArray arrayWithObjects:@"About Hoccer", nil]; 
-	[sections addObject:section3];
-	
-	NSArray *section2 = [NSArray arrayWithObjects:@"Visit the Hoccer Website", @"Follow Hoccer on Twitter", nil];
+
+	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
+	NSArray *section2 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section2];
+	
+	
+	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
+	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
+
+	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, twitterAction, nil];
+	[sections addObject:section3];
 }
 
 #pragma mark -
@@ -55,7 +91,6 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return [[sections objectAtIndex:section] count];
 }
 
@@ -70,7 +105,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	cell.textLabel.text = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]];
+	SettingsAction *action = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]];
+	cell.textLabel.text = action.description;
+	
 	if ([indexPath indexAtPosition:0] != 2) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
@@ -82,20 +119,8 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	switch ([indexPath indexAtPosition:0]) {
-		case 0:
-			[self showTutorial];
-			break;
-		case 1:
-			[self showAbout];
-			break;
-		case 2:
-			[self showWebsite:[indexPath indexAtPosition:1]];
-			break;
-		default:
-	 		[NSException raise:@"Wrong indexPath in settings menu" format:nil];
-			break;
-	}
+	SettingsAction *action = [[sections objectAtIndex:[indexPath indexAtPosition:0]] objectAtIndex:[indexPath indexAtPosition:1]];
+	[self performSelector:action.selector];
 	
 	[self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
@@ -114,12 +139,12 @@
 	[aboutView release];
 }
 
-- (void)showWebsite: (NSInteger)index {
-	if (index == 1) {
-		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
-	} else {
-		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
-	}
+- (void)showHoccerWebsite {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
+}
+
+- (void)showTwitter {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
 }
 
 

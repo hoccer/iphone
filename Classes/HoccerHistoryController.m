@@ -17,7 +17,7 @@
 #import "ReceivedContentViewController.h"
 #import "AdMobView.h"
 
-#define kBannerCount 1
+#define kBannerCount 0
 
 @interface HoccerHistoryController()
 
@@ -142,7 +142,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+
 		[self.tableView beginUpdates];
 		if ([historyData count] + kBannerCount <= 6) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
@@ -191,15 +191,10 @@
 #pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
 
@@ -217,7 +212,8 @@
 
 - (void)updateHistoryList {
 	[self.tableView reloadData];
-	//[self.tableView beginUpdates];
+
+//  [self.tableView beginUpdates];
 //	if ([historyData count] + kBannerCount <= 6) {
 //		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
 //		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
@@ -244,21 +240,14 @@
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when a AdMobView successfully makes a subsequent ad request (via requestFreshAd).
-// For example an AdView object that shows three ads in its lifetime will see the following
-// methods called:  didReceiveAd:, didReceiveRefreshedAd:, and didReceiveRefreshedAd:.
 - (void)didReceiveRefreshedAd:(AdMobView *)adView; {
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when an ad request failed to load an ad.
-// Note that this will only ever be sent once per AdMobView, regardless of whether
-// new ads are subsequently requested in the same AdMobView.
 - (void)didFailToReceiveAd:(AdMobView *)adView; {
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when subsequent AdMobView ad requests fail (via requestFreshAd).
 - (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
 	
 	NSLog(@"view: %@ in %s", adView, _cmd);
@@ -267,17 +256,9 @@
 
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
-	if ([self hasPropaganda] && [path row] == 1) {
-		return NO;
-	}
-	
-	if ([path row] >= [historyData count] + kBannerCount) {
-		return NO;
-	}
-	
-	if ([historyData count] == 0) {
-		return NO;
-	}
+	if ([self hasPropaganda] && [path row] == 1) { return NO; }
+	if ([path row] >= [historyData count] + kBannerCount) {	return NO; }
+	if ([historyData count] == 0) {	return NO; }
 	
 	return YES;
 }
