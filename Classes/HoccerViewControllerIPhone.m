@@ -326,7 +326,10 @@
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
 - (void)hocItemWasReceived: (HocItemData *)item {
+	NSLog(@"elements in history: %d", [historyData count]);
 	[super hocItemWasReceived:item];
+	NSLog(@"elements in history after super: %d", [historyData count]);
+
 //	statusViewController.hocItemData = nil;
 //	
 //	[historyData addContentToHistory:item];
@@ -335,9 +338,7 @@
 //	[desktopData removeHocItem:item];
 //	[desktopView reloadData];
 	
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+	[hoccerHistoryController updateHistoryList];
 }
 
 

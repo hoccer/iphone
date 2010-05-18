@@ -33,6 +33,6 @@
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 
 
-- (void)addContentToHistory: (HocItemData *) content;
+- (void)updateHistoryList;
 
 @end

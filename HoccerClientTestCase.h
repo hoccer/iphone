@@ -22,6 +22,8 @@
 
 @interface HoccerClientTestCase : GHTestCase {
 	MockHoccerConnectionDelegate *mockedDelegate;
+
+	NSInteger delta;
 }
 
 - (HocLocation *)fakeHocLocation;

@@ -17,6 +17,8 @@
 #import "ReceivedContentViewController.h"
 #import "AdMobView.h"
 
+#define kBannerCount 1
+
 
 @implementation HoccerHistoryController
 @synthesize parentNavigationController;
@@ -60,7 +62,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rows = 0;
 	if (section == 0) {
-		rows = [historyData count] + 1;
+		rows = [historyData count] + kBannerCount;
 	}
 	
 	if (rows < 6) {
@@ -89,22 +91,22 @@
 		self.historyCell = nil;
 	}
     
-	if ([indexPath row] >= [historyData count]) {
-		// [cell.subviews objectAtIndex:0] 
+	if ([indexPath row] == [historyData count]) {
 		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
 		return cell;
-	}
+	} else if ([indexPath row] < [historyData count]) {
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 
-	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
- 	
-	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
-	((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
+		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
+		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
-	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
-	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
-	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
+		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
+		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+	}
+		
 
 	return cell;
 }
@@ -174,7 +176,6 @@
 
 
 - (void)addContentToHistory: (HocItemData *) hocItem {
-	[historyData addContentToHistory:hocItem];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -183,6 +184,19 @@
 - (void)receiveContentController: (ReceivedContentViewController *)controller wantsToResendContent: (HoccerContent *)content {
 	[hoccerViewController setContentPreview: content];
 	[hoccerViewController showDesktop];
+}
+
+
+- (void)updateHistoryList {
+	[self.tableView beginUpdates];
+	if ([historyData count] + kBannerCount <= 6) {
+		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
+		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
+	}
+	
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	[self.tableView endUpdates];
 }
 
 
