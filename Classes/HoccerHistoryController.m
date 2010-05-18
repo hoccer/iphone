@@ -75,6 +75,7 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"row %d", [indexPath row]);
 	static NSString *CellIdentifier = @"Cell";
 	static NSDateFormatter *dateFormatter = nil;
 
@@ -91,12 +92,14 @@
 		self.historyCell = nil;
 	}
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-    
-	if ([indexPath row] == [historyData count]) {
+
+	NSInteger row = ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+	if ([indexPath row] == 1) {
 		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
 		return cell;
-	} else if ([indexPath row] < [historyData count]) {
-		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+	} else if (row < [historyData count]) {
+		
+		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
@@ -196,15 +199,16 @@
 
 
 - (void)updateHistoryList {
-	[self.tableView beginUpdates];
-	if ([historyData count] + kBannerCount <= 6) {
-		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
-		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
-	}
-	
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-	[self.tableView endUpdates];
+	[self.tableView reloadData];
+	//[self.tableView beginUpdates];
+//	if ([historyData count] + kBannerCount <= 6) {
+//		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
+//		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
+//	}
+//	
+//	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//	[self.tableView endUpdates];
 }
 
 
