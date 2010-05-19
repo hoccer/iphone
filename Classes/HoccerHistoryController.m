@@ -128,8 +128,6 @@
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
 	}
-
-
 		
 	return cell;
 }
