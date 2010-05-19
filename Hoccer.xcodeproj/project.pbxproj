@@ -409,8 +409,6 @@
 		22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */; };
 		22D89070118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
 		22D89071118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
-		22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */; };
-		22E006F0117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */; };
 		2861DCB910ADA03500EA2FFA /* menue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2861DCB810ADA03500EA2FFA /* menue.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
@@ -794,8 +792,6 @@
 		22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingViewController.xib; path = Classes/SettingViewController.xib; sourceTree = "<group>"; };
 		22D8906E118EDC69001BA9C8 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		22D8906F118EDC69001BA9C8 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
-		22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDesktopDataSource.h; sourceTree = "<group>"; };
-		22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDesktopDataSource.m; sourceTree = "<group>"; };
 		2861DCB810ADA03500EA2FFA /* menue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menue.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
@@ -1495,8 +1491,6 @@
 				22A74C10116C948700F3E4B4 /* HistoryData.m */,
 				22A74C27116C9A6800F3E4B4 /* HoccerHistoryItem.h */,
 				22A74C28116C9A6800F3E4B4 /* HoccerHistoryItem.m */,
-				22E006ED117468B500D80BD2 /* HistoryDesktopDataSource.h */,
-				22E006EE117468B500D80BD2 /* HistoryDesktopDataSource.m */,
 			);
 			name = HocHistory;
 			sourceTree = "<group>";
@@ -2100,7 +2094,6 @@
 				22A74D9C116CE3B500F3E4B4 /* SweepInRecognizer.m in Sources */,
 				22903C07116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0B116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
-				22E006EF117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 				22B65A5111770975003E7058 /* GesturesInterpreter.m in Sources */,
 				22B65A5211770975003E7058 /* LineFeature.m in Sources */,
 				22B65A5311770975003E7058 /* FeatureHistory.m in Sources */,
@@ -2197,7 +2190,6 @@
 				22903C08116DCE8600230C1E /* SweepRecognizer.m in Sources */,
 				22903C0C116DCF9B00230C1E /* SweepOutRecognizer.m in Sources */,
 				22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */,
-				22E006F0117468B500D80BD2 /* HistoryDesktopDataSource.m in Sources */,
 				22B65A4A1177095A003E7058 /* FeatureHistory.m in Sources */,
 				22B65A5611770976003E7058 /* GesturesInterpreter.m in Sources */,
 				22B65A5711770976003E7058 /* LineFeature.m in Sources */,
