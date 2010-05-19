@@ -44,7 +44,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIScrollView" id="690971734">
 						<reference key="NSNextResponder" ref="616696356"/>
-						<int key="NSvFlags">284</int>
+						<int key="NSvFlags">276</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUILabel" id="700043535">
@@ -119,8 +119,8 @@
 							</object>
 							<object class="IBUITableView" id="873029372">
 								<reference key="NSNextResponder" ref="690971734"/>
-								<int key="NSvFlags">275</int>
-								<string key="NSFrame">{{20, 110}, {320, 289}}</string>
+								<int key="NSvFlags">273</int>
+								<string key="NSFrame">{{20, 110}, {320, 320}}</string>
 								<reference key="NSSuperview" ref="690971734"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>

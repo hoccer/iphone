@@ -24,6 +24,8 @@
 		223BC41F1055556200ABE5A2 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4181055556200ABE5A2 /* SBJsonParser.m */; };
 		223BC4201055556200ABE5A2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC41A1055556200ABE5A2 /* SBJsonWriter.m */; };
 		223BC44010555B2700ABE5A2 /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */; };
+		224EA1E711A3F02F003E02B5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EA1E611A3F02F003E02B5 /* StoreKit.framework */; };
+		224EA1F411A3F03A003E02B5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EA1E611A3F02F003E02B5 /* StoreKit.framework */; };
 		224F8A9C108CBB4300F69B53 /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 224F8A9B108CBB4300F69B53 /* Preview.m */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
@@ -467,6 +469,7 @@
 		223BC41A1055556200ABE5A2 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		223BC43E10555B2700ABE5A2 /* NSObject+DelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+DelegateHelper.h"; path = "Helper/NSObject+DelegateHelper.h"; sourceTree = "<group>"; };
 		223BC43F10555B2700ABE5A2 /* NSObject+DelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DelegateHelper.m"; path = "Helper/NSObject+DelegateHelper.m"; sourceTree = "<group>"; };
+		224EA1E611A3F02F003E02B5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		224F8A9A108CBB4300F69B53 /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = View/Preview.h; sourceTree = "<group>"; };
 		224F8A9B108CBB4300F69B53 /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preview.m; path = View/Preview.m; sourceTree = "<group>"; };
 		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
@@ -844,6 +847,7 @@
 				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
 				22CCDCD71199B79D00CDFAA2 /* libAdMob.a in Frameworks */,
 				22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */,
+				224EA1E711A3F02F003E02B5 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +866,7 @@
 				22B1CBD81159160600EFD709 /* QuartzCore.framework in Frameworks */,
 				22B1CBD91159160600EFD709 /* AudioToolbox.framework in Frameworks */,
 				22903B51116DC2E700230C1E /* CoreData.framework in Frameworks */,
+				224EA1F411A3F03A003E02B5 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,6 +1741,7 @@
 				229779FA111031C100B55D3F /* AudioToolbox.framework */,
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
 				22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */,
+				224EA1E611A3F02F003E02B5 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

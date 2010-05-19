@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
 
-@interface SettingViewController : UIViewController {
+@interface SettingViewController : UIViewController <SKProductsRequestDelegate> {
 	NSMutableArray *sections;
 	
 	UINavigationController *parentNavigationController;

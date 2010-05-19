@@ -6,6 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
+#import <StoreKit/StoreKit.h>
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
@@ -44,7 +45,8 @@
 - (void)showAbout;
 - (void)showHoccerWebsite;
 - (void)showTwitter;
-- (void)removePropagange;
+- (void)removePropaganda;
+- (void) requestProductData;
 
 @end
 
@@ -76,7 +78,7 @@
 	[sections addObject:section2];
 	
 	
-	SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Remove Ads" selector:@selector(removePropagange)];
+	SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Remove Ads" selector:@selector(removePropaganda)];
 	[sections addObject:[NSArray arrayWithObject:buyAction]];
 	
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
@@ -153,16 +155,43 @@
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
 }
 
-- (void)removePropagange {
-	NSLog(@"adfree before: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
-	BOOL ad = ![[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"];
+- (void)removePropaganda {
+	if ([SKPaymentQueue canMakePayments]) {
+		[self requestProductData];
+	}
+	else {
+		NSLog(@"can't make payments");
+	}
 	
-	[[NSUserDefaults standardUserDefaults] setBool:ad forKey:@"AdFree"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"adfree after: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
+	
+	
+//  NSLog(@"adfree before: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
+//	BOOL ad = ![[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"];
+//	
+//	[[NSUserDefaults standardUserDefaults] setBool:ad forKey:@"AdFree"];
+//	[[NSUserDefaults standardUserDefaults] synchronize];
+//	NSLog(@"adfree after: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
 }
 
+- (void)requestProductData {
+	SKProductsRequest *request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: @"com.artcom.Hoccer.adfree"]];
+	request.delegate = self;
+	[request start];
+}
 
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
+    NSLog(@"%s", _cmd);
+	NSArray *myProduct = response.products;
+	NSLog(@"products: %@", myProduct);
+	NSLog(@"invalid: %@", response.invalidProductIdentifiers);
+
+	
+	for (int i = 0; i < [myProduct count]; i++) {
+		NSLog(@"name: %@", [[myProduct objectAtIndex:i] name]);
+	}
+	
+    [request autorelease];
+}
 
 #pragma mark -
 #pragma mark Memory management
