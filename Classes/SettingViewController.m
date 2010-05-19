@@ -42,7 +42,9 @@
 
 - (void)showTutorial;
 - (void)showAbout;
-- (void)showWebsite: (NSInteger)index;
+- (void)showHoccerWebsite;
+- (void)showTwitter;
+- (void)removePropagange;
 
 @end
 
@@ -74,11 +76,15 @@
 	[sections addObject:section2];
 	
 	
+	SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Remove Ads" selector:@selector(removePropagange)];
+	[sections addObject:[NSArray arrayWithObject:buyAction]];
+	
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
 
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, twitterAction, nil];
 	[sections addObject:section3];
+
 }
 
 #pragma mark -
@@ -145,6 +151,15 @@
 
 - (void)showTwitter {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
+}
+
+- (void)removePropagange {
+	NSLog(@"adfree before: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
+	BOOL ad = ![[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"];
+	
+	[[NSUserDefaults standardUserDefaults] setBool:ad forKey:@"AdFree"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	NSLog(@"adfree after: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);
 }
 
 

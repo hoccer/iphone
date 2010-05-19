@@ -20,7 +20,7 @@
 - (void)hocItemUploadWasCanceled: (HocItemData *)item;
 - (void)hocItemDownloadWasCanceled: (HocItemData *)item;
 
-- (void)hocItemWasSend: (HocItemData *)item;
+- (void)hocItemWasSent: (HocItemData *)item;
 - (void)hocItemWasReceived: (HocItemData *)item;
 
 - (void)hocItemWasClosed: (HocItemData *)item;

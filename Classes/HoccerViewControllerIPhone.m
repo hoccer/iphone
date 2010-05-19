@@ -265,6 +265,8 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
+	[popOverView viewWillAppear:YES];
+	
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
@@ -285,6 +287,7 @@
 	isPopUpDisplayed = TRUE;
 	
 	statusViewController.view.hidden = YES;
+	[popOverView viewDidAppear:YES];
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{

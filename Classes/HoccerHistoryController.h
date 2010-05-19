@@ -32,7 +32,6 @@
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 
-
 - (void)updateHistoryList;
 
 @end

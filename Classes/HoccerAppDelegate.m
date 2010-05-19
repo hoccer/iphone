@@ -22,6 +22,15 @@
 @synthesize window;
 @synthesize viewController;
 
+
++ (void)initialize {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"AdFree"];
+	
+    [defaults registerDefaults:appDefaults];
+}
+
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;

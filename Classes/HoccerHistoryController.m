@@ -17,13 +17,12 @@
 #import "ReceivedContentViewController.h"
 #import "AdMobView.h"
 
-#define kBannerCount 0
-
-@interface HoccerHistoryController()
+@interface HoccerHistoryController ()
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (BOOL)hasPropaganda;
-- (NSInteger) adjustedIndexForAds: (NSIndexPath *)indexPath;
+- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
+- (NSInteger)bannerCount;
 
 @end
 
@@ -58,6 +57,11 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	NSLog(@"viewWillAppear");
+	[self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -68,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rows = 0;
 	if (section == 0) {
-		rows = [historyData count] + kBannerCount;
+		rows = [historyData count] + [self bannerCount];
 	}
 	
 	if (rows < 6) {
@@ -144,7 +148,7 @@
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 
 		[self.tableView beginUpdates];
-		if ([historyData count] + kBannerCount <= 6) {
+		if ([historyData count] + [self bannerCount] <= 6) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
@@ -257,17 +261,25 @@
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
 	if ([self hasPropaganda] && [path row] == 1) { return NO; }
-	if ([path row] >= [historyData count] + kBannerCount) {	return NO; }
+	if ([path row] >= [historyData count] + [self bannerCount]) {	return NO; }
 	if ([historyData count] == 0) {	return NO; }
 	
 	return YES;
 }
 
 - (BOOL)hasPropaganda {
-	return !(kBannerCount == 0);
+	return [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"];
 }
 
-- (NSInteger) adjustedIndexForAds: (NSIndexPath *)indexPath {
+- (NSInteger)bannerCount {
+	if ([self hasPropaganda]) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath {
 	if ([self hasPropaganda]) {
 		return ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
 	} else {
