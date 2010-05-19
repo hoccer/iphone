@@ -85,7 +85,6 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"row %d", [indexPath row]);
 	static NSString *CellIdentifier = @"Cell";
 	static NSDateFormatter *dateFormatter = nil;
 

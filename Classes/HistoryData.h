@@ -32,4 +32,6 @@
 - (void)addContentToHistory: (HocItemData *) hocItem;
 - (void)removeItem: (HoccerHistoryItem *)item;
 
+- (BOOL)containsFile: (NSString *)filename;
+
 @end

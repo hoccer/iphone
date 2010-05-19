@@ -125,7 +125,6 @@
 
 - (void)removeItem: (HoccerHistoryItem *)item {
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
-	[content removeFromDocumentDirectory];
 	
 	[hoccerHistoryItemArray removeObject:item];
 	[managedObjectContext deleteObject:item];
@@ -153,7 +152,13 @@
 	}
 }
 
-
-
+- (BOOL)containsFile: (NSString *)filename {
+	for (HoccerHistoryItem * item in hoccerHistoryItemArray) {
+		if ([filename compare: item.filepath]) {
+			return YES;
+		}
+	}
+	return NO;
+}
 
 @end
