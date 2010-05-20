@@ -409,6 +409,9 @@
 		22D86D8E118F1DD100F7AC6E /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */; };
 		22D89070118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
 		22D89071118EDC69001BA9C8 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D8906F118EDC69001BA9C8 /* CustomTabBar.m */; };
+		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
+		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
+		22E0D3AD11A57FE500812BD1 /* HoccerSettingsLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E0D3AC11A57FE500812BD1 /* HoccerSettingsLogo.xib */; };
 		2861DCB910ADA03500EA2FFA /* menue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2861DCB810ADA03500EA2FFA /* menue.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
@@ -792,6 +795,9 @@
 		22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingViewController.xib; path = Classes/SettingViewController.xib; sourceTree = "<group>"; };
 		22D8906E118EDC69001BA9C8 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
 		22D8906F118EDC69001BA9C8 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
+		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
+		22E0D3AC11A57FE500812BD1 /* HoccerSettingsLogo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HoccerSettingsLogo.xib; path = Resources/HoccerSettingsLogo.xib; sourceTree = "<group>"; };
 		2861DCB810ADA03500EA2FFA /* menue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menue.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
@@ -893,7 +899,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				22CCDCD31199B79D00CDFAA2 /* AdMob */,
+				22CCDCD31199B79D00CDFAA2 /* Commercial */,
 				22977B2511105C2D00B55D3F /* Wifi */,
 				22888E8E1175EB9300FB5968 /* LocationContoller */,
 				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
@@ -1609,14 +1615,17 @@
 			name = GHUnit;
 			sourceTree = "<group>";
 		};
-		22CCDCD31199B79D00CDFAA2 /* AdMob */ = {
+		22CCDCD31199B79D00CDFAA2 /* Commercial */ = {
 			isa = PBXGroup;
 			children = (
 				22CCDCF21199B81C00CDFAA2 /* TouchJSON */,
 				22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */,
 				22CCDCD51199B79D00CDFAA2 /* AdMobView.h */,
 				22CCDCD61199B79D00CDFAA2 /* libAdMob.a */,
+				22E0D38311A5771300812BD1 /* StoreKitManager.h */,
+				22E0D38411A5771300812BD1 /* StoreKitManager.m */,
 			);
+			name = Commercial;
 			path = AdMob;
 			sourceTree = "<group>";
 		};
@@ -1704,6 +1713,7 @@
 				22D86D8C118F1DD100F7AC6E /* SettingViewController.xib */,
 				229253AB11888C4D008B4FFB /* SelectContentController.xib */,
 				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
+				22E0D3AC11A57FE500812BD1 /* HoccerSettingsLogo.xib */,
 				22B06BF11152777500D2ECFE /* StatusViewController.xib */,
 				2899E5210DE3E06400AC0155 /* HoccerViewController.xib */,
 				227990FA105FEA140035C643 /* ReceivedContentView.xib */,
@@ -1952,6 +1962,7 @@
 				22999412119186B5006DA5DD /* help_catch_icon.png in Resources */,
 				22999413119186B5006DA5DD /* help_throw_icon.png in Resources */,
 				229995B41191D6A6006DA5DD /* HistoryView.xib in Resources */,
+				22E0D3AD11A57FE500812BD1 /* HoccerSettingsLogo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2120,6 +2131,7 @@
 				22CCDD101199B81C00CDFAA2 /* CJSONScanner.m in Sources */,
 				22CCDD111199B81C00CDFAA2 /* CJSONSerializer.m in Sources */,
 				22CCDD121199B81C00CDFAA2 /* CSerializedJSONData.m in Sources */,
+				22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2205,6 +2217,7 @@
 				228EC2B31192C56100B486F2 /* HoccerClient.m in Sources */,
 				228EC2B51192C56900B486F2 /* HoccerRequest.m in Sources */,
 				228CF87911944FB90023FE34 /* DeleteRequest.m in Sources */,
+				22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2285,6 +2298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Palmer (8U2BPZDBL2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2298,6 +2312,7 @@
 					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				PRODUCT_NAME = Hoccer;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "82473A6E-6D7F-4B4F-8307-9126F1D827DF";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

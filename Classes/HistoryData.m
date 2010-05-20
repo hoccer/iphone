@@ -124,8 +124,6 @@
 }
 
 - (void)removeItem: (HoccerHistoryItem *)item {
-	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
-	
 	[hoccerHistoryItemArray removeObject:item];
 	[managedObjectContext deleteObject:item];
 	
@@ -154,7 +152,9 @@
 
 - (BOOL)containsFile: (NSString *)filename {
 	for (HoccerHistoryItem * item in hoccerHistoryItemArray) {
-		if ([filename compare: item.filepath]) {
+		NSLog(@"asdasd: %@, %@", item.filepath, filename);
+
+		if ([filename compare: item.filepath] == NSOrderedSame) {
 			return YES;
 		}
 	}

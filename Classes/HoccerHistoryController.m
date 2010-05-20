@@ -16,14 +16,12 @@
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
 #import "AdMobView.h"
+#import "StoreKitManager.h"
 
 @interface HoccerHistoryController ()
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
-- (BOOL)hasPropaganda;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
-- (NSInteger)bannerCount;
-
 @end
 
 @implementation HoccerHistoryController
@@ -72,7 +70,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rows = 0;
 	if (section == 0) {
-		rows = [historyData count] + [self bannerCount];
+		rows = [historyData count] + [StoreKitManager bannerCount];
 	}
 	
 	if (rows < 6) {
@@ -103,7 +101,7 @@
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	
 	NSInteger row = [self adjustedIndexForAds:indexPath];
-	if ([self hasPropaganda] && [indexPath row] == 1) {
+	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
 		UIView *adView = [AdMobView requestAdWithDelegate:self];
@@ -145,7 +143,7 @@
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 
 		[self.tableView beginUpdates];
-		if ([historyData count] + [self bannerCount] <= 6) {
+		if ([historyData count] + [StoreKitManager bannerCount] <= 6) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
@@ -257,27 +255,15 @@
 
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
-	if ([self hasPropaganda] && [path row] == 1) { return NO; }
-	if ([path row] >= [historyData count] + [self bannerCount]) {	return NO; }
+	if ([StoreKitManager isPropagandaEnabled] && [path row] == 1) { return NO; }
+	if ([path row] >= [historyData count] + [StoreKitManager bannerCount]) {	return NO; }
 	if ([historyData count] == 0) {	return NO; }
 	
 	return YES;
 }
 
-- (BOOL)hasPropaganda {
-	return [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"];
-}
-
-- (NSInteger)bannerCount {
-	if ([self hasPropaganda]) {
-		return 1;
-	} else {
-		return 0;
-	}
-}
-
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath {
-	if ([self hasPropaganda]) {
+	if ([StoreKitManager isPropagandaEnabled]) {
 		return ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
 	} else {
 		return [indexPath row];

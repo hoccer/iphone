@@ -116,7 +116,6 @@
 		}
 	}
 	[historyData release];
-
 }
 
 @end

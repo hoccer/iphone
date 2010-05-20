@@ -10,16 +10,18 @@
 #import <StoreKit/StoreKit.h>
 
 
-@interface SettingViewController : UIViewController <SKProductsRequestDelegate> {
+@interface SettingViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver> {
 	NSMutableArray *sections;
 	
 	UINavigationController *parentNavigationController;
 	
 	@private
 	UITableView *tableView;
+	UITableViewCell * hoccerSettingsLogo;
 }
 
 @property (retain) UINavigationController *parentNavigationController;
 @property (retain) IBOutlet UITableView *tableView;
+@property (retain) IBOutlet UITableViewCell *hoccerSettingsLogo;
 
 @end
