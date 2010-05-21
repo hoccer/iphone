@@ -24,6 +24,8 @@
 	HoccerViewController *hoccerViewController;
 	
 	UITableViewCell *historyCell;
+
+	UIView *adView;
 }
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;

@@ -20,8 +20,6 @@
 
 @end
 
-
-
 @implementation HoccerVcard
 
 @synthesize view;

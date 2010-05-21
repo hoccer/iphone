@@ -22,14 +22,15 @@
 
 @interface HoccerHistoryController ()
 
+@property (retain) UIView *adView;
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
 
 - (void)cleanUp;
-
 @end
 
 @implementation HoccerHistoryController
+@synthesize adView;
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
 @synthesize historyData;
@@ -110,7 +111,9 @@
 	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
-		UIView *adView = [AdMobView requestAdWithDelegate:self];
+		if (self.adView == nil) {
+			self.adView = [AdMobView requestAdWithDelegate:self];	
+		}
 	    [cell.contentView addSubview:adView];
 		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]];
 

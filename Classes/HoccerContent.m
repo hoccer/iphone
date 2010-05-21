@@ -35,7 +35,7 @@
 	}
 	
 	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-	return documentsDirectoryUrl;
+	return [documentsDirectoryUrl stringByAppendingPathComponent:@"Shared"];
 }
 
 
