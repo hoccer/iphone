@@ -46,8 +46,10 @@
 - (void)showAbout;
 - (void)showHoccerWebsite;
 - (void)showTwitter;
+- (void)showFacebook;
+- (void)showBookmarklet;
 - (void)removePropaganda;
-- (void) requestProductData;
+- (void)requestProductData;
 
 - (void) completeTransaction: (SKPaymentTransaction *)transaction;
 - (void) restoreTransaction: (SKPaymentTransaction *)transaction;
@@ -74,25 +76,28 @@
 	sections = [[NSMutableArray alloc] init];
 	
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial)];
-	
 	NSArray *section1 = [NSArray arrayWithObjects:tutorialAction, nil];
 	[sections addObject:section1];
 
-
-	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
-	NSArray *section2 = [NSArray arrayWithObjects:aboutAction, nil]; 
+	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet)];
+	NSArray *section2 = [NSArray arrayWithObjects:bookmarkletAction, nil]; 
 	[sections addObject:section2];
 	
 	if([StoreKitManager isPropagandaEnabled]){
-		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Remove Ads" selector:@selector(removePropaganda)];
+		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda)];
 		[sections addObject:[NSArray arrayWithObject:buyAction]];
 	}
 	
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a fan on Facebook" selector:@selector(showFacebook)]; 
 
-	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, twitterAction, nil];
+	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
+	
+	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
+	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
+	[sections addObject:section4];
 }
 
 #pragma mark -
@@ -134,7 +139,7 @@
 	cell.textLabel.text = action.description;
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
-	if (section == 0 || section == 1) {
+	if (section == 0 || section == 3 && ![StoreKitManager isPropagandaEnabled] || section == 4 && [StoreKitManager isPropagandaEnabled]) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
@@ -146,7 +151,7 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == 0) {
-		return 107;
+		return 92;
 	}
 	
 	return aTableView.rowHeight;
@@ -182,12 +187,20 @@
 	[aboutView release];
 }
 
+- (void)showBookmarklet {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/iphone/bookmarklet"]];
+}
+
 - (void)showHoccerWebsite {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
 }
 
 - (void)showTwitter {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
+}
+
+- (void)showFacebook {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.facebook.com/hoccer"]];
 }
 
 - (void)removePropaganda {
