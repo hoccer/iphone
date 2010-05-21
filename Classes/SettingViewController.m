@@ -189,7 +189,7 @@
 }
 
 - (void)showBookmarklet {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/iphone/bookmarklet"]];
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];
 }
 
 - (void)showHoccerWebsite {
