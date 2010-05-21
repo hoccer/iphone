@@ -15,6 +15,9 @@
 		2209D2691193200D0024876D /* Y60AsyncTestHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209D2671193200D0024876D /* Y60AsyncTestHelperTest.m */; };
 		220FAF08117DFFEC004DD560 /* HoccerClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B1F5117DCE85009E3E3C /* HoccerClientTestCase.m */; };
 		220FAF2B117E0115004DD560 /* HoccerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0B278117DD80D009E3E3C /* HoccerClient.m */; };
+		221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758B11A6929400246D89 /* history_ads_rowbg.png */; };
+		221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758C11A6929400246D89 /* history_empty_rowbg.png */; };
+		221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758D11A6929400246D89 /* history_firstempty_rowbg.png */; };
 		223BC3471055358E00ABE5A2 /* PeerGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */; };
 		223BC35F10553B2400ABE5A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223BC35E10553B2400ABE5A2 /* CoreLocation.framework */; };
 		223BC41B1055556200ABE5A2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223BC4101055556200ABE5A2 /* NSObject+SBJSON.m */; };
@@ -452,6 +455,9 @@
 		2209D2651193200D0024876D /* Y60AsyncTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelper.m; sourceTree = "<group>"; };
 		2209D2661193200D0024876D /* Y60AsyncTestHelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelperTest.h; sourceTree = "<group>"; };
 		2209D2671193200D0024876D /* Y60AsyncTestHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelperTest.m; sourceTree = "<group>"; };
+		221D758B11A6929400246D89 /* history_ads_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_ads_rowbg.png; sourceTree = "<group>"; };
+		221D758C11A6929400246D89 /* history_empty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_empty_rowbg.png; sourceTree = "<group>"; };
+		221D758D11A6929400246D89 /* history_firstempty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_firstempty_rowbg.png; sourceTree = "<group>"; };
 		223BC3451055358D00ABE5A2 /* PeerGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerGroupRequest.h; path = Communication/PeerGroupRequest.h; sourceTree = "<group>"; };
 		223BC3461055358E00ABE5A2 /* PeerGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerGroupRequest.m; path = Communication/PeerGroupRequest.m; sourceTree = "<group>"; };
 		223BC35E10553B2400ABE5A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1417,6 +1423,9 @@
 		2299928F11916AC5006DA5DD /* history */ = {
 			isa = PBXGroup;
 			children = (
+				221D758B11A6929400246D89 /* history_ads_rowbg.png */,
+				221D758C11A6929400246D89 /* history_empty_rowbg.png */,
+				221D758D11A6929400246D89 /* history_firstempty_rowbg.png */,
 				2299929011916AC5006DA5DD /* history_icon_contact.png */,
 				2299929111916AC5006DA5DD /* history_icon_download.png */,
 				2299929211916AC5006DA5DD /* history_icon_image.png */,
@@ -1971,6 +1980,9 @@
 				22999413119186B5006DA5DD /* help_throw_icon.png in Resources */,
 				229995B41191D6A6006DA5DD /* HistoryView.xib in Resources */,
 				22E0D3AD11A57FE500812BD1 /* HoccerSettingsLogo.xib in Resources */,
+				221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */,
+				221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */,
+				221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,7 +90,7 @@
 	
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
-	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a fan on Facebook" selector:@selector(showFacebook)]; 
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook)]; 
 
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
@@ -151,7 +151,8 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == 0) {
-		return 92;
+		return 92
+		;
 	}
 	
 	return aTableView.rowHeight;
@@ -288,7 +289,7 @@
 	NSLog(@"adfree after buying: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);	
 	
 	[sections removeObjectAtIndex:2];
-	[self.tableView deleteSections:[[NSIndexSet alloc] initWithIndex:3] withRowAnimation:UITableViewRowAnimationFade];
+	[self.tableView deleteSections:[[[NSIndexSet alloc] initWithIndex:3] autorelease] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -

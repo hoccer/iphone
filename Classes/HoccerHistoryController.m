@@ -98,14 +98,16 @@
         cell = self.historyCell;
 		self.historyCell = nil;
 	}
-	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-	
+	[cell viewWithTag:6].hidden = YES;
+
 	NSInteger row = [self adjustedIndexForAds:indexPath];
 	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
 		UIView *adView = [AdMobView requestAdWithDelegate:self];
 	    [cell.contentView addSubview:adView];
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]];
+
 	} else if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
@@ -114,15 +116,26 @@
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
-
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
 		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
 		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
+		
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+
+		if ((row == 0 && [historyData count] == 0)) {
+			[cell viewWithTag:6].hidden = NO;
+
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]]; 
+		} else 	if ( (row == 1 && [historyData count] == 0) || (row == [historyData count] && [historyData count] != 0)) {
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_firstempty_rowbg.png"]];
+		} else {
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
+		}
 	}
 		
 	return cell;
@@ -142,8 +155,6 @@
 	} else {
 	    return aTableView.rowHeight + 2;	
 	}
-	
-	
 }
 
 // Override to support editing the table view.
