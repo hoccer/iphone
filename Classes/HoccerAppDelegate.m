@@ -12,6 +12,9 @@
 #import "StatusViewController.h"
 #import "HoccerText.h"
 
+#import "HistoryData.h"
+#import "NSString+Regexp.h"
+
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
 @end
@@ -21,6 +24,15 @@
 
 @synthesize window;
 @synthesize viewController;
+
+
++ (void)initialize {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"AdFree"];
+	
+    [defaults registerDefaults:appDefaults];
+}
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	application.applicationSupportsShakeToEdit = NO;
@@ -35,6 +47,8 @@
 	}
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
+	
+	[self cleanUp];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL: (NSURL *)url {
@@ -82,6 +96,26 @@
 	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
 
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
+}
+
+- (void)cleanUp {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
+	
+	NSError *error = nil;
+	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
+	NSLog(@"files %@", files);
+	HistoryData *historyData = [[HistoryData alloc] init];
+
+	for (NSString *file in files) {
+		NSString *filepath = [documentsDirectoryUrl stringByAppendingPathComponent:file];
+		if (![file contains:@".sqlite"] && ![historyData containsFile: filepath]) {
+			error = nil;
+			[[NSFileManager defaultManager] removeItemAtPath:filepath error:&error]; 
+			NSLog(@"delete file: %@", file);
+		}
+	}
+	[historyData release];
 }
 
 @end

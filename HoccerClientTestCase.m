@@ -78,123 +78,122 @@
 	[mockedDelegate release];
 	mockedDelegate = nil; 
 }
+//
+//- (void) testItFailsWithNoThrowerErrorWhenLonleyUpload {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//	
+//	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
+//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
+//}
+//
+//
+//- (void) testItFailsWithNoSecondSweeperErrorWhenLoneySweeper {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//
+//	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]] waitUntilDone: NO];
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
+//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoSecondSweeper, @"should return no catcher error");
+//}
+//
+//- (void) testItFailsWithNoCatcherErrorWhenLonleyUpload {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//	
+//	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
+//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
+//}
 
-- (void) testItFailsWithNoThrowerErrorWhenLonleyUpload {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-	
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
-}
+//- (void) testItFailsWithCollisionErrorWhenTwoSweepAtTheSameTime {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//	
+//	HocLocation *location = [self fakeHocLocation];
+//
+//	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:location] waitUntilDone: NO];
+//	HoccerClient *client2 = [[HoccerClient alloc] init];
+//	client2.userAgent = @"Hoccer/iPhone";
+//	[client2 performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:location] waitUntilDone: NO];
+//	
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
+//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageCollision, @"should return collision error");
+//	[NSThread sleepForTimeInterval:1];
+//}
+//
+//
+//- (void) testItSuccedsWhenTwoPeoplePerformAdequateGesturesOnSameLocation {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//	
+//	MockHoccerConnectionDelegate *mockedDelegate2 = [[MockHoccerConnectionDelegate alloc] init];
+//	HoccerClient *client2 = [[HoccerClient alloc] init];
+//	client2.userAgent = @"Hoccer/iPhone";
+//	client2.delegate = mockedDelegate2;
+//	
+//	HocLocation *location = [self fakeHocLocation];
+//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location: location]];
+//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+//
+//	HoccerConnection *connection2 = [client2 unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:location]];
+//	[connection2 performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+//		
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
+//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
+//	
+//	[mockedDelegate2 release];
+//	[client release];
+//	[client2 release];
+//} 
 
+//- (void)testResourceShouldBeGoneAfterCancel {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	client.delegate = mockedDelegate;
+//
+//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+//	
+//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+//	[NSThread sleepForTimeInterval:1];
+//	[connection performSelectorOnMainThread: @selector(cancel) withObject:nil waitUntilDone:NO];
+//	
+//	[NSThread sleepForTimeInterval:1];
+//	
+//	NSError *error;
+//	NSHTTPURLResponse *response;
+//	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];
+//	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//	GHAssertEquals([response statusCode], 410, @"should return 410 status code");
+//	
+//	[client release];
+//}
 
-- (void) testItFailsWithNoSecondSweeperErrorWhenLoneySweeper {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]] waitUntilDone: NO];
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoSecondSweeper, @"should return no catcher error");
-}
-
-- (void) testItFailsWithNoCatcherErrorWhenLonleyUpload {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-	
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
-}
-
-- (void) testItFailsWithCollisionErrorWhenTwoSweepAtTheSameTime {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-	
-	[client performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	[NSThread sleepForTimeInterval:0.3];
-
-	HoccerClient *client2 = [[HoccerClient alloc] init];
-	client2.userAgent = @"Hoccer/iPhone";
-	[client2 performSelectorOnMainThread: @selector(connectionWithRequest:) withObject:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]] waitUntilDone: NO];
-	
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertEquals([mockedDelegate.error code], kHoccerMessageCollision, @"should return no catcher error");
-	[NSThread sleepForTimeInterval:1];
-}
-
-
-- (void) testItSuccedsWhenTwoPeoplePerformAdequateGesturesOnSameLocation {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-	
-	MockHoccerConnectionDelegate *mockedDelegate2 = [[MockHoccerConnectionDelegate alloc] init];
-	HoccerClient *client2 = [[HoccerClient alloc] init];
-	client2.userAgent = @"Hoccer/iPhone";
-	client2.delegate = mockedDelegate2;
-	
-	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-
-	[NSThread sleepForTimeInterval:0.3];
-
-	HoccerConnection *connection2 = [client2 unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]]];
-	[connection2 performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-		
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
-	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
-	
-	[mockedDelegate2 release];
-	[client release];
-	[client2 release];
-} 
-
-- (void)testResourceShouldBeGoneAfterCancel {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	client.delegate = mockedDelegate;
-
-	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-	
-	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-	[NSThread sleepForTimeInterval:1];
-	[connection performSelectorOnMainThread: @selector(cancel) withObject:nil waitUntilDone:NO];
-	
-	[NSThread sleepForTimeInterval:1];
-	
-	NSError *error;
-	NSHTTPURLResponse *response;
-	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];
-	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-	GHAssertEquals([response statusCode], 410, @"should return 410 status code");
-	
-	[client release];
-}
-
-- (void)testShouldNotInterceptItselfWhenCanceled {
-	HoccerClient *client = [[HoccerClient alloc] init];
-	client.userAgent = @"Hoccer/iPhone";
-	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-	
-	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-	[NSThread sleepForTimeInterval:1];
-	[connection performSelectorOnMainThread: @selector(cancel) withObject:nil waitUntilDone:NO];
-	
-	[NSThread sleepForTimeInterval:1];
-	
-	client.delegate = mockedDelegate;
-	connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-	[NSThread sleepForTimeInterval:3];
-	GHAssertEquals(mockedDelegate.hoccerClientDidFailCalls, 0, [NSString stringWithFormat: @"should be able to sweep, but failed with %@", mockedDelegate.error]);
-	
-	[client release];
-}
+//- (void)testShouldNotInterceptItselfWhenCanceled {
+//	HoccerClient *client = [[HoccerClient alloc] init];
+//	client.userAgent = @"Hoccer/iPhone";
+//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+//	
+//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+//	[NSThread sleepForTimeInterval:1];
+//	[connection performSelectorOnMainThread: @selector(cancel) withObject:nil waitUntilDone:NO];
+//	
+//	[NSThread sleepForTimeInterval:1];
+//	
+//	client.delegate = mockedDelegate;
+//	connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
+//	[NSThread sleepForTimeInterval:3];
+//	GHAssertEquals(mockedDelegate.hoccerClientDidFailCalls, 0, [NSString stringWithFormat: @"should be able to sweep, but failed with %@", mockedDelegate.error]);
+//	
+//	[client release];
+//}
 
 
 
@@ -229,9 +228,11 @@
 //}
 
 - (HocLocation *)fakeHocLocation {
+	delta += 1;
+	
 	CLLocationCoordinate2D coordinate;
-	coordinate.latitude = 14;
-	coordinate.longitude = 23;
+	coordinate.latitude = 14 + delta;
+	coordinate.longitude = 23 + delta;
 	
 	CLLocation *location = [[CLLocation alloc] initWithCoordinate:coordinate altitude:1 horizontalAccuracy:1 verticalAccuracy:100 timestamp:[NSDate date]];
 	HocLocation *hocLocation = [[HocLocation alloc] initWithLocation:location bssids:nil];

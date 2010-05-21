@@ -57,7 +57,7 @@ static HoccerContentFactory* sharedInstance = nil;
 	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
 	}
 					   
-	return [hoccerImage autorelease];
+	return  hoccerImage;
 }
 
 

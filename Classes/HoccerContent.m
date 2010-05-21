@@ -104,11 +104,7 @@
 	}	
 }
 
-- (void) dealloc {	
-	if (!persist) {
-		[self removeFromDocumentDirectory];
-	}
-	
+- (void) dealloc {		
 	[data release];
 	[filepath release];
 	[previewDelegate release];

@@ -212,8 +212,8 @@
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
 	if (isUpload) {
 		self.content.persist = YES;
-		if ([delegate respondsToSelector:@selector(hocItemWasSend:)]) {
-			[delegate hocItemWasSend: self];
+		if ([delegate respondsToSelector:@selector(hocItemWasSent:)]) {
+			[delegate hocItemWasSent: self];
 		}
 	} else {
 		if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
@@ -297,6 +297,8 @@
 
 
 - (IBAction)saveButton: (id)sender {
+	NSLog(@"method: %s", _cmd);
+
 	if ([content isKindOfClass:[HoccerImage class]]) {
 		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
 		[self.contentView showSpinner];

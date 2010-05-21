@@ -27,4 +27,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
 
+- (void)cleanUp;
+
 @end

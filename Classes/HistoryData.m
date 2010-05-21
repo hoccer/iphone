@@ -15,9 +15,7 @@
 @implementation HistoryData
 @synthesize hoccerHistoryItemArray;
 
-
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
@@ -126,9 +124,6 @@
 }
 
 - (void)removeItem: (HoccerHistoryItem *)item {
-	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
-	[content removeFromDocumentDirectory];
-	
 	[hoccerHistoryItemArray removeObject:item];
 	[managedObjectContext deleteObject:item];
 	
@@ -155,7 +150,15 @@
 	}
 }
 
+- (BOOL)containsFile: (NSString *)filename {
+	for (HoccerHistoryItem * item in hoccerHistoryItemArray) {
+		NSLog(@"asdasd: %@, %@", item.filepath, filename);
 
-
+		if ([filename compare: item.filepath] == NSOrderedSame) {
+			return YES;
+		}
+	}
+	return NO;
+}
 
 @end

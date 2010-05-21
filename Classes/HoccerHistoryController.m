@@ -16,13 +16,18 @@
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
 #import "AdMobView.h"
+#import "StoreKitManager.h"
 
+@interface HoccerHistoryController ()
+
+- (BOOL)rowIsValidListItem: (NSIndexPath *)path;
+- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
+@end
 
 @implementation HoccerHistoryController
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
 @synthesize historyData;
-
 @synthesize historyCell;
 
 
@@ -50,6 +55,11 @@
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	NSLog(@"viewWillAppear");
+	[self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -58,18 +68,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSInteger rows = 0;
 	if (section == 0) {
-		return [historyData count] + 1;
+		rows = [historyData count] + [StoreKitManager bannerCount];
 	}
 	
-	return 0;
+	if (rows < 6) {
+		rows = 6;
+	};
+	
+	return rows;
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
+	static NSString *CellIdentifier = @"Cell";
 	static NSDateFormatter *dateFormatter = nil;
 
 	if (dateFormatter == nil) {
@@ -84,57 +98,80 @@
         cell = self.historyCell;
 		self.historyCell = nil;
 	}
-    
-	if ([historyData count] == [indexPath row]) {
-		// [cell.subviews objectAtIndex:0] 
-		[cell.contentView addSubview:[AdMobView requestAdWithDelegate:self]];
-		return cell;
-	}
-
 	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
- 	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
-
-	((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
-	((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 	
-	NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
-	((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
-	((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	NSInteger row = [self adjustedIndexForAds:indexPath];
+	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
+		[cell viewWithTag:5].hidden = YES;
+		
+		UIView *adView = [AdMobView requestAdWithDelegate:self];
+		adView.center = cell.contentView.center;
+		[cell.contentView addSubview:adView];
+	} else if (row < [historyData count]) {
+		HoccerHistoryItem *item = [historyData itemAtIndex: row];
+		
+		[cell viewWithTag:5].hidden = NO;
+		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
+		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
+		
+		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
+
+		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
+		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+		
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
+	} else {	
+		[cell viewWithTag:5].hidden = YES;
+		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+	}
+		
 	return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+	if (![self rowIsValidListItem: indexPath]) {
+		return NO;	
+	}
+	
+	return YES;
 }
-*/
-
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-		HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+		[self.tableView beginUpdates];
+		if ([historyData count] + [StoreKitManager bannerCount] <= 6) {
+			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+		}
+		
+		NSInteger row = [self adjustedIndexForAds:indexPath];
+		HoccerHistoryItem *item = [historyData itemAtIndex: row];
+		
 		[historyData removeItem:item];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+		
+		[self.tableView endUpdates];
+		[self.tableView reloadData];
 	}   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
 
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	// Navigation logic may go here. Create and push another view controller.
-	HoccerHistoryItem *item = [historyData itemAtIndex:[indexPath row]];
+	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
+
+	NSInteger row = [self adjustedIndexForAds: indexPath];
+
+	if (row >= [historyData count]) {
+		return;
+	}
+	
+	HoccerHistoryItem *item = [historyData itemAtIndex:row];
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	content.persist = YES;
 	
@@ -153,20 +190,14 @@
 #pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
 
 - (void)addContentToHistory: (HocItemData *) hocItem {
-	[historyData addContentToHistory:hocItem];
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -178,36 +209,44 @@
 }
 
 
+- (void)updateHistoryList {
+	[self.tableView reloadData];
+
+//  [self.tableView beginUpdates];
+//	if ([historyData count] + kBannerCount <= 6) {
+//		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
+//		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
+//	}
+//	
+//	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//	[self.tableView endUpdates];
+}
+
+
 #pragma mark -
 #pragma mark HoccerAdMobDelegate
 
 - (NSString *)publisherId {
-	return @"a14be990ce86624"; // this should be prefilled; if not, get it from www.admob.com
+	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
 }
 
 - (UIViewController *)currentViewController {
-	return self;
+	return hoccerViewController;
 }
 
 - (void)didReceiveAd:(AdMobView *)adView; {
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when a AdMobView successfully makes a subsequent ad request (via requestFreshAd).
-// For example an AdView object that shows three ads in its lifetime will see the following
-// methods called:  didReceiveAd:, didReceiveRefreshedAd:, and didReceiveRefreshedAd:.
 - (void)didReceiveRefreshedAd:(AdMobView *)adView; {
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when an ad request failed to load an ad.
-// Note that this will only ever be sent once per AdMobView, regardless of whether
-// new ads are subsequently requested in the same AdMobView.
 - (void)didFailToReceiveAd:(AdMobView *)adView; {
 	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
-// Sent when subsequent AdMobView ad requests fail (via requestFreshAd).
 - (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
 	
 	NSLog(@"view: %@ in %s", adView, _cmd);
@@ -215,7 +254,21 @@
 }
 
 
+- (BOOL)rowIsValidListItem: (NSIndexPath *)path {
+	if ([StoreKitManager isPropagandaEnabled] && [path row] == 1) { return NO; }
+	if ([path row] >= [historyData count] + [StoreKitManager bannerCount]) {	return NO; }
+	if ([historyData count] == 0) {	return NO; }
+	
+	return YES;
+}
 
+- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath {
+	if ([StoreKitManager isPropagandaEnabled]) {
+		return ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
+	} else {
+		return [indexPath row];
+	}
+}
 
 @end
 

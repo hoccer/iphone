@@ -201,6 +201,8 @@
 }
 
 - (IBAction)toggleSelectContent: (id)sender {
+	NSLog(@"method: %s", _cmd);
+
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
 	} else if (![auxiliaryView isKindOfClass:[SelectContentController class]]) {
@@ -213,6 +215,8 @@
 }
 
 - (IBAction)toggleHistory: (id)sender {
+	NSLog(@"method: %s", _cmd);
+
 	if (!isPopUpDisplayed) {			
 		[self showHistoryView];
 	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
@@ -261,6 +265,8 @@
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
+	[popOverView viewWillAppear:YES];
+	
 	gestureInterpreter.delegate = nil;
 	self.auxiliaryView = popOverView;
 	
@@ -281,6 +287,7 @@
 	isPopUpDisplayed = TRUE;
 	
 	statusViewController.view.hidden = YES;
+	[popOverView viewDidAppear:YES];
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
@@ -298,9 +305,12 @@
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
+	NSLog(@"method: %s", _cmd);
+	
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
+		
 		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
@@ -325,8 +335,27 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
+- (void)hocItemWasSent: (HocItemData *)item {
+	NSLog(@"elements in history: %d", [historyData count]);
+	[super hocItemWasSent:item];
+	NSLog(@"elements in history after super: %d", [historyData count]);
+	
+	//	statusViewController.hocItemData = nil;
+	//	
+	//	[historyData addContentToHistory:item];
+	//
+	//	[[item content] previewInViewController:navigationController];
+	//	[desktopData removeHocItem:item];
+	//	[desktopView reloadData];
+	
+	[hoccerHistoryController updateHistoryList];
+}
+
 - (void)hocItemWasReceived: (HocItemData *)item {
+	NSLog(@"elements in history: %d", [historyData count]);
 	[super hocItemWasReceived:item];
+	NSLog(@"elements in history after super: %d", [historyData count]);
+
 //	statusViewController.hocItemData = nil;
 //	
 //	[historyData addContentToHistory:item];
@@ -335,9 +364,7 @@
 //	[desktopData removeHocItem:item];
 //	[desktopView reloadData];
 	
-	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	[hoccerHistoryController.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+	[hoccerHistoryController updateHistoryList];
 }
 
 

@@ -19,6 +19,7 @@
 @interface HoccerHistoryController : UITableViewController <AdMobDelegate> {
 	HistoryData *historyData;
 	
+	UIViewController *rootViewController;
 	UINavigationController *parentNavigationController;
 	HoccerViewController *hoccerViewController;
 	
@@ -31,7 +32,6 @@
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 
-
-- (void)addContentToHistory: (HocItemData *) content;
+- (void)updateHistoryList;
 
 @end

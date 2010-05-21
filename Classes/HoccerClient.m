@@ -33,7 +33,7 @@
 - (HoccerConnection *)unstartedConnectionWithRequest:(HoccerRequest *)aRequest {
 	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
 		return [[HoccerUploadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] 
-																			   filename:[aRequest.content filename] delegate:self.delegate];
+														filename:[aRequest.content filename] delegate:self.delegate];
 	} else {
 		return [[HoccerDownloadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture delegate:self.delegate];
 	}
