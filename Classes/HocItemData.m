@@ -297,8 +297,6 @@
 
 
 - (IBAction)saveButton: (id)sender {
-	NSLog(@"method: %s", _cmd);
-
 	if ([content isKindOfClass:[HoccerImage class]]) {
 		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
 		[self.contentView showSpinner];

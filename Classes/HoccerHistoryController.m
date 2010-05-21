@@ -63,7 +63,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	NSLog(@"viewWillAppear");
 	[self.tableView reloadData];
 }
 
@@ -299,13 +298,11 @@
 	
 	NSError *error = nil;
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
-	NSLog(@"files %@", files);
 	
 	for (NSString *file in files) {
 		if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
 			error = nil;
 			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
-			NSLog(@"delete file: %@", file);
 		}
 	}
 }

@@ -11,7 +11,7 @@
 #import "NSObject+DelegateHelper.h"
 #import "HocLocation.h"
 
-const NSString *kHoccerServer = @"http://beta.hoccer.com/";
+const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
@@ -86,8 +86,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		[body appendFormat:@"&event[bssids]=%@", ids];
 	}
 	
-	
-	NSLog(@"body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

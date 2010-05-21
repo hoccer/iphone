@@ -212,7 +212,10 @@
 		
 		[self requestProductData];
 	} else {
-		NSLog(@"can't make payments");
+		UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"In-App Purchase not enabled" message:@"To buy the ad-free Hoccer version enable In-App Purchase in the settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] ;
+		[view show];
+	
+		[view autorelease];
 	}	
 }
 
@@ -223,7 +226,6 @@
 }
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-    NSLog(@"%s", _cmd);
 	NSArray *myProduct = response.products;
 	
 	if ([myProduct count] > 0) {
@@ -239,8 +241,7 @@
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
 	for (SKPaymentTransaction *transaction in transactions) {
-        switch (transaction.transactionState)
-        {
+        switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchased:			
 				[self completeTransaction:transaction];
                 break;
@@ -254,6 +255,7 @@
         }
     }
 	
+	NSLog(@"removing hud");
 	[progressHUD hide: YES];
 	[progressHUD release];
 	progressHUD = nil;
@@ -266,16 +268,12 @@
 	
 }
 
-- (void) restoreTransaction: (SKPaymentTransaction *)transaction
-{
-	NSLog(@"restored");
+- (void) restoreTransaction: (SKPaymentTransaction *)transaction {
     [self rememberPurchase];
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
 
-- (void) failedTransaction: (SKPaymentTransaction *)transaction
-{
-	NSLog(@"failed");
+- (void) failedTransaction: (SKPaymentTransaction *)transaction {
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
         // Optionally, display an error here.
@@ -286,7 +284,6 @@
 -(void) rememberPurchase {
 	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AdFree"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"adfree after buying: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);	
 	
 	[sections removeObjectAtIndex:2];
 	[self.tableView deleteSections:[[[NSIndexSet alloc] initWithIndex:3] autorelease] withRowAnimation:UITableViewRowAnimationFade];

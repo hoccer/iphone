@@ -81,9 +81,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	
 	[bodyData appendData: data];
 	[bodyData appendData: [[NSString stringWithFormat: @"\r\n--%@--\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]];
-	
-	NSLog(@"body: %@", [[NSString alloc] initWithData:bodyData encoding:NSUTF8StringEncoding]);
-		
+			
 	return bodyData;
 }
 

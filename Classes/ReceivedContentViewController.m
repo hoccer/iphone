@@ -41,8 +41,6 @@
 }
 
 - (IBAction)save: (id)sender	{
-	NSLog(@"method: %s", _cmd);
-
 	if ([hoccerContent needsWaiting] && [hoccerContent isKindOfClass: [HoccerImage class]]){
 		[self setWaiting];
 		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
@@ -88,8 +86,6 @@
 }
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
-	NSLog(@"method: %s", _cmd);
-
 	for (UIView* view in self.view.subviews) {
 		
 		if ([view isKindOfClass:[UITextView class]])
