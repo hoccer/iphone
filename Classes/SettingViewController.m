@@ -194,6 +194,11 @@
 
 - (void)removePropaganda {
 	if ([SKPaymentQueue canMakePayments]) {
+		progressHUD = [[MBProgressHUD alloc] initWithView: self.view];
+		[self.view addSubview:progressHUD];
+
+		[progressHUD show:YES];
+		
 		[self requestProductData];
 	} else {
 		NSLog(@"can't make payments");
@@ -222,7 +227,7 @@
 
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
-    for (SKPaymentTransaction *transaction in transactions) {
+	for (SKPaymentTransaction *transaction in transactions) {
         switch (transaction.transactionState)
         {
             case SKPaymentTransactionStatePurchased:			
@@ -237,6 +242,10 @@
                 break;
         }
     }
+	
+	[progressHUD hide: YES];
+	[progressHUD release];
+	progressHUD = nil;
 }
 
 - (void) completeTransaction: (SKPaymentTransaction *)transaction

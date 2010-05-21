@@ -32,7 +32,6 @@
 		2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
 		2271E1A3109EDCFE003D5C68 /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */; };
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
-		2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		2273358D10566826004228B4 /* DownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2273358C10566826004228B4 /* DownloadRequest.m */; };
 		22762FBC105E8589003BF968 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22762FBB105E8589003BF968 /* AccelerationRecorder.m */; };
 		227687C2109047E4000528E8 /* ACAddressBookPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 227687C1109047E4000528E8 /* ACAddressBookPerson.m */; };
@@ -322,7 +321,6 @@
 		22B1CBC31159160600EFD709 /* HelpScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94F610971A9C008CE547 /* HelpScrollView.m */; };
 		22B1CBC41159160600EFD709 /* HelpContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A963610974BD3008CE547 /* HelpContent.m */; };
 		22B1CBC51159160600EFD709 /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E1A0109EDCFE003D5C68 /* TermOfUse.m */; };
-		22B1CBC61159160600EFD709 /* ACThinProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271E32B109F355A003D5C68 /* ACThinProgressView.m */; };
 		22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
 		22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977AC311104F1C00B55D3F /* WifiScanner.m */; };
 		22B1CBC91159160600EFD709 /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22977B2711105C4500B55D3F /* HocLocation.m */; };
@@ -412,6 +410,8 @@
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D3AD11A57FE500812BD1 /* HoccerSettingsLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E0D3AC11A57FE500812BD1 /* HoccerSettingsLogo.xib */; };
+		22E0D44B11A5A4A000812BD1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D44A11A5A4A000812BD1 /* MBProgressHUD.m */; };
+		22E0D44C11A5A4A000812BD1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D44A11A5A4A000812BD1 /* MBProgressHUD.m */; };
 		2861DCB910ADA03500EA2FFA /* menue.png in Resources */ = {isa = PBXBuildFile; fileRef = 2861DCB810ADA03500EA2FFA /* menue.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* HoccerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* HoccerViewController.xib */; };
@@ -486,8 +486,6 @@
 		2271E1A0109EDCFE003D5C68 /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
 		2271E1A1109EDCFE003D5C68 /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
 		2271E2E6109F26EE003D5C68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2271E32A109F355A003D5C68 /* ACThinProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACThinProgressView.h; sourceTree = "<group>"; };
-		2271E32B109F355A003D5C68 /* ACThinProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACThinProgressView.m; sourceTree = "<group>"; };
 		2273358B10566826004228B4 /* DownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadRequest.h; path = Communication/DownloadRequest.h; sourceTree = "<group>"; };
 		2273358C10566826004228B4 /* DownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadRequest.m; path = Communication/DownloadRequest.m; sourceTree = "<group>"; };
 		22762D04105E412A003BF968 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
@@ -798,6 +796,8 @@
 		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
 		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
 		22E0D3AC11A57FE500812BD1 /* HoccerSettingsLogo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HoccerSettingsLogo.xib; path = Resources/HoccerSettingsLogo.xib; sourceTree = "<group>"; };
+		22E0D44911A5A4A000812BD1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		22E0D44A11A5A4A000812BD1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2861DCB810ADA03500EA2FFA /* menue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menue.png; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* HoccerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoccerViewController.xib; sourceTree = "<group>"; };
@@ -1024,14 +1024,13 @@
 		224F8A88108CB80400F69B53 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22E0D44811A5A46F00812BD1 /* MBProgessHUD */,
 				224F8A9A108CBB4300F69B53 /* Preview.h */,
 				224F8A9B108CBB4300F69B53 /* Preview.m */,
 				229255BE118989C7008B4FFB /* ContactPreview.h */,
 				229255BF118989C7008B4FFB /* ContactPreview.m */,
 				229255F9118991CD008B4FFB /* TextPreview.h */,
 				229255FA118991CD008B4FFB /* TextPreview.m */,
-				2271E32A109F355A003D5C68 /* ACThinProgressView.h */,
-				2271E32B109F355A003D5C68 /* ACThinProgressView.m */,
 				228D8DB21186C87900468DDE /* HoccerProgressView.h */,
 				228D8DB31186C87900468DDE /* HoccerProgressView.m */,
 			);
@@ -1672,6 +1671,15 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		22E0D44811A5A46F00812BD1 /* MBProgessHUD */ = {
+			isa = PBXGroup;
+			children = (
+				22E0D44911A5A4A000812BD1 /* MBProgressHUD.h */,
+				22E0D44A11A5A4A000812BD1 /* MBProgressHUD.m */,
+			);
+			name = MBProgessHUD;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2082,7 +2090,6 @@
 				227A94F810971A9C008CE547 /* HelpScrollView.m in Sources */,
 				227A963710974BD3008CE547 /* HelpContent.m in Sources */,
 				2271E1A2109EDCFE003D5C68 /* TermOfUse.m in Sources */,
-				2271E32C109F355A003D5C68 /* ACThinProgressView.m in Sources */,
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 				22977AC411104F1C00B55D3F /* WifiScanner.m in Sources */,
 				22977B2811105C4500B55D3F /* HocLocation.m in Sources */,
@@ -2132,6 +2139,7 @@
 				22CCDD111199B81C00CDFAA2 /* CJSONSerializer.m in Sources */,
 				22CCDD121199B81C00CDFAA2 /* CSerializedJSONData.m in Sources */,
 				22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */,
+				22E0D44C11A5A4A000812BD1 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2178,7 +2186,6 @@
 				22B1CBC31159160600EFD709 /* HelpScrollView.m in Sources */,
 				22B1CBC41159160600EFD709 /* HelpContent.m in Sources */,
 				22B1CBC51159160600EFD709 /* TermOfUse.m in Sources */,
-				22B1CBC61159160600EFD709 /* ACThinProgressView.m in Sources */,
 				22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */,
 				22B1CBC81159160600EFD709 /* WifiScanner.m in Sources */,
 				22B1CBC91159160600EFD709 /* HocLocation.m in Sources */,
@@ -2218,6 +2225,7 @@
 				228EC2B51192C56900B486F2 /* HoccerRequest.m in Sources */,
 				228CF87911944FB90023FE34 /* DeleteRequest.m in Sources */,
 				22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */,
+				22E0D44B11A5A4A000812BD1 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,8 +105,7 @@
 		[cell viewWithTag:5].hidden = YES;
 		
 		UIView *adView = [AdMobView requestAdWithDelegate:self];
-		adView.center = cell.contentView.center;
-		[cell.contentView addSubview:adView];
+	    [cell.contentView addSubview:adView];
 	} else if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
@@ -135,6 +134,16 @@
 	}
 	
 	return YES;
+}
+
+- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == 1 && [StoreKitManager isPropagandaEnabled]) {
+		return 49;
+	} else {
+	    return aTableView.rowHeight + 2;	
+	}
+	
+	
 }
 
 // Override to support editing the table view.
