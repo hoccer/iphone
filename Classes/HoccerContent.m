@@ -34,8 +34,17 @@
 		@throw [NSException exceptionWithName:@"directoryException" reason:@"could not locate document directory" userInfo:nil];
 	}
 	
-	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-	return [documentsDirectoryUrl stringByAppendingPathComponent:@"Shared"];
+	NSString *documentsDirectoryUrl = [[paths objectAtIndex:0]  stringByAppendingPathComponent:@"Shared"];
+	if (![[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryUrl]) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectoryUrl withIntermediateDirectories:YES attributes:nil error:&error];
+		
+		if (error != nil) {
+			@throw [NSException exceptionWithName:@"directoryException" reason:@"could not create directory" userInfo:nil];
+		}
+	}
+	
+	return documentsDirectoryUrl;
 }
 
 

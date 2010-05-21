@@ -265,21 +265,15 @@
 }
 
 - (void)didReceiveAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didReceiveRefreshedAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didFailToReceiveAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
-	
-	NSLog(@"view: %@ in %s", adView, _cmd);
-
 }
 
 
