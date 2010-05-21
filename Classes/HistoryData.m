@@ -137,7 +137,7 @@
 - (void)addContentToHistory: (HocItemData *) hocItem {
 	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
-	historyItem.filepath = hocItem.content.filepath;
+	historyItem.filepath = hocItem.content.filename;
 	historyItem.mimeType = [hocItem.content mimeType];
 	historyItem.creationDate = [NSDate date];
 	historyItem.upload = [NSNumber numberWithBool: hocItem.isUpload];
@@ -152,8 +152,6 @@
 
 - (BOOL)containsFile: (NSString *)filename {
 	for (HoccerHistoryItem * item in hoccerHistoryItemArray) {
-		NSLog(@"asdasd: %@, %@", item.filepath, filename);
-
 		if ([filename compare: item.filepath] == NSOrderedSame) {
 			return YES;
 		}

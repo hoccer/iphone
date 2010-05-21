@@ -130,8 +130,6 @@
 #pragma mark DataSource Methods
 
 - (void)reloadData {
-	NSLog(@"method: %s", _cmd);
-
 	for (UIView *subview in volatileView) {
 		[subview removeFromSuperview];
 	}
@@ -272,8 +270,6 @@
 #pragma mark -
 #pragma mark Tab Recognizer Delegate Methods
 - (void)tabRecognizer: (TabRecognizer*) recognizer didDetectTabs: (NSInteger)numberOfTabs {
-	NSLog(@"method: %s", _cmd);
-
 	if (numberOfTabs == 1) {
 		if ([recognizer.tabedView isKindOfClass:[ContentContainerView class]]) {
 			[(ContentContainerView *)recognizer.tabedView toggleOverlay:self];

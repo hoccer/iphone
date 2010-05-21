@@ -344,15 +344,20 @@
 						<reference key="object" ref="986704132"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="584568462"/>
-							<reference ref="379352711"/>
 							<reference ref="195199696"/>
+							<reference ref="379352711"/>
+							<reference ref="584568462"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">227</int>
-						<reference key="object" ref="584568462"/>
+						<int key="objectID">222</int>
+						<reference key="object" ref="284235471"/>
+						<reference key="parent" ref="264601323"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">212</int>
+						<reference key="object" ref="195199696"/>
 						<reference key="parent" ref="986704132"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -361,14 +366,9 @@
 						<reference key="parent" ref="986704132"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">212</int>
-						<reference key="object" ref="195199696"/>
+						<int key="objectID">227</int>
+						<reference key="object" ref="584568462"/>
 						<reference key="parent" ref="986704132"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">222</int>
-						<reference key="object" ref="284235471"/>
-						<reference key="parent" ref="264601323"/>
 					</object>
 				</object>
 			</object>
@@ -407,7 +407,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{525, 301}, {320, 480}}</string>
+					<string>{{711, 317}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomNavigationBar</string>
@@ -603,6 +603,13 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/LocationController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">../../../Downloads/libGHUnitIPhone3_0-0/GHUNSObject+Swizzle.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

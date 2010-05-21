@@ -20,8 +20,6 @@
 
 @end
 
-
-
 @implementation HoccerVcard
 
 @synthesize view;
@@ -91,6 +89,10 @@
 
 - (NSString *)extension {
 	return @"vcf";
+}
+
+- (NSString *)defaultFilename {
+	return @"Contact";
 }
 
 - (void) dealloc {

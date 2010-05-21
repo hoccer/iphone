@@ -132,7 +132,6 @@
 	}
 	
 	if (uploadDidFinish && pollingDidFinish) {
-		NSLog(@"upload did finish");
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}
 }

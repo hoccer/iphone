@@ -47,8 +47,6 @@
 	}
 	
 	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
-	
-	[self cleanUp];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL: (NSURL *)url {
@@ -65,12 +63,9 @@
 }
 
 - (void)applicationWillTerminate: (UIApplication *)application {
-	NSLog(@"will terminate");
 }
 
 - (void)dealloc {	
-	NSLog(@"dealloc");
-
     [viewController release];
 	[window release];
 	
@@ -96,26 +91,6 @@
 	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
 
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
-}
-
-- (void)cleanUp {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-	
-	NSError *error = nil;
-	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
-	NSLog(@"files %@", files);
-	HistoryData *historyData = [[HistoryData alloc] init];
-
-	for (NSString *file in files) {
-		NSString *filepath = [documentsDirectoryUrl stringByAppendingPathComponent:file];
-		if (![file contains:@".sqlite"] && ![historyData containsFile: filepath]) {
-			error = nil;
-			[[NSFileManager defaultManager] removeItemAtPath:filepath error:&error]; 
-			NSLog(@"delete file: %@", file);
-		}
-	}
-	[historyData release];
 }
 
 @end

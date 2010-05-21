@@ -45,7 +45,7 @@
 
 @interface SelectContentController ()
 
-- (void)setUpButtons;
+- (void)initButtons;
 
 @end
 
@@ -58,7 +58,7 @@
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor clearColor];
 	buttons = [[NSMutableArray alloc] init];
-	[self setUpButtons];
+	[self initButtons];
 	
     [super viewDidLoad];
 }
@@ -122,13 +122,12 @@
 }
 
 
-- (void)setUpButtons {
+- (void)initButtons {
 	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
 		[buttons addObject: [Action actionWithAction:@selector(camera:) buttonImage:[UIImage imageNamed: @"select_btn_cam.png"]]];
 	}
 	
 	[buttons addObject: [Action actionWithAction:@selector(image:) buttonImage:[UIImage imageNamed: @"select_btn_photo.png"]]];
-	// [buttons addObject: [Action actionWithAction:@selector(video:) buttonImage:[UIImage imageNamed: @"select_btn_video.png"]]];
 	[buttons addObject: [Action actionWithAction:@selector(text:) buttonImage:[UIImage imageNamed: @"select_btn_text.png"]]];
 	[buttons addObject: [Action actionWithAction:@selector(contact:) buttonImage:[UIImage imageNamed: @"select_btn_contact.png"]]];
  

@@ -18,31 +18,53 @@
 
 @implementation HoccerContent
 @synthesize data;
-@synthesize filepath;
+@synthesize filename;
 @synthesize isFromContentSource;
 
 @synthesize persist;
+
+
+#pragma mark -
+#pragma mark static Methods
+
++ (NSString *)contentDirectory {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+	
+	if ([paths count] < 1) {
+		@throw [NSException exceptionWithName:@"directoryException" reason:@"could not locate document directory" userInfo:nil];
+	}
+	
+	NSString *documentsDirectoryUrl = [[paths objectAtIndex:0]  stringByAppendingPathComponent:@"Shared"];
+	if (![[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryUrl]) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectoryUrl withIntermediateDirectories:YES attributes:nil error:&error];
+		
+		if (error != nil) {
+			@throw [NSException exceptionWithName:@"directoryException" reason:@"could not create directory" userInfo:nil];
+		}
+	}
+	
+	return documentsDirectoryUrl;
+}
+
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
 	if (self != nil) {
-		self.filepath = [decoder decodeObjectForKey:@"filepath"];
+		self.filename = [decoder decodeObjectForKey:@"filepath"];
 	}
 	return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:filepath forKey:@"filepath"];
+	[encoder encodeObject:filename forKey:@"filepath"];
 }
 
-- (id) initWithFilename: (NSString *)filename {
+- (id) initWithFilename: (NSString *)theFilename {
 	self = [super init];
 	if (self != nil) {
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-		
-		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
+		self.filename = theFilename;
 		
 		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
 		if (previewDelegate == nil) {
@@ -53,13 +75,10 @@
 	return self;
 }
 
-- (id) initWithData: (NSData *)theData filename: (NSString *)filename {
+- (id) initWithData: (NSData *)theData filename: (NSString *)theFilename {
 	self = [super init];
 	if (self != nil) {
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-		
-		self.filepath = [self uniqueFilenameFromFilename: [documentsDirectoryUrl stringByAppendingPathComponent: filename]];
+		self.filename = [self uniqueFilenameForFilename: theFilename inDirectory: [[self class] contentDirectory]];
 		self.data = theData;
 
 		[self saveDataToDocumentDirectory];
@@ -76,44 +95,51 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		NSString *filename = [self uniqueFilenameFromFilename: [NSString stringWithFormat:@"%f.%@", [NSDate timeIntervalSinceReferenceDate], self.extension]];
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-		NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
+		NSString *newFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
+		self.filename = [self uniqueFilenameForFilename: newFilename inDirectory: [[self class] contentDirectory]];
 		
-		self.filepath = [documentsDirectoryUrl stringByAppendingPathComponent: filename];
 		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
 	}
+	
 	return self;
 }
 
 - (NSData *)data {
-	if (data == nil && filepath != nil) {
-		self.data = [NSData dataWithContentsOfFile:filepath];
+	if (data == nil && filename != nil) {
+		self.data = [NSData dataWithContentsOfFile:self.filepath];
 	}
 	return data;
 }
 
 - (void) saveDataToDocumentDirectory {
-	[data writeToFile: filepath atomically: NO];
+	[data writeToFile: self.filepath atomically: NO];
 } 
 
 - (void) removeFromDocumentDirectory {
 	NSError *error = nil;
-	if (filepath != nil) {
-		[[NSFileManager defaultManager] removeItemAtPath:filepath error:&error]; 
+	if (filename != nil) {
+		[[NSFileManager defaultManager] removeItemAtPath:self.filepath error:&error]; 
 	}	
 }
 
 - (void) dealloc {		
 	[data release];
-	[filepath release];
+	[filename release];
 	[previewDelegate release];
 		
 	[super dealloc];
 }
 
+- (NSString *)filepath {
+	return [[HoccerContent contentDirectory] stringByAppendingPathComponent:self.filename];
+}
+
 - (NSString *)extension {
 	return @"na";
+}
+
+- (NSString *)defaultFilename {
+	return @"File";
 }
 
 - (void)prepareSharing{
@@ -144,10 +170,6 @@
 	
 	[view setImage: [previewDelegate hoccerContentIcon:self]];
 	return [view autorelease];
-}
-
-- (NSString *)filename{
-	return [filepath lastPathComponent];
 }
 
 - (NSString *)mimeType{
@@ -181,22 +203,22 @@
 	return [NSURL fileURLWithPath:self.filepath];
 }
 
-- (NSString *)uniqueFilenameFromFilename: (NSString *)filename {
-	if (![[NSFileManager defaultManager] fileExistsAtPath:filename]) {
-		return filename;
+- (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory {
+	if (![[NSFileManager defaultManager] fileExistsAtPath: [directory stringByAppendingPathComponent:theFilename]]) {
+		return theFilename;
 	};
 	
-	NSString *extension = [filename pathExtension];
-	NSString *baseFilename = [filename stringByDeletingPathExtension];
+	NSString *extension = [theFilename pathExtension];
+	NSString *baseFilename = [theFilename stringByDeletingPathExtension];
 
 	NSInteger i = 1;
 	NSString* newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
 	newFilename = [newFilename stringByAppendingPathExtension: extension];
-	while ([[NSFileManager defaultManager] fileExistsAtPath:newFilename]) {
-		i++;
-		
+	while ([[NSFileManager defaultManager] fileExistsAtPath: [directory stringByAppendingPathComponent:newFilename]]) {
 		newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
 		newFilename = [newFilename stringByAppendingPathExtension: extension];
+		
+		i++;
 	}
 	
 	return newFilename;
@@ -208,7 +230,8 @@
 
 - (UIImage *)historyThumbButton {
 	return [UIImage imageNamed:@"history_icon_image.png"];
-} 
+}
+
 
 
 @end

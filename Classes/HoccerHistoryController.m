@@ -18,13 +18,19 @@
 #import "AdMobView.h"
 #import "StoreKitManager.h"
 
+#import "NSString+Regexp.h"
+
 @interface HoccerHistoryController ()
 
+@property (retain) UIView *adView;
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
+
+- (void)cleanUp;
 @end
 
 @implementation HoccerHistoryController
+@synthesize adView;
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
 @synthesize historyData;
@@ -38,6 +44,7 @@
 	self = [super init];
 	if (self != nil) {
 		historyData = [[HistoryData alloc] init];
+		[self cleanUp];
 	}
 	return self;
 }
@@ -50,13 +57,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.tableView.rowHeight = 62;
+	self.tableView.rowHeight = 64;
 	self.tableView.backgroundColor = [UIColor clearColor];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	NSLog(@"viewWillAppear");
 	[self.tableView reloadData];
 }
 
@@ -80,7 +86,6 @@
 	return rows;
 }
 
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
@@ -98,15 +103,18 @@
         cell = self.historyCell;
 		self.historyCell = nil;
 	}
-	cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
-	
+	[cell viewWithTag:6].hidden = YES;
+
 	NSInteger row = [self adjustedIndexForAds:indexPath];
 	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
-		UIView *adView = [AdMobView requestAdWithDelegate:self];
-		adView.center = cell.contentView.center;
-		[cell.contentView addSubview:adView];
+		if (self.adView == nil) {
+			self.adView = [AdMobView requestAdWithDelegate:self];	
+		}
+	    [cell.contentView addSubview:adView];
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]];
+
 	} else if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
@@ -115,15 +123,26 @@
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
-
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
 		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
 		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
 		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
+		
+		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+
+		if ((row == 0 && [historyData count] == 0)) {
+			[cell viewWithTag:6].hidden = NO;
+
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]]; 
+		} else 	if ( (row == 1 && [historyData count] == 0) || (row == [historyData count] && [historyData count] != 0)) {
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_firstempty_rowbg.png"]];
+		} else {
+			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
+		}
 	}
 		
 	return cell;
@@ -135,6 +154,14 @@
 	}
 	
 	return YES;
+}
+
+- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (indexPath.row == 1 && [StoreKitManager isPropagandaEnabled]) {
+		return 49;
+	} else {
+	    return aTableView.rowHeight;	
+	}
 }
 
 // Override to support editing the table view.
@@ -178,7 +205,7 @@
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
 	detailViewController.delegate = self;
-	detailViewController.navigationItem.title = [content.filepath lastPathComponent];
+	detailViewController.navigationItem.title = [content.filename lastPathComponent];
 	
      // Pass the selected object to the new view controller.
 	[self.parentNavigationController pushViewController:detailViewController animated:YES];
@@ -236,21 +263,15 @@
 }
 
 - (void)didReceiveAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didReceiveRefreshedAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didFailToReceiveAd:(AdMobView *)adView; {
-	NSLog(@"view: %@ in %s", adView, _cmd);
 }
 
 - (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
-	
-	NSLog(@"view: %@ in %s", adView, _cmd);
-
 }
 
 
@@ -269,6 +290,22 @@
 		return [indexPath row];
 	}
 }
+
+
+- (void)cleanUp {
+	NSString *documentsDirectoryUrl = [HoccerContent contentDirectory];
+	
+	NSError *error = nil;
+	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
+	
+	for (NSString *file in files) {
+		if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
+			error = nil;
+			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
+		}
+	}
+}
+
 
 @end
 

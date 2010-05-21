@@ -66,7 +66,7 @@
 	if (canceled) {
 		return;
 	}
-	NSLog(@"download status: %@",  update);
+
 	self.status = update;
 	
 	if (eventURL == nil) {
@@ -94,7 +94,6 @@
 #pragma mark -
 #pragma mark Download Delegate Methods
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
-	NSLog(@"download did finsih");
 	[downloadRequest release];
 	downloadRequest = nil;
 	downloaded = YES;
@@ -134,7 +133,6 @@
 
 - (void)checkCompleteness {
 	if ([[self.status objectForKey:@"status_code"] intValue] == 200 && downloaded) {
-		NSLog(@"delegate: %@", self.delegate);
 		[request cancel];
 		
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:)

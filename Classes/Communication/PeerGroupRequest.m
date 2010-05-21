@@ -11,7 +11,7 @@
 #import "NSObject+DelegateHelper.h"
 #import "HocLocation.h"
 
-const NSString *kHoccerServer = @"http://beta.hoccer.com/";
+const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
@@ -50,10 +50,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
 	
-	if (!canceled) {
-		[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
-	}
-
 	if ([self.response statusCode] >= 400) {
 		NSError *error = [self parseJsonToError: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
@@ -61,8 +57,8 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 
 	if (!canceled) {
+		[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
-
 	}
 	
 	self.connection = nil;
@@ -90,8 +86,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		[body appendFormat:@"&event[bssids]=%@", ids];
 	}
 	
-	
-	NSLog(@"body: %@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <StoreKit/StoreKit.h>
 
+#import "MBProgressHUD.h"
+
 
 @interface SettingViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver> {
 	NSMutableArray *sections;
@@ -18,6 +20,8 @@
 	@private
 	UITableView *tableView;
 	UITableViewCell * hoccerSettingsLogo;
+	
+	MBProgressHUD *progressHUD;
 }
 
 @property (retain) UINavigationController *parentNavigationController;

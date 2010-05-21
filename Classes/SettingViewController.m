@@ -46,8 +46,10 @@
 - (void)showAbout;
 - (void)showHoccerWebsite;
 - (void)showTwitter;
+- (void)showFacebook;
+- (void)showBookmarklet;
 - (void)removePropaganda;
-- (void) requestProductData;
+- (void)requestProductData;
 
 - (void) completeTransaction: (SKPaymentTransaction *)transaction;
 - (void) restoreTransaction: (SKPaymentTransaction *)transaction;
@@ -74,26 +76,28 @@
 	sections = [[NSMutableArray alloc] init];
 	
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial)];
-	
 	NSArray *section1 = [NSArray arrayWithObjects:tutorialAction, nil];
 	[sections addObject:section1];
 
-
-	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
-	NSArray *section2 = [NSArray arrayWithObjects:aboutAction, nil]; 
+	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet)];
+	NSArray *section2 = [NSArray arrayWithObjects:bookmarkletAction, nil]; 
 	[sections addObject:section2];
 	
 	if([StoreKitManager isPropagandaEnabled]){
-		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Remove Ads" selector:@selector(removePropaganda)];
+		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda)];
 		[sections addObject:[NSArray arrayWithObject:buyAction]];
 	}
 	
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook)]; 
 
-	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, twitterAction, nil];
+	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
-
+	
+	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
+	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
+	[sections addObject:section4];
 }
 
 #pragma mark -
@@ -135,7 +139,7 @@
 	cell.textLabel.text = action.description;
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
-	if (section == 0 || section == 1) {
+	if (section == 0 || section == 3 && ![StoreKitManager isPropagandaEnabled] || section == 4 && [StoreKitManager isPropagandaEnabled]) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
@@ -147,7 +151,8 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == 0) {
-		return 107;
+		return 92
+		;
 	}
 	
 	return aTableView.rowHeight;
@@ -159,11 +164,10 @@
 	}
 	
 	NSInteger section = indexPath.section - 1;
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 	[self performSelector:action.selector];
-	
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -184,6 +188,10 @@
 	[aboutView release];
 }
 
+- (void)showBookmarklet {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];
+}
+
 - (void)showHoccerWebsite {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
 }
@@ -192,11 +200,22 @@
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
 }
 
+- (void)showFacebook {
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.facebook.com/hoccer"]];
+}
+
 - (void)removePropaganda {
 	if ([SKPaymentQueue canMakePayments]) {
+		progressHUD = [[MBProgressHUD alloc] initWithView: self.view];
+		[self.view addSubview:progressHUD];
+		[progressHUD show:YES];
+		
 		[self requestProductData];
 	} else {
-		NSLog(@"can't make payments");
+		UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"In-App Purchase not enabled" message:@"To buy the ad-free Hoccer version enable In-App Purchase in the settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] ;
+		[view show];
+	
+		[view autorelease];
 	}	
 }
 
@@ -207,7 +226,6 @@
 }
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-    NSLog(@"%s", _cmd);
 	NSArray *myProduct = response.products;
 	
 	if ([myProduct count] > 0) {
@@ -222,9 +240,8 @@
 
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
-    for (SKPaymentTransaction *transaction in transactions) {
-        switch (transaction.transactionState)
-        {
+	for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchased:			
 				[self completeTransaction:transaction];
                 break;
@@ -237,25 +254,26 @@
                 break;
         }
     }
+	
+	NSLog(@"removing hud");
+	[progressHUD hide: YES];
+	[progressHUD release];
+	progressHUD = nil;
 }
 
 - (void) completeTransaction: (SKPaymentTransaction *)transaction
 {
     [self rememberPurchase];
-	// Remove the transaction from the payment queue.
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+	
 }
 
-- (void) restoreTransaction: (SKPaymentTransaction *)transaction
-{
-	NSLog(@"restored");
+- (void) restoreTransaction: (SKPaymentTransaction *)transaction {
     [self rememberPurchase];
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
 
-- (void) failedTransaction: (SKPaymentTransaction *)transaction
-{
-	NSLog(@"failed");
+- (void) failedTransaction: (SKPaymentTransaction *)transaction {
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
         // Optionally, display an error here.
@@ -266,7 +284,9 @@
 -(void) rememberPurchase {
 	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AdFree"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	NSLog(@"adfree after buying: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);	
+	
+	[sections removeObjectAtIndex:2];
+	[self.tableView deleteSections:[[[NSIndexSet alloc] initWithIndex:3] autorelease] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -
