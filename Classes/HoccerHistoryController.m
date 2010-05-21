@@ -18,10 +18,15 @@
 #import "AdMobView.h"
 #import "StoreKitManager.h"
 
+#import "NSString+Regexp.h"
+
 @interface HoccerHistoryController ()
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
+
+- (void)cleanUp;
+
 @end
 
 @implementation HoccerHistoryController
@@ -38,6 +43,7 @@
 	self = [super init];
 	if (self != nil) {
 		historyData = [[HistoryData alloc] init];
+		[self cleanUp];
 	}
 	return self;
 }
@@ -50,7 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.tableView.rowHeight = 62;
+	self.tableView.rowHeight = 64;
 	self.tableView.backgroundColor = [UIColor clearColor];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -153,7 +159,7 @@
 	if (indexPath.row == 1 && [StoreKitManager isPropagandaEnabled]) {
 		return 49;
 	} else {
-	    return aTableView.rowHeight + 2;	
+	    return aTableView.rowHeight;	
 	}
 }
 
@@ -198,7 +204,7 @@
 	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
 	[detailViewController setHoccerContent:content];
 	detailViewController.delegate = self;
-	detailViewController.navigationItem.title = [content.filepath lastPathComponent];
+	detailViewController.navigationItem.title = [content.filename lastPathComponent];
 	
      // Pass the selected object to the new view controller.
 	[self.parentNavigationController pushViewController:detailViewController animated:YES];
@@ -289,6 +295,24 @@
 		return [indexPath row];
 	}
 }
+
+
+- (void)cleanUp {
+	NSString *documentsDirectoryUrl = [HoccerContent contentDirectory];
+	
+	NSError *error = nil;
+	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
+	NSLog(@"files %@", files);
+	
+	for (NSString *file in files) {
+		if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
+			error = nil;
+			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
+			NSLog(@"delete file: %@", file);
+		}
+	}
+}
+
 
 @end
 

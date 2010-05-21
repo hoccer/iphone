@@ -55,7 +55,7 @@
 
 - (void)prepareSharing {
 	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
-	[self.data writeToFile: filepath atomically: NO];
+	[self.data writeToFile: filename atomically: NO];
 }
 
 - (NSString *)mimeType {
@@ -64,6 +64,10 @@
 
 - (NSString *)extension {
 	return @"txt";
+}
+
+- (NSString *)defaultFilename {
+	return @"Message";
 }
 
 - (void)dismissKeyboard

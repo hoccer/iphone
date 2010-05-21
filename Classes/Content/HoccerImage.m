@@ -96,6 +96,9 @@
 	return [view autorelease];
 }
 	
+- (NSString *)defaultFilename {
+	return @"Image";
+}
 
 - (NSString *)extension {
 	return @"jpg";

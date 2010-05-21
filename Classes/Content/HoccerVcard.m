@@ -93,6 +93,10 @@
 	return @"vcf";
 }
 
+- (NSString *)defaultFilename {
+	return @"Contact";
+}
+
 - (void) dealloc {
 	if (person != NULL) CFRelease(person);
 	[abPersonVCardCreator release];

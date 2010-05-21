@@ -14,7 +14,7 @@
 @class HoccerContentIPadPreviewDelegate;
 
 @interface HoccerContent : NSObject <NSCoding> {
-	NSString *filepath;	
+	NSString *filename;	
 	id <HoccerContentPreviewDelegate> previewDelegate;
 	BOOL isFromContentSource;
 	
@@ -25,11 +25,14 @@
 }
 
 @property (retain) NSData *data; 
-@property (retain) NSString* filepath;
-@property (nonatomic, readonly) NSString *extension;
+@property (retain) NSString* filename;
 @property (nonatomic, readonly) NSURL *fileUrl;
+@property (nonatomic, readonly) NSString *filepath;
+@property (nonatomic, readonly) NSString *extension;
 @property (assign) BOOL isFromContentSource;
 @property (assign) BOOL persist;
+
++ (NSString *)contentDirectory;
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (id) initWithFilename: (NSString *)filename;
@@ -41,8 +44,8 @@
 - (UIView *)fullscreenView;
 - (Preview *)desktopItemView;
 
-- (NSString *)filename;
 - (NSString *)mimeType;
+- (NSString *)defaultFilename;
 
 - (BOOL)isDataReady;
 - (void)prepareSharing;
@@ -55,7 +58,7 @@
 - (void)decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController;
 - (void)previewInViewController: (UIViewController *)viewController;
 
-- (NSString *)uniqueFilenameFromFilename: (NSString *)filename;
+- (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (UIImage *)imageForSaveButton;
 - (UIImage *)historyThumbButton;
 
