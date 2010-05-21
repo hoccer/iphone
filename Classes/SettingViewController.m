@@ -93,7 +93,6 @@
 
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, twitterAction, nil];
 	[sections addObject:section3];
-
 }
 
 #pragma mark -
@@ -159,11 +158,10 @@
 	}
 	
 	NSInteger section = indexPath.section - 1;
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 	[self performSelector:action.selector];
-	
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -196,7 +194,6 @@
 	if ([SKPaymentQueue canMakePayments]) {
 		progressHUD = [[MBProgressHUD alloc] initWithView: self.view];
 		[self.view addSubview:progressHUD];
-
 		[progressHUD show:YES];
 		
 		[self requestProductData];
@@ -251,8 +248,8 @@
 - (void) completeTransaction: (SKPaymentTransaction *)transaction
 {
     [self rememberPurchase];
-	// Remove the transaction from the payment queue.
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+	
 }
 
 - (void) restoreTransaction: (SKPaymentTransaction *)transaction
@@ -276,6 +273,9 @@
 	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AdFree"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	NSLog(@"adfree after buying: %d", [[NSUserDefaults standardUserDefaults] boolForKey:@"AdFree"]);	
+	
+	[sections removeObjectAtIndex:2];
+	[self.tableView deleteSections:[[NSIndexSet alloc] initWithIndex:3] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -
