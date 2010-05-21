@@ -212,7 +212,7 @@
 		
 		[self requestProductData];
 	} else {
-		UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"In-App Purchase not enabled" message:@"To buy the ad-free Hoccer version enable In-App Purchase in the settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] ;
+		UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"In-App Purchase not enabled" message:@"To buy the ad-free Hoccer version enable In-App Purchase in the settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] ;
 		[view show];
 	
 		[view autorelease];
