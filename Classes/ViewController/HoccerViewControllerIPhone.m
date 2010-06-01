@@ -288,10 +288,11 @@
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	[self removePopOverFromSuperview];
-	statusViewController.covered = NO;
 }
 
 - (void)removePopOverFromSuperview {
+	statusViewController.covered = NO;
+
 	[auxiliaryView.view removeFromSuperview];	 
 	self.auxiliaryView = nil;
 	

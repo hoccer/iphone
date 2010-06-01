@@ -61,14 +61,14 @@
 - (void)cancel {
 	[super cancel];
 	canceled = YES;
+
+	[upload cancel];
+	[upload release];
+	upload = nil;
 	
 	[request cancel];
 	[request release];
 	request = nil;
-	
-	[upload cancel];
-	[upload release];
-	upload = nil;
 }
 
 

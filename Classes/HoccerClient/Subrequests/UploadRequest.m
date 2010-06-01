@@ -51,7 +51,9 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	self.result = [self parseJsonToDictionary: receivedData];
 	self.connection = nil;
 	
-	[delegate checkAndPerformSelector:@selector(uploadRequestDidFinished:) withObject: self];
+	if (!canceled) {
+		[delegate checkAndPerformSelector:@selector(uploadRequestDidFinished:) withObject: self];
+	}
 }
 
 - (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten 
@@ -72,7 +74,6 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	NSString *name = @"upload[attachment]";
 	
 	NSMutableData *bodyData = [NSMutableData data];
-	
 	[bodyData appendData: [[NSString stringWithFormat: @"--%@\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]]; 
 	[bodyData appendData: [[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"", name] dataUsingEncoding: NSUTF8StringEncoding]];
 	[bodyData appendData: [[NSString stringWithFormat: @" filename=\"%@\"\r\n", filename] dataUsingEncoding: NSUTF8StringEncoding]];
