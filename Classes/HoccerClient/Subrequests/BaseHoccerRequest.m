@@ -40,7 +40,6 @@
 	canceled = YES;
 }
 
-
 - (void)dealloc {
 	[userAgent release];
 	[receivedData release];

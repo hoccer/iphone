@@ -43,13 +43,20 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	return [self.request URL];
 }
 
-
 #pragma mark -
 #pragma mark NSURLConnection Delegate Methods
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
 	
+	if (self.response == nil) {
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"A problem occured on the server. Try again in a moment." forKey:NSLocalizedDescriptionKey];
+		NSError *error = [NSError errorWithDomain: @"HoccerErrorDomain" code:1 userInfo:userInfo];
+
+		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
+		return;
+	}
+		
 	if ([self.response statusCode] >= 400) {
 		NSError *error = [self parseJsonToError: self.result];
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
