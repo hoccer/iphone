@@ -154,8 +154,6 @@
 		22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3011B51E880024AA7E /* SettingViewController.m */; };
 		22638C5C11B51E880024AA7E /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3311B51E880024AA7E /* StatusViewController.m */; };
 		22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3611B51E880024AA7E /* TermOfUse.m */; };
-		22638C7911B51FCA0024AA7E /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638C7711B51FCA0024AA7E /* ContactsView.xib */; };
-		22638C7A11B51FCA0024AA7E /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638C7811B51FCA0024AA7E /* EmptyContent.xib */; };
 		22638C8111B51FEE0024AA7E /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HocItemData.m */; };
 		22638C8411B520240024AA7E /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */; };
 		22638C8711B520530024AA7E /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BF611B51E5C0024AA7E /* HoccerContentIPadPreviewDelegate.m */; };
@@ -181,6 +179,8 @@
 		22638D6011B52D9D0024AA7E /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D5211B52D9D0024AA7E /* StatusViewController.xib */; };
 		22638D6111B52D9D0024AA7E /* TermOfUse.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D5311B52D9D0024AA7E /* TermOfUse.xib */; };
 		22638D6211B52D9D0024AA7E /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D5411B52D9D0024AA7E /* TextView.xib */; };
+		22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6811B52EC70024AA7E /* ContactsView.xib */; };
+		22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6911B52EC70024AA7E /* EmptyContent.xib */; };
 		22719E901083207700F84755 /* ABPersonCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22719E8E1083207700F84755 /* ABPersonCreator.m */; };
 		2271A00D108347C800F84755 /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2271E2E6109F26EE003D5C68 /* QuartzCore.framework */; };
@@ -589,8 +589,6 @@
 		22638C3311B51E880024AA7E /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		22638C3511B51E880024AA7E /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		22638C3611B51E880024AA7E /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
-		22638C7711B51FCA0024AA7E /* ContactsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsView.xib; sourceTree = "<group>"; };
-		22638C7811B51FCA0024AA7E /* EmptyContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyContent.xib; sourceTree = "<group>"; };
 		22638C7E11B51FEE0024AA7E /* HocItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemData.h; sourceTree = "<group>"; };
 		22638C7F11B51FEE0024AA7E /* HocItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocItemData.m; sourceTree = "<group>"; };
 		22638C8011B51FEE0024AA7E /* HocItemDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemDataDelegate.h; sourceTree = "<group>"; };
@@ -616,6 +614,8 @@
 		22638D5211B52D9D0024AA7E /* StatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
 		22638D5311B52D9D0024AA7E /* TermOfUse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfUse.xib; sourceTree = "<group>"; };
 		22638D5411B52D9D0024AA7E /* TextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextView.xib; sourceTree = "<group>"; };
+		22638D6811B52EC70024AA7E /* ContactsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactsView.xib; sourceTree = "<group>"; };
+		22638D6911B52EC70024AA7E /* EmptyContent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyContent.xib; sourceTree = "<group>"; };
 		226496241070DD56006D33E2 /* ThrowDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThrowDetector.h; path = GesturesInterpreter/ThrowDetector.h; sourceTree = "<group>"; };
 		226496251070DD56006D33E2 /* ThrowDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThrowDetector.m; path = GesturesInterpreter/ThrowDetector.m; sourceTree = "<group>"; };
 		22719E8D1083207700F84755 /* ABPersonCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABPersonCreator.h; path = AddressBook/ABPersonCreator.h; sourceTree = "<group>"; };
@@ -1224,40 +1224,23 @@
 		22638C1811B51E880024AA7E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22638C1911B51E880024AA7E /* AboutViewController.h */,
-				22638C1A11B51E880024AA7E /* AboutViewController.m */,
-				22638C1C11B51E880024AA7E /* HelpScrollView.h */,
-				22638C1D11B51E880024AA7E /* HelpScrollView.m */,
+				22638D7311B52F540024AA7E /* Auxiliary Views */,
 				22638C1F11B51E880024AA7E /* HoccerHistoryController.h */,
 				22638C2011B51E880024AA7E /* HoccerHistoryController.m */,
+				22638C2911B51E880024AA7E /* ReceivedContentViewController.h */,
+				22638C2A11B51E880024AA7E /* ReceivedContentViewController.m */,
+				22638C2B11B51E880024AA7E /* SelectContentController.h */,
+				22638C2C11B51E880024AA7E /* SelectContentController.m */,
+				22638C3211B51E880024AA7E /* StatusViewController.h */,
+				22638C3311B51E880024AA7E /* StatusViewController.m */,
 				22638C2111B51E880024AA7E /* HoccerViewController.h */,
 				22638C2211B51E880024AA7E /* HoccerViewController.m */,
 				22638C2311B51E880024AA7E /* HoccerViewControlleriPad.h */,
 				22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */,
 				22638C2511B51E880024AA7E /* HoccerViewControllerIPhone.h */,
 				22638C2611B51E880024AA7E /* HoccerViewControllerIPhone.m */,
-				22638C2911B51E880024AA7E /* ReceivedContentViewController.h */,
-				22638C2A11B51E880024AA7E /* ReceivedContentViewController.m */,
-				22638C2B11B51E880024AA7E /* SelectContentController.h */,
-				22638C2C11B51E880024AA7E /* SelectContentController.m */,
-				22638C2F11B51E880024AA7E /* SettingViewController.h */,
-				22638C3011B51E880024AA7E /* SettingViewController.m */,
-				22638C3211B51E880024AA7E /* StatusViewController.h */,
-				22638C3311B51E880024AA7E /* StatusViewController.m */,
-				22638C3511B51E880024AA7E /* TermOfUse.h */,
-				22638C3611B51E880024AA7E /* TermOfUse.m */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		22638C7611B51FCA0024AA7E /* ContentPreviewXibs */ = {
-			isa = PBXGroup;
-			children = (
-				22638C7711B51FCA0024AA7E /* ContactsView.xib */,
-				22638C7811B51FCA0024AA7E /* EmptyContent.xib */,
-			);
-			name = ContentPreviewXibs;
-			path = Resources/ContentPreview;
 			sourceTree = "<group>";
 		};
 		22638C7D11B51FEE0024AA7E /* Controller */ = {
@@ -1306,6 +1289,31 @@
 			);
 			name = Xibs;
 			path = Resources/Xibs;
+			sourceTree = "<group>";
+		};
+		22638D6711B52EC70024AA7E /* ContentPreviewXibs */ = {
+			isa = PBXGroup;
+			children = (
+				22638D6811B52EC70024AA7E /* ContactsView.xib */,
+				22638D6911B52EC70024AA7E /* EmptyContent.xib */,
+			);
+			name = ContentPreviewXibs;
+			path = Resources/ContentPreviewXibs;
+			sourceTree = "<group>";
+		};
+		22638D7311B52F540024AA7E /* Auxiliary Views */ = {
+			isa = PBXGroup;
+			children = (
+				22638C3511B51E880024AA7E /* TermOfUse.h */,
+				22638C3611B51E880024AA7E /* TermOfUse.m */,
+				22638C1911B51E880024AA7E /* AboutViewController.h */,
+				22638C1A11B51E880024AA7E /* AboutViewController.m */,
+				22638C1C11B51E880024AA7E /* HelpScrollView.h */,
+				22638C1D11B51E880024AA7E /* HelpScrollView.m */,
+				22638C2F11B51E880024AA7E /* SettingViewController.h */,
+				22638C3011B51E880024AA7E /* SettingViewController.m */,
+			);
+			name = "Auxiliary Views";
 			sourceTree = "<group>";
 		};
 		22762D17105E4408003BF968 /* Tests */ = {
@@ -1704,7 +1712,7 @@
 			isa = PBXGroup;
 			children = (
 				22638D4611B52D9D0024AA7E /* Xibs */,
-				22638C7611B51FCA0024AA7E /* ContentPreviewXibs */,
+				22638D6711B52EC70024AA7E /* ContentPreviewXibs */,
 				22762DE5105E5688003BF968 /* fixtures */,
 				2219BF261185D54E007AB243 /* Assets */,
 				2299926111916650006DA5DD /* sounds */,
@@ -1934,8 +1942,6 @@
 				221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */,
 				221D771111A6DC8C00246D89 /* Default.png in Resources */,
 				22638BDE11B51DF00024AA7E /* DebugViewController.xib in Resources */,
-				22638C7911B51FCA0024AA7E /* ContactsView.xib in Resources */,
-				22638C7A11B51FCA0024AA7E /* EmptyContent.xib in Resources */,
 				22638D2911B52D0C0024AA7E /* Accept_Button.png in Resources */,
 				22638D2A11B52D0C0024AA7E /* Background.png in Resources */,
 				22638D2B11B52D0C0024AA7E /* Catch_Icon.png in Resources */,
@@ -1958,6 +1964,8 @@
 				22638D6011B52D9D0024AA7E /* StatusViewController.xib in Resources */,
 				22638D6111B52D9D0024AA7E /* TermOfUse.xib in Resources */,
 				22638D6211B52D9D0024AA7E /* TextView.xib in Resources */,
+				22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */,
+				22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
