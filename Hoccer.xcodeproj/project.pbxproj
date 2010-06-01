@@ -637,7 +637,6 @@
 		2271A00A108347C800F84755 /* FeedbackProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackProvider.h; sourceTree = "<group>"; };
 		2271A00B108347C800F84755 /* FeedbackProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackProvider.m; sourceTree = "<group>"; };
 		2271E2E6109F26EE003D5C68 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		22762D04105E412A003BF968 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		22762F61105E78AF003BF968 /* 2_values.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 2_values.txt; path = Resources/fixtures/2_values.txt; sourceTree = "<group>"; };
 		22762FB5105E84B5003BF968 /* GesturesInterpreterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpreterDelegate.h; path = GesturesInterpreter/GesturesInterpreterDelegate.h; sourceTree = "<group>"; };
 		22762FB6105E84B5003BF968 /* GesturesInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GesturesInterpreter.h; path = GesturesInterpreter/GesturesInterpreter.h; sourceTree = "<group>"; };
@@ -1691,7 +1690,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				22762D04105E412A003BF968 /* Test-Info.plist */,
 				227630E1105E99E5003BF968 /* HoccerTests-Info.plist */,
 				22C0B36F117DF212009E3E3C /* Tests-Info.plist */,
 			);
