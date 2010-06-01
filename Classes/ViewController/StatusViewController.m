@@ -38,7 +38,7 @@
 @synthesize delegate;
 @synthesize hocItemData;
 @synthesize badLocationHint;
-@synthesize overlaped;
+@synthesize covered;
 
 - (void)viewDidLoad {
 	[self hideViewAnimated];
@@ -84,6 +84,18 @@
 	
 	[self hideUpdateState];
 }
+
+
+- (void)setCovered:(BOOL)isCovered {
+	if (!covered) {
+		self.view.hidden = YES;
+	} else if (hocItemData != nil || badLocationHint != nil){
+		self.view.hidden = NO;
+	}
+	
+	covered = isCovered;
+}
+
 
 #pragma mark -
 #pragma mark Managing Status Bar Size
@@ -273,7 +285,6 @@
 			hintButton.hidden = NO;
 			hintText.text = [error localizedRecoverySuggestion];
 		}
-		
 	}
 
 	[self setErrorStateWithRecovery:([error localizedRecoverySuggestion] != nil)];
@@ -284,7 +295,7 @@
 #pragma mark Showing and Hiding StatusBar
 
 - (void)showViewAnimated {
-	if (!self.view.hidden) {
+	if (!self.view.hidden || self.covered) {
 		return;
 	}
 

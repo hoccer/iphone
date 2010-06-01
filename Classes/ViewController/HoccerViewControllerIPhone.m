@@ -282,12 +282,13 @@
 	
 	isPopUpDisplayed = TRUE;
 	
-	statusViewController.view.hidden = YES;
+	statusViewController.covered = YES;
 	[popOverView viewDidAppear:YES];
 }
 
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	[self removePopOverFromSuperview];
+	statusViewController.covered = NO;
 }
 
 - (void)removePopOverFromSuperview {

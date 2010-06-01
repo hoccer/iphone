@@ -30,12 +30,12 @@
 	@private
 	BOOL showingError;
 	NSTimer *timer;
-	BOOL overlaped;
+	BOOL covered;
 }
 
 @property (assign) id delegate;
 @property (retain) HocItemData* hocItemData;
-@property (assign) BOOL overlaped;
+@property (assign, getter=isCovered) BOOL covered;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSError *)error;

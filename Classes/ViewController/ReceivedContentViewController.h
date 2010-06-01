@@ -22,7 +22,6 @@
 @property (assign) id delegate;
 @property (nonatomic, retain) HoccerContent* hoccerContent;
 
-
 - (IBAction)save: (id)sender;
 - (IBAction)resend: (id)sender;
 
