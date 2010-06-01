@@ -255,7 +255,6 @@
         }
     }
 	
-	NSLog(@"removing hud");
 	[progressHUD hide: YES];
 	[progressHUD release];
 	progressHUD = nil;

@@ -133,7 +133,6 @@
 	}
 }
 
-
 - (void)addContentToHistory: (HocItemData *) hocItem {
 	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	

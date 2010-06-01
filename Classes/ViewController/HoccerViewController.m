@@ -38,7 +38,6 @@
 
 #import "HocItemData.h"
 #import "StatusViewController.h"
-#import "HoccerMessageResolver.h"
 
 #import "HoccingRulesIPhone.h"
 #import "HistoryData.h"

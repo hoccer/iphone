@@ -35,7 +35,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.connection = nil;
-	NSLog(@"deleted");
 }
 
 - (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error {

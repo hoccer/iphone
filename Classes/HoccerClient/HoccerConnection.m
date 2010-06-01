@@ -69,7 +69,6 @@
 }
 
 - (void) dealloc {
-	NSLog(@"dealloc connection");
 	[gesture release];
 	[request release];
 	[location release];

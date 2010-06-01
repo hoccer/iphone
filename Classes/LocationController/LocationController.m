@@ -120,9 +120,9 @@
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerBadLocation userInfo:[self userInfoForBadLocation]];
 	}
 	
-	if (self.hoccability == 1) {
-		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
-	}
+//	if (self.hoccability == 1) {
+//		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
+//	}
 	
 	return nil;
 }

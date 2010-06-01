@@ -113,7 +113,7 @@
 			self.adView = [AdMobView requestAdWithDelegate:self];	
 		}
 	    [cell.contentView addSubview:adView];
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]];
+		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]] autorelease];
 
 	} else if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
@@ -129,7 +129,7 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
 		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
 		
-		cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]];
+		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;

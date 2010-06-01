@@ -88,8 +88,6 @@
 #pragma mark -
 #pragma mark Managing Status Bar Size
 
-// - (void)setOverlaped:(BOOL)
-
 - (void)showRecoverySuggestion {
 	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
 	hintText.hidden = NO;
@@ -333,10 +331,5 @@
 		[self setProgressUpdate: [[change objectForKey:NSKeyValueChangeNewKey] floatValue]];
 	}
 }
-
-
-
-
-
 
 @end
