@@ -238,16 +238,6 @@
 
 - (void)updateHistoryList {
 	[self.tableView reloadData];
-
-//  [self.tableView beginUpdates];
-//	if ([historyData count] + kBannerCount <= 6) {
-//		NSIndexPath *removePath = [NSIndexPath indexPathForRow:5 inSection:0];
-//		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:removePath] withRowAnimation:UITableViewRowAnimationNone];
-//	}
-//	
-//	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//	[self.tableView endUpdates];
 }
 
 
