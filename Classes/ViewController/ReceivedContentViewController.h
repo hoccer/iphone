@@ -16,9 +16,7 @@
 	IBOutlet UIToolbar *toolbar;
 	
 	HoccerContent* hoccerContent;
-
 	IBOutlet UIActivityIndicatorView *activity;
-	
 }
 
 @property (assign) id delegate;
@@ -29,6 +27,5 @@
 - (IBAction)resend: (id)sender;
 
 - (void)setHoccerContent: (HoccerContent *) content;
--  (void)setWaiting;
 
 @end

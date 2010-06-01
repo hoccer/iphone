@@ -82,8 +82,7 @@
 	CFRelease(name);
 }
 
-- (void)testABPersonToVCard
-{
+- (void)testABPersonToVCard {
 	CFErrorRef errorRef;
 
 	ABRecordRef person = ABPersonCreate();

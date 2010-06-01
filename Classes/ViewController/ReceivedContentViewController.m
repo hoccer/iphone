@@ -13,7 +13,8 @@
 
 @interface ReceivedContentViewController () 
 - (void)hideReceivedContentView;
-
+- (void)setReady;
+- (void)setWaiting;
 @end
 
 
@@ -81,8 +82,7 @@
 #pragma mark ReceivedContentView Delegate Methods
 
 -  (void)hideReceivedContentView {
-	[self setWaiting];
-	[self.delegate checkAndPerformSelector:@selector(receivedViewContentControllerDidFinish:) withObject: self];
+	[self setReady];
 }
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
@@ -99,6 +99,11 @@
 	[activity startAnimating];
 	
 	toolbar.hidden = YES;
+}
+
+- (void)setReady {
+	activity.hidden = YES;
+	toolbar.hidden = NO;
 }
 
 
