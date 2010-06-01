@@ -151,8 +151,13 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (CFStringRef)labelFromAttributes: (NSArray *)attributes
-{
+- (CFStringRef)labelFromAttributes: (NSArray *)theAttributes {
+
+	NSMutableArray *attributes = [NSMutableArray arrayWithCapacity:[theAttributes count]];
+	for (NSString *attribute in theAttributes) {
+		[attributes addObject:[attribute uppercaseString]];
+	}
+	
 	if([attributes isEqualToArray: [NSArray arrayWithObjects:@"WORK", nil]])
 		return kABWorkLabel;
 	

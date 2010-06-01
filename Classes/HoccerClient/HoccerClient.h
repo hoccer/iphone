@@ -24,13 +24,10 @@
 	HoccerContent *content;
 	
 	NSObject <HoccerConnectionDelegate> *delegate;
-	
-	NSString *gesture;
 }
 
 @property (copy) NSString *userAgent;
 @property (retain) HoccerContent *content;
-
 @property (nonatomic, assign) NSObject <HoccerConnectionDelegate> *delegate;
 
 - (HoccerConnection *)connectionWithRequest: (HoccerRequest *)request;

@@ -26,7 +26,7 @@
 	NSData *data = [@"http://www.artcom.de/" dataUsingEncoding: NSUTF8StringEncoding];
 		
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse:response withData:data];
-	STAssertTrue([content isKindOfClass: [HoccerUrl class]], @"should be right kind");
+	STAssertTrue([content isKindOfClass: [HoccerText class]], @"should be right kind");
 	
 	[response release];
 }

@@ -28,7 +28,7 @@
 	[accelerometer setDelegate: delegate];
 	[accelerometer playFile: file];
 	
-	STAssertEquals(2, delegate.accelerationsCount, @"all accelerations should be send to delegate"); 
+	GHAssertEquals(2, delegate.accelerationsCount, @"all accelerations should be send to delegate"); 
 	
 	NSArray* accelerationStrings = [[NSString stringWithContentsOfFile: file] componentsSeparatedByString:@"\n"];
 	NSArray* firstAcceleration = [[accelerationStrings objectAtIndex:0] componentsSeparatedByString:@","];

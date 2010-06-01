@@ -102,7 +102,6 @@
 	hintText.hidden = YES;
 }
 
-
 - (IBAction)toggelRecoveryHelp: (id)sender {
 	if (self.view.frame.size.height > 35) {
 		[self hideRecoverySuggestion];
@@ -110,7 +109,6 @@
 		[self showRecoverySuggestion];
 	}
 }	
-
 
 #pragma mark -
 #pragma mark Managing Hoccability / Location Hints
@@ -303,12 +301,6 @@
 
 - (void)hideViewAnimated {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-//	[UIView beginAnimations:@"slideUp" context:nil];
-//	self.view.center = CGPointMake(self.view.center.x, self.view.center.y - 105);
-//	[UIView setAnimationDuration:0.5];
-//	[UIView commitAnimations];
-//	
 	
 	self.view.hidden = YES;
 }

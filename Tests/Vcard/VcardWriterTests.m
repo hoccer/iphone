@@ -8,6 +8,7 @@
 
 #import "VcardWriterTests.h"
 #import "ABPersonVCardCreator.h"
+#import "GHUnit.h"
 
 
 
@@ -88,12 +89,11 @@
 	ABRecordRef person = ABPersonCreate();
 	ABRecordSetValue(person, kABPersonFirstNameProperty, @"Foo", &errorRef);
 	ABRecordSetValue(person, kABPersonLastNameProperty, @"Bar", &errorRef);
-	ABRecordSetValue(person, kABPersonOrganizationProperty, @"Art+Com Technologies", &errorRef);
+	ABRecordSetValue(person, kABPersonOrganizationProperty, @"Art+Com", &errorRef);
 	ABRecordSetValue(person, kABPersonJobTitleProperty, @"Developer", &errorRef);
 	
 	
 	ABMutableMultiValueRef email= ABMultiValueCreateMutable(kABMultiStringPropertyType);
-	//ABMultiValueAddValueAndLabel(email, @"foo.bar@artcom.de", kABWorkLabel, NULL);
 	ABMultiValueAddValueAndLabel(email, @"foo@artcom.de", kABWorkLabel, NULL);
 	ABRecordSetValue(person, kABPersonEmailProperty, email, &errorRef);
 	CFRelease(email);
@@ -110,8 +110,8 @@
 	
 	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
 	
-	STAssertEqualObjects(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nTEL;TYPE=mobile:555\r\nTEL;TYPE=home:666\r\nEMAIL;TYPE=work:foo@artcom.de\r\nEND:VCARD", 
-						 @"vcards should match");
+	GHAssertEqualStrings(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nORG:Art+Com\r\nTEL;TYPE=MOBILE:555\r\nTEL;TYPE=HOME:666\r\nEMAIL;TYPE=WORK:foo@artcom.de\r\nEND:VCARD", 
+						 @"vcards should match %@", vcardString);
 	
 	CFRelease(person);	
 }

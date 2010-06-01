@@ -11,7 +11,7 @@
 #import "NSObject+DelegateHelper.h"
 #import "HocLocation.h"
 
-const NSString *kHoccerServer = @"http://www.hoccer.com/";
+const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
@@ -97,7 +97,9 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 }
 
 - (void)startRequest {
-	if (canceled) { return; }
+	if (canceled) { 
+		return; 
+	}
 	
 	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
