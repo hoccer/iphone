@@ -9,9 +9,12 @@
 #import "PeerGroupRequest.h"
 #import "JSON.h"
 #import "NSObject+DelegateHelper.h"
+#import "WifiScanner.h"
 #import "HocLocation.h"
 
-const NSString *kHoccerServer = @"http://www.hoccer.com/";
+
+
+const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 @interface PeerGroupRequest (private) 
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
@@ -50,7 +53,7 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	self.result = [self parseJsonToDictionary: receivedData];
 	
 	if (self.response == nil) {
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"A problem occured on the server. Try again in a moment." forKey:NSLocalizedDescriptionKey];
+		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"A problem occurred on the server. Try again in a moment." forKey:NSLocalizedDescriptionKey];
 		NSError *error = [NSError errorWithDomain: @"HoccerErrorDomain" code:1 userInfo:userInfo];
 
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
@@ -86,13 +89,21 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
 	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
-	[body appendFormat:@"event[type]=%@", gesture];
+	[body appendFormat:@"event[type]=%@&", gesture];
 	
 	if (hocLocation.bssids != nil) {
 		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
-		[body appendFormat:@"&event[bssids]=%@", ids];
+		[body appendFormat:@"event[bssids]=%@&", ids];
 	}
-	
+
+	[body appendFormat:@"event[local_ip]=%@&", [[[WifiScanner sharedScanner] localIpAddress] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	[body appendFormat:@"event[model]=%@&", [[UIDevice currentDevice].model stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	[body appendFormat:@"event[device]=%@&", [[UIDevice currentDevice].systemName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	[body appendFormat:@"event[version_sdk]=%@&", [[UIDevice currentDevice].systemVersion stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	[body appendFormat:@"event[timestamp]=%0.0f&", [[NSDate date] timeIntervalSince1970] * 1000];
+	[body appendFormat:@"event[uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+	NSLog(@"%@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 

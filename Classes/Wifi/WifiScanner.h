@@ -30,4 +30,6 @@
 + (WifiScanner *)sharedScanner;
 - (void)scanNetwork;
 
+- (NSString *)localIpAddress;
+
 @end
