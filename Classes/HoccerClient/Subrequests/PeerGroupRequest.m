@@ -16,12 +16,16 @@
 
 const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
-@interface PeerGroupRequest (private) 
+@interface PeerGroupRequest () 
+@property (retain) NSDate *requestStartTime;
+
 - (NSData *)bodyWithLocation: (HocLocation *)location gesture: (NSString *)gesture;
 - (void)startRequest;
 @end
 
 @implementation PeerGroupRequest
+@synthesize requestStartTime;
+@synthesize roundTripTime;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate {
 	self = [super init];
@@ -38,7 +42,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 			
 		[self startRequest];		
 	}
-	
 	return self;	
 }
 
@@ -48,7 +51,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 #pragma mark -
 #pragma mark NSURLConnection Delegate Methods
-
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
 	
@@ -72,6 +74,13 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 	
 	self.connection = nil;
+}
+
+- (void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSHTTPURLResponse *)aResponse {
+	[super connection:connection didReceiveResponse:aResponse];
+	
+	self.roundTripTime = [[NSDate date] timeIntervalSinceDate: requestStartTime];
+	NSLog(@"rtt: %0.0f", self.roundTripTime * 1000);
 }
 
 -(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)theRequest redirectResponse:(NSURLResponse *)redirectResponse {
@@ -101,7 +110,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	[body appendFormat:@"event[device]=%@&", [[UIDevice currentDevice].systemName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[body appendFormat:@"event[version_sdk]=%@&", [[UIDevice currentDevice].systemVersion stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[body appendFormat:@"event[timestamp]=%0.0f&", [[NSDate date] timeIntervalSince1970] * 1000];
-	[body appendFormat:@"event[uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	[body appendFormat:@"event[client_uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
 	NSLog(@"%@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
@@ -112,6 +121,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		return; 
 	}
 	
+	self.requestStartTime = [NSDate date];
 	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");

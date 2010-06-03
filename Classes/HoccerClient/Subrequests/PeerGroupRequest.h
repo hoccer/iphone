@@ -14,7 +14,12 @@
 
 @interface PeerGroupRequest : BaseHoccerRequest {
 	BOOL hasReceivedURL;
+	
+	NSDate *requestStartTime;
+	NSTimeInterval roundTripTime;
 }
+
+@property (assign) NSTimeInterval roundTripTime;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate;
 - (NSURL *)eventUri;

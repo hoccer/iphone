@@ -28,7 +28,7 @@
 	NSURLConnection *connection;
 	NSHTTPURLResponse *response; 
 	id result;
-
+	
 	BOOL canceled;
 }
 
