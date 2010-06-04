@@ -122,12 +122,21 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 	
 	self.requestStartTime = [NSDate date];
-	self.connection = [[[NSURLConnection alloc] initWithRequest: self.request delegate:self] autorelease];
+	
+	NSMutableURLRequest *requestWithRtt = [self.request mutableCopy];
+	[requestWithRtt addValue:[[NSNumber numberWithInt:self.roundTripTime * 1000] stringValue] forHTTPHeaderField:@"X-Rtt"];
+	[requestWithRtt addValue:[UIDevice currentDevice].uniqueIdentifier forHTTPHeaderField:@"X-Client-Uuid"];
+	
+	self.connection = [[[NSURLConnection alloc] initWithRequest: requestWithRtt delegate:self] autorelease];
+	[requestWithRtt release];
+
 	if (!self.connection)  {
 		NSLog(@"Error while executing url connection");
 	}
 	
 	[receivedData setLength:0];
+	
+
 }
 
 @end
