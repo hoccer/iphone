@@ -98,6 +98,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
 	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
 	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
+	[body appendFormat:@"event[hoccability]=%d&", hocLocation.hoccability]; 
 	[body appendFormat:@"event[type]=%@&", gesture];
 	
 	if (hocLocation.bssids != nil) {
@@ -112,7 +113,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	[body appendFormat:@"event[timestamp]=%0.0f&", [[NSDate date] timeIntervalSince1970] * 1000];
 	[body appendFormat:@"event[client_uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
-	NSLog(@"%@", body);
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
@@ -135,8 +135,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	}
 	
 	[receivedData setLength:0];
-	
-
 }
 
 @end

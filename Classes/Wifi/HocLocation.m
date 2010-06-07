@@ -13,9 +13,9 @@
 
 @synthesize location;
 @synthesize bssids;
+@synthesize hoccability;
 
-- (id) initWithLocation: (CLLocation *)theLocation bssids: (NSArray*) theBssids
-{
+- (id) initWithLocation: (CLLocation *)theLocation bssids: (NSArray*) theBssids {
 	self = [super init];
 	if (self != nil) {
 		self.location = theLocation;
@@ -25,8 +25,7 @@
 }
 
 
-- (void) dealloc
-{
+- (void) dealloc {
 	self.location = nil;
 	self.bssids = nil;
 	

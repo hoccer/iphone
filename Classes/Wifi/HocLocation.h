@@ -13,10 +13,13 @@
 @interface HocLocation : NSObject {
 	NSArray *bssids;
 	CLLocation *location;
+	
+	NSInteger hoccability;
 }
 
 @property (retain) NSArray *bssids;
 @property (retain) CLLocation *location;
+@property (assign) NSInteger hoccability;
 
 - (id) initWithLocation: (CLLocation *)theLocation bssids: (NSArray*) theBssids;
 

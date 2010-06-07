@@ -75,8 +75,11 @@
 }
 
 - (HocLocation *)location {
-	return [[[HocLocation alloc] 
-			 initWithLocation: currentLocation bssids:[WifiScanner sharedScanner].bssids] autorelease];
+	HocLocation *location = [[HocLocation alloc] 
+			 initWithLocation: currentLocation bssids:[WifiScanner sharedScanner].bssids];
+	location.hoccability = hoccability;
+	
+	return [location autorelease];
 }
 
 - (BOOL)hasLocation {
