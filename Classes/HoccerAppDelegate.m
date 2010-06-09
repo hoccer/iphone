@@ -41,12 +41,12 @@
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 
-	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
-	if (agreedToTermsOfUse == NULL) {
-		[self userNeedToAgreeToTermsOfUse];
-	}
-	
-	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
+//	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
+//	if (agreedToTermsOfUse == NULL) {
+//		[self userNeedToAgreeToTermsOfUse];
+//	}
+//	
+//	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL: (NSURL *)url {
