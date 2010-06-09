@@ -2265,7 +2265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robert Palmer (8U2BPZDBL2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2279,7 +2279,7 @@
 					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				PRODUCT_NAME = Hoccer;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "82473A6E-6D7F-4B4F-8307-9126F1D827DF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2515,7 +2515,7 @@
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
