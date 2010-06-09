@@ -58,7 +58,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.tableView.rowHeight = 64;
-	self.tableView.backgroundColor = [UIColor clearColor];
+	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
