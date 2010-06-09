@@ -64,7 +64,7 @@ static WifiScanner *wifiScannerInstance;
 - (void)setScannedNetworks:(NSArray *)networks {
 	if (scannedNetworks != networks) {
 		[scannedNetworks release];
-		scannedNetworks = [networks retain];
+		scannedNetworks = [networks copy];
 	} 
 	
 	if ([delegate respondsToSelector:@selector(wifiScannerDidUpdateBssids:)]) {

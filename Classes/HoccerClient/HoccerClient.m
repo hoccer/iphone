@@ -32,10 +32,10 @@
 
 - (HoccerConnection *)unstartedConnectionWithRequest:(HoccerRequest *)aRequest {
 	if ([aRequest.gesture isEqual:@"SweepOut"] || [aRequest.gesture isEqual:@"Throw"]) {
-		return [[HoccerUploadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] 
-														filename:[aRequest.content filename] delegate:self.delegate];
+		return [[[HoccerUploadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture content: aRequest.content type:[aRequest.content mimeType] 
+														filename:[aRequest.content filename] delegate:self.delegate] autorelease];
 	} else {
-		return [[HoccerDownloadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture delegate:self.delegate];
+		return [[[HoccerDownloadConnection alloc] initWithLocation:aRequest.location gesture:aRequest.gesture delegate:self.delegate] autorelease];
 	}
 	
 	@throw [NSException exceptionWithName:@"HoccerException" reason:[NSString stringWithFormat:@"The gesture %@ is unknown", aRequest.gesture] userInfo:nil];

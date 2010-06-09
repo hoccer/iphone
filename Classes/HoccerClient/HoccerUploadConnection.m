@@ -33,12 +33,12 @@
 	if (self != nil) {
 		self.gesture = aGesture;
 		self.location = aLocation;
-
-		canceled = NO;
 		self.delegate = aDelegate;
 		self.type = aType;
 		self.content = theContent;
 		self.filename = aFilename;
+		
+		canceled = NO;
 	}
 	return self;
 }
@@ -48,6 +48,8 @@
 }
 
 - (void)dealloc {
+	NSLog(@"upload: %@ - request: %@", upload, request);
+	[request cancel];
 	[uploadUrl release];
 	[type release];
 	[filename release];
@@ -76,6 +78,7 @@
 #pragma mark Upload Delegate Methods
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
+	NSLog(@"didReceiveUpdate");
 	if (canceled) {
 		return;
 	}
@@ -132,6 +135,7 @@
 	}
 	
 	if (uploadDidFinish && pollingDidFinish) {
+		NSLog(@"request complete");
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}
 }
@@ -141,6 +145,7 @@
 		[timer invalidate];
 		[timer release];
 		timer = nil;
+		
 		return;
 	}
 	

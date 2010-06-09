@@ -28,6 +28,8 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 @synthesize roundTripTime;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate {
+	NSLog(@"method: %s", _cmd);
+
 	self = [super init];
 	
 	if (self != nil) {
@@ -67,8 +69,10 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];
 		return;
 	}
-
+	
+	NSLog(@"update");
 	if (!canceled) {
+		NSLog(@"sending update");
 		[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 	}
@@ -117,6 +121,8 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 }
 
 - (void)startRequest {
+	NSLog(@"method: %s", _cmd);
+
 	if (canceled) { 
 		return; 
 	}
