@@ -61,8 +61,6 @@
 	return self;
 }
 
-
-
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
@@ -210,10 +208,8 @@
 }
 
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
-	self.request = nil;
-
 	if (isUpload) {
-		self.content.persist = YES;
+		self.request = nil;
 		if ([delegate respondsToSelector:@selector(hocItemWasSent:)]) {
 			[delegate hocItemWasSent: self];
 		}
@@ -221,9 +217,10 @@
 		if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
 			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
 																											   withData: hoccerConnection.responseBody];
+			self.request = nil;
 			self.content = hoccerContent;
 			self.content.persist = YES;
-
+			
 			[delegate hocItemWasReceived:self];
 		}
 	}
