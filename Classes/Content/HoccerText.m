@@ -55,7 +55,9 @@
 
 - (void)prepareSharing {
 	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
-	[self.data writeToFile: filename atomically: NO];
+	[self.data writeToFile: self.filepath atomically: NO];
+	
+	NSLog(@"filename: %@", filename);
 }
 
 - (NSString *)mimeType {
