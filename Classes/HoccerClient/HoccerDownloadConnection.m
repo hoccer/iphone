@@ -40,13 +40,10 @@
 }
 
 - (void)startConnection {
-	NSLog(@"starting peer group request %@", self);
 	request = [[PeerGroupRequest alloc] initWithLocation:self.location gesture:self.gesture delegate:self];
 }
 
 - (void)cancel {
-	NSLog(@"method: %s", _cmd);
-
 	[super cancel];
 	canceled = YES;
 	
@@ -57,8 +54,6 @@
 }
 
 - (void)dealloc {
-	NSLog(@"method: %s", _cmd);
-
 	[super dealloc];
 }
 
@@ -66,7 +61,6 @@
 
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
-	NSLog(@"method: %s", _cmd);
 	if (canceled) {
 		return;
 	}
@@ -98,8 +92,6 @@
 #pragma mark -
 #pragma mark Download Delegate Methods
 - (void)downloadRequestDidFinish: (BaseHoccerRequest *)aRequest {
-	NSLog(@"method: %s", _cmd);
-
 	[downloadRequest release];
 	downloadRequest = nil;
 	downloaded = YES;
@@ -114,8 +106,6 @@
 #pragma mark BaseHoccerRequest Delegates
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishUpdate: (NSString *)update {
-	NSLog(@"method: %s", _cmd);
-
 	if (canceled) {
 		return;
 	}
@@ -127,8 +117,6 @@
 
 
 - (void)request: (BaseHoccerRequest *)aRequest didPublishDownloadedPercentageUpdate: (NSNumber *)progress {
-	NSLog(@"method: %s", _cmd);
-
 	if (canceled) {
 		return;
 	}
@@ -142,8 +130,6 @@
 #pragma mark Private Methods
 
 - (void)checkCompleteness {
-	NSLog(@"method: %s", _cmd);
-
 	if ([[self.status objectForKey:@"status_code"] intValue] == 200 && downloaded) {
 		[request cancel];
 		

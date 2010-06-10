@@ -14,7 +14,7 @@
 
 
 
-const NSString *kHoccerServer = @"http://beta.hoccer.com/";
+const NSString *kHoccerServer = @"http://www.hoccer.com/";
 
 @interface PeerGroupRequest () 
 @property (retain) NSDate *requestStartTime;
@@ -28,8 +28,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 @synthesize roundTripTime;
 
 - (id)initWithLocation: (HocLocation *)location gesture: (NSString *)gesture delegate: (id)aDelegate {
-	NSLog(@"method: %s", _cmd);
-
 	self = [super init];
 	
 	if (self != nil) {
@@ -70,9 +68,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 		return;
 	}
 	
-	NSLog(@"update");
 	if (!canceled) {
-		NSLog(@"sending update");
 		[delegate checkAndPerformSelector:@selector(peerGroupRequest:didReceiveUpdate:) withObject: self withObject: self.result];
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startRequest) userInfo:nil repeats:NO];
 	}
@@ -84,7 +80,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	[super connection:connection didReceiveResponse:aResponse];
 	
 	self.roundTripTime = [[NSDate date] timeIntervalSinceDate: requestStartTime];
-	NSLog(@"rtt: %0.0f", self.roundTripTime * 1000);
 }
 
 -(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)theRequest redirectResponse:(NSURLResponse *)redirectResponse {
@@ -121,8 +116,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 }
 
 - (void)startRequest {
-	NSLog(@"method: %s", _cmd);
-
 	if (canceled) { 
 		return; 
 	}

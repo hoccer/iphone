@@ -48,7 +48,6 @@
 }
 
 - (void)dealloc {
-	NSLog(@"upload: %@ - request: %@", upload, request);
 	[request cancel];
 	[uploadUrl release];
 	[type release];
@@ -78,7 +77,6 @@
 #pragma mark Upload Delegate Methods
 
 - (void)peerGroupRequest:(PeerGroupRequest *)aRequest didReceiveUpdate:(NSDictionary *)update {
-	NSLog(@"didReceiveUpdate");
 	if (canceled) {
 		return;
 	}
@@ -135,7 +133,6 @@
 	}
 	
 	if (uploadDidFinish && pollingDidFinish) {
-		NSLog(@"request complete");
 		[self.delegate checkAndPerformSelector:@selector(hoccerConnectionDidFinishLoading:) withObject: self];
 	}
 }
