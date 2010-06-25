@@ -192,8 +192,8 @@
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];
 }
 
-- (void)showHoccerWebsite {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com"]];
+- (void)showHoccerWebsite { 
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com?piwik_campaign=iphone_settings"]];
 }
 
 - (void)showTwitter {
