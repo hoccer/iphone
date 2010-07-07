@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <stdio.h>
 #import "ContentContainerView.h"
 #import "NSObject+DelegateHelper.h"
 #import "Preview.h"
@@ -61,7 +62,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	return self;
 }
 
-- (void) dealloc {
+- (void)dealloc {
 	[containedView release];
 	[overlay release];
 	[buttonContainer release];
@@ -93,10 +94,6 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	self.frame = myRect;
 }
 
-- (BOOL)willStayInView: (UIView *)view afterMovedBy: (CGSize) distance {
-	return YES;
-}
-
 - (void)showSpinner {
 	UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
 	indicator.center = buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
@@ -113,9 +110,27 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)showSuccess {
-	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+//	UIImage *checkmark = [UIImage imageNamed:@"37x-Checkmark.png"];
+//	UIImageView *checkmarkView = [[[UIImageView alloc] initWithImage:checkmark] autorelease];
+//	checkmarkView.center = CGPointMake(buttonContainer.frame.size.width - 10, 5);
+//	
+//	[buttonContainer addSubview: checkmarkView];
+	[self hideOverlay];
 	
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self];
+	HUD.mode = MBProgressHUDModeCustomView;
+	[self addSubview:HUD];
+	HUD.labelText = @"Saved";
+	
+	HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+
+    [HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];	
 }
+
+- (void)myTask {
+	sleep(2);
+}
+
 
 
 @end

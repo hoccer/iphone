@@ -70,8 +70,7 @@
 	return @"Message";
 }
 
-- (void)dismissKeyboard
-{
+- (void)dismissKeyboard {
 	[textView resignFirstResponder];
 }
 

@@ -294,12 +294,13 @@
 		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
 		[self.contentView showSpinner];
 	}
+	
 	[content saveDataToContentStorage];	
 }
 
 - (void)finishedSaving {
 	[self.contentView hideSpinner];
-	[self.contentView hideOverlay];
+	[self.contentView showSuccess];
 }
 	
 

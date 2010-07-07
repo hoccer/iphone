@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ContentContainerViewDelegate.h";
+#import "MBProgressHUD.h"
 @class Preview;
 
 @interface ContentContainerView : UIView {
@@ -39,5 +40,6 @@
 - (void)hideOverlay;
 - (void)showSpinner;
 - (void)hideSpinner;
+- (void)showSuccess;
 
 @end

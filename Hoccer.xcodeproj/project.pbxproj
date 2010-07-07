@@ -315,6 +315,7 @@
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
@@ -727,6 +728,7 @@
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
 		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
+		22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "Resources/37x-Checkmark.png"; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
 		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -1192,6 +1194,7 @@
 		22638BE911B51E5C0024AA7E /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				22A3659B11E4B7F5008AEBC9 /* Types */,
 				22638BEA11B51E5C0024AA7E /* ContactPreview.h */,
 				22638BEB11B51E5C0024AA7E /* ContactPreview.m */,
 				22638BEC11B51E5C0024AA7E /* ContentContainerView.h */,
@@ -1208,14 +1211,6 @@
 				22638BF711B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.h */,
 				22638BF811B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m */,
 				22638BF911B51E5C0024AA7E /* HoccerContentPreviewDelegate.h */,
-				22638BFA11B51E5C0024AA7E /* HoccerImage.h */,
-				22638BFB11B51E5C0024AA7E /* HoccerImage.m */,
-				22638BFC11B51E5C0024AA7E /* HoccerText.h */,
-				22638BFD11B51E5C0024AA7E /* HoccerText.m */,
-				22638BFE11B51E5C0024AA7E /* HoccerUrl.h */,
-				22638BFF11B51E5C0024AA7E /* HoccerUrl.m */,
-				22638C0011B51E5C0024AA7E /* HoccerVcard.h */,
-				22638C0111B51E5C0024AA7E /* HoccerVcard.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1575,6 +1570,21 @@
 			name = AddressBook;
 			sourceTree = "<group>";
 		};
+		22A3659B11E4B7F5008AEBC9 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				22638BFA11B51E5C0024AA7E /* HoccerImage.h */,
+				22638BFB11B51E5C0024AA7E /* HoccerImage.m */,
+				22638BFC11B51E5C0024AA7E /* HoccerText.h */,
+				22638BFD11B51E5C0024AA7E /* HoccerText.m */,
+				22638BFE11B51E5C0024AA7E /* HoccerUrl.h */,
+				22638BFF11B51E5C0024AA7E /* HoccerUrl.m */,
+				22638C0011B51E5C0024AA7E /* HoccerVcard.h */,
+				22638C0111B51E5C0024AA7E /* HoccerVcard.m */,
+			);
+			name = Types;
+			sourceTree = "<group>";
+		};
 		22A5B6B4115CC57F00579AC5 /* DesktopData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1709,6 +1719,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */,
 				22638D4611B52D9D0024AA7E /* Xibs */,
 				22638D6711B52EC70024AA7E /* ContentPreviewXibs */,
 				22762DE5105E5688003BF968 /* fixtures */,
@@ -1965,6 +1976,7 @@
 				22638D6211B52D9D0024AA7E /* TextView.xib in Resources */,
 				22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */,
 				22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */,
+				22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
