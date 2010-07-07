@@ -1,5 +1,5 @@
 //
-//  HocItemData.h
+//  hoccerControllerData.h
 //  Hoccer
 //
 //  Created by Robert Palmer on 29.03.10.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HocItemDataDelegate.h"
+#import "hoccerControllerDataDelegate.h"
 #import "HoccerConnectionDelegate.h"
 
 @class HoccerConnection;
@@ -16,7 +16,7 @@
 @class HocLocation;
 @class HoccerClient;
 
-@interface HocItemData : NSObject <NSCoding, HoccerConnectionDelegate> {
+@interface HoccerController : NSObject <NSCoding, HoccerConnectionDelegate> {
 	HoccerConnection *request;
 	ContentContainerView *contentView;
 	HoccerContent *content;
@@ -30,7 +30,7 @@
 	BOOL isUpload;
 	
 	HoccerClient *hoccerClient;
-	id <HocItemDataDelegate> delegate;
+	id <HoccerControllerDelegate> delegate;
 	
 	UIView *viewFromNib;
 }
@@ -45,7 +45,7 @@
 @property (nonatomic, copy) NSString *statusMessage;
 @property (nonatomic, retain) NSDictionary *status;
 
-@property (nonatomic, assign) id <HocItemDataDelegate> delegate; 
+@property (nonatomic, assign) id <HoccerControllerDelegate> delegate; 
 @property (assign) IBOutlet UIView* viewFromNib;
 
 - (void)cancelRequest;

@@ -13,14 +13,13 @@
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
-#import "HocItemDataDelegate.h"
+#import "HoccerControllerDataDelegate.h"
 #import "DesktopViewDelegate.h"
 #import "LocationControllerDelegate.h"
 
 @class HoccerAppDelegate;
 @class Preview;
 @class DesktopView;
-@class SelectContentViewController;
 @class StatusViewController;
 @class HelpScrollView;
 @class ReceivedContentViewController;
@@ -28,7 +27,7 @@
 
 @class DesktopDataSource;
 @class LocationController;
-@class HocItemData;
+@class HoccerController;
 @class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
@@ -36,7 +35,7 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-						GesturesInterpreterDelegate, DesktopViewDelegate, HocItemDataDelegate, LocationControllerDelegate> {
+						GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> {
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;

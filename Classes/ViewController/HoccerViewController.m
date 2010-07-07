@@ -36,7 +36,7 @@
 #import "GesturesInterpreter.h"
 #import "LocationController.h"
 
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
@@ -118,15 +118,15 @@
 
 - (void)setContentPreview: (HoccerContent *)content {
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
-		[desktopData removeHocItem: [desktopData hocItemDataAtIndex:0]];
+		[desktopData removehoccerController: [desktopData hoccerControllerDataAtIndex:0]];
 	}
 	
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerController *item = [[[HoccerController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
 	
-	[desktopData addHocItem:item];
+	[desktopData addhoccerController:item];
 	[desktopView reloadData];
 }
 
@@ -182,11 +182,11 @@
 	}
 	
 	[FeedbackProvider playCatchFeedback];
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerController *item = [[[HoccerController alloc] init] autorelease];
 	item.delegate = self;
 	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
 	
-	[desktopData addHocItem:item];
+	[desktopData addhoccerController:item];
 	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
@@ -203,8 +203,8 @@
 	}
 	
 	[FeedbackProvider playThrowFeedback];
-	statusViewController.hocItemData = [desktopData hocItemDataAtIndex:0];
-	[[desktopData hocItemDataAtIndex:0] throwWithLocation:locationController.location];
+	statusViewController.hoccerControllerData = [desktopData hoccerControllerDataAtIndex:0];
+	[[desktopData hoccerControllerDataAtIndex:0] throwWithLocation:locationController.location];
 
 	
 	UIView *view = [desktopData viewAtIndex:0];
@@ -223,11 +223,11 @@
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
-	HocItemData *item = [desktopData hocItemDataAtIndex:index];
+	HoccerController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
-		[desktopData removeHocItem:item];
+		[desktopData removehoccerController:item];
 	}
 }
 
@@ -237,7 +237,7 @@
 	}
 	
 	[FeedbackProvider playSweepIn];
-	HocItemData *item = [desktopData hocItemDataForView: view];
+	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	[item sweepInWithLocation: locationController.location];
 }
 
@@ -247,8 +247,8 @@
 	}
 	
 	[FeedbackProvider playSweepOut];
-	HocItemData *item = [desktopData hocItemDataForView: view];
-	statusViewController.hocItemData = item;
+	HoccerController *item = [desktopData hoccerControllerDataForView: view];
+	statusViewController.hoccerControllerData = item;
 
 	[item sweepOutWithLocation:locationController.location];
 }
@@ -258,71 +258,71 @@
 		return NO;
 	}
 	
-	HocItemData *item = [[[HocItemData alloc] init] autorelease];
+	HoccerController *item = [[[HoccerController alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(point.x - item.contentView.frame.size.width / 2, 
 								  point.y - item.contentView.frame.size.height / 2);
 	item.delegate = self;
 	
-	[desktopData addHocItem:item];
+	[desktopData addhoccerController:item];
 	[desktopView reloadData];
 	
 	return YES;
 }
 
 #pragma mark -
-#pragma mark HocItemDataDelegate
+#pragma mark HoccerControllerDataDelegate
 
-- (void)hocItemWasSent: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
+- (void)hoccerControllerWasSent: (HoccerController *)item {
+	statusViewController.hoccerControllerData = nil;
 	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 	
-	[desktopData removeHocItem:item];
+	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItemWasReceived: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
+- (void)hoccerControllerWasReceived: (HoccerController *)item {
+	statusViewController.hoccerControllerData = nil;
 	[statusViewController setCompleteState];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HocItemData*) item uploadFailedWithError: (NSError *)error {
+- (void)hoccerController: (HoccerController*) item uploadFailedWithError: (NSError *)error {
 	[statusViewController setError:error];
 
 	item.viewOrigin = self.defaultOrigin;
 	[desktopView reloadData];
 }
 
-- (void)hocItemUploadWasCanceled: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
+- (void)hoccerControllerUploadWasCanceled: (HoccerController *)item {
+	statusViewController.hoccerControllerData = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
-- (void)hocItemDownloadWasCanceled: (HocItemData *)item {
-	statusViewController.hocItemData = nil;
+- (void)hoccerControllerDownloadWasCanceled: (HoccerController *)item {
+	statusViewController.hoccerControllerData = nil;
 	
-	[desktopData removeHocItem:item];
+	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItem: (HocItemData *)item downloadFailedWithError: (NSError *)error  {
-	statusViewController.hocItemData = nil;
+- (void)hoccerController: (HoccerController *)item downloadFailedWithError: (NSError *)error  {
+	statusViewController.hoccerControllerData = nil;
 	[statusViewController setError:error];
-	[desktopData removeHocItem:item];
+	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 
-- (void)hocItemWillStartDownload: (HocItemData *)item {
-	statusViewController.hocItemData = item;
+- (void)hoccerControllerWillStartDownload: (HoccerController *)item {
+	statusViewController.hoccerControllerData = item;
 }
 
-- (void)hocItemWasClosed:(HocItemData *)item {
-	[desktopData removeHocItem:item];
+- (void)hoccerControllerWasClosed:(HoccerController *)item {
+	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 

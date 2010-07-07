@@ -15,7 +15,7 @@
 #import "HoccerImage.h"
 
 #import "DesktopDataSource.h"
-#import "HocItemData.h";
+#import "HoccerController.h";
 #import "HoccerText.h"
 
 #import "HoccingRulesIPad.h"

@@ -11,7 +11,7 @@
 #import "StatusViewController.h"
 #import "NSObject+DelegateHelper.h"
 #import "NSString+Regexp.h"
-#import "HocItemData.h"
+#import "HoccerController.h"
 
 @interface StatusViewController ()
 @property (retain) NSError *badLocationHint;
@@ -36,7 +36,7 @@
 @implementation StatusViewController
 
 @synthesize delegate;
-@synthesize hocItemData;
+@synthesize hoccerControllerData;
 @synthesize badLocationHint;
 @synthesize covered;
 
@@ -51,7 +51,7 @@
 	[statusLabel release];
 	[activitySpinner release];
 	[progressView release];
-	[hocItemData release];
+	[hoccerControllerData release];
 	[hintButton release];
 	[cancelButton release];
 	[badLocationHint release];
@@ -60,27 +60,27 @@
     [super dealloc];
 }
 
-- (void)setHocItemData:(HocItemData *)newHocItem {
-	if (hocItemData != newHocItem) {
-		[hocItemData removeObserver:self forKeyPath:@"statusMessage"];
-		[hocItemData removeObserver:self forKeyPath:@"progress"];
-		[hocItemData release];
+- (void)setHoccerControllerData:(HoccerController *)newHoccerController {
+	if (hoccerControllerData != newHoccerController) {
+		[hoccerControllerData removeObserver:self forKeyPath:@"statusMessage"];
+		[hoccerControllerData removeObserver:self forKeyPath:@"progress"];
+		[hoccerControllerData release];
 		
-		hocItemData = [newHocItem retain]; 
-		[self monitorHocItem:hocItemData];
+		hoccerControllerData = [newHoccerController retain]; 
+		[self monitorHoccerController:hoccerControllerData];
 		
 		statusLabel.text = @"Connecting";
 		[self setConnectingState];
 	} 
 	
-	if (hocItemData == nil) {
+	if (hoccerControllerData == nil) {
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
 }
 
 - (IBAction) cancelAction: (id) sender {
-	[hocItemData cancelRequest];
-	self.hocItemData = nil;
+	[hoccerControllerData cancelRequest];
+	self.hoccerControllerData = nil;
 	
 	[self hideUpdateState];
 }
@@ -89,7 +89,7 @@
 - (void)setCovered:(BOOL)isCovered {
 	if (!covered) {
 		self.view.hidden = YES;
-	} else if (hocItemData != nil || badLocationHint != nil){
+	} else if (hoccerControllerData != nil || badLocationHint != nil){
 		self.view.hidden = NO;
 	}
 	
@@ -136,14 +136,14 @@
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hocItemData == nil && !showingError	) {
+	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError	) {
 		[self setError:self.badLocationHint];
 		[self setLocationState];
 	}
 }
 
 - (void)hideLocationHint {
-	if (self.hocItemData == nil) {
+	if (self.hoccerControllerData == nil) {
 		[self hideViewAnimated];
 		cancelButton.hidden = NO;
 	}
@@ -264,7 +264,7 @@
 }
 
 - (void)setUpdate: (NSString *)update {
-	if ([[hocItemData.status objectForKey:@"status_code"] intValue] != 200) {
+	if ([[hoccerControllerData.status objectForKey:@"status_code"] intValue] != 200) {
 		statusLabel.text = update;
 		[self setConnectingState];
 	} 	
@@ -272,7 +272,7 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	if ([[hocItemData.status objectForKey:@"status_code"] intValue] == 200) {
+	if ([[hoccerControllerData.status objectForKey:@"status_code"] intValue] == 200) {
 		statusLabel.text = @"Transfering";
 		[self setTransferState];		
 	} 
@@ -320,9 +320,9 @@
 #pragma mark -
 #pragma mark Monitoring Changes
 
-- (void)monitorHocItem: (HocItemData*) hocItem {
-	[hocItem addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
-	[hocItem addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+- (void)monitorHoccerController: (HoccerController*) hoccerController {
+	[hoccerController addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
+	[hoccerController addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

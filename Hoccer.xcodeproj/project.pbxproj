@@ -145,7 +145,7 @@
 		22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3011B51E880024AA7E /* SettingViewController.m */; };
 		22638C5C11B51E880024AA7E /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3311B51E880024AA7E /* StatusViewController.m */; };
 		22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3611B51E880024AA7E /* TermOfUse.m */; };
-		22638C8111B51FEE0024AA7E /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HocItemData.m */; };
+		22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HoccerController.m */; };
 		22638C8411B520240024AA7E /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */; };
 		22638C8711B520530024AA7E /* HoccerContentIPadPreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BF611B51E5C0024AA7E /* HoccerContentIPadPreviewDelegate.m */; };
 		22638D2911B52D0C0024AA7E /* Accept_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22638CD411B52D0C0024AA7E /* Accept_Button.png */; };
@@ -172,7 +172,7 @@
 		22638D6211B52D9D0024AA7E /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D5411B52D9D0024AA7E /* TextView.xib */; };
 		22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6811B52EC70024AA7E /* ContactsView.xib */; };
 		22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6911B52EC70024AA7E /* EmptyContent.xib */; };
-		22638DCA11B53D720024AA7E /* HocItemData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HocItemData.m */; };
+		22638DCA11B53D720024AA7E /* HoccerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HoccerController.m */; };
 		22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EA1E611A3F02F003E02B5 /* StoreKit.framework */; };
 		22638DE111B53DCF0024AA7E /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		22638DE411B53DE60024AA7E /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
@@ -588,9 +588,9 @@
 		22638C3311B51E880024AA7E /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		22638C3511B51E880024AA7E /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		22638C3611B51E880024AA7E /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
-		22638C7E11B51FEE0024AA7E /* HocItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemData.h; sourceTree = "<group>"; };
-		22638C7F11B51FEE0024AA7E /* HocItemData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocItemData.m; sourceTree = "<group>"; };
-		22638C8011B51FEE0024AA7E /* HocItemDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocItemDataDelegate.h; sourceTree = "<group>"; };
+		22638C7E11B51FEE0024AA7E /* HoccerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerController.h; sourceTree = "<group>"; };
+		22638C7F11B51FEE0024AA7E /* HoccerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerController.m; sourceTree = "<group>"; };
+		22638C8011B51FEE0024AA7E /* HoccerControllerDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerControllerDataDelegate.h; sourceTree = "<group>"; };
 		22638CD411B52D0C0024AA7E /* Accept_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accept_Button.png; sourceTree = "<group>"; };
 		22638CD511B52D0C0024AA7E /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		22638CD611B52D0C0024AA7E /* Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Catch_Icon.png; sourceTree = "<group>"; };
@@ -750,6 +750,7 @@
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22C0B36D117DF212009E3E3C /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C0B36F117DF212009E3E3C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		22C9D32A11D50EFE0079CEF5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
 		22CCDCD51199B79D00CDFAA2 /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
 		22CCDCD61199B79D00CDFAA2 /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
@@ -1244,9 +1245,9 @@
 		22638C7D11B51FEE0024AA7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22638C7E11B51FEE0024AA7E /* HocItemData.h */,
-				22638C7F11B51FEE0024AA7E /* HocItemData.m */,
-				22638C8011B51FEE0024AA7E /* HocItemDataDelegate.h */,
+				22638C7E11B51FEE0024AA7E /* HoccerController.h */,
+				22638C7F11B51FEE0024AA7E /* HoccerController.m */,
+				22638C8011B51FEE0024AA7E /* HoccerControllerDataDelegate.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1742,6 +1743,7 @@
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
 				22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */,
 				224EA1E611A3F02F003E02B5 /* StoreKit.framework */,
+				22C9D32A11D50EFE0079CEF5 /* iAd.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2120,7 +2122,7 @@
 				22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */,
 				22638C5C11B51E880024AA7E /* StatusViewController.m in Sources */,
 				22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */,
-				22638C8111B51FEE0024AA7E /* HocItemData.m in Sources */,
+				22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2246,7 +2248,7 @@
 				22638C4611B51E880024AA7E /* SettingViewController.m in Sources */,
 				22638C4811B51E880024AA7E /* StatusViewController.m in Sources */,
 				22638C4A11B51E880024AA7E /* TermOfUse.m in Sources */,
-				22638DCA11B53D720024AA7E /* HocItemData.m in Sources */,
+				22638DCA11B53D720024AA7E /* HoccerController.m in Sources */,
 				22638DE111B53DCF0024AA7E /* FeedbackProvider.m in Sources */,
 				22638DE411B53DE60024AA7E /* StoreKitManager.m in Sources */,
 				22638DE711B53DFC0024AA7E /* HelpScreen.m in Sources */,
@@ -2311,10 +2313,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A57D36F3-C7DA-4286-A8DC-FF4BE90857F7";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
 		};
@@ -2512,6 +2515,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2528,10 +2532,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};

@@ -1,5 +1,5 @@
 //
-//  HocItem.h
+//  hoccerController.h
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.04.10.

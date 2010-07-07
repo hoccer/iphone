@@ -9,7 +9,7 @@
 #import "HistoryData.h"
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "HoccerContentFactory.h"
 
 @implementation HistoryData
@@ -133,13 +133,13 @@
 	}
 }
 
-- (void)addContentToHistory: (HocItemData *) hocItem {
+- (void)addContentToHistory: (HoccerController *) hoccerController {
 	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
-	historyItem.filepath = hocItem.content.filename;
-	historyItem.mimeType = [hocItem.content mimeType];
+	historyItem.filepath = hoccerController.content.filename;
+	historyItem.mimeType = [hoccerController.content mimeType];
 	historyItem.creationDate = [NSDate date];
-	historyItem.upload = [NSNumber numberWithBool: hocItem.isUpload];
+	historyItem.upload = [NSNumber numberWithBool: hoccerController.isUpload];
 	
 	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	

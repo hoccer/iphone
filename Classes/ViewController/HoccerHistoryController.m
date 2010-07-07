@@ -10,7 +10,7 @@
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "HoccerViewController.h"
 
 #import "HoccerContentFactory.h";
@@ -22,7 +22,7 @@
 
 @interface HoccerHistoryController ()
 
-@property (retain) UIView *adView;
+@property (retain) AdMobView *adView;
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
 
@@ -112,6 +112,10 @@
 		if (self.adView == nil) {
 			self.adView = [AdMobView requestAdWithDelegate:self];	
 		}
+		
+		// self.adView = [[ADBannerView alloc] initWithFrame:CGRectZero];
+		// self.adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
+		
 	    [cell.contentView addSubview:adView];
 		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]] autorelease];
 
@@ -224,7 +228,7 @@
 }
 
 
-- (void)addContentToHistory: (HocItemData *) hocItem {
+- (void)addContentToHistory: (HoccerController *) hoccerController {
 
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

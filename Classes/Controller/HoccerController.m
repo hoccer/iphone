@@ -1,12 +1,12 @@
 //
-//  HocItemData.m
+//  hoccerControllerData.m
 //  Hoccer
 //
 //  Created by Robert Palmer on 29.03.10.
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "HoccerConnection.h"
 #import "HoccerClient.h"
 #import "HoccerRequest.h"
@@ -25,7 +25,7 @@
 #define hoccerMessageErrorDomain @"HoccerErrorDomain"
 
 
-@interface HocItemData ()
+@interface HoccerController ()
 @property (retain) HoccerConnection *request;
 
 - (NSString *)transferTypeFromGestureName: (NSString *)name;
@@ -36,7 +36,7 @@
 @end
 
 
-@implementation HocItemData
+@implementation HoccerController
 
 @synthesize request;
 @synthesize content;
@@ -113,12 +113,12 @@
 	self.request = nil;
 	
 	if (isUpload) {
-		if ([delegate respondsToSelector:@selector(hocItemUploadWasCanceled:)]) {
-			[delegate hocItemUploadWasCanceled:self];
+		if ([delegate respondsToSelector:@selector(hoccerControllerUploadWasCanceled:)]) {
+			[delegate hoccerControllerUploadWasCanceled:self];
 		}
 	} else {
-		if ([delegate respondsToSelector:@selector(hocItemDownloadWasCanceled:)]) {
-			[delegate hocItemDownloadWasCanceled:self];
+		if ([delegate respondsToSelector:@selector(hoccerControllerDownloadWasCanceled:)]) {
+			[delegate hoccerControllerDownloadWasCanceled:self];
 		}
 	}
 }
@@ -147,8 +147,8 @@
 }
 
 - (void)sweepOutWithLocation: (HocLocation *)location {
-	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
-		[delegate hocItemWillStartUpload:self];
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
+		[delegate hoccerControllerWillStartUpload:self];
 	}
 	
 	[content prepareSharing];
@@ -157,8 +157,8 @@
 }
 
 - (void)throwWithLocation: (HocLocation *)location {
-	if ([delegate respondsToSelector:@selector(hocItemWillStartUpload:)]) {
-		[delegate hocItemWillStartUpload:self];
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
+		[delegate hoccerControllerWillStartUpload:self];
 	}
 	
 	[content prepareSharing];
@@ -167,8 +167,8 @@
 }
 
 - (void)catchWithLocation: (HocLocation *)location {
-	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
-		[delegate hocItemWillStartDownload:self];
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
+		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
 	self.request = [hoccerClient connectionWithRequest:[HoccerRequest catchWithLocation: location]];
@@ -176,8 +176,8 @@
 }
 
 - (void)sweepInWithLocation:(HocLocation *)location {
-	if ([delegate respondsToSelector:@selector(hocItemWillStartDownload:)]) {
-		[delegate hocItemWillStartDownload:self];
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
+		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
 	self.request = [hoccerClient connectionWithRequest:[HoccerRequest sweepInWithLocation: location]];
@@ -197,12 +197,12 @@
 	self.request = nil;
 	
 	if (isUpload) {
-		if ([delegate respondsToSelector:@selector(hocItem:uploadFailedWithError:)]) {
-			[delegate hocItem:self uploadFailedWithError: error];
+		if ([delegate respondsToSelector:@selector(hoccerController:uploadFailedWithError:)]) {
+			[delegate hoccerController:self uploadFailedWithError: error];
 		}
 	} else {
-		if ([delegate respondsToSelector:@selector(hocItem:downloadFailedWithError:)]) {
-			[delegate hocItem:self downloadFailedWithError:error];
+		if ([delegate respondsToSelector:@selector(hoccerController:downloadFailedWithError:)]) {
+			[delegate hoccerController:self downloadFailedWithError:error];
 		}
 	}
 }
@@ -210,18 +210,18 @@
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
 	if (isUpload) {
 		self.request = nil;
-		if ([delegate respondsToSelector:@selector(hocItemWasSent:)]) {
-			[delegate hocItemWasSent: self];
+		if ([delegate respondsToSelector:@selector(hoccerControllerWasSent:)]) {
+			[delegate hoccerControllerWasSent: self];
 		}
 	} else {
-		if ([delegate respondsToSelector:@selector(hocItemWasReceived:)]) {
+		if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
 			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
 																											   withData: hoccerConnection.responseBody];
 			self.request = nil;
 			self.content = hoccerContent;
 			self.content.persist = YES;
 			
-			[delegate hocItemWasReceived:self];
+			[delegate hoccerControllerWasReceived:self];
 		}
 	}
 }
@@ -284,8 +284,8 @@
 #pragma mark -
 #pragma mark User Actions
 - (IBAction)closeView: (id)sender {
-	if ([delegate respondsToSelector:@selector(hocItemWasClosed:)]) {
-		[delegate hocItemWasClosed: self];
+	if ([delegate respondsToSelector:@selector(hoccerControllerWasClosed:)]) {
+		[delegate hoccerControllerWasClosed: self];
 	} 
 }
 
@@ -299,6 +299,7 @@
 
 - (void)finishedSaving {
 	[self.contentView hideSpinner];
+	[self.contentView hideOverlay];
 }
 	
 

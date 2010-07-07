@@ -8,7 +8,7 @@
 
 #import "DesktopDataSource.h"
 
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "HoccerContent.h"
 #import "ContentContainerView.h"
 
@@ -47,18 +47,16 @@
 	[encoder encodeObject:contentOnDesktop forKey:@"desktopContent"];	
 }
 
-
-
-- (void)addHocItem: (HocItemData *)hocItem {
-	[contentOnDesktop addObject:hocItem];
+- (void)addhoccerController: (HoccerController *)hoccerController {
+	[contentOnDesktop addObject:hoccerController];
 }
 
-- (void)removeHocItem: (HocItemData *)hocItem {
-	[contentOnDesktop removeObject:hocItem];
+- (void)removehoccerController: (HoccerController *)hoccerController {
+	[contentOnDesktop removeObject:hoccerController];
 }
 
 - (BOOL)hasActiveRequest {
-	for (HocItemData *item in contentOnDesktop) {
+	for (HoccerController *item in contentOnDesktop) {
 		if ([item hasActiveRequest]) {
 			return YES;
 		}
@@ -67,8 +65,8 @@
 	return NO;
 }
 
-- (HocItemData *)hocItemDataForView: (UIView *)view {
-	for (HocItemData *item in contentOnDesktop) {
+- (HoccerController *)hoccerControllerDataForView: (UIView *)view {
+	for (HoccerController *item in contentOnDesktop) {
 		if ((UIView *)item.contentView == view) {
 			return item;
 		}
@@ -77,7 +75,7 @@
 	return nil;
 }
 
-- (HocItemData *)hocItemDataAtIndex: (NSInteger) index {
+- (HoccerController *)hoccerControllerDataAtIndex: (NSInteger) index {
 	return [contentOnDesktop objectAtIndex:index];
 }
 
@@ -89,29 +87,29 @@
 }
 
 - (UIView *)viewAtIndex: (NSInteger)index {
-	HocItemData *contentAtIndex = [contentOnDesktop objectAtIndex:index];
+	HoccerController *contentAtIndex = [contentOnDesktop objectAtIndex:index];
 	[contentAtIndex.content decorateViewWithGestureRecognition:contentAtIndex.contentView inViewController:self.viewController];
 
 	return (UIView *) contentAtIndex.contentView; 	
 }
 
 - (CGPoint)positionForViewAtIndex: (NSInteger)index {
-	return [self hocItemDataAtIndex:index].viewOrigin;
+	return [self hoccerControllerDataAtIndex:index].viewOrigin;
 }
 
 - (CGPoint)positionForView: (UIView *)view {
-	return [self hocItemDataForView:view].viewOrigin;
+	return [self hoccerControllerDataForView:view].viewOrigin;
 }
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
-	HocItemData *item = [self hocItemDataForView:view];
+	HoccerController *item = [self hoccerControllerDataForView:view];
 	item.viewOrigin = point;
 }
 
 - (void)removeView: (UIView *)view {
-	HocItemData *item = [self hocItemDataForView:view];
+	HoccerController *item = [self hoccerControllerDataForView:view];
 	
-	[self removeHocItem:item];
+	[self removehoccerController:item];
 }
 
 - (NSInteger) count {

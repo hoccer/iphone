@@ -14,7 +14,7 @@
 #import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
-#import "HocItemData.h"
+#import "HoccerController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
@@ -136,8 +136,6 @@
 	
 	self.tabBar.selectedItem = nil;
 }
-
-
 
 - (IBAction)selectContacts: (id)sender {
 	[self hidePopOverAnimated: YES];
@@ -331,14 +329,14 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
-- (void)hocItemWasSent: (HocItemData *)item {
-	[super hocItemWasSent:item];
+- (void)hoccerControllerWasSent: (HoccerController *)item {
+	[super hoccerControllerWasSent:item];
 		
 	[hoccerHistoryController updateHistoryList];
 }
 
-- (void)hocItemWasReceived: (HocItemData *)item {
-	[super hocItemWasReceived:item];
+- (void)hoccerControllerWasReceived: (HoccerController *)item {
+	[super hoccerControllerWasReceived:item];
 	
 	[hoccerHistoryController updateHistoryList];
 }

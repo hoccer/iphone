@@ -112,6 +112,10 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	buttonContainer.hidden = NO;
 }
 
+- (void)showSuccess {
+	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+	
+}
 
 
 @end

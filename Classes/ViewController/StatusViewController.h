@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HocItemData;
+@class HoccerController;
 
 
 @interface StatusViewController : UIViewController {
@@ -22,7 +22,7 @@
 	
 	IBOutlet UIImageView *backgroundImage;
 	
-	HocItemData *hocItemData;
+	HoccerController *hoccerControllerData;
 	
 	NSInteger hoccabiliy;
 	NSError *badLocationHint;
@@ -34,7 +34,7 @@
 }
 
 @property (assign) id delegate;
-@property (retain) HocItemData* hocItemData;
+@property (retain) HoccerController* hoccerControllerData;
 @property (assign, getter=isCovered) BOOL covered;
 
 - (void)setUpdate: (NSString *)update;
@@ -47,7 +47,7 @@
 - (IBAction) cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;
 
-- (void)monitorHocItem: (HocItemData *)hocItem;
+- (void)monitorHoccerController: (HoccerController *)hoccerController;
 
 @end
 

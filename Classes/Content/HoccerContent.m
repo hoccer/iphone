@@ -34,7 +34,7 @@
 		@throw [NSException exceptionWithName:@"directoryException" reason:@"could not locate document directory" userInfo:nil];
 	}
 	
-	NSString *documentsDirectoryUrl = [[paths objectAtIndex:0]  stringByAppendingPathComponent:@"Shared"];
+	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
 	if (![[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryUrl]) {
 		NSError *error = nil;
 		[[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectoryUrl withIntermediateDirectories:YES attributes:nil error:&error];
@@ -150,7 +150,7 @@
 	//overwrite in subclasses: text, img, vcards	
 }
 
-- (UIView *)fullscreenView{
+- (UIView *)fullscreenView {
 	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(10, 60, 300, 350)];
 	webView.scalesPageToFit = YES;
 		

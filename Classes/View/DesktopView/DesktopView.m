@@ -128,7 +128,6 @@
 
 #pragma mark -
 #pragma mark DataSource Methods
-
 - (void)reloadData {
 	for (UIView *subview in volatileView) {
 		[subview removeFromSuperview];
@@ -196,7 +195,6 @@
 		animation.fromValue = [NSValue valueWithCGPoint: view.center];
 		animation.delegate = self;
 		
-		//view.layer.position = CGPointMake(7 + view.frame.size.width / 2, 110 + view.frame.size.height / 2);
 		view.layer.position = view.center = CGPointMake(view.superview.frame.size.width /2, view.center.y);
 		[view.layer addAnimation:animation forKey:nil];		
 		[dataSource view: view didMoveToPoint:CGPointMake(view.superview.frame.size.width /2 - view.frame.size.width / 2, view.center.y - view.frame.size.height / 2)];
