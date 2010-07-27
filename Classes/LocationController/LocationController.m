@@ -103,10 +103,10 @@
 		} else if (currentLocation.horizontalAccuracy < 5000) {
 			self.hoccability = 1;
 		}
-	}
-
-	if ([self hasBSSID]) {
-		self.hoccability += 1;
+		
+		if ([self hasBSSID]) {
+			self.hoccability += 1;
+		}
 	}
 	
 	if (hoccability != oldHoccability) {
