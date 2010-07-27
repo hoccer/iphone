@@ -239,7 +239,7 @@
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
-	navigationItem.title = @"Settings";
+	navigationItem.title = NSLocalizedString(@"Settings", nil);
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
@@ -250,7 +250,7 @@
 - (void)showHistoryView {
 	[self showPopOver: self.hoccerHistoryController];
 	
-	navigationItem.title = @"History";
+	navigationItem.title = NSLocalizedString(@"History", nil);
 	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
 																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;

@@ -13,8 +13,7 @@
 #import "HocLocation.h"
 
 
-
-const NSString *kHoccerServer = @"http://www.hoccer.com/";
+const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 
 @interface PeerGroupRequest () 
 @property (retain) NSDate *requestStartTime;
@@ -94,17 +93,22 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	CLLocation *location = hocLocation.location;
 	
 	NSMutableString *body = [NSMutableString string];
-	[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
-	[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
-	[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];
-	[body appendFormat:@"event[hoccability]=%d&", hocLocation.hoccability]; 
-	[body appendFormat:@"event[type]=%@&", gesture];
+	
+	if (location != nil) {
+		[body appendFormat:@"event[latitude]=%f&", location.coordinate.latitude];
+		[body appendFormat:@"event[longitude]=%f&", location.coordinate.longitude];
+		[body appendFormat:@"event[location_accuracy]=%f&", location.horizontalAccuracy];		
+	}
 	
 	if (hocLocation.bssids != nil) {
 		NSString *ids = [hocLocation.bssids componentsJoinedByString:@","];
 		[body appendFormat:@"event[bssids]=%@&", ids];
 	}
-
+	
+	[body appendFormat:@"event[hoccability]=%d&", hocLocation.hoccability]; 
+	[body appendFormat:@"event[type]=%@&", gesture];
+	
+	
 	[body appendFormat:@"event[local_ip]=%@&", [[[WifiScanner sharedScanner] localIpAddress] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[body appendFormat:@"event[model]=%@&", [[UIDevice currentDevice].model stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[body appendFormat:@"event[device]=%@&", [[UIDevice currentDevice].systemName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -112,6 +116,8 @@ const NSString *kHoccerServer = @"http://www.hoccer.com/";
 	[body appendFormat:@"event[timestamp]=%0.0f&", [[NSDate date] timeIntervalSince1970] * 1000];
 	[body appendFormat:@"event[client_uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
+	NSLog(@"sending body:%@", body);
+	
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }
 
