@@ -52,6 +52,8 @@
 
 - (void) dealloc {
 	[[WifiScanner sharedScanner] removeObserver:self forKeyPath:@"bssids"];
+	[WifiScanner sharedScanner].delegate = nil;
+	
 	[lastLocationUpdate release];
 	[locationManager stopUpdatingLocation];
 	[locationManager release];

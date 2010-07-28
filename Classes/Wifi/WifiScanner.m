@@ -61,6 +61,10 @@ static WifiScanner *wifiScannerInstance;
 	}
 }
 
+- (void)stopScanning {
+	repeat = NO;
+}
+
 - (void)setScannedNetworks:(NSArray *)networks {
 	if (scannedNetworks != networks) {
 		[scannedNetworks release];

@@ -10,7 +10,6 @@
 #import "LocationControllerTest.h"
 #import "HocLocation.h"
 #import "LocationController.h"
-#import "hoccerControllerData.h"
 #import "NSString+Regexp.h"
 
 #define kGoodAccuracy 199 // good accuracy is better than 200m 
