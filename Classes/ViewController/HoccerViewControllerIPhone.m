@@ -19,6 +19,7 @@
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
+#import "LocationController.h"
 
 @interface ActionElement : NSObject
 {
@@ -81,6 +82,7 @@
 - (void)showHistoryView;
 - (void)removePopOverFromSuperview;
 - (void)hidePopOverAnimated: (BOOL) animate;
+- (void)setHoccabilityButton: (NSInteger)theHoccability;
 
 @end
 
@@ -93,6 +95,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
+	[self setHoccabilityButton: locationController.hoccability];
+	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
@@ -100,7 +104,7 @@
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
-
+	
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
 
@@ -222,6 +226,11 @@
 	}
 }
 
+- (IBAction)toggleHoccability: (id)sender {
+	NSLog(@"toggling hoccability");
+}
+
+
 - (void)showDesktop {
 	[self hidePopOverAnimated:YES];
 }
@@ -298,6 +307,8 @@
 	
 	[self.delayedAction perform];
 	self.delayedAction = nil;
+	
+	[self setHoccabilityButton: locationController.hoccability];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -367,6 +378,44 @@
 - (IBAction)cancelPopOver {
 	tabBar.selectedItem = nil;
 	[self hidePopOverAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Location Controller Delegate Methods
+- (void) locationControllerDidUpdateLocation: (LocationController *)controller {
+	[super locationControllerDidUpdateLocation:controller];
+	[self setHoccabilityButton:controller.hoccability];
+}
+
+
+
+#pragma mark -
+#pragma mark Private Methods
+- (void)setHoccabilityButton: (NSInteger)theHoccability {
+	if (navigationItem.titleView == nil) {
+		return;
+	}
+	
+	UIImage *hoccabilityImage = nil; 
+	switch (theHoccability) {
+		case 1:
+			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_yellow.png"];
+			break;
+		case 2:
+		case 3:
+			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_green.png"];
+			break;
+		default:
+			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_red.png"];
+			break;
+	}
+	
+	UIButton *hoccabilityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
+	[hoccabilityButton setImage:hoccabilityImage forState:UIControlStateNormal];
+								   
+	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
+	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
 }
 
 

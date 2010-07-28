@@ -107,7 +107,6 @@
 	[userInfo setObject:NSLocalizedString(@"You can use hoccer to throw content to someone near you. Timing is important. The other person needs to catch just after you have thrown.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
-	
 }
 
 - (NSDictionary *)userInfoForNoThrower {

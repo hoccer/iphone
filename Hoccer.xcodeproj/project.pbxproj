@@ -417,6 +417,9 @@
 		22AB15F0120029110057548A /* statusbar_progress_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292544111889709008B4FFB /* statusbar_progress_track.png */; };
 		22AB15F1120029110057548A /* statusbar_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292544211889709008B4FFB /* statusbar_small.png */; };
 		22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
+		22AB17A51200818A0057548A /* statusbar_indicator_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A21200818A0057548A /* statusbar_indicator_green.png */; };
+		22AB17A61200818A0057548A /* statusbar_indicator_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A31200818A0057548A /* statusbar_indicator_red.png */; };
+		22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A41200818A0057548A /* statusbar_indicator_yellow.png */; };
 		22AD327C11107C7700BC7DEC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD327B11107C7700BC7DEC /* icon.png */; };
 		22AD329C11107D7500BC7DEC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD329B11107D7500BC7DEC /* iTunesArtwork.png */; };
 		22AD32AF11107FA200BC7DEC /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AD32AE11107FA200BC7DEC /* Icon-Small.png */; };
@@ -831,6 +834,9 @@
 		22AB1557120025B20057548A /* libGHUnitIPhone4_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIPhone4_0.a; path = Tests/libGHUnitIPhone4/libGHUnitIPhone4_0.a; sourceTree = "<group>"; };
 		22AB1558120025B20057548A /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSException+GHTestFailureExceptions.h"; path = "Tests/libGHUnitIPhone4/NSException+GHTestFailureExceptions.h"; sourceTree = "<group>"; };
 		22AB1559120025B20057548A /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+GHValueFormatter.h"; path = "Tests/libGHUnitIPhone4/NSValue+GHValueFormatter.h"; sourceTree = "<group>"; };
+		22AB17A21200818A0057548A /* statusbar_indicator_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_indicator_green.png; sourceTree = "<group>"; };
+		22AB17A31200818A0057548A /* statusbar_indicator_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_indicator_red.png; sourceTree = "<group>"; };
+		22AB17A41200818A0057548A /* statusbar_indicator_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_indicator_yellow.png; sourceTree = "<group>"; };
 		22AD327B11107C7700BC7DEC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		22AD329B11107D7500BC7DEC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		22AD32AE11107FA200BC7DEC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -1529,6 +1535,9 @@
 		2292543911889709008B4FFB /* statusbar */ = {
 			isa = PBXGroup;
 			children = (
+				22AB17A21200818A0057548A /* statusbar_indicator_green.png */,
+				22AB17A31200818A0057548A /* statusbar_indicator_red.png */,
+				22AB17A41200818A0057548A /* statusbar_indicator_yellow.png */,
 				2292543A11889709008B4FFB /* statusbar_icon_cancel.png */,
 				2292543B11889709008B4FFB /* statusbar_icon_complete.png */,
 				2292543C11889709008B4FFB /* statusbar_icon_spinner.png */,
@@ -2074,6 +2083,9 @@
 				22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */,
 				22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */,
 				22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */,
+				22AB17A51200818A0057548A /* statusbar_indicator_green.png in Resources */,
+				22AB17A61200818A0057548A /* statusbar_indicator_red.png in Resources */,
+				22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
