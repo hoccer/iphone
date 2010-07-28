@@ -193,7 +193,6 @@
 		227B5E17107DEE3F0012BBA6 /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
 		228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 228100C110A9CDCC00DFA0BF /* HelpOverview.m */; };
 		228100C410A9CDCC00DFA0BF /* HelpOverview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228100C210A9CDCC00DFA0BF /* HelpOverview.xib */; };
-		2284F83711A2BAFD004EFF7F /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
 		2284F97011A2BB5C004EFF7F /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */; };
 		2284F97111A2BB5C004EFF7F /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */; };
 		2284F97211A2BB5C004EFF7F /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF91199B81C00CDFAA2 /* NSCharacterSet_Extensions.m */; };
@@ -955,7 +954,6 @@
 				22C0B3CE117DF9C2009E3E3C /* CoreLocation.framework in Frameworks */,
 				2298E37811809D390078DBBD /* AddressBook.framework in Frameworks */,
 				2298E37911809D390078DBBD /* AddressBookUI.framework in Frameworks */,
-				2284F83711A2BAFD004EFF7F /* libAdMob.a in Frameworks */,
 				2284F97D11A2BB80004EFF7F /* QuartzCore.framework in Frameworks */,
 				2284F98011A2BB89004EFF7F /* CoreData.framework in Frameworks */,
 				2284F98311A2BB9A004EFF7F /* AudioToolbox.framework in Frameworks */,

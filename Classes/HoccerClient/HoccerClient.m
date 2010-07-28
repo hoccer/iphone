@@ -44,8 +44,7 @@
 - (void) dealloc {
 	[userAgent release];
 	[content release];
-	
-	
+
 	[super dealloc];
 }
 

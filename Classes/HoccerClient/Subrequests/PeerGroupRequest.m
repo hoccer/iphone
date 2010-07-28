@@ -52,6 +52,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 #pragma mark NSURLConnection Delegate Methods
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
+	NSLog(@"result: %@", self.result);
 	
 	if (self.response == nil) {
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"A problem occurred on the server. Try again in a moment." forKey:NSLocalizedDescriptionKey];
