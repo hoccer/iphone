@@ -45,6 +45,7 @@
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
 	showingError = NO;
+	
 }
 
 - (void)dealloc {
@@ -69,7 +70,7 @@
 		hoccerControllerData = [newHoccerController retain]; 
 		[self monitorHoccerController:hoccerControllerData];
 		
-		statusLabel.text = @"Connecting";
+		statusLabel.text = @"Connecting..";
 		[self setConnectingState];
 	} 
 	
@@ -136,7 +137,7 @@
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError	) {
+	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError) {
 		[self setError:self.badLocationHint];
 		[self setLocationState];
 	}
@@ -299,10 +300,11 @@
 		return;
 	}
 
-	self.view.hidden = NO;
+	NSLog(@"actions: %@", [self.view.layer actions]);
+	self.view.layer.hidden = NO;
 	
 	CGFloat currentYPos = self.view.center.y;
-	self.view.center = CGPointMake(self.view.center.x, currentYPos - 105);
+	self.view.center = CGPointMake(self.view.center.x, currentYPos - 100);
 	[UIView beginAnimations:@"slideDown" context:nil];
 	
 	self.view.center = CGPointMake(self.view.center.x, currentYPos);
@@ -312,8 +314,14 @@
 
 - (void)hideViewAnimated {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+ 	self.view.layer.hidden = YES;
 	
-	self.view.hidden = YES;
+	CGFloat currentYPos = self.view.center.y;
+	[UIView beginAnimations:@"slideDown" context:nil];
+	
+	self.view.center = CGPointMake(self.view.center.x, currentYPos);
+	[UIView setAnimationDuration:0.7];
+	[UIView commitAnimations];
 }
 
 

@@ -117,11 +117,15 @@
 	
 	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
-	
-	[desktopView addSubview:statusViewController.view];
+
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 0;
+
+	[desktopView addSubview:statusViewController.view];
 	statusViewController.view.frame = statusRect;
+	
+	[desktopView addSubview:infoViewController.view];
+	infoViewController.view.frame = statusRect;
 }
 
 - (void) dealloc {
@@ -411,11 +415,22 @@
 	}
 	
 	UIButton *hoccabilityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[hoccabilityButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
+	
 	hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
 	[hoccabilityButton setImage:hoccabilityImage forState:UIControlStateNormal];
 								   
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
+	[hoccabilityBarButtonItem release];
+}
+
+- (void)pressedButton: (id)sender {	
+	if (infoViewController.view.hidden == NO) {
+		[infoViewController setLocationHint:nil];
+	} else {
+		[infoViewController setLocationHint: [locationController messageForLocationInformation]];
+	}
 }
 
 

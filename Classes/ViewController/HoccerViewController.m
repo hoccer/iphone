@@ -51,6 +51,7 @@
 @synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
+@synthesize infoViewController;
 @synthesize desktopData;
 @synthesize defaultOrigin;
 @synthesize hoccability;
@@ -71,6 +72,7 @@
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
 	locationController.delegate = self;
+	infoViewController.delegate = self;
 	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
 	historyData = [[HistoryData alloc] init];
@@ -338,14 +340,14 @@
 
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
 	
-	NSError *message = [controller messageForLocationInformation];
-	if (![desktopData hasActiveRequest]) {
-		if (message) {
-			[statusViewController setLocationHint: message];			
-		} else {
-			[statusViewController setLocationHint: nil];
-		}
-	}
+//	NSError *message = [controller messageForLocationInformation];
+//	if (![desktopData hasActiveRequest]) {
+//		if (message) {
+//			[statusViewController setLocationHint: message];			
+//		} else {
+//			[statusViewController setLocationHint: nil];
+//		}
+//	}
 }
 
 
