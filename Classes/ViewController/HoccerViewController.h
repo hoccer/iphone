@@ -35,7 +35,8 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-						GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> {
+			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> 
+{
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
@@ -48,6 +49,8 @@
 	LocationController *locationController;
 							
 	StatusViewController *statusViewController;
+	StatusViewController *infoViewController;
+	
 	HoccingRulesIPhone *hoccingRules;
 							
 	CGPoint defaultOrigin;
@@ -61,6 +64,7 @@
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
+@property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
 @property (nonatomic, assign) IBOutlet UILabel *hoccability;

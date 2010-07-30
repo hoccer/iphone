@@ -72,15 +72,6 @@
 			<object class="IBUICustomObject" id="404403698">
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUIViewController" id="526905714">
-				<bool key="IBUIAutoresizesArchivedViewToFullSize">NO</bool>
-				<string key="IBUINibName">StatusViewController</string>
-				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-					<int key="interfaceOrientation">1</int>
-				</object>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<bool key="IBUIHorizontal">NO</bool>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -119,14 +110,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="526905714"/>
-						<reference key="destination" ref="664661524"/>
-					</object>
-					<int key="connectionID">82</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">locationController</string>
 						<reference key="source" ref="943309135"/>
 						<reference key="destination" ref="404403698"/>
@@ -140,14 +123,6 @@
 						<reference key="destination" ref="368256954"/>
 					</object>
 					<int key="connectionID">85</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">statusViewController</string>
-						<reference key="source" ref="943309135"/>
-						<reference key="destination" ref="526905714"/>
-					</object>
-					<int key="connectionID">86</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -212,11 +187,6 @@
 						<reference key="object" ref="404403698"/>
 						<reference key="parent" ref="0"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">79</int>
-						<reference key="object" ref="526905714"/>
-						<reference key="parent" ref="0"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -236,9 +206,6 @@
 					<string>73.IBPluginDependency</string>
 					<string>76.CustomClassName</string>
 					<string>76.IBPluginDependency</string>
-					<string>79.CustomClassName</string>
-					<string>79.IBEditorWindowLastContentRect</string>
-					<string>79.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -254,9 +221,6 @@
 					<string>GesturesInterpreter</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>LocationController</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>StatusViewController</string>
-					<string>{{154, 490}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>

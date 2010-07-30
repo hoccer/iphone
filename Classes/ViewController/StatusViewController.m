@@ -41,10 +41,11 @@
 @synthesize covered;
 
 - (void)viewDidLoad {
-	[self hideViewAnimated];
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
 	showingError = NO;
+	
+	self.view.layer.hidden = YES;	
 }
 
 - (void)dealloc {
@@ -69,7 +70,7 @@
 		hoccerControllerData = [newHoccerController retain]; 
 		[self monitorHoccerController:hoccerControllerData];
 		
-		statusLabel.text = @"Connecting";
+		statusLabel.text = @"Connecting..";
 		[self setConnectingState];
 	} 
 	
@@ -136,7 +137,7 @@
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError	) {
+	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError) {
 		[self setError:self.badLocationHint];
 		[self setLocationState];
 	}
@@ -295,6 +296,7 @@
 #pragma mark Showing and Hiding StatusBar
 
 - (void)showViewAnimated {
+	NSLog(@"hidden: %d", self.view.hidden);
 	if (!self.view.hidden || self.covered) {
 		return;
 	}
@@ -302,20 +304,36 @@
 	self.view.hidden = NO;
 	
 	CGFloat currentYPos = self.view.center.y;
-	self.view.center = CGPointMake(self.view.center.x, currentYPos - 105);
+	NSLog(@"current position: %d", currentYPos);
+
+	self.view.center = CGPointMake(self.view.center.x, currentYPos - 100);
 	[UIView beginAnimations:@"slideDown" context:nil];
 	
 	self.view.center = CGPointMake(self.view.center.x, currentYPos);
-	[UIView setAnimationDuration:0.7];
 	[UIView commitAnimations];
 }
 
 - (void)hideViewAnimated {
+	NSLog(@"hide animation");
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	self.view.hidden = YES;
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
+	animation.fillMode = kCAFillModeBoth;
+	animation.removedOnCompletion = NO;
+	animation.duration = 0.2;
+	animation.delegate = self;
+	
+	[self.view.layer addAnimation:animation forKey:@"slideUp"];
+	
+	// self.view.center = CGPointMake(self.view.center.x, currentYPos);
 }
 
+- (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+	NSLog(@"ready");
+	self.view.hidden = YES;
+	[self.view.layer removeAllAnimations];
+}
 
 #pragma mark -
 #pragma mark Monitoring Changes
