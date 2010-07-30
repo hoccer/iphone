@@ -12,7 +12,6 @@
 
 
 @interface StatusViewController : UIViewController {
-	id delegate;
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UILabel *statusLabel;
 	IBOutlet UIButton *hintButton;
@@ -33,8 +32,6 @@
 	BOOL hidden;
 }
 
-@property (assign) id delegate;
-
 @property (retain) UIImage *smallBackground;
 @property (retain) UIImage *largeBackground;
 
@@ -47,7 +44,6 @@
 
 - (void)setUpdate: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
-
 
 - (IBAction)cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;

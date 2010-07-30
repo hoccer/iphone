@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "StatusViewController.h"
-#import "NSObject+DelegateHelper.h"
 #import "NSString+Regexp.h"
 #import "HoccerController.h"
 
@@ -34,7 +33,6 @@
 @synthesize smallBackground;
 @synthesize largeBackground;
 
-@synthesize delegate;
 @synthesize hoccerController;
 @synthesize badLocationHint;
 @synthesize hidden;

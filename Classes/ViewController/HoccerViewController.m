@@ -73,8 +73,7 @@
 		
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
-	locationController.delegate = self;
-	infoViewController.delegate = self;
+
 	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
 	historyData = [[HistoryData alloc] init];
