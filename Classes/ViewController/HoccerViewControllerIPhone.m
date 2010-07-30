@@ -123,14 +123,14 @@
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 0;
 
+	[desktopView addSubview:statusViewController.view];
+	statusViewController.view.frame = statusRect;
+	
 	[desktopView addSubview:infoViewController.view];
 	infoViewController.view.frame = statusRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
-	
-	[desktopView addSubview:statusViewController.view];
-	statusViewController.view.frame = statusRect;
 }
 
 - (void) dealloc {

@@ -184,7 +184,9 @@
 	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
-	
+
+	[infoViewController hideViewAnimated:YES];
+
 	[FeedbackProvider playCatchFeedback];
 	HoccerController *item = [[[HoccerController alloc] init] autorelease];
 	item.delegate = self;
@@ -205,6 +207,8 @@
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
+	
+	[infoViewController hideViewAnimated:YES];
 	
 	[FeedbackProvider playThrowFeedback];
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
@@ -240,6 +244,8 @@
 		return;
 	}
 	
+	[infoViewController hideViewAnimated:YES];
+	
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	[item sweepInWithLocation: locationController.location];
@@ -250,11 +256,14 @@
 		return;
 	}
 	
+	[infoViewController hideViewAnimated:YES];
+	
 	[FeedbackProvider playSweepOut];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	statusViewController.hoccerController = item;
 
 	[item sweepOutWithLocation:locationController.location];
+	
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
