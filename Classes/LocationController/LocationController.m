@@ -18,6 +18,7 @@
 - (void)updateHoccability;
 - (NSDictionary *)userInfoForImpreciseLocation;
 - (NSDictionary *)userInfoForBadLocation;
+- (NSDictionary *)userInfoForPerfectLocation;
 
 - (NSString *)impoveSuggestion;
 @end
@@ -131,9 +132,7 @@
 		return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
 	}
 	
-	
-	
-	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerImpreciseLocation userInfo:[self userInfoForImpreciseLocation]];
+	return [NSError errorWithDomain:hoccerMessageErrorDomain code:kHoccerPerfectLocation userInfo:[self userInfoForPerfectLocation]];
 }
 
 #pragma mark -
@@ -150,6 +149,14 @@
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:@"Your location accuracy is to imprecise for hoccing" forKey:NSLocalizedDescriptionKey];
 	[userInfo setObject:[self impoveSuggestion] forKey:NSLocalizedRecoverySuggestionErrorKey];
+	
+	return [userInfo autorelease];
+}
+
+- (NSDictionary *)userInfoForPerfectLocation {
+	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+	[userInfo setObject:@"Your hoc location is perfect" forKey:NSLocalizedDescriptionKey];
+	[userInfo setObject:@"You suffice all requirements for reliable hoccing." forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }

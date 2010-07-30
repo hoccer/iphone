@@ -44,6 +44,8 @@
 
 #import "SettingViewController.h"
 
+#import "StatusBarStates.h"
+
 @implementation HoccerViewController
 
 @synthesize delegate; 
@@ -205,7 +207,7 @@
 	}
 	
 	[FeedbackProvider playThrowFeedback];
-	statusViewController.hoccerControllerData = [desktopData hoccerControllerDataAtIndex:0];
+	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
 	[[desktopData hoccerControllerDataAtIndex:0] throwWithLocation:locationController.location];
 
 	
@@ -250,7 +252,7 @@
 	
 	[FeedbackProvider playSweepOut];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
-	statusViewController.hoccerControllerData = item;
+	statusViewController.hoccerController = item;
 
 	[item sweepOutWithLocation:locationController.location];
 }
@@ -275,8 +277,8 @@
 #pragma mark HoccerControllerDataDelegate
 
 - (void)hoccerControllerWasSent: (HoccerController *)item {
-	statusViewController.hoccerControllerData = nil;
-	[statusViewController setCompleteState];
+	statusViewController.hoccerController = nil;
+	[statusViewController setState:[SuccessState state]];
 	[historyData addContentToHistory:item];
 	
 	[desktopData removehoccerController:item];
@@ -284,8 +286,8 @@
 }
 
 - (void)hoccerControllerWasReceived: (HoccerController *)item {
-	statusViewController.hoccerControllerData = nil;
-	[statusViewController setCompleteState];
+	statusViewController.hoccerController = nil;
+	[statusViewController setState:[SuccessState state]];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
@@ -299,28 +301,28 @@
 }
 
 - (void)hoccerControllerUploadWasCanceled: (HoccerController *)item {
-	statusViewController.hoccerControllerData = nil;
+	statusViewController.hoccerController = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
 - (void)hoccerControllerDownloadWasCanceled: (HoccerController *)item {
-	statusViewController.hoccerControllerData = nil;
+	statusViewController.hoccerController = nil;
 	
 	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 
 - (void)hoccerController: (HoccerController *)item downloadFailedWithError: (NSError *)error  {
-	statusViewController.hoccerControllerData = nil;
+	statusViewController.hoccerController = nil;
 	[statusViewController setError:error];
 	[desktopData removehoccerController:item];
 	[desktopView reloadData];
 }
 
 - (void)hoccerControllerWillStartDownload: (HoccerController *)item {
-	statusViewController.hoccerControllerData = item;
+	statusViewController.hoccerController = item;
 }
 
 - (void)hoccerControllerWasClosed:(HoccerController *)item {

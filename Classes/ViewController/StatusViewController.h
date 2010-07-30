@@ -8,32 +8,29 @@
 
 #import <UIKit/UIKit.h>
 @class HoccerController;
+@class StatusViewControllerState;
 
 
 @interface StatusViewController : UIViewController {
 	id delegate;
 	IBOutlet UIProgressView *progressView;	
-	IBOutlet UIActivityIndicatorView *activitySpinner;
 	IBOutlet UILabel *statusLabel;
-
 	IBOutlet UIButton *hintButton;
 	IBOutlet UITextView *hintText;
 	IBOutlet UIButton *cancelButton;
-	
 	IBOutlet UIImageView *backgroundImage;
 	
-	UIImage *smallBackground;
-	UIImage *largeBackground;
-	
-	HoccerController *hoccerControllerData;
+	HoccerController *hoccerController;
 	
 	NSInteger hoccabiliy;
 	NSError *badLocationHint;
 	
 	@private
-	BOOL showingError;
+	UIImage *smallBackground;
+	UIImage *largeBackground;
+	
 	NSTimer *timer;
-	BOOL covered;
+	BOOL hidden;
 }
 
 @property (assign) id delegate;
@@ -41,21 +38,24 @@
 @property (retain) UIImage *smallBackground;
 @property (retain) UIImage *largeBackground;
 
-@property (retain) HoccerController* hoccerControllerData;
-@property (assign, getter=isCovered) BOOL covered;
+@property (retain) HoccerController* hoccerController;
+@property (assign, getter=isHidden) BOOL hidden;
 
-
-- (void)setUpdate: (NSString *)update;
+- (void)setState: (StatusViewControllerState *)state;
 - (void)setError: (NSError *)error;
-- (void)setProgressUpdate: (CGFloat) percentage;
 - (void)setLocationHint: (NSError *)hint;
 
-- (void)setCompleteState;
+- (void)setUpdate: (NSString *)update;
+- (void)setProgressUpdate: (CGFloat) percentage;
 
-- (IBAction) cancelAction: (id) sender;
+
+- (IBAction)cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;
 
 - (void)monitorHoccerController: (HoccerController *)hoccerController;
+
+- (void)hideViewAnimated: (BOOL)animation;
+- (void)showViewAnimated: (BOOL)animation;
 
 @end
 

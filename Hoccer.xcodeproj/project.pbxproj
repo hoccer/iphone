@@ -492,6 +492,7 @@
 		22D9ED481202D87D006546A9 /* statusbar_large_hoccability.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D9ED471202D87D006546A9 /* statusbar_large_hoccability.png */; };
 		22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3311B51E880024AA7E /* StatusViewController.m */; };
 		22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD511B51DF00024AA7E /* AccelerationRecorder.m */; };
+		22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D9EDFB120303F5006546A9 /* StatusBarStates.m */; };
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -885,6 +886,8 @@
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_double-copy.png"; sourceTree = "<group>"; };
 		22D9ED471202D87D006546A9 /* statusbar_large_hoccability.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_large_hoccability.png; sourceTree = "<group>"; };
+		22D9EDFB120303F5006546A9 /* StatusBarStates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarStates.m; sourceTree = "<group>"; };
+		22D9EE0312030490006546A9 /* StatusBarStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarStates.h; sourceTree = "<group>"; };
 		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
 		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1337,6 +1340,8 @@
 				22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */,
 				22638C2511B51E880024AA7E /* HoccerViewControllerIPhone.h */,
 				22638C2611B51E880024AA7E /* HoccerViewControllerIPhone.m */,
+				22D9EE0312030490006546A9 /* StatusBarStates.h */,
+				22D9EDFB120303F5006546A9 /* StatusBarStates.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2343,6 +2348,7 @@
 				22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */,
 				22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */,
 				22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */,
+				22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

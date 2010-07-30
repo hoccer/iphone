@@ -21,6 +21,8 @@
 #import "GesturesInterpreter.h"
 #import "LocationController.h"
 
+#import "StatusBarStates.h"
+
 @interface ActionElement : NSObject
 {
 	id target;
@@ -121,12 +123,14 @@
 	CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = 0;
 
-	[desktopView addSubview:statusViewController.view];
-	statusViewController.view.frame = statusRect;
-	
 	[desktopView addSubview:infoViewController.view];
 	infoViewController.view.frame = statusRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
+	[infoViewController setState:[LocationState state]];
+	[infoViewController hideViewAnimated: NO];
+	
+	[desktopView addSubview:statusViewController.view];
+	statusViewController.view.frame = statusRect;
 }
 
 - (void) dealloc {
@@ -294,7 +298,7 @@
 	
 	isPopUpDisplayed = TRUE;
 	
-	statusViewController.covered = YES;
+	statusViewController.hidden = YES;
 	[popOverView viewDidAppear:YES];
 }
 
@@ -303,7 +307,7 @@
 }
 
 - (void)removePopOverFromSuperview {
-	statusViewController.covered = NO;
+	statusViewController.hidden = NO;
 
 	[auxiliaryView.view removeFromSuperview];	 
 	self.auxiliaryView = nil;

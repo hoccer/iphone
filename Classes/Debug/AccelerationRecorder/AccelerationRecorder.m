@@ -81,7 +81,7 @@
 	NSString *gesturesDirectory = [documentsDirectory stringByAppendingPathComponent:@"gestures"];
 	
 	if (![[NSFileManager defaultManager] fileExistsAtPath:gesturesDirectory]) {
-		[[NSFileManager defaultManager] createDirectoryAtPath:gesturesDirectory attributes:nil];
+		[[NSFileManager defaultManager] createDirectoryAtPath:gesturesDirectory withIntermediateDirectories:NO attributes:nil error:nil];
 	}
 	
 	return gesturesDirectory;

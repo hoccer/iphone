@@ -13,22 +13,18 @@
 #import "NSString+Regexp.h"
 #import "HoccerController.h"
 
+#import "StatusBarStates.h"
+
+
 @interface StatusViewController ()
 @property (retain) NSError *badLocationHint;
 - (void)showRecoverySuggestion;
 - (void)hideRecoverySuggestion;
 
-- (void)setConnectingState;
-- (void)setTransferState;
-- (void)setErrorStateWithRecovery: (BOOL)recovery;
-- (void)setLocationState;
 - (void)hideUpdateState;
 
 - (void)showLocationHint;
 - (void)hideLocationHint;
-
-- (void)hideViewAnimated;
-- (void)showViewAnimated;
 
 @end
 
@@ -39,23 +35,21 @@
 @synthesize largeBackground;
 
 @synthesize delegate;
-@synthesize hoccerControllerData;
+@synthesize hoccerController;
 @synthesize badLocationHint;
-@synthesize covered;
+@synthesize hidden;
 
 - (void)viewDidLoad {
 	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
-	showingError = NO;
 	
 	self.view.layer.hidden = YES;	
 }
 
 - (void)dealloc {
 	[statusLabel release];
-	[activitySpinner release];
 	[progressView release];
-	[hoccerControllerData release];
+	[hoccerController release];
 	[hintButton release];
 	[cancelButton release];
 	[badLocationHint release];
@@ -64,40 +58,40 @@
     [super dealloc];
 }
 
-- (void)setHoccerControllerData:(HoccerController *)newHoccerController {
-	if (hoccerControllerData != newHoccerController) {
-		[hoccerControllerData removeObserver:self forKeyPath:@"statusMessage"];
-		[hoccerControllerData removeObserver:self forKeyPath:@"progress"];
-		[hoccerControllerData release];
+- (void)setHoccerController:(HoccerController *)newHoccerController {
+	if (hoccerController != newHoccerController) {
+		[hoccerController removeObserver:self forKeyPath:@"statusMessage"];
+		[hoccerController removeObserver:self forKeyPath:@"progress"];
+		[hoccerController release];
 		
-		hoccerControllerData = [newHoccerController retain]; 
-		[self monitorHoccerController:hoccerControllerData];
+		hoccerController = [newHoccerController retain]; 
+		[self monitorHoccerController:hoccerController];
 		
 		statusLabel.text = @"Connecting..";
-		[self setConnectingState];
+		[self setState:[[[ConnectionState alloc] init] autorelease]];
 	} 
 	
-	if (hoccerControllerData == nil) {
+	if (hoccerController == nil) {
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
 }
 
 - (IBAction) cancelAction: (id) sender {
-	[hoccerControllerData cancelRequest];
-	self.hoccerControllerData = nil;
+	[hoccerController cancelRequest];
+	self.hoccerController = nil;
 	
 	[self hideUpdateState];
 }
 
 
-- (void)setCovered:(BOOL)isCovered {
-	if (!covered) {
+- (void)setHidden:(BOOL)isHidden {
+	if (!hidden) {
 		self.view.hidden = YES;
-	} else if (hoccerControllerData != nil || badLocationHint != nil){
+	} else if (hoccerController != nil || badLocationHint != nil){
 		self.view.hidden = NO;
 	}
 	
-	covered = isCovered;
+	hidden = isHidden;
 }
 
 
@@ -140,15 +134,15 @@
 }
 
 - (void)showLocationHint {
-	if (self.badLocationHint != nil && self.hoccerControllerData == nil && !showingError) {
+	if (self.badLocationHint != nil) {
 		[self setError:self.badLocationHint];
-		[self setLocationState];
+		[self showViewAnimated: YES];
 	}
 }
 
 - (void)hideLocationHint {
-	if (self.hoccerControllerData == nil) {
-		[self hideViewAnimated];
+	if (self.hoccerController == nil) {
+		[self hideViewAnimated: YES];
 		cancelButton.hidden = NO;
 	}
 }
@@ -157,103 +151,22 @@
 #pragma mark -
 #pragma mark Managing Updates
 
-- (void)setLocationState {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	[self showViewAnimated];
+- (void)setState: (StatusViewControllerState *)state {
+	[self showViewAnimated: YES];
 	
-	progressView.hidden = YES;
+	progressView.hidden = state.progressView;
+ 	statusLabel.hidden = state.statusLabel;
+	cancelButton.hidden = state.cancelButton;
+	hintButton.hidden = state.hintButton;
 	
-	activitySpinner.hidden = YES;
-	statusLabel.hidden = NO;
-	cancelButton.hidden = YES;
-	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
-	hintButton.hidden = YES;
-	
-	[self showRecoverySuggestion];
-	showingError = NO;
-	
-	[timer invalidate];
-	timer = nil;
-}
-
-- (void)setConnectingState {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	[self showViewAnimated];
-
-	progressView.hidden = YES;
-	
-	activitySpinner.hidden = NO;
-	statusLabel.hidden = NO;
-	cancelButton.hidden = NO;
-	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
-	hintButton.hidden = YES;
-	
-	[self hideRecoverySuggestion];
-	showingError = NO;
-	
-	[timer invalidate];
-	timer = nil;
-}
-
-- (void)setTransferState {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
-	[self showViewAnimated];
-
-	progressView.hidden = NO;
-	activitySpinner.hidden = YES;
-	statusLabel.hidden = NO;
-	cancelButton.hidden = NO;
-	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
-	hintButton.hidden = YES;
-	
-	[self hideRecoverySuggestion];
-	showingError = NO;
-	
-	[timer invalidate];
-	timer = nil;
-}
-
-- (void)setCompleteState {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-	[self showViewAnimated];
-
-	progressView.hidden = YES;
-	activitySpinner.hidden = YES;
-	statusLabel.hidden = NO;
-	cancelButton.hidden = NO;
-	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_complete.png"] forState: UIControlStateNormal];
-	hintButton.hidden = YES;
-	
-	statusLabel.text = @"Success";
-	[self hideRecoverySuggestion];
-	
-	timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(hideUpdateState) userInfo:nil repeats:NO];
-	
-	showingError = NO;
-}
-
-- (void)setErrorStateWithRecovery: (BOOL)recovery {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	
-	[self showViewAnimated];
-
-	progressView.hidden = YES;
-	activitySpinner.hidden = YES;
-	statusLabel.hidden = NO;
-	cancelButton.hidden = NO;
-	[cancelButton setImage:[UIImage imageNamed:@"statusbar_icon_cancel.png"] forState: UIControlStateNormal];
-	hintButton.hidden = YES;
-	
-	showingError = YES;
-	if (recovery) {
-		[self showRecoverySuggestion];
-	} else {
+	if (state.recoverySuggestion) {
+		[self showRecoverySuggestion];	
+	} else{
 		[self hideRecoverySuggestion];
 	}
-
-
+		
+	[cancelButton setImage:state.cancelButtonImage forState: UIControlStateNormal];
+	
 	[timer invalidate];
 	timer = nil;
 }
@@ -268,17 +181,17 @@
 }
 
 - (void)setUpdate: (NSString *)update {
-	if ([[hoccerControllerData.status objectForKey:@"status_code"] intValue] != 200) {
+	if ([[hoccerController.status objectForKey:@"status_code"] intValue] != 200) {
 		statusLabel.text = update;
-		[self setConnectingState];
+		[self setState: [[[ConnectionState alloc] init]autorelease]];
 	} 	
 }
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	if ([[hoccerControllerData.status objectForKey:@"status_code"] intValue] == 200) {
+	if ([[hoccerController.status objectForKey:@"status_code"] intValue] == 200) {
 		statusLabel.text = @"Transfering";
-		[self setTransferState];		
+		[self setState:[TransferState state]];		
 	} 
 }
 
@@ -291,49 +204,50 @@
 		}
 	}
 
-	[self setErrorStateWithRecovery:([error localizedRecoverySuggestion] != nil)];
+	[self setState:[ErrorState stateWithRecovery:([error localizedRecoverySuggestion] != nil)]];
 }
 
 
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar
 
-- (void)showViewAnimated {
-	NSLog(@"hidden: %d", self.view.hidden);
-	if (!self.view.hidden || self.covered) {
+
+- (void)showViewAnimated: (BOOL)animation {
+	if (!self.view.hidden || self.hidden) {
 		return;
 	}
 
 	self.view.hidden = NO;
 	
-	CGFloat currentYPos = self.view.center.y;
-	NSLog(@"current position: %d", currentYPos);
-
-	self.view.center = CGPointMake(self.view.center.x, currentYPos - 100);
-	[UIView beginAnimations:@"slideDown" context:nil];
-	
-	self.view.center = CGPointMake(self.view.center.x, currentYPos);
-	[UIView commitAnimations];
+	if (animation) {
+		CGFloat currentYPos = self.view.center.y;
+		
+		self.view.center = CGPointMake(self.view.center.x, currentYPos - 100);
+		[UIView beginAnimations:@"slideDown" context:nil];
+		self.view.center = CGPointMake(self.view.center.x, currentYPos);
+		[UIView commitAnimations];	
+	}
 }
 
-- (void)hideViewAnimated {
-	NSLog(@"hide animation");
+- (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
-	animation.fillMode = kCAFillModeBoth;
-	animation.removedOnCompletion = NO;
-	animation.duration = 0.2;
-	animation.delegate = self;
 	
-	[self.view.layer addAnimation:animation forKey:@"slideUp"];
-	
-	// self.view.center = CGPointMake(self.view.center.x, currentYPos);
+	if (animation) {
+		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
+		animation.fillMode = kCAFillModeBoth;
+		animation.removedOnCompletion = NO;
+		animation.duration = 0.2;
+		animation.delegate = self;
+		
+		[self.view.layer addAnimation:animation forKey:@"slideUp"];		
+	} else {
+		self.view.hidden = YES;
+	}
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-	NSLog(@"ready");
 	self.view.hidden = YES;
 	[self.view.layer removeAllAnimations];
 }
@@ -341,9 +255,9 @@
 #pragma mark -
 #pragma mark Monitoring Changes
 
-- (void)monitorHoccerController: (HoccerController*) hoccerController {
-	[hoccerController addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
-	[hoccerController addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+- (void)monitorHoccerController: (HoccerController*) theHoccerController {
+	[theHoccerController addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
+	[theHoccerController addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

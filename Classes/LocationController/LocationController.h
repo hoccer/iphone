@@ -10,6 +10,7 @@
 #import "HoccerViewController.h"
 #import "WifiScannerDelegate.h"
 
+#define kHoccerPerfectLocation 0
 #define kHoccerImpreciseLocation 1
 #define kHoccerBadLocation 2
 
