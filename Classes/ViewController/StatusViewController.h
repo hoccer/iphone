@@ -22,6 +22,9 @@
 	
 	IBOutlet UIImageView *backgroundImage;
 	
+	UIImage *smallBackground;
+	UIImage *largeBackground;
+	
 	HoccerController *hoccerControllerData;
 	
 	NSInteger hoccabiliy;
@@ -34,8 +37,13 @@
 }
 
 @property (assign) id delegate;
+
+@property (retain) UIImage *smallBackground;
+@property (retain) UIImage *largeBackground;
+
 @property (retain) HoccerController* hoccerControllerData;
 @property (assign, getter=isCovered) BOOL covered;
+
 
 - (void)setUpdate: (NSString *)update;
 - (void)setError: (NSError *)error;

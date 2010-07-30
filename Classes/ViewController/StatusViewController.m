@@ -35,6 +35,9 @@
 
 @implementation StatusViewController
 
+@synthesize smallBackground;
+@synthesize largeBackground;
+
 @synthesize delegate;
 @synthesize hoccerControllerData;
 @synthesize badLocationHint;
@@ -102,14 +105,14 @@
 #pragma mark Managing Status Bar Size
 
 - (void)showRecoverySuggestion {
-	backgroundImage.image = [UIImage imageNamed:@"statusbar_large.png"];
+	backgroundImage.image = self.largeBackground;
 	hintText.hidden = NO;
 	
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
 }
 
 - (void)hideRecoverySuggestion {
-	backgroundImage.image = [UIImage imageNamed:@"statusbar_small.png"];
+	backgroundImage.image = self.smallBackground;
 
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
 	hintText.hidden = YES;
@@ -352,5 +355,25 @@
 		[self setProgressUpdate: [[change objectForKey:NSKeyValueChangeNewKey] floatValue]];
 	}
 }
+
+#pragma mark -
+#pragma mark Getters
+- (UIImage *) smallBackground {
+	if (smallBackground == nil) {
+		smallBackground = [[UIImage imageNamed:@"statusbar_small.png"] retain];
+	}
+	
+	return smallBackground;
+}
+
+- (UIImage *) largeBackground {
+	if (largeBackground == nil) {
+		largeBackground = [[UIImage imageNamed:@"statusbar_large.png"] retain];
+	}
+	
+	return largeBackground;
+}
+
+
 
 @end

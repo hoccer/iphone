@@ -126,6 +126,7 @@
 	
 	[desktopView addSubview:infoViewController.view];
 	infoViewController.view.frame = statusRect;
+	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 }
 
 - (void) dealloc {

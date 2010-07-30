@@ -98,7 +98,6 @@
 		22638BD911B51DF00024AA7E /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD511B51DF00024AA7E /* AccelerationRecorder.m */; };
 		22638BDA11B51DF00024AA7E /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD711B51DF00024AA7E /* DebugViewController.m */; };
 		22638BDB11B51DF00024AA7E /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638BD811B51DF00024AA7E /* DebugViewController.xib */; };
-		22638BDC11B51DF00024AA7E /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD511B51DF00024AA7E /* AccelerationRecorder.m */; };
 		22638BDD11B51DF00024AA7E /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD711B51DF00024AA7E /* DebugViewController.m */; };
 		22638BDE11B51DF00024AA7E /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638BD811B51DF00024AA7E /* DebugViewController.xib */; };
 		22638BE411B51E040024AA7E /* HistoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BE111B51E040024AA7E /* HistoryData.m */; };
@@ -143,7 +142,6 @@
 		22638C5611B51E880024AA7E /* ReceivedContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2A11B51E880024AA7E /* ReceivedContentViewController.m */; };
 		22638C5711B51E880024AA7E /* SelectContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2C11B51E880024AA7E /* SelectContentController.m */; };
 		22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3011B51E880024AA7E /* SettingViewController.m */; };
-		22638C5C11B51E880024AA7E /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3311B51E880024AA7E /* StatusViewController.m */; };
 		22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3611B51E880024AA7E /* TermOfUse.m */; };
 		22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HoccerController.m */; };
 		22638C8411B520240024AA7E /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */; };
@@ -491,6 +489,9 @@
 		22CCDD111199B81C00CDFAA2 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD061199B81C00CDFAA2 /* CJSONSerializer.m */; };
 		22CCDD121199B81C00CDFAA2 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDD081199B81C00CDFAA2 /* CSerializedJSONData.m */; };
 		22D86D7B118F1B6B00F7AC6E /* container_btn_double-copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */; };
+		22D9ED481202D87D006546A9 /* statusbar_large_hoccability.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D9ED471202D87D006546A9 /* statusbar_large_hoccability.png */; };
+		22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3311B51E880024AA7E /* StatusViewController.m */; };
+		22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BD511B51DF00024AA7E /* AccelerationRecorder.m */; };
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -883,6 +884,7 @@
 		22D49E2C1068D07C00B03B61 /* FeatureHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeatureHistory.h; path = GesturesInterpreter/FeatureHistory.h; sourceTree = "<group>"; };
 		22D49E2D1068D07C00B03B61 /* FeatureHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeatureHistory.m; path = GesturesInterpreter/FeatureHistory.m; sourceTree = "<group>"; };
 		22D86D7A118F1B6B00F7AC6E /* container_btn_double-copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_double-copy.png"; sourceTree = "<group>"; };
+		22D9ED471202D87D006546A9 /* statusbar_large_hoccability.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_large_hoccability.png; sourceTree = "<group>"; };
 		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
 		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1535,6 +1537,7 @@
 		2292543911889709008B4FFB /* statusbar */ = {
 			isa = PBXGroup;
 			children = (
+				22D9ED471202D87D006546A9 /* statusbar_large_hoccability.png */,
 				22AB17A21200818A0057548A /* statusbar_indicator_green.png */,
 				22AB17A31200818A0057548A /* statusbar_indicator_red.png */,
 				22AB17A41200818A0057548A /* statusbar_indicator_yellow.png */,
@@ -2086,6 +2089,7 @@
 				22AB17A51200818A0057548A /* statusbar_indicator_green.png in Resources */,
 				22AB17A61200818A0057548A /* statusbar_indicator_red.png in Resources */,
 				22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */,
+				22D9ED481202D87D006546A9 /* statusbar_large_hoccability.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2314,7 +2318,6 @@
 				22638BCF11B51DC50024AA7E /* MBProgressHUD.m in Sources */,
 				22638BD011B51DC50024AA7E /* Preview.m in Sources */,
 				22638BD111B51DC50024AA7E /* TextPreview.m in Sources */,
-				22638BDC11B51DF00024AA7E /* AccelerationRecorder.m in Sources */,
 				22638BDD11B51DF00024AA7E /* DebugViewController.m in Sources */,
 				22638BE611B51E040024AA7E /* HistoryData.m in Sources */,
 				22638BE711B51E040024AA7E /* HoccerHistoryItem.m in Sources */,
@@ -2336,9 +2339,10 @@
 				22638C5611B51E880024AA7E /* ReceivedContentViewController.m in Sources */,
 				22638C5711B51E880024AA7E /* SelectContentController.m in Sources */,
 				22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */,
-				22638C5C11B51E880024AA7E /* StatusViewController.m in Sources */,
 				22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */,
 				22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */,
+				22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */,
+				22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
