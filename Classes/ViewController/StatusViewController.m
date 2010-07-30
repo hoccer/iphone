@@ -44,6 +44,10 @@
 	self.view.layer.hidden = YES;	
 }
 
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	[self cancelAction:self];
+}
+
 - (void)dealloc {
 	[statusLabel release];
 	[progressView release];
