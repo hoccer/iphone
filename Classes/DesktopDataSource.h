@@ -24,7 +24,7 @@
 - (UIView *)viewAtIndex: (NSInteger) index;
 
 - (void)addhoccerController: (HoccerController *)controller;
-- (void)removehoccerController: (HoccerController *)controller;
+- (void)removeHoccerController: (HoccerController *)controller;
 
 - (BOOL)hasActiveRequest;
 

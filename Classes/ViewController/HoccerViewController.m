@@ -122,7 +122,7 @@
 
 - (void)setContentPreview: (HoccerContent *)content {
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
-		[desktopData removehoccerController: [desktopData hoccerControllerDataAtIndex:0]];
+		[desktopData removeHoccerController: [desktopData hoccerControllerDataAtIndex:0]];
 	}
 	
 	HoccerController *item = [[[HoccerController alloc] init] autorelease];
@@ -235,7 +235,7 @@
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
-		[desktopData removehoccerController:item];
+		[desktopData removeHoccerController:item];
 	}
 }
 
@@ -290,7 +290,7 @@
 	[statusViewController setState:[SuccessState state]];
 	[historyData addContentToHistory:item];
 	
-	[desktopData removehoccerController:item];
+	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 
@@ -319,14 +319,14 @@
 - (void)hoccerControllerDownloadWasCanceled: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	
-	[desktopData removehoccerController:item];
+	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 
 - (void)hoccerController: (HoccerController *)item downloadFailedWithError: (NSError *)error  {
 	statusViewController.hoccerController = nil;
 	[statusViewController setError:error];
-	[desktopData removehoccerController:item];
+	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 
@@ -335,7 +335,7 @@
 }
 
 - (void)hoccerControllerWasClosed:(HoccerController *)item {
-	[desktopData removehoccerController:item];
+	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 

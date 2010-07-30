@@ -148,6 +148,8 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
+	[self setHoccabilityButton:locationController.hoccability];
+
 }
 
 - (IBAction)selectContacts: (id)sender {

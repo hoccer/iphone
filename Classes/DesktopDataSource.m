@@ -51,7 +51,7 @@
 	[contentOnDesktop addObject:hoccerController];
 }
 
-- (void)removehoccerController: (HoccerController *)hoccerController {
+- (void)removeHoccerController: (HoccerController *)hoccerController {
 	[contentOnDesktop removeObject:hoccerController];
 }
 
@@ -109,7 +109,7 @@
 - (void)removeView: (UIView *)view {
 	HoccerController *item = [self hoccerControllerDataForView:view];
 	
-	[self removehoccerController:item];
+	[self removeHoccerController:item];
 }
 
 - (NSInteger) count {
