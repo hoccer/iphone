@@ -77,14 +77,16 @@
 - (void)showRecoverySuggestion {
 	backgroundImage.image = self.largeBackground;
 	hintText.hidden = NO;
-	
+
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 2, statusLabel.frame.size.width, statusLabel.frame.size.height);
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
 }
 
 - (void)hideRecoverySuggestion {
 	backgroundImage.image = self.smallBackground;
-
 	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
+
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 1, statusLabel.frame.size.width, statusLabel.frame.size.height);
 	hintText.hidden = YES;
 }
 

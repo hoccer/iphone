@@ -104,7 +104,7 @@
 - (NSDictionary *)userInfoForNoCatcher {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:NSLocalizedString(@"Nobody caught your content!", nil) forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:NSLocalizedString(@"You can use hoccer to throw content to someone near you. Timing is important. The other person needs to catch just after you have thrown.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:NSLocalizedString(@"Timing is important. The other person needs to catch just after you have thrown.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }
@@ -112,7 +112,7 @@
 - (NSDictionary *)userInfoForNoThrower {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:NSLocalizedString(@"Nothing was thrown to you!", nil) forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:NSLocalizedString(@"You can use Hoccer to catch something thrown by someone near you. Timing is important. You need to catch right after the other person has thrown.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:NSLocalizedString(@"Timing is important. You need to catch right after the other person has thrown.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 	
@@ -129,7 +129,7 @@
 - (NSDictionary *)userInfoForInterception {
 	NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
 	[userInfo setObject:NSLocalizedString(@"Your hoc has been intercepted", nil) forKey:NSLocalizedDescriptionKey];
-	[userInfo setObject:NSLocalizedString(@"Hoccer wants to guarantee that only the right person gets the content. Unfortunatly someone else tried to hoc at your location. Try it again.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
+	[userInfo setObject:NSLocalizedString(@"Only the right person should get you content. Unfortunatly someone else tried to hoc at your location. Try it again in a moment.", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
 	
 	return [userInfo autorelease];
 }

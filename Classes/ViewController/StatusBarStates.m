@@ -124,7 +124,7 @@
 		progressView = YES;
 		statusLabel = NO;
 		cancelButton = NO;
-		cancelButtonImage = [[UIImage imageNamed:@"statusbar_icon_cancel.png"] retain];
+		cancelButtonImage = [[UIImage imageNamed:@"statusbar_icon_warning.png"] retain];
 		hintButton = YES;
 		
 		if (recovery) {
