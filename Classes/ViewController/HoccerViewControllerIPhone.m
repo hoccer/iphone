@@ -238,11 +238,6 @@
 	}
 }
 
-- (IBAction)toggleHoccability: (id)sender {
-	NSLog(@"toggling hoccability");
-}
-
-
 - (void)showDesktop {
 	[self hidePopOverAnimated:YES];
 }

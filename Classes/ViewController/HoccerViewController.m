@@ -129,7 +129,7 @@
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
-	
+		
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
 }
@@ -138,8 +138,10 @@
 #pragma mark UIImagePickerController Delegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	
 	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
+	
 		
 	[self setContentPreview: content];
 	[self dismissModalViewControllerAnimated:YES];
@@ -288,6 +290,7 @@
 - (void)hoccerControllerWasSent: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	[statusViewController setState:[SuccessState state]];
+	statusViewController.statusLabel.text = NSLocalizedString(@"Success", nil);
 	[historyData addContentToHistory:item];
 	
 	[desktopData removeHoccerController:item];
@@ -297,6 +300,7 @@
 - (void)hoccerControllerWasReceived: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	[statusViewController setState:[SuccessState state]];
+	statusViewController.statusLabel.text = NSLocalizedString(@"Success", nil);
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];

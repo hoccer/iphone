@@ -30,6 +30,8 @@
 @synthesize smallBackground;
 @synthesize largeBackground;
 
+@synthesize statusLabel;
+
 @synthesize badLocationHint;
 @synthesize hidden;
 
@@ -166,7 +168,6 @@
 
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar
-
 
 - (void)showViewAnimated: (BOOL)animation {
 	if (!self.view.hidden || self.hidden) {

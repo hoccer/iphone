@@ -32,6 +32,7 @@
 
 @property (retain) UIImage *smallBackground;
 @property (retain) UIImage *largeBackground;
+@property (retain) IBOutlet UILabel *statusLabel;
 
 @property (assign, getter=isHidden) BOOL hidden;
 

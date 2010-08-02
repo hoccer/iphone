@@ -52,7 +52,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 #pragma mark NSURLConnection Delegate Methods
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
 	self.result = [self parseJsonToDictionary: receivedData];
-	NSLog(@"result: %@", self.result);
 	
 	if (self.response == nil) {
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"A problem occurred on the server. Try again in a moment." forKey:NSLocalizedDescriptionKey];
@@ -116,8 +115,6 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	[body appendFormat:@"event[version_sdk]=%@&", [[UIDevice currentDevice].systemVersion stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[body appendFormat:@"event[timestamp]=%0.0f&", [[NSDate date] timeIntervalSince1970] * 1000];
 	[body appendFormat:@"event[client_uuid]=%@", [[UIDevice currentDevice].uniqueIdentifier stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-
-	NSLog(@"sending body:%@", body);
 	
 	return [body dataUsingEncoding: NSUTF8StringEncoding];
 }

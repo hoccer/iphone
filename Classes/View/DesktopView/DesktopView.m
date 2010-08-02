@@ -119,7 +119,6 @@
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"canceled");
 	for (SweepInRecognizer *recognizer in sweepRecognizers) {
 		[recognizer desktopView:self touchesCancelled:touches withEvent:event];
 	}
@@ -135,7 +134,6 @@
 	}
 	
 	[volatileView removeAllObjects];
-	
 	NSInteger numberOfItems = [dataSource numberOfItems];
 	for (NSInteger i = 0; i < numberOfItems; i++) {
 		UIView *view = [dataSource viewAtIndex:i];
@@ -149,6 +147,8 @@
 		
 		[self insertSubview: view atIndex:0];
 		[volatileView addObject: view];
+		
+		
 	}
 }
 
@@ -296,8 +296,5 @@
 	
 	return [touchedViews autorelease];
 }
-
-#pragma mark -
-#pragma mark CAAnimation Delegate Methods
 
 @end

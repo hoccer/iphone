@@ -61,7 +61,7 @@
 }
 
 - (void)desktopView: (DesktopView*)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self desktopView:view touchesCancelled:touches withEvent:event];
+	[self desktopView:view touchesEnded:touches withEvent:event];
 }
 
 
