@@ -32,6 +32,7 @@
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
 @class SettingViewController;
+@class ConnectionStatusViewController;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
@@ -48,7 +49,7 @@
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
 							
-	StatusViewController *statusViewController;
+	ConnectionStatusViewController *statusViewController;
 	StatusViewController *infoViewController;
 	
 	HoccingRulesIPhone *hoccingRules;
@@ -66,7 +67,7 @@
 @property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
-@property (nonatomic, retain) IBOutlet StatusViewController *statusViewController;
+@property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
 @property (nonatomic, assign) IBOutlet UILabel *hoccability;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;

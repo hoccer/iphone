@@ -43,6 +43,7 @@
 #import "HistoryData.h"
 
 #import "SettingViewController.h"
+#import "ConnectionStatusViewController.h"
 
 #import "StatusBarStates.h"
 

@@ -310,6 +310,7 @@
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */; };
 		22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
@@ -814,6 +815,8 @@
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
 		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
+		22A21A6C1206B720001FA18A /* ConnectionStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusViewController.h; sourceTree = "<group>"; };
+		22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusViewController.m; sourceTree = "<group>"; };
 		22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "Resources/37x-Checkmark.png"; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
@@ -1332,8 +1335,6 @@
 				22638C2A11B51E880024AA7E /* ReceivedContentViewController.m */,
 				22638C2B11B51E880024AA7E /* SelectContentController.h */,
 				22638C2C11B51E880024AA7E /* SelectContentController.m */,
-				22638C3211B51E880024AA7E /* StatusViewController.h */,
-				22638C3311B51E880024AA7E /* StatusViewController.m */,
 				22638C2111B51E880024AA7E /* HoccerViewController.h */,
 				22638C2211B51E880024AA7E /* HoccerViewController.m */,
 				22638C2311B51E880024AA7E /* HoccerViewControlleriPad.h */,
@@ -1342,6 +1343,10 @@
 				22638C2611B51E880024AA7E /* HoccerViewControllerIPhone.m */,
 				22D9EE0312030490006546A9 /* StatusBarStates.h */,
 				22D9EDFB120303F5006546A9 /* StatusBarStates.m */,
+				22638C3211B51E880024AA7E /* StatusViewController.h */,
+				22638C3311B51E880024AA7E /* StatusViewController.m */,
+				22A21A6C1206B720001FA18A /* ConnectionStatusViewController.h */,
+				22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2349,6 +2354,7 @@
 				22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */,
 				22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */,
 				22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */,
+				22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

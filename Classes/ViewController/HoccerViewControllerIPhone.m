@@ -22,6 +22,7 @@
 #import "LocationController.h"
 
 #import "StatusBarStates.h"
+#import "ConnectionStatusViewController.h"
 
 @interface ActionElement : NSObject
 {
