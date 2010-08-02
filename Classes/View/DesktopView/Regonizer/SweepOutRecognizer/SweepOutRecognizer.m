@@ -74,9 +74,7 @@
 }
 
 - (void)desktopView: (DesktopView *)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	gestureDetected = NO;
-	detecting = NO;
-	self.sweepDirection = kNoSweeping;
+	[self desktopView:view touchesCancelled:touches withEvent:event];
 }
 
 @end

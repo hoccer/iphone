@@ -56,10 +56,12 @@
 			[delegate sweepInRecognizerDidCancelSweepIn:self];
 		} 
 	}
+	
+	sweepDirection = kNoSweeping;	
 }
 
 - (void)desktopView: (DesktopView*)view touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	sweepDirection = kNoSweeping;
+	[self desktopView:view touchesCancelled:touches withEvent:event];
 }
 
 

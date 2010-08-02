@@ -119,6 +119,7 @@
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	NSLog(@"canceled");
 	for (SweepInRecognizer *recognizer in sweepRecognizers) {
 		[recognizer desktopView:self touchesCancelled:touches withEvent:event];
 	}
@@ -212,14 +213,15 @@
 	ContentContainerView *view = [currentlyTouchedViews lastObject];
 
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+	animation.fromValue = [NSValue valueWithCGPoint:view.center];
+	
 	if (recognizer.sweepDirection == kSweepDirectionLeftOut) {
-		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(-view.frame.size.width, view.center.y)];
+		view.center = CGPointMake(-view.frame.size.width, view.center.y);
 	} else {
-		animation.toValue = [NSValue valueWithCGPoint: CGPointMake(self.frame.size.width + view.frame.size.width, view.center.y)];
+		view.center = CGPointMake(self.frame.size.width + view.frame.size.width, view.center.y);
 	}
-	animation.removedOnCompletion = NO;
-	animation.fillMode = kCAFillModeForwards;
-	[[view layer] addAnimation:animation forKey:nil];
+	
+	[view.layer addAnimation:animation forKey:nil];
 	
 	[dataSource removeView: view];
 	
