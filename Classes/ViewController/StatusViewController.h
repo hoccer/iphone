@@ -40,6 +40,8 @@
 - (void)setError: (NSError *)error;
 - (void)setLocationHint: (NSError *)hint;
 
+- (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds;
+
 - (IBAction)cancelAction: (id) sender;
 - (IBAction)toggelRecoveryHelp: (id)sender;
 

@@ -290,7 +290,7 @@
 - (void)hoccerControllerWasSent: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	[statusViewController setState:[SuccessState state]];
-	statusViewController.statusLabel.text = NSLocalizedString(@"Success", nil);
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];
 	
 	[desktopData removeHoccerController:item];
@@ -300,7 +300,7 @@
 - (void)hoccerControllerWasReceived: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	[statusViewController setState:[SuccessState state]];
-	statusViewController.statusLabel.text = NSLocalizedString(@"Success", nil);
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
@@ -354,15 +354,6 @@
 	}
 
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
-	
-//	NSError *message = [controller messageForLocationInformation];
-//	if (![desktopData hasActiveRequest]) {
-//		if (message) {
-//			[statusViewController setLocationHint: message];			
-//		} else {
-//			[statusViewController setLocationHint: nil];
-//		}
-//	}
 }
 
 

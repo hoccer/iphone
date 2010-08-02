@@ -100,6 +100,16 @@
 	}
 }	
 
+- (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds; {
+	self.statusLabel.text = message;
+	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO];
+}
+
+- (void)hideStatus {
+	[self hideViewAnimated:YES];
+}
+
+
 #pragma mark -
 #pragma mark Managing Hoccability / Location Hints
 
@@ -125,6 +135,8 @@
 #pragma mark Managing Updates
 
 - (void)setState: (StatusViewControllerState *)state {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = state.activitySpinner;
+	
 	[self showViewAnimated: YES];
 	
 	progressView.hidden = state.progressView;

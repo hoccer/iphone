@@ -83,7 +83,6 @@
 		activitySpinner = NO;
 		statusLabel = NO;
 		cancelButton = NO;
-		// statusLabel.text = @"Success";
 		recoverySuggestion = NO;
 		
 		cancelButtonImage = [[UIImage imageNamed:@"statusbar_icon_complete.png"] retain];
@@ -98,7 +97,8 @@
 
 - (id)init {
 	self = [super init]; 
-	if (self != nil) {			
+	if (self != nil) {	
+		activitySpinner = NO;
 		progressView = YES;
 		statusLabel = NO;
 		cancelButton = YES;
@@ -121,6 +121,7 @@
 - (id)initWithRecovery: (BOOL)recovery {
 	self = [super init]; 
 	if (self != nil) {			
+		activitySpinner = NO;
 		progressView = YES;
 		statusLabel = NO;
 		cancelButton = NO;
