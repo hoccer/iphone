@@ -293,17 +293,21 @@
 }
 
 - (IBAction)saveButton: (id)sender {
+	if (
+	
+	if ([content isKindOfClass:[HoccerImage class]]) {
+		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
+		[self.contentView showSpinner];
+	}
+	
+	[content saveDataToContentStorage];	
+	
 	if ([delegate respondsToSelector:@selector(showOptionsForContent:)]) {
 		[delegate showOptionsForContent: self.content];
 	}
 	
 	
-//	if ([content isKindOfClass:[HoccerImage class]]) {
-//		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
-//		[self.contentView showSpinner];
-//	}
-//	
-//	[content saveDataToContentStorage];	
+
 }
 
 - (void)finishedSaving {

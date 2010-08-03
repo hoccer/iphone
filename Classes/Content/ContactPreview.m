@@ -11,8 +11,7 @@
 @implementation ContactPreview
 @synthesize name;
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[name release];
 	[super dealloc];
 }

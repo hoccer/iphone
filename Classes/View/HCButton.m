@@ -24,7 +24,7 @@
 - (void)layoutSubviews  {
 	[super layoutSubviews];
 	self.titleLabel.font = [UIFont systemFontOfSize:10];
-	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x, self.frame.size.height - 23, 
+	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x, self.frame.size.height - 22, 
 									   self.titleLabel.frame.size.width, self.titleLabel.frame.size.height); 
 }
 

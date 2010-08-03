@@ -124,8 +124,7 @@
 	return NSLocalizedString(@"Save", nil);
 }
 
-- (BOOL)isDataReady
-{
+- (BOOL)isDataReady {
 	return (self.data != nil);
 }
 
