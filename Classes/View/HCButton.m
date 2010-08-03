@@ -14,7 +14,6 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        // Initialization code
     }
     return self;
 }
@@ -29,10 +28,8 @@
 									   self.titleLabel.frame.size.width, self.titleLabel.frame.size.height); 
 }
 
-
 - (void)dealloc {
     [super dealloc];
 }
-
 
 @end

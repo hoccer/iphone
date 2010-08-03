@@ -9,7 +9,6 @@
 #import "HoccerContentFactoryiPhone.h"
 #import "HoccerVcard.h"
 #import "HoccerImage.h"
-#import "HoccerUrl.h"
 #import "HoccerText.h"
 #import "HoccerContent.h"
 

@@ -112,7 +112,6 @@
 		22638C0811B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BF811B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m */; };
 		22638C0911B51E5C0024AA7E /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFB11B51E5C0024AA7E /* HoccerImage.m */; };
 		22638C0A11B51E5C0024AA7E /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFD11B51E5C0024AA7E /* HoccerText.m */; };
-		22638C0B11B51E5C0024AA7E /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFF11B51E5C0024AA7E /* HoccerUrl.m */; };
 		22638C0C11B51E5C0024AA7E /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C0111B51E5C0024AA7E /* HoccerVcard.m */; };
 		22638C0D11B51E5C0024AA7E /* ContactPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BEB11B51E5C0024AA7E /* ContactPreview.m */; };
 		22638C0E11B51E5C0024AA7E /* ContentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BED11B51E5C0024AA7E /* ContentContainerView.m */; };
@@ -122,7 +121,6 @@
 		22638C1311B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BF811B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m */; };
 		22638C1411B51E5C0024AA7E /* HoccerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFB11B51E5C0024AA7E /* HoccerImage.m */; };
 		22638C1511B51E5C0024AA7E /* HoccerText.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFD11B51E5C0024AA7E /* HoccerText.m */; };
-		22638C1611B51E5C0024AA7E /* HoccerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BFF11B51E5C0024AA7E /* HoccerUrl.m */; };
 		22638C1711B51E5C0024AA7E /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C0111B51E5C0024AA7E /* HoccerVcard.m */; };
 		22638C3811B51E880024AA7E /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C1A11B51E880024AA7E /* AboutViewController.m */; };
 		22638C3A11B51E880024AA7E /* HelpScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C1D11B51E880024AA7E /* HelpScrollView.m */; };
@@ -308,6 +306,9 @@
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229B92A21208660000120752 /* HCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B92A11208660000120752 /* HCButton.m */; };
+		229B92F01208737300120752 /* StatusBarStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D9EDFB120303F5006546A9 /* StatusBarStates.m */; };
+		229B92F31208738500120752 /* HCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B92A11208660000120752 /* HCButton.m */; };
+		229B92F41208739F00120752 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -667,8 +668,6 @@
 		22638BFB11B51E5C0024AA7E /* HoccerImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerImage.m; sourceTree = "<group>"; };
 		22638BFC11B51E5C0024AA7E /* HoccerText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerText.h; sourceTree = "<group>"; };
 		22638BFD11B51E5C0024AA7E /* HoccerText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerText.m; sourceTree = "<group>"; };
-		22638BFE11B51E5C0024AA7E /* HoccerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerUrl.h; sourceTree = "<group>"; };
-		22638BFF11B51E5C0024AA7E /* HoccerUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerUrl.m; sourceTree = "<group>"; };
 		22638C0011B51E5C0024AA7E /* HoccerVcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerVcard.h; sourceTree = "<group>"; };
 		22638C0111B51E5C0024AA7E /* HoccerVcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerVcard.m; sourceTree = "<group>"; };
 		22638C1911B51E880024AA7E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -981,6 +980,7 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				22AB155B120025B20057548A /* libGHUnitIPhone4_0.a in Frameworks */,
+				229B92F41208739F00120752 /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1703,8 +1703,6 @@
 				22638BFB11B51E5C0024AA7E /* HoccerImage.m */,
 				22638BFC11B51E5C0024AA7E /* HoccerText.h */,
 				22638BFD11B51E5C0024AA7E /* HoccerText.m */,
-				22638BFE11B51E5C0024AA7E /* HoccerUrl.h */,
-				22638BFF11B51E5C0024AA7E /* HoccerUrl.m */,
 				22638C0011B51E5C0024AA7E /* HoccerVcard.h */,
 				22638C0111B51E5C0024AA7E /* HoccerVcard.m */,
 			);
@@ -2348,7 +2346,6 @@
 				22638C1311B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m in Sources */,
 				22638C1411B51E5C0024AA7E /* HoccerImage.m in Sources */,
 				22638C1511B51E5C0024AA7E /* HoccerText.m in Sources */,
-				22638C1611B51E5C0024AA7E /* HoccerUrl.m in Sources */,
 				22638C1711B51E5C0024AA7E /* HoccerVcard.m in Sources */,
 				22638C4C11B51E880024AA7E /* AboutViewController.m in Sources */,
 				22638C4E11B51E880024AA7E /* HelpScrollView.m in Sources */,
@@ -2478,7 +2475,6 @@
 				22638C0811B51E5C0024AA7E /* HoccerContentIPhonePreviewDelegate.m in Sources */,
 				22638C0911B51E5C0024AA7E /* HoccerImage.m in Sources */,
 				22638C0A11B51E5C0024AA7E /* HoccerText.m in Sources */,
-				22638C0B11B51E5C0024AA7E /* HoccerUrl.m in Sources */,
 				22638C0C11B51E5C0024AA7E /* HoccerVcard.m in Sources */,
 				22638C3811B51E880024AA7E /* AboutViewController.m in Sources */,
 				22638C3A11B51E880024AA7E /* HelpScrollView.m in Sources */,
@@ -2501,6 +2497,8 @@
 				22AB155A120025B20057548A /* GHUnitIPhoneTestMain.m in Sources */,
 				22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */,
 				22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */,
+				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
+				229B92F31208738500120752 /* HCButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

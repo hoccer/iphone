@@ -19,4 +19,6 @@
 @property (retain) IBOutlet TextPreview *view;
 @property (retain) IBOutlet UITextView *textView;
 
++ (BOOL)isDataAUrl: (NSData *)data;
+
 @end

@@ -74,10 +74,8 @@
 	if ([HoccerText isDataAUrl: self.data]) {
 		return NSLocalizedString(@"Safari", nil);
 	} else {
-		return @"Copy";
+		return NSLocalizedString(@"Copy", nil);
 	}
-	
-	
 }
 
 - (void)dismissKeyboard {

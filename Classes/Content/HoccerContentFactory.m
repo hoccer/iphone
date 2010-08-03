@@ -10,7 +10,6 @@
 
 #import "HoccerContent.h"
 #import "HoccerImage.h"
-#import "HoccerUrl.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
 

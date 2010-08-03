@@ -10,7 +10,6 @@
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 
-#import "HoccerUrl.h"
 #import "HoccerImage.h"
 #import "HoccerText.h"
 
@@ -59,8 +58,8 @@
 }
 
 - (void)testHoccerUrlDetection {
-	STAssertEquals(NO, [HoccerUrl isDataAUrl: [@"blablabla" dataUsingEncoding: NSUTF8StringEncoding]], @"should not be deteced a url");
-	STAssertTrue([HoccerUrl isDataAUrl: [@"http://www.artcom.de" dataUsingEncoding: NSUTF8StringEncoding]], @"should be detected as url");
+	STAssertEquals(NO, [HoccerText isDataAUrl: [@"blablabla" dataUsingEncoding: NSUTF8StringEncoding]], @"should not be deteced a url");
+	STAssertTrue([HoccerText isDataAUrl: [@"http://www.artcom.de" dataUsingEncoding: NSUTF8StringEncoding]], @"should be detected as url");
 
 }
 
