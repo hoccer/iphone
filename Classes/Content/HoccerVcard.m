@@ -84,7 +84,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Save Contact";
+	return @"Contact";
 }
 
 - (NSString *)extension {

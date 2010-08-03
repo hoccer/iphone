@@ -190,7 +190,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton{
-	return nil;
+	return NSLocalizedString(@"Open", nil);
 }
 
 - (void)previewInViewController: (UIViewController *)viewController {

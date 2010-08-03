@@ -307,6 +307,7 @@
 		22999415119186B5006DA5DD /* help_throw_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22999411119186B5006DA5DD /* help_throw_icon.png */; };
 		229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
 		229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */; };
+		229B92A21208660000120752 /* HCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B92A11208660000120752 /* HCButton.m */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -812,6 +813,8 @@
 		22999411119186B5006DA5DD /* help_throw_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_throw_icon.png; sourceTree = "<group>"; };
 		229A7F3D116B4E3C00FFAD1B /* HoccingRulesIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccingRulesIPhone.h; sourceTree = "<group>"; };
 		229A7F3E116B4E3C00FFAD1B /* HoccingRulesIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccingRulesIPhone.m; sourceTree = "<group>"; };
+		229B92A01208660000120752 /* HCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCButton.h; sourceTree = "<group>"; };
+		229B92A11208660000120752 /* HCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCButton.m; sourceTree = "<group>"; };
 		229DAF11107B331F00B47ABE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
@@ -1205,6 +1208,8 @@
 				22638BBB11B51DC50024AA7E /* Preview.m */,
 				22638BBC11B51DC50024AA7E /* TextPreview.h */,
 				22638BBD11B51DC50024AA7E /* TextPreview.m */,
+				229B92A01208660000120752 /* HCButton.h */,
+				229B92A11208660000120752 /* HCButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2359,6 +2364,7 @@
 				22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */,
 				22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */,
 				22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */,
+				229B92A21208660000120752 /* HCButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

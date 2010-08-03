@@ -21,13 +21,10 @@
 	return YES;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[webView release];
 	[super dealloc];
 }
-
-
 
 - (void)saveDataToContentStorage 
 {
@@ -43,7 +40,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Open in Safari";
+	return @"Safari";
 }
 
 - (UIView *)fullscreenView {

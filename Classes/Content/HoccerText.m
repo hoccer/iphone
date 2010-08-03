@@ -70,6 +70,16 @@
 	return @"Message";
 }
 
+- (NSString *)descriptionOfSaveButton {
+	if ([HoccerText isDataAUrl: self.data]) {
+		return NSLocalizedString(@"Safari", nil);
+	} else {
+		return @"Copy";
+	}
+	
+	
+}
+
 - (void)dismissKeyboard {
 	[textView resignFirstResponder];
 }

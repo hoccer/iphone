@@ -121,7 +121,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Save to Gallery";
+	return NSLocalizedString(@"Save", nil);
 }
 
 - (BOOL)isDataReady
