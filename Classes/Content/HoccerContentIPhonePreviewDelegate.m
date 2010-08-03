@@ -30,7 +30,6 @@
 
 }
 
-
 - (void)receivedViewContentControllerDidFinish:(ReceivedContentViewController *)controller {
 	[self.viewController dismissModalViewControllerAnimated:YES];
 }

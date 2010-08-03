@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class HoccerController;
+@class HoccerContent;
 
 @protocol HoccerControllerDelegate <NSObject>
 @optional
@@ -24,4 +25,7 @@
 - (void)hoccerControllerWasReceived: (HoccerController *)item;
 
 - (void)hoccerControllerWasClosed: (HoccerController *)item;
+
+- (void)showOptionsForContent: (HoccerContent *)content;
+
 @end

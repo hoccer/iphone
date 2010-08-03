@@ -706,7 +706,7 @@
 							<string>UILabel</string>
 							<string>StatusViewController</string>
 							<string>LocationController</string>
-							<string>StatusViewController</string>
+							<string>ConnectionStatusViewController</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -749,7 +749,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">statusViewController</string>
-								<string key="candidateClassName">StatusViewController</string>
+								<string key="candidateClassName">ConnectionStatusViewController</string>
 							</object>
 						</object>
 					</object>

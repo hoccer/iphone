@@ -147,8 +147,6 @@
 		
 		[self insertSubview: view atIndex:0];
 		[volatileView addObject: view];
-		
-		
 	}
 }
 

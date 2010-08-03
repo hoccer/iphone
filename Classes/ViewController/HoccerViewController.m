@@ -343,6 +343,10 @@
 	[desktopView reloadData];
 }
 
+- (void)showOptionsForContent: (HoccerContent *)content {
+	[content.interactionController presentOptionsMenuFromRect:CGRectNull inView:self.view animated:YES];
+}
+
 #pragma mark -
 #pragma mark LocationController Delegate Methods
 

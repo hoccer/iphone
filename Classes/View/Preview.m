@@ -27,6 +27,8 @@
 }
 
 - (void) setImage: (UIImage *)image {
+	NSLog(@"imagesize: %@", NSStringFromCGSize(image.size));
+	
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 	
@@ -34,10 +36,12 @@
 	CGFloat frameHeight = self.frame.size.height - (2 * paddingTop);
 		
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
-	UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES
-										trimToFit: YES];
+	// UIImage *thumb = [image gtm_imageByResizingToSize: size preserveAspectRatio:YES
+	//									trimToFit: YES];
 	
+	UIImage *thumb = image;
 	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, size.width, size.height)];
+	imageView.contentMode = UIViewContentModeCenter;
 	imageView.image = thumb;
 	
 	[self insertSubview:imageView atIndex:1];

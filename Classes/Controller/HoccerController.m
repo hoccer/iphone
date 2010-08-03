@@ -267,9 +267,7 @@
 		[button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
 		
-		NSMutableArray *buttons = [NSMutableArray array]; 
-		[buttons addObject:button];
-		[buttons addObject:button2];
+		NSMutableArray *buttons = [NSMutableArray arrayWithObjects:button, button2, nil]; 
 		
 		return buttons;
 	}
@@ -290,12 +288,17 @@
 }
 
 - (IBAction)saveButton: (id)sender {
-	if ([content isKindOfClass:[HoccerImage class]]) {
-		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
-		[self.contentView showSpinner];
+	if ([delegate respondsToSelector:@selector(showOptionsForContent:)]) {
+		[delegate showOptionsForContent: self.content];
 	}
 	
-	[content saveDataToContentStorage];	
+	
+//	if ([content isKindOfClass:[HoccerImage class]]) {
+//		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
+//		[self.contentView showSpinner];
+//	}
+//	
+//	[content saveDataToContentStorage];	
 }
 
 - (void)finishedSaving {

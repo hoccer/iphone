@@ -110,11 +110,6 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)showSuccess {
-//	UIImage *checkmark = [UIImage imageNamed:@"37x-Checkmark.png"];
-//	UIImageView *checkmarkView = [[[UIImageView alloc] initWithImage:checkmark] autorelease];
-//	checkmarkView.center = CGPointMake(buttonContainer.frame.size.width - 10, 5);
-//	
-//	[buttonContainer addSubview: checkmarkView];
 	[self hideOverlay];
 	
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self];

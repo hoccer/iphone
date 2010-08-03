@@ -104,6 +104,8 @@
 	return self;
 }
 
+
+
 - (NSData *)data {
 	if (data == nil && filename != nil) {
 		self.data = [NSData dataWithContentsOfFile:self.filepath];
@@ -126,6 +128,7 @@
 	[data release];
 	[filename release];
 	[previewDelegate release];
+	[interactionController release];
 		
 	[super dealloc];
 }
@@ -147,7 +150,6 @@
 }
 
 - (void)saveDataToContentStorage {
-	//overwrite in subclasses: text, img, vcards	
 }
 
 - (UIView *)fullscreenView {
@@ -159,16 +161,16 @@
 }
 
 - (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 319, 234)];
-	
-	NSString *backgroundImagePath = [[NSBundle mainBundle] pathForResource:@"Photobox" ofType:@"png"];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:backgroundImagePath]];
+	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
 	
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
 	[backgroundImage release];
 	
-	[view setImage: [previewDelegate hoccerContentIcon:self]];
+	// [view setImage: [previewDelegate hoccerContentIcon:self]];
+	[view setImage: [self.interactionController.icons lastObject]];
+	
 	return [view autorelease];
 }
 
@@ -230,6 +232,18 @@
 
 - (UIImage *)historyThumbButton {
 	return [UIImage imageNamed:@"history_icon_image.png"];
+}
+
+
+#pragma mark -
+#pragma mark iOS 4 Stuff 
+
+- (UIDocumentInteractionController *)interactionController; {
+	if (interactionController == nil) {
+		interactionController = [[UIDocumentInteractionController interactionControllerWithURL:self.fileUrl] retain];
+	}
+	
+	return interactionController;
 }
 
 
