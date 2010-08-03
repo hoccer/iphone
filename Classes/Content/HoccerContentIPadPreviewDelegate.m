@@ -57,8 +57,7 @@
 	}
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[interactionController release];
 	[viewControllerForPreview release];
 	 

@@ -23,7 +23,7 @@
 	
 	BOOL persist;
 	
-	UIDocumentInteractionController *interactionController;
+	id interactionController;
 }
 
 @property (retain) NSData *data; 
@@ -33,7 +33,7 @@
 @property (nonatomic, readonly) NSString *extension;
 @property (assign) BOOL isFromContentSource;
 @property (assign) BOOL persist;
-@property (readonly) UIDocumentInteractionController *interactionController;
+@property (readonly) id interactionController;
 
 + (NSString *)contentDirectory;
 
@@ -65,6 +65,6 @@
 - (UIImage *)imageForSaveButton;
 - (UIImage *)historyThumbButton;
 
-- (UIDocumentInteractionController *)interactionController;
+- (id)interactionController;
 
 @end

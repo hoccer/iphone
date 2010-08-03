@@ -169,7 +169,7 @@
 	[backgroundImage release];
 	
 	// [view setImage: [previewDelegate hoccerContentIcon:self]];
-	[view setImage: [self.interactionController.icons lastObject]];
+	[view setImage: [[self.interactionController icons] lastObject]];
 	
 	return [view autorelease];
 }
@@ -238,9 +238,9 @@
 #pragma mark -
 #pragma mark iOS 4 Stuff 
 
-- (UIDocumentInteractionController *)interactionController; {
+- (id)interactionController; {
 	if (interactionController == nil) {
-		interactionController = [[UIDocumentInteractionController interactionControllerWithURL:self.fileUrl] retain];
+		interactionController = [[NSClassFromString(@"UIDocumentInteractionController") interactionControllerWithURL:self.fileUrl] retain];
 	}
 	
 	return interactionController;

@@ -263,9 +263,14 @@
 		[button setFrame: CGRectMake(0, 0, 65, 61)];
 		
 		UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-		[button2 setImage:[content imageForSaveButton] forState:UIControlStateNormal];
+		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget: self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+		[button2 setTitle:@"Open" forState:UIControlStateNormal];
 		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
+		NSLog(@"title frame: %@", NSStringFromCGRect(button2.titleLabel.frame));
+		button2.titleLabel.font = [UIFont systemFontOfSize:10];
+		button2.titleLabel.frame = CGRectMake(button2.titleLabel.frame.origin.x, button2.frame.size.height - 23, 
+											  button2.titleLabel.frame.size.width, button2.titleLabel.frame.size.height); 
 		
 		NSMutableArray *buttons = [NSMutableArray arrayWithObjects:button, button2, nil]; 
 		

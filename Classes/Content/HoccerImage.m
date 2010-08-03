@@ -93,7 +93,18 @@
 	[view sendSubviewToBack:backgroundImage];
 	[backgroundImage release];
 
-	[view setImage: self.image];
+	
+	NSInteger paddingLeft = 22;
+	NSInteger paddingTop = 22;
+	
+	CGFloat frameWidth = view.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = view.frame.size.height - (2 * paddingTop);
+	
+	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
+											trimToFit: YES];
+	
+	[view setImage: thumb];
 	return [view autorelease];
 }
 	
