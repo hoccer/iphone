@@ -90,12 +90,14 @@
 	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
-- (void)saveDataToContentStorage {
+- (BOOL)saveDataToContentStorage {
 	if ([HoccerText isDataAUrl: self.data]) {
 		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:self.content]];
 	} else {
 		[UIPasteboard generalPasteboard].string = [self content];
 	}
+	
+	return YES;
 
 }
 

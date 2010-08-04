@@ -42,7 +42,7 @@
 - (void) removeFromDocumentDirectory;
 - (void) saveDataToDocumentDirectory;
 
-- (void)saveDataToContentStorage;
+- (BOOL)saveDataToContentStorage;
 
 - (UIView *)fullscreenView;
 - (Preview *)desktopItemView;

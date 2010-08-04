@@ -128,9 +128,9 @@
 	return (self.data != nil);
 }
 
-- (void)saveDataToContentStorage
-{
+- (BOOL)saveDataToContentStorage {
 	UIImageWriteToSavedPhotosAlbum(self.image, self,  @selector(image:didFinishSavingWithError:contextInfo:), nil);
+	return YES;
 }
 
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {

@@ -1304,13 +1304,13 @@
 			isa = PBXGroup;
 			children = (
 				22A3659B11E4B7F5008AEBC9 /* Types */,
+				22638BEF11B51E5C0024AA7E /* HoccerContent.h */,
+				22638BF011B51E5C0024AA7E /* HoccerContent.m */,
 				22638BEA11B51E5C0024AA7E /* ContactPreview.h */,
 				22638BEB11B51E5C0024AA7E /* ContactPreview.m */,
 				22638BEC11B51E5C0024AA7E /* ContentContainerView.h */,
 				22638BED11B51E5C0024AA7E /* ContentContainerView.m */,
 				22638BEE11B51E5C0024AA7E /* ContentContainerViewDelegate.h */,
-				22638BEF11B51E5C0024AA7E /* HoccerContent.h */,
-				22638BF011B51E5C0024AA7E /* HoccerContent.m */,
 				22638BF111B51E5C0024AA7E /* HoccerContentFactory.h */,
 				22638BF211B51E5C0024AA7E /* HoccerContentFactory.m */,
 				22638BF311B51E5C0024AA7E /* HoccerContentFactoryIPhone.h */,

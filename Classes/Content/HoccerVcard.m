@@ -54,7 +54,7 @@
 	return person;
 }
 
-- (void)saveDataToContentStorage {
+- (BOOL)saveDataToContentStorage {
 	CFErrorRef error = NULL;
 	
 	ABAddressBookRef addressBook = ABAddressBookCreate();
@@ -62,6 +62,8 @@
 	
 	ABAddressBookSave(addressBook, &error);
 	CFRelease(addressBook);
+	
+	return YES;
 }
 
 - (UIView *)fullscreenView 

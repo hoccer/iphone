@@ -128,7 +128,8 @@
 	//overwrite in subclasses: text
 }
 
-- (void)saveDataToContentStorage {
+- (BOOL)saveDataToContentStorage {
+	return NO;
 }
 
 - (UIView *)fullscreenView {

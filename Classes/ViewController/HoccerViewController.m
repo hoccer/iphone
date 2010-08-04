@@ -350,7 +350,12 @@
 			[item.contentView showSpinner];
 		}
 		
-		[item.content saveDataToContentStorage];		
+		if (![item.content saveDataToContentStorage]) {
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) message:NSLocalizedString(@"No installed programm can handle this content type", nil) 
+															   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+			[alertView show];
+			[alertView release];
+		}	
 	}
 }
 
