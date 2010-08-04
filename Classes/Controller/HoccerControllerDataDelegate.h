@@ -26,6 +26,6 @@
 
 - (void)hoccerControllerWasClosed: (HoccerController *)item;
 
-- (void)showOptionsForContent: (HoccerContent *)content;
+- (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; 
 
 @end

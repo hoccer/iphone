@@ -292,30 +292,13 @@
 	} 
 }
 
-- (IBAction)saveButton: (id)sender {
-	if (
-	
-	if ([content isKindOfClass:[HoccerImage class]]) {
-		[(HoccerImage* )content whenReadyCallTarget:self selector:@selector(finishedSaving)];
-		[self.contentView showSpinner];
-	}
-	
-	[content saveDataToContentStorage];	
-	
-	if ([delegate respondsToSelector:@selector(showOptionsForContent:)]) {
-		[delegate showOptionsForContent: self.content];
+- (IBAction)saveButton: (id)sender {		
+	if ([delegate respondsToSelector:@selector(hoccerControllerSaveButtonWasClicked:)]) {
+		[delegate hoccerControllerSaveButtonWasClicked: self];
 	}
 	
 	
 
 }
-
-- (void)finishedSaving {
-	[self.contentView hideSpinner];
-	[self.contentView showSuccess];
-}
-	
-
-
 
 @end

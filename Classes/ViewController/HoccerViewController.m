@@ -343,9 +343,22 @@
 	[desktopView reloadData];
 }
 
-- (void)showOptionsForContent: (HoccerContent *)content {
-	[content.interactionController presentOptionsMenuFromRect:CGRectNull inView:self.view animated:YES];
+- (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; {
+	if (![item.content.interactionController presentOptionsMenuFromRect:CGRectNull inView:self.view animated:YES]) {
+		if ([item.content isKindOfClass:[HoccerImage class]]) {
+			[(HoccerImage* )item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
+			[item.contentView showSpinner];
+		}
+		
+		[item.content saveDataToContentStorage];		
+	}
 }
+
+- (void)finishedSaving: (HoccerController *)item {
+	[item.contentView hideSpinner];
+	[item.contentView showSuccess];
+}
+
 
 #pragma mark -
 #pragma mark LocationController Delegate Methods

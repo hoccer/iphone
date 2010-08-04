@@ -44,7 +44,7 @@
 - (IBAction)save: (id)sender	{
 	if ([hoccerContent needsWaiting] && [hoccerContent isKindOfClass: [HoccerImage class]]){
 		[self setWaiting];
-		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView)];
+		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView) context: nil];
 		[hoccerContent saveDataToContentStorage];
 	} else {
 		[self hideReceivedContentView];
