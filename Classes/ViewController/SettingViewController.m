@@ -223,8 +223,24 @@ enum HCSettingsType {
 }
 
 - (void)showBookmarklet {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];
+	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Install Bookmarklet", nil) 
+													 message:NSLocalizedString(@"lorem ipsum", nil) 
+													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+										   otherButtonTitles:NSLocalizedString(@"Install", nil), nil];
+	[prompt show];
+	[prompt release];
+	
+
 }
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	NSLog(@"index: %d", buttonIndex);
+	
+	if (buttonIndex == 1) {
+		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];	
+	}
+}
+
 
 - (void)showHoccerWebsite { 
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com?piwik_campaign=iphone_settings"]];
