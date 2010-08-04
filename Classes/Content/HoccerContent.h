@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
-#import "HoccerContentPreviewDelegate.h"
 
 @class Preview;
 @class HoccerContentIPadPreviewDelegate;
 
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filename;	
-	id <HoccerContentPreviewDelegate> previewDelegate;
 	BOOL isFromContentSource;
 	
 	@private
@@ -57,9 +55,6 @@
 
 - (NSString *)descriptionOfSaveButton;
 - (void) saveDataToDocumentDirectory;
-
-- (void)decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController;
-- (void)previewInViewController: (UIViewController *)viewController;
 
 - (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (UIImage *)imageForSaveButton;

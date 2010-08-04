@@ -10,12 +10,6 @@
 #import "HoccerContent.h"
 #import "Preview.h"
 
-
-#ifdef UI_USER_INTERFACE_IDIOM
-#import "HoccerContentIPadPreviewDelegate.h"
-#endif
-#import "HoccerContentIPhonePreviewDelegate.h"	
-
 @implementation HoccerContent
 @synthesize data;
 @synthesize filename;
@@ -65,11 +59,6 @@
 	self = [super init];
 	if (self != nil) {
 		self.filename = theFilename;
-		
-		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
-		if (previewDelegate == nil) {
-			previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPhonePreviewDelegate") alloc] init];
-		}
 	}
 	
 	return self;
@@ -82,11 +71,6 @@
 		self.data = theData;
 
 		[self saveDataToDocumentDirectory];
-		
-		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
-		if (previewDelegate == nil) {
-			previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPhonePreviewDelegate") alloc] init];
-		}
 	}
 	
 	return self;
@@ -97,8 +81,6 @@
 	if (self != nil) {
 		NSString *newFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
 		self.filename = [self uniqueFilenameForFilename: newFilename inDirectory: [[self class] contentDirectory]];
-		
-		previewDelegate = (id <HoccerContentPreviewDelegate>)[[NSClassFromString(@"HoccerContentIPadPreviewDelegate") alloc] init];
 	}
 	
 	return self;
@@ -127,7 +109,6 @@
 - (void) dealloc {		
 	[data release];
 	[filename release];
-	[previewDelegate release];
 	[interactionController release];
 		
 	[super dealloc];
@@ -191,14 +172,6 @@
 
 - (NSString *)descriptionOfSaveButton{
 	return NSLocalizedString(@"Open", nil);
-}
-
-- (void)previewInViewController: (UIViewController *)viewController {
-	[previewDelegate hoccerContent: self previewInViewController: viewController];
-}
-
-- (void)decorateViewWithGestureRecognition: (UIView *)view inViewController: (UIViewController *)viewController {
-	[previewDelegate hoccerContent: self decorateViewWithGestureRecognition: view inViewController: viewController]; 
 }
 
 - (NSURL *)fileUrl {

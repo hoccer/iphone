@@ -88,7 +88,6 @@
 
 - (UIView *)viewAtIndex: (NSInteger)index {
 	HoccerController *contentAtIndex = [contentOnDesktop objectAtIndex:index];
-	[contentAtIndex.content decorateViewWithGestureRecognition:contentAtIndex.contentView inViewController:self.viewController];
 
 	return (UIView *) contentAtIndex.contentView; 	
 }

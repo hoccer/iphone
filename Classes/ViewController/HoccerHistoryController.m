@@ -203,6 +203,7 @@
 	}
 	
 	HoccerHistoryItem *item = [historyData itemAtIndex:row];
+	
 	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
 	content.persist = YES;
 	
