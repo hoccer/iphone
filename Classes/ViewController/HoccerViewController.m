@@ -304,6 +304,10 @@
 	[historyData addContentToHistory:item];
 
 	[desktopView reloadData];
+	
+	[item.content.interactionController setDelegate: self];
+	[item.content.interactionController presentPreviewAnimated:YES];
+	[item.content.interactionController setDelegate: nil];
 }
 
 - (void)hoccerController: (HoccerController*) item uploadFailedWithError: (NSError *)error {
@@ -344,18 +348,21 @@
 }
 
 - (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; {
-	if (![item.content.interactionController presentOptionsMenuFromRect:CGRectNull inView:self.view animated:YES]) {
-		if ([item.content isKindOfClass:[HoccerImage class]]) {
-			[(HoccerImage* )item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
-			[item.contentView showSpinner];
-		}
+	if ([item.content.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view animated:YES]) {
+		return;
+	}
+	
+	if ([item.content isKindOfClass:[HoccerImage class]]) {
+		[(HoccerImage* )item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
+		[item.contentView showSpinner];
+	}
 		
-		if (![item.content saveDataToContentStorage]) {
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) message:NSLocalizedString(@"No installed programm can handle this content type", nil) 
+	if (![item.content saveDataToContentStorage]) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
+																message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
 															   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
-			[alertView show];
-			[alertView release];
-		}	
+		[alertView show];
+		[alertView release];
 	}
 }
 
@@ -376,6 +383,14 @@
 	}
 
 	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
+}
+
+#pragma mark -
+#pragma mark =nly for iOS 3.2 
+#pragma mark UIDocumentInteractionController
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+	return self;
 }
 
 
