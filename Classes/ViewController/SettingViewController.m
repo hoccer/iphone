@@ -84,20 +84,24 @@ enum HCSettingsType {
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
 	self.tableView.backgroundColor = [UIColor clearColor];
-	self.tableView.separatorColor = [UIColor clearColor];
-	
+
+	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];	
+	self.tableView.tableHeaderView = self.hoccerSettingsLogo;
+	self.hoccerSettingsLogo = nil;
+		
 	sections = [[NSMutableArray alloc] init];
 	
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
-	NSArray *section1 = [NSArray arrayWithObjects:tutorialAction, nil];
-	[sections addObject:section1];
-
-	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(setOpen:) type: HCSwitchSetting];
-	[sections addObject:[NSArray arrayWithObject: openPreviewAction]];
+	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 	
+	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(setOpen:) type: HCSwitchSetting];
+	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
+
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet) type: HCContinueSetting];
-	NSArray *section2 = [NSArray arrayWithObjects:bookmarkletAction, nil]; 
-	[sections addObject:section2];
+	
+	NSArray *section1 = [NSArray arrayWithObjects: openPreviewAction, playSoundAction, bookmarkletAction, nil];
+	[sections addObject:section1];
+	
 	
 	if([StoreKitManager isPropagandaEnabled]){
 		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda) type: HCInplaceSetting];
@@ -120,31 +124,20 @@ enum HCSettingsType {
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return [sections count] + 1;
+	return [sections count];
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if (section == 0) {
-		return 1;
-	}
-	
-    return [[sections objectAtIndex:section - 1 ] count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {	
+    return [[sections objectAtIndex:section] count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-	
-	if (indexPath.section == 0) {
-		[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];
-		self.hoccerSettingsLogo.selectionStyle =  UITableViewCellSelectionStyleNone;
-
-		return self.hoccerSettingsLogo;
-	}
-	
-	NSInteger section = indexPath.section - 1;
+		
+	NSInteger section = indexPath.section;
 	
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -156,13 +149,17 @@ enum HCSettingsType {
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
 	if (action.type == HCContinueSetting) {
+		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	} else if (action.type == HCSwitchSetting) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
 		cell.accessoryView = switchView;
 		[switchView release];
+		
+		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
 	} else {
+		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
@@ -172,20 +169,8 @@ enum HCSettingsType {
 #pragma mark -
 #pragma mark Table view delegate
 
-- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) {
-		return 92;
-	}
-	
-	return aTableView.rowHeight;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) {
-		return;
-	}
-	
-	NSInteger section = indexPath.section - 1;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {	
+	NSInteger section = indexPath.section;
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
@@ -203,6 +188,12 @@ enum HCSettingsType {
 	NSLog(@"on: %d", [sender isOn]);
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"openInPreview"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)switchSound: (id)sender {
+	NSLog(@"sound on: %d", [sender isOn]);
+	// [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"openInPreview"];
+	// [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)showTutorial {

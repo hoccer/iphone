@@ -19,13 +19,13 @@
 	
 	@private
 	UITableView *tableView;
-	UITableViewCell * hoccerSettingsLogo;
+	UIView * hoccerSettingsLogo;
 	
 	MBProgressHUD *progressHUD;
 }
 
 @property (retain) UINavigationController *parentNavigationController;
 @property (retain) IBOutlet UITableView *tableView;
-@property (retain) IBOutlet UITableViewCell *hoccerSettingsLogo;
+@property (retain) IBOutlet UIView *hoccerSettingsLogo;
 
 @end
