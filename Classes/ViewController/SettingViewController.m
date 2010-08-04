@@ -25,11 +25,14 @@ enum HCSettingsType {
 	NSString *description;
 	SEL selector;
 	HCSettingsType type;
+	
+	id defaultValue;
 }
 
 @property (copy) NSString *description;
 @property (assign) SEL selector;
 @property (assign) HCSettingsType type;
+@property (retain) id defaultValue;
 
 + (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType;
 
@@ -40,6 +43,7 @@ enum HCSettingsType {
 @synthesize description;
 @synthesize selector;
 @synthesize type;
+@synthesize defaultValue;
 
 + (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType; {
 	SettingsAction *action = [[SettingsAction alloc] init];
@@ -49,6 +53,13 @@ enum HCSettingsType {
 	
 	return [action autorelease];
 }
+
+- (void) dealloc {
+	[defaultValue release];
+	[description release];
+	[super dealloc];
+}
+
 
 @end
 
@@ -94,14 +105,16 @@ enum HCSettingsType {
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 	
-	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(setOpen:) type: HCSwitchSetting];
+	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
+	openPreviewAction.defaultValue = @"openInPreview";
+	
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
-
+	playSoundAction.defaultValue = @"playSound";
+	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet) type: HCContinueSetting];
 	
 	NSArray *section1 = [NSArray arrayWithObjects: openPreviewAction, playSoundAction, bookmarkletAction, nil];
 	[sections addObject:section1];
-	
 	
 	if([StoreKitManager isPropagandaEnabled]){
 		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda) type: HCInplaceSetting];
@@ -154,6 +167,7 @@ enum HCSettingsType {
 	} else if (action.type == HCSwitchSetting) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
+		[switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
 		cell.accessoryView = switchView;
 		[switchView release];
 		
@@ -184,16 +198,14 @@ enum HCSettingsType {
 #pragma mark -
 #pragma mark User Actions
 
-- (void)setOpen: (id)sender {
-	NSLog(@"on: %d", [sender isOn]);
+- (void)switchPreview: (id)sender {
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"openInPreview"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)switchSound: (id)sender {
-	NSLog(@"sound on: %d", [sender isOn]);
-	// [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"openInPreview"];
-	// [[NSUserDefaults standardUserDefaults] synchronize];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"playSound"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)showTutorial {
@@ -328,6 +340,7 @@ enum HCSettingsType {
 - (void)dealloc {
 	[sections release];
 	[hoccerSettingsLogo release];
+	[tableView release];
     [super dealloc];
 }
 

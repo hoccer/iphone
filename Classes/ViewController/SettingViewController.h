@@ -22,6 +22,8 @@
 	UIView * hoccerSettingsLogo;
 	
 	MBProgressHUD *progressHUD;
+	
+	
 }
 
 @property (retain) UINavigationController *parentNavigationController;

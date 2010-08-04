@@ -13,6 +13,14 @@ SystemSoundID throwId = 0;
 SystemSoundID sweepInId = 0;
 SystemSoundID sweepOutId = 0;
 
+@interface FeedbackProvider ()
+
++ (void)playSoundWithId: (SystemSoundID)soundId;
+
+@end
+
+
+
 void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 {
 	CFBundleRef bundle = CFBundleGetMainBundle();
@@ -35,20 +43,27 @@ void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 
 + (void)playCatchFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-	AudioServicesPlaySystemSound(catchId);
+	
+	[FeedbackProvider playSoundWithId: catchId];
 }
 
 + (void)playThrowFeedback {
 	AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-	AudioServicesPlaySystemSound(throwId);
+	[FeedbackProvider playSoundWithId: throwId];
 }
 
 + (void)playSweepIn {
-	AudioServicesPlaySystemSound(sweepInId);
+	[FeedbackProvider playSoundWithId: sweepInId];
 }
 
 + (void)playSweepOut {
-	AudioServicesPlaySystemSound(sweepOutId);
+	[FeedbackProvider playSoundWithId: sweepOutId];
+}
+
++ (void)playSoundWithId: (SystemSoundID)soundId {
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"playSound"] boolValue]) {
+		AudioServicesPlaySystemSound(soundId);
+	}
 }
 
 
