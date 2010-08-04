@@ -60,6 +60,13 @@
 @synthesize hoccability;
 @synthesize blocked;
 
+
++ (void) initialize {
+	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
+	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithContentsOfFile: filepath]];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 	self.helpViewController = nil;
@@ -305,9 +312,11 @@
 
 	[desktopView reloadData];
 	
-	[item.content.interactionController setDelegate: self];
-	[item.content.interactionController presentPreviewAnimated:YES];
-	[item.content.interactionController setDelegate: nil];
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
+		[item.content.interactionController setDelegate: self];
+		[item.content.interactionController presentPreviewAnimated:YES];
+		[item.content.interactionController setDelegate: nil];
+	}
 }
 
 - (void)hoccerController: (HoccerController*) item uploadFailedWithError: (NSError *)error {

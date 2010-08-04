@@ -12,15 +12,26 @@
 #import "HelpScrollView.h"
 #import "StoreKitManager.h"
 
+enum HCSettingsType {
+	HCInplaceSetting,
+	HCSwitchSetting,
+	HCContinueSetting
+} typedef HCSettingsType;
+
+
+
+
 @interface SettingsAction : NSObject {
 	NSString *description;
 	SEL selector;
+	HCSettingsType type;
 }
 
 @property (copy) NSString *description;
 @property (assign) SEL selector;
+@property (assign) HCSettingsType type;
 
-+ (SettingsAction *)actionWithDescription: (NSString *)description selector: (SEL)selector;
++ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType;
 
 @end
 
@@ -28,11 +39,13 @@
 @implementation SettingsAction
 @synthesize description;
 @synthesize selector;
+@synthesize type;
 
-+ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector; {
++ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType; {
 	SettingsAction *action = [[SettingsAction alloc] init];
 	action.description = theDescription;
 	action.selector = theSelector;
+	action.type = theType;
 	
 	return [action autorelease];
 }
@@ -75,27 +88,30 @@
 	
 	sections = [[NSMutableArray alloc] init];
 	
-	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial)];
+	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	NSArray *section1 = [NSArray arrayWithObjects:tutorialAction, nil];
 	[sections addObject:section1];
 
-	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet)];
+	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(setOpen:) type: HCSwitchSetting];
+	[sections addObject:[NSArray arrayWithObject: openPreviewAction]];
+	
+	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet) type: HCContinueSetting];
 	NSArray *section2 = [NSArray arrayWithObjects:bookmarkletAction, nil]; 
 	[sections addObject:section2];
 	
 	if([StoreKitManager isPropagandaEnabled]){
-		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda)];
+		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda) type: HCInplaceSetting];
 		[sections addObject:[NSArray arrayWithObject:buyAction]];
 	}
 	
-	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite)];
-	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter)];
-	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook)]; 
+	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
+	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook) type: HCContinueSetting]; 
 
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
-	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout)];
+	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section4];
 }
@@ -139,8 +155,15 @@
 	cell.textLabel.text = action.description;
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	
-	if (section == 0 || section == 3 && ![StoreKitManager isPropagandaEnabled] || section == 4 && [StoreKitManager isPropagandaEnabled]) {
+	if (action.type == HCContinueSetting) {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	} else if (action.type == HCSwitchSetting) {
+		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
+		cell.accessoryView = switchView;
+		[switchView release];
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
     return cell;
@@ -151,8 +174,7 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == 0) {
-		return 92
-		;
+		return 92;
 	}
 	
 	return aTableView.rowHeight;
@@ -167,12 +189,21 @@
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
-	[self performSelector:action.selector];
+	
+	if (action.type != HCSwitchSetting) {
+		[self performSelector:action.selector];	
+	}
 }
 
 
 #pragma mark -
 #pragma mark User Actions
+
+- (void)setOpen: (id)sender {
+	NSLog(@"on: %d", [sender isOn]);
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"openInPreview"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)showTutorial {
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];

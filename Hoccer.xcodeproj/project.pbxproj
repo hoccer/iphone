@@ -251,6 +251,8 @@
 		22972DA011908DB7006A6A8C /* settings_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22972D9D11908DB7006A6A8C /* settings_logo.png */; };
 		22972DA111908DB7006A6A8C /* shadow_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 22972D9E11908DB7006A6A8C /* shadow_bottom.png */; };
 		229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229779FA111031C100B55D3F /* AudioToolbox.framework */; };
+		229800C212098F5C0043BFA5 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229800C112098F5C0043BFA5 /* defaults.plist */; };
+		229800C312098F5C0043BFA5 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 229800C112098F5C0043BFA5 /* defaults.plist */; };
 		2298E35E11809D240078DBBD /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
 		2298E35F11809D240078DBBD /* ABPersonVCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */; };
 		2298E36011809D240078DBBD /* VcardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 227B5CE4107DE3D30012BBA6 /* VcardParser.m */; };
@@ -785,6 +787,7 @@
 		22972D9D11908DB7006A6A8C /* settings_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_logo.png; sourceTree = "<group>"; };
 		22972D9E11908DB7006A6A8C /* shadow_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_bottom.png; sourceTree = "<group>"; };
 		229779FA111031C100B55D3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		229800C112098F5C0043BFA5 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = defaults.plist; path = Resources/defaults.plist; sourceTree = "<group>"; };
 		2299922911915C0F006DA5DD /* artcom_logo_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artcom_logo_bw.png; sourceTree = "<group>"; };
 		2299923C1191617F006DA5DD /* help_sweep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_sweep_icon.png; sourceTree = "<group>"; };
 		2299926211916650006DA5DD /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catch_sound.wav; sourceTree = "<group>"; };
@@ -1847,6 +1850,7 @@
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
 				22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */,
 				221D771011A6DC8C00246D89 /* Default.png */,
+				229800C112098F5C0043BFA5 /* defaults.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2094,6 +2098,7 @@
 				22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */,
 				22D9ED481202D87D006546A9 /* statusbar_large_hoccability.png in Resources */,
 				22A21AC11206BE4B001FA18A /* statusbar_icon_warning.png in Resources */,
+				229800C212098F5C0043BFA5 /* defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2146,6 +2151,7 @@
 				228EC34A1192D39A00B486F2 /* container_text_edit_linie.png in Resources */,
 				228EC34B1192D39A00B486F2 /* container_text_edit_savebtn.png in Resources */,
 				228EC34C1192D39A00B486F2 /* container_text_editbtn.png in Resources */,
+				229800C312098F5C0043BFA5 /* defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
