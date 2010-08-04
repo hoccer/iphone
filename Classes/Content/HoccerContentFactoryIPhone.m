@@ -26,6 +26,7 @@
 		hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
 	} else {
 		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
+		hoccerContent.mimeType = mimeType;
 	}
 	
 	return [hoccerContent autorelease];
@@ -42,14 +43,14 @@
 		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else {
 		hoccerContent = [[HoccerContent alloc] initWithFilename: filename];
+		hoccerContent.mimeType = mimeType;
 	}
 	
 	return [hoccerContent autorelease];
 	
 } 
 
-- (BOOL) isSupportedType: (NSString *)mimeType
-{
+- (BOOL) isSupportedType: (NSString *)mimeType {
 	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] || [mimeType rangeOfString:@"image/"].location == 0);
 }
 

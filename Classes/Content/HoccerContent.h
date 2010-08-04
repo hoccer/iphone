@@ -18,14 +18,16 @@
 	
 	@private
 	NSData *data;
-	
 	BOOL persist;
+	NSString *mimeType;
+	
 	
 	id interactionController;
 }
 
 @property (retain) NSData *data; 
-@property (retain) NSString* filename;
+@property (retain) NSString *filename;
+@property (retain) NSString *mimeType;
 @property (nonatomic, readonly) NSURL *fileUrl;
 @property (nonatomic, readonly) NSString *filepath;
 @property (nonatomic, readonly) NSString *extension;
@@ -45,7 +47,6 @@
 - (UIView *)fullscreenView;
 - (Preview *)desktopItemView;
 
-- (NSString *)mimeType;
 - (NSString *)defaultFilename;
 
 - (BOOL)isDataReady;

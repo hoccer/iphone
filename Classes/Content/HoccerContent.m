@@ -16,7 +16,7 @@
 @synthesize isFromContentSource;
 
 @synthesize persist;
-
+@synthesize mimeType;
 
 #pragma mark -
 #pragma mark static Methods
@@ -86,8 +86,6 @@
 	return self;
 }
 
-
-
 - (NSData *)data {
 	if (data == nil && filename != nil) {
 		self.data = [NSData dataWithContentsOfFile:self.filepath];
@@ -149,7 +147,6 @@
 	[view sendSubviewToBack:backgroundImage];
 	[backgroundImage release];
 	
-	// [view setImage: [previewDelegate hoccerContentIcon:self]];
 	[view setImage: [[self.interactionController icons] lastObject]];
 	
 	return [view autorelease];
@@ -157,7 +154,7 @@
 
 - (NSString *)mimeType{
 	//overwrite in subclasses: text, img, vcards	
-	return nil;
+	return mimeType;
 }
 
 - (BOOL)isDataReady{
