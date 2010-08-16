@@ -477,7 +477,6 @@
 		22C0B41B117DFC3C009E3E3C /* FeatureHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D49E2D1068D07C00B03B61 /* FeatureHistory.m */; };
 		22C0B41C117DFC3C009E3E3C /* CatchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 228276E5106A374300AAC17E /* CatchDetector.m */; };
 		22C0B41D117DFC3C009E3E3C /* ThrowDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 226496251070DD56006D33E2 /* ThrowDetector.m */; };
-		22CCDCD71199B79D00CDFAA2 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
 		22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */; };
 		22CCDD091199B81C00CDFAA2 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */; };
 		22CCDD0A1199B81C00CDFAA2 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCDCF71199B81C00CDFAA2 /* CDataScanner_Extensions.m */; };
@@ -497,7 +496,10 @@
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		ADC28BAF1219535800E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
+		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
+		ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC28C171219664A00E3AD11 /* libAdMob.a */; };
+		ADC28C191219664A00E3AD11 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC28C171219664A00E3AD11 /* libAdMob.a */; };
+		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
 		E63FE78A118C2CE300DB0DA8 /* select_btn_1L-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */; };
 		E63FE78B118C2CE300DB0DA8 /* select_btn_1L-over.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */; };
 		E63FE78C118C2CE300DB0DA8 /* select_btn_1M-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE77A118C2CE300DB0DA8 /* select_btn_1M-out.png */; };
@@ -859,9 +861,6 @@
 		22BC5D8F107B4C3B00497EF4 /* ABPersonVCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABPersonVCardCreator.m; path = AddressBook/ABPersonVCardCreator.m; sourceTree = "<group>"; };
 		22C0B36D117DF212009E3E3C /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C0B36F117DF212009E3E3C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
-		22CCDCD51199B79D00CDFAA2 /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
-		22CCDCD61199B79D00CDFAA2 /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
 		22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22CCDCF31199B81C00CDFAA2 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		22CCDCF41199B81C00CDFAA2 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
@@ -895,6 +894,12 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		ADC28C131219664A00E3AD11 /* AdMobDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobDelegateProtocol.h; sourceTree = "<group>"; };
+		ADC28C141219664A00E3AD11 /* AdMobInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialAd.h; sourceTree = "<group>"; };
+		ADC28C151219664A00E3AD11 /* AdMobInterstitialDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobInterstitialDelegateProtocol.h; sourceTree = "<group>"; };
+		ADC28C161219664A00E3AD11 /* AdMobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobView.h; sourceTree = "<group>"; };
+		ADC28C171219664A00E3AD11 /* libAdMob.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdMob.a; sourceTree = "<group>"; };
+		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
 		E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1L-out.png"; sourceTree = "<group>"; };
 		E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1L-over.png"; sourceTree = "<group>"; };
 		E63FE77A118C2CE300DB0DA8 /* select_btn_1M-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1M-out.png"; sourceTree = "<group>"; };
@@ -931,9 +936,9 @@
 				2271E2E7109F26EE003D5C68 /* QuartzCore.framework in Frameworks */,
 				229779FB111031C100B55D3F /* AudioToolbox.framework in Frameworks */,
 				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
-				22CCDCD71199B79D00CDFAA2 /* libAdMob.a in Frameworks */,
 				22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */,
 				224EA1E711A3F02F003E02B5 /* StoreKit.framework in Frameworks */,
+				ADC28C191219664A00E3AD11 /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,6 +979,7 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				22AB155B120025B20057548A /* libGHUnitIPhone4_0.a in Frameworks */,
+				ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,10 +1757,12 @@
 		22CCDCD31199B79D00CDFAA2 /* Commercial */ = {
 			isa = PBXGroup;
 			children = (
+				ADC28C131219664A00E3AD11 /* AdMobDelegateProtocol.h */,
+				ADC28C141219664A00E3AD11 /* AdMobInterstitialAd.h */,
+				ADC28C151219664A00E3AD11 /* AdMobInterstitialDelegateProtocol.h */,
+				ADC28C161219664A00E3AD11 /* AdMobView.h */,
+				ADC28C171219664A00E3AD11 /* libAdMob.a */,
 				22CCDCF21199B81C00CDFAA2 /* TouchJSON */,
-				22CCDCD41199B79D00CDFAA2 /* AdMobDelegateProtocol.h */,
-				22CCDCD51199B79D00CDFAA2 /* AdMobView.h */,
-				22CCDCD61199B79D00CDFAA2 /* libAdMob.a */,
 				22E0D38311A5771300812BD1 /* StoreKitManager.h */,
 				22E0D38411A5771300812BD1 /* StoreKitManager.m */,
 			);
@@ -1833,6 +1841,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ADC28C1F1219684600E3AD11 /* RunTests.sh */,
 				22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */,
 				22638D4611B52D9D0024AA7E /* Xibs */,
 				22638D6711B52EC70024AA7E /* ContentPreviewXibs */,
@@ -2158,6 +2167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC28C201219684600E3AD11 /* RunTests.sh in Resources */,
 				22638BDB11B51DF00024AA7E /* DebugViewController.xib in Resources */,
 				22AB1584120027BF0057548A /* MainWindow.xib in Resources */,
 				22AB1591120028430057548A /* AboutViewController.xib in Resources */,
@@ -2504,7 +2514,7 @@
 				22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */,
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
 				229B92F31208738500120752 /* HCButton.m in Sources */,
-				ADC28BAF1219535800E3AD11 /* HoccerHistoryController.m in Sources */,
+				ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

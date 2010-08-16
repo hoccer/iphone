@@ -25,8 +25,9 @@
 	HoccerViewController *hoccerViewController;
 	
 	UITableViewCell *historyCell;
-
+#ifdef TARGET_OS_IPHONE
 	AdMobView *adView;
+#endif
 }
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;

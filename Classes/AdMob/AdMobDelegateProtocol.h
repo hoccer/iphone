@@ -20,13 +20,14 @@
 #pragma mark required methods
 
 // Use this to provide a publisher id for an ad request. Get a publisher id
-// from http://www.admob.com
-- (NSString *)publisherId;
+// from http://www.admob.com.  adView will be nil for interstitial requests.
+- (NSString *)publisherIdForAd:(AdMobView *)adView;
 
 // Return the current view controller (AdMobView should be part of its view heirarchy).
 // Make sure to return the root view controller (e.g. a UINavigationController, not
 // the UIViewController attached to it).  If there is no UIViewController return nil.
-- (UIViewController *)currentViewController;
+// adView will be nil for interstitial requests.
+- (UIViewController *)currentViewControllerForAd:(AdMobView *)adView;
 
 
 @optional
@@ -56,24 +57,24 @@
 
 // Sent just before presenting the user a full screen view, such as a canvas page or an embedded webview,
 // in response to clicking on an ad. Use this opportunity to stop animations, time sensitive interactions, etc.
-- (void)willPresentFullScreenModal;
+- (void)willPresentFullScreenModalFromAd:(AdMobView *)adView;
 
 // Sent just after presenting the user a full screen view, such as a canvas page or an embedded webview,
 // in response to clicking on an ad.
-- (void)didPresentFullScreenModal;
+- (void)didPresentFullScreenModalFromAd:(AdMobView *)adView;
 
 // Sent just before dismissing a full screen view.
-- (void)willDismissFullScreenModal;
+- (void)willDismissFullScreenModalFromAd:(AdMobView *)adView;
 
 // Sent just after dismissing a full screen view. Use this opportunity to
 // restart anything you may have stopped as part of -willPresentFullScreenModal:.
-- (void)didDismissFullScreenModal;
+- (void)didDismissFullScreenModalFromAd:(AdMobView *)adView;
 
 // Send just before the application will close because the user clicked on an ad.
 // Clicking on any ad will either call this or willPresentFullScreenModal.
 // The normal UIApplication applicationWillTerminate: delegate method will be called
 // after this.
-- (void)applicationWillTerminateFromAd;
+- (void)applicationWillTerminateFromAd:(AdMobView *)adView;
 
 
 #pragma mark optional appearance control methods
@@ -85,15 +86,15 @@
 // if you do, be sure to implement primaryTextColor and secondaryTextColor.
 // Grayscale colors won't function correctly here. Use e.g. [UIColor colorWithRed:0 green:0 blue:0 alpha:1]
 // instead of [UIColor colorWithWhite:0 alpha:1] or [UIColor blackColor].
-- (UIColor *)adBackgroundColor;
+- (UIColor *)adBackgroundColorForAd:(AdMobView *)adView;
 
 // Specifies the primary text color for ads.
 // Defaults to [UIColor whiteColor].
-- (UIColor *)primaryTextColor;
+- (UIColor *)primaryTextColorForAd:(AdMobView *)adView;
 
 // Specifies the secondary text color for ads.
 // Defaults to [UIColor whiteColor].
-- (UIColor *)secondaryTextColor;
+- (UIColor *)secondaryTextColorForAd:(AdMobView *)adView;
 
 
 #pragma mark optional test ad methods
@@ -116,12 +117,12 @@
 
 // If implemented, lets you specify the action type of the test ad. Defaults to @"url" (web page).
 // Does nothing if testDevices is not implemented or does not map to the current device.
-// Acceptable values are @"url", @"app", @"movie", @"itunes", @"call", @"canvas".  For interstitials
+// Acceptable values are @"url", @"app", @"movie", @"call", @"canvas".  For interstitials
 // use "video_int".
 //
 // Normally, the adservers restricts ads appropriately (e.g. no click to call ads for iPod touches).
 // However, for your testing convenience, they will return any type requested for test ads.
-- (NSString *)testAdAction;
+- (NSString *)testAdActionForAd:(AdMobView *)adView;
 
 
 #pragma mark optional targeting info methods
@@ -171,6 +172,20 @@
 
 #pragma mark -
 #pragma mark deprecated methods
+
+// The following methods were deprecated in favor of new methods that accept an AdMobView parameter
+
+- (NSString *)publisherId;
+- (UIViewController *)currentViewController;
+- (void)willPresentFullScreenModal;
+- (void)didPresentFullScreenModal;
+- (void)willDismissFullScreenModal;
+- (void)didDismissFullScreenModal;
+- (void)applicationWillTerminateFromAd;
+- (UIColor *)adBackgroundColor;
+- (UIColor *)primaryTextColor;
+- (UIColor *)secondaryTextColor;
+- (NSString *)testAdAction;
 
 // The following methods were defined in previous AdMob SDKs but are now ignored
 
