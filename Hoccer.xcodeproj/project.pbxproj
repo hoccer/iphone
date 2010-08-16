@@ -122,7 +122,6 @@
 		22638C1711B51E5C0024AA7E /* HoccerVcard.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C0111B51E5C0024AA7E /* HoccerVcard.m */; };
 		22638C3811B51E880024AA7E /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C1A11B51E880024AA7E /* AboutViewController.m */; };
 		22638C3A11B51E880024AA7E /* HelpScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C1D11B51E880024AA7E /* HelpScrollView.m */; };
-		22638C3C11B51E880024AA7E /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		22638C3D11B51E880024AA7E /* HoccerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2211B51E880024AA7E /* HoccerViewController.m */; };
 		22638C3F11B51E880024AA7E /* HoccerViewControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2611B51E880024AA7E /* HoccerViewControllerIPhone.m */; };
 		22638C4211B51E880024AA7E /* ReceivedContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2A11B51E880024AA7E /* ReceivedContentViewController.m */; };
@@ -307,7 +306,6 @@
 		229B92A21208660000120752 /* HCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B92A11208660000120752 /* HCButton.m */; };
 		229B92F01208737300120752 /* StatusBarStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D9EDFB120303F5006546A9 /* StatusBarStates.m */; };
 		229B92F31208738500120752 /* HCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B92A11208660000120752 /* HCButton.m */; };
-		229B92F41208739F00120752 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCDCD61199B79D00CDFAA2 /* libAdMob.a */; };
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
@@ -499,6 +497,7 @@
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		ADC28BAF1219535800E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		E63FE78A118C2CE300DB0DA8 /* select_btn_1L-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */; };
 		E63FE78B118C2CE300DB0DA8 /* select_btn_1L-over.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */; };
 		E63FE78C118C2CE300DB0DA8 /* select_btn_1M-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE77A118C2CE300DB0DA8 /* select_btn_1M-out.png */; };
@@ -975,7 +974,6 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				22AB155B120025B20057548A /* libGHUnitIPhone4_0.a in Frameworks */,
-				229B92F41208739F00120752 /* libAdMob.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1945,6 +1943,7 @@
 				22C0B369117DF212009E3E3C /* Resources */,
 				22C0B36A117DF212009E3E3C /* Sources */,
 				22C0B36B117DF212009E3E3C /* Frameworks */,
+				AD9F050312194684001FDA32 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2260,6 +2259,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AD9F050312194684001FDA32 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh RunTests.sh";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -2468,7 +2484,6 @@
 				22638C0C11B51E5C0024AA7E /* HoccerVcard.m in Sources */,
 				22638C3811B51E880024AA7E /* AboutViewController.m in Sources */,
 				22638C3A11B51E880024AA7E /* HelpScrollView.m in Sources */,
-				22638C3C11B51E880024AA7E /* HoccerHistoryController.m in Sources */,
 				22638C3D11B51E880024AA7E /* HoccerViewController.m in Sources */,
 				22638C3F11B51E880024AA7E /* HoccerViewControllerIPhone.m in Sources */,
 				22638C4211B51E880024AA7E /* ReceivedContentViewController.m in Sources */,
@@ -2489,6 +2504,7 @@
 				22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */,
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
 				229B92F31208738500120752 /* HCButton.m in Sources */,
+				ADC28BAF1219535800E3AD11 /* HoccerHistoryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2509,7 +2525,6 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				PRODUCT_NAME = Hoccer;
@@ -2528,7 +2543,6 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 					"\"$(SRCROOT)/Classes/AdMob\"",
 				);
 				PRODUCT_NAME = Hoccer;
@@ -2645,10 +2659,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
