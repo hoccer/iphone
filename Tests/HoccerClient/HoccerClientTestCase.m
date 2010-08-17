@@ -22,6 +22,8 @@
 	NSInteger hoccerClientDidFailCalls;
 	NSInteger hoccerClientDidFinishCalls;
 	NSError *error;
+	
+	GHAsyncTestCase *asyncTestCase;
 }
 
 @property (assign) NSInteger hoccerClientDidFailCalls;
@@ -38,14 +40,23 @@
 @synthesize hoccerClientDidFinishCalls;
 @synthesize error;
 
-- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)theError {
-	hoccerClientDidFailCalls += 1;
+
+- (id)initWithAsyncTestCase: (GHAsyncTestCase *)testCase {
+	self = [super init];
+	if (self != nil) {
+		asyncTestCase = [testCase retain];
+	}
 	
+	return self;
+}
+
+- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)theError {
 	self.error = theError;
+	[asyncTestCase notify:kGHUnitWaitStatusFailure];
 }
 
 - (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
-	hoccerClientDidFinishCalls += 1;
+	[asyncTestCase notify:kGHUnitWaitStatusSuccess];
 }
 
 - (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)status; {
@@ -57,6 +68,8 @@
 
 - (void) dealloc {
 	self.error = nil;
+	
+	[asyncTestCase release];
 	[super dealloc];
 }
 
@@ -71,7 +84,7 @@
 
 
 - (void)setUp {
-	mockedDelegate = [[MockHoccerConnectionDelegate alloc] init];
+	mockedDelegate = [[MockHoccerConnectionDelegate alloc] initWithAsyncTestCase:self];
 }
 
 - (void)tearDown {
@@ -79,53 +92,62 @@
 	mockedDelegate = nil; 
 }
 
-//- (void) testItFailsWithNoThrowerErrorWhenLonleyUpload {
-//	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	client.delegate = mockedDelegate;
-//	
-//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-//	
-//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
-//	
-//	[connection cancel];
-//	[client release];
-//}
-//
-//
-//- (void) testItFailsWithNoSecondSweeperErrorWhenLoneySweeper {
-//	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	client.delegate = mockedDelegate;
-//
-//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]]];
-//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-//
-//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoSecondSweeper, @"should return no catcher error");
-//	
-//	[connection cancel];
-//	[client release];
-//}
-//
-//- (void) testItFailsWithNoCatcherErrorWhenLonleyUpload {
-//	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	client.delegate = mockedDelegate;
-//	
-//	HoccerConnection *connection = [client connectionWithRequest:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-//	[connection performSelectorOnMainThread:@selector(startConnection) withObject:nil waitUntilDone:NO];
-//	
-//	GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate selector:@selector(hoccerClientDidFailCalls) toBecome:1 atLeast:10], @"should be called once");
-//	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
-//
-//	[connection cancel];
-//
-//	[client release];
-//}
-//
+- (void) testItFailsWithNoCatcherErrorWhenLonleyUpload {
+	[self prepare];
+	
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	client.delegate = mockedDelegate;
+	
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest throwWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	[connection startConnection];
+	
+	[self waitForStatus:kGHUnitWaitStatusFailure timeout:10];
+
+	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoCatcher, @"should return no catcher error");
+	[connection cancel];
+	
+	[client release];
+}
+
+
+- (void) testItFailsWithNoSecondSweeperErrorWhenLoneySweeper {
+	[self prepare];
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	client.delegate = mockedDelegate;
+
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:[self fakeHocLocation]]];
+	[connection startConnection];
+
+	[self waitForStatus:kGHUnitWaitStatusFailure timeout:10];
+	
+	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoSecondSweeper, @"should return no second sweeper error");
+	
+	[connection cancel];
+	[client release];
+}
+
+
+- (void) testItFailsWithNoThrowerErrorWhenLonleyUpload {
+	[self prepare];
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	client.delegate = mockedDelegate;
+	
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest catchWithLocation:[self fakeHocLocation]]];
+	[connection startConnection];
+	
+	[self waitForStatus:kGHUnitWaitStatusFailure timeout:10];
+
+	GHAssertEquals([mockedDelegate.error code], kHoccerMessageNoThrower, @"should return no thrower error");
+	[connection cancel];
+
+	[client release];
+}
+
+
+
 //- (void) testItFailsWithCollisionErrorWhenTwoSweepAtTheSameTime {
 //	HocLocation *location = [self fakeHocLocation];
 //	
@@ -153,7 +175,11 @@
 //}
 //
 //
+
+
 //- (void) testItSuccedsWhenTwoPeoplePerformAdequateGesturesOnSameLocation {
+//	[self prepare];
+//	
 //	HoccerClient *client = [[HoccerClient alloc] init];
 //	client.userAgent = @"Hoccer/iPhone";
 //	client.delegate = mockedDelegate;
@@ -180,7 +206,8 @@
 //
 //	[client release];
 //	[client2 release];
-//} 
+//}
+
 //
 //- (void)testResourceShouldBeGoneAfterCancel {
 //	HoccerClient *client = [[HoccerClient alloc] init];

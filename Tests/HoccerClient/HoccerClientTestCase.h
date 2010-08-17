@@ -20,7 +20,7 @@
 @class MockHoccerConnectionDelegate;
 
 
-@interface HoccerClientTestCase : GHTestCase {
+@interface HoccerClientTestCase : GHAsyncTestCase {
 	MockHoccerConnectionDelegate *mockedDelegate;
 
 	NSInteger delta;
