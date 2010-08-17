@@ -21,8 +21,6 @@
 		22638B2C11B51B020024AA7E /* ContentFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B0E11B51B020024AA7E /* ContentFactoryTests.m */; };
 		22638B2E11B51B020024AA7E /* HoccerClientTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1411B51B020024AA7E /* HoccerClientTestCase.m */; };
 		22638B2F11B51B020024AA7E /* LineFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1611B51B020024AA7E /* LineFeatureTests.m */; };
-		22638B3011B51B020024AA7E /* Y60AsyncTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1811B51B020024AA7E /* Y60AsyncTestHelper.m */; };
-		22638B3111B51B020024AA7E /* Y60AsyncTestHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1A11B51B020024AA7E /* Y60AsyncTestHelperTest.m */; };
 		22638B3211B51B020024AA7E /* LocationControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1C11B51B020024AA7E /* LocationControllerTest.m */; };
 		22638B3311B51B020024AA7E /* RegExpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B1E11B51B020024AA7E /* RegExpTests.m */; };
 		22638B3411B51B020024AA7E /* ABPersonCreatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B2111B51B020024AA7E /* ABPersonCreatorTest.m */; };
@@ -548,9 +546,6 @@
 		22638B1411B51B020024AA7E /* HoccerClientTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerClientTestCase.m; sourceTree = "<group>"; };
 		22638B1511B51B020024AA7E /* LineFeatureTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineFeatureTests.h; path = ../HoccerClient/LineFeatureTests.h; sourceTree = "<group>"; };
 		22638B1611B51B020024AA7E /* LineFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineFeatureTests.m; path = ../HoccerClient/LineFeatureTests.m; sourceTree = "<group>"; };
-		22638B1711B51B020024AA7E /* Y60AsyncTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Y60AsyncTestHelper.h; sourceTree = "<group>"; };
-		22638B1811B51B020024AA7E /* Y60AsyncTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelper.m; sourceTree = "<group>"; };
-		22638B1A11B51B020024AA7E /* Y60AsyncTestHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Y60AsyncTestHelperTest.m; sourceTree = "<group>"; };
 		22638B1B11B51B020024AA7E /* LocationControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationControllerTest.h; path = Tests/LocationControllerTest.h; sourceTree = "<group>"; };
 		22638B1C11B51B020024AA7E /* LocationControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationControllerTest.m; path = Tests/LocationControllerTest.m; sourceTree = "<group>"; };
 		22638B1D11B51B020024AA7E /* RegExpTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegExpTests.h; path = Tests/RegExpTests.h; sourceTree = "<group>"; };
@@ -1075,9 +1070,6 @@
 			children = (
 				22638B1311B51B020024AA7E /* HoccerClientTestCase.h */,
 				22638B1411B51B020024AA7E /* HoccerClientTestCase.m */,
-				22638B1711B51B020024AA7E /* Y60AsyncTestHelper.h */,
-				22638B1811B51B020024AA7E /* Y60AsyncTestHelper.m */,
-				22638B1A11B51B020024AA7E /* Y60AsyncTestHelperTest.m */,
 			);
 			name = HoccerClient;
 			path = Tests/HoccerClient;
@@ -2437,8 +2429,6 @@
 				22638B2C11B51B020024AA7E /* ContentFactoryTests.m in Sources */,
 				22638B2E11B51B020024AA7E /* HoccerClientTestCase.m in Sources */,
 				22638B2F11B51B020024AA7E /* LineFeatureTests.m in Sources */,
-				22638B3011B51B020024AA7E /* Y60AsyncTestHelper.m in Sources */,
-				22638B3111B51B020024AA7E /* Y60AsyncTestHelperTest.m in Sources */,
 				22638B3211B51B020024AA7E /* LocationControllerTest.m in Sources */,
 				22638B3311B51B020024AA7E /* RegExpTests.m in Sources */,
 				22638B3411B51B020024AA7E /* ABPersonCreatorTest.m in Sources */,
