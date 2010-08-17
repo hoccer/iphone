@@ -18,15 +18,13 @@
 #import "StoreKitManager.h"
 #import "NSString+Regexp.h"
 
-#if TARGET_OS_IPHONE
 #import "AdMobView.h"
-#endif
+
 
 @interface HoccerHistoryController ()
 
-#if TARGET_OS_IPHONE
 @property (retain) AdMobView *adView;
-#endif
+
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
@@ -114,11 +112,9 @@
 	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
 		[cell viewWithTag:5].hidden = YES;
 		
-#if TARGET_OS_IPHONE
 		if (self.adView == nil) {
 			self.adView = [AdMobView requestAdWithDelegate:self];	
 		}
-#endif		
 		// self.adView = [[ADBannerView alloc] initWithFrame:CGRectZero];
 		// self.adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
 		
@@ -255,8 +251,6 @@
 #pragma mark -
 #pragma mark HoccerAdMobDelegate
 
-#if TARGET_OS_IPHONE
-
 - (NSString *)publisherId {
 	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
 }
@@ -277,7 +271,6 @@
 - (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
 }
 
-#endif
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
 	if ([StoreKitManager isPropagandaEnabled] && [path row] == 1) { return NO; }
 	if ([path row] >= [historyData count] + [StoreKitManager bannerCount]) {	return NO; }
