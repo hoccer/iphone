@@ -210,11 +210,13 @@
 	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
 	
 	[connection startConnection];
+	GHTestLog(@"startConnection");
 	[NSThread sleepForTimeInterval:1];
+	GHTestLog(@"slept 1 sec");
 	[connection cancel];
-	
+
 	[NSThread sleepForTimeInterval:3];
-	
+	GHTestLog(@"slept 3 sec");	
 	NSError *error;
 	NSHTTPURLResponse *response;
 	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];

@@ -251,11 +251,12 @@
 #pragma mark -
 #pragma mark HoccerAdMobDelegate
 
-- (NSString *)publisherId {
-	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
+-(NSString *) publisherIdForAd:(AdMobView *)aAdView
+{	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
+	
 }
 
-- (UIViewController *)currentViewController {
+- (UIViewController *) currentViewControllerForAd:(AdMobView *)aAdView {
 	return hoccerViewController;
 }
 
