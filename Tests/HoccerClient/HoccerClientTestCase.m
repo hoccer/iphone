@@ -9,7 +9,6 @@
 #import "HoccerClientTestCase.h"
 #import "HoccerClient.h"
 #import "HoccerConnectionDelegate.h"
-#import "Y60AsyncTestHelper.h"
 
 #import "HocLocation.h"
 #import "HoccerVcard.h"
@@ -201,30 +200,30 @@
 }
 
 
-//- (void)testResourceShouldBeGoneAfterCancel {
-//	[self prepare];
-//	
-//	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	// client.delegate = mockedDelegate;
-//
-//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-//	
-//	[connection startConnection];
-//	[NSThread sleepForTimeInterval:1];
-//	[connection cancel];
-//	
-//	[NSThread sleepForTimeInterval:3];
-//	
-//	NSError *error;
-//	NSHTTPURLResponse *response;
-//	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];
-//	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//	GHAssertEquals([response statusCode], 410, @"should return 410 status code");
-//	[connection cancel];
-//
-//	[client release];
-//}
+- (void)testResourceShouldBeGoneAfterCancel {
+	[self prepare];
+	
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	// client.delegate = mockedDelegate;
+
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	
+	[connection startConnection];
+	[NSThread sleepForTimeInterval:1];
+	[connection cancel];
+	
+	[NSThread sleepForTimeInterval:3];
+	
+	NSError *error;
+	NSHTTPURLResponse *response;
+	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];
+	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+	GHAssertEquals([response statusCode], 410, @"should return 410 status code");
+	[connection cancel];
+
+	[client release];
+}
 
 //- (void)testShouldNotInterceptItselfWhenCanceled {
 //	HoccerClient *client = [[HoccerClient alloc] init];
