@@ -186,8 +186,6 @@
 	HoccerConnection *connection2 = [client2 unstartedConnectionWithRequest:[HoccerRequest sweepInWithLocation:location]];
 	[connection2 startConnection];
 		
-	// GHAssertTrue([Y60AsyncTestHelper waitForTarget:mockedDelegate2 selector:@selector(hoccerClientDidFinishCalls) toBecome:1 atLeast:10], @"should be called once");
-
 	[self waitForStatus:kGHUnitWaitStatusSuccess timeout:10];
 	
 	[connection cancel];

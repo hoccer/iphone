@@ -123,7 +123,7 @@ const NSString *kHoccerServer = @"http://beta.hoccer.com/";
 	if (canceled) { 
 		return; 
 	}
-	
+	NSLog(@"request uri: %@", [self.request URL]);
 	self.requestStartTime = [NSDate date];
 	
 	NSMutableURLRequest *requestWithRtt = [self.request mutableCopy];
