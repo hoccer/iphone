@@ -316,7 +316,6 @@
 		22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22AB155A120025B20057548A /* GHUnitIPhoneTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AB1556120025B20057548A /* GHUnitIPhoneTestMain.m */; };
-		22AB155B120025B20057548A /* libGHUnitIPhone4_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AB1557120025B20057548A /* libGHUnitIPhone4_0.a */; };
 		22AB1584120027BF0057548A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4D11B52D9D0024AA7E /* MainWindow.xib */; };
 		22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* HoccerAppDelegate.m */; };
 		22AB1591120028430057548A /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4711B52D9D0024AA7E /* AboutViewController.xib */; };
@@ -493,6 +492,7 @@
 		22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D9EDFB120303F5006546A9 /* StatusBarStates.m */; };
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
+		22F11A23121C838B00A36A98 /* libGHUnitIOSDevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC28C171219664A00E3AD11 /* libAdMob.a */; };
@@ -830,7 +830,6 @@
 		22AB1554120025B20057548A /* GHUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHUnit.h; path = Tests/libGHUnitIPhone4/GHUnit.h; sourceTree = "<group>"; };
 		22AB1555120025B20057548A /* GHUnitIPhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHUnitIPhoneAppDelegate.h; path = Tests/libGHUnitIPhone4/GHUnitIPhoneAppDelegate.h; sourceTree = "<group>"; };
 		22AB1556120025B20057548A /* GHUnitIPhoneTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHUnitIPhoneTestMain.m; path = Tests/libGHUnitIPhone4/GHUnitIPhoneTestMain.m; sourceTree = "<group>"; };
-		22AB1557120025B20057548A /* libGHUnitIPhone4_0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIPhone4_0.a; path = Tests/libGHUnitIPhone4/libGHUnitIPhone4_0.a; sourceTree = "<group>"; };
 		22AB1558120025B20057548A /* NSException+GHTestFailureExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSException+GHTestFailureExceptions.h"; path = "Tests/libGHUnitIPhone4/NSException+GHTestFailureExceptions.h"; sourceTree = "<group>"; };
 		22AB1559120025B20057548A /* NSValue+GHValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+GHValueFormatter.h"; path = "Tests/libGHUnitIPhone4/NSValue+GHValueFormatter.h"; sourceTree = "<group>"; };
 		22AB17A21200818A0057548A /* statusbar_indicator_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_indicator_green.png; sourceTree = "<group>"; };
@@ -884,6 +883,7 @@
 		22D9EE0312030490006546A9 /* StatusBarStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarStates.h; sourceTree = "<group>"; };
 		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
 		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
+		22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIOSDevice.a; path = "../gh-unit/Project-IPhone/build/Debug-iphoneos/libGHUnitIOSDevice.a"; sourceTree = SOURCE_ROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
@@ -972,8 +972,8 @@
 				2284F98711A2BBA7004EFF7F /* MapKit.framework in Frameworks */,
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
-				22AB155B120025B20057548A /* libGHUnitIPhone4_0.a in Frameworks */,
 				ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */,
+				22F11A23121C838B00A36A98 /* libGHUnitIOSDevice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1737,7 +1737,7 @@
 				22AB1554120025B20057548A /* GHUnit.h */,
 				22AB1555120025B20057548A /* GHUnitIPhoneAppDelegate.h */,
 				22AB1556120025B20057548A /* GHUnitIPhoneTestMain.m */,
-				22AB1557120025B20057548A /* libGHUnitIPhone4_0.a */,
+				22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */,
 				22AB1558120025B20057548A /* NSException+GHTestFailureExceptions.h */,
 				22AB1559120025B20057548A /* NSValue+GHValueFormatter.h */,
 			);

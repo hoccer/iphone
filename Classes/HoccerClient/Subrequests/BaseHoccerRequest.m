@@ -84,13 +84,17 @@
 #pragma mark -
 #pragma mark NSURLConnection delegate methods
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	NSLog(@"did receive data");
 	if (canceled) { return; }
 	
 	[receivedData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)aConnection didFailWithError: (NSError *)error {
-	if (canceled) { return; }
+	NSLog(@"did fail with error");
+	if (canceled) { 
+		return; 
+	}
 
 	self.connection = nil;
 	[self.delegate checkAndPerformSelector:@selector(request:didFailWithError:) withObject: self withObject: error];

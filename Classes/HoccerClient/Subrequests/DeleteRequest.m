@@ -15,6 +15,8 @@
 - (id)initWithPeerGroupUri: (NSURL *)peerGroupUri {
 	self = [super init];
 	if (self != nil) {
+		NSLog(@"deleting!: %@", peerGroupUri);
+		
 		NSMutableURLRequest *deleateRequest = [NSMutableURLRequest requestWithURL:peerGroupUri];
 		[deleateRequest setHTTPMethod:@"DELETE"];
 		[deleateRequest addValue:self.userAgent forHTTPHeaderField:@"User-Agent"];

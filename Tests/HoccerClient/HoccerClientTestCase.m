@@ -211,42 +211,39 @@
 	
 	[connection startConnection];
 	GHTestLog(@"startConnection");
-	[NSThread sleepForTimeInterval:1];
-	GHTestLog(@"slept 1 sec");
+	[self pauseForTimeout: 1.0];
 	[connection cancel];
 
-	[NSThread sleepForTimeInterval:3];
+	[self pauseForTimeout: 3.0];
 	GHTestLog(@"slept 3 sec");	
 	NSError *error;
 	NSHTTPURLResponse *response;
 	NSURLRequest *request = [NSURLRequest requestWithURL:connection.eventURL];
 	[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	GHAssertEquals([response statusCode], 410, @"should return 410 status code");
-	[connection cancel];
 
 	[client release];
 }
 
-//- (void)testShouldNotInterceptItselfWhenCanceled {
-//	HoccerClient *client = [[HoccerClient alloc] init];
-//	client.userAgent = @"Hoccer/iPhone";
-//	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-//	
-//	[connection startConnection];
-//	[NSThread sleepForTimeInterval:1];
-//	[connection cancel];
-//	
-//	[NSThread sleepForTimeInterval:1];
-//	
-//	client.delegate = mockedDelegate;
-//	connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
-//	[connection performSelectorOnMainThread: @selector(startConnection) withObject:nil waitUntilDone: NO];
-//	[NSThread sleepForTimeInterval:3];
-//	// GHAssertEquals(mockedDelegate, 0, [NSString stringWithFormat: @"should be able to sweep, but failed with %@", mockedDelegate.error]);
-//	[connection cancel];
-//	
-//	[client release];
-//}
+- (void)testShouldNotInterceptItselfWhenCanceled {
+	HoccerClient *client = [[HoccerClient alloc] init];
+	client.userAgent = @"Hoccer/iPhone";
+	HoccerConnection *connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	
+	[connection startConnection];
+	[self pauseForTimeout: 1.0];
+	[connection cancel];
+	
+	[self pauseForTimeout: 1.0];
+	
+	client.delegate = mockedDelegate;
+	connection = [client unstartedConnectionWithRequest:[HoccerRequest sweepOutWithContent:[self fakeContent] location:[self fakeHocLocation]]];
+	[connection startConnection];
+	[self pauseForTimeout: 3.0];
+	[connection cancel];
+	
+	[client release];
+}
 
 
 

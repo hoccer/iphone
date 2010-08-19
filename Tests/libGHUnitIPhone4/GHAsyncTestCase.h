@@ -123,6 +123,13 @@ enum {
 - (void)waitForTimeout:(NSTimeInterval)timeout;
 
 /*!
+ Pauses the test execution for a specified time interval
+ @param timeout Timeout in seconds
+ */
+- (void)pauseForTimeout: (NSTimeInterval)timeout;
+
+
+/*!
  Notify waiting of status for test selector.
  @param status Status, for example, kGHUnitWaitStatusSuccess
  @param selector If not NULL, then will verify this selector is where we are waiting.
