@@ -189,6 +189,7 @@
 #pragma mark HoccerConnection Delegate
 
 - (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
+	NSLog(@"status: %@", theStatus);
 	self.status = theStatus;
 	self.statusMessage = [theStatus objectForKey:@"message"];
 }

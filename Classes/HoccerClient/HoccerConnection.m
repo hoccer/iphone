@@ -59,7 +59,7 @@
 		error = [self createAppropriateCollisionError];
 	}
 	
-	[self cancel];
+	// [self cancel];
 	[self.delegate checkAndPerformSelector: @selector(hoccerConnection:didFailWithError:) withObject: self 
 								withObject: error];
 }

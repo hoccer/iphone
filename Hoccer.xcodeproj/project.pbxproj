@@ -307,6 +307,7 @@
 		229DAF13107B331F00B47ABE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF11107B331F00B47ABE /* AddressBook.framework */; };
 		229DAF14107B331F00B47ABE /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229DAF12107B331F00B47ABE /* AddressBookUI.framework */; };
 		229DAF24107B385B00B47ABE /* VcardWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 229DAF22107B385B00B47ABE /* VcardWriter.m */; };
+		22A172B21228159B0055975C /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A172B11228159B0055975C /* libGHUnitIOSSimulator.a */; };
 		22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */; };
 		22A21AC11206BE4B001FA18A /* statusbar_icon_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A21AC01206BE4B001FA18A /* statusbar_icon_warning.png */; };
 		22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */; };
@@ -315,7 +316,6 @@
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
 		22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
-		22AB155A120025B20057548A /* GHUnitIPhoneTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AB1556120025B20057548A /* GHUnitIPhoneTestMain.m */; };
 		22AB1584120027BF0057548A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4D11B52D9D0024AA7E /* MainWindow.xib */; };
 		22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* HoccerAppDelegate.m */; };
 		22AB1591120028430057548A /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4711B52D9D0024AA7E /* AboutViewController.xib */; };
@@ -492,7 +492,6 @@
 		22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D9EDFB120303F5006546A9 /* StatusBarStates.m */; };
 		22E0D38511A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
 		22E0D38611A5771300812BD1 /* StoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D38411A5771300812BD1 /* StoreKitManager.m */; };
-		22F11A23121C838B00A36A98 /* libGHUnitIOSDevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC28C171219664A00E3AD11 /* libAdMob.a */; };
@@ -808,6 +807,7 @@
 		229DAF12107B331F00B47ABE /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		229DAF21107B385B00B47ABE /* VcardWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VcardWriter.h; path = AddressBook/VcardWriter.h; sourceTree = "<group>"; };
 		229DAF22107B385B00B47ABE /* VcardWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VcardWriter.m; path = AddressBook/VcardWriter.m; sourceTree = "<group>"; };
+		22A172B11228159B0055975C /* libGHUnitIOSSimulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIOSSimulator.a; path = Tests/libGHUnitIPhone4/libGHUnitIOSSimulator.a; sourceTree = "<group>"; };
 		22A21A6C1206B720001FA18A /* ConnectionStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusViewController.h; sourceTree = "<group>"; };
 		22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusViewController.m; sourceTree = "<group>"; };
 		22A21AC01206BE4B001FA18A /* statusbar_icon_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_icon_warning.png; sourceTree = "<group>"; };
@@ -883,7 +883,6 @@
 		22D9EE0312030490006546A9 /* StatusBarStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarStates.h; sourceTree = "<group>"; };
 		22E0D38311A5771300812BD1 /* StoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreKitManager.h; sourceTree = "<group>"; };
 		22E0D38411A5771300812BD1 /* StoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreKitManager.m; sourceTree = "<group>"; };
-		22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGHUnitIOSDevice.a; path = "../gh-unit/Project-IPhone/build/Debug-iphoneos/libGHUnitIOSDevice.a"; sourceTree = SOURCE_ROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
@@ -973,7 +972,7 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				ADC28C181219664A00E3AD11 /* libAdMob.a in Frameworks */,
-				22F11A23121C838B00A36A98 /* libGHUnitIOSDevice.a in Frameworks */,
+				22A172B21228159B0055975C /* libGHUnitIOSSimulator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1737,7 +1736,7 @@
 				22AB1554120025B20057548A /* GHUnit.h */,
 				22AB1555120025B20057548A /* GHUnitIPhoneAppDelegate.h */,
 				22AB1556120025B20057548A /* GHUnitIPhoneTestMain.m */,
-				22F11A22121C838B00A36A98 /* libGHUnitIOSDevice.a */,
+				22A172B11228159B0055975C /* libGHUnitIOSSimulator.a */,
 				22AB1558120025B20057548A /* NSException+GHTestFailureExceptions.h */,
 				22AB1559120025B20057548A /* NSValue+GHValueFormatter.h */,
 			);
@@ -2497,7 +2496,6 @@
 				22638DEB11B53E1E0024AA7E /* DesktopDataSource.m in Sources */,
 				22638DEE11B53E2C0024AA7E /* HelpOverview.m in Sources */,
 				22638DF111B53E420024AA7E /* HoccingRulesIPhone.m in Sources */,
-				22AB155A120025B20057548A /* GHUnitIPhoneTestMain.m in Sources */,
 				22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */,
 				22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */,
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
