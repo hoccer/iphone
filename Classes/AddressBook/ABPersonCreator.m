@@ -185,6 +185,8 @@
 
 - (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address
 {
+	NSLog(@"address: %@", address);
+	
 	NSArray *addressParts = [address componentsSeparatedByString:@";"];
 	if (!addressParts)
 		return nil;
@@ -199,19 +201,27 @@
 
 	values[0]    = (CFStringRef) [addressParts objectAtIndex:0];
 	
-	if ([addressParts count] > 1)
-		values[1]  = (CFStringRef) [addressParts objectAtIndex:1];
-	if ([addressParts count] > 2)
-		values[2]  = (CFStringRef) [addressParts objectAtIndex:2];
-	if ([addressParts count] > 3)
-		values[3]  = (CFStringRef) [addressParts objectAtIndex:3];
-	if ([addressParts count] > 4)
-		values[4]  = (CFStringRef) [addressParts objectAtIndex:4];
+	// for (int
 	
+	
+	if ([addressParts count] > 1) {
+		values[1]  = (CFStringRef) [addressParts objectAtIndex:1];
+	}
+	if ([addressParts count] > 2) {
+		values[2]  = (CFStringRef) [addressParts objectAtIndex:2];
+	}
+	if ([addressParts count] > 3) {
+		values[3]  = (CFStringRef) [addressParts objectAtIndex:3];
+	}
+	if ([addressParts count] > 4) {
+		values[4]  = (CFStringRef) [addressParts objectAtIndex:4];
+	}
+		
+	NSInteger items = [addressParts count] < 5 ? [addressParts count] : 5;
 	CFDictionaryRef aDict = CFDictionaryCreate(NULL,
 											   (void *)keys,
 											   (void *)values,
-											   [addressParts count],
+											   items,
 											   &kCFCopyStringDictionaryKeyCallBacks,
 											   &kCFTypeDictionaryValueCallBacks);
 	return aDict;	

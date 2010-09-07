@@ -113,7 +113,6 @@
 		self.hoccability += 1;
 	}
 	
-	
 	if (hoccability != oldHoccability) {
 		if ([delegate respondsToSelector:@selector(locationControllerDidUpdateLocation:)]) {
 			[delegate locationControllerDidUpdateLocation: self];
