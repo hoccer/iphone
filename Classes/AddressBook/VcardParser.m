@@ -26,7 +26,6 @@
 {
 	self = [super init];
 	if (self != nil) {
-		NSLog(@"vcard: %@", vcard);
 		vcardLines = [[vcard componentsSeparatedByString:@"\r\n"] retain];
 	}
 	return self;
