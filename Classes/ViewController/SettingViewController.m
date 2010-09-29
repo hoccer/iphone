@@ -103,7 +103,7 @@ enum HCSettingsType {
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
 	
-	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Bookmarklet" selector:@selector(showBookmarklet) type: HCContinueSetting];
+	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
 	
 	NSArray *section1 = [NSArray arrayWithObjects: openPreviewAction, playSoundAction, bookmarkletAction, nil];
 	[sections addObject:section1];
@@ -211,7 +211,7 @@ enum HCSettingsType {
 
 - (void)showBookmarklet {
 	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Install Bookmarklet", nil) 
-													 message:NSLocalizedString(@"lorem ipsum", nil) 
+													 message:NSLocalizedString(@"Safari will be opened now to complete the bookmarklet installation.", nil) 
 													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
 										   otherButtonTitles:NSLocalizedString(@"Install", nil), nil];
 	[prompt show];
@@ -234,11 +234,11 @@ enum HCSettingsType {
 }
 
 - (void)showTwitter {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.twitter.com/hoccer"]];
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://mobile.twitter.com/hoccer"]];
 }
 
 - (void)showFacebook {
-	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.facebook.com/hoccer"]];
+	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://touch.facebook.com/hoccer"]];
 }
 
 #pragma mark -
