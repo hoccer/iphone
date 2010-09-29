@@ -249,7 +249,7 @@
 
 - (NSArray *)actionButtons {
 	if (content.isFromContentSource) {
-		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		UIButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
@@ -260,20 +260,21 @@
 		
 		return buttons;
 	} else {
-		UIButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
+		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
-
+		[button setTextLabelOffset:3];
 		[button setFrame: CGRectMake(0, 0, 65, 61)];
 		
-		UIButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
+		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget:self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
+		[button2 setTextLabelOffset:-2];
 		[button2 setFrame: CGRectMake(0, 0, 65, 61)];
 		
-		NSMutableArray *buttons = [NSMutableArray arrayWithObjects:button, button2, nil]; 
+		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil]; 
 		
 		return buttons;
 	}

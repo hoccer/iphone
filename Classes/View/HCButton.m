@@ -14,18 +14,22 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
+		textLabelOffset = 0;
     }
     return self;
 }
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)layoutSubviews  {
 	[super layoutSubviews];
-	self.titleLabel.font = [UIFont systemFontOfSize:10];
-	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x, self.frame.size.height - 22, 
+	self.titleLabel.font = [UIFont boldSystemFontOfSize:10];
+	self.titleLabel.textColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1];
+	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x + textLabelOffset, self.frame.size.height - 22, 
 									   self.titleLabel.frame.size.width, self.titleLabel.frame.size.height); 
+	textLabelOffset = 0;
+}
+
+- (void)setTextLabelOffset: (CGFloat)newOffset {
+	textLabelOffset = newOffset;
 }
 
 - (void)dealloc {
@@ -33,3 +37,4 @@
 }
 
 @end
+ 

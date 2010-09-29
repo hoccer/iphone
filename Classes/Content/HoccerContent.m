@@ -128,7 +128,7 @@
 	//overwrite in subclasses: text
 }
 
-- (BOOL)saveDataToContentStorage {
+- (BOOL)saveDataToContentStorage {	
 	return NO;
 }
 
@@ -198,7 +198,7 @@
 }
 
 - (UIImage *)imageForSaveButton {
-	return [UIImage imageNamed:@"container_btn_double-save.png"];
+	return [UIImage imageNamed:@"container_btn_double-openwith.png"];
 }
 
 - (UIImage *)historyThumbButton {

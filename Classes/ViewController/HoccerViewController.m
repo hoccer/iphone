@@ -357,21 +357,22 @@
 }
 
 - (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; {
-	if ([item.content.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view animated:YES]) {
-		return;
-	}
-	
 	if ([item.content isKindOfClass:[HoccerImage class]]) {
 		[(HoccerImage* )item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
 		[item.contentView showSpinner];
 	}
-		
-	if (![item.content saveDataToContentStorage]) {
+	
+	if ([item.content saveDataToContentStorage]) {
+		return;
+	}
+	
+	if (![item.content.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view animated:YES]) {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
-																message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
-															   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
+														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
 		[alertView show];
 		[alertView release];
+		
 	}
 }
 

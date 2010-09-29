@@ -10,7 +10,9 @@
 
 
 @interface HCButton : UIButton {
-
+	CGFloat textLabelOffset;
 }
+
+- (void)setTextLabelOffset: (CGFloat)newOffset;
 
 @end
