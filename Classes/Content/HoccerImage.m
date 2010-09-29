@@ -139,6 +139,10 @@
 	}
 }
 
+- (UIImage *)imageForSaveButton {
+	return [UIImage imageNamed:@"container_btn_double-save.png"];
+}
+
 - (BOOL)needsWaiting {
 	return YES;
 }

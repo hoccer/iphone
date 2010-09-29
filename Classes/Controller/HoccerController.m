@@ -249,7 +249,7 @@
 
 - (NSArray *)actionButtons {
 	if (content.isFromContentSource) {
-		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		UIButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
@@ -264,7 +264,6 @@
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
-
 		[button setFrame: CGRectMake(0, 0, 65, 61)];
 		
 		UIButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
