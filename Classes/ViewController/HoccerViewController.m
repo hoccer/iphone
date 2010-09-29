@@ -73,6 +73,10 @@
 }
 
 - (void)viewDidLoad {
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://hoccer.com"];
+	httpClient.target = self;
+	[httpClient getURI:@"/" success:@selector(httpConnection:didReceiveStatus:)];
+	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
 
@@ -116,6 +120,18 @@
 
 - (void)showDesktop {}
 
+													
+														
+- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSDictionary *)dict {
+	NSLog(@"received dict");
+	UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Hoccer" message:@"lorem ipsum" delegate:@"self" cancelButtonTitle:@"cancel" otherButtonTitles:nil];
+	[view show];
+	
+	[httpClient release]; httpClient = nil;
+
+}														
+														
+														
 #pragma mark -
 #pragma mark View Manipulation
 

@@ -17,6 +17,8 @@
 #import "DesktopViewDelegate.h"
 #import "LocationControllerDelegate.h"
 
+#import "HttpClient.h"
+
 @class HoccerAppDelegate;
 @class Preview;
 @class DesktopView;
@@ -51,7 +53,8 @@
 							
 	ConnectionStatusViewController *statusViewController;
 	StatusViewController *infoViewController;
-	
+
+	HttpClient *httpClient;
 	HoccingRulesIPhone *hoccingRules;
 							
 	CGPoint defaultOrigin;
