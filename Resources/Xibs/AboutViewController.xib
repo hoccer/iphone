@@ -12,7 +12,6 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -47,6 +46,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 20}, {280, 314}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -63,7 +63,7 @@ ZSBpcyBubyBuZWVkIGZvciBwcmlvciBleGNoYW5nZSBvZiBjb250YWN0IGRldGFpbHMuIFBsZWFzZSBh
 bHNvIGNoZWNrIGhvY2Nlci5jb20gZm9yIGZ1cnRoZXIgaW5mb3JtYXRpb24sIHZpZGVvcyBhbmQgYSB3
 ZWIgYmFzZWQgdmVyc2lvbi4KCkNvbnRyaWJ1dGVyczoKaVBob25lIERldmVsb3BtZW50OgpSb2JlcnQg
 UGFsbWVyLCBGYWJpYW4gQsO8dHpvdwoKU2VydmVyIERldmVsb3BtZW50OgpKb2huLVBhdWwgQmFkZXIs
-IERhdmlkIFNpZWdlbCwgUm9kamEgVHJhcHBlIGFuZCBSb2JlcnQgUGFsbWVyCgpEZXNpZ246ClBhdWwg
+IFJvYmVydCBQYWxtZXIsIERhdmlkIFNpZWdlbCBhbmQgUm9kamEgVHJhcHBlCgpEZXNpZ246ClBhdWwg
 SGV5ZXIsIFZhbmVzc2EgU2Now6RmZXIsIEpvaG4tUGF1bCBCYWRlciwgQXJuZSBNaWNoZWwsIEp1bGlh
 IFNjaGlsbGVyLCBFdmEgT2ZmZW5iZXJnLCBEYW5pZWwgRmzDvGdlbCwgTmljYSBHaXVsaWFuaSwgRmVs
 aXggQmVjayBhbmQgSm9uYXMgSsOkZ2VyCgpPcmdhbml6YXRpb24gYW5kIEJhY2tib25lOgpQYXZlbCBN
@@ -87,6 +87,7 @@ VHJhcHBlCgpTb21lIGljb25zIGJ5Ckpvc2VwaCBXYWluIC8gZ2x5cGhpc2guY29tA</string>
 				</object>
 				<string key="NSFrameSize">{320, 400}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC4xODk5OTk5OTc2AA</bytes>
@@ -151,6 +152,7 @@ VHJhcHBlCgpTb21lIGljb25zIGJ5Ckpvc2VwaCBXYWluIC8gZ2x5cGhpc2guY29tA</string>
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
+					<string>15.IBViewBoundsToFrameTransform</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -159,6 +161,9 @@ VHJhcHBlCgpTb21lIGljb25zIGJ5Ckpvc2VwaCBXYWluIC8gZ2x5cGhpc2guY29tA</string>
 					<string>{{284, 356}, {320, 400}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<object class="NSAffineTransform">
+						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAw6YAAA</bytes>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -336,7 +341,7 @@ VHJhcHBlCgpTb21lIGljb25zIGJ5Ckpvc2VwaCBXYWluIC8gZ2x5cGhpc2guY29tA</string>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="536063841">
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="857083891">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIResponder.h</string>
 					</object>
@@ -344,7 +349,7 @@ VHJhcHBlCgpTb21lIGljb25zIGJ5Ckpvc2VwaCBXYWluIC8gZ2x5cGhpc2guY29tA</string>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
 					<string key="superclassName">NSObject</string>
-					<reference key="sourceIdentifier" ref="536063841"/>
+					<reference key="sourceIdentifier" ref="857083891"/>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIScrollView</string>
