@@ -10,7 +10,6 @@
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
-#import "StoreKitManager.h"
 
 enum HCSettingsType {
 	HCInplaceSetting,
@@ -115,12 +114,7 @@ enum HCSettingsType {
 	
 	NSArray *section1 = [NSArray arrayWithObjects: openPreviewAction, playSoundAction, bookmarkletAction, nil];
 	[sections addObject:section1];
-	
-	if([StoreKitManager isPropagandaEnabled]){
-		SettingsAction *buyAction = [SettingsAction actionWithDescription:@"Get Ad-Free Version" selector:@selector(removePropaganda) type: HCInplaceSetting];
-		[sections addObject:[NSArray arrayWithObject:buyAction]];
-	}
-	
+		
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
 	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook) type: HCContinueSetting]; 

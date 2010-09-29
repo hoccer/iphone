@@ -10,14 +10,13 @@
 #import <iAd/iAd.h>
 #import <CoreData/CoreData.h>
 #import "HoccerHistoryItem.h"
-#import "AdMobDelegateProtocol.h"
 
 @class HoccerViewController;
 
 @class HoccerController;
 @class HistoryData;
 
-@interface HoccerHistoryController : UITableViewController <AdMobDelegate> {
+@interface HoccerHistoryController : UITableViewController {
 	HistoryData *historyData;
 	
 	UIViewController *rootViewController;
@@ -25,7 +24,6 @@
 	HoccerViewController *hoccerViewController;
 	
 	UITableViewCell *historyCell;
-	AdMobView *adView;
 }
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;

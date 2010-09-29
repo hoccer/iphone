@@ -15,25 +15,18 @@
 
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
-#import "StoreKitManager.h"
 #import "NSString+Regexp.h"
 
-#import "AdMobView.h"
 
 
 @interface HoccerHistoryController ()
 
-@property (retain) AdMobView *adView;
-
-
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
-- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath;
-
 - (void)cleanUp;
+
 @end
 
 @implementation HoccerHistoryController
-@synthesize adView;
 @synthesize parentNavigationController;
 @synthesize hoccerViewController;
 @synthesize historyData;
@@ -79,12 +72,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rows = 0;
 	if (section == 0) {
-		rows = [historyData count] + [StoreKitManager bannerCount];
+		rows = [historyData count];
 	}
 	
 	if (rows < 6) {
 		rows = 6;
-	};
+	}
 	
 	return rows;
 }
@@ -108,20 +101,8 @@
 	}
 	[cell viewWithTag:6].hidden = YES;
 
-	NSInteger row = [self adjustedIndexForAds:indexPath];
-	if ([StoreKitManager isPropagandaEnabled] && [indexPath row] == 1) {
-		[cell viewWithTag:5].hidden = YES;
-		
-		if (self.adView == nil) {
-			self.adView = [AdMobView requestAdWithDelegate:self];	
-		}
-		// self.adView = [[ADBannerView alloc] initWithFrame:CGRectZero];
-		// self.adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifier320x50;
-		
-	    [cell.contentView addSubview:adView];
-		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_ads_rowbg.png"]] autorelease];
-
-	} else if (row < [historyData count]) {
+	NSInteger row = [indexPath row];
+	if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
 		[cell viewWithTag:5].hidden = NO;
@@ -163,11 +144,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.row == 1 && [StoreKitManager isPropagandaEnabled]) {
-		return 49;
-	} else {
 	    return aTableView.rowHeight;	
-	}
 }
 
 // Override to support editing the table view.
@@ -176,19 +153,19 @@
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 
 		[self.tableView beginUpdates];
-		if ([historyData count] + [StoreKitManager bannerCount] <= 6) {
+		if ([historyData count] <= 6) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
 			[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		}
 		
-		NSInteger row = [self adjustedIndexForAds:indexPath];
+		NSInteger row = [indexPath row];
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
 		[historyData removeItem:item];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		
 		[self.tableView endUpdates];
-		[self.tableView reloadData];
+		// [self.tableView reloadData];
 	}   
 }
 
@@ -198,7 +175,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
 
-	NSInteger row = [self adjustedIndexForAds: indexPath];
+	NSInteger row = [indexPath row];
 
 	if (row >= [historyData count]) {
 		return;
@@ -247,47 +224,12 @@
 	[self.tableView reloadData];
 }
 
-
-#pragma mark -
-#pragma mark HoccerAdMobDelegate
-
--(NSString *) publisherIdForAd:(AdMobView *)aAdView
-{	return @"a14be2c38131979"; // this should be prefilled; if not, get it from www.admob.com
-	
-}
-
-- (UIViewController *) currentViewControllerForAd:(AdMobView *)aAdView {
-	return hoccerViewController;
-}
-
-- (void)didReceiveAd:(AdMobView *)adView; {
-}
-
-- (void)didReceiveRefreshedAd:(AdMobView *)adView; {
-}
-
-- (void)didFailToReceiveAd:(AdMobView *)adView; {
-}
-
-- (void)didFailToReceiveRefreshedAd:(AdMobView *)adView; {
-}
-
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path {
-	if ([StoreKitManager isPropagandaEnabled] && [path row] == 1) { return NO; }
-	if ([path row] >= [historyData count] + [StoreKitManager bannerCount]) {	return NO; }
+	if ([path row] >= [historyData count]) { return NO; }
 	if ([historyData count] == 0) {	return NO; }
 	
 	return YES;
 }
-
-- (NSInteger)adjustedIndexForAds: (NSIndexPath *)indexPath {
-	if ([StoreKitManager isPropagandaEnabled]) {
-		return ([indexPath row] > 0) ? [indexPath row] - 1 : [indexPath row];
-	} else {
-		return [indexPath row];
-	}
-}
-
 
 - (void)cleanUp {
 	NSString *documentsDirectoryUrl = [HoccerContent contentDirectory];
