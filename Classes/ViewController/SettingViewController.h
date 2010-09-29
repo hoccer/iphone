@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <StoreKit/StoreKit.h>
 
 #import "MBProgressHUD.h"
 
 
-@interface SettingViewController : UIViewController <SKProductsRequestDelegate, SKPaymentTransactionObserver, UIAlertViewDelegate> {
+@interface SettingViewController : UIViewController <UIAlertViewDelegate> {
 	NSMutableArray *sections;
 	
 	UINavigationController *parentNavigationController;

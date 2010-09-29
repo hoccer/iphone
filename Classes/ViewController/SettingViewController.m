@@ -59,7 +59,6 @@ enum HCSettingsType {
 	[super dealloc];
 }
 
-
 @end
 
 
@@ -71,13 +70,7 @@ enum HCSettingsType {
 - (void)showTwitter;
 - (void)showFacebook;
 - (void)showBookmarklet;
-- (void)removePropaganda;
-- (void)requestProductData;
 
-- (void) completeTransaction: (SKPaymentTransaction *)transaction;
-- (void) restoreTransaction: (SKPaymentTransaction *)transaction;
-- (void) failedTransaction: (SKPaymentTransaction *)transaction;
-- (void) rememberPurchase;
 @end
 
 
@@ -246,90 +239,6 @@ enum HCSettingsType {
 
 - (void)showFacebook {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.facebook.com/hoccer"]];
-}
-
-- (void)removePropaganda {
-	if ([SKPaymentQueue canMakePayments]) {
-		progressHUD = [[MBProgressHUD alloc] initWithView: self.view];
-		[self.view addSubview:progressHUD];
-		[progressHUD show:YES];
-		
-		[self requestProductData];
-	} else {
-		UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"In-App Purchase not enabled" message:@"To buy the ad-free Hoccer version enable In-App Purchase in the settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] ;
-		[view show];
-	
-		[view autorelease];
-	}	
-}
-
-- (void)requestProductData {
-	SKProductsRequest *request= [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject: @"adfree"]];
-	request.delegate = self;
-	[request start];
-}
-
-- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {
-	NSArray *myProduct = response.products;
-	
-	if ([myProduct count] > 0) {
-		SKProduct *product = [myProduct objectAtIndex:0];
-
-		[[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-		[[SKPaymentQueue defaultQueue] addPayment:[SKPayment paymentWithProduct:product]];
-	} 
-	
-    [request autorelease];
-}
-
-
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
-	for (SKPaymentTransaction *transaction in transactions) {
-        switch (transaction.transactionState) {
-            case SKPaymentTransactionStatePurchased:			
-				[self completeTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateFailed:
-				[self failedTransaction:transaction];
-                break;
-            case SKPaymentTransactionStateRestored:
-                [self restoreTransaction:transaction];
-            default:
-                break;
-        }
-    }
-	
-	[progressHUD hide: YES];
-	[progressHUD release];
-	progressHUD = nil;
-}
-
-- (void) completeTransaction: (SKPaymentTransaction *)transaction
-{
-    [self rememberPurchase];
-    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-	
-}
-
-- (void) restoreTransaction: (SKPaymentTransaction *)transaction {
-    [self rememberPurchase];
-    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-}
-
-- (void) failedTransaction: (SKPaymentTransaction *)transaction {
-    if (transaction.error.code != SKErrorPaymentCancelled)
-    {
-        // Optionally, display an error here.
-    }
-    [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-}
-
--(void) rememberPurchase {
-	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AdFree"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	
-	[sections removeObjectAtIndex:2];
-	[self.tableView deleteSections:[[[NSIndexSet alloc] initWithIndex:3] autorelease] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -
