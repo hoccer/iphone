@@ -2740,7 +2740,6 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Classes/AdMob\"",
 					"\"$(SRCROOT)/Tests/libGHUnitIPhone4\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2751,7 +2750,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
-				SDKROOT = iphonesimulator4.0;
+				SDKROOT = iphonesimulator4.1;
 			};
 			name = Debug;
 		};
@@ -2773,7 +2772,6 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Classes/AdMob\"",
 					"\"$(SRCROOT)/Tests/libGHUnitIPhone4\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2786,7 +2784,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
-				SDKROOT = iphonesimulator4.0;
+				SDKROOT = iphonesimulator4.1;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2807,7 +2805,6 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Classes/AdMob\"",
 					"\"$(SRCROOT)/Tests/libGHUnitIPhone4\"",
 				);
 				OTHER_LDFLAGS = (
@@ -2818,7 +2815,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Tests;
-				SDKROOT = iphonesimulator4.0;
+				SDKROOT = iphonesimulator4.1;
 			};
 			name = Distribution;
 		};
