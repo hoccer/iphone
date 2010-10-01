@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <YAJLIOS/YAJLIOS.h>
 
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
@@ -73,9 +74,9 @@
 }
 
 - (void)viewDidLoad {
-	httpClient = [[HttpClient alloc] initWithURLString:@"http://hoccer.com"];
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
-	[httpClient getURI:@"/" success:@selector(httpConnection:didReceiveStatus:)];
+	[httpClient getURI:@"/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -122,15 +123,21 @@
 
 													
 														
-- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSDictionary *)dict {
-	NSLog(@"received dict");
-	UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Hoccer" message:@"lorem ipsum" delegate:@"self" cancelButtonTitle:@"cancel" otherButtonTitles:nil];
+- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {
+	NSDictionary *message = [data yajl_JSON];
+	UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
+												   message:[message objectForKey:@"message"]
+												  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Install", nil];
 	[view show];
+	[view release];
 	
 	[httpClient release]; httpClient = nil;
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
+	[[UIApplication sharedApplication] openURL:appStoreUrl];
 }														
-														
 														
 #pragma mark -
 #pragma mark View Manipulation

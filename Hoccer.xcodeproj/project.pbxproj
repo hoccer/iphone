@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		220B0A781255DB4200AE2AE3 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF4125395B7006E5680 /* HttpClient.m */; };
 		220B0A7D1255DB6700AE2AE3 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF6125395B7006E5680 /* HttpConnection.m */; };
+		220B0B25125601B600AE2AE3 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220B0B24125601B600AE2AE3 /* YAJLIOS.framework */; };
 		221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758B11A6929400246D89 /* history_ads_rowbg.png */; };
 		221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758C11A6929400246D89 /* history_empty_rowbg.png */; };
 		221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758D11A6929400246D89 /* history_firstempty_rowbg.png */; };
@@ -550,6 +551,7 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		220B0B24125601B600AE2AE3 /* YAJLIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLIOS.framework; path = lib/YAJLIOS.framework; sourceTree = "<group>"; };
 		221D758B11A6929400246D89 /* history_ads_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_ads_rowbg.png; sourceTree = "<group>"; };
 		221D758C11A6929400246D89 /* history_empty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_empty_rowbg.png; sourceTree = "<group>"; };
 		221D758D11A6929400246D89 /* history_firstempty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_firstempty_rowbg.png; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
 				22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */,
 				224EA1E711A3F02F003E02B5 /* StoreKit.framework in Frameworks */,
+				220B0B25125601B600AE2AE3 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1861,6 +1864,7 @@
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
 				22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */,
 				224EA1E611A3F02F003E02B5 /* StoreKit.framework */,
+				220B0B24125601B600AE2AE3 /* YAJLIOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2549,6 +2553,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/lib\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2558,6 +2567,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = Hoccer;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -2570,12 +2583,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/lib\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2592,7 +2614,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				OTHER_LDFLAGS = "";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A57D36F3-C7DA-4286-A8DC-FF4BE90857F7";
 				SDKROOT = iphoneos4.1;
@@ -2604,6 +2630,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/lib\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
@@ -2611,6 +2642,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 					"\"$(SRCROOT)/Classes/AdMob\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2788,7 +2823,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				OTHER_LDFLAGS = "";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.1;
@@ -2805,7 +2844,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				OTHER_LDFLAGS = "";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.1;

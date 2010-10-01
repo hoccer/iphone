@@ -47,7 +47,9 @@
 
 - (void) dealloc {
 	[historyData release];
-
+	[parentNavigationController release];
+	[historyCell release];
+	
 	[super dealloc];
 }
 

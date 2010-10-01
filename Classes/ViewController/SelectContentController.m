@@ -131,9 +131,9 @@
 		[buttons addObject: [Action actionWithAction:@selector(camera:) label: @"Camera" image:[UIImage imageNamed: @"select_btn_cam.png"]]];
 	}
 	
-	[buttons addObject: [Action actionWithAction:@selector(image:) label: @"Photo" image:[UIImage imageNamed: @"select_btn_photo.png"]]];
-	[buttons addObject: [Action actionWithAction:@selector(text:) label: @"Text" image:[UIImage imageNamed: @"select_btn_text.png"]]];
-	[buttons addObject: [Action actionWithAction:@selector(contact:) label: @"Cantact" image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+	[buttons addObject: [Action actionWithAction:@selector(image:) label: NSLocalizedString(@"Photo", nil) image:[UIImage imageNamed: @"select_btn_photo.png"]]];
+	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
+	[buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Cantact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
  
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
@@ -142,11 +142,9 @@
 		UIImageView *imageView = [[[UIImageView alloc] initWithImage: action.button] autorelease];
 		CGRect frame = imageView.frame;
 		frame.origin = CGPointMake(frame.origin.x, frame.origin.y + 25);
-		
 		imageView.frame = frame;
 		
 		[button addSubview: imageView];
-		
 		[button setTitle:action.label forState:UIControlStateNormal];
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
 	}
