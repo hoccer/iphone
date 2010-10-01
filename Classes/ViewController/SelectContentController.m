@@ -133,7 +133,7 @@
 	
 	[buttons addObject: [Action actionWithAction:@selector(image:) label: NSLocalizedString(@"Photo", nil) image:[UIImage imageNamed: @"select_btn_photo.png"]]];
 	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
-	[buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Cantact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+	[buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
  
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
