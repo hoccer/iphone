@@ -74,9 +74,9 @@
 }
 
 - (void)viewDidLoad {
-	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://beta.hoccer.com/"];
 	httpClient.target = self;
-	[httpClient getURI:@"/status.json" success:@selector(httpConnection:didReceiveStatus:)];
+	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -121,17 +121,23 @@
 
 - (void)showDesktop {}
 
-													
-														
 - (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {
-	NSDictionary *message = [data yajl_JSON];
-	UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
-												   message:[message objectForKey:@"message"]
-												  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Install", nil];
-	[view show];
-	[view release];
+	NSDictionary *message = nil;
+	@try {
+		message = [data yajl_JSON];		
+	}
+	@catch (NSException * e) {}
+
+	if ([[message objectForKey:@"status"] isEqualToString: @"update"]) {
+		
+		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
+													   message:[message objectForKey:@"message"]
+													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Update", nil];
+		[view show];
+		[view release];
 	
-	[httpClient release]; httpClient = nil;
+		[httpClient release]; httpClient = nil;
+	}
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -172,7 +178,6 @@
 	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
-		
 	[self setContentPreview: content];
 	[self dismissModalViewControllerAnimated:YES];
 }
