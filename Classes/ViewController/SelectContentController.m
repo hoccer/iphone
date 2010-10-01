@@ -141,7 +141,7 @@
 		
 		UIImageView *imageView = [[[UIImageView alloc] initWithImage: action.button] autorelease];
 		CGRect frame = imageView.frame;
-		frame.origin = CGPointMake(frame.origin.x, frame.origin.y + 25);
+		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2 + 13);
 		imageView.frame = frame;
 		
 		[button addSubview: imageView];
