@@ -105,10 +105,10 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)hideSpinner {
-	if ([[overlay subviews] count] > 2) {
+	if ([[overlay subviews] count] > 1) {
 		[[[overlay subviews] objectAtIndex:1] removeFromSuperview];
-		buttonContainer.hidden = NO;
 	}
+	buttonContainer.hidden = NO;
 }
 
 - (void)showSuccess {
@@ -125,7 +125,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)myTask {
-	sleep(2);
+	sleep(1);
 }
 
 
