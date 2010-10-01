@@ -11,6 +11,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		220B0A781255DB4200AE2AE3 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF4125395B7006E5680 /* HttpClient.m */; };
+		220B0A7D1255DB6700AE2AE3 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF6125395B7006E5680 /* HttpConnection.m */; };
 		221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758B11A6929400246D89 /* history_ads_rowbg.png */; };
 		221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758C11A6929400246D89 /* history_empty_rowbg.png */; };
 		221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758D11A6929400246D89 /* history_firstempty_rowbg.png */; };
@@ -2533,6 +2535,8 @@
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
 				229B92F31208738500120752 /* HCButton.m in Sources */,
 				ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */,
+				220B0A781255DB4200AE2AE3 /* HttpClient.m in Sources */,
+				220B0A7D1255DB6700AE2AE3 /* HttpConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
