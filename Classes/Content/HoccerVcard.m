@@ -40,7 +40,7 @@
 	return self;
 }
 
-- (ABRecordRef) person{
+- (ABRecordRef)person {
 	if (person == NULL) {
 		NSString *vcardString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding]; 
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
@@ -62,12 +62,12 @@
 	
 	ABAddressBookSave(addressBook, &error);
 	CFRelease(addressBook);
+	[self fireSaveSuccess];
 	
 	return YES;
 }
 
-- (UIView *)fullscreenView 
-{
+- (UIView *)fullscreenView {
 	unknownPersonController = [[ABUnknownPersonViewController alloc] init];
 	unknownPersonController.displayedPerson =self.person;
 	
@@ -109,6 +109,10 @@
 	ABPersonVCardCreator *personCreator = [[[ABPersonVCardCreator alloc] initWithPerson: self.person] autorelease];
 	
 	return [personCreator previewName];
+}
+
+- (UIImage *)imageForSaveButton {
+	return [UIImage imageNamed:@"container_btn_double-save.png"];
 }
 
 - (UIImage *)historyThumbButton {

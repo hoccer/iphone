@@ -134,9 +134,7 @@
 }
 
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
-	if ([target respondsToSelector:selector]) {
-		[target performSelector:selector withObject:context];
-	}
+	[self fireSaveSuccess];
 }
 
 - (UIImage *)imageForSaveButton {
@@ -145,15 +143,6 @@
 
 - (BOOL)needsWaiting {
 	return YES;
-}
-
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext {
-	target = aTarget;
-	selector  = aSelector;
-	
-	[aContext retain];
-	[context release];
-	context = aContext;
 }
 
 - (UIImage *)historyThumbButton {

@@ -11,15 +11,10 @@
 
 @interface HoccerImage : HoccerContent {
 	UIImage *image;	
-	
-	id target;
-	SEL selector;
-	id context;
 }
 
 @property (nonatomic, readonly) UIImage* image;
 
 - (id)initWithUIImage: (UIImage *)aImage;
-- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext;
 
 @end

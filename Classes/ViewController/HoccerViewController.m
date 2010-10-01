@@ -385,8 +385,8 @@
 }
 
 - (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; {
-	if ([item.content isKindOfClass:[HoccerImage class]]) {
-		[(HoccerImage* )item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
+	[item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
+	if ([item.content needsWaiting]) {
 		[item.contentView showSpinner];
 	}
 	

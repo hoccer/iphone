@@ -153,6 +153,21 @@
 	return [view autorelease];
 }
 
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext {
+	target = aTarget;
+	selector  = aSelector;
+	
+	[aContext retain];
+	[context release];
+	context = aContext;
+}
+
+- (void)fireSaveSuccess {
+	if ([target respondsToSelector:selector]) {
+		[target performSelector:selector withObject:context];
+	}
+}
+
 - (NSString *)mimeType{
 	//overwrite in subclasses: text, img, vcards	
 	return mimeType;

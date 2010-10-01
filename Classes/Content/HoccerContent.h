@@ -21,6 +21,9 @@
 	BOOL persist;
 	NSString *mimeType;
 	
+	id target;
+	SEL selector;
+	id context;
 	
 	id interactionController;
 }
@@ -60,6 +63,9 @@
 - (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (UIImage *)imageForSaveButton;
 - (UIImage *)historyThumbButton;
+
+- (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext;
+- (void)fireSaveSuccess;
 
 - (id)interactionController;
 
