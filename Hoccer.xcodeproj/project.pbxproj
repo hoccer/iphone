@@ -14,6 +14,7 @@
 		220B0A781255DB4200AE2AE3 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF4125395B7006E5680 /* HttpClient.m */; };
 		220B0A7D1255DB6700AE2AE3 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F83BF6125395B7006E5680 /* HttpConnection.m */; };
 		220B0B25125601B600AE2AE3 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220B0B24125601B600AE2AE3 /* YAJLIOS.framework */; };
+		220B0BB91256350400AE2AE3 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220B0B24125601B600AE2AE3 /* YAJLIOS.framework */; };
 		221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758B11A6929400246D89 /* history_ads_rowbg.png */; };
 		221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758C11A6929400246D89 /* history_empty_rowbg.png */; };
 		221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758D11A6929400246D89 /* history_firstempty_rowbg.png */; };
@@ -1001,6 +1002,7 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				22A172B21228159B0055975C /* libGHUnitIOSSimulator.a in Frameworks */,
+				220B0BB91256350400AE2AE3 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2726,7 +2728,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/lib\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2757,7 +2762,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
@@ -2791,6 +2799,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/OCMock 1.55\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
