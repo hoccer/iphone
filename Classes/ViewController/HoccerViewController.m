@@ -74,7 +74,7 @@
 }
 
 - (void)viewDidLoad {
-	httpClient = [[HttpClient alloc] initWithURLString:@"http://beta.hoccer.com/"];
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
