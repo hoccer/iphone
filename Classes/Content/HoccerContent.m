@@ -155,11 +155,11 @@
 	label.font = [UIFont boldSystemFontOfSize:50];
 	[view addSubview:label];
 
-	UILabel *filenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 160, view.frame.size.width - 60, 30)];
+	UILabel *filenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 175, view.frame.size.width - 60, 30)];
 	filenameLabel.backgroundColor = [UIColor clearColor];
 	filenameLabel.text = self.filename;
 	filenameLabel.textAlignment = UITextAlignmentCenter;
-	filenameLabel.textColor = [UIColor blackColor];
+	filenameLabel.textColor = [UIColor colorWithWhite:0.2 alpha:1];
 	filenameLabel.font = [UIFont systemFontOfSize:14];
 	filenameLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
 	[view addSubview:filenameLabel];
