@@ -3,15 +3,16 @@
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
 		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">788</string>
+		<string key="IBDocument.InterfaceBuilderVersion">804</string>
 		<string key="IBDocument.AppKitVersion">1038.29</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">117</string>
+			<string key="NS.object.0">123</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -37,7 +38,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="774585933">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -53,40 +54,11 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUITabBarItem" id="379352711">
-								<int key="IBUITag">1</int>
-								<string key="IBUITitle">Select Content</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">nav_bar_content_btn.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUITabBar" ref="986704132"/>
-							</object>
-							<object class="IBUITabBarItem" id="584568462">
-								<int key="IBUITag">2</int>
-								<string key="IBUITitle">History</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">nav_bar_history_btn.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUITabBar" ref="986704132"/>
-							</object>
-							<object class="IBUITabBarItem" id="195199696">
-								<int key="IBUITag">3</int>
-								<string key="IBUITitle">Settings</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">nav_bar_settings_btn.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUITabBar" ref="986704132"/>
-							</object>
 						</object>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
+				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -120,7 +92,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="424575191">
 						<object class="IBUIView" key="IBUIView" id="264601323">
-							<nil key="NSNextResponder"/>
+							<reference key="NSNextResponder"/>
 							<int key="NSvFlags">308</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
@@ -129,6 +101,7 @@
 									<int key="NSvFlags">-2147483356</int>
 									<string key="NSFrame">{{119, 48}, {83, 21}}</string>
 									<reference key="NSSuperview" ref="264601323"/>
+									<reference key="NSWindow"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
 									<int key="IBUIContentMode">7</int>
@@ -149,6 +122,7 @@
 									<int key="NSvFlags">292</int>
 									<string key="NSFrameSize">{320, 15}</string>
 									<reference key="NSSuperview" ref="264601323"/>
+									<reference key="NSWindow"/>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<object class="NSCustomResource" key="IBUIImage">
@@ -161,6 +135,7 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{0, 374}, {320, 13}}</string>
 									<reference key="NSSuperview" ref="264601323"/>
+									<reference key="NSWindow"/>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<object class="NSCustomResource" key="IBUIImage">
@@ -170,6 +145,8 @@
 								</object>
 							</object>
 							<string key="NSFrame">{{0, 24}, {320, 387}}</string>
+							<reference key="NSSuperview"/>
+							<reference key="NSWindow"/>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MC43NQA</bytes>
@@ -373,9 +350,6 @@
 						<reference key="object" ref="986704132"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="195199696"/>
-							<reference ref="379352711"/>
-							<reference ref="584568462"/>
 						</object>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -383,21 +357,6 @@
 						<int key="objectID">222</int>
 						<reference key="object" ref="284235471"/>
 						<reference key="parent" ref="264601323"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">212</int>
-						<reference key="object" ref="195199696"/>
-						<reference key="parent" ref="986704132"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">211</int>
-						<reference key="object" ref="379352711"/>
-						<reference key="parent" ref="986704132"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">227</int>
-						<reference key="object" ref="584568462"/>
-						<reference key="parent" ref="986704132"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">233</int>
@@ -421,8 +380,6 @@
 					<string>179.IBPluginDependency</string>
 					<string>210.CustomClassName</string>
 					<string>210.IBPluginDependency</string>
-					<string>211.IBPluginDependency</string>
-					<string>212.IBPluginDependency</string>
 					<string>216.IBEditorWindowLastContentRect</string>
 					<string>216.IBPluginDependency</string>
 					<string>217.IBPluginDependency</string>
@@ -430,7 +387,6 @@
 					<string>218.IBPluginDependency</string>
 					<string>221.IBPluginDependency</string>
 					<string>222.IBPluginDependency</string>
-					<string>227.IBPluginDependency</string>
 					<string>228.IBPluginDependency</string>
 					<string>229.IBPluginDependency</string>
 					<string>233.CustomClassName</string>
@@ -450,13 +406,10 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomTabBar</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{711, 317}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>CustomNavigationBar</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1055,6 +1008,13 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">YAJLIOS.framework/Headers/NSObject+YAJL.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">UIBarButtonItem</string>
 					<string key="superclassName">UIBarItem</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -1164,14 +1124,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">UITabBarItem</string>
-					<string key="superclassName">UIBarItem</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UITabBarItem.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">UITextView</string>
 					<string key="superclassName">UIScrollView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -1265,21 +1217,15 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>nav_bar_content_btn.png</string>
-				<string>nav_bar_history_btn.png</string>
-				<string>nav_bar_settings_btn.png</string>
 				<string>shadow_bottom.png</string>
 				<string>shadow_top.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{36, 36}</string>
-				<string>{36, 36}</string>
-				<string>{36, 36}</string>
 				<string>{320, 13}</string>
 				<string>{320, 15}</string>
 			</object>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">117</string>
+		<string key="IBCocoaTouchPluginVersion">123</string>
 	</data>
 </archive>

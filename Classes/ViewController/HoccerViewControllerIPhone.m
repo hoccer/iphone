@@ -323,7 +323,6 @@
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
 		
-		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 			[UIView setAnimationDidStopSelector:@selector(hideAnimationDidStop:finished:context:)];
@@ -424,7 +423,7 @@
 	[hoccabilityButton setImage:hoccabilityImage forState:UIControlStateNormal];
 								   
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
-	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
+	// navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
 	[hoccabilityBarButtonItem release];
 }
 
