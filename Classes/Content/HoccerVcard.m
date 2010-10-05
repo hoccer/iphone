@@ -62,7 +62,7 @@
 	
 	ABAddressBookSave(addressBook, &error);
 	CFRelease(addressBook);
-	[self fireSaveSuccess];
+	[self sendSaveSuccessEvent];
 	
 	return YES;
 }

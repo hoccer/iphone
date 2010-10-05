@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
+#import "MBProgressHUD.h"
 
 @interface ReceivedContentViewController : UIViewController {
 	id delegate;
@@ -16,7 +17,8 @@
 	IBOutlet UIToolbar *toolbar;
 	
 	HoccerContent* hoccerContent;
-	IBOutlet UIActivityIndicatorView *activity;
+	
+	MBProgressHUD *HUD;
 }
 
 @property (assign) id delegate;

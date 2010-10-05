@@ -28,7 +28,9 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidUnload {
+- (void)viewDidLoad {
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+	[self.view addSubview:HUD];
 }
 
 
@@ -36,19 +38,28 @@
 	[hoccerContent release];
 	[saveButton release];
 	[toolbar release];
-	[activity release];
-
+	[HUD release];
+	
 	[super dealloc];
 }
 
 - (IBAction)save: (id)sender	{
-	if ([hoccerContent needsWaiting] && [hoccerContent isKindOfClass: [HoccerImage class]]){
+	[hoccerContent whenReadyCallTarget:self selector:@selector(setReady) context: nil];
+	if ([hoccerContent needsWaiting]) {
 		[self setWaiting];
-		[(HoccerImage*) hoccerContent whenReadyCallTarget:self selector:@selector(hideReceivedContentView) context: nil];
-		[hoccerContent saveDataToContentStorage];
-	} else {
-		[self hideReceivedContentView];
-		[hoccerContent saveDataToContentStorage];
+	}
+	
+	if ([hoccerContent saveDataToContentStorage]) {
+		return;
+	}
+	
+	if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view.superview animated:YES]) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
+															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
+														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+		[alertView show];
+		[alertView release];
+		
 	}
 }
 
@@ -87,23 +98,32 @@
 
 - (void)touchesEnded: (NSSet *)touches withEvent: (UIEvent *)event {
 	for (UIView* view in self.view.subviews) {
-		
-		if ([view isKindOfClass:[UITextView class]])
+		if ([view isKindOfClass:[UITextView class]]) {
 			[view resignFirstResponder];
+		}
 	}
 }
 
 
 -  (void)setWaiting {
-	activity.hidden = NO;
-	[activity startAnimating];
+	HUD.mode = MBProgressHUDModeIndeterminate;
+	HUD.labelText = @"Saving";
 	
+	[HUD show:YES];
 	toolbar.hidden = YES;
 }
 
 - (void)setReady {
-	activity.hidden = YES;
+	HUD.mode = MBProgressHUDModeCustomView;
+	HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+	HUD.labelText = @"Saved";
+	[NSTimer scheduledTimerWithTimeInterval:1 target: self selector:@selector(hideHUD) userInfo:nil repeats:NO];
+	
 	toolbar.hidden = NO;
+}
+
+- (void)hideHUD {
+	[HUD hide:YES];
 }
 
 
