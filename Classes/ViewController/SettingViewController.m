@@ -97,15 +97,19 @@ enum HCSettingsType {
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 	
-	SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
-	openPreviewAction.defaultValue = @"openInPreview";
+	NSMutableArray *section1 = [NSMutableArray arrayWithCapacity:3];
+	if (NSClassFromString(@"UIDocumentInteractionController")) {
+		SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
+		openPreviewAction.defaultValue = @"openInPreview";		
+		[section1 addObject:openPreviewAction];
+	}
 	
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
 	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
 	
-	NSArray *section1 = [NSArray arrayWithObjects: openPreviewAction, playSoundAction, bookmarkletAction, nil];
+	[section1 addObjectsFromArray:[NSArray arrayWithObjects: playSoundAction, bookmarkletAction, nil]];
 	[sections addObject:section1];
 		
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];

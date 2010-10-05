@@ -424,7 +424,7 @@
 }
 
 #pragma mark -
-#pragma mark =nly for iOS 3.2 
+#pragma mark only for iOS 3.2++
 #pragma mark UIDocumentInteractionController
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
