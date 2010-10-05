@@ -134,7 +134,7 @@
 }
 
 -(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
-	[self fireSaveSuccess];
+	[self sendSaveSuccessEvent];
 }
 
 - (UIImage *)imageForSaveButton {

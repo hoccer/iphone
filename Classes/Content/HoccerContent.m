@@ -147,20 +147,25 @@
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
 	
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"content_placeholder.png"]];
-	[imageView setCenter: CGPointMake(view.frame.size.width/2, view.frame.size.height/2)];
-	
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, imageView.frame.size.width, 100)];
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 83, view.frame.size.width, 40)];
 	label.backgroundColor = [UIColor clearColor];
 	label.text = [[self.filename pathExtension] uppercaseString];
 	label.textAlignment = UITextAlignmentCenter;
-	label.textColor = [UIColor blueColor];
-	label.font = [UIFont boldSystemFontOfSize:18];
-	[imageView addSubview:label];
-	[view addSubview:imageView];
+	label.textColor = [UIColor colorWithWhite:0.7 alpha:1];
+	label.font = [UIFont boldSystemFontOfSize:50];
+	[view addSubview:label];
 
+	UILabel *filenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 160, view.frame.size.width - 60, 30)];
+	filenameLabel.backgroundColor = [UIColor clearColor];
+	filenameLabel.text = self.filename;
+	filenameLabel.textAlignment = UITextAlignmentCenter;
+	filenameLabel.textColor = [UIColor blackColor];
+	filenameLabel.font = [UIFont systemFontOfSize:14];
+	filenameLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
+	[view addSubview:filenameLabel];
+
+	
 	[backgroundImage release];
-	[imageView release];
 	[label release];
 	
 	return [view autorelease];
@@ -175,7 +180,7 @@
 	context = aContext;
 }
 
-- (void)fireSaveSuccess {
+- (void)sendSaveSuccessEvent {
 	if ([target respondsToSelector:selector]) {
 		[target performSelector:selector withObject:context];
 	}

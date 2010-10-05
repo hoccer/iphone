@@ -65,7 +65,7 @@
 - (UIImage *)historyThumbButton;
 
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext;
-- (void)fireSaveSuccess;
+- (void)sendSaveSuccessEvent;
 
 - (id)interactionController;
 
