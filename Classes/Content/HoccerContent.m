@@ -133,7 +133,7 @@
 }
 
 - (UIView *)fullscreenView {
-	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 00, 320, 323)];
+	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 0, 320, 323)];
 	webView.scalesPageToFit = YES;
 		
 	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL fileURLWithPath:self.filepath]]];	
@@ -146,9 +146,22 @@
 	
 	[view addSubview:backgroundImage];
 	[view sendSubviewToBack:backgroundImage];
-	[backgroundImage release];
 	
-	[view setImage: [[self.interactionController icons] lastObject]];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"content_placeholder.png"]];
+	[imageView setCenter: CGPointMake(view.frame.size.width/2, view.frame.size.height/2)];
+	
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, imageView.frame.size.width, 100)];
+	label.backgroundColor = [UIColor clearColor];
+	label.text = [[self.filename pathExtension] uppercaseString];
+	label.textAlignment = UITextAlignmentCenter;
+	label.textColor = [UIColor blueColor];
+	label.font = [UIFont boldSystemFontOfSize:18];
+	[imageView addSubview:label];
+	[view addSubview:imageView];
+
+	[backgroundImage release];
+	[imageView release];
+	[label release];
 	
 	return [view autorelease];
 }
