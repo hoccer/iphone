@@ -78,7 +78,7 @@ NSString *kBorder = @"ycKtoN8VURwvDC4sUzYC9Mo7l0IVUyDDVf";
 	
 	NSMutableData *bodyData = [NSMutableData data];
 	[bodyData appendData: [[NSString stringWithFormat: @"--%@\r\n", kBorder] dataUsingEncoding: NSUTF8StringEncoding]]; 
-	[bodyData appendData: [[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\"", name] dataUsingEncoding: NSUTF8StringEncoding]];
+	[bodyData appendData: [[NSString stringWithFormat: @"Content-Disposition: form-data; name=\"%@\";", name] dataUsingEncoding: NSUTF8StringEncoding]];
 	[bodyData appendData: [[NSString stringWithFormat: @" filename=\"%@\"\r\n", filename] dataUsingEncoding: NSUTF8StringEncoding]];
 	[bodyData appendData: [[NSString stringWithFormat: @"Content-Type: %@\r\n", type] dataUsingEncoding: NSUTF8StringEncoding]];
 	[bodyData appendData: [[NSString stringWithFormat: @"Content-Transfer-Encoding: binary\r\n\r\n"] dataUsingEncoding: NSUTF8StringEncoding]];

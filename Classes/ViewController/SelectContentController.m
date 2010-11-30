@@ -8,7 +8,7 @@
 
 #import "SelectContentController.h"
 #import "NSObject+DelegateHelper.h"
-#import "HCButton.h"^
+#import "HCButton.h"
 
 @interface Action : NSObject {
 	SEL action;
