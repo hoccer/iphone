@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "hoccerControllerDataDelegate.h"
-#import "HoccerConnectionDelegate.h"
+#import "Hoccer.h"
 
-@class HoccerConnection;
 @class HoccerContent;
 @class ContentContainerView;
 @class HocLocation;
-@class HoccerClient;
 
-@interface HoccerController : NSObject <NSCoding, HoccerConnectionDelegate> {
-	HoccerConnection *request;
+@interface HoccerController : NSObject <NSCoding, HCLinccerDelegate> {
 	ContentContainerView *contentView;
 	HoccerContent *content;
 	
@@ -29,7 +26,7 @@
 	NSString *gesture;
 	BOOL isUpload;
 	
-	HoccerClient *hoccerClient;
+	HCLinccer *linccer;
 	id <HoccerControllerDelegate> delegate;
 	
 	UIView *viewFromNib;

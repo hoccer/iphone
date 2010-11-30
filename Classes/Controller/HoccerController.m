@@ -7,12 +7,6 @@
 //
 
 #import "HoccerController.h"
-#import "HoccerConnection.h"
-#import "HoccerClient.h"
-#import "HoccerRequest.h"
-#import "BaseHoccerRequest.h"
-#import "HoccerUploadConnection.h"
-#import "HoccerDownloadConnection.h"
 #import "HoccerContent.h"
 #import "HoccerContentFactory.h"
 #import "StatusViewController.h"
@@ -27,7 +21,6 @@
 
 
 @interface HoccerController ()
-@property (retain) HoccerConnection *request;
 
 - (NSString *)transferTypeFromGestureName: (NSString *)name;
 - (NSArray *)actionButtons;
@@ -39,7 +32,6 @@
 
 @implementation HoccerController
 
-@synthesize request;
 @synthesize content;
 @synthesize contentView;
 @synthesize viewOrigin;
@@ -79,15 +71,13 @@
 }
 
 - (void) dealloc {
-	self.request = nil;
-	
 	[content release];
 	[contentView release];
 	[gesture release];
 	[statusMessage release];
 	[status release];
 	[progress release];
-	[hoccerClient release];
+	[linccer release];
 	
 	[super dealloc];
 }
@@ -106,26 +96,23 @@
 }
 
 - (void)cancelRequest {
-	if (self.request == nil) {
-		return;
-	}
-	
-	[request cancel];
-	self.request = nil;
-	
-	if (isUpload) {
-		if ([delegate respondsToSelector:@selector(hoccerControllerUploadWasCanceled:)]) {
-			[delegate hoccerControllerUploadWasCanceled:self];
-		}
-	} else {
-		if ([delegate respondsToSelector:@selector(hoccerControllerDownloadWasCanceled:)]) {
-			[delegate hoccerControllerDownloadWasCanceled:self];
-		}
-	}
+//	[request cancel];
+//	self.request = nil;
+//	
+//	if (isUpload) {
+//		if ([delegate respondsToSelector:@selector(hoccerControllerUploadWasCanceled:)]) {
+//			[delegate hoccerControllerUploadWasCanceled:self];
+//		}
+//	} else {
+//		if ([delegate respondsToSelector:@selector(hoccerControllerDownloadWasCanceled:)]) {
+//			[delegate hoccerControllerDownloadWasCanceled:self];
+//		}
+//	}
 }
 
 - (BOOL)hasActiveRequest {
-	return self.request != nil;
+//	return self.request != nil;
+	return NO;
 }
 
 - (ContentContainerView *)contentView {
@@ -153,7 +140,10 @@
 	}
 	
 	[content prepareSharing];
-	self.request = [hoccerClient connectionWithRequest:[HoccerRequest sweepOutWithContent:self.content location:location]];
+	
+	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
+	[linccer send:data withMode:HCTransferModeOneToOne];
+	
 	isUpload = YES;
 }
 
@@ -163,7 +153,9 @@
 	}
 	
 	[content prepareSharing];
-	self.request = [hoccerClient connectionWithRequest:[HoccerRequest throwWithContent:self.content location:location]];
+	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
+	[linccer send:data withMode:HCTransferModeOneToMany];
+	
 	isUpload = YES;
 }
 
@@ -171,8 +163,8 @@
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
 		[delegate hoccerControllerWillStartDownload:self];
 	}
-	
-	self.request = [hoccerClient connectionWithRequest:[HoccerRequest catchWithLocation: location]];
+		
+	[linccer receiveWithMode:HCTransferModeOneToMany];
 	isUpload = NO;
 }
 
@@ -181,54 +173,59 @@
 		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
-	self.request = [hoccerClient connectionWithRequest:[HoccerRequest sweepInWithLocation: location]];
+	[linccer receiveWithMode:HCTransferModeOneToOne];
 	isUpload = NO;
 }
 
 #pragma mark -
 #pragma mark HoccerConnection Delegate
 
-- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
-	self.status = theStatus;
-	self.statusMessage = [theStatus objectForKey:@"message"];
+//- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
+//	self.status = theStatus;
+//	self.statusMessage = [theStatus objectForKey:@"message"];
+//}
+
+//- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
+//	self.statusMessage = [error localizedDescription];
+//	
+//	if (isUpload) {
+//		if ([delegate respondsToSelector:@selector(hoccerController:uploadFailedWithError:)]) {
+//			[delegate hoccerController:self uploadFailedWithError: error];
+//		}
+//	} else {
+//		if ([delegate respondsToSelector:@selector(hoccerController:downloadFailedWithError:)]) {
+//			[delegate hoccerController:self downloadFailedWithError:error];
+//		}
+//	}
+//}
+//
+//- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
+//	if (isUpload) {
+//		if ([delegate respondsToSelector:@selector(hoccerControllerWasSent:)]) {
+//			[delegate hoccerControllerWasSent: self];
+//		}
+//	} else {
+//		if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
+//			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
+//																											   withData: hoccerConnection.responseBody];
+//			self.request = nil;
+//			self.content = hoccerContent;
+//			self.content.persist = YES;
+//			
+//			[delegate hoccerControllerWasReceived:self];
+//		}
+//	}
+//}
+//
+//- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
+//	self.progress = theProgress;
+//}
+- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
+	NSLog(@"error %@", error);
 }
 
-- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
-	self.statusMessage = [error localizedDescription];
-	self.request = nil;
-	
-	if (isUpload) {
-		if ([delegate respondsToSelector:@selector(hoccerController:uploadFailedWithError:)]) {
-			[delegate hoccerController:self uploadFailedWithError: error];
-		}
-	} else {
-		if ([delegate respondsToSelector:@selector(hoccerController:downloadFailedWithError:)]) {
-			[delegate hoccerController:self downloadFailedWithError:error];
-		}
-	}
-}
-
-- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
-	if (isUpload) {
-		self.request = nil;
-		if ([delegate respondsToSelector:@selector(hoccerControllerWasSent:)]) {
-			[delegate hoccerControllerWasSent: self];
-		}
-	} else {
-		if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
-			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
-																											   withData: hoccerConnection.responseBody];
-			self.request = nil;
-			self.content = hoccerContent;
-			self.content.persist = YES;
-			
-			[delegate hoccerControllerWasReceived:self];
-		}
-	}
-}
-
-- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
-	self.progress = theProgress;
+- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
+	NSLog(@"data", data);
 }
 
 
@@ -280,9 +277,8 @@
 }
 
 - (void)setUpHoccerClient {
-	hoccerClient = [[HoccerClient alloc] init];
-	hoccerClient.userAgent = @"Hoccer/iPhone";
-	hoccerClient.delegate = self;
+	linccer = [[HCLinccer alloc] initWithApiKey:@"" secret:@""];
+	linccer.delegate = self;
 }
 
 #pragma mark -
