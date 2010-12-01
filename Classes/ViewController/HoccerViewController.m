@@ -288,6 +288,10 @@
 	
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
+	
+	
+	
+	
 	[item sweepInWithLinccer: linccer];
 }
 

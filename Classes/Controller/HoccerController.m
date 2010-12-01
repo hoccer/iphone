@@ -23,7 +23,6 @@
 @interface HoccerController ()
 
 - (NSArray *)actionButtons;
-- (void)setUpHoccerClient;
 
 @end
 
@@ -221,8 +220,8 @@
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
-		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: @"text/plain" 
-																										   withData: ];
+		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
+																										   withData: nil];
 		self.content = hoccerContent;
 		self.content.persist = YES;
 		
