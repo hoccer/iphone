@@ -48,6 +48,8 @@
 
 #import "StatusBarStates.h"
 
+#import "Hoccer.h"
+
 @implementation HoccerViewController
 
 @synthesize delegate; 
@@ -77,6 +79,8 @@
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
+	
+	linccer = [[HCLinccer alloc] initWithApiKey:@"123456789" secret:@"Hallo"];
 	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -237,7 +241,7 @@
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
-	[item catchWithLocation:locationController.location];
+	[item catchWithLinccer: linccer];
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
@@ -249,8 +253,7 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
-	[[desktopData hoccerControllerDataAtIndex:0] throwWithLocation:locationController.location];
-
+	[[desktopData hoccerControllerDataAtIndex:0] throwWithLinccer: linccer];
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	
@@ -285,7 +288,7 @@
 	
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
-	[item sweepInWithLocation: locationController.location];
+	[item sweepInWithLinccer: linccer];
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
@@ -299,7 +302,7 @@
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	statusViewController.hoccerController = item;
 
-	[item sweepOutWithLocation:locationController.location];
+	[item sweepOutWithLinccer: linccer];
 	
 }
 

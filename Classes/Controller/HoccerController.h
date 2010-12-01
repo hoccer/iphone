@@ -26,7 +26,6 @@
 	NSString *gesture;
 	BOOL isUpload;
 	
-	HCLinccer *linccer;
 	id <HoccerControllerDelegate> delegate;
 	
 	UIView *viewFromNib;
@@ -48,11 +47,11 @@
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;
 
-- (void)sweepOutWithLocation: (HocLocation *)location;
-- (void)throwWithLocation: (HocLocation *)location;
+- (void)sweepOutWithLinccer: (HCLinccer *)location;
+- (void)throwWithLinccer: (HCLinccer *)location;
 
-- (void)catchWithLocation: (HocLocation *)location;
-- (void)sweepInWithLocation:(HocLocation *)location;
+- (void)catchWithLinccer: (HCLinccer *)location;
+- (void)sweepInWithLinccer:(HCLinccer *)location;
 
 - (void)removeFromFileSystem;
 

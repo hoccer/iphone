@@ -47,7 +47,6 @@
 	}
 	
 	return [hoccerContent autorelease];
-	
 } 
 
 - (BOOL) isSupportedType: (NSString *)mimeType {

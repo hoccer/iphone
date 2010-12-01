@@ -36,6 +36,8 @@
 @class SettingViewController;
 @class ConnectionStatusViewController;
 
+@class HCLinccer;
+
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
 			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> 
@@ -50,7 +52,7 @@
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
 	LocationController *locationController;
-							
+	
 	ConnectionStatusViewController *statusViewController;
 	StatusViewController *infoViewController;
 
@@ -60,7 +62,8 @@
 	CGPoint defaultOrigin;
 
 	UILabel *hoccability;
-							
+	HCLinccer *linccer;
+								
 	BOOL blocked;
 }
 

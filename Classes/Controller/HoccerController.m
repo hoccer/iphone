@@ -22,9 +22,7 @@
 
 @interface HoccerController ()
 
-- (NSString *)transferTypeFromGestureName: (NSString *)name;
 - (NSArray *)actionButtons;
-
 - (void)setUpHoccerClient;
 
 @end
@@ -46,13 +44,6 @@
 
 @synthesize viewFromNib;
 
-- (id) init {
-	self = [super init];
-	if (self != nil) {
-		[self setUpHoccerClient];
-	}
-	return self;
-}
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -77,7 +68,6 @@
 	[statusMessage release];
 	[status release];
 	[progress release];
-	[linccer release];
 	
 	[super dealloc];
 }
@@ -134,7 +124,7 @@
 	return contentView;
 }
 
-- (void)sweepOutWithLocation: (HocLocation *)location {
+- (void)sweepOutWithLinccer: (HCLinccer *)linccer {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
 		[delegate hoccerControllerWillStartUpload:self];
 	}
@@ -142,37 +132,41 @@
 	[content prepareSharing];
 	
 	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
+	linccer.delegate = self;
 	[linccer send:data withMode:HCTransferModeOneToOne];
 	
 	isUpload = YES;
 }
 
-- (void)throwWithLocation: (HocLocation *)location {
+- (void)throwWithLinccer: (HCLinccer *)linccer {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
 		[delegate hoccerControllerWillStartUpload:self];
 	}
 	
 	[content prepareSharing];
 	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
+	linccer.delegate = self;
 	[linccer send:data withMode:HCTransferModeOneToMany];
 	
 	isUpload = YES;
 }
 
-- (void)catchWithLocation: (HocLocation *)location {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
-		[delegate hoccerControllerWillStartDownload:self];
-	}
-		
-	[linccer receiveWithMode:HCTransferModeOneToMany];
-	isUpload = NO;
-}
-
-- (void)sweepInWithLocation:(HocLocation *)location {
+- (void)catchWithLinccer: (HCLinccer *)linccer {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
 		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
+	linccer.delegate = self;
+	[linccer receiveWithMode:HCTransferModeOneToMany];
+	isUpload = NO;
+}
+
+- (void)sweepInWithLinccer:(HCLinccer *)linccer {
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
+		[delegate hoccerControllerWillStartDownload:self];
+	}
+	
+	linccer.delegate = self;
 	[linccer receiveWithMode:HCTransferModeOneToOne];
 	isUpload = NO;
 }
@@ -220,28 +214,25 @@
 //- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
 //	self.progress = theProgress;
 //}
+
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
-	NSLog(@"data", data);
+	if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
+		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: @"text/plain" 
+																										   withData: ];
+		self.content = hoccerContent;
+		self.content.persist = YES;
+		
+		[delegate hoccerControllerWasReceived:self];
+	}
 }
 
 
 #pragma mark -
 #pragma mark Private Methods
-- (NSString *)transferTypeFromGestureName: (NSString *)name {
-	if ([name isEqual:@"throw"] || [name isEqual:@"catch"]) {
-		return @"distribute";
-	}
-	
-	if ([name isEqual:@"sweepIn"] || [name isEqual:@"sweepOut"]) {
-		return @"pass";
-	}
-	
-	@throw [NSException exceptionWithName:@"UnknownGestureType" reason:@"The gesture to transfer is unknown"  userInfo:nil];
-}
 
 - (NSArray *)actionButtons {
 	if (content.isFromContentSource) {
@@ -274,11 +265,6 @@
 		
 		return buttons;
 	}
-}
-
-- (void)setUpHoccerClient {
-	linccer = [[HCLinccer alloc] initWithApiKey:@"" secret:@""];
-	linccer.delegate = self;
 }
 
 #pragma mark -
