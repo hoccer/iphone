@@ -354,13 +354,6 @@
 	}
 }
 
-- (void)hoccerController: (HoccerController*) item uploadFailedWithError: (NSError *)error {
-	[statusViewController setError:error];
-
-	item.viewOrigin = self.defaultOrigin;
-	[desktopView reloadData];
-}
-
 - (void)hoccerControllerUploadWasCanceled: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	item.viewOrigin = self.defaultOrigin;
@@ -371,13 +364,6 @@
 - (void)hoccerControllerDownloadWasCanceled: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
 	
-	[desktopData removeHoccerController:item];
-	[desktopView reloadData];
-}
-
-- (void)hoccerController: (HoccerController *)item downloadFailedWithError: (NSError *)error  {
-	statusViewController.hoccerController = nil;
-	[statusViewController setError:error];
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
@@ -423,9 +409,20 @@
 	NSLog(@"ready for sharing");
 }
 
-
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
+
+	statusViewController.hoccerController = nil;
+	[statusViewController setError:error];
+	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	
+	if (item.isUpload) {
+		item.viewOrigin = self.defaultOrigin;
+	} else {
+		[desktopData removeHoccerController:item];	
+	}
+	
+	[desktopView reloadData];
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
