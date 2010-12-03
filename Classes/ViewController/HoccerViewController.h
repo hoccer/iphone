@@ -15,7 +15,6 @@
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerControllerDataDelegate.h"
 #import "DesktopViewDelegate.h"
-#import "LocationControllerDelegate.h"
 
 #import "HttpClient.h"
 #import "Hoccer.h"

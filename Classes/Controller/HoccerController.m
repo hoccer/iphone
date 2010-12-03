@@ -14,7 +14,6 @@
 #import "Preview.h"
 #import "HoccerImage.h"
 
-#import "HocLocation.h"
 #import "HCButton.h"
 
 #define hoccerMessageErrorDomain @"HoccerErrorDomain"

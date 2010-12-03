@@ -35,7 +35,6 @@
 #import "DesktopDataSource.h"
 #import "FeedbackProvider.h"
 #import "GesturesInterpreter.h"
-#import "LocationController.h"
 
 #import "HoccerController.h"
 #import "StatusViewController.h"
@@ -419,6 +418,12 @@
 
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
+
+- (void) linccerDidRegister:(HCLinccer *)linccer {
+	NSLog(@"ready for sharing");
+}
+
+
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
 }
@@ -436,6 +441,9 @@
 	}
 }
 
+- (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
+	NSLog(@"did send");
+}
 
 #pragma mark -
 #pragma mark only for iOS 3.2++

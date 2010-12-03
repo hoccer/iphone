@@ -29,10 +29,6 @@
 		22638B3511B51B020024AA7E /* MockedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B2311B51B020024AA7E /* MockedParserDelegate.m */; };
 		22638B3611B51B020024AA7E /* VcardParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B2511B51B020024AA7E /* VcardParserTests.m */; };
 		22638B3711B51B020024AA7E /* VcardWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B2711B51B020024AA7E /* VcardWriterTests.m */; };
-		22638B8311B51CF90024AA7E /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B7F11B51CF90024AA7E /* HocLocation.m */; };
-		22638B8511B51CF90024AA7E /* HocLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B7F11B51CF90024AA7E /* HocLocation.m */; };
-		22638B8B11B51D170024AA7E /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B8911B51D170024AA7E /* LocationController.m */; };
-		22638B8C11B51D170024AA7E /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B8911B51D170024AA7E /* LocationController.m */; };
 		22638B9611B51D2E0024AA7E /* GTMUIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B8F11B51D2E0024AA7E /* GTMUIImage+Resize.m */; };
 		22638B9711B51D2E0024AA7E /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B9111B51D2E0024AA7E /* NSObject+DelegateHelper.m */; };
 		22638B9811B51D2E0024AA7E /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638B9311B51D2E0024AA7E /* NSString+Regexp.m */; };
@@ -576,11 +572,6 @@
 		22638B2511B51B020024AA7E /* VcardParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardParserTests.m; sourceTree = "<group>"; };
 		22638B2611B51B020024AA7E /* VcardWriterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardWriterTests.h; sourceTree = "<group>"; };
 		22638B2711B51B020024AA7E /* VcardWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardWriterTests.m; sourceTree = "<group>"; };
-		22638B7E11B51CF90024AA7E /* HocLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HocLocation.h; sourceTree = "<group>"; };
-		22638B7F11B51CF90024AA7E /* HocLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HocLocation.m; sourceTree = "<group>"; };
-		22638B8811B51D170024AA7E /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
-		22638B8911B51D170024AA7E /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
-		22638B8A11B51D170024AA7E /* LocationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 		22638B8E11B51D2E0024AA7E /* GTMUIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMUIImage+Resize.h"; sourceTree = "<group>"; };
 		22638B8F11B51D2E0024AA7E /* GTMUIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMUIImage+Resize.m"; sourceTree = "<group>"; };
 		22638B9011B51D2E0024AA7E /* NSObject+DelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DelegateHelper.h"; sourceTree = "<group>"; };
@@ -1001,8 +992,6 @@
 				22638BD211B51DF00024AA7E /* Debug */,
 				22638B9E11B51DC50024AA7E /* View */,
 				22638B8D11B51D2E0024AA7E /* Helper */,
-				22638B8711B51D170024AA7E /* LocationController */,
-				22638B7D11B51CF90024AA7E /* Wifi */,
 				22762FA9105E7E27003BF968 /* GesturesInterpreter */,
 				227A94D310971302008CE547 /* Help */,
 				229DAF1C107B377C00B47ABE /* AddressBook */,
@@ -1099,25 +1088,6 @@
 			);
 			name = Vcard;
 			path = Tests/Vcard;
-			sourceTree = "<group>";
-		};
-		22638B7D11B51CF90024AA7E /* Wifi */ = {
-			isa = PBXGroup;
-			children = (
-				22638B7E11B51CF90024AA7E /* HocLocation.h */,
-				22638B7F11B51CF90024AA7E /* HocLocation.m */,
-			);
-			path = Wifi;
-			sourceTree = "<group>";
-		};
-		22638B8711B51D170024AA7E /* LocationController */ = {
-			isa = PBXGroup;
-			children = (
-				22638B8811B51D170024AA7E /* LocationController.h */,
-				22638B8911B51D170024AA7E /* LocationController.m */,
-				22638B8A11B51D170024AA7E /* LocationControllerDelegate.h */,
-			);
-			path = LocationController;
 			sourceTree = "<group>";
 		};
 		22638B8D11B51D2E0024AA7E /* Helper */ = {
@@ -2355,8 +2325,6 @@
 				22B65A5311770975003E7058 /* FeatureHistory.m in Sources */,
 				22B65A5411770975003E7058 /* CatchDetector.m in Sources */,
 				22B65A5511770975003E7058 /* ThrowDetector.m in Sources */,
-				22638B8511B51CF90024AA7E /* HocLocation.m in Sources */,
-				22638B8C11B51D170024AA7E /* LocationController.m in Sources */,
 				22638B9A11B51D2E0024AA7E /* GTMUIImage+Resize.m in Sources */,
 				22638B9B11B51D2E0024AA7E /* NSObject+DelegateHelper.m in Sources */,
 				22638B9C11B51D2E0024AA7E /* NSString+Regexp.m in Sources */,
@@ -2477,8 +2445,6 @@
 				22638B3511B51B020024AA7E /* MockedParserDelegate.m in Sources */,
 				22638B3611B51B020024AA7E /* VcardParserTests.m in Sources */,
 				22638B3711B51B020024AA7E /* VcardWriterTests.m in Sources */,
-				22638B8311B51CF90024AA7E /* HocLocation.m in Sources */,
-				22638B8B11B51D170024AA7E /* LocationController.m in Sources */,
 				22638B9611B51D2E0024AA7E /* GTMUIImage+Resize.m in Sources */,
 				22638B9711B51D2E0024AA7E /* NSObject+DelegateHelper.m in Sources */,
 				22638B9811B51D2E0024AA7E /* NSString+Regexp.m in Sources */,

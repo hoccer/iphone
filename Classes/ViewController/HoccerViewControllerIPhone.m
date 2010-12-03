@@ -19,7 +19,6 @@
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
-#import "LocationController.h"
 
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
