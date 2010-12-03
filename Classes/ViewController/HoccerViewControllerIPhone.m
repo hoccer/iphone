@@ -98,7 +98,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	[self setHoccabilityButton: locationController.hoccability];
+//	[self setHoccabilityButton: locationController.hoccability];
 	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
@@ -149,7 +149,7 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-	[self setHoccabilityButton:locationController.hoccability];
+//	[self setHoccabilityButton:locationController.hoccability];
 
 }
 
@@ -315,7 +315,7 @@
 	[self.delayedAction perform];
 	self.delayedAction = nil;
 	
-	[self setHoccabilityButton: locationController.hoccability];
+//	[self setHoccabilityButton: locationController.hoccability];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -387,14 +387,6 @@
 	[self hidePopOverAnimated:YES];
 }
 
-#pragma mark -
-#pragma mark Location Controller Delegate Methods
-- (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	[super locationControllerDidUpdateLocation:controller];
-	[self setHoccabilityButton:controller.hoccability];
-}
-
-
 
 #pragma mark -
 #pragma mark Private Methods
@@ -432,7 +424,7 @@
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
 	} else {
-		[infoViewController setLocationHint: [locationController messageForLocationInformation]];
+//		[infoViewController setLocationHint: [locationController messageForLocationInformation]];
 	}
 }
 

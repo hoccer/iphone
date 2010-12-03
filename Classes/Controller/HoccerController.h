@@ -47,11 +47,11 @@
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;
 
-- (void)sweepOutWithLinccer: (HCLinccer *)location;
-- (void)throwWithLinccer: (HCLinccer *)location;
+- (void)sweepOut;
+- (void)throwIt;
 
-- (void)catchWithLinccer: (HCLinccer *)location;
-- (void)sweepInWithLinccer:(HCLinccer *)location;
+- (void)catchIt;
+- (void)sweepIn;
 
 - (void)removeFromFileSystem;
 

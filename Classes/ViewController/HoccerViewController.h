@@ -18,6 +18,7 @@
 #import "LocationControllerDelegate.h"
 
 #import "HttpClient.h"
+#import "Hoccer.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -40,7 +41,7 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> 
+			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, HCLinccerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -51,7 +52,6 @@
 
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
-	LocationController *locationController;
 	
 	ConnectionStatusViewController *statusViewController;
 	StatusViewController *infoViewController;
@@ -70,7 +70,6 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
-@property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;

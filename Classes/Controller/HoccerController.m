@@ -123,50 +123,38 @@
 	return contentView;
 }
 
-- (void)sweepOutWithLinccer: (HCLinccer *)linccer {
+- (void)sweepOut {
+	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
+		[delegate hoccerControllerWillStartUpload:self];
+	}
+	
+	[content prepareSharing];
+	isUpload = YES;
+}
+
+- (void)throwIt {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
 		[delegate hoccerControllerWillStartUpload:self];
 	}
 	
 	[content prepareSharing];
 	
-	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
-	linccer.delegate = self;
-	[linccer send:data withMode:HCTransferModeOneToOne];
-	
 	isUpload = YES;
 }
 
-- (void)throwWithLinccer: (HCLinccer *)linccer {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
-		[delegate hoccerControllerWillStartUpload:self];
-	}
-	
-	[content prepareSharing];
-	NSDictionary *data = [NSDictionary dictionaryWithObject:@"Hello" forKey:@"message"];
-	linccer.delegate = self;
-	[linccer send:data withMode:HCTransferModeOneToMany];
-	
-	isUpload = YES;
-}
-
-- (void)catchWithLinccer: (HCLinccer *)linccer {
+- (void)catchIt {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
 		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
-	linccer.delegate = self;
-	[linccer receiveWithMode:HCTransferModeOneToMany];
 	isUpload = NO;
 }
 
-- (void)sweepInWithLinccer:(HCLinccer *)linccer {
+- (void)sweepIn {
 	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
 		[delegate hoccerControllerWillStartDownload:self];
 	}
 	
-	linccer.delegate = self;
-	[linccer receiveWithMode:HCTransferModeOneToOne];
 	isUpload = NO;
 }
 
@@ -213,22 +201,6 @@
 //- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
 //	self.progress = theProgress;
 //}
-
-- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
-	NSLog(@"error %@", error);
-}
-
-- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
-		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
-																										   withData: nil];
-		self.content = hoccerContent;
-		self.content.persist = YES;
-		
-		[delegate hoccerControllerWasReceived:self];
-	}
-}
-
 
 #pragma mark -
 #pragma mark Private Methods

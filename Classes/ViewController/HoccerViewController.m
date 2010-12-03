@@ -54,7 +54,6 @@
 
 @synthesize delegate; 
 @synthesize helpViewController;
-@synthesize locationController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
 @synthesize infoViewController;
@@ -81,6 +80,7 @@
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
 	linccer = [[HCLinccer alloc] initWithApiKey:@"123456789" secret:@"Hallo"];
+	linccer.delegate = self;
 	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -90,8 +90,6 @@
 		
 	desktopView.shouldSnapToCenterOnTouchUp = YES;
 	desktopView.dataSource = desktopData;
-
-	hoccability.text = [[NSNumber numberWithInteger:locationController.hoccability] stringValue];
 	
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
@@ -103,7 +101,6 @@
 - (void)dealloc {
 	[desktopView release];	
 	[desktopData release];
-	[locationController release];
 	[gestureInterpreter release];
 	[helpViewController release];
 	[statusViewController release];
@@ -241,7 +238,8 @@
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
 	
-	[item catchWithLinccer: linccer];
+	[item catchIt];
+	[linccer receiveWithMode:HCTransferModeOneToMany];
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
@@ -253,7 +251,10 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
-	[[desktopData hoccerControllerDataAtIndex:0] throwWithLinccer: linccer];
+	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	[item throwIt];
+	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToMany];
+	
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	
@@ -289,7 +290,9 @@
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	
-	[item sweepInWithLinccer: linccer];
+	[item sweepIn];
+	
+	[linccer receiveWithMode:HCTransferModeOneToOne];
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
@@ -304,8 +307,8 @@
 	
 	statusViewController.hoccerController = item;
 
-	[item sweepOutWithLinccer: linccer];
-	
+	[item sweepOut];
+	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToOne];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -414,19 +417,25 @@
 	[item.contentView showSuccess];
 }
 
-
 #pragma mark -
-#pragma mark LocationController Delegate Methods
-
-- (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	if (controller.hoccability == 0) {
-		blocked = YES;
-	} else {
-		blocked = NO;
-	}
-
-	hoccability.text = [[NSNumber numberWithInteger:controller.hoccability] stringValue];
+#pragma mark HCLinccerDelegate Methods
+- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
+	NSLog(@"error %@", error);
 }
+
+- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
+	NSLog(@"did receive: %@", data);
+	
+	if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
+//		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
+//																										   withData: nil];
+//		self.content = hoccerContent;
+//		self.content.persist = YES;
+		
+//		[self hoccerControllerWasReceived:self];
+	}
+}
+
 
 #pragma mark -
 #pragma mark only for iOS 3.2++
