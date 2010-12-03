@@ -21,6 +21,7 @@
 
 - (id)initWithPerson: (ABRecordRef)record;
 - (NSData *)vcard;
+- (NSString *)vcardString;
 
 - (NSString *)nameString;
 - (NSString *)organization;

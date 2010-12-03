@@ -32,6 +32,7 @@
 		
 		abPersonVCardCreator = [[ABPersonVCardCreator alloc] initWithPerson:person];		
 		self.data = [abPersonVCardCreator vcard];
+		vcardString = [abPersonVCardCreator vcardString];
 
 		[self saveDataToDocumentDirectory];
 		isFromContentSource = YES;
@@ -42,7 +43,6 @@
 
 - (ABRecordRef)person {
 	if (person == NULL) {
-		NSString *vcardString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding]; 
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
 		
 		person = creator.person;
@@ -101,6 +101,7 @@
 	if (person != NULL) CFRelease(person);
 	[abPersonVCardCreator release];
 	[unknownPersonController release];
+	[vcardString release];
 	
 	[super dealloc];
 }
@@ -119,5 +120,12 @@
 	return [UIImage imageNamed:@"history_icon_contact.png"];
 }
 
+- (NSDictionary *) dataDesctiption {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:@"text/v-card" forKey:@"type"];
+	[dictionary setObject:vcardString forKey:@"content"];
+	
+	return dictionary;
+}
 
 @end

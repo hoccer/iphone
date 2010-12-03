@@ -289,9 +289,6 @@
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	
-	
-	
-	
 	[item sweepInWithLinccer: linccer];
 }
 
@@ -304,6 +301,7 @@
 	
 	[FeedbackProvider playSweepOut];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
+	
 	statusViewController.hoccerController = item;
 
 	[item sweepOutWithLinccer: linccer];

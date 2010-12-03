@@ -21,6 +21,7 @@
 	ABUnknownPersonViewController *unknownPersonController;
 	
 	ContactPreview *view;
+	NSString *vcardString;
 }
 
 @property (retain) IBOutlet ContactPreview *view;

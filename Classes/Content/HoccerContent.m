@@ -238,10 +238,9 @@
 	return [UIImage imageNamed:@"history_icon_image.png"];
 }
 
-//- (NSDictionary *)data  {
-//	
-//}
-
+- (NSDictionary *)dataDesctiption {
+	return nil;
+}
 
 #pragma mark -
 #pragma mark iOS 4 Stuff 

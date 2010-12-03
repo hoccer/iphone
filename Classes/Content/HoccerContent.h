@@ -67,6 +67,9 @@
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext;
 - (void)sendSaveSuccessEvent;
 
+- (NSDictionary *)dataDesctiption;
 - (id)interactionController;
+
+
 
 @end

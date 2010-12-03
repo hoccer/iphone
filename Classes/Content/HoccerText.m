@@ -113,5 +113,12 @@
 	return [UIImage imageNamed:@"history_icon_text.png"];
 }
 
+- (NSDictionary *)dataDesctiption {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:self.view.textView.text forKey:@"content"];
+	[dictionary setObject:@"text/plain" forKey:@"type"];
+	
+	return dictionary;
+}
 
 @end
