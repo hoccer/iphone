@@ -346,15 +346,11 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
-- (void)hoccerControllerWasSent: (HoccerController *)item {
-	[super hoccerControllerWasSent:item];
-		
+- (void)hoccerControllerWasSent: (HoccerController *)item {		
 	[hoccerHistoryController updateHistoryList];
 }
 
 - (void)hoccerControllerWasReceived: (HoccerController *)item {
-	[super hoccerControllerWasReceived:item];
-	
 	[hoccerHistoryController updateHistoryList];
 }
 

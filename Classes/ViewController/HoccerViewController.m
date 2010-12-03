@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <YAJLIOS/YAJLIOS.h>
+#import "Hoccer.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
@@ -46,8 +47,7 @@
 #import "ConnectionStatusViewController.h"
 
 #import "StatusBarStates.h"
-
-#import "Hoccer.h"
+#import "HoccerContentFactory.h"
 
 @implementation HoccerViewController
 
@@ -66,7 +66,6 @@
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
 	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithContentsOfFile: filepath]];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -236,8 +235,8 @@
 	animation.duration = 0.2;
 	
 	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
-	
-	[item catchIt];
+
+	[self willStartDownload:item];
 	[linccer receiveWithMode:HCTransferModeOneToMany];
 }
 
@@ -251,12 +250,10 @@
 	[FeedbackProvider playThrowFeedback];
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
 	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
-	[item throwIt];
+	item.isUpload = YES;
 	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToMany];
 	
-	
 	UIView *view = [desktopData viewAtIndex:0];
-	
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.duration = 0.2;
 	animation.toValue = [NSValue valueWithCGPoint: CGPointMake(view.center.x, -200)];
@@ -289,7 +286,7 @@
 	[FeedbackProvider playSweepIn];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
 	
-	[item sweepIn];
+	[self willStartDownload:item];
 	
 	[linccer receiveWithMode:HCTransferModeOneToOne];
 }
@@ -306,8 +303,8 @@
 	
 	statusViewController.hoccerController = item;
 
-	[item sweepOut];
-	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToOne];
+	item.isUpload = YES;
+	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToOne];	
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -326,33 +323,13 @@
 	return YES;
 }
 
+- (void)willStartDownload: (HoccerController *)item {
+	item.isUpload = NO;
+	statusViewController.hoccerController = item;
+}
+	 
 #pragma mark -
 #pragma mark HoccerControllerDataDelegate
-
-- (void)hoccerControllerWasSent: (HoccerController *)item {
-	statusViewController.hoccerController = nil;
-	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
-	[historyData addContentToHistory:item];
-	
-	[desktopData removeHoccerController:item];
-	[desktopView reloadData];
-}
-
-- (void)hoccerControllerWasReceived: (HoccerController *)item {
-	statusViewController.hoccerController = nil;
-	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
-	[historyData addContentToHistory:item];
-
-	[desktopView reloadData];
-	
-	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
-		[item.content.interactionController setDelegate: self];
-		[item.content.interactionController presentPreviewAnimated:YES];
-		[item.content.interactionController setDelegate: nil];
-	}
-}
 
 - (void)hoccerControllerUploadWasCanceled: (HoccerController *)item {
 	statusViewController.hoccerController = nil;
@@ -366,10 +343,6 @@
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
-}
-
-- (void)hoccerControllerWillStartDownload: (HoccerController *)item {
-	statusViewController.hoccerController = item;
 }
 
 - (void)hoccerControllerWasClosed:(HoccerController *)item {
@@ -428,18 +401,38 @@
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
 	NSLog(@"did receive: %@", data);
 	
-	if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
-//		HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
-//																										   withData: nil];
-//		self.content = hoccerContent;
-//		self.content.persist = YES;
+	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
+																									   withData: nil];
+	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+
+	item.content = hoccerContent;
+	item.content.persist = YES;
 		
-//		[self hoccerControllerWasReceived:self];
+	statusViewController.hoccerController = nil;
+	[statusViewController setState:[SuccessState state]];
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
+	[historyData addContentToHistory:item];
+	
+	[desktopView reloadData];
+	
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
+		[item.content.interactionController setDelegate: self];
+		[item.content.interactionController presentPreviewAnimated:YES];
+		[item.content.interactionController setDelegate: nil];
 	}
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
 	NSLog(@"did send");
+	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+
+	statusViewController.hoccerController = nil;
+	[statusViewController setState:[SuccessState state]];
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
+	[historyData addContentToHistory:item];
+	
+	[desktopData removeHoccerController:item];
+	[desktopView reloadData];
 }
 
 #pragma mark -

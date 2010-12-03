@@ -28,7 +28,6 @@
 @class ContentContainerView;
 
 @class DesktopDataSource;
-@class LocationController;
 @class HoccerController;
 @class HistoryData;
 @class HoccingRulesIPhone;
@@ -90,6 +89,7 @@
 - (IBAction)showHistory: (id)sender;
 
 - (void)showDesktop;
+- (void)willStartDownload:(HoccerController *)item;
 
 @end
 

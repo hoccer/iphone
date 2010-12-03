@@ -124,10 +124,6 @@
 	return @"File";
 }
 
-- (void)prepareSharing{
-	//overwrite in subclasses: text
-}
-
 - (BOOL)saveDataToContentStorage {	
 	return NO;
 }

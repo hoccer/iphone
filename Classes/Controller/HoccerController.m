@@ -122,79 +122,12 @@
 	return contentView;
 }
 
-- (void)sweepOut {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
-		[delegate hoccerControllerWillStartUpload:self];
-	}
-	
-	[content prepareSharing];
-	isUpload = YES;
-}
-
-- (void)throwIt {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartUpload:)]) {
-		[delegate hoccerControllerWillStartUpload:self];
-	}
-	
-	[content prepareSharing];
-	
-	isUpload = YES;
-}
-
-- (void)catchIt {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
-		[delegate hoccerControllerWillStartDownload:self];
-	}
-	
-	isUpload = NO;
-}
-
-- (void)sweepIn {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWillStartDownload:)]) {
-		[delegate hoccerControllerWillStartDownload:self];
-	}
-	
-	isUpload = NO;
-}
-
 #pragma mark -
 #pragma mark HoccerConnection Delegate
 
 //- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
 //	self.status = theStatus;
 //	self.statusMessage = [theStatus objectForKey:@"message"];
-//}
-
-//- (void)hoccerConnection: (HoccerConnection*)hoccerConnection didFailWithError: (NSError *)error {
-//	self.statusMessage = [error localizedDescription];
-//	
-//	if (isUpload) {
-//		if ([delegate respondsToSelector:@selector(hoccerController:uploadFailedWithError:)]) {
-//			[delegate hoccerController:self uploadFailedWithError: error];
-//		}
-//	} else {
-//		if ([delegate respondsToSelector:@selector(hoccerController:downloadFailedWithError:)]) {
-//			[delegate hoccerController:self downloadFailedWithError:error];
-//		}
-//	}
-//}
-//
-//- (void)hoccerConnectionDidFinishLoading: (HoccerConnection*)hoccerConnection {
-//	if (isUpload) {
-//		if ([delegate respondsToSelector:@selector(hoccerControllerWasSent:)]) {
-//			[delegate hoccerControllerWasSent: self];
-//		}
-//	} else {
-//		if ([delegate respondsToSelector:@selector(hoccerControllerWasReceived:)]) {
-//			HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: hoccerConnection.responseHeader 
-//																											   withData: hoccerConnection.responseBody];
-//			self.request = nil;
-//			self.content = hoccerContent;
-//			self.content.persist = YES;
-//			
-//			[delegate hoccerControllerWasReceived:self];
-//		}
-//	}
 //}
 //
 //- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {

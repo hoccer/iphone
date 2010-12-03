@@ -42,8 +42,8 @@
 
 - (id) initWithData: (NSData *)theData filename: (NSString *)filename;
 - (id) initWithFilename: (NSString *)filename;
-- (void) removeFromDocumentDirectory;
-- (void) saveDataToDocumentDirectory;
+- (void)removeFromDocumentDirectory;
+- (void)saveDataToDocumentDirectory;
 
 - (BOOL)saveDataToContentStorage;
 
@@ -53,7 +53,6 @@
 - (NSString *)defaultFilename;
 
 - (BOOL)isDataReady;
-- (void)prepareSharing;
 
 - (BOOL)needsWaiting;
 

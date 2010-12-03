@@ -47,12 +47,6 @@
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;
 
-- (void)sweepOut;
-- (void)throwIt;
-
-- (void)catchIt;
-- (void)sweepIn;
-
 - (void)removeFromFileSystem;
 
 @end
