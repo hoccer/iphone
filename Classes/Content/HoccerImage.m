@@ -34,6 +34,19 @@
 	return self;
 }
 
+- (id) initWithDictionary: (NSDictionary *)dict {
+	self = [super init];
+	if (self != nil) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;
+
+		[fileCache load:[dict objectForKey:@"url"]];
+		NSLog(@"loading url: %@", [dict objectForKey:@"url"]);
+	}
+	
+	return self;
+}
+
 - (void)createDataRepresentaion: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
@@ -52,6 +65,12 @@
 	uploadURL = [path retain];
 }
 
+-(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
+	NSLog(@"loaded %@", uri);
+	
+	self.data = [theData retain];
+}
+	 
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
 	NSLog(@"error: %@", error);
 }
