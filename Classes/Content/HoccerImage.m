@@ -39,9 +39,9 @@
 	if (self != nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
 		fileCache.delegate = self;
-
-		[fileCache load:[dict objectForKey:@"url"]];
-		NSLog(@"loading url: %@", [dict objectForKey:@"url"]);
+		
+		uploadURL = [[dict objectForKey:@"url"] retain];
+		[fileCache load: uploadURL];
 	}
 	
 	return self;
