@@ -13,7 +13,7 @@
 #import "HocLocation.h"
 
 
-const NSString *kHoccerServer = @"http://api.hoccer.com/";
+const NSString *kHoccerServer = @"http://109.239.58.128/";
 
 @interface PeerGroupRequest () 
 @property (retain) NSDate *requestStartTime;
