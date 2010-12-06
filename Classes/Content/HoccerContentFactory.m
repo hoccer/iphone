@@ -47,24 +47,6 @@ static HoccerContentFactory* sharedInstance = nil;
 	return [hoccerContent autorelease];
 }
 
-- (HoccerContent *)createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data {
-	HoccerContent* hoccerContent = nil;
-	NSString *mimeType = [response MIMEType];
-	
-	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data filename: [response suggestedFilename]];
-	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData: data filename: [response suggestedFilename]];
-	} else if ([mimeType isEqual: @"text/plain"]) {
-		hoccerContent = [[HoccerText alloc] initWithData: data filename: [response suggestedFilename]];
-	} else {
-		hoccerContent = [[HoccerContent alloc] initWithData:data filename: [response suggestedFilename]];
-		hoccerContent.mimeType = mimeType;
-	}
-	
-	return [hoccerContent autorelease];
-}
-
 - (HoccerContent *)createContentFromFile: (NSString *)filename withMimeType: (NSString *)mimeType {
 	HoccerContent* hoccerContent = nil;
 	

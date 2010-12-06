@@ -16,7 +16,6 @@
 
 + (HoccerContentFactory *) sharedHoccerContentFactory;
 
-- (HoccerContent*) createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data;
 - (HoccerContent *)createContentFromFile: (NSString *)filename withMimeType: (NSString *)mimeType;
 - (HoccerContent *)createContentFromDict: (NSDictionary *)dictionary;
 
