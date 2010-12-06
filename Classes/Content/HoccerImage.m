@@ -49,7 +49,6 @@
 {
 	self = [super init];
 	if (self != nil) {
-		// NSLog(@"image: %d", aImage.)
 		image = [aImage retain];
 		
 		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];

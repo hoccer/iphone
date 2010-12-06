@@ -182,9 +182,6 @@
 	if ([delegate respondsToSelector:@selector(hoccerControllerSaveButtonWasClicked:)]) {
 		[delegate hoccerControllerSaveButtonWasClicked: self];
 	}
-	
-	
-
 }
 
 @end
