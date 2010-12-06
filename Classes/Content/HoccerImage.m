@@ -69,6 +69,7 @@
 	NSLog(@"loaded %@", uri);
 	
 	self.data = [theData retain];
+	[self updateImage];
 }
 	 
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
@@ -86,6 +87,7 @@
 	[filename release];
 	[image release];
 	[uploadURL release];
+	[preview release];
 	
 	[super dealloc];
 }
@@ -95,32 +97,38 @@
 	
 	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
 										 preserveAspectRatio: YES
-												   trimToFit: YES];
+													   trimToFit: YES];
 
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
+- (void)updateImage {
 
-	[view addSubview:backgroundImage];
-	[view sendSubviewToBack:backgroundImage];
-	[backgroundImage release];
-
-	
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
-	
-	CGFloat frameWidth = view.frame.size.width - (2 * paddingLeft); 
-	CGFloat frameHeight = view.frame.size.height - (2 * paddingTop);
+
+	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
 	
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
-	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
-											trimToFit: YES];
+
 	
-	[view setImage: thumb];
-	return [view autorelease];
+	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
+												 trimToFit: YES];
+	
+	[preview setImage: thumb];	
+}
+
+- (Preview *)desktopItemView {
+	preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
+
+	[preview addSubview:backgroundImage];
+	[preview sendSubviewToBack:backgroundImage];
+	[backgroundImage release];
+
+	[self updateImage];
+	return preview;
 }
 
 - (NSString *)defaultFilename {
