@@ -32,7 +32,7 @@
 		
 		abPersonVCardCreator = [[ABPersonVCardCreator alloc] initWithPerson:person];		
 		self.data = [abPersonVCardCreator vcard];
-		vcardString = [abPersonVCardCreator vcardString];
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
 
 		[self saveDataToDocumentDirectory];
 		isFromContentSource = YES;
@@ -41,9 +41,19 @@
 	return self;
 }
 
+- (id) initWithData:(NSData *)theData {
+	self = [super initWithData:theData];
+	if (self != nil) {
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+	}
+	
+	return self;
+}
+
+
 - (ABRecordRef)person {
 	if (person == NULL) {
-		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
+		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString:vcardString];
 		
 		person = creator.person;
 		CFRetain(person);
@@ -122,9 +132,9 @@
 
 - (NSDictionary *) dataDesctiption {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:@"text/v-card" forKey:@"type"];
+	[dictionary setObject:@"text/x-vcard" forKey:@"type"];
 	[dictionary setObject:vcardString forKey:@"content"];
-	
+		
 	return dictionary;
 }
 
