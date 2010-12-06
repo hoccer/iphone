@@ -401,8 +401,7 @@
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
 	NSLog(@"did receive: %@", data);
 	
-	HoccerContent* hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromResponse: nil 
-																									   withData: nil];
+	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[data objectAtIndex:0]];
 	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
 
 	item.content = hoccerContent;

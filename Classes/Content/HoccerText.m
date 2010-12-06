@@ -53,11 +53,6 @@
 	[super dealloc];
 }
 
-- (void)prepareSharing {
-	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
-	[self.data writeToFile: self.filepath atomically: NO];
-}
-
 - (NSString *)mimeType {
 	return @"text/plain";
 }
