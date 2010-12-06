@@ -12,7 +12,9 @@
 
 @interface HoccerImage : HoccerContent <HCFileCacheDelegate> {
 	UIImage *image;	
+	
 	HCFileCache *fileCache;
+	NSString *uploadURL;
 }
 
 @property (nonatomic, readonly) UIImage* image;

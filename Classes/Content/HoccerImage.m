@@ -6,8 +6,8 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#define API_KEY @""
-#define SECRET @""
+#define API_KEY @"f7f3b8b0dacc012de22a00176ed99fe3"
+#define SECRET @"W5AeluYT7aOo9g0O9k9o2Iq1F2Y="
 
 #import "HoccerImage.h"
 #import "Hoccer.h"
@@ -25,6 +25,7 @@
 	self = [super init];
 	if (self != nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;
 		image = [aImage retain];
 		
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
@@ -47,12 +48,11 @@
 }
 
 - (void)didFinishDataRepresentation {
-	NSLog(@"uploading file");
 	[fileCache cacheData:self.data withFilename:@"image.jpg" forTimeInterval:180];
 }
 
-- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {
-	NSLog(@"uploaded to %@", path);
+- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
+	uploadURL = [path retain];
 }
 
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
@@ -69,6 +69,8 @@
 - (void) dealloc {
 	[filename release];
 	[image release];
+	[uploadURL release];
+	
 	[super dealloc];
 }
 
@@ -146,5 +148,14 @@
 - (UIImage *)historyThumbButton {
 	return [UIImage imageNamed:@"history_icon_image.png"];
 }
+
+- (NSDictionary *)dataDesctiption {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:self.mimeType forKey:@"type"];
+	[dictionary setObject:uploadURL forKey:@"url"];
+	
+	return dictionary;
+}
+
 
 @end
