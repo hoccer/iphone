@@ -20,8 +20,7 @@
 
 @synthesize image;
 
-- (id)initWithUIImage: (UIImage *)aImage
-{
+- (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
@@ -35,9 +34,7 @@
 	return self;
 }
 
-
-- (void)createDataRepresentaion: (HoccerImage *)content
-{
+- (void)createDataRepresentaion: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	[content saveDataToDocumentDirectory];
@@ -74,8 +71,7 @@
 	[super dealloc];
 }
 
-- (UIView *)fullscreenView 
-{	
+- (UIView *)fullscreenView  {	
 	CGSize size = CGSizeMake(320, 480);
 	
 	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size

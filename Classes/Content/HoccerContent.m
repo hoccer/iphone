@@ -64,6 +64,11 @@
 	return self;
 }
 
+- (id) initWithDictionary: (NSDictionary *)dict {
+	NSData *theData = [[dict objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding]; 
+	return [self initWithData:theData];
+}
+
 - (id) initWithData: (NSData *)theData {
 	self = [super init];
 	if (self != nil) {

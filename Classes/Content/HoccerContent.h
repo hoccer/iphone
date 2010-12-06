@@ -42,6 +42,7 @@
 
 - (id) initWithData: (NSData *)theData;
 - (id) initWithFilename: (NSString *)filename;
+- (id) initWithDictionary: (NSDictionary *)dict;
 - (void)removeFromDocumentDirectory;
 - (void)saveDataToDocumentDirectory;
 

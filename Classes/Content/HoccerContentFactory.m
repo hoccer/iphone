@@ -29,17 +29,15 @@ static HoccerContentFactory* sharedInstance = nil;
 	
 	HoccerContent *hoccerContent = nil;
 	NSString *type = [dictionary objectForKey:@"type"];
-	
-	NSData *data = [[dictionary objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding];
-	
+		
 	if ([type isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data];
+		hoccerContent = [[HoccerVcard alloc] initWithDictionary: dictionary];
 	} else if ([type rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData: data];
+		hoccerContent = [[HoccerImage alloc] initWithDictionary: dictionary];
 	} else if ([type isEqual: @"text/plain"]) {
-		hoccerContent = [[HoccerText alloc] initWithData: data];
+		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
 	} else {
-		hoccerContent = [[HoccerContent alloc] initWithData:data];
+		hoccerContent = [[HoccerContent alloc] initWithDictionary:dictionary];
 		hoccerContent.mimeType = type;
 	}
 	
