@@ -64,9 +64,11 @@
 	return self;
 }
 
-- (id) initWithData: (NSData *)theData filename: (NSString *)theFilename {
+- (id) initWithData: (NSData *)theData {
 	self = [super init];
 	if (self != nil) {
+		NSString *theFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
+		
 		self.filename = [self uniqueFilenameForFilename: theFilename inDirectory: [[self class] contentDirectory]];
 		self.data = theData;
 

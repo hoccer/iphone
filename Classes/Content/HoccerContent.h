@@ -40,7 +40,7 @@
 
 + (NSString *)contentDirectory;
 
-- (id) initWithData: (NSData *)theData filename: (NSString *)filename;
+- (id) initWithData: (NSData *)theData;
 - (id) initWithFilename: (NSString *)filename;
 - (void)removeFromDocumentDirectory;
 - (void)saveDataToDocumentDirectory;

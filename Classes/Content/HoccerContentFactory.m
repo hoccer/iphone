@@ -28,20 +28,19 @@ static HoccerContentFactory* sharedInstance = nil;
 	NSLog(@"dictionary: %@", dictionary);
 	
 	HoccerContent *hoccerContent = nil;
-	NSString *mimeType = [dictionary objectForKey:@"type"];
-	NSString *aFilename = @"bla.txt";
+	NSString *type = [dictionary objectForKey:@"type"];
 	
 	NSData *data = [[dictionary objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding];
 	
-	if ([mimeType isEqual: @"text/x-vcard"]) {
-		hoccerContent = [[HoccerVcard alloc] initWithData: data filename: aFilename];
-	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
-		hoccerContent = [[HoccerImage alloc] initWithData: data filename: aFilename];
-	} else if ([mimeType isEqual: @"text/plain"]) {
-		hoccerContent = [[HoccerText alloc] initWithData: data filename: aFilename];
+	if ([type isEqual: @"text/x-vcard"]) {
+		hoccerContent = [[HoccerVcard alloc] initWithData: data];
+	} else if ([type rangeOfString:@"image/"].location == 0) {
+		hoccerContent = [[HoccerImage alloc] initWithData: data];
+	} else if ([type isEqual: @"text/plain"]) {
+		hoccerContent = [[HoccerText alloc] initWithData: data];
 	} else {
-		hoccerContent = [[HoccerContent alloc] initWithData:data filename: aFilename];
-		hoccerContent.mimeType = mimeType;
+		hoccerContent = [[HoccerContent alloc] initWithData:data];
+		hoccerContent.mimeType = type;
 	}
 	
 	return [hoccerContent autorelease];

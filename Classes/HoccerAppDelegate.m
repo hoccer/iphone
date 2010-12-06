@@ -56,8 +56,8 @@
 
 	NSString *urlString = [url absoluteString];
 	NSRange colon = [urlString rangeOfString:@":"];
-	NSString *request = [urlString substringFromIndex:(colon.location + 1)];
-	[viewController setContentPreview:[[HoccerText alloc] initWithData:[request dataUsingEncoding: NSUTF8StringEncoding] filename:@"url.txt"]];
+	NSString *content = [urlString substringFromIndex:(colon.location + 1)];
+	[viewController setContentPreview:[[HoccerText alloc] initWithData:[content dataUsingEncoding: NSUTF8StringEncoding]]];
 
 	return YES;
 }
