@@ -6,40 +6,15 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
+#define API_KEY @""
+#define SECRET @""
+
 #import "HoccerImage.h"
+#import "Hoccer.h"
 #import "Preview.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
-
-@interface MyThreadClass : NSObject
-{
-	BOOL isReady;
-}
-
-@property (assign) BOOL isReady;
-
-- (void)createDataRepresentaion: (HoccerImage *)content;
-@end
-
-@implementation MyThreadClass
-@synthesize isReady;
-
-- (void)createDataRepresentaion: (HoccerImage *)content
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	content.data = UIImageJPEGRepresentation(content.image, 0.8);
-	[content saveDataToDocumentDirectory];
-	
-	if (![[NSThread currentThread] isCancelled]) {
-		self.isReady = YES;
-	}
-	
-	[pool drain];
-}	
-
-@end
-
 
 @implementation HoccerImage
 
@@ -49,16 +24,39 @@
 {
 	self = [super init];
 	if (self != nil) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
 		image = [aImage retain];
 		
-		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
-		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
-								 toTarget:threadClass withObject:self];
-		
+		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
 		isFromContentSource = YES;
 	}
 	
 	return self;
+}
+
+
+- (void)createDataRepresentaion: (HoccerImage *)content
+{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	content.data = UIImageJPEGRepresentation(content.image, 0.8);
+	[content saveDataToDocumentDirectory];
+	
+	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
+	
+	[pool drain];
+}
+
+- (void)didFinishDataRepresentation {
+	NSLog(@"uploading file");
+	[fileCache cacheData:self.data withFilename:@"image.jpg" forTimeInterval:180];
+}
+
+- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {
+	NSLog(@"uploaded to %@", path);
+}
+
+- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
+	NSLog(@"error: %@", error);
 }
 
 - (UIImage*) image {
@@ -69,6 +67,7 @@
 } 
 
 - (void) dealloc {
+	[filename release];
 	[image release];
 	[super dealloc];
 }
@@ -106,7 +105,7 @@
 	[view setImage: thumb];
 	return [view autorelease];
 }
-	
+
 - (NSString *)defaultFilename {
 	return @"Image";
 }

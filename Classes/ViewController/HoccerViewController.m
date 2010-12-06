@@ -304,6 +304,7 @@
 	statusViewController.hoccerController = item;
 
 	item.isUpload = YES;
+	NSLog(@"sending: %@", [item.content dataDesctiption]);
 	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToOne];	
 }
 
@@ -422,7 +423,6 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
-	NSLog(@"did send");
 	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
 
 	statusViewController.hoccerController = nil;

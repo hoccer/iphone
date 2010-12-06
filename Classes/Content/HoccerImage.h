@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Hoccer.h"
 #import "HoccerContent.h"
 
-@interface HoccerImage : HoccerContent {
+@interface HoccerImage : HoccerContent <HCFileCacheDelegate> {
 	UIImage *image;	
+	HCFileCache *fileCache;
 }
 
 @property (nonatomic, readonly) UIImage* image;

@@ -237,7 +237,10 @@
 }
 
 - (NSDictionary *)dataDesctiption {
-	return nil;
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:self.mimeType forKey:@"type"];
+	
+	return dictionary;
 }
 
 #pragma mark -
