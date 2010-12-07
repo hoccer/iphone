@@ -167,7 +167,6 @@
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		
 		[self.tableView endUpdates];
-		// [self.tableView reloadData];
 	}   
 }
 

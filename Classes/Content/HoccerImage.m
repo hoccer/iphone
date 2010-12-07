@@ -34,6 +34,19 @@
 	return self;
 }
 
+- (id)initWithFilename:(NSString *)aFilename {
+	self = [super initWithFilename:aFilename];
+	if (self != nil) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;
+
+		[self didFinishDataRepresentation];
+	}
+	
+	return self;
+}
+
+
 - (id) initWithDictionary: (NSDictionary *)dict {
 	self = [super init];
 	if (self != nil) {
@@ -69,6 +82,7 @@
 	NSLog(@"loaded %@", uri);
 	
 	self.data = [theData retain];
+	[self saveDataToDocumentDirectory];
 	[self updateImage];
 }
 	 
@@ -84,7 +98,6 @@
 } 
 
 - (void) dealloc {
-	[filename release];
 	[image release];
 	[uploadURL release];
 	[preview release];
@@ -97,7 +110,7 @@
 	
 	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
 										 preserveAspectRatio: YES
-													   trimToFit: YES];
+												   trimToFit: NO];
 
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
