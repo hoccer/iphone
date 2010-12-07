@@ -22,8 +22,10 @@
 @property (nonatomic, readonly) UIImage* image;
 
 - (id)initWithUIImage: (UIImage *)aImage;
-
+- (void)uploadFile;
 - (void)updateImage;
 - (void)didFinishDataRepresentation;
+
+
 
 @end

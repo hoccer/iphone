@@ -141,7 +141,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
-	[[UIApplication sharedApplication] openURL:appStoreUrl];
+	[[UIApplication sharedApplication] openURL: appStoreUrl];
 }														
 														
 #pragma mark -
@@ -208,8 +208,7 @@
 	return NO;
 }
 
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker 
-{
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -251,7 +250,8 @@
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
 	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
 	item.isUpload = YES;
-	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToMany];
+	
+	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -300,12 +300,10 @@
 	
 	[FeedbackProvider playSweepOut];
 	HoccerController *item = [desktopData hoccerControllerDataForView: view];
-	
-	statusViewController.hoccerController = item;
-
 	item.isUpload = YES;
-	NSLog(@"sending: %@", [item.content dataDesctiption]);
-	[linccer send:[item.content dataDesctiption] withMode:HCTransferModeOneToOne];	
+	statusViewController.hoccerController = item;
+	
+	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -402,7 +400,10 @@
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
 	NSLog(@"did receive: %@", data);
 	
-	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[data objectAtIndex:0]];
+	NSDictionary *firstPayload = [data objectAtIndex:0];
+	NSArray *content = [firstPayload objectForKey:@"data"];
+	
+	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
 	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
 
 	item.content = hoccerContent;
@@ -440,6 +441,14 @@
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
+}
+
+- (NSDictionary *)dictionaryToSend: (HoccerController *)item {
+	NSDictionary *sender = [NSDictionary dictionaryWithObject:@"" forKey:@"client-id"];
+	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
+							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];	 
+	
+	return content;
 }
 
 

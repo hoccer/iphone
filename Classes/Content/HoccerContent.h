@@ -10,7 +10,6 @@
 #import "HoccerContent.h"
 
 @class Preview;
-@class HoccerContentIPadPreviewDelegate;
 
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filename;	
@@ -45,7 +44,6 @@
 - (id) initWithDictionary: (NSDictionary *)dict;
 - (void)removeFromDocumentDirectory;
 - (void)saveDataToDocumentDirectory;
-- (void)uploadFile;
 
 - (BOOL)saveDataToContentStorage;
 

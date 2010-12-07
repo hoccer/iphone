@@ -91,5 +91,7 @@
 - (void)showDesktop;
 - (void)willStartDownload:(HoccerController *)item;
 
+- (NSDictionary *)dictionaryToSend: (HoccerController *)item;
+
 @end
 
