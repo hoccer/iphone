@@ -402,9 +402,7 @@
 	[desktopView reloadData];
 }
 
-- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
-	NSLog(@"did receive: %@", data);
-	
+- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	

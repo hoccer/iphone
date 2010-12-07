@@ -149,7 +149,6 @@
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
 	}
 	
-	
 	if ([buttons count] < 4) {
 		CGRect frame = self.buttonsContainer.frame;
 		frame.origin.y += 75;

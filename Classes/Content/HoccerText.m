@@ -39,7 +39,7 @@
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
 	
 	self.view.delegate = self;
-	if (!self.data) {
+	if (!self.data || [self.data length] == 0) {
 		[self.view setEditMode];
 	} else {
 		self.view.textView.text = self.content;
@@ -110,7 +110,7 @@
 
 - (NSDictionary *)dataDesctiption {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:self.data forKey:@"content"];
+	[dictionary setObject:self.view.textView.text forKey:@"content"];
 	[dictionary setObject:@"text/plain" forKey:@"type"];
 	
 	return dictionary;
