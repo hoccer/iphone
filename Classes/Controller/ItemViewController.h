@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "hoccerControllerDataDelegate.h"
-#import "Hoccer.h"
+#import "ItemViewControllerDelegate.h"
 
 @class HoccerContent;
 @class ContentContainerView;
 
-@interface HoccerController : NSObject <NSCoding, HCLinccerDelegate> {
+@interface ItemViewController : NSObject <NSCoding> {
 	ContentContainerView *contentView;
 	HoccerContent *content;
 	
@@ -24,7 +23,7 @@
 
 	BOOL isUpload;
 	
-	id <HoccerControllerDelegate> delegate;
+	id <ItemViewControllerDelegate> delegate;
 	
 	UIView *viewFromNib;
 }
@@ -40,7 +39,7 @@
 @property (nonatomic, retain) NSDictionary *status;
 
 @property (assign) IBOutlet UIView* viewFromNib;
-@property (nonatomic, assign) id <HoccerControllerDelegate> delegate; 
+@property (nonatomic, assign) id <ItemViewControllerDelegate> delegate; 
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

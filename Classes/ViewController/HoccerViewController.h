@@ -13,7 +13,7 @@
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
-#import "HoccerControllerDataDelegate.h"
+#import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
 
 #import "HttpClient.h"
@@ -28,7 +28,7 @@
 @class ContentContainerView;
 
 @class DesktopDataSource;
-@class HoccerController;
+@class ItemViewController;
 @class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
@@ -39,7 +39,7 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, HCLinccerDelegate> 
+			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, HCLinccerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -89,9 +89,9 @@
 - (IBAction)showHistory: (id)sender;
 
 - (void)showDesktop;
-- (void)willStartDownload:(HoccerController *)item;
+- (void)willStartDownload:(ItemViewController *)item;
 
-- (NSDictionary *)dictionaryToSend: (HoccerController *)item;
+- (NSDictionary *)dictionaryToSend: (ItemViewController *)item;
 
 @end
 

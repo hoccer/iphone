@@ -6,7 +6,7 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "HoccerContent.h"
 #import "StatusViewController.h"
 #import "ContentContainerView.h"
@@ -14,14 +14,14 @@
 
 #import "HCButton.h"
 
-@interface HoccerController ()
+@interface ItemViewController ()
 
 - (NSArray *)actionButtons;
 
 @end
 
 
-@implementation HoccerController
+@implementation ItemViewController
 
 @synthesize content;
 @synthesize contentView;
@@ -166,14 +166,14 @@
 #pragma mark -
 #pragma mark User Actions
 - (IBAction)closeView: (id)sender {
-	if ([delegate respondsToSelector:@selector(hoccerControllerWasClosed:)]) {
-		[delegate hoccerControllerWasClosed: self];
+	if ([delegate respondsToSelector:@selector(itemViewControllerWasClosed:)]) {
+		[delegate itemViewControllerWasClosed: self];
 	} 
 }
 
 - (IBAction)saveButton: (id)sender {		
-	if ([delegate respondsToSelector:@selector(hoccerControllerSaveButtonWasClicked:)]) {
-		[delegate hoccerControllerSaveButtonWasClicked: self];
+	if ([delegate respondsToSelector:@selector(itemViewControllerSaveButtonWasClicked:)]) {
+		[delegate itemViewControllerSaveButtonWasClicked: self];
 	}
 }
 

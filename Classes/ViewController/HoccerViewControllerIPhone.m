@@ -14,7 +14,7 @@
 #import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
@@ -346,11 +346,11 @@
 
 #pragma mark -
 #pragma mark HocDataItem Delegate Methods
-- (void)hoccerControllerWasSent: (HoccerController *)item {		
+- (void)hoccerControllerWasSent: (ItemViewController *)item {		
 	[hoccerHistoryController updateHistoryList];
 }
 
-- (void)hoccerControllerWasReceived: (HoccerController *)item {
+- (void)hoccerControllerWasReceived: (ItemViewController *)item {
 	[hoccerHistoryController updateHistoryList];
 }
 

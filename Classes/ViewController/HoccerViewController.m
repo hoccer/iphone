@@ -37,7 +37,7 @@
 #import "FeedbackProvider.h"
 #import "GesturesInterpreter.h"
 
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
@@ -160,7 +160,7 @@
 		[desktopData removeHoccerController: [desktopData hoccerControllerDataAtIndex:0]];
 	}
 	
-	HoccerController *item = [[[HoccerController alloc] init] autorelease];
+	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
@@ -223,7 +223,7 @@
 	[infoViewController hideViewAnimated:YES];
 
 	[FeedbackProvider playCatchFeedback];
-	HoccerController *item = [[[HoccerController alloc] init] autorelease];
+	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.delegate = self;
 	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
 	
@@ -248,7 +248,7 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
-	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	item.isUpload = YES;
 	
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
@@ -268,7 +268,7 @@
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
-	HoccerController *item = [desktopData hoccerControllerDataAtIndex:index];
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([item hasActiveRequest]) {
 		[item cancelRequest];	
 	} else{
@@ -284,7 +284,7 @@
 	[infoViewController hideViewAnimated:YES];
 	
 	[FeedbackProvider playSweepIn];
-	HoccerController *item = [desktopData hoccerControllerDataForView: view];
+	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	
 	[self willStartDownload:item];
 	
@@ -299,7 +299,7 @@
 	[infoViewController hideViewAnimated:YES];
 	
 	[FeedbackProvider playSweepOut];
-	HoccerController *item = [desktopData hoccerControllerDataForView: view];
+	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 	statusViewController.hoccerController = item;
 	
@@ -311,7 +311,7 @@
 		return NO;
 	}
 	
-	HoccerController *item = [[[HoccerController alloc] init] autorelease];
+	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.viewOrigin = CGPointMake(point.x - item.contentView.frame.size.width / 2, 
 								  point.y - item.contentView.frame.size.height / 2);
 	item.delegate = self;
@@ -322,7 +322,7 @@
 	return YES;
 }
 
-- (void)willStartDownload: (HoccerController *)item {
+- (void)willStartDownload: (ItemViewController *)item {
 	item.isUpload = NO;
 	statusViewController.hoccerController = item;
 }
@@ -330,26 +330,28 @@
 #pragma mark -
 #pragma mark HoccerControllerDataDelegate
 
-- (void)hoccerControllerUploadWasCanceled: (HoccerController *)item {
+- (void)hoccerControllerUploadWasCanceled: (ItemViewController *)item {
 	statusViewController.hoccerController = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
-- (void)hoccerControllerDownloadWasCanceled: (HoccerController *)item {
+- (void)hoccerControllerDownloadWasCanceled: (ItemViewController *)item {
 	statusViewController.hoccerController = nil;
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 
-- (void)hoccerControllerWasClosed:(HoccerController *)item {
+#pragma mark -
+#pragma mark ItemViewController 
+- (void)itemViewControllerWasClosed:(ItemViewController *)item {
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
 
-- (void)hoccerControllerSaveButtonWasClicked: (HoccerController *)item; {
+- (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item; {
 	[item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
 	if ([item.content needsWaiting]) {
 		[item.contentView showSpinner];
@@ -369,7 +371,7 @@
 	}
 }
 
-- (void)finishedSaving: (HoccerController *)item {
+- (void)finishedSaving: (ItemViewController *)item {
 	[item.contentView hideSpinner];
 	[item.contentView showSuccess];
 }
@@ -386,7 +388,7 @@
 
 	statusViewController.hoccerController = nil;
 	[statusViewController setError:error];
-	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if (item.isUpload) {
 		item.viewOrigin = self.defaultOrigin;
@@ -404,7 +406,7 @@
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
 	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
-	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 
 	item.content = hoccerContent;
 	item.content.persist = YES;
@@ -424,7 +426,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
-	HoccerController *item = [desktopData hoccerControllerDataAtIndex:0];
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 
 	statusViewController.hoccerController = nil;
 	[statusViewController setState:[SuccessState state]];
@@ -443,7 +445,7 @@
 
 #pragma mark -
 #pragma mark Private Methods
-- (NSDictionary *)dictionaryToSend: (HoccerController *)item {
+- (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
 	NSDictionary *sender = [NSDictionary dictionaryWithObject:@"" forKey:@"client-id"];
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];	 

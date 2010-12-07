@@ -7,13 +7,13 @@
 //
 
 #import "ConnectionStatusViewController.h"
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "StatusBarStates.h"
 
 @implementation ConnectionStatusViewController
 @synthesize hoccerController;
 
-- (void)setHoccerController:(HoccerController *)newHoccerController {
+- (void)setHoccerController:(ItemViewController *)newHoccerController {
 	if (hoccerController != newHoccerController) {
 		[hoccerController removeObserver:self forKeyPath:@"statusMessage"];
 		[hoccerController removeObserver:self forKeyPath:@"progress"];
@@ -64,7 +64,7 @@
 #pragma mark -
 #pragma mark Monitoring Changes
 
-- (void)monitorHoccerController: (HoccerController*) theHoccerController {
+- (void)monitorHoccerController: (ItemViewController*) theHoccerController {
 	[theHoccerController addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
 	[theHoccerController addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }

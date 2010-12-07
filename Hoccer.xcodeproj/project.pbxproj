@@ -98,7 +98,7 @@
 		22638C5711B51E880024AA7E /* SelectContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2C11B51E880024AA7E /* SelectContentController.m */; };
 		22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3011B51E880024AA7E /* SettingViewController.m */; };
 		22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C3611B51E880024AA7E /* TermOfUse.m */; };
-		22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HoccerController.m */; };
+		22638C8111B51FEE0024AA7E /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* ItemViewController.m */; };
 		22638C8411B520240024AA7E /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */; };
 		22638D2911B52D0C0024AA7E /* Accept_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 22638CD411B52D0C0024AA7E /* Accept_Button.png */; };
 		22638D2A11B52D0C0024AA7E /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22638CD511B52D0C0024AA7E /* Background.png */; };
@@ -124,7 +124,7 @@
 		22638D6211B52D9D0024AA7E /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D5411B52D9D0024AA7E /* TextView.xib */; };
 		22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6811B52EC70024AA7E /* ContactsView.xib */; };
 		22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D6911B52EC70024AA7E /* EmptyContent.xib */; };
-		22638DCA11B53D720024AA7E /* HoccerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* HoccerController.m */; };
+		22638DCA11B53D720024AA7E /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C7F11B51FEE0024AA7E /* ItemViewController.m */; };
 		22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224EA1E611A3F02F003E02B5 /* StoreKit.framework */; };
 		22638DE111B53DCF0024AA7E /* FeedbackProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2271A00B108347C800F84755 /* FeedbackProvider.m */; };
 		22638DE711B53DFC0024AA7E /* HelpScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A94D5109713AB008CE547 /* HelpScreen.m */; };
@@ -650,9 +650,9 @@
 		22638C3311B51E880024AA7E /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		22638C3511B51E880024AA7E /* TermOfUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermOfUse.h; sourceTree = "<group>"; };
 		22638C3611B51E880024AA7E /* TermOfUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermOfUse.m; sourceTree = "<group>"; };
-		22638C7E11B51FEE0024AA7E /* HoccerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerController.h; sourceTree = "<group>"; };
-		22638C7F11B51FEE0024AA7E /* HoccerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerController.m; sourceTree = "<group>"; };
-		22638C8011B51FEE0024AA7E /* HoccerControllerDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerControllerDataDelegate.h; sourceTree = "<group>"; };
+		22638C7E11B51FEE0024AA7E /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		22638C7F11B51FEE0024AA7E /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		22638C8011B51FEE0024AA7E /* ItemViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewControllerDelegate.h; sourceTree = "<group>"; };
 		22638CD411B52D0C0024AA7E /* Accept_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Accept_Button.png; sourceTree = "<group>"; };
 		22638CD511B52D0C0024AA7E /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		22638CD611B52D0C0024AA7E /* Catch_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Catch_Icon.png; sourceTree = "<group>"; };
@@ -1260,9 +1260,9 @@
 		22638C7D11B51FEE0024AA7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22638C7E11B51FEE0024AA7E /* HoccerController.h */,
-				22638C7F11B51FEE0024AA7E /* HoccerController.m */,
-				22638C8011B51FEE0024AA7E /* HoccerControllerDataDelegate.h */,
+				22638C7E11B51FEE0024AA7E /* ItemViewController.h */,
+				22638C7F11B51FEE0024AA7E /* ItemViewController.m */,
+				22638C8011B51FEE0024AA7E /* ItemViewControllerDelegate.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2352,7 +2352,7 @@
 				22638C5711B51E880024AA7E /* SelectContentController.m in Sources */,
 				22638C5A11B51E880024AA7E /* SettingViewController.m in Sources */,
 				22638C5E11B51E880024AA7E /* TermOfUse.m in Sources */,
-				22638C8111B51FEE0024AA7E /* HoccerController.m in Sources */,
+				22638C8111B51FEE0024AA7E /* ItemViewController.m in Sources */,
 				22D9ED5B1202DD00006546A9 /* StatusViewController.m in Sources */,
 				22D9ED641202DD88006546A9 /* AccelerationRecorder.m in Sources */,
 				22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */,
@@ -2472,7 +2472,7 @@
 				22638C4611B51E880024AA7E /* SettingViewController.m in Sources */,
 				22638C4811B51E880024AA7E /* StatusViewController.m in Sources */,
 				22638C4A11B51E880024AA7E /* TermOfUse.m in Sources */,
-				22638DCA11B53D720024AA7E /* HoccerController.m in Sources */,
+				22638DCA11B53D720024AA7E /* ItemViewController.m in Sources */,
 				22638DE111B53DCF0024AA7E /* FeedbackProvider.m in Sources */,
 				22638DE711B53DFC0024AA7E /* HelpScreen.m in Sources */,
 				22638DE811B53DFC0024AA7E /* HelpContent.m in Sources */,

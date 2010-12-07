@@ -11,14 +11,14 @@
 
 
 @interface ConnectionStatusViewController : StatusViewController {
-	HoccerController *hoccerController;
+	ItemViewController *hoccerController;
 }
 
-@property (retain) HoccerController* hoccerController;
+@property (retain) ItemViewController* hoccerController;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
 
-- (void)monitorHoccerController: (HoccerController *)hoccerController;
+- (void)monitorHoccerController: (ItemViewController *)hoccerController;
 
 @end

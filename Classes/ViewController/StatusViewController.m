@@ -10,7 +10,6 @@
 
 #import "StatusViewController.h"
 #import "NSString+Regexp.h"
-#import "HoccerController.h"
 
 #import "StatusBarStates.h"
 

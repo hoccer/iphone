@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HoccerController;
+@class ItemViewController;
 @class StatusViewControllerState;
 
 
