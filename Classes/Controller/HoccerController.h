@@ -12,7 +12,6 @@
 
 @class HoccerContent;
 @class ContentContainerView;
-@class HocLocation;
 
 @interface HoccerController : NSObject <NSCoding, HCLinccerDelegate> {
 	ContentContainerView *contentView;
@@ -23,7 +22,6 @@
 	NSNumber *progress;
 	NSDictionary *status;
 
-	NSString *gesture;
 	BOOL isUpload;
 	
 	id <HoccerControllerDelegate> delegate;
@@ -32,17 +30,17 @@
 }
 
 @property (retain) HoccerContent *content;
+
 @property (retain) ContentContainerView* contentView;
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
-@property (retain) NSString *gesture;
 
 @property (retain) NSNumber *progress;
 @property (nonatomic, copy) NSString *statusMessage;
 @property (nonatomic, retain) NSDictionary *status;
 
-@property (nonatomic, assign) id <HoccerControllerDelegate> delegate; 
 @property (assign) IBOutlet UIView* viewFromNib;
+@property (nonatomic, assign) id <HoccerControllerDelegate> delegate; 
 
 - (void)cancelRequest;
 - (BOOL)hasActiveRequest;

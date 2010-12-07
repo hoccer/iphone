@@ -436,13 +436,13 @@
 }
 
 #pragma mark -
-#pragma mark only for iOS 3.2++
-#pragma mark UIDocumentInteractionController
-
+#pragma mark UIDocumentInteractionController Delegate Methods
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
 }
 
+#pragma mark -
+#pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (HoccerController *)item {
 	NSDictionary *sender = [NSDictionary dictionaryWithObject:@"" forKey:@"client-id"];
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 

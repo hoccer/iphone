@@ -8,16 +8,11 @@
 
 #import "HoccerController.h"
 #import "HoccerContent.h"
-#import "HoccerContentFactory.h"
 #import "StatusViewController.h"
 #import "ContentContainerView.h"
 #import "Preview.h"
-#import "HoccerImage.h"
 
 #import "HCButton.h"
-
-#define hoccerMessageErrorDomain @"HoccerErrorDomain"
-
 
 @interface HoccerController ()
 
@@ -34,7 +29,6 @@
 
 @synthesize delegate;
 @synthesize isUpload;
-@synthesize gesture;
 
 @synthesize statusMessage;
 @synthesize progress;
@@ -62,7 +56,6 @@
 - (void) dealloc {
 	[content release];
 	[contentView release];
-	[gesture release];
 	[statusMessage release];
 	[status release];
 	[progress release];
