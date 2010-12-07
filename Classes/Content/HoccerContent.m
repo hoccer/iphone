@@ -259,6 +259,13 @@
 	return interactionController;
 }
 
+- (void)uploadFile {
+	fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+	fileCache.delegate = self;
+	
+	[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];
+}
+
 
 
 @end

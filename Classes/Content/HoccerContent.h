@@ -45,6 +45,7 @@
 - (id) initWithDictionary: (NSDictionary *)dict;
 - (void)removeFromDocumentDirectory;
 - (void)saveDataToDocumentDirectory;
+- (void)uploadFile;
 
 - (BOOL)saveDataToContentStorage;
 
@@ -69,7 +70,5 @@
 
 - (NSDictionary *)dataDesctiption;
 - (id)interactionController;
-
-
 
 @end

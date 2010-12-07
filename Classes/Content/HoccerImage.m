@@ -23,8 +23,6 @@
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
-		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-		fileCache.delegate = self;
 		image = [aImage retain];
 		
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
@@ -37,10 +35,7 @@
 - (id)initWithFilename:(NSString *)aFilename {
 	self = [super initWithFilename:aFilename];
 	if (self != nil) {
-		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-		fileCache.delegate = self;
-
-		[self didFinishDataRepresentation];
+		[self uploadFile];
 	}
 	
 	return self;
@@ -50,10 +45,10 @@
 - (id) initWithDictionary: (NSDictionary *)dict {
 	self = [super init];
 	if (self != nil) {
+		uploadURL = [[dict objectForKey:@"url"] retain];
+		
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
 		fileCache.delegate = self;
-		
-		uploadURL = [[dict objectForKey:@"url"] retain];
 		[fileCache load: uploadURL];
 	}
 	
@@ -71,7 +66,7 @@
 }
 
 - (void)didFinishDataRepresentation {
-	[fileCache cacheData:self.data withFilename:@"image.jpg" forTimeInterval:180];
+	[self uploadFile];
 }
 
 - (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
@@ -192,6 +187,5 @@
 	
 	return dictionary;
 }
-
 
 @end

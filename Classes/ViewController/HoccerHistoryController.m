@@ -208,9 +208,7 @@
 - (void)viewDidUnload {
 }
 
-
-- (void)addContentToHistory: (HoccerController *) hoccerController {
-
+- (void)addContentToHistory: (HoccerController *)hoccerController {
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
