@@ -385,7 +385,10 @@
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
-
+	if ([error domain] == NSURLErrorDomain) {
+		return;
+	}
+	
 	statusViewController.hoccerController = nil;
 	[statusViewController setError:error];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];

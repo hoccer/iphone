@@ -81,8 +81,8 @@
 	return [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
 }
 
-- (void)textPreviewDidEndEditing: (TextPreview *)preview {
-	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
+- (NSData *)data {
+	return [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
 }
 
 - (BOOL)saveDataToContentStorage {
@@ -110,7 +110,7 @@
 
 - (NSDictionary *)dataDesctiption {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:self.view.textView.text forKey:@"content"];
+	[dictionary setObject:self.data forKey:@"content"];
 	[dictionary setObject:@"text/plain" forKey:@"type"];
 	
 	return dictionary;

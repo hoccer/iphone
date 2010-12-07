@@ -599,10 +599,10 @@
 		22638BB611B51DC50024AA7E /* HoccerProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerProgressView.m; sourceTree = "<group>"; };
 		22638BB811B51DC50024AA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		22638BB911B51DC50024AA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		22638BBA11B51DC50024AA7E /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preview.h; sourceTree = "<group>"; };
-		22638BBB11B51DC50024AA7E /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preview.m; sourceTree = "<group>"; };
-		22638BBC11B51DC50024AA7E /* TextPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextPreview.h; sourceTree = "<group>"; };
-		22638BBD11B51DC50024AA7E /* TextPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPreview.m; sourceTree = "<group>"; };
+		22638BBA11B51DC50024AA7E /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = ../View/Preview.h; sourceTree = "<group>"; };
+		22638BBB11B51DC50024AA7E /* Preview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preview.m; path = ../View/Preview.m; sourceTree = "<group>"; };
+		22638BBC11B51DC50024AA7E /* TextPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextPreview.h; path = ../View/TextPreview.h; sourceTree = "<group>"; };
+		22638BBD11B51DC50024AA7E /* TextPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextPreview.m; path = ../View/TextPreview.m; sourceTree = "<group>"; };
 		22638BD411B51DF00024AA7E /* AccelerationRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationRecorder.h; sourceTree = "<group>"; };
 		22638BD511B51DF00024AA7E /* AccelerationRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationRecorder.m; sourceTree = "<group>"; };
 		22638BD611B51DF00024AA7E /* DebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
@@ -1110,10 +1110,6 @@
 				22638BA011B51DC50024AA7E /* CustomTabBar.m */,
 				22638BB511B51DC50024AA7E /* HoccerProgressView.h */,
 				22638BB611B51DC50024AA7E /* HoccerProgressView.m */,
-				22638BBA11B51DC50024AA7E /* Preview.h */,
-				22638BBB11B51DC50024AA7E /* Preview.m */,
-				22638BBC11B51DC50024AA7E /* TextPreview.h */,
-				22638BBD11B51DC50024AA7E /* TextPreview.m */,
 				229B92A01208660000120752 /* HCButton.h */,
 				229B92A11208660000120752 /* HCButton.m */,
 			);
@@ -1217,13 +1213,10 @@
 		22638BE911B51E5C0024AA7E /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				E646BE9812AE9A22005626C8 /* Views */,
 				22A3659B11E4B7F5008AEBC9 /* Types */,
 				22638BEF11B51E5C0024AA7E /* HoccerContent.h */,
 				22638BF011B51E5C0024AA7E /* HoccerContent.m */,
-				22638BEA11B51E5C0024AA7E /* ContactPreview.h */,
-				22638BEB11B51E5C0024AA7E /* ContactPreview.m */,
-				22638BEC11B51E5C0024AA7E /* ContentContainerView.h */,
-				22638BED11B51E5C0024AA7E /* ContentContainerView.m */,
 				22638BEE11B51E5C0024AA7E /* ContentContainerViewDelegate.h */,
 				22638BF111B51E5C0024AA7E /* HoccerContentFactory.h */,
 				22638BF211B51E5C0024AA7E /* HoccerContentFactory.m */,
@@ -1858,6 +1851,21 @@
 			);
 			name = content_select_btns;
 			path = Resources/assets/content_select_btns;
+			sourceTree = "<group>";
+		};
+		E646BE9812AE9A22005626C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22638BBA11B51DC50024AA7E /* Preview.h */,
+				22638BBB11B51DC50024AA7E /* Preview.m */,
+				22638BBC11B51DC50024AA7E /* TextPreview.h */,
+				22638BBD11B51DC50024AA7E /* TextPreview.m */,
+				22638BEA11B51E5C0024AA7E /* ContactPreview.h */,
+				22638BEB11B51E5C0024AA7E /* ContactPreview.m */,
+				22638BEC11B51E5C0024AA7E /* ContentContainerView.h */,
+				22638BED11B51E5C0024AA7E /* ContentContainerView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

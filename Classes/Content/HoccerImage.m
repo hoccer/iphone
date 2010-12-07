@@ -163,7 +163,7 @@
 	return YES;
 }
 
--(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
+-(void) image: (UIImage *)aImage didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
 	[self sendSaveSuccessEvent];
 }
 
