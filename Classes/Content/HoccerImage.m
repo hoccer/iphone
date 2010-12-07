@@ -105,7 +105,7 @@
 	
 	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
 										 preserveAspectRatio: YES
-												   trimToFit: NO];
+												   trimToFit: YES];
 
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
@@ -120,7 +120,6 @@
 	
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
 
-	
 	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
 												 trimToFit: YES];
 	
@@ -189,8 +188,10 @@
 }
 
 - (void)uploadFile {
-	fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-	fileCache.delegate = self;
+	if (fileCache == nil) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;		
+	}
 	
 	[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];
 }
