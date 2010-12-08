@@ -36,6 +36,7 @@
 @class ConnectionStatusViewController;
 
 @class HCLinccer;
+@class DownloadController;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
@@ -61,7 +62,8 @@
 
 	UILabel *hoccability;
 	HCLinccer *linccer;
-								
+	DownloadController *downloadController;
+	
 	BOOL blocked;
 }
 

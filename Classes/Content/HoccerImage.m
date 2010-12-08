@@ -21,6 +21,7 @@
 @synthesize image;
 @synthesize progress;
 @synthesize error;
+@synthesize state;
 
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
@@ -28,6 +29,7 @@
 		image = [aImage retain];
 		
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
+		self.state = 1;
 		isFromContentSource = YES;
 	}
 	
@@ -37,6 +39,7 @@
 - (id)initWithFilename:(NSString *)aFilename {
 	self = [super initWithFilename:aFilename];
 	if (self != nil) {
+		self.state = 0;
 		[self uploadFile];
 	}
 	
@@ -83,7 +86,7 @@
 }
 	 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	NSLog(@"progress %@", theProgress);
+	NSLog(@"progress %f", [theProgress floatValue]);
 	self.progress = theProgress;
 }
 
@@ -203,7 +206,23 @@
 		fileCache.delegate = self;		
 	}
 	
-	[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];
+	if (shouldUpload && [self isDataReady]) {
+		[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];		
+		self.state = 2;
+	}
 }
+
+
+#pragma mark -
+#pragma mark Downloadable Methods
+- (void) cancelTransfer {
+}
+
+- (void) startTransfer {
+	shouldUpload = YES;
+
+	[self uploadFile];
+}
+
 
 @end

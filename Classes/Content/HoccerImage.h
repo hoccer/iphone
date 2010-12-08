@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Hoccer.h"
 #import "HoccerContent.h"
+#import "DownloadController.h"
 
-@interface HoccerImage : HoccerContent <HCFileCacheDelegate> {
+@interface HoccerImage : HoccerContent <HCFileCacheDelegate, Downloadable> {
 	UIImage *image;	
 	
 	HCFileCache *fileCache;
@@ -20,18 +21,21 @@
 	
 	NSNumber *progress;
 	NSError *error;
+	NSInteger state;
+	
+	BOOL shouldUpload;
 }
 
 @property (nonatomic, readonly) UIImage* image;
 
 @property (nonatomic, retain) NSNumber* progress;
 @property (nonatomic, retain) NSError* error;
+@property (nonatomic, assign) NSInteger state;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)uploadFile;
 - (void)updateImage;
 - (void)didFinishDataRepresentation;
-
 
 
 @end

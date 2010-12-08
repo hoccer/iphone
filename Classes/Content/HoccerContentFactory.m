@@ -7,11 +7,6 @@
 
 #import "HoccerContentFactory.h"
 
-#import "HoccerContent.h"
-#import "HoccerImage.h"
-#import "HoccerText.h"
-#import "HoccerVcard.h"
-
 static HoccerContentFactory* sharedInstance = nil;
 
 @implementation HoccerContentFactory

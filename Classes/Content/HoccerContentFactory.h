@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "HoccerContent.h"
+#import "HoccerImage.h"
+#import "HoccerText.h"
+#import "HoccerVcard.h"
 
 
 @interface HoccerContentFactory : NSObject {

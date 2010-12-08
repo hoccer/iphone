@@ -528,6 +528,8 @@
 		E63FE799118C2CE300DB0DA8 /* select_btn_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */; };
 		E63FE79A118C2CE300DB0DA8 /* select_btn_text.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE788118C2CE300DB0DA8 /* select_btn_text.png */; };
 		E63FE79B118C2CE300DB0DA8 /* select_btn_video.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE789118C2CE300DB0DA8 /* select_btn_video.png */; };
+		E6B9FC0F12AFC09000A7E313 /* DownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* DownloadController.m */; };
+		E6B9FC1012AFC09000A7E313 /* DownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* DownloadController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -910,6 +912,8 @@
 		E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_photo.png; sourceTree = "<group>"; };
 		E63FE788118C2CE300DB0DA8 /* select_btn_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_text.png; sourceTree = "<group>"; };
 		E63FE789118C2CE300DB0DA8 /* select_btn_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_video.png; sourceTree = "<group>"; };
+		E6B9FC0D12AFC09000A7E313 /* DownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownloadController.h; path = DownloadController/DownloadController.h; sourceTree = "<group>"; };
+		E6B9FC0E12AFC09000A7E313 /* DownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownloadController.m; path = DownloadController/DownloadController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -981,6 +985,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E6B9FC0C12AFBFE800A7E313 /* DownloadController */,
 				22638C7D11B51FEE0024AA7E /* Controller */,
 				22638C1811B51E880024AA7E /* ViewController */,
 				22638BE911B51E5C0024AA7E /* Content */,
@@ -1868,6 +1873,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		E6B9FC0C12AFBFE800A7E313 /* DownloadController */ = {
+			isa = PBXGroup;
+			children = (
+				E6B9FC0D12AFC09000A7E313 /* DownloadController.h */,
+				E6B9FC0E12AFC09000A7E313 /* DownloadController.m */,
+			);
+			name = DownloadController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2379,6 +2393,7 @@
 				E60935A912A54A8500EE83EB /* HttpClient.m in Sources */,
 				E60935AA12A54A8500EE83EB /* HttpConnection.m in Sources */,
 				E60935C312A5552800EE83EB /* NSString+URLHelper.m in Sources */,
+				E6B9FC1012AFC09000A7E313 /* DownloadController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2420,6 +2435,7 @@
 				E60935B512A54A8500EE83EB /* HttpClient.m in Sources */,
 				E60935B612A54A8500EE83EB /* HttpConnection.m in Sources */,
 				E60935C412A5552800EE83EB /* NSString+URLHelper.m in Sources */,
+				E6B9FC0F12AFC09000A7E313 /* DownloadController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

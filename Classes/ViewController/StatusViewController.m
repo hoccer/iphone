@@ -60,7 +60,6 @@
 	[self hideViewAnimated:YES];
 }
 
-
 - (void)setHidden:(BOOL)isHidden {
 	if (!hidden) {
 		self.view.hidden = YES;
@@ -200,7 +199,6 @@
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	
 	if (animation) {
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
@@ -222,6 +220,7 @@
 
 #pragma mark -
 #pragma mark Getters
+
 - (UIImage *) smallBackground {
 	if (smallBackground == nil) {
 		smallBackground = [[UIImage imageNamed:@"statusbar_small.png"] retain];

@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <YAJLIOS/YAJLIOS.h>
 #import "Hoccer.h"
+#import "DownloadController.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
@@ -27,11 +28,6 @@
 #import "ReceivedContentViewController.h"
 
 #import "HelpScrollView.h"
-
-#import "HoccerImage.h"
-#import "HoccerText.h"
-#import "HoccerVcard.h"
-#import "HoccerContent.h"
 
 #import "DesktopDataSource.h"
 #import "FeedbackProvider.h"
@@ -73,6 +69,8 @@
 }
 
 - (void)viewDidLoad {
+	self.blocked = YES;
+	
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
@@ -91,6 +89,8 @@
 	
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
+
+	downloadController = [[DownloadController alloc] init];
 }
 
 - (void)viewDidUnload {
@@ -103,6 +103,7 @@
 	[helpViewController release];
 	[statusViewController release];
 	[hoccingRules release];
+	[downloadController release];
 	
 	[super dealloc];
 }
@@ -165,7 +166,8 @@
 	item.content = content;
 	item.delegate = self;
 	
-	statusViewController.content = content;
+	[downloadController addContentToDownloadQueue:item.content];
+	// statusViewController.content = content;
 		
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
@@ -384,13 +386,14 @@
 
 - (void) linccerDidRegister:(HCLinccer *)linccer {
 	NSLog(@"ready for sharing");
+	self.blocked = NO;
 }
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
 	[statusViewController setError:error];
 
-	if ([error domain] == NSURLErrorDomain) {
+	if ([error domain] != HoccerError) {
 		return;
 	}
 	
