@@ -93,6 +93,9 @@
 } 
 
 - (void) dealloc {
+	fileCache.delegate = nil;
+	[fileCache release];
+	
 	[image release];
 	[uploadURL release];
 	[preview release];
