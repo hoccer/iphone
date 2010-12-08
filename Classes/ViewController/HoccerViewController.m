@@ -164,6 +164,8 @@
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
+	
+	statusViewController.content = content;
 		
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
@@ -247,7 +249,7 @@
 	[infoViewController hideViewAnimated:YES];
 	
 	[FeedbackProvider playThrowFeedback];
-	statusViewController.hoccerController = [desktopData hoccerControllerDataAtIndex:0];
+	statusViewController.content = [desktopData hoccerControllerDataAtIndex:0].content;
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	item.isUpload = YES;
 	
@@ -302,7 +304,7 @@
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 	
-	statusViewController.hoccerController = item;
+	statusViewController.content = item.content;
 	
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
 }
@@ -325,21 +327,21 @@
 
 - (void)willStartDownload: (ItemViewController *)item {
 	item.isUpload = NO;
-	statusViewController.hoccerController = item;
+	statusViewController.content = item.content;
 }
 	 
 #pragma mark -
 #pragma mark HoccerControllerDataDelegate
 
 - (void)hoccerControllerUploadWasCanceled: (ItemViewController *)item {
-	statusViewController.hoccerController = nil;
+	statusViewController.content = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
 - (void)hoccerControllerDownloadWasCanceled: (ItemViewController *)item {
-	statusViewController.hoccerController = nil;
+	statusViewController.content = nil;
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
@@ -390,7 +392,7 @@
 		return;
 	}
 	
-	statusViewController.hoccerController = nil;
+	statusViewController.content = nil;
 	[statusViewController setError:error];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
@@ -413,7 +415,7 @@
 	item.content = hoccerContent;
 	item.content.persist = YES;
 		
-	statusViewController.hoccerController = nil;
+	statusViewController.content = nil;
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];
@@ -429,7 +431,7 @@
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 
-	statusViewController.hoccerController = nil;
+	statusViewController.content = nil;
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];

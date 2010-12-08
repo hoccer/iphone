@@ -20,6 +20,7 @@
 
 @synthesize image;
 @synthesize progress;
+@synthesize error;
 
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
@@ -86,8 +87,9 @@
 	self.progress = theProgress;
 }
 
-- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
+- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
 	NSLog(@"error: %@", error);
+	self.error = theError;
 }
 
 - (UIImage*) image {

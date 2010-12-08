@@ -19,10 +19,13 @@
 	Preview *preview;
 	
 	NSNumber *progress;
+	NSError *error;
 }
 
 @property (nonatomic, readonly) UIImage* image;
+
 @property (nonatomic, retain) NSNumber* progress;
+@property (nonatomic, retain) NSError* error;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)uploadFile;

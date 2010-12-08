@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "StatusViewController.h"
 
+@class HoccerContent;
+
 
 @interface ConnectionStatusViewController : StatusViewController {
-	ItemViewController *hoccerController;
+	HoccerContent *content;
 }
 
-@property (retain) ItemViewController* hoccerController;
+@property (retain) HoccerContent* content;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
 
-- (void)monitorHoccerController: (ItemViewController *)hoccerController;
+- (void)monitorContent: (HoccerContent *)content;
 
 @end

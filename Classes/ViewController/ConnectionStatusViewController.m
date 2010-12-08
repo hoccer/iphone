@@ -9,54 +9,56 @@
 #import "ConnectionStatusViewController.h"
 #import "ItemViewController.h"
 #import "StatusBarStates.h"
+#import "HoccerImage.h"
 
 @implementation ConnectionStatusViewController
-@synthesize hoccerController;
+@synthesize content;
 
-- (void)setHoccerController:(ItemViewController *)newHoccerController {
-	if (hoccerController != newHoccerController) {
-		[hoccerController removeObserver:self forKeyPath:@"statusMessage"];
-		[hoccerController removeObserver:self forKeyPath:@"progress"];
-		[hoccerController release];
+- (void)setContent:(HoccerContent *)newContent {
+	if (content != newContent) {
+		[content removeObserver:self forKeyPath:@"progress"];
+		[content removeObserver:self forKeyPath:@"error"];
+		[content release];
 		
-		hoccerController = [newHoccerController retain]; 
-		[self monitorHoccerController:hoccerController];
+		content = [newContent retain]; 
+		[self monitorContent:content];
 		
 		statusLabel.text = NSLocalizedString(@"Connecting..", nil);
 		[self setState:[[[ConnectionState alloc] init] autorelease]];
 	} 
 	
-	if (hoccerController == nil) {
+	if (content == nil) {
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
 }
 
 
 - (void) dealloc {
-	[hoccerController release];
+	[content release];
 	[super dealloc];
 }
 
-
 - (void)setUpdate: (NSString *)update {
-	if ([[hoccerController.status objectForKey:@"status_code"] intValue] != 200) {
-		statusLabel.text = update;
-		[self setState: [[[ConnectionState alloc] init]autorelease]];
-	} 	
+//	if ([[content.status objectForKey:@"status_code"] intValue] != 200) {
+//		statusLabel.text = update;
+//		[self setState: [[[ConnectionState alloc] init]autorelease]];
+//	} 	
 }
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	if ([[hoccerController.status objectForKey:@"status_code"] intValue] == 200) {
-		statusLabel.text = @"Transfering";
-		[self setState:[TransferState state]];		
-	} 
+//	if ([[content.status objectForKey:@"status_code"] intValue] == 200) {
+//		statusLabel.text = @"Transfering";
+//		[self setState:[TransferState state]];		
+//	} 
 }
 
 
+
+
 - (IBAction) cancelAction: (id) sender {
-	[hoccerController cancelRequest];
-	self.hoccerController = nil;
+	// [content cancelRequest];
+	self.content = nil;
 	
 	[self hideViewAnimated:YES];
 }
@@ -64,16 +66,20 @@
 #pragma mark -
 #pragma mark Monitoring Changes
 
-- (void)monitorHoccerController: (ItemViewController*) theHoccerController {
-	[theHoccerController addObserver:self forKeyPath:@"statusMessage" options:NSKeyValueObservingOptionNew context:nil];
-	[theHoccerController addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+- (void)monitorContent: (HoccerContent *)theContent {
+	if (![theContent isKindOfClass:[HoccerImage class]]) {
+		return;
+	}
+	
+	[theContent addObserver:self forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
+	[theContent addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	NSLog(@"updated %@", change);
 	
-	if ([keyPath isEqual:@"statusMessage"]) {
-		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
+	if ([keyPath isEqual:@"error"]) {
+		[self setError: [change objectForKey:NSKeyValueChangeNewKey]];
 	}
 	
 	if ([keyPath isEqual:@"progress"]) {
