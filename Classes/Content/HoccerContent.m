@@ -249,7 +249,7 @@
 }
 
 #pragma mark -
-#pragma mark iOS 4 Stuff 
+#pragma mark UIDocumentInteractionController
 
 - (id)interactionController; {
 	if (interactionController == nil) {

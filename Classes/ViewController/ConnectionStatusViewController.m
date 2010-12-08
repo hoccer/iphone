@@ -70,6 +70,8 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	NSLog(@"updated %@", change);
+	
 	if ([keyPath isEqual:@"statusMessage"]) {
 		[self setUpdate: [change objectForKey:NSKeyValueChangeNewKey]];
 	}

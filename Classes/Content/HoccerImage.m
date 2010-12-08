@@ -19,6 +19,7 @@
 @implementation HoccerImage
 
 @synthesize image;
+@synthesize progress;
 
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
@@ -40,7 +41,6 @@
 	
 	return self;
 }
-
 
 - (id) initWithDictionary: (NSDictionary *)dict {
 	self = [super init];
@@ -81,6 +81,11 @@
 	[self updateImage];
 }
 	 
+- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
+	NSLog(@"progress %@", theProgress);
+	self.progress = theProgress;
+}
+
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)error forURI:(NSString *)uri {
 	NSLog(@"error: %@", error);
 }

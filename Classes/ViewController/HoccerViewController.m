@@ -301,6 +301,7 @@
 	[FeedbackProvider playSweepOut];
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
+	
 	statusViewController.hoccerController = item;
 	
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
@@ -422,7 +423,6 @@
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
 		[item.content.interactionController setDelegate: self];
 		[item.content.interactionController presentPreviewAnimated:YES];
-		[item.content.interactionController setDelegate: nil];
 	}
 }
 

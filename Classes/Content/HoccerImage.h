@@ -17,9 +17,12 @@
 	NSString *uploadURL;
 	
 	Preview *preview;
+	
+	NSNumber *progress;
 }
 
 @property (nonatomic, readonly) UIImage* image;
+@property (nonatomic, retain) NSNumber* progress;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)uploadFile;
