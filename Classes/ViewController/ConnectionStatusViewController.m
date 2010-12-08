@@ -53,9 +53,6 @@
 //	} 
 }
 
-
-
-
 - (IBAction) cancelAction: (id) sender {
 	// [content cancelRequest];
 	self.content = nil;

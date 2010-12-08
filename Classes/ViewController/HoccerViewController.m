@@ -388,12 +388,13 @@
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	NSLog(@"error %@", error);
+	[statusViewController setError:error];
+
 	if ([error domain] == NSURLErrorDomain) {
 		return;
 	}
 	
 	statusViewController.content = nil;
-	[statusViewController setError:error];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if (item.isUpload) {
