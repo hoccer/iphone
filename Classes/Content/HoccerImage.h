@@ -21,7 +21,7 @@
 	
 	NSNumber *progress;
 	NSError *error;
-	NSInteger state;
+	TransferableState state;
 	
 	BOOL shouldUpload;
 }
@@ -30,7 +30,7 @@
 
 @property (nonatomic, retain) NSNumber* progress;
 @property (nonatomic, retain) NSError* error;
-@property (nonatomic, assign) NSInteger state;
+@property (nonatomic, assign) TransferableState state;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)uploadFile;

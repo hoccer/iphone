@@ -29,7 +29,7 @@
 		image = [aImage retain];
 		
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
-		self.state = 1;
+		self.state = TransferableStatePreparing;
 		isFromContentSource = YES;
 	}
 	
@@ -39,7 +39,7 @@
 - (id)initWithFilename:(NSString *)aFilename {
 	self = [super initWithFilename:aFilename];
 	if (self != nil) {
-		self.state = 0;
+		self.state = TransferableStateReady;
 		[self uploadFile];
 	}
 	
@@ -74,12 +74,13 @@
 }
 
 - (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
+	self.state = TransferableStateTransferred;
 	uploadURL = [path retain];
 }
 
 -(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
 	NSLog(@"loaded %@", uri);
-	
+	self.state = TransferableStateTransferred;
 	self.data = [theData retain];
 	[self saveDataToDocumentDirectory];
 	[self updateImage];
@@ -208,7 +209,7 @@
 	
 	if (shouldUpload && [self isDataReady]) {
 		[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];		
-		self.state = 2;
+		self.state = TransferableStateTransfering;
 	}
 }
 

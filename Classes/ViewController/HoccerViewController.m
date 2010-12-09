@@ -91,6 +91,7 @@
 	self.defaultOrigin = CGPointMake(7, 22);
 
 	downloadController = [[DownloadController alloc] init];
+	downloadController.delegate = self;
 }
 
 - (void)viewDidUnload {
@@ -267,6 +268,20 @@
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
 }
 
+#pragma mark -
+#pragma mark DownloadController Delegate
+
+- (void) downloadController:(DownloadController *)controller didFinishTransfer:(id)object {
+	NSLog(@"did finish download");
+}
+
+- (void) downloadController:(DownloadController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
+	NSLog(@"progress in view controller %@", progress);
+}
+
+- (void) downloadController:(DownloadController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
+	NSLog(@"error in download");
+}
 
 #pragma mark -
 #pragma mark DesktopViewDelegate

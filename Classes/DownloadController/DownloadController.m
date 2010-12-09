@@ -15,11 +15,14 @@
 - (void)startDownload;
 - (void)monitorContent: (NSObject <Downloadable> *)theContent;
 
+- (void)error: (NSError *)error forTransfer: (id)object;
+
 @end
 
 
 
 @implementation DownloadController
+@synthesize delegate;
 
 - (id)init {
 	self = [super init];
@@ -65,23 +68,58 @@
 	[theContent addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	NSLog(@"updated %@", change);
-	
-//	if ([keyPath isEqual:@"error"]) {
-//		[self setError: [change objectForKey:NSKeyValueChangeNewKey]];
-//	}
-//	
-//	if ([keyPath isEqual:@"progress"]) {
-//		[self setProgressUpdate: [[change objectForKey:NSKeyValueChangeNewKey] floatValue]];
-//	}
-}
-
-- (void)error: (id)object {
-	NSLog(@"error: %@");
+- (void)error: (NSError *)error forTransfer: (id)object {
+	NSLog(@"error: %@", error);
+	[object retain];
 	
 	[activeDownloads removeObject:object];
 	[self startDownload];
+	
+	if ([delegate respondsToSelector:@selector(downloadController:didFailWithError:forTransfer:)]) {
+		[delegate downloadController:self didFailWithError:error forTransfer:object];
+	}
+	
+	[object release];
+}
+
+- (void)progress: (NSNumber *)progress forTransfer: (id)object {	
+	if ([delegate respondsToSelector:@selector(downloadController:didUpdateProgress:forTransfer:)]) {
+		[delegate downloadController:self didUpdateProgress:progress forTransfer:object];
+	}
+}
+
+- (void)state: (TransferableState) state forTransfer: (id)object {
+	[object retain];
+	switch (state) {
+		case TransferableStateTransferred:
+			[self startDownload];
+			[activeDownloads removeObject:object];
+			
+			if ([delegate respondsToSelector:@selector(downloadController:didFinishTransfer:)]) {
+				[delegate downloadController:self didFinishTransfer:object];
+			}
+			
+			break;
+		default:
+			NSLog(@"state changed");
+			break;
+	}
+	[object release];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	
+	if ([keyPath isEqual:@"error"]) {
+		[self error: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
+	}
+	
+	if ([keyPath isEqual:@"progress"]) {
+		[self progress: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
+	}
+	
+	if ([keyPath isEqual:@"state"]) {
+		[self state: [[change objectForKey:NSKeyValueChangeNewKey] intValue] forTransfer: object];
+	}
 }
 
 @end

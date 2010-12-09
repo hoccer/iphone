@@ -15,6 +15,7 @@
 #import "GesturesInterpreterDelegate.h"
 #import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
+#import "DownloadController.h"
 
 #import "HttpClient.h"
 #import "Hoccer.h"
@@ -36,11 +37,11 @@
 @class ConnectionStatusViewController;
 
 @class HCLinccer;
-@class DownloadController;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, HCLinccerDelegate> 
+			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
+						HCLinccerDelegate, DownloadControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
