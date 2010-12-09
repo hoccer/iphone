@@ -21,6 +21,4 @@
 - (void)setUpdate: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
 
-- (void)monitorContent: (HoccerContent *)content;
-
 @end

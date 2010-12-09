@@ -50,10 +50,6 @@
 	self = [super init];
 	if (self != nil) {
 		uploadURL = [[dict objectForKey:@"url"] retain];
-		
-		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-		fileCache.delegate = self;
-		[fileCache load: uploadURL];
 	}
 	
 	return self;
@@ -79,7 +75,6 @@
 }
 
 -(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
-	NSLog(@"loaded %@", uri);
 	self.state = TransferableStateTransferred;
 	self.data = [theData retain];
 	[self saveDataToDocumentDirectory];
@@ -87,7 +82,6 @@
 }
 	 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	NSLog(@"progress %f", [theProgress floatValue]);
 	self.progress = theProgress;
 }
 
@@ -220,9 +214,15 @@
 }
 
 - (void) startTransfer {
-	shouldUpload = YES;
-
-	[self uploadFile];
+	if (uploadURL) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;
+		[fileCache load: uploadURL];		
+	} else {
+		shouldUpload = YES;
+		
+		[self uploadFile];		
+	}
 }
 
 

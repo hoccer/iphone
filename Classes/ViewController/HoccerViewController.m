@@ -276,11 +276,11 @@
 }
 
 - (void) downloadController:(DownloadController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
-	NSLog(@"progress in view controller %@", progress);
+	[statusViewController setProgressUpdate: [progress floatValue]];
 }
 
 - (void) downloadController:(DownloadController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
-	NSLog(@"error in download");
+	[statusViewController setError: error];
 }
 
 #pragma mark -
@@ -433,7 +433,9 @@
 
 	item.content = hoccerContent;
 	item.content.persist = YES;
-		
+	
+	[downloadController addContentToDownloadQueue:hoccerContent];
+	
 	statusViewController.content = nil;
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
