@@ -270,15 +270,15 @@
 #pragma mark -
 #pragma mark DownloadController Delegate
 
-- (void) downloadController:(TransferController *)controller didFinishTransfer:(id)object {
+- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {
 	NSLog(@"did finish download");
 }
 
-- (void) downloadController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
+- (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
 	[statusViewController setProgressUpdate: [progress floatValue]];
 }
 
-- (void) downloadController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
+- (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
 	[statusViewController setError: error];
 }
 

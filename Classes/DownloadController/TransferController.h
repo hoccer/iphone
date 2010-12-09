@@ -30,9 +30,9 @@ typedef enum _TransferableState TransferableState;
 @protocol DownloadControllerDelegate <NSObject>
 
 @optional
-- (void)downloadController: (TransferController *)controller didFinishTransfer: (id)object;
-- (void)downloadController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
-- (void)downloadController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
+- (void)transferController: (TransferController *)controller didFinishTransfer: (id)object;
+- (void)transferController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
+- (void)transferController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
 
 @end
 

@@ -106,16 +106,16 @@
 	
 	[self finalizeDownload:object];
 	
-	if ([delegate respondsToSelector:@selector(downloadController:didFailWithError:forTransfer:)]) {
-		[delegate downloadController:self didFailWithError:error forTransfer:object];
+	if ([delegate respondsToSelector:@selector(transferController:didFailWithError:forTransfer:)]) {
+		[delegate transferController:self didFailWithError:error forTransfer:object];
 	}
 	
 	[object release];
 }
 
 - (void)progress: (NSNumber *)progress forTransfer: (id)object {	
-	if ([delegate respondsToSelector:@selector(downloadController:didUpdateProgress:forTransfer:)]) {
-		[delegate downloadController:self didUpdateProgress:progress forTransfer:object];
+	if ([delegate respondsToSelector:@selector(transferController:didUpdateProgress:forTransfer:)]) {
+		[delegate transferController:self didUpdateProgress:progress forTransfer:object];
 	}
 }
 
@@ -124,8 +124,8 @@
 	switch (state) {
 		case TransferableStateTransferred:
 			[self finalizeDownload:object];
-			if ([delegate respondsToSelector:@selector(downloadController:didFinishTransfer:)]) {
-				[delegate downloadController:self didFinishTransfer:object];
+			if ([delegate respondsToSelector:@selector(transferController:didFinishTransfer:)]) {
+				[delegate transferController:self didFinishTransfer:object];
 			}
 			
 			break;
