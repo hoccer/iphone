@@ -252,7 +252,6 @@
 	[infoViewController hideViewAnimated:YES];
 	
 	[FeedbackProvider playThrowFeedback];
-	statusViewController.content = [desktopData hoccerControllerDataAtIndex:0].content;
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	item.isUpload = YES;
 	
@@ -320,9 +319,7 @@
 	[FeedbackProvider playSweepOut];
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
-	
-	statusViewController.content = item.content;
-	
+		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
 }
 
@@ -344,22 +341,18 @@
 
 - (void)willStartDownload: (ItemViewController *)item {
 	item.isUpload = NO;
-	statusViewController.content = item.content;
 }
 	 
 #pragma mark -
 #pragma mark HoccerControllerDataDelegate
 
 - (void)hoccerControllerUploadWasCanceled: (ItemViewController *)item {
-	statusViewController.content = nil;
 	item.viewOrigin = self.defaultOrigin;
 	
 	[desktopView reloadData];
 }
 
 - (void)hoccerControllerDownloadWasCanceled: (ItemViewController *)item {
-	statusViewController.content = nil;
-	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
@@ -412,7 +405,6 @@
 		return;
 	}
 	
-	statusViewController.content = nil;
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if (item.isUpload) {
@@ -430,13 +422,11 @@
 	
 	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-
 	item.content = hoccerContent;
 	item.content.persist = YES;
 	
 	[downloadController addContentToDownloadQueue:hoccerContent];
 	
-	statusViewController.content = nil;
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];
@@ -452,7 +442,6 @@
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 
-	statusViewController.content = nil;
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];

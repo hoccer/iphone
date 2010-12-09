@@ -12,11 +12,6 @@
 #import "HoccerImage.h"
 
 @implementation ConnectionStatusViewController
-@synthesize content;
-- (void) dealloc {
-	[content release];
-	[super dealloc];
-}
 
 - (void)setUpdate: (NSString *)update {
 	statusLabel.text = update;
@@ -31,7 +26,6 @@
 
 - (IBAction) cancelAction: (id) sender {
 	// [content cancelRequest];
-	self.content = nil;
 	
 	[self hideViewAnimated:YES];
 }

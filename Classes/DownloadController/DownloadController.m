@@ -16,6 +16,8 @@
 - (void)monitorContent: (NSObject <Downloadable> *)theContent;
 
 - (void)error: (NSError *)error forTransfer: (id)object;
+- (void)progress: (NSNumber *)progress forTransfer: (id)object;
+- (void)state: (TransferableState) state forTransfer: (id)object;
 
 @end
 
@@ -68,8 +70,26 @@
 	[theContent addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+#pragma mark -
+#pragma mark Dispatch Changes
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	
+	if ([keyPath isEqual:@"error"]) {
+		[self error: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
+	}
+	
+	if ([keyPath isEqual:@"progress"]) {
+		[self progress: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
+	}
+	
+	if ([keyPath isEqual:@"state"]) {
+		[self state: [[change objectForKey:NSKeyValueChangeNewKey] intValue] forTransfer: object];
+	}
+}
+
+
 - (void)error: (NSError *)error forTransfer: (id)object {
-	NSLog(@"error: %@", error);
 	[object retain];
 	
 	[activeDownloads removeObject:object];
@@ -105,21 +125,6 @@
 			break;
 	}
 	[object release];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	
-	if ([keyPath isEqual:@"error"]) {
-		[self error: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
-	}
-	
-	if ([keyPath isEqual:@"progress"]) {
-		[self progress: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
-	}
-	
-	if ([keyPath isEqual:@"state"]) {
-		[self state: [[change objectForKey:NSKeyValueChangeNewKey] intValue] forTransfer: object];
-	}
 }
 
 @end
