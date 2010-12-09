@@ -6,15 +6,15 @@
 //  Copyright 2010 Hoccer GmbH. All rights reserved.
 //
 
-#import "DownloadController.h"
+#import "TransferController.h"
 
 #define CONCURENT_TRANSFERES 1
 
-@interface DownloadController ()
+@interface TransferController ()
 
 - (void)startDownload;
-- (void)monitorContent: (NSObject <Downloadable> *)theContent;
-- (void)removeObservers: (NSObject <Downloadable> *)theContent;
+- (void)monitorContent: (NSObject <Transferable> *)theContent;
+- (void)removeObservers: (NSObject <Transferable> *)theContent;
 
 - (void)error: (NSError *)error forTransfer: (id)object;
 - (void)progress: (NSNumber *)progress forTransfer: (id)object;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation DownloadController
+@implementation TransferController
 @synthesize delegate;
 
 - (id)init {
@@ -42,7 +42,7 @@
 	[super dealloc];
 }
 
-- (void)addContentToDownloadQueue:(id <Downloadable>)downloadable {
+- (void)addContentToDownloadQueue:(id <Transferable>)downloadable {
 	[downloadQueue addObject:downloadable];
 	[self startDownload];
 }
@@ -53,7 +53,7 @@
 
 - (void)startDownload {
 	if ([activeDownloads count] < CONCURENT_TRANSFERES && [downloadQueue count] > 0) {
-		NSObject <Downloadable> *nextObject = [downloadQueue objectAtIndex:0];
+		NSObject <Transferable> *nextObject = [downloadQueue objectAtIndex:0];
 		
 		[nextObject startTransfer];
 		[self monitorContent:nextObject];
@@ -63,20 +63,20 @@
 	}
 }
 
-- (void)finalizeDownload: (NSObject <Downloadable> *)object {
+- (void)finalizeDownload: (NSObject <Transferable> *)object {
 	[self removeObservers:object];
 	[activeDownloads removeObject:object];
 
 	[self startDownload];
 }
 
-- (void)monitorContent: (NSObject <Downloadable> *)theContent {
+- (void)monitorContent: (NSObject <Transferable> *)theContent {
 	[theContent addObserver:self forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
 	[theContent addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 	[theContent addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)removeObservers: (NSObject <Downloadable> *)theContent {
+- (void)removeObservers: (NSObject <Transferable> *)theContent {
 	[theContent removeObserver:self forKeyPath:@"error"];
 	[theContent removeObserver:self forKeyPath:@"progress"];
 	[theContent removeObserver:self forKeyPath:@"state"];

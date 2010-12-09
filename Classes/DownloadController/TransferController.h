@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class DownloadController;
+@class TransferController;
 
 enum _TransferableState {
 	TransferableStatePreparing,
@@ -18,7 +18,7 @@ enum _TransferableState {
 };
 typedef enum _TransferableState TransferableState;
 
-@protocol Downloadable <NSObject>
+@protocol Transferable <NSObject>
 - (void)startTransfer;
 - (void)cancelTransfer;
 
@@ -30,14 +30,14 @@ typedef enum _TransferableState TransferableState;
 @protocol DownloadControllerDelegate <NSObject>
 
 @optional
-- (void)downloadController: (DownloadController *)controller didFinishTransfer: (id)object;
-- (void)downloadController: (DownloadController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
-- (void)downloadController: (DownloadController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
+- (void)downloadController: (TransferController *)controller didFinishTransfer: (id)object;
+- (void)downloadController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
+- (void)downloadController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
 
 @end
 
 
-@interface DownloadController : NSObject {
+@interface TransferController : NSObject {
 	NSMutableArray *downloadQueue;
 	NSMutableArray *activeDownloads;
 	
@@ -46,7 +46,7 @@ typedef enum _TransferableState TransferableState;
 
 @property (assign, nonatomic) id <DownloadControllerDelegate> delegate;
 
-- (void)addContentToDownloadQueue: (id <Downloadable>) downloadable;
+- (void)addContentToDownloadQueue: (id <Transferable>) downloadable;
 - (void)cancelDownloads;
 
 

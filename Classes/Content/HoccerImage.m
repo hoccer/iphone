@@ -69,27 +69,6 @@
 	[self uploadFile];
 }
 
-- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
-	self.state = TransferableStateTransferred;
-	uploadURL = [path retain];
-}
-
--(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
-	self.state = TransferableStateTransferred;
-	self.data = [theData retain];
-	[self saveDataToDocumentDirectory];
-	[self updateImage];
-}
-	 
-- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	self.progress = theProgress;
-}
-
-- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
-	NSLog(@"error: %@", error);
-	self.error = theError;
-}
-
 - (UIImage*) image {
 	if (image == nil && self.data != nil) {
 		image = [[UIImage imageWithData:self.data] retain];
@@ -195,6 +174,8 @@
 	return dictionary;
 }
 
+#pragma mark -
+#pragma mark Upload File
 - (void)uploadFile {
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
@@ -223,6 +204,29 @@
 		
 		[self uploadFile];		
 	}
+}
+
+#pragma mark -
+#pragma mark FileCache Delegate Methods
+- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
+	self.state = TransferableStateTransferred;
+	uploadURL = [path retain];
+}
+
+-(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
+	self.state = TransferableStateTransferred;
+	self.data = [theData retain];
+	[self saveDataToDocumentDirectory];
+	[self updateImage];
+}
+
+- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
+	self.progress = theProgress;
+}
+
+- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
+	NSLog(@"error: %@", error);
+	self.error = theError;
 }
 
 

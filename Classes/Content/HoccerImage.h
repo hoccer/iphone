@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Hoccer.h"
 #import "HoccerContent.h"
-#import "DownloadController.h"
+#import "TransferController.h"
 
-@interface HoccerImage : HoccerContent <HCFileCacheDelegate, Downloadable> {
+@interface HoccerImage : HoccerContent <HCFileCacheDelegate, Transferable> {
 	UIImage *image;	
 	
 	HCFileCache *fileCache;

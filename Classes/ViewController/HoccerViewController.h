@@ -15,7 +15,7 @@
 #import "GesturesInterpreterDelegate.h"
 #import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
-#import "DownloadController.h"
+#import "TransferController.h"
 
 #import "HttpClient.h"
 #import "Hoccer.h"
@@ -63,7 +63,7 @@
 
 	UILabel *hoccability;
 	HCLinccer *linccer;
-	DownloadController *downloadController;
+	TransferController *downloadController;
 	
 	BOOL blocked;
 }

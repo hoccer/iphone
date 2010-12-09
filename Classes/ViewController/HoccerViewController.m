@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <YAJLIOS/YAJLIOS.h>
 #import "Hoccer.h"
-#import "DownloadController.h"
+#import "TransferController.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
@@ -90,7 +90,7 @@
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 
-	downloadController = [[DownloadController alloc] init];
+	downloadController = [[TransferController alloc] init];
 	downloadController.delegate = self;
 }
 
@@ -270,15 +270,15 @@
 #pragma mark -
 #pragma mark DownloadController Delegate
 
-- (void) downloadController:(DownloadController *)controller didFinishTransfer:(id)object {
+- (void) downloadController:(TransferController *)controller didFinishTransfer:(id)object {
 	NSLog(@"did finish download");
 }
 
-- (void) downloadController:(DownloadController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
+- (void) downloadController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
 	[statusViewController setProgressUpdate: [progress floatValue]];
 }
 
-- (void) downloadController:(DownloadController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
+- (void) downloadController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
 	[statusViewController setError: error];
 }
 
