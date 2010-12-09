@@ -14,14 +14,13 @@
 
 - (void)startDownload;
 - (void)monitorContent: (NSObject <Downloadable> *)theContent;
+- (void)removeObservers: (NSObject <Downloadable> *)theContent;
 
 - (void)error: (NSError *)error forTransfer: (id)object;
 - (void)progress: (NSNumber *)progress forTransfer: (id)object;
 - (void)state: (TransferableState) state forTransfer: (id)object;
 
 @end
-
-
 
 @implementation DownloadController
 @synthesize delegate;
@@ -64,10 +63,23 @@
 	}
 }
 
+- (void)finalizeDownload: (NSObject <Downloadable> *)object {
+	[self removeObservers:object];
+	[activeDownloads removeObject:object];
+
+	[self startDownload];
+}
+
 - (void)monitorContent: (NSObject <Downloadable> *)theContent {
 	[theContent addObserver:self forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
 	[theContent addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
 	[theContent addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)removeObservers: (NSObject <Downloadable> *)theContent {
+	[theContent removeObserver:self forKeyPath:@"error"];
+	[theContent removeObserver:self forKeyPath:@"progress"];
+	[theContent removeObserver:self forKeyPath:@"state"];
 }
 
 #pragma mark -
@@ -92,8 +104,7 @@
 - (void)error: (NSError *)error forTransfer: (id)object {
 	[object retain];
 	
-	[activeDownloads removeObject:object];
-	[self startDownload];
+	[self finalizeDownload:object];
 	
 	if ([delegate respondsToSelector:@selector(downloadController:didFailWithError:forTransfer:)]) {
 		[delegate downloadController:self didFailWithError:error forTransfer:object];
@@ -112,9 +123,7 @@
 	[object retain];
 	switch (state) {
 		case TransferableStateTransferred:
-			[self startDownload];
-			[activeDownloads removeObject:object];
-			
+			[self finalizeDownload:object];
 			if ([delegate respondsToSelector:@selector(downloadController:didFinishTransfer:)]) {
 				[delegate downloadController:self didFinishTransfer:object];
 			}
