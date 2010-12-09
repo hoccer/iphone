@@ -248,9 +248,15 @@
 	return dictionary;
 }
 
+- (NSObject <Transferable> *)transferer {
+	return nil;
+}
+
+
+
+
 #pragma mark -
 #pragma mark UIDocumentInteractionController
-
 - (id)interactionController; {
 	if (interactionController == nil) {
 		interactionController = [[NSClassFromString(@"UIDocumentInteractionController") interactionControllerWithURL:self.fileUrl] retain];

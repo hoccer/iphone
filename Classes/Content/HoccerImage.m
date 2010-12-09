@@ -174,6 +174,10 @@
 	return dictionary;
 }
 
+- (NSObject <Transferable>*) transferer {
+	return self;
+}
+
 #pragma mark -
 #pragma mark Upload File
 - (void)uploadFile {

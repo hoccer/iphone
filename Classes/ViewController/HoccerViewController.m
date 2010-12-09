@@ -167,8 +167,9 @@
 	item.content = content;
 	item.delegate = self;
 	
-	[downloadController addContentToDownloadQueue:item.content];
-	// statusViewController.content = content;
+	if ([content transferer]) {
+		[downloadController addContentToDownloadQueue:[content transferer]];		
+	}
 		
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
@@ -425,8 +426,10 @@
 	item.content = hoccerContent;
 	item.content.persist = YES;
 	
-	[downloadController addContentToDownloadQueue:hoccerContent];
-	
+	if ([hoccerContent transferer]) {
+		[downloadController addContentToDownloadQueue:[hoccerContent transferer]];		
+	}
+
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	[historyData addContentToHistory:item];

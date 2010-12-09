@@ -36,7 +36,6 @@ typedef enum _TransferableState TransferableState;
 
 @end
 
-
 @interface TransferController : NSObject {
 	NSMutableArray *downloadQueue;
 	NSMutableArray *activeDownloads;

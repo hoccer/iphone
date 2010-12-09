@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
+#import "TransferController.h"
 
 @class Preview;
 
@@ -68,5 +69,6 @@
 
 - (NSDictionary *)dataDesctiption;
 - (id)interactionController;
+- (NSObject <Transferable> *)transferer;
 
 @end
