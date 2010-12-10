@@ -26,7 +26,7 @@
 @property (nonatomic, retain) NSError* error;
 @property (nonatomic, assign) TransferableState state;
 
-@property (readonly) NSString *filename;
+@property (nonatomic, retain) NSString *filename;
 @property (readonly) NSString *url;
 
 //- (id)initWithURL: (NSString *)aUrl;

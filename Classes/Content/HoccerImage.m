@@ -46,7 +46,7 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-	self = [super init];
+	self = [super initWithDictionary:dict];
 	if (self != nil) {
 		uploadURL = [[dict objectForKey:@"url"] retain];
 	}
@@ -174,7 +174,7 @@
 
 - (NSObject <Transferable>*) transferer {
 	if (uploadURL) {
-		return [[[FileDownloader alloc] initWithURL:uploadURL filename: self.filepath] autorelease];
+		return transferable;
 	}
 	
 	return self;
@@ -189,7 +189,6 @@
 	}
 	
 	if (shouldUpload && [self isDataReady]) {
-		NSLog(@"filename %@", self.filename);
 		[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];		
 		self.state = TransferableStateTransfering;
 	}

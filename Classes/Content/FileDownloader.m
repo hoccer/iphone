@@ -7,6 +7,7 @@
 //
 
 #import "FileDownloader.h"
+#import "NSFileManager+FileHelper.h"
 
 
 @implementation FileDownloader
@@ -55,12 +56,16 @@
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
-	NSLog(@"writing to %@", self.filename);
- 	[theData writeToFile: self.filename atomically:YES];
+	NSString *directory = [[NSFileManager defaultManager] contentDirectory];
+	NSString *tmpFilename =    [[uri lastPathComponent] stringByAppendingString:@".jpg"];
+	self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: tmpFilename 
+																  inDirectory: directory];
+	
+	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
+	NSLog(@"writing to %@", filepath);
+ 	[theData writeToFile: filepath atomically:YES];
 
 	self.state = TransferableStateTransferred;
-	// self.data = [theData retain];
-	// [ self saveDataToDocumentDirectory];
 }
 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {

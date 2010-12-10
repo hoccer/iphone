@@ -276,6 +276,7 @@
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	[item updateView];
+	[historyData addContentToHistory:item];
 }
 
 - (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
@@ -431,14 +432,15 @@
 	
 	if ([hoccerContent transferer]) {
 		[downloadController addContentToDownloadQueue:[hoccerContent transferer]];		
+	} else {
+		[historyData addContentToHistory:item];		
 	}
 
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
-	[historyData addContentToHistory:item];
 	
 	[desktopView reloadData];
-	
+
 	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
 		[item.content.interactionController setDelegate: self];
 		[item.content.interactionController presentPreviewAnimated:YES];

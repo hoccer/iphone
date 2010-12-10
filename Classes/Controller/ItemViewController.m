@@ -119,7 +119,6 @@
 	Preview *preview = [content desktopItemView];
 	if (preview != nil) {
 		contentView.containedView = preview;
-//		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}	
 }
 

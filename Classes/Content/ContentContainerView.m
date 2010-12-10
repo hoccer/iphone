@@ -71,11 +71,9 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void) setContainedView:(Preview *)newContainedView {
-	NSLog(@"setting contained view!");
 	if (containedView != newContainedView) {
 		[containedView removeFromSuperview];
 		[self insertSubview:newContainedView atIndex:[self.subviews count]-1];
-//		[self addSubview:newContainedView];
 		
 		[containedView release];
 		containedView = [newContainedView retain];

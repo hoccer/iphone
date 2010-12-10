@@ -87,7 +87,8 @@
 }
 
 - (NSData *)data {
-	if (data == nil && filename != nil) {
+	NSLog(@"in data, filename: %@", self.filename);
+	if (data == nil && self.filename != nil) {
 		self.data = [NSData dataWithContentsOfFile:self.filepath];
 	}
 
@@ -103,7 +104,7 @@
 
 - (void) removeFromDocumentDirectory {
 	NSError *error = nil;
-	if (filename != nil) {
+	if (self.filename != nil) {
 		[[NSFileManager defaultManager] removeItemAtPath:self.filepath error:&error]; 
 	}	
 }
@@ -186,6 +187,7 @@
 }
 
 - (NSObject <Transferable> *)transferer {
+	
 	return nil;
 }
 
