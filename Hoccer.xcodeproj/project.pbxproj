@@ -534,6 +534,10 @@
 		E686C5A612B13153006B5037 /* NSFileManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */; };
 		E686C5D412B13859006B5037 /* HoccerFileContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5D312B13859006B5037 /* HoccerFileContent.m */; };
 		E686C5D512B13859006B5037 /* HoccerFileContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5D312B13859006B5037 /* HoccerFileContent.m */; };
+		E686C78912B26FE0006B5037 /* FileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78812B26FE0006B5037 /* FileUploader.m */; };
+		E686C78A12B26FE0006B5037 /* FileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78812B26FE0006B5037 /* FileUploader.m */; };
+		E686C78E12B2715A006B5037 /* FileTransferer.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78D12B2715A006B5037 /* FileTransferer.m */; };
+		E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78D12B2715A006B5037 /* FileTransferer.m */; };
 		E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 		E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 /* End PBXBuildFile section */
@@ -924,6 +928,10 @@
 		E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileHelper.m"; sourceTree = "<group>"; };
 		E686C5D212B13859006B5037 /* HoccerFileContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerFileContent.h; sourceTree = "<group>"; };
 		E686C5D312B13859006B5037 /* HoccerFileContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerFileContent.m; sourceTree = "<group>"; };
+		E686C78712B26FE0006B5037 /* FileUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploader.h; sourceTree = "<group>"; };
+		E686C78812B26FE0006B5037 /* FileUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploader.m; sourceTree = "<group>"; };
+		E686C78C12B2715A006B5037 /* FileTransferer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferer.h; sourceTree = "<group>"; };
+		E686C78D12B2715A006B5037 /* FileTransferer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransferer.m; sourceTree = "<group>"; };
 		E6B9FC0D12AFC09000A7E313 /* TransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferController.h; path = DownloadController/TransferController.h; sourceTree = "<group>"; };
 		E6B9FC0E12AFC09000A7E313 /* TransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferController.m; path = DownloadController/TransferController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1232,6 +1240,7 @@
 		22638BE911B51E5C0024AA7E /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				E686C78B12B2700C006B5037 /* Transferer */,
 				E646BE9812AE9A22005626C8 /* Views */,
 				22A3659B11E4B7F5008AEBC9 /* Types */,
 				22638BEF11B51E5C0024AA7E /* HoccerContent.h */,
@@ -1241,8 +1250,6 @@
 				22638BEE11B51E5C0024AA7E /* ContentContainerViewDelegate.h */,
 				22638BF111B51E5C0024AA7E /* HoccerContentFactory.h */,
 				22638BF211B51E5C0024AA7E /* HoccerContentFactory.m */,
-				E686C59412B12A37006B5037 /* FileDownloader.h */,
-				E686C59512B12A37006B5037 /* FileDownloader.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1891,6 +1898,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		E686C78B12B2700C006B5037 /* Transferer */ = {
+			isa = PBXGroup;
+			children = (
+				E686C59412B12A37006B5037 /* FileDownloader.h */,
+				E686C59512B12A37006B5037 /* FileDownloader.m */,
+				E686C78712B26FE0006B5037 /* FileUploader.h */,
+				E686C78812B26FE0006B5037 /* FileUploader.m */,
+				E686C78C12B2715A006B5037 /* FileTransferer.h */,
+				E686C78D12B2715A006B5037 /* FileTransferer.m */,
+			);
+			name = Transferer;
+			sourceTree = "<group>";
+		};
 		E6B9FC0C12AFBFE800A7E313 /* DownloadController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2415,6 +2435,8 @@
 				E686C59612B12A37006B5037 /* FileDownloader.m in Sources */,
 				E686C5A512B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,
 				E686C5D412B13859006B5037 /* HoccerFileContent.m in Sources */,
+				E686C78A12B26FE0006B5037 /* FileUploader.m in Sources */,
+				E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2460,6 +2482,8 @@
 				E686C59712B12A37006B5037 /* FileDownloader.m in Sources */,
 				E686C5A612B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,
 				E686C5D512B13859006B5037 /* HoccerFileContent.m in Sources */,
+				E686C78912B26FE0006B5037 /* FileUploader.m in Sources */,
+				E686C78E12B2715A006B5037 /* FileTransferer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,25 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Hoccer.h"
 #import "TransferController.h"
+#import "FileTransferer.h"
 
 
-@interface FileDownloader : NSObject <Transferable, HCFileCacheDelegate> {
-	HCFileCache *fileCache;
-	
-	NSString *url;
-	NSString *filename;
-	
-	NSNumber *progress;
-	NSError *error;
-	TransferableState state;	
+@interface FileDownloader : FileTransferer {
 }
-
-@property (nonatomic, retain) NSNumber* progress;
-@property (nonatomic, retain) NSError* error;
-@property (nonatomic, assign) TransferableState state;
-
-@property (nonatomic, retain) NSString *filename;
-@property (readonly) NSString *url;
 
 //- (id)initWithURL: (NSString *)aUrl;
 - (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename;

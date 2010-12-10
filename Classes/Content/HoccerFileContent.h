@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "FileDownloader.h"
 #import "HoccerContent.h"
+#import "FileTransferer.h"
 
 @interface HoccerFileContent : HoccerContent {
-	id <Transferable> transferable;
+	FileTransferer *transferable;
 }
 
 @end

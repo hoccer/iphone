@@ -12,37 +12,17 @@
 
 @implementation FileDownloader
 
-@synthesize progress;
-@synthesize error;
-@synthesize state;
-
-@synthesize filename;
-@synthesize url;
-
 - (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename {
 	self = [super init];
 	if (self != nil) {
-		url = [aUrl retain];		
-		filename = [aFilename retain];
+		url = [aUrl retain];
 	}
 	
 	return self;
 }
 
-- (void)dealloc {
-	[fileCache release];
-	
-	[url release];
-	[filename release];
-	
-	[progress release];
-	[error release];
-	
-	[super dealloc];
-}
-
-
 - (void) cancelTransfer {
+	
 }
 
 - (void) startTransfer {
@@ -67,16 +47,5 @@
 
 	self.state = TransferableStateTransferred;
 }
-
-- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	self.progress = theProgress;
-}
-
-- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
-	NSLog(@"error: %@", error);
-	self.error = theError;
-}
-
-
 
 @end

@@ -8,8 +8,18 @@
 
 #import "HoccerFileContent.h"
 #import "FileDownloader.h"
+#import "FileUploader.h"
+
 
 @implementation HoccerFileContent
+
+- (id) init{
+	self = [super init];
+	if (self != nil) {
+		transferable = [[FileUploader alloc] initWithFilename:super.filename];
+	}
+	return self;	
+}
 
 - (id) initWithDictionary:(NSDictionary *)dict {
 	NSLog(@"%s", _cmd);
@@ -30,7 +40,7 @@
 	
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-		// transferable = [[FileUploader alloc] initWithFilename:filename];
+		transferable = [[FileUploader alloc] initWithFilename:filename];
 	}
 	
 	return self;	
@@ -52,14 +62,14 @@
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
-	[dict setObject:((FileDownloader *)transferable).url forKey:@"url"];
+	[dict setObject:transferable.url forKey:@"url"];
 	
 	return dict;
 }
 
 - (NSString *)filename {
 	NSLog(@"transferable %@ %@", transferable, ((FileDownloader *)transferable).filename);
-	return ((FileDownloader *)transferable).filename;
+	return transferable.filename;
 }
 
 @end
