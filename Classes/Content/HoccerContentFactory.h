@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "HoccerContent.h"
+#import "HoccerFileContent.h"
 #import "HoccerImage.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"

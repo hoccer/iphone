@@ -528,6 +528,12 @@
 		E63FE799118C2CE300DB0DA8 /* select_btn_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */; };
 		E63FE79A118C2CE300DB0DA8 /* select_btn_text.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE788118C2CE300DB0DA8 /* select_btn_text.png */; };
 		E63FE79B118C2CE300DB0DA8 /* select_btn_video.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE789118C2CE300DB0DA8 /* select_btn_video.png */; };
+		E686C59612B12A37006B5037 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C59512B12A37006B5037 /* FileDownloader.m */; };
+		E686C59712B12A37006B5037 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C59512B12A37006B5037 /* FileDownloader.m */; };
+		E686C5A512B13153006B5037 /* NSFileManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */; };
+		E686C5A612B13153006B5037 /* NSFileManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */; };
+		E686C5D412B13859006B5037 /* HoccerFileContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5D312B13859006B5037 /* HoccerFileContent.m */; };
+		E686C5D512B13859006B5037 /* HoccerFileContent.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C5D312B13859006B5037 /* HoccerFileContent.m */; };
 		E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 		E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 /* End PBXBuildFile section */
@@ -912,6 +918,12 @@
 		E63FE787118C2CE300DB0DA8 /* select_btn_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_photo.png; sourceTree = "<group>"; };
 		E63FE788118C2CE300DB0DA8 /* select_btn_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_text.png; sourceTree = "<group>"; };
 		E63FE789118C2CE300DB0DA8 /* select_btn_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_video.png; sourceTree = "<group>"; };
+		E686C59412B12A37006B5037 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		E686C59512B12A37006B5037 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
+		E686C5A312B13153006B5037 /* NSFileManager+FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FileHelper.h"; sourceTree = "<group>"; };
+		E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileHelper.m"; sourceTree = "<group>"; };
+		E686C5D212B13859006B5037 /* HoccerFileContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerFileContent.h; sourceTree = "<group>"; };
+		E686C5D312B13859006B5037 /* HoccerFileContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerFileContent.m; sourceTree = "<group>"; };
 		E6B9FC0D12AFC09000A7E313 /* TransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferController.h; path = DownloadController/TransferController.h; sourceTree = "<group>"; };
 		E6B9FC0E12AFC09000A7E313 /* TransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferController.m; path = DownloadController/TransferController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1102,6 +1114,8 @@
 				22638B9311B51D2E0024AA7E /* NSString+Regexp.m */,
 				22638B9411B51D2E0024AA7E /* NSString+StringWithData.h */,
 				22638B9511B51D2E0024AA7E /* NSString+StringWithData.m */,
+				E686C5A312B13153006B5037 /* NSFileManager+FileHelper.h */,
+				E686C5A412B13153006B5037 /* NSFileManager+FileHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1222,9 +1236,13 @@
 				22A3659B11E4B7F5008AEBC9 /* Types */,
 				22638BEF11B51E5C0024AA7E /* HoccerContent.h */,
 				22638BF011B51E5C0024AA7E /* HoccerContent.m */,
+				E686C5D212B13859006B5037 /* HoccerFileContent.h */,
+				E686C5D312B13859006B5037 /* HoccerFileContent.m */,
 				22638BEE11B51E5C0024AA7E /* ContentContainerViewDelegate.h */,
 				22638BF111B51E5C0024AA7E /* HoccerContentFactory.h */,
 				22638BF211B51E5C0024AA7E /* HoccerContentFactory.m */,
+				E686C59412B12A37006B5037 /* FileDownloader.h */,
+				E686C59512B12A37006B5037 /* FileDownloader.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -2394,6 +2412,9 @@
 				E60935AA12A54A8500EE83EB /* HttpConnection.m in Sources */,
 				E60935C312A5552800EE83EB /* NSString+URLHelper.m in Sources */,
 				E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */,
+				E686C59612B12A37006B5037 /* FileDownloader.m in Sources */,
+				E686C5A512B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,
+				E686C5D412B13859006B5037 /* HoccerFileContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2436,6 +2457,9 @@
 				E60935B612A54A8500EE83EB /* HttpConnection.m in Sources */,
 				E60935C412A5552800EE83EB /* NSString+URLHelper.m in Sources */,
 				E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */,
+				E686C59712B12A37006B5037 /* FileDownloader.m in Sources */,
+				E686C5A612B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,
+				E686C5D512B13859006B5037 /* HoccerFileContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

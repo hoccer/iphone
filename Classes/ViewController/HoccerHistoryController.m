@@ -16,7 +16,7 @@
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
 #import "NSString+Regexp.h"
-
+#import "NSFileManager+FileHelper.h"
 
 
 @interface HoccerHistoryController ()
@@ -231,7 +231,7 @@
 }
 
 - (void)cleanUp {
-	NSString *documentsDirectoryUrl = [HoccerContent contentDirectory];
+	NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
 	
 	NSError *error = nil;
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];

@@ -9,6 +9,7 @@
 
 #import "HoccerContent.h"
 #import "Preview.h"
+#import "NSFileManager+FileHelper.h"
 
 @implementation HoccerContent
 @synthesize data;
@@ -17,29 +18,6 @@
 
 @synthesize persist;
 @synthesize mimeType;
-
-#pragma mark -
-#pragma mark static Methods
-
-+ (NSString *)contentDirectory {
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
-	
-	if ([paths count] < 1) {
-		@throw [NSException exceptionWithName:@"directoryException" reason:@"could not locate document directory" userInfo:nil];
-	}
-	
-	NSString *documentsDirectoryUrl = [paths objectAtIndex:0];
-	if (![[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryUrl]) {
-		NSError *error = nil;
-		[[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectoryUrl withIntermediateDirectories:YES attributes:nil error:&error];
-		
-		if (error != nil) {
-			@throw [NSException exceptionWithName:@"directoryException" reason:@"could not create directory" userInfo:nil];
-		}
-	}
-	
-	return documentsDirectoryUrl;
-}
 
 
 #pragma mark NSCoding Delegate Methods
@@ -65,8 +43,12 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-	NSData *theData = [[dict objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding]; 
-	return [self initWithData:theData];
+	if ([dict objectForKey:@"content"]) {
+		NSData *theData = [[dict objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding]; 
+		return [self initWithData:theData];
+	} else {
+		return [super init];
+	}
 }
 
 - (id) initWithData: (NSData *)theData {
@@ -74,7 +56,8 @@
 	if (self != nil) {
 		NSString *theFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
 		
-		self.filename = [self uniqueFilenameForFilename: theFilename inDirectory: [[self class] contentDirectory]];
+		self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
+																	  inDirectory: [[NSFileManager defaultManager] contentDirectory]];
 		self.data = theData;
 
 		[self saveDataToDocumentDirectory];
@@ -87,19 +70,33 @@
 	self = [super init];
 	if (self != nil) {
 		NSString *newFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
-		self.filename = [self uniqueFilenameForFilename: newFilename inDirectory: [[self class] contentDirectory]];
+		self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename 
+																	  inDirectory: [[NSFileManager defaultManager] contentDirectory]];
 	}
 	
 	return self;
+}
+
+
+- (void) dealloc {		
+	[data release];
+	[filename release];
+	[interactionController release];
+	
+	[super dealloc];
 }
 
 - (NSData *)data {
 	if (data == nil && filename != nil) {
 		self.data = [NSData dataWithContentsOfFile:self.filepath];
 	}
+
 	return data;
 }
 
+
+#pragma mark -
+#pragma mark Saving and Removing 
 - (void) saveDataToDocumentDirectory {
 	[data writeToFile: self.filepath atomically: NO];
 } 
@@ -111,30 +108,9 @@
 	}	
 }
 
-- (void) dealloc {		
-	[data release];
-	[filename release];
-	[interactionController release];
-		
-	[super dealloc];
-}
 
-- (NSString *)filepath {
-	return [[HoccerContent contentDirectory] stringByAppendingPathComponent:self.filename];
-}
-
-- (NSString *)extension {
-	return @"na";
-}
-
-- (NSString *)defaultFilename {
-	return @"File";
-}
-
-- (BOOL)saveDataToContentStorage {	
-	return NO;
-}
-
+#pragma mark -
+#pragma mark View Generator Methods
 - (UIView *)fullscreenView {
 	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 0, 320, 323)];
 	webView.scalesPageToFit = YES;
@@ -174,6 +150,8 @@
 	return [view autorelease];
 }
 
+#pragma mark -
+#pragma mark Saving Callbacks Methods
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext {
 	target = aTarget;
 	selector  = aSelector;
@@ -189,6 +167,30 @@
 	}
 }
 
+#pragma mark -
+#pragma mark File Location Methods
+- (NSURL *)fileUrl {
+	return [NSURL fileURLWithPath:self.filepath];
+}
+
+- (NSString *)filepath {
+	return [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.filename];
+}
+
+#pragma mark -
+- (NSDictionary *)dataDesctiption {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:self.mimeType forKey:@"type"];
+	
+	return dictionary;
+}
+
+- (NSObject <Transferable> *)transferer {
+	return nil;
+}
+
+#pragma mark -
+#pragma mark Type Description Methods
 - (NSString *)mimeType{
 	//overwrite in subclasses: text, img, vcards	
 	return mimeType;
@@ -208,31 +210,6 @@
 	return NSLocalizedString(@"Open", nil);
 }
 
-- (NSURL *)fileUrl {
-	return [NSURL fileURLWithPath:self.filepath];
-}
-
-- (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory {
-	if (![[NSFileManager defaultManager] fileExistsAtPath: [directory stringByAppendingPathComponent:theFilename]]) {
-		return theFilename;
-	};
-	
-	NSString *extension = [theFilename pathExtension];
-	NSString *baseFilename = [theFilename stringByDeletingPathExtension];
-
-	NSInteger i = 1;
-	NSString* newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
-	newFilename = [newFilename stringByAppendingPathExtension: extension];
-	while ([[NSFileManager defaultManager] fileExistsAtPath: [directory stringByAppendingPathComponent:newFilename]]) {
-		newFilename = [NSString stringWithFormat:@"%@_%@", baseFilename, [[NSNumber numberWithInteger:i] stringValue]];
-		newFilename = [newFilename stringByAppendingPathExtension: extension];
-		
-		i++;
-	}
-	
-	return newFilename;
-}
-
 - (UIImage *)imageForSaveButton {
 	return [UIImage imageNamed:@"container_btn_double-openwith.png"];
 }
@@ -241,19 +218,17 @@
 	return [UIImage imageNamed:@"history_icon_image.png"];
 }
 
-- (NSDictionary *)dataDesctiption {
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:self.mimeType forKey:@"type"];
-	
-	return dictionary;
+- (NSString *)extension {
+	return @"na";
 }
 
-- (NSObject <Transferable> *)transferer {
-	return nil;
+- (NSString *)defaultFilename {
+	return @"File";
 }
 
-
-
+- (BOOL)saveDataToContentStorage {	
+	return NO;
+}
 
 #pragma mark -
 #pragma mark UIDocumentInteractionController

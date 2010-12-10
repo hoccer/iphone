@@ -32,7 +32,7 @@ static HoccerContentFactory* sharedInstance = nil;
 	} else if ([type isEqual: @"text/plain"]) {
 		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
 	} else {
-		hoccerContent = [[HoccerContent alloc] initWithDictionary:dictionary];
+		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
 		hoccerContent.mimeType = type;
 	}
 	
@@ -49,7 +49,7 @@ static HoccerContentFactory* sharedInstance = nil;
 	} else if ([mimeType isEqual: @"text/plain"]) {
 		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else {
-		hoccerContent = [[HoccerContent alloc] initWithFilename: filename];
+		hoccerContent = [[HoccerFileContent alloc] initWithFilename: filename];
 		hoccerContent.mimeType = mimeType;
 	}
 	

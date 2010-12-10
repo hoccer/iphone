@@ -15,11 +15,11 @@
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filename;	
 	BOOL isFromContentSource;
+	NSString *mimeType;
 	
 	@private
 	NSData *data;
 	BOOL persist;
-	NSString *mimeType;
 	
 	id target;
 	SEL selector;
@@ -37,8 +37,6 @@
 @property (assign) BOOL isFromContentSource;
 @property (assign) BOOL persist;
 @property (readonly) id interactionController;
-
-+ (NSString *)contentDirectory;
 
 - (id) initWithData: (NSData *)theData;
 - (id) initWithFilename: (NSString *)filename;
@@ -60,7 +58,6 @@
 - (NSString *)descriptionOfSaveButton;
 - (void) saveDataToDocumentDirectory;
 
-- (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (UIImage *)imageForSaveButton;
 - (UIImage *)historyThumbButton;
 

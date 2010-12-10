@@ -6,15 +6,14 @@
 //  Copyright 2009 ART+COM. All rights reserved.
 //
 
-#define API_KEY @"f7f3b8b0dacc012de22a00176ed99fe3"
-#define SECRET @"W5AeluYT7aOo9g0O9k9o2Iq1F2Y="
-
 #import "HoccerImage.h"
 #import "Hoccer.h"
 #import "Preview.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
+
+#import "FileDownloader.h"
 
 @implementation HoccerImage
 
@@ -98,7 +97,6 @@
 }
 
 - (void)updateImage {
-
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 
@@ -175,6 +173,10 @@
 }
 
 - (NSObject <Transferable>*) transferer {
+	if (uploadURL) {
+		return [[[FileDownloader alloc] initWithURL:uploadURL] autorelease];
+	}
+	
 	return self;
 }
 
@@ -187,6 +189,7 @@
 	}
 	
 	if (shouldUpload && [self isDataReady]) {
+		NSLog(@"filename %@", self.filename);
 		[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];		
 		self.state = TransferableStateTransfering;
 	}
@@ -199,15 +202,9 @@
 }
 
 - (void) startTransfer {
-	if (uploadURL) {
-		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-		fileCache.delegate = self;
-		[fileCache load: uploadURL];		
-	} else {
-		shouldUpload = YES;
+	shouldUpload = YES;
 		
-		[self uploadFile];		
-	}
+	[self uploadFile];
 }
 
 #pragma mark -
