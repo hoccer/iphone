@@ -13,4 +13,7 @@
 
 }
 
+- (id)initWithFilename: (NSString *)aFilename;
+
+
 @end

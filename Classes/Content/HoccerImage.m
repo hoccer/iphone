@@ -14,41 +14,20 @@
 #import "GTMUIImage+Resize.h"
 
 #import "FileDownloader.h"
+#import "DelayedFileUploaded.h"
 
 @implementation HoccerImage
 
 @synthesize image;
-@synthesize progress;
-@synthesize error;
-@synthesize state;
 
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
-		image = [aImage retain];
+		transferable = [[DelayedFileUploaded alloc] initWithFilename:self.filename];
 		
+		image = [aImage retain];
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
-		self.state = TransferableStatePreparing;
 		isFromContentSource = YES;
-	}
-	
-	return self;
-}
-
-- (id)initWithFilename:(NSString *)aFilename {
-	self = [super initWithFilename:aFilename];
-	if (self != nil) {
-		self.state = TransferableStateReady;
-		[self uploadFile];
-	}
-	
-	return self;
-}
-
-- (id) initWithDictionary: (NSDictionary *)dict {
-	self = [super initWithDictionary:dict];
-	if (self != nil) {
-		uploadURL = [[dict objectForKey:@"url"] retain];
 	}
 	
 	return self;
@@ -65,7 +44,7 @@
 }
 
 - (void)didFinishDataRepresentation {
-	[self uploadFile];
+	[((DelayedFileUploaded *)transferable) setFileReady:YES];
 }
 
 - (UIImage*) image {
@@ -76,11 +55,7 @@
 } 
 
 - (void) dealloc {
-	fileCache.delegate = nil;
-	[fileCache release];
-	
 	[image release];
-	[uploadURL release];
 	[preview release];
 	
 	[super dealloc];
@@ -167,67 +142,18 @@
 - (NSDictionary *)dataDesctiption {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:self.mimeType forKey:@"type"];
-	[dictionary setObject:uploadURL forKey:@"url"];
+	[dictionary setObject:transferable.url forKey:@"url"];
 	
 	return dictionary;
 }
 
 - (NSObject <Transferable>*) transferer {
-	if (uploadURL) {
-		return transferable;
-	}
-	
-	return self;
+	return transferable;
 }
-
-#pragma mark -
-#pragma mark Upload File
-- (void)uploadFile {
-	if (fileCache == nil) {
-		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-		fileCache.delegate = self;		
-	}
-	
-	if (shouldUpload && [self isDataReady]) {
-		[fileCache cacheData:self.data withFilename:self.filename forTimeInterval:180];		
-		self.state = TransferableStateTransfering;
-	}
-}
-
 
 #pragma mark -
 #pragma mark Downloadable Methods
 - (void) cancelTransfer {
 }
-
-- (void) startTransfer {
-	shouldUpload = YES;
-		
-	[self uploadFile];
-}
-
-#pragma mark -
-#pragma mark FileCache Delegate Methods
-- (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
-	self.state = TransferableStateTransferred;
-	uploadURL = [path retain];
-}
-
--(void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
-	self.state = TransferableStateTransferred;
-	self.data = [theData retain];
-	[self saveDataToDocumentDirectory];
-	[self updateImage];
-}
-
-- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	self.progress = theProgress;
-}
-
-- (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
-	NSLog(@"error: %@", error);
-	self.error = theError;
-}
-
 
 @end

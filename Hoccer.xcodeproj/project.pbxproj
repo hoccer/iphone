@@ -538,6 +538,8 @@
 		E686C78A12B26FE0006B5037 /* FileUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78812B26FE0006B5037 /* FileUploader.m */; };
 		E686C78E12B2715A006B5037 /* FileTransferer.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78D12B2715A006B5037 /* FileTransferer.m */; };
 		E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C78D12B2715A006B5037 /* FileTransferer.m */; };
+		E686C81912B28164006B5037 /* DelayedFileUploaded.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C81812B28164006B5037 /* DelayedFileUploaded.m */; };
+		E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C81812B28164006B5037 /* DelayedFileUploaded.m */; };
 		E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 		E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 /* End PBXBuildFile section */
@@ -932,6 +934,8 @@
 		E686C78812B26FE0006B5037 /* FileUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploader.m; sourceTree = "<group>"; };
 		E686C78C12B2715A006B5037 /* FileTransferer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferer.h; sourceTree = "<group>"; };
 		E686C78D12B2715A006B5037 /* FileTransferer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransferer.m; sourceTree = "<group>"; };
+		E686C81712B28164006B5037 /* DelayedFileUploaded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedFileUploaded.h; sourceTree = "<group>"; };
+		E686C81812B28164006B5037 /* DelayedFileUploaded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedFileUploaded.m; sourceTree = "<group>"; };
 		E6B9FC0D12AFC09000A7E313 /* TransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferController.h; path = DownloadController/TransferController.h; sourceTree = "<group>"; };
 		E6B9FC0E12AFC09000A7E313 /* TransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferController.m; path = DownloadController/TransferController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1907,6 +1911,8 @@
 				E686C78812B26FE0006B5037 /* FileUploader.m */,
 				E686C78C12B2715A006B5037 /* FileTransferer.h */,
 				E686C78D12B2715A006B5037 /* FileTransferer.m */,
+				E686C81712B28164006B5037 /* DelayedFileUploaded.h */,
+				E686C81812B28164006B5037 /* DelayedFileUploaded.m */,
 			);
 			name = Transferer;
 			sourceTree = "<group>";
@@ -2437,6 +2443,7 @@
 				E686C5D412B13859006B5037 /* HoccerFileContent.m in Sources */,
 				E686C78A12B26FE0006B5037 /* FileUploader.m in Sources */,
 				E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */,
+				E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2484,6 +2491,7 @@
 				E686C5D512B13859006B5037 /* HoccerFileContent.m in Sources */,
 				E686C78912B26FE0006B5037 /* FileUploader.m in Sources */,
 				E686C78E12B2715A006B5037 /* FileTransferer.m in Sources */,
+				E686C81912B28164006B5037 /* DelayedFileUploaded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

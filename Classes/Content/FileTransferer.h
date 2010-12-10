@@ -27,6 +27,6 @@
 @property (nonatomic, assign) TransferableState state;
 
 @property (nonatomic, retain) NSString *filename;
-@property (readonly) NSString *url;
+@property (nonatomic, retain) NSString *url;
 
 @end

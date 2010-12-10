@@ -42,7 +42,6 @@
 																  inDirectory: directory];
 	
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
-	NSLog(@"writing to %@", filepath);
  	[theData writeToFile: filepath atomically:YES];
 
 	self.state = TransferableStateTransferred;

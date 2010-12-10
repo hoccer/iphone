@@ -68,7 +68,6 @@
 }
 
 - (NSString *)filename {
-	NSLog(@"transferable %@ %@", transferable, ((FileDownloader *)transferable).filename);
 	return transferable.filename;
 }
 
