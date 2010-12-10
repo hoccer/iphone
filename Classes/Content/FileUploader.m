@@ -7,6 +7,7 @@
 //
 
 #import "FileUploader.h"
+#import "NSFileManager+FileHelper.h"
 
 
 @implementation FileUploader
@@ -27,7 +28,10 @@
 		fileCache.delegate = self;		
 	}
 
-	NSData *data = [NSData dataWithContentsOfFile:self.filename];
+	NSString *directory = [[NSFileManager defaultManager] contentDirectory];
+	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
+	
+	NSData *data = [NSData dataWithContentsOfFile:filepath];
 	[fileCache cacheData: data withFilename:self.filename forTimeInterval:180];		
 	self.state = TransferableStateTransfering;
 }

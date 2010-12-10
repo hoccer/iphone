@@ -147,13 +147,4 @@
 	return dictionary;
 }
 
-- (NSObject <Transferable>*) transferer {
-	return transferable;
-}
-
-#pragma mark -
-#pragma mark Downloadable Methods
-- (void) cancelTransfer {
-}
-
 @end
