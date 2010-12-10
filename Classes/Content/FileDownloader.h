@@ -29,7 +29,9 @@
 @property (readonly) NSString *filename;
 @property (readonly) NSString *url;
 
-- (id)initWithURL: (NSString *)aUrl;
+//- (id)initWithURL: (NSString *)aUrl;
+- (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename;
+
 
 
 @end

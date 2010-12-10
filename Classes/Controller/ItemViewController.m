@@ -115,17 +115,13 @@
 	return contentView;
 }
 
-#pragma mark -
-#pragma mark HoccerConnection Delegate
-
-//- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateStatus: (NSDictionary *)theStatus {
-//	self.status = theStatus;
-//	self.statusMessage = [theStatus objectForKey:@"message"];
-//}
-//
-//- (void)hoccerConnection: (HoccerConnection *)hoccerConnection didUpdateTransfereProgress: (NSNumber *)theProgress {
-//	self.progress = theProgress;
-//}
+- (void)updateView {
+	Preview *preview = [content desktopItemView];
+	if (preview != nil) {
+		contentView.containedView = preview;
+//		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
+	}	
+}
 
 #pragma mark -
 #pragma mark Private Methods

@@ -45,5 +45,6 @@
 - (BOOL)hasActiveRequest;
 
 - (void)removeFromFileSystem;
+- (void)updateView;
 
 @end

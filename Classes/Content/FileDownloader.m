@@ -18,11 +18,13 @@
 @synthesize filename;
 @synthesize url;
 
-- (id)initWithURL: (NSString *)aUrl {
+- (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename {
 	self = [super init];
 	if (self != nil) {
 		url = [aUrl retain];		
+		filename = [aFilename retain];
 	}
+	
 	return self;
 }
 
@@ -53,13 +55,12 @@
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
+	NSLog(@"writing to %@", self.filename);
+ 	[theData writeToFile: self.filename atomically:YES];
+
 	self.state = TransferableStateTransferred;
-	
-	
-	
-// [theData writeToFile: atomically:YES];
-// 	self.data = [theData retain];
-//	[self saveDataToDocumentDirectory];
+	// self.data = [theData retain];
+	// [ self saveDataToDocumentDirectory];
 }
 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {

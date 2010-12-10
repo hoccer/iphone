@@ -174,7 +174,7 @@
 
 - (NSObject <Transferable>*) transferer {
 	if (uploadURL) {
-		return [[[FileDownloader alloc] initWithURL:uploadURL] autorelease];
+		return [[[FileDownloader alloc] initWithURL:uploadURL filename: self.filepath] autorelease];
 	}
 	
 	return self;

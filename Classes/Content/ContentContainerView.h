@@ -27,8 +27,8 @@
 	UIView *buttonContainer;	
 }
 
-@property (nonatomic, assign) id delegate;
-@property (readonly) Preview* containedView;
+@property (assign, nonatomic) id delegate;
+@property (retain, nonatomic) Preview* containedView;
 @property (retain) UIView *buttonContainer;
 
 @property (assign) CGPoint origin;

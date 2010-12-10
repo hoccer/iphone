@@ -273,6 +273,9 @@
 
 - (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {
 	NSLog(@"did finish download");
+	
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	[item updateView];
 }
 
 - (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
