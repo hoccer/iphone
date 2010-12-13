@@ -170,6 +170,7 @@
 	item.delegate = self;
 	
 	if ([content transferer]) {
+		fileUploaded = NO;
 		[downloadController addContentToDownloadQueue:[content transferer]];		
 	}
 		
@@ -461,9 +462,8 @@
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
-	if (fileUploaded) {
+	if (![item.content transferer] || fileUploaded) {
 		[self showSuccess: item];
-
 	}
 		
 	[historyData addContentToHistory:item];
