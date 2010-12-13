@@ -11,6 +11,7 @@
 #import "TransferController.h"
 
 @interface FileTransferer : NSObject <Transferable, HCFileCacheDelegate> {
+	NSString *idString;
 	HCFileCache *fileCache;
 	
 	NSString *url;

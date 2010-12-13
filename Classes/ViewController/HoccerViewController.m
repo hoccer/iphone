@@ -383,14 +383,14 @@
 #pragma mark TransferController Delegate
 
 - (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {		
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	
 	if ([object isKindOfClass:[FileUploader class]]) {
 		fileUploaded = YES;
+	} else {
+		[self showSuccess:item];
 	}
-	
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	[statusViewController setState:[[[SuccessState alloc] init] autorelease]];
-	[statusViewController showMessage:@"Success" forSeconds:3];
-	
+		
 	[item updateView];
 }
 

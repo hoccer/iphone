@@ -21,6 +21,7 @@
 
 - (void)dealloc {
 	[fileCache release];
+	[idString release];
 	
 	[url release];
 	[filename release];
@@ -41,7 +42,7 @@
 }
 
 - (void) cancelTransfer {
-	
+	[fileCache cancelTransferWithURI:idString];
 }
 
 - (void) startTransfer {
