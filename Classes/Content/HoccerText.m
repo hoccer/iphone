@@ -18,7 +18,7 @@
 
 
 + (BOOL)isDataAUrl: (NSData *)data {
-	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	NSString *url = [[NSString stringWithData:data usingEncoding:NSUTF8StringEncoding] lowercaseString];
 	
 	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
 		return NO;
@@ -112,8 +112,13 @@
 	
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:self.view.textView.text forKey:@"content"];
-	[dictionary setObject:@"text/plain" forKey:@"type"];
 	
+	if ([HoccerText isDataAUrl:self.data]) {
+		[dictionary setObject:@"text/uri-list" forKey:@"type"];
+	} else {
+		[dictionary setObject:@"text/plain" forKey:@"type"];
+	}
+
 	return dictionary;
 }
 

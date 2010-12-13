@@ -20,8 +20,6 @@ static HoccerContentFactory* sharedInstance = nil;
 }
 
 - (HoccerContent *)createContentFromDict: (NSDictionary *)dictionary {
-	NSLog(@"dictionary: %@", dictionary);
-	
 	HoccerContent *hoccerContent = nil;
 	NSString *type = [dictionary objectForKey:@"type"];
 		
@@ -29,7 +27,7 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerVcard alloc] initWithDictionary: dictionary];
 	} else if ([type rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithDictionary: dictionary];
-	} else if ([type isEqual: @"text/plain"]) {
+	} else if ([type isEqual: @"text/plain"] || [type isEqual:@"text/uri-list"]) {
 		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
 	} else {
 		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
@@ -46,7 +44,7 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerVcard alloc] initWithFilename: filename];
 	} else if ([mimeType rangeOfString:@"image/"].location == 0) {
 		hoccerContent = [[HoccerImage alloc] initWithFilename: filename];
-	} else if ([mimeType isEqual: @"text/plain"]) {
+	} else if ([mimeType isEqual: @"text/plain"] || [mimeType isEqual:@"text/uri-list"]) {
 		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else {
 		hoccerContent = [[HoccerFileContent alloc] initWithFilename: filename];
@@ -57,7 +55,8 @@ static HoccerContentFactory* sharedInstance = nil;
 } 
 
 - (BOOL) isSupportedType: (NSString *)mimeType {
-	return ([mimeType isEqual: @"text/x-vcard"] || [mimeType isEqual: @"text/plain"] || [mimeType rangeOfString:@"image/"].location == 0);
+	return ([mimeType isEqual:@"text/uri-list"] || [mimeType isEqual: @"text/x-vcard"] 
+			|| [mimeType isEqual: @"text/plain"] || [mimeType rangeOfString:@"image/"].location == 0);
 }
 
 - (UIImage *)thumbForMimeType: (NSString *)mimeType {
