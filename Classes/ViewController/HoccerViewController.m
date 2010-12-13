@@ -382,9 +382,7 @@
 #pragma mark -
 #pragma mark TransferController Delegate
 
-- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {	
-	NSLog(@"object: %@", object);
-	
+- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {		
 	if ([object isKindOfClass:[FileUploader class]]) {
 		fileUploaded = YES;
 	}
@@ -394,7 +392,6 @@
 	[statusViewController showMessage:@"Success" forSeconds:3];
 	
 	[item updateView];
-	[historyData addContentToHistory:item];	
 }
 
 - (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {

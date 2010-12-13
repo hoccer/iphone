@@ -2587,10 +2587,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Classes/AdMob\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
