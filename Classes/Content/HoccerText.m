@@ -37,7 +37,6 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
-	
 	self.view.delegate = self;
 	if (!self.data || [self.data length] == 0) {
 		[self.view setEditMode];

@@ -26,7 +26,7 @@
 
 	self = [super initWithDictionary:dict];
 	if (self != nil) {
-		NSString *downloadURL = [dict objectForKey:@"url"];
+		NSString *downloadURL = [dict objectForKey:@"uri"];
 		transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @"test.jpg"];
 
 		mimeType = [[dict objectForKey:@"type"] retain];
@@ -62,7 +62,7 @@
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
-	[dict setObject:transferable.url forKey:@"url"];
+	[dict setObject:transferable.url forKey:@"uri"];
 	
 	return dict;
 }

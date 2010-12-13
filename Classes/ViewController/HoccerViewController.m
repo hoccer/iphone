@@ -45,6 +45,8 @@
 #import "StatusBarStates.h"
 #import "HoccerContentFactory.h"
 
+#import "FileUploader.h"
+
 @implementation HoccerViewController
 
 @synthesize delegate; 
@@ -269,25 +271,6 @@
 }
 
 #pragma mark -
-#pragma mark DownloadController Delegate
-
-- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {
-	NSLog(@"did finish download");
-	
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	[item updateView];
-	[historyData addContentToHistory:item];
-}
-
-- (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
-	[statusViewController setProgressUpdate: [progress floatValue]];
-}
-
-- (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
-	[statusViewController setError: error];
-}
-
-#pragma mark -
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
@@ -303,10 +286,10 @@
 	if ([desktopData hasActiveRequest]) {
 		return;
 	}
-	
+	[FeedbackProvider playSweepIn];
+	[statusViewController setState:[ConnectionState state]];
 	[infoViewController hideViewAnimated:YES];
 	
-	[FeedbackProvider playSweepIn];
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	
 	[self willStartDownload:item];
@@ -320,8 +303,9 @@
 	}
 	
 	[infoViewController hideViewAnimated:YES];
-	
+	[statusViewController setState:[ConnectionState state]];
 	[FeedbackProvider playSweepOut];
+	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 		
@@ -394,6 +378,35 @@
 	[item.contentView showSuccess];
 }
 
+
+#pragma mark -
+#pragma mark TransferController Delegate
+
+- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {	
+	NSLog(@"object: %@", object);
+	
+	if ([object isKindOfClass:[FileUploader class]]) {
+		fileUploaded = YES;
+	}
+	
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	[statusViewController setState:[[[SuccessState alloc] init] autorelease]];
+	[statusViewController showMessage:@"Success" forSeconds:3];
+	
+	[item updateView];
+	[historyData addContentToHistory:item];	
+}
+
+- (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
+	if (connectionEsteblished) {
+		[statusViewController setProgressUpdate: [progress floatValue]];
+	}
+}
+
+- (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
+	[statusViewController setError: error];
+}
+
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
 
@@ -403,7 +416,7 @@
 }
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
-	NSLog(@"error %@", error);
+	connectionEsteblished = NO;
 	[statusViewController setError:error];
 
 	if ([error domain] != HoccerError) {
@@ -422,6 +435,8 @@
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
+	connectionEsteblished = YES;
+
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
@@ -433,11 +448,8 @@
 	if ([hoccerContent transferer]) {
 		[downloadController addContentToDownloadQueue:[hoccerContent transferer]];		
 	} else {
-		[historyData addContentToHistory:item];		
+		[self showSuccess: item];
 	}
-
-	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
 	[desktopView reloadData];
 
@@ -448,10 +460,15 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
+	connectionEsteblished = YES;
+	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	
+	if (fileUploaded) {
+		[self showSuccess: item];
 
-	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
+	}
+		
 	[historyData addContentToHistory:item];
 	
 	[desktopData removeHoccerController:item];
@@ -471,8 +488,21 @@
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];	 
 	
+	NSLog(@"content %@", content);
+	
 	return content;
 }
 
+- (void)showSuccess: (ItemViewController *)item {
+	[historyData addContentToHistory:item];		
+
+	[statusViewController setState:[SuccessState state]];
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
+	
+	connectionEsteblished = NO;
+}
+
+		 
+	
 
 @end

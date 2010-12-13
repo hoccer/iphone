@@ -139,12 +139,4 @@
 	return [UIImage imageNamed:@"history_icon_image.png"];
 }
 
-- (NSDictionary *)dataDesctiption {
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:self.mimeType forKey:@"type"];
-	[dictionary setObject:transferable.url forKey:@"url"];
-	
-	return dictionary;
-}
-
 @end

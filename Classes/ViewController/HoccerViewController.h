@@ -62,10 +62,11 @@
 	CGPoint defaultOrigin;
 
 	UILabel *hoccability;
+	BOOL blocked;
+	
 	HCLinccer *linccer;
 	TransferController *downloadController;
-	
-	BOOL blocked;
+	BOOL connectionEsteblished, fileUploaded;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -95,6 +96,7 @@
 - (void)willStartDownload:(ItemViewController *)item;
 
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item;
+- (void)showSuccess: (ItemViewController *)item;
 
 @end
 

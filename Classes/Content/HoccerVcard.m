@@ -50,7 +50,6 @@
 	return self;
 }
 
-
 - (ABRecordRef)person {
 	if (person == NULL) {
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString:vcardString];
