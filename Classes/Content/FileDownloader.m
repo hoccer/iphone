@@ -35,6 +35,7 @@
 // - (void) fileCache:(HCFileCache *)fileCache didDownloadData:(NSData *)theData forURI:(NSString *)uri {
 	NSString *directory = [[NSFileManager defaultManager] contentDirectory];
 	NSString *tmpFilename = [response suggestedFilename];
+	NSLog(@"suggested filename: %@", [response suggestedFilename]);
 	self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: tmpFilename 
 																  inDirectory: directory];
 	
