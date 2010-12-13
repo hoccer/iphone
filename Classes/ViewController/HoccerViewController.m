@@ -246,6 +246,9 @@
 
 	[self willStartDownload:item];
 	[linccer receiveWithMode:HCTransferModeOneToMany];
+	
+	[statusViewController setState:[ConnectionState state]];
+	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
@@ -260,6 +263,8 @@
 	item.isUpload = YES;
 	
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
+	[statusViewController setState:[ConnectionState state]];
+	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 	
 	UIView *view = [desktopData viewAtIndex:0];
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -291,6 +296,9 @@
 	[statusViewController setState:[ConnectionState state]];
 	[infoViewController hideViewAnimated:YES];
 	
+	[statusViewController setState:[ConnectionState state]];
+	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
+	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	
 	[self willStartDownload:item];
@@ -305,6 +313,7 @@
 	
 	[infoViewController hideViewAnimated:YES];
 	[statusViewController setState:[ConnectionState state]];
+	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 	[FeedbackProvider playSweepOut];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
