@@ -37,10 +37,8 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
-	self.view.delegate = self;
-	NSLog(@"super data: %@", super.data);
-	
-	if (!super.data || [super.data length] == 0) {
+	self.view.delegate = self;	
+	if (!self.data || [self.data length] == 0) {
 		[self.view setEditMode];
 	} else {
 		self.view.textView.text = self.content;
@@ -82,10 +80,6 @@
 	return [NSString stringWithData:super.data usingEncoding:NSUTF8StringEncoding];
 }
 
-//- (NSData *)data {
-//	return [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
-//}
-
 - (BOOL)saveDataToContentStorage {
 	if ([HoccerText isDataAUrl: self.data]) {
 		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:self.content]];
@@ -94,11 +88,10 @@
 	}
 	
 	return YES;
-
 }
 
 - (UIImage *)imageForSaveButton {
-	if ([HoccerText isDataAUrl: super.data]) {
+	if ([HoccerText isDataAUrl: self.data]) {
 		return [UIImage imageNamed:@"container_btn_double-safari.png"];
 	} else {
 		return [UIImage imageNamed:@"container_btn_double-copy.png"];
@@ -110,6 +103,13 @@
 }
 
 - (NSDictionary *)dataDesctiption {
+	NSString *oldString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
+
+	if (![oldString isEqual:self.view.textView.text]) {
+		self.data = [self.view.textView.text dataUsingEncoding:NSUTF8StringEncoding];
+		[self saveDataToDocumentDirectory];
+	}	
+	
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:self.view.textView.text forKey:@"content"];
 	[dictionary setObject:@"text/plain" forKey:@"type"];
