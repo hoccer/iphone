@@ -32,15 +32,16 @@
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
 	
 	NSData *data = [NSData dataWithContentsOfFile:filepath];
-	[fileCache cacheData: data withFilename:self.filename forTimeInterval:180];		
+	self.url = [fileCache cacheData: data withFilename:self.filename forTimeInterval:180];
 	self.state = TransferableStateTransfering;
+	
+	idString = [self.url copy];
 }
 
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
 	self.state = TransferableStateTransferred;
-	self.url = [path retain];
 }
 
 @end

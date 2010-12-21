@@ -23,10 +23,12 @@
 
 - (void) startTransfer {
 	self.state = TransferableStateTransfering;
+	if (fileCache == nil) {
+		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
+		fileCache.delegate = self;
+	}
 	
-	fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET];
-	fileCache.delegate = self;
-	[fileCache load: url];		
+	idString = [[fileCache load: url] copy];		
 }
 
 #pragma mark -
@@ -42,5 +44,17 @@
 
 	self.state = TransferableStateTransferred;
 }
+
+- (void) fileCache:(HCFileCache *)theFileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
+	
+	if ([theError code] == 404) {
+		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
+		[self load];
+	}
+	
+	[super fileCache:theFileCache didFailWithError:theError forURI:uri];
+}
+
+
 
 @end

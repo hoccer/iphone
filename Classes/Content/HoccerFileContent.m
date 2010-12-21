@@ -27,6 +27,8 @@
 	self = [super initWithDictionary:dict];
 	if (self != nil) {
 		NSString *downloadURL = [dict objectForKey:@"uri"];
+		NSLog(@"downloading from uri %@", downloadURL);
+		
 		transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @"test.jpg"];
 
 		mimeType = [[dict objectForKey:@"type"] retain];
@@ -35,10 +37,7 @@
 	return self;
 }
 
-- (id) initWithFilename:(NSString *)theFilename {
-	NSLog(@"%s", _cmd);
-	
-	self = [super initWithFilename:theFilename];
+- (id) initWithFilename:(NSString *)theFilename {self = [super initWithFilename:theFilename];
 	if (self != nil) {
 		transferable = [[FileUploader alloc] initWithFilename:filename];
 	}
