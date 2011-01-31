@@ -20,7 +20,7 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
-	statusLabel.text = @"Transfering";
+	statusLabel.text = @"Transferring";
 	[self setState:[TransferState state]];		 
 }
 

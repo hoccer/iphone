@@ -62,7 +62,7 @@
 	CGPoint defaultOrigin;
 
 	UILabel *hoccabilityLabel;
-	NSInteger hoccability;
+	NSDictionary *hoccabilityInfo;
 	
 	BOOL blocked;
 	
@@ -72,6 +72,7 @@
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
+@property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
 @property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;

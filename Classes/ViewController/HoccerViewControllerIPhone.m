@@ -148,7 +148,7 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-	[self setHoccabilityButton: hoccability];
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 
 }
 
@@ -314,7 +314,7 @@
 	[self.delayedAction perform];
 	self.delayedAction = nil;
 	
-	[self setHoccabilityButton: hoccability];
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -357,8 +357,8 @@
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void) linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
-	hoccability = [[quality objectForKey:@"quality"] intValue];
-	[self setHoccabilityButton: hoccability];
+	self.hoccabilityInfo = quality;
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 
@@ -426,7 +426,7 @@
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
 	} else {
-//		[infoViewController setLocationHint: [locationController messageForLocationInformation]];
+		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
 }
 

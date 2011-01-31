@@ -57,6 +57,7 @@
 @synthesize desktopData;
 @synthesize defaultOrigin;
 @synthesize hoccabilityLabel;
+@synthesize hoccabilityInfo;
 @synthesize blocked;
 
 
@@ -100,6 +101,7 @@
 }
 
 - (void)dealloc {
+	[hoccabilityInfo release];
 	[desktopView release];	
 	[desktopData release];
 	[gestureInterpreter release];
