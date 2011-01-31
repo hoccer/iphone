@@ -56,7 +56,7 @@
 @synthesize infoViewController;
 @synthesize desktopData;
 @synthesize defaultOrigin;
-@synthesize hoccability;
+@synthesize hoccabilityLabel;
 @synthesize blocked;
 
 
@@ -77,7 +77,7 @@
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
-	linccer = [[HCLinccer alloc] initWithApiKey:@"123456789" secret:@"Hallo"];
+	linccer = [[HCLinccer alloc] initWithApiKey:@"e101e890ea97012d6b6f00163e001ab0" secret:@"JofbFD6w6xtNYdaDgp4KOXf/k/s="];
 	linccer.delegate = self;
 	
 	desktopView.delegate = self;
@@ -507,8 +507,5 @@
 	
 	connectionEsteblished = NO;
 }
-
-		 
-	
 
 @end

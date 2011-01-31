@@ -61,7 +61,9 @@
 							
 	CGPoint defaultOrigin;
 
-	UILabel *hoccability;
+	UILabel *hoccabilityLabel;
+	NSInteger hoccability;
+	
 	BOOL blocked;
 	
 	HCLinccer *linccer;
@@ -75,7 +77,7 @@
 @property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
-@property (nonatomic, assign) IBOutlet UILabel *hoccability;
+@property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;

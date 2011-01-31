@@ -97,8 +97,6 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-//	[self setHoccabilityButton: locationController.hoccability];
-	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
@@ -106,6 +104,8 @@
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+	[self setHoccabilityButton: 0];
+
 	
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -148,7 +148,7 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-//	[self setHoccabilityButton:locationController.hoccability];
+	[self setHoccabilityButton: hoccability];
 
 }
 
@@ -314,7 +314,7 @@
 	[self.delayedAction perform];
 	self.delayedAction = nil;
 	
-//	[self setHoccabilityButton: locationController.hoccability];
+	[self setHoccabilityButton: hoccability];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -352,6 +352,13 @@
 
 - (void)hoccerControllerWasReceived: (ItemViewController *)item {
 	[hoccerHistoryController updateHistoryList];
+}
+
+#pragma mark -
+#pragma mark Linccer Delegate Methods
+- (void) linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
+	hoccability = [[quality objectForKey:@"quality"] intValue];
+	[self setHoccabilityButton: hoccability];
 }
 
 
