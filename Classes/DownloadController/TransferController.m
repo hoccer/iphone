@@ -129,6 +129,12 @@
 			}
 			
 			break;
+		case TransferableStateReady:
+			if ([delegate respondsToSelector:@selector(transferController:didPrepareContent:)]) {
+				[delegate transferController:self didPrepareContent:object];
+			}
+			break;
+
 		default:
 			NSLog(@"state changed");
 			break;

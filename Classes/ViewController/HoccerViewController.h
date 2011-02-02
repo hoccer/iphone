@@ -16,9 +16,12 @@
 #import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
 #import "TransferController.h"
+#import "MBProgressHUD.h"
 
 #import "HttpClient.h"
 #import "Hoccer.h"
+
+
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -69,6 +72,8 @@
 	HCLinccer *linccer;
 	TransferController *downloadController;
 	BOOL connectionEsteblished, fileUploaded;
+	
+	MBProgressHUD *hud;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -100,6 +105,9 @@
 
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item;
 - (void)showSuccess: (ItemViewController *)item;
+
+- (void)showHud;
+- (void)hideHUD;
 
 @end
 

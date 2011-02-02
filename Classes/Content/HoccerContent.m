@@ -19,7 +19,6 @@
 @synthesize persist;
 @synthesize mimeType;
 
-
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
@@ -233,6 +232,10 @@
 
 - (BOOL)saveDataToContentStorage {	
 	return NO;
+}
+
+- (BOOL) readyForSending {
+	return ((id <Transferable>)[self transferer]).state != TransferableStatePreparing;
 }
 
 #pragma mark -

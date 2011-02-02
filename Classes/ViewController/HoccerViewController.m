@@ -109,6 +109,7 @@
 	[statusViewController release];
 	[hoccingRules release];
 	[downloadController release];
+	[hud release];
 	
 	[super dealloc];
 }
@@ -166,6 +167,10 @@
 		[desktopData removeHoccerController: [desktopData hoccerControllerDataAtIndex:0]];
 	}
 	
+	if (!content.readyForSending) {
+		[self showHud];
+	}
+	
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
@@ -184,12 +189,12 @@
 #pragma mark UIImagePickerController Delegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	
+	[self dismissModalViewControllerAnimated:YES];
+   	
 	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
 								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 	
 	[self setContentPreview: content];
-	[self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -416,6 +421,10 @@
 	[statusViewController setError: error];
 }
 
+- (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
+	[self hideHUD];
+}
+
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
 
@@ -468,7 +477,7 @@
 	}
 }
 
-- (void) linccer:(HCLinccer *)linccer didSendDataWithInfo:(NSDictionary *)info {
+- (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
 	connectionEsteblished = YES;
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
@@ -494,9 +503,7 @@
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
 	NSDictionary *sender = [NSDictionary dictionaryWithObject:@"" forKey:@"client-id"];
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
-							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];	 
-	
-	NSLog(@"content %@", content);
+							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
 	
 	return content;
 }
@@ -508,6 +515,22 @@
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
 	connectionEsteblished = NO;
+}
+
+- (void)showHud {
+    if (hud == nil) {
+		hud = [[MBProgressHUD alloc] initWithView:self.view];
+		[self.view addSubview:hud];
+	}
+	
+	hud.mode = MBProgressHUDModeIndeterminate;
+	hud.labelText = @"Preparing";
+
+	[hud show:YES];
+}
+
+- (void)hideHUD {
+	[hud hide:YES];
 }
 
 @end

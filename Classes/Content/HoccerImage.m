@@ -24,7 +24,7 @@
 	self = [super init];
 	if (self != nil) {
 		transferable = [[DelayedFileUploaded alloc] initWithFilename:self.filename];
-		
+
 		image = [aImage retain];
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
 		isFromContentSource = YES;
@@ -108,7 +108,7 @@
 
 - (NSString *)mimeType {
 	return @"image/jpeg";
-}
+}    
 
 - (NSString *)descriptionOfSaveButton {
 	return NSLocalizedString(@"Save", nil);

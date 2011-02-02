@@ -18,20 +18,6 @@
 @synthesize filename;
 @synthesize url;
 
-
-- (void)dealloc {
-	[fileCache release];
-	[idString release];
-	
-	[url release];
-	[filename release];
-	
-	[progress release];
-	[error release];
-	
-	[super dealloc];
-}
-
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
 	self.progress = theProgress;
 }
@@ -49,6 +35,18 @@
 	[self doesNotRecognizeSelector:_cmd];
 }
 
+- (void)dealloc {
+	[fileCache release];
+	[idString release];
+	
+	[url release];
+	[filename release];
+	
+	[progress release];
+	[error release];
+	
+	[super dealloc];
+}
 
 
 @end

@@ -23,5 +23,4 @@
 - (void)updateImage;
 - (void)didFinishDataRepresentation;
 
-
 @end

@@ -38,6 +38,8 @@
 @property (assign) BOOL persist;
 @property (readonly) id interactionController;
 
+@property (readonly) BOOL readyForSending;
+
 - (id) initWithData: (NSData *)theData;
 - (id) initWithFilename: (NSString *)filename;
 - (id) initWithDictionary: (NSDictionary *)dict;

@@ -33,6 +33,7 @@ typedef enum _TransferableState TransferableState;
 - (void)transferController: (TransferController *)controller didFinishTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
+- (void) transferController:(TransferController *)controller didPrepareContent: (id)object;
 
 @end
 
@@ -47,6 +48,5 @@ typedef enum _TransferableState TransferableState;
 
 - (void)addContentToDownloadQueue: (id <Transferable>) downloadable;
 - (void)cancelDownloads;
-
 
 @end
