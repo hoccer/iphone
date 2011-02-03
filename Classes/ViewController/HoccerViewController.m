@@ -177,7 +177,7 @@
 	item.content = content;
 	item.delegate = self;
 	
-	if ([content transferer]) {
+	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		fileUploaded = NO;
 		[downloadController addContentToDownloadQueue:[content transferer]];		
 	}
@@ -490,7 +490,7 @@
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
-	if (![item.content transferer] || fileUploaded) {
+	if (![[item.content transferer] isKindOfClass: [FileUploader class]] || fileUploaded) {
 		[self showSuccess: item];
 	}
 }

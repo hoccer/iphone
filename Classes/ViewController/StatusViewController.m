@@ -100,7 +100,12 @@
 
 - (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds; {
 	self.statusLabel.text = message;
-	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO];
+	if (timer != nil) {
+		[timer invalidate];
+		[timer release];
+	}
+	
+	timer = [[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO] retain];
 }
 
 - (void)hideStatus {
@@ -151,6 +156,7 @@
 	[cancelButton setImage:state.cancelButtonImage forState: UIControlStateNormal];
 	
 	[timer invalidate];
+	[timer release];
 	timer = nil;
 }
 
@@ -160,6 +166,7 @@
 	[self showLocationHint];
 	
 	[timer invalidate];
+	[timer release];
 	timer = nil;
 }
 

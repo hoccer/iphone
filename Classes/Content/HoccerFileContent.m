@@ -21,19 +21,6 @@
 	return self;	
 }
 
-- (id) initWithDictionary:(NSDictionary *)dict {
-	self = [super initWithDictionary:dict];
-	if (self != nil) {
-		NSString *downloadURL = [dict objectForKey:@"uri"];
-		
-		transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @"test.jpg"];
-
-		mimeType = [[dict objectForKey:@"type"] retain];
-	}
-	
-	return self;
-}
-
 - (id) initWithFilename:(NSString *)theFilename {self = [super initWithFilename:theFilename];
 	if (self != nil) {
 		transferable = [[FileUploader alloc] initWithFilename:filename];
@@ -42,6 +29,16 @@
 	return self;	
 }
 
+- (id) initWithDictionary:(NSDictionary *)dict {
+	self = [super initWithDictionary:dict];
+	if (self != nil) {
+		mimeType = [[dict objectForKey:@"type"] retain];
+		NSString *downloadURL = [dict objectForKey:@"uri"];
+		transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
+	}
+	
+	return self;
+}
 
 -(void) dealloc {
 	[transferable release];
