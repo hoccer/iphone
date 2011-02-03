@@ -235,7 +235,7 @@
 }
 
 - (BOOL) readyForSending {
-	return ((id <Transferable>)[self transferer]).state != TransferableStatePreparing;
+	return ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing;
 }
 
 #pragma mark -
