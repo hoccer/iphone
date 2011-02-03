@@ -13,7 +13,7 @@
 @implementation HoccingRulesIPhone
 
 - (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
@@ -25,7 +25,7 @@
 }
 
 - (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
@@ -37,7 +37,7 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
@@ -49,7 +49,7 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	

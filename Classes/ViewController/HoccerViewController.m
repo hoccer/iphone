@@ -58,7 +58,6 @@
 @synthesize defaultOrigin;
 @synthesize hoccabilityLabel;
 @synthesize hoccabilityInfo;
-@synthesize blocked;
 @synthesize linccer;
 
 
@@ -73,7 +72,6 @@
 }
 
 - (void)viewDidLoad {
-	self.blocked = YES;
 	
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
@@ -443,10 +441,6 @@
 
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
-
-- (void) linccerDidRegister:(HCLinccer *)linccer {
-	self.blocked = NO;
-}
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	connectionEsteblished = NO;

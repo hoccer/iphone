@@ -65,9 +65,7 @@
 
 	UILabel *hoccabilityLabel;
 	NSDictionary *hoccabilityInfo;
-	
-	BOOL blocked;
-	
+		
 	HCLinccer *linccer;
 	TransferController *downloadController;
 	BOOL connectionEsteblished, fileUploaded;
@@ -86,7 +84,6 @@
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
-@property (assign) BOOL blocked;
 @property (readonly) HCLinccer *linccer;
 
 - (void)setContentPreview: (HoccerContent *)content;
