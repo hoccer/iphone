@@ -426,16 +426,16 @@
 	if ([desktopData count] == 0) {
 		return;
 	}
-	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if ([object isKindOfClass:[FileUploader class]]) {
 		fileUploaded = YES;
+		if (connectionEsteblished) {
+			[self showSuccess:item];
+		}
 	} else {
 		[self showSuccess:item];
 	}
-		
-	[item updateView];
 }
 
 - (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
@@ -511,11 +511,6 @@
 	if (![item.content transferer] || fileUploaded) {
 		[self showSuccess: item];
 	}
-		
-	[historyData addContentToHistory:item];
-	
-	[desktopData removeHoccerController:item];
-	[desktopView reloadData];
 }
 
 #pragma mark -
@@ -537,6 +532,13 @@
 - (void)showSuccess: (ItemViewController *)item {
 	[historyData addContentToHistory:item];		
 
+	if (item.isUpload) {
+		[desktopData removeHoccerController:item];
+		[desktopView reloadData];
+	} else {
+		[item updateView];
+	}
+	
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
