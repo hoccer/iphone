@@ -49,7 +49,7 @@
 	
 	if ([theError code] == 404) {
 		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
-		[self load];
+		[self startTransfer];
 	}
 	
 	[super fileCache:theFileCache didFailWithError:theError forURI:uri];

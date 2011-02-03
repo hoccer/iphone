@@ -21,7 +21,7 @@
 #import "HttpClient.h"
 #import "Hoccer.h"
 
-
+#import "ConnectionStatusViewController.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -37,14 +37,13 @@
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
 @class SettingViewController;
-@class ConnectionStatusViewController;
 
 @class HCLinccer;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
 			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, DownloadControllerDelegate> 
+						HCLinccerDelegate, DownloadControllerDelegate, ConnectionStatusViewControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;

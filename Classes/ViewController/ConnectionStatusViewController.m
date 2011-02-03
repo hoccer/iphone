@@ -12,6 +12,7 @@
 #import "HoccerImage.h"
 
 @implementation ConnectionStatusViewController
+@synthesize delegate;
 
 - (void)setUpdate: (NSString *)update {
 	statusLabel.text = update;
@@ -25,9 +26,12 @@
 }
 
 - (IBAction) cancelAction: (id) sender {
-	// [content cancelRequest];
-	
+	NSLog(@"canceling request");
 	[self hideViewAnimated:YES];
+	
+	if ([delegate respondsToSelector:@selector(connectionStatusViewControllerDidCancel:)]) {
+		[delegate connectionStatusViewControllerDidCancel:self];
+	}
 }
 
 @end

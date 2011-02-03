@@ -48,7 +48,9 @@
 }
 
 - (void)cancelDownloads {
-	
+	for (id <Transferable> download in downloadQueue) {
+		[download cancelTransfer];
+	}
 }
 
 - (void)startDownload {

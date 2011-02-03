@@ -60,11 +60,7 @@
 	return NO;
 }
 
-- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {
-	if (controller.blocked) {
-		return NO;
-	}
-	
+- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {	
 	if ([controller.desktopData count] == 1) {
 		return NO;
 	}

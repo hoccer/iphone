@@ -78,7 +78,7 @@
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
-	linccer = [[HCLinccer alloc] initWithApiKey:@"e101e890ea97012d6b6f00163e001ab0" secret:@"JofbFD6w6xtNYdaDgp4KOXf/k/s="];
+	linccer = [[HCLinccer alloc] initWithApiKey:@"e101e890ea97012d6b6f00163e001ab0" secret:@"JofbFD6w6xtNYdaDgp4KOXf/k/s=" sandboxed: YES];
 	linccer.delegate = self;
 	
 	desktopView.delegate = self;
@@ -95,6 +95,8 @@
 
 	downloadController = [[TransferController alloc] init];
 	downloadController.delegate = self;
+	
+	statusViewController.delegate = self;
 }
 
 - (void)viewDidUnload {
@@ -348,7 +350,26 @@
 - (void)willStartDownload: (ItemViewController *)item {
 	item.isUpload = NO;
 }
-	 
+
+- (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
+	if ([desktopData count] == 0) {
+		return;
+	}
+	
+	[linccer cancelAllRequest];
+	
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	if (item.isUpload) {
+		item.viewOrigin = self.defaultOrigin;
+	} else {
+		[desktopData removeHoccerController:item];	
+	}
+
+	[desktopView reloadData];
+}
+
+
+
 #pragma mark -
 #pragma mark HoccerControllerDataDelegate
 
@@ -366,6 +387,8 @@
 #pragma mark -
 #pragma mark ItemViewController 
 - (void)itemViewControllerWasClosed:(ItemViewController *)item {
+	[downloadController cancelDownloads];
+	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
@@ -400,6 +423,10 @@
 #pragma mark TransferController Delegate
 
 - (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {		
+	if ([desktopData count] == 0) {
+		return;
+	}
+	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if ([object isKindOfClass:[FileUploader class]]) {
@@ -442,7 +469,6 @@
 	}
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	
 	if (item.isUpload) {
 		item.viewOrigin = self.defaultOrigin;
 	} else {
