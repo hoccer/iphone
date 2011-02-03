@@ -322,7 +322,6 @@
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
 		
-		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 			[UIView setAnimationDidStopSelector:@selector(hideAnimationDidStop:finished:context:)];
@@ -342,16 +341,6 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	[navigationItem setRightBarButtonItem:nil animated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
-}
-
-#pragma mark -
-#pragma mark HocDataItem Delegate Methods
-- (void)hoccerControllerWasSent: (ItemViewController *)item {		
-	[hoccerHistoryController updateHistoryList];
-}
-
-- (void)hoccerControllerWasReceived: (ItemViewController *)item {
-	[hoccerHistoryController updateHistoryList];
 }
 
 #pragma mark -

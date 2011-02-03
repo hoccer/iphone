@@ -50,6 +50,17 @@
 	return self;
 }
 
+- (id) initWithFilename: (NSString *)theFilename {
+	self = [super initWithFilename:theFilename];
+	if (self != nil) {
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+		NSLog(@"vcardstring %@", vcardString);
+	}
+	
+	return self;
+}
+
+
 - (ABRecordRef)person {
 	if (person == NULL) {
 		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString:vcardString];
@@ -95,7 +106,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Contact";
+	return @"Save";
 }
 
 - (NSString *)extension {

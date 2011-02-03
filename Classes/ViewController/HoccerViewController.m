@@ -297,7 +297,7 @@
 	}
 }
 
-- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
+- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {	
 	if ([self.linccer isLinccing]) {
 		return;
 	}

@@ -121,8 +121,9 @@
 	
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[delegate checkAndPerformSelector:@selector(toggleSelectContent:) withObject:self];
+// 	[[self nextResponder] touchesBegan:touches withEvent:event];
 }
 
 

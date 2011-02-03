@@ -32,7 +32,7 @@
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
 	
 	NSData *data = [NSData dataWithContentsOfFile:filepath];
-	self.url = [fileCache cacheData: data withFilename:self.filename forTimeInterval:180];
+	self.url = [fileCache cacheData: data withFilename:self.filename forTimeInterval:30*60];
 	self.state = TransferableStateTransfering;
 	
 	idString = [self.url copy];
