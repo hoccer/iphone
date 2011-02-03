@@ -22,12 +22,9 @@
 }
 
 - (id) initWithDictionary:(NSDictionary *)dict {
-	NSLog(@"%s", _cmd);
-
 	self = [super initWithDictionary:dict];
 	if (self != nil) {
 		NSString *downloadURL = [dict objectForKey:@"uri"];
-		NSLog(@"downloading from uri %@", downloadURL);
 		
 		transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @"test.jpg"];
 

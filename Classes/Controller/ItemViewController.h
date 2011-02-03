@@ -41,9 +41,6 @@
 @property (assign) IBOutlet UIView* viewFromNib;
 @property (nonatomic, assign) id <ItemViewControllerDelegate> delegate; 
 
-- (void)cancelRequest;
-- (BOOL)hasActiveRequest;
-
 - (void)removeFromFileSystem;
 - (void)updateView;
 

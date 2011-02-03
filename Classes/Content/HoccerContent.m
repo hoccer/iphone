@@ -42,8 +42,6 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-	NSLog(@"dict: %@", dict);
-	
 	if ([dict objectForKey:@"content"]) {
 		NSData *theData = [[dict objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding]; 
 		return [self initWithData:theData];
@@ -59,7 +57,6 @@
 		
 		self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
 																	  inDirectory: [[NSFileManager defaultManager] contentDirectory]];
-		NSLog(@"filename %@", self.filename);
 		self.data = theData;
 
 		[self saveDataToDocumentDirectory];
@@ -89,7 +86,6 @@
 }
 
 - (NSData *)data {
-	NSLog(@"in data, filename: %@", self.filename);
 	if (data == nil && self.filename != nil) {
 		self.data = [NSData dataWithContentsOfFile:self.filepath];
 	}

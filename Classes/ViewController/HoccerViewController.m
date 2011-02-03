@@ -59,6 +59,7 @@
 @synthesize hoccabilityLabel;
 @synthesize hoccabilityInfo;
 @synthesize blocked;
+@synthesize linccer;
 
 
 + (void) initialize {
@@ -272,6 +273,7 @@
 	item.isUpload = YES;
 	
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
+	
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 	
@@ -290,19 +292,19 @@
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
-	if ([item hasActiveRequest]) {
-		[item cancelRequest];	
+	if ([downloadController hasTransfers]) {
+		[downloadController cancelDownloads];	
 	} else{
 		[desktopData removeHoccerController:item];
 	}
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {
-	if ([desktopData hasActiveRequest]) {
+	if ([self.linccer isLinccing]) {
 		return;
 	}
+	
 	[FeedbackProvider playSweepIn];
-	[statusViewController setState:[ConnectionState state]];
 	[infoViewController hideViewAnimated:YES];
 	
 	[statusViewController setState:[ConnectionState state]];
@@ -316,7 +318,7 @@
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
-	if ([desktopData hasActiveRequest]) {
+	if ([linccer isLinccing]) {
 		return;
 	}
 	
@@ -347,10 +349,8 @@
 	return YES;
 }
 
-- (void)willStartDownload: (ItemViewController *)item {
-	item.isUpload = NO;
-}
-
+#pragma mark -
+#pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
 	if ([desktopData count] == 0) {
 		return;
@@ -368,24 +368,13 @@
 	[desktopView reloadData];
 }
 
-
-
-#pragma mark -
-#pragma mark HoccerControllerDataDelegate
-
-- (void)hoccerControllerUploadWasCanceled: (ItemViewController *)item {
-	item.viewOrigin = self.defaultOrigin;
-	
-	[desktopView reloadData];
-}
-
-- (void)hoccerControllerDownloadWasCanceled: (ItemViewController *)item {
-	[desktopData removeHoccerController:item];
-	[desktopView reloadData];
-}
-
 #pragma mark -
 #pragma mark ItemViewController 
+
+- (void)willStartDownload: (ItemViewController *)item {
+	item.isUpload = NO;
+}
+
 - (void)itemViewControllerWasClosed:(ItemViewController *)item {
 	[downloadController cancelDownloads];
 	
@@ -456,7 +445,6 @@
 #pragma mark HCLinccerDelegate Methods
 
 - (void) linccerDidRegister:(HCLinccer *)linccer {
-	NSLog(@"ready for sharing");
 	self.blocked = NO;
 }
 

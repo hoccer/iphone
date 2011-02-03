@@ -35,13 +35,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[downloadQueue release];
-	[activeDownloads release];
-	
-	[super dealloc];
-}
-
 - (void)addContentToDownloadQueue:(id <Transferable>)downloadable {
 	[downloadQueue addObject:downloadable];
 	[self startDownload];
@@ -51,6 +44,10 @@
 	for (id <Transferable> download in downloadQueue) {
 		[download cancelTransfer];
 	}
+}
+
+- (BOOL)hasTransfers {
+	return [activeDownloads count] < 0 || [downloadQueue count] < 0;
 }
 
 - (void)startDownload {
@@ -88,7 +85,6 @@
 #pragma mark Dispatch Changes
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	
 	if ([keyPath isEqual:@"error"]) {
 		[self error: [change objectForKey:NSKeyValueChangeNewKey] forTransfer: object];
 	}
@@ -138,10 +134,17 @@
 			break;
 
 		default:
-			NSLog(@"state changed");
 			break;
 	}
 	[object release];
 }
+
+- (void) dealloc {
+	[downloadQueue release];
+	[activeDownloads release];
+	
+	[super dealloc];
+}
+
 
 @end

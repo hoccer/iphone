@@ -26,7 +26,6 @@
 }
 
 - (IBAction) cancelAction: (id) sender {
-	NSLog(@"canceling request");
 	[self hideViewAnimated:YES];
 	
 	if ([delegate respondsToSelector:@selector(connectionStatusViewControllerDidCancel:)]) {

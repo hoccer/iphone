@@ -76,25 +76,6 @@
 	[content removeFromDocumentDirectory];
 }
 
-- (void)cancelRequest {
-//	[request cancel];
-//	self.request = nil;
-//	
-//	if (isUpload) {
-//		if ([delegate respondsToSelector:@selector(hoccerControllerUploadWasCanceled:)]) {
-//			[delegate hoccerControllerUploadWasCanceled:self];
-//		}
-//	} else {
-//		if ([delegate respondsToSelector:@selector(hoccerControllerDownloadWasCanceled:)]) {
-//			[delegate hoccerControllerDownloadWasCanceled:self];
-//		}
-//	}
-}
-
-- (BOOL)hasActiveRequest {
-//	return self.request != nil;
-	return NO;
-}
 
 - (ContentContainerView *)contentView {
 	if (contentView == nil) {

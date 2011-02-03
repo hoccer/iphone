@@ -26,8 +26,6 @@
 - (void)addhoccerController: (ItemViewController *)controller;
 - (void)removeHoccerController: (ItemViewController *)controller;
 
-- (BOOL)hasActiveRequest;
-
 - (ItemViewController *)hoccerControllerDataForView: (UIView *)controller;
 - (ItemViewController *)hoccerControllerDataAtIndex: (NSInteger) index;
 

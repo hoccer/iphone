@@ -55,16 +55,6 @@
 	[contentOnDesktop removeObject:hoccerController];
 }
 
-- (BOOL)hasActiveRequest {
-	for (ItemViewController *item in contentOnDesktop) {
-		if ([item hasActiveRequest]) {
-			return YES;
-		}
-	}
-	
-	return NO;
-}
-
 - (ItemViewController *)hoccerControllerDataForView: (UIView *)view {
 	for (ItemViewController *item in contentOnDesktop) {
 		if ((UIView *)item.contentView == view) {

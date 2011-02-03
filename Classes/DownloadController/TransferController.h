@@ -46,7 +46,9 @@ typedef enum _TransferableState TransferableState;
 
 @property (assign, nonatomic) id <DownloadControllerDelegate> delegate;
 
+- (BOOL)hasTransfers;
 - (void)addContentToDownloadQueue: (id <Transferable>) downloadable;
 - (void)cancelDownloads;
+
 
 @end

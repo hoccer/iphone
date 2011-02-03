@@ -23,7 +23,6 @@
 }
 
 - (void)startTransfer {
-	NSLog(@"start transfer");
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: YES];
 		fileCache.delegate = self;		

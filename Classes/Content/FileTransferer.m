@@ -23,7 +23,6 @@
 }
 
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
-	NSLog(@"error: %@", error);
 	self.error = theError;
 }
 
