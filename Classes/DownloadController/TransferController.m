@@ -41,9 +41,13 @@
 }
 
 - (void)cancelDownloads {
-	for (id <Transferable> download in downloadQueue) {
+	NSLog(@"canceling all downloads");
+	for (id <Transferable> download in activeDownloads) {
 		[download cancelTransfer];
 	}
+	
+	[activeDownloads removeAllObjects];
+	[downloadQueue removeAllObjects];
 }
 
 - (BOOL)hasTransfers {
@@ -100,6 +104,7 @@
 
 
 - (void)error: (NSError *)error forTransfer: (id)object {
+	NSLog(@"transfer controller error");
 	[object retain];
 	
 	[self finalizeDownload:object];

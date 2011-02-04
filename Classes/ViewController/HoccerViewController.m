@@ -47,6 +47,15 @@
 
 #import "FileUploader.h"
 
+@interface HoccerViewController ()
+
+- (void)handleError: (NSError *)error;
+
+@end
+
+
+
+
 @implementation HoccerViewController
 
 @synthesize delegate; 
@@ -350,10 +359,11 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
-	if ([desktopData count] == 0) {
+	if ([desktopData count] == 0 || !([linccer isLinccing] || [downloadController hasTransfers])) {
 		return;
+		
 	}
-	
+	NSLog(@"canceling");
 	[linccer cancelAllRequest];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
@@ -361,6 +371,7 @@
 		item.viewOrigin = self.defaultOrigin;
 	} else {
 		[desktopData removeHoccerController:item];	
+		[downloadController cancelDownloads];
 	}
 
 	[desktopView reloadData];
@@ -432,7 +443,8 @@
 }
 
 - (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
-	[statusViewController setError: error];
+	NSLog(@"transfer controller bla blaa");
+	[self handleError: error];
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
@@ -444,24 +456,7 @@
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	connectionEsteblished = NO;
-	[statusViewController setError:error];
-
-	if ([error domain] != HoccerError) {
-		return;
-	}
-	
-	if ([desktopData count] == 0) {
-		return;
-	}	
-	
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	if (item.isUpload) {
-		item.viewOrigin = self.defaultOrigin;
-	} else {
-		[desktopData removeHoccerController:item];	
-	}
-	
-	[desktopView reloadData];
+	[self handleError:error];
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
@@ -513,6 +508,23 @@
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
 	
 	return content;
+}
+
+- (void)handleError: (NSError *)error {
+	[statusViewController setError:error];
+		
+	if ([desktopData count] == 0) {
+		return;
+	}	
+	
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	if (item.isUpload) {
+		item.viewOrigin = self.defaultOrigin;
+	} else {
+		[desktopData removeHoccerController:item];	
+	}
+	
+	[desktopView reloadData];	
 }
 
 - (void)showSuccess: (ItemViewController *)item {
