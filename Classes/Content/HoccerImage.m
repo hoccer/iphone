@@ -87,6 +87,10 @@
 }
 
 - (Preview *)desktopItemView {
+	if (self.image == nil) {
+		return nil;
+	}
+	
 	preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
 	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
 
