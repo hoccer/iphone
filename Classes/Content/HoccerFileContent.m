@@ -55,7 +55,7 @@
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
-	[dict setObject:transferable.url forKey:@"uri"];
+	[dict setObject:[transferable.url stringByRemovingQuery] forKey:@"uri"];
 	
 	return dict;
 }
