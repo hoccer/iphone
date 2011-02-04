@@ -13,6 +13,7 @@
 
 
 @interface FileDownloader : FileTransferer {
+	NSInteger retryCount;
 }
 
 //- (id)initWithURL: (NSString *)aUrl;

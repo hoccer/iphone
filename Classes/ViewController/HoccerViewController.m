@@ -450,6 +450,10 @@
 		return;
 	}
 	
+	if ([desktopData count] == 0) {
+		return;
+	}	
+	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	if (item.isUpload) {
 		item.viewOrigin = self.defaultOrigin;

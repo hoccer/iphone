@@ -47,9 +47,9 @@
 
 - (void) fileCache:(HCFileCache *)theFileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
 	
-	if ([theError code] == 404) {
-		[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
-		[self startTransfer];
+	if ([theError code] == 404 && retryCount < 4) {
+		[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
+		retryCount += 1;
 	}
 	
 	[super fileCache:theFileCache didFailWithError:theError forURI:uri];
