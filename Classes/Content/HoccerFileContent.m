@@ -9,7 +9,7 @@
 #import "HoccerFileContent.h"
 #import "FileDownloader.h"
 #import "FileUploader.h"
-
+#import "NSString+URLHelper.h"
 
 @implementation HoccerFileContent
 
