@@ -19,6 +19,7 @@
 	BOOL isPopUpDisplayed;
 	
 	UITabBar *tabBar;
+	
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
 }

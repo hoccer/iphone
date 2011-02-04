@@ -149,7 +149,6 @@
 	
 	self.tabBar.selectedItem = nil;
 	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
-
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -418,6 +417,5 @@
 		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
 }
-
 
 @end
