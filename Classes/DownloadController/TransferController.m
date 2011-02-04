@@ -41,8 +41,8 @@
 }
 
 - (void)cancelDownloads {
-	NSLog(@"canceling all downloads");
 	for (id <Transferable> download in activeDownloads) {
+		[self removeObservers:download];
 		[download cancelTransfer];
 	}
 	
@@ -50,8 +50,8 @@
 	[downloadQueue removeAllObjects];
 }
 
-- (BOOL)hasTransfers {
-	return [activeDownloads count] < 0 || [downloadQueue count] < 0;
+- (BOOL)hasTransfers {	
+	return ([activeDownloads count] > 0 || [downloadQueue count] > 0);
 }
 
 - (void)startDownload {

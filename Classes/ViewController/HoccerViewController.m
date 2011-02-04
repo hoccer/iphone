@@ -359,11 +359,11 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
-	if ([desktopData count] == 0 || !([linccer isLinccing] || [downloadController hasTransfers])) {
+	BOOL isConnecting = [linccer isLinccing] || [downloadController hasTransfers];
+	if ([desktopData count] == 0 || !isConnecting) {
 		return;
 		
 	}
-	NSLog(@"canceling");
 	[linccer cancelAllRequest];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
@@ -443,7 +443,6 @@
 }
 
 - (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
-	NSLog(@"transfer controller bla blaa");
 	[self handleError: error];
 }
 
