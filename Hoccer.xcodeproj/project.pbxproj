@@ -484,6 +484,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
+		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
 		E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
 		E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
 		E60935A112A54A8500EE83EB /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358612A54A8500EE83EB /* WifiScanner.m */; };
@@ -875,6 +876,8 @@
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
+		E1EB75DD12FC593D007025A2 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
+		E1EB75DE12FC593D007025A2 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		E609357F12A54A8500EE83EB /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
 		E609358012A54A8500EE83EB /* HCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEnvironment.m; sourceTree = "<group>"; };
 		E609358112A54A8500EE83EB /* HCEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironmentManager.h; sourceTree = "<group>"; };
@@ -1290,6 +1293,8 @@
 				22638C7E11B51FEE0024AA7E /* ItemViewController.h */,
 				22638C7F11B51FEE0024AA7E /* ItemViewController.m */,
 				22638C8011B51FEE0024AA7E /* ItemViewControllerDelegate.h */,
+				E1EB75DD12FC593D007025A2 /* HelpController.h */,
+				E1EB75DE12FC593D007025A2 /* HelpController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2444,6 +2449,7 @@
 				E686C78A12B26FE0006B5037 /* FileUploader.m in Sources */,
 				E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */,
 				E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */,
+				E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

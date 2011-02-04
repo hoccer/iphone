@@ -131,6 +131,9 @@
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
+	
+	helpController = [[HelpController alloc] initWithController:navigationController];
+	[helpController viewDidLoad];
 }
 
 - (void) dealloc {
@@ -140,6 +143,7 @@
 	[tabBar release];
 	[auxiliaryView release];
 	[delayedAction release];
+	[helpController release];
 	
 	[super dealloc];
 }

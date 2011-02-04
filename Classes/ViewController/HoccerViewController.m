@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.09.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Hoccer GmbH 2009. All rights reserved.
 //
 
 #import <CoreLocation/CoreLocation.h>
@@ -81,7 +81,6 @@
 }
 
 - (void)viewDidLoad {
-	
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
+#import "HelpController.h"
 
 @class ActionElement;
 
@@ -22,6 +23,7 @@
 	
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
+	HelpController *helpController;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
