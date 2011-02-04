@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <YAJLIOS/YAJLIOS.h>
+#import <CommonCrypto/CommonCryptor.h>
 #import "Hoccer.h"
 #import "TransferController.h"
 
@@ -46,15 +47,14 @@
 #import "HoccerContentFactory.h"
 
 #import "FileUploader.h"
+#import "NSData_Base64Extensions.h"
 
 @interface HoccerViewController ()
 
 - (void)handleError: (NSError *)error;
+- (NSString *)obfuscatedUUID: (NSString *)uuid;
 
 @end
-
-
-
 
 @implementation HoccerViewController
 
@@ -502,10 +502,11 @@
 #pragma mark -
 #pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
-	NSDictionary *sender = [NSDictionary dictionaryWithObject:@"" forKey:@"client-id"];
+	NSDictionary *sender = [NSDictionary dictionaryWithObject:[self obfuscatedUUID:linccer.uuid] forKey:@"client-id"];
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
 	
+	NSLog(@"content %@", content);
 	return content;
 }
 
@@ -556,6 +557,16 @@
 
 - (void)hideHUD {
 	[hud hide:YES];
+}
+
+- (NSString *)obfuscatedUUID: (NSString *)uuid {
+	unsigned char hashedChars[32];
+	CC_SHA256([uuid UTF8String],
+			  [uuid lengthOfBytesUsingEncoding:NSUTF8StringEncoding], 
+			  hashedChars);
+	NSData * hashedData = [NSData dataWithBytes:hashedChars length:32];
+	
+	return [hashedData asBase64EncodedString];
 }
 
 @end
