@@ -54,7 +54,6 @@
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
 		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
-		NSLog(@"vcardstring %@", vcardString);
 	}
 	
 	return self;

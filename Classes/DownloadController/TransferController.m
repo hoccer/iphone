@@ -104,7 +104,6 @@
 
 
 - (void)error: (NSError *)error forTransfer: (id)object {
-	NSLog(@"transfer controller error");
 	[object retain];
 	
 	[self finalizeDownload:object];

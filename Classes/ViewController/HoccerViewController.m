@@ -513,7 +513,6 @@
 	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
 	
-	NSLog(@"content %@", content);
 	return content;
 }
 
