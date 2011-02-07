@@ -22,16 +22,23 @@
 }
 	
 - (void)viewDidLoad {
+	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"firstRunTipShown"] boolValue]) {
+		return;
+	}
+	
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome to Hoccer", nil)
 													message:NSLocalizedString(@"Do you want to see the tutorial to learn how hoccer works?", nil)
 												   delegate:self 
 										  cancelButtonTitle:@"Continue" otherButtonTitles:@"Show Tutorial", nil];
 	[alert show];	
 	[alert release];
+	
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"firstRunTipShown"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"selected: %d", buttonIndex);
 	if (buttonIndex == 1) {
 		HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
 		helpView.navigationItem.title = @"Tutorial";
