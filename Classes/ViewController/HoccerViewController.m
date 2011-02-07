@@ -81,7 +81,7 @@
 }
 
 - (void)viewDidLoad {
-	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com/"];
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 	
@@ -136,7 +136,9 @@
 
 - (void)showDesktop {}
 
-- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {
+- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {		
+	linccer.latency = connection.roundTripTime;
+	
 	NSDictionary *message = nil;
 	@try {
 		message = [data yajl_JSON];		
