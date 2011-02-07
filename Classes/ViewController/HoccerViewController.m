@@ -81,9 +81,7 @@
 }
 
 - (void)viewDidLoad {
-	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
-	httpClient.target = self;
-	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
+	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
 	
 	linccer = [[HCLinccer alloc] initWithApiKey:@"e101e890ea97012d6b6f00163e001ab0" secret:@"JofbFD6w6xtNYdaDgp4KOXf/k/s=" sandboxed: YES];
 	linccer.delegate = self;
@@ -104,6 +102,13 @@
 	downloadController.delegate = self;
 	
 	statusViewController.delegate = self;
+}
+
+
+- (void)fetchStatusUpdate {
+	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
+	httpClient.target = self;
+	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
 }
 
 - (void)viewDidUnload {
@@ -138,6 +143,7 @@
 
 - (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {		
 	linccer.latency = connection.roundTripTime;
+	[linccer updateEnvironment];
 	
 	NSDictionary *message = nil;
 	@try {
