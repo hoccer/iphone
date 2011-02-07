@@ -83,7 +83,7 @@
 - (void)viewDidLoad {
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
 	
-	linccer = [[HCLinccer alloc] initWithApiKey:@"e101e890ea97012d6b6f00163e001ab0" secret:@"JofbFD6w6xtNYdaDgp4KOXf/k/s=" sandboxed: YES];
+	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
 	
 	desktopView.delegate = self;

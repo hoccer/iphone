@@ -2,6 +2,8 @@
 // Prefix header for all source files of the 'Hoccer' target in the 'Hoccer' project
 //
 
+#define USES_SANDBOX YES
+
 #define API_KEY @"e101e890ea97012d6b6f00163e001ab0"
 #define SECRET @"JofbFD6w6xtNYdaDgp4KOXf/k/s="
 

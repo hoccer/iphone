@@ -218,10 +218,6 @@
 		2299926711916650006DA5DD /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926411916650006DA5DD /* throw_sound.wav */; };
 		2299926811916650006DA5DD /* catch_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926211916650006DA5DD /* catch_sound.wav */; };
 		2299926A11916650006DA5DD /* throw_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2299926411916650006DA5DD /* throw_sound.wav */; };
-		2299927711916741006DA5DD /* catch_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927511916741006DA5DD /* catch_180.mp4 */; };
-		2299927811916741006DA5DD /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927611916741006DA5DD /* throw_180.mp4 */; };
-		2299927911916741006DA5DD /* catch_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927511916741006DA5DD /* catch_180.mp4 */; };
-		2299927A11916741006DA5DD /* throw_180.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2299927611916741006DA5DD /* throw_180.mp4 */; };
 		2299929711916AC5006DA5DD /* history_icon_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929011916AC5006DA5DD /* history_icon_contact.png */; };
 		2299929811916AC5006DA5DD /* history_icon_download.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929111916AC5006DA5DD /* history_icon_download.png */; };
 		2299929911916AC5006DA5DD /* history_icon_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 2299929211916AC5006DA5DD /* history_icon_image.png */; };
@@ -484,6 +480,8 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
+		E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AA13004E0D00C87E53 /* catch_180.m4v */; };
+		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
 		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
 		E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
 		E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
@@ -772,8 +770,6 @@
 		2299923C1191617F006DA5DD /* help_sweep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_sweep_icon.png; sourceTree = "<group>"; };
 		2299926211916650006DA5DD /* catch_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catch_sound.wav; sourceTree = "<group>"; };
 		2299926411916650006DA5DD /* throw_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = throw_sound.wav; sourceTree = "<group>"; };
-		2299927511916741006DA5DD /* catch_180.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.mp4; sourceTree = "<group>"; };
-		2299927611916741006DA5DD /* throw_180.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.mp4; sourceTree = "<group>"; };
 		2299929011916AC5006DA5DD /* history_icon_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_contact.png; sourceTree = "<group>"; };
 		2299929111916AC5006DA5DD /* history_icon_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_download.png; sourceTree = "<group>"; };
 		2299929211916AC5006DA5DD /* history_icon_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_icon_image.png; sourceTree = "<group>"; };
@@ -876,6 +872,8 @@
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
+		E12B51AA13004E0D00C87E53 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
+		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		E1EB75DD12FC593D007025A2 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 		E1EB75DE12FC593D007025A2 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		E609357F12A54A8500EE83EB /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
@@ -1592,8 +1590,8 @@
 		2299927411916741006DA5DD /* videos */ = {
 			isa = PBXGroup;
 			children = (
-				2299927511916741006DA5DD /* catch_180.mp4 */,
-				2299927611916741006DA5DD /* throw_180.mp4 */,
+				E12B51AA13004E0D00C87E53 /* catch_180.m4v */,
+				E12B51AB13004E0D00C87E53 /* throw_180.m4v */,
 			);
 			name = videos;
 			path = Resources/videos;
@@ -2088,8 +2086,6 @@
 				2299923D1191617F006DA5DD /* help_sweep_icon.png in Resources */,
 				2299926511916650006DA5DD /* catch_sound.wav in Resources */,
 				2299926711916650006DA5DD /* throw_sound.wav in Resources */,
-				2299927711916741006DA5DD /* catch_180.mp4 in Resources */,
-				2299927811916741006DA5DD /* throw_180.mp4 in Resources */,
 				2299929711916AC5006DA5DD /* history_icon_contact.png in Resources */,
 				2299929811916AC5006DA5DD /* history_icon_download.png in Resources */,
 				2299929911916AC5006DA5DD /* history_icon_image.png in Resources */,
@@ -2162,6 +2158,8 @@
 				22F83CC31253B05D006E5680 /* settings_logo@2x.png in Resources */,
 				2296485C125B1506006433F6 /* content_placeholder.png in Resources */,
 				22F99C29125DBB4700C085A0 /* Default@2x.png in Resources */,
+				E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */,
+				E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2188,8 +2186,6 @@
 				2299923E1191617F006DA5DD /* help_sweep_icon.png in Resources */,
 				2299926811916650006DA5DD /* catch_sound.wav in Resources */,
 				2299926A11916650006DA5DD /* throw_sound.wav in Resources */,
-				2299927911916741006DA5DD /* catch_180.mp4 in Resources */,
-				2299927A11916741006DA5DD /* throw_180.mp4 in Resources */,
 				2299930E1191784F006DA5DD /* sweep_in_sound.wav in Resources */,
 				2299930F1191784F006DA5DD /* sweep_out_sound.wav in Resources */,
 				229993F81191857A006DA5DD /* container_btn_double-safari.png in Resources */,
@@ -2617,10 +2613,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Classes/AdMob\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
