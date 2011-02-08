@@ -108,7 +108,7 @@
 - (void)fetchStatusUpdate {
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
 	httpClient.target = self;
-	[httpClient getURI:@"/iphone/status.json" success:@selector(httpConnection:didReceiveStatus:)];
+	[httpClient getURI:@"/iphone/status2.json" success:@selector(httpConnection:didReceiveStatus:)];
 }
 
 - (void)viewDidUnload {
