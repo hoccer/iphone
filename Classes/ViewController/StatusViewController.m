@@ -147,11 +147,11 @@
 	cancelButton.hidden = state.cancelButton;
 	hintButton.hidden = state.hintButton;
 	
-	if (state.recoverySuggestion) {
-		[self showRecoverySuggestion];	
-	} else{
-		[self hideRecoverySuggestion];
-	}
+//	if (state.recoverySuggestion) {
+//		[self showRecoverySuggestion];	
+//	} else{
+//		[self hideRecoverySuggestion];
+//	}
 		
 	[cancelButton setImage:state.cancelButtonImage forState: UIControlStateNormal];
 	
@@ -171,6 +171,21 @@
 }
 
 - (void)setError:(NSError *)error {
+	CGSize size = CGSizeMake(statusLabel.frame.size.width, CGFLOAT_MAX);
+	CGSize errorMessageSize = [[error localizedDescription] sizeWithFont:statusLabel.font constrainedToSize: size];
+	
+	backgroundImage.hidden = YES;
+	CGRect frame = self.view.frame;
+	frame.size.height = errorMessageSize.height + 7;
+//	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
+	self.view.frame = frame;
+	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];
+	
+	hintText.hidden = NO;
+	
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 2, statusLabel.frame.size.width, errorMessageSize.height);
+	statusLabel.numberOfLines = 4; 
+	
 	if ([error localizedDescription]) {
 		statusLabel.text = [error localizedDescription];
 		if ([error localizedRecoverySuggestion]) {

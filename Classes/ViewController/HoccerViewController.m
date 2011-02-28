@@ -49,6 +49,8 @@
 #import "FileUploader.h"
 #import "NSData_Base64Extensions.h"
 
+#import <SystemConfiguration/SystemConfiguration.h>
+
 @interface HoccerViewController ()
 
 - (void)handleError: (NSError *)error;
@@ -102,6 +104,11 @@
 	downloadController.delegate = self;
 	
 	statusViewController.delegate = self;
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(networkChanged:) 
+												 name:@"NetworkConnectionChanged" 
+											   object:nil];
 }
 
 
@@ -460,6 +467,10 @@
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
 
+- (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
+	[self handleError:nil];
+}
+
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
 	connectionEsteblished = NO;
 	[self handleError:error];
@@ -468,6 +479,7 @@
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
 	connectionEsteblished = YES;
 
+	NSLog(@"data %@", data);
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
@@ -506,6 +518,11 @@
 	return self;
 }
 
+- (void)networkChanged: (NSNotification *)notification {
+	[linccer updateEnvironment];
+	NSLog(@"update environment");
+}
+
 #pragma mark -
 #pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
@@ -517,6 +534,10 @@
 }
 
 - (void)handleError: (NSError *)error {
+	if (error == nil) {
+		[statusViewController hideStatus];
+	}
+	
 	[statusViewController setError:error];
 		
 	if ([desktopData count] == 0) {

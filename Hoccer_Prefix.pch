@@ -2,7 +2,7 @@
 // Prefix header for all source files of the 'Hoccer' target in the 'Hoccer' project
 //
 
-#define USES_SANDBOX NO
+#define USES_SANDBOX YES 
 
 #define API_KEY @"b3b03410159c012e7b5a00163e001ab0"
 #define SECRET  @"ROOCiND4FPqDDwP1taRmdyBejEs="
@@ -10,5 +10,4 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
-#endif
-
+#endif 

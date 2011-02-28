@@ -48,5 +48,7 @@
 - (void)hideViewAnimated: (BOOL)animation;
 - (void)showViewAnimated: (BOOL)animation;
 
+- (void)hideStatus;
+
 @end
 

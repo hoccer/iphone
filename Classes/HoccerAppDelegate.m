@@ -6,6 +6,8 @@
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
 
+#import <SystemConfiguration/SystemConfiguration.h>
+
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
 #import "TermOfUse.h"
@@ -15,12 +17,18 @@
 #import "HistoryData.h"
 #import "NSString+Regexp.h"
 
+
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
 @end
 
 
 @implementation HoccerAppDelegate
+
+static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
+	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+	[notificationCenter postNotificationName:@"NetworkConnectionChanged" object:info];
+}
 
 @synthesize window;
 @synthesize viewController;
@@ -40,13 +48,23 @@
 	
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
-
-//	CFBooleanRef agreedToTermsOfUse = (CFBooleanRef)CFPreferencesCopyAppValue(CFSTR("termsOfUse"), CFSTR("com.artcom.Hoccer"));
-//	if (agreedToTermsOfUse == NULL) {
-//		[self userNeedToAgreeToTermsOfUse];
-//	}
-//	
-//	if (agreedToTermsOfUse != NULL) CFRelease(agreedToTermsOfUse);
+	
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://api.hoccer.com" UTF8String]);
+	if (reachability == NULL) {
+		NSLog(@"could not create reachability ref");
+		return;
+	}
+	
+	SCNetworkReachabilityContext context = {0, self, NULL, NULL, NULL};
+	if (!SCNetworkReachabilitySetCallback(reachability, ReachabilityCallback, &context)) {
+		NSLog(@"could not add callback");
+		return;
+	}
+	
+	if (!SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
+		NSLog(@"could not add to run loop");
+		return;
+	}
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL: (NSURL *)url {
