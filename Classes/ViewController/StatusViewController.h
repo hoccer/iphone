@@ -28,6 +28,7 @@
 	
 	NSTimer *timer;
 	BOOL hidden;
+	BOOL cancelable;
 }
 
 @property (retain) UIImage *smallBackground;
@@ -38,6 +39,7 @@
 
 - (void)setState: (StatusViewControllerState *)state;
 - (void)setError: (NSError *)error;
+- (void)setBlockingError: (NSError *)error;
 - (void)setLocationHint: (NSError *)hint;
 
 - (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds;

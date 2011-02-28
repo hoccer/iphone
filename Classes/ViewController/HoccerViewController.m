@@ -56,6 +56,9 @@
 - (void)handleError: (NSError *)error;
 - (NSString *)obfuscatedUUID: (NSString *)uuid;
 
+- (void)showNetworkError: (NSError *)error;
+- (void)ensureViewIsHoccable;
+
 @end
 
 @implementation HoccerViewController
@@ -83,6 +86,7 @@
 }
 
 - (void)viewDidLoad {
+	[super viewDidLoad];
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
 	
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
@@ -202,7 +206,7 @@
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		fileUploaded = NO;
-		[downloadController addContentToDownloadQueue:[content transferer]];		
+		[downloadController addContentToTransferQueue:[content transferer]];		
 	}
 		
 	[desktopData addhoccerController:item];
@@ -435,6 +439,8 @@
 #pragma mark TransferController Delegate
 
 - (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {		
+	[self ensureViewIsHoccable];
+
 	if ([desktopData count] == 0) {
 		return;
 	}
@@ -468,6 +474,9 @@
 #pragma mark HCLinccerDelegate Methods
 
 - (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
+	[self hideHUD];
+
+	[self ensureViewIsHoccable];
 	[self handleError:nil];
 }
 
@@ -477,9 +486,10 @@
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
+	[self ensureViewIsHoccable];
+
 	connectionEsteblished = YES;
 
-	NSLog(@"data %@", data);
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
@@ -489,7 +499,7 @@
 	item.content.persist = YES;
 	
 	if ([hoccerContent transferer]) {
-		[downloadController addContentToDownloadQueue:[hoccerContent transferer]];		
+		[downloadController addContentToTransferQueue:[hoccerContent transferer]];		
 	} else {
 		[self showSuccess: item];
 	}
@@ -503,6 +513,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
+	[self ensureViewIsHoccable];
 	connectionEsteblished = YES;
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
@@ -520,7 +531,6 @@
 
 - (void)networkChanged: (NSNotification *)notification {
 	[linccer updateEnvironment];
-	NSLog(@"update environment");
 }
 
 #pragma mark -
@@ -536,10 +546,15 @@
 - (void)handleError: (NSError *)error {
 	if (error == nil) {
 		[statusViewController hideStatus];
+		return;
 	}
 	
-	[statusViewController setError:error];
-		
+	if ([[error domain] isEqual:NSURLErrorDomain]) {
+		[self showNetworkError:error];
+	} else {
+		[statusViewController setError:error];
+	}
+
 	if ([desktopData count] == 0) {
 		return;
 	}	
@@ -570,8 +585,30 @@
 	connectionEsteblished = NO;
 }
 
+- (void)showNetworkError: (NSError *)error {
+	NSLog(@"network error");
+	desktopView.userInteractionEnabled = NO;
+	
+	if (errorView == nil) {
+		errorView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
+		[desktopView insertSubview:errorView atIndex:0];
+	}
+}
+
+- (void)ensureViewIsHoccable {
+	NSLog(@"%s", _cmd);
+	
+	desktopView.userInteractionEnabled = YES;
+	if (errorView != nil) {
+		[errorView removeFromSuperview];
+		[errorView release]; 
+		errorView = nil;
+	}
+}
+
 - (void)showHud {
-    if (hud == nil) {
+    NSLog(@"show hud");
+	if (hud == nil) {
 		hud = [[MBProgressHUD alloc] initWithView:self.view];
 		[self.view addSubview:hud];
 	}

@@ -42,7 +42,9 @@
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self cancelAction:self];
+	if (cancelable) {
+		[self cancelAction:self];
+	}
 }
 
 - (void)dealloc {
@@ -110,6 +112,7 @@
 
 - (void)hideStatus {
 	[self hideViewAnimated:YES];
+	cancelable = YES;
 }
 
 
@@ -168,6 +171,12 @@
 	[timer invalidate];
 	[timer release];
 	timer = nil;
+}
+
+- (void)setBlockingError: (NSError *)error {
+	cancelable =NO;
+	
+	[self setError:error];
 }
 
 - (void)setError:(NSError *)error {

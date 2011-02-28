@@ -134,6 +134,8 @@
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
+	
+	[self showHud];
 }
 
 - (void) dealloc {

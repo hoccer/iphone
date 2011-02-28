@@ -71,6 +71,8 @@
 	BOOL connectionEsteblished, fileUploaded;
 	
 	MBProgressHUD *hud;
+	
+	UIView *errorView;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

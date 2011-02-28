@@ -35,7 +35,7 @@
 	return self;
 }
 
-- (void)addContentToDownloadQueue:(id <Transferable>)downloadable {
+- (void)addContentToTransferQueue:(id <Transferable>)downloadable {
 	[downloadQueue addObject:downloadable];
 	[self startDownload];
 }
