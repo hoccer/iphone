@@ -393,6 +393,11 @@
 		return;
 	}
 	
+	if (theHoccability == 0) {
+		navigationItem.rightBarButtonItem = nil;
+		return;
+	}
+	
 	UIImage *hoccabilityImage = nil; 
 	switch (theHoccability) {
 		case 1:
@@ -425,5 +430,16 @@
 		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
 }
+
+- (void) showNetworkError:(NSError *)error {
+	[super showNetworkError:error];
+	[self setHoccabilityButton:0];
+}
+
+- (void)ensureViewIsHoccable {
+	[super ensureViewIsHoccable];
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
+}
+
 
 @end

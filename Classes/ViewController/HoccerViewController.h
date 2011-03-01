@@ -106,7 +106,11 @@
 - (void)showSuccess: (ItemViewController *)item;
 
 - (void)showHud;
+- (void)showHudWithMessage: (NSString *)message;
 - (void)hideHUD;
+
+- (void)showNetworkError: (NSError *)error;
+- (void)ensureViewIsHoccable;
 
 @end
 

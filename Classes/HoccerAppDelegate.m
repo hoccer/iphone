@@ -49,7 +49,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
-	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://api.hoccer.com" UTF8String]);
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"192.168.2.126:9292" UTF8String]);
 	if (reachability == NULL) {
 		NSLog(@"could not create reachability ref");
 		return;

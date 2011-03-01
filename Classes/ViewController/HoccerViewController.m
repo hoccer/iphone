@@ -550,7 +550,12 @@
 	}
 	
 	if ([[error domain] isEqual:NSURLErrorDomain]) {
+		[statusViewController hideStatus];
 		[self showNetworkError:error];
+	} else if ([[error domain] isEqual:@"HttpErrorDomain"] && 
+					[[[error userInfo] objectForKey:@"HttpClientErrorURL"] rangeOfString:@"environment"].location != NSNotFound) {
+		[statusViewController hideStatus];
+		[self showNetworkError:error];		
 	} else {
 		[statusViewController setError:error];
 	}
@@ -585,20 +590,23 @@
 	connectionEsteblished = NO;
 }
 
-- (void)showNetworkError: (NSError *)error {
-	NSLog(@"network error");
+- (void)showNetworkError: (NSError *)error {	
 	desktopView.userInteractionEnabled = NO;
+	linccer.environmentUpdateInterval = 5;
 	
 	if (errorView == nil) {
-		errorView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
+		NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ErrorView" owner:self options:nil];
+		errorView = [[views objectAtIndex:0] retain];
 		[desktopView insertSubview:errorView atIndex:0];
 	}
+	
+	[self hideHUD];
 }
 
-- (void)ensureViewIsHoccable {
-	NSLog(@"%s", _cmd);
-	
+- (void)ensureViewIsHoccable {	
 	desktopView.userInteractionEnabled = YES;
+	linccer.environmentUpdateInterval = 25;
+
 	if (errorView != nil) {
 		[errorView removeFromSuperview];
 		[errorView release]; 
@@ -607,14 +615,17 @@
 }
 
 - (void)showHud {
-    NSLog(@"show hud");
+	[self showHudWithMessage:NSLocalizedString(@"Preparing..", nil)];
+}
+
+- (void)showHudWithMessage: (NSString *)message {
 	if (hud == nil) {
 		hud = [[MBProgressHUD alloc] initWithView:self.view];
 		[self.view addSubview:hud];
 	}
 	
 	hud.mode = MBProgressHUDModeIndeterminate;
-	hud.labelText = @"Preparing";
+	hud.labelText = message;
 
 	[hud show:YES];
 }
