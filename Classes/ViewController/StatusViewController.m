@@ -185,14 +185,14 @@
 	
 	backgroundImage.hidden = YES;
 	CGRect frame = self.view.frame;
-	frame.size.height = errorMessageSize.height + 7;
+	frame.size.height = errorMessageSize.height + 8;
 //	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
 	self.view.frame = frame;
 	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];
 	
 	hintText.hidden = NO;
 	
-	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 2, statusLabel.frame.size.width, errorMessageSize.height);
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 4, statusLabel.frame.size.width, errorMessageSize.height);
 	statusLabel.numberOfLines = 4; 
 	
 	if ([error localizedDescription]) {

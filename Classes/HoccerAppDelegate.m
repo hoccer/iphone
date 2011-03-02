@@ -24,8 +24,11 @@
 
 
 @implementation HoccerAppDelegate
+@synthesize networkReachable;
 
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
+	((HoccerAppDelegate *)info).networkReachable = (flags & kSCNetworkReachabilityFlagsReachable);
+	
 	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 	[notificationCenter postNotificationName:@"NetworkConnectionChanged" object:info];
 }
@@ -49,7 +52,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
-	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"192.168.2.126:9292" UTF8String]);
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
 		NSLog(@"could not create reachability ref");
 		return;

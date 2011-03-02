@@ -600,6 +600,13 @@
 		[desktopView insertSubview:errorView atIndex:0];
 	}
 	
+	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
+	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"You must connect to a Wi-Fi or cellular data network to use Hoccer.", nil);
+	} else {
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"The Hoccer Server cannot response to your request. Try again leter.", nil);
+	}
+	
 	[self hideHUD];
 }
 
