@@ -32,6 +32,7 @@
 		
 		abPersonVCardCreator = [[ABPersonVCardCreator alloc] initWithPerson:person];		
 		self.data = [abPersonVCardCreator vcard];
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
 
 		[self saveDataToDocumentDirectory];
 		isFromContentSource = YES;
@@ -40,10 +41,28 @@
 	return self;
 }
 
+- (id) initWithData:(NSData *)theData {
+	self = [super initWithData:theData];
+	if (self != nil) {
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+	}
+	
+	return self;
+}
+
+- (id) initWithFilename: (NSString *)theFilename {
+	self = [super initWithFilename:theFilename];
+	if (self != nil) {
+		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+	}
+	
+	return self;
+}
+
+
 - (ABRecordRef)person {
 	if (person == NULL) {
-		NSString *vcardString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding]; 
-		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString: vcardString];
+		ABPersonCreator *creator = [[ABPersonCreator alloc] initWithVcardString:vcardString];
 		
 		person = creator.person;
 		CFRetain(person);
@@ -86,7 +105,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Contact";
+	return @"Save";
 }
 
 - (NSString *)extension {
@@ -101,6 +120,7 @@
 	if (person != NULL) CFRelease(person);
 	[abPersonVCardCreator release];
 	[unknownPersonController release];
+	[vcardString release];
 	
 	[super dealloc];
 }
@@ -119,5 +139,12 @@
 	return [UIImage imageNamed:@"history_icon_contact.png"];
 }
 
+- (NSDictionary *) dataDesctiption {
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:@"text/x-vcard" forKey:@"type"];
+	[dictionary setObject:vcardString forKey:@"content"];
+		
+	return dictionary;
+}
 
 @end

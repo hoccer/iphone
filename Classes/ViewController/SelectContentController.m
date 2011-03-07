@@ -121,8 +121,9 @@
 	
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[delegate checkAndPerformSelector:@selector(toggleSelectContent:) withObject:self];
+// 	[[self nextResponder] touchesBegan:touches withEvent:event];
 }
 
 
@@ -148,7 +149,6 @@
 		[button setTitle:action.label forState:UIControlStateNormal];
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
 	}
-	
 	
 	if ([buttons count] < 4) {
 		CGRect frame = self.buttonsContainer.frame;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerViewController.h"
+#import "HelpController.h"
 
 @class ActionElement;
 
@@ -19,9 +20,10 @@
 	BOOL isPopUpDisplayed;
 	
 	UITabBar *tabBar;
+	
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
-
+	HelpController *helpController;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;

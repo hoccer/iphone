@@ -7,59 +7,44 @@
 //
 
 #import "HoccerImage.h"
+#import "Hoccer.h"
 #import "Preview.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
 
-@interface MyThreadClass : NSObject
-{
-	BOOL isReady;
-}
-
-@property (assign) BOOL isReady;
-
-- (void)createDataRepresentaion: (HoccerImage *)content;
-@end
-
-@implementation MyThreadClass
-@synthesize isReady;
-
-- (void)createDataRepresentaion: (HoccerImage *)content
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	content.data = UIImageJPEGRepresentation(content.image, 0.8);
-	[content saveDataToDocumentDirectory];
-	
-	if (![[NSThread currentThread] isCancelled]) {
-		self.isReady = YES;
-	}
-	
-	[pool drain];
-}	
-
-@end
-
+#import "FileDownloader.h"
+#import "DelayedFileUploaded.h"
 
 @implementation HoccerImage
 
 @synthesize image;
 
-- (id)initWithUIImage: (UIImage *)aImage
-{
+- (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
-		// NSLog(@"image: %d", aImage.)
+		transferable = [[DelayedFileUploaded alloc] initWithFilename:self.filename];
+
 		image = [aImage retain];
-		
-		MyThreadClass *threadClass = [[[MyThreadClass alloc] init] autorelease];
-		[NSThread detachNewThreadSelector:@selector(createDataRepresentaion:)
-								 toTarget:threadClass withObject:self];
-		
+		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];		
 		isFromContentSource = YES;
 	}
 	
 	return self;
+}
+
+- (void)createDataRepresentaion: (HoccerImage *)content {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	content.data = UIImageJPEGRepresentation(content.image, 0.8);
+	[content saveDataToDocumentDirectory];
+	
+	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
+	
+	[pool drain];
+}
+
+- (void)didFinishDataRepresentation {
+	[((DelayedFileUploaded *)transferable) setFileReady:YES];
 }
 
 - (UIImage*) image {
@@ -71,11 +56,12 @@
 
 - (void) dealloc {
 	[image release];
+	[preview release];
+	
 	[super dealloc];
 }
 
-- (UIView *)fullscreenView 
-{	
+- (UIView *)fullscreenView  {	
 	CGSize size = CGSizeMake(320, 480);
 	
 	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
@@ -85,29 +71,37 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (Preview *)desktopItemView {
-	Preview *view = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-
-	[view addSubview:backgroundImage];
-	[view sendSubviewToBack:backgroundImage];
-	[backgroundImage release];
-
-	
+- (void)updateImage {
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
-	
-	CGFloat frameWidth = view.frame.size.width - (2 * paddingLeft); 
-	CGFloat frameHeight = view.frame.size.height - (2 * paddingTop);
+
+	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
 	
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+
 	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
-											trimToFit: YES];
+												 trimToFit: YES];
 	
-	[view setImage: thumb];
-	return [view autorelease];
+	[preview setImage: thumb];	
 }
+
+- (Preview *)desktopItemView {
+	if (self.image == nil) {
+		return nil;
+	}
 	
+	preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
+
+	[preview addSubview:backgroundImage];
+	[preview sendSubviewToBack:backgroundImage];
+	[backgroundImage release];
+
+	[self updateImage];
+	return preview;
+}
+
 - (NSString *)defaultFilename {
 	return @"Image";
 }
@@ -118,7 +112,7 @@
 
 - (NSString *)mimeType {
 	return @"image/jpeg";
-}
+}    
 
 - (NSString *)descriptionOfSaveButton {
 	return NSLocalizedString(@"Save", nil);
@@ -133,7 +127,7 @@
 	return YES;
 }
 
--(void) image: (UIImage *)aImage  didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
+-(void) image: (UIImage *)aImage didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
 	[self sendSaveSuccessEvent];
 }
 

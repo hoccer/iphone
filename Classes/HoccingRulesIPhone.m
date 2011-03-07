@@ -13,11 +13,11 @@
 @implementation HoccingRulesIPhone
 
 - (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 1 && ![controller.desktopData hasActiveRequest]) {
+	if ([controller.desktopData count] == 1 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -25,11 +25,11 @@
 }
 
 - (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 0 && ![controller.desktopData hasActiveRequest]) {
+	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -37,11 +37,11 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 0 && ![controller.desktopData hasActiveRequest]) {
+	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -49,22 +49,18 @@
 }
 
 - (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
-	if (controller.blocked) {
+	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
-	if ([controller.desktopData count] == 1 && ![controller.desktopData hasActiveRequest]) {
+	if ([controller.desktopData count] == 1 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
 	return NO;
 }
 
-- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {
-	if (controller.blocked) {
-		return NO;
-	}
-	
+- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {	
 	if ([controller.desktopData count] == 1) {
 		return NO;
 	}

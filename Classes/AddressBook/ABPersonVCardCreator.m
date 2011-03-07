@@ -53,6 +53,11 @@
 	return [[writer vcardRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+- (NSString *)vcardString {
+	return [writer vcardRepresentation];
+}
+
+
 - (void) dealloc
 {
 	[writer release];

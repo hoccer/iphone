@@ -13,11 +13,15 @@
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
-#import "HoccerControllerDataDelegate.h"
+#import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
-#import "LocationControllerDelegate.h"
+#import "TransferController.h"
+#import "MBProgressHUD.h"
 
 #import "HttpClient.h"
+#import "Hoccer.h"
+
+#import "ConnectionStatusViewController.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -28,17 +32,18 @@
 @class ContentContainerView;
 
 @class DesktopDataSource;
-@class LocationController;
-@class HoccerController;
+@class ItemViewController;
 @class HistoryData;
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
 @class SettingViewController;
-@class ConnectionStatusViewController;
+
+@class HCLinccer;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-			  			GesturesInterpreterDelegate, DesktopViewDelegate, HoccerControllerDelegate, LocationControllerDelegate> 
+			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
+						HCLinccerDelegate, DownloadControllerDelegate, ConnectionStatusViewControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -49,8 +54,7 @@
 
 	DesktopDataSource *desktopData;
 	GesturesInterpreter *gestureInterpreter;
-	LocationController *locationController;
-							
+	
 	ConnectionStatusViewController *statusViewController;
 	StatusViewController *infoViewController;
 
@@ -59,23 +63,30 @@
 							
 	CGPoint defaultOrigin;
 
-	UILabel *hoccability;
-							
-	BOOL blocked;
+	UILabel *hoccabilityLabel;
+	NSDictionary *hoccabilityInfo;
+		
+	HCLinccer *linccer;
+	TransferController *downloadController;
+	BOOL connectionEsteblished, fileUploaded;
+	
+	MBProgressHUD *hud;
+	
+	UIView *errorView;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
+@property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
-@property (nonatomic, retain) IBOutlet LocationController *locationController;
 @property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
-@property (nonatomic, assign) IBOutlet UILabel *hoccability;
+@property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
-@property (assign) BOOL blocked;
+@property (readonly) HCLinccer *linccer;
 
 - (void)setContentPreview: (HoccerContent *)content;
 
@@ -89,6 +100,17 @@
 - (IBAction)showHistory: (id)sender;
 
 - (void)showDesktop;
+- (void)willStartDownload:(ItemViewController *)item;
+
+- (NSDictionary *)dictionaryToSend: (ItemViewController *)item;
+- (void)showSuccess: (ItemViewController *)item;
+
+- (void)showHud;
+- (void)showHudWithMessage: (NSString *)message;
+- (void)hideHUD;
+
+- (void)showNetworkError: (NSError *)error;
+- (void)ensureViewIsHoccable;
 
 @end
 

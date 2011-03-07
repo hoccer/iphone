@@ -183,9 +183,7 @@
 }
 
 
-- (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address
-{
-	NSLog(@"address: %@", address);
+- (CFDictionaryRef)createDirectoryFromAddressString: (NSString *)address {
 	
 	NSArray *addressParts = [address componentsSeparatedByString:@";"];
 	if (!addressParts)

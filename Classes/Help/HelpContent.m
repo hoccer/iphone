@@ -34,7 +34,7 @@
 	content.name = @"Catch";
 	content.description = @"To catch thrown content, raise your mobile like catching a ball and hold it for a second. You can try it now, too!";
 	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_catch_icon" ofType:@"png"];
-	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"mp4"];
+	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"m4v"];
 	
 	return [content autorelease];
 }
@@ -45,7 +45,7 @@
 	content.name = @"Throw";
 	content.description = @"Move your mobile like throwing a frisbee to share selected content with catchers nearby. Try the gesture now!";
 	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_throw_icon" ofType:@"png"];
-	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"mp4"];
+	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"m4v"];
 	
 	return [content autorelease];
 }

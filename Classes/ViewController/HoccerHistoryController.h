@@ -13,7 +13,7 @@
 
 @class HoccerViewController;
 
-@class HoccerController;
+@class ItemViewController;
 @class HistoryData;
 
 @interface HoccerHistoryController : UITableViewController {

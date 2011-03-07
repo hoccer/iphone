@@ -10,7 +10,6 @@
 
 #import "StatusViewController.h"
 #import "NSString+Regexp.h"
-#import "HoccerController.h"
 
 #import "StatusBarStates.h"
 
@@ -43,7 +42,9 @@
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	[self cancelAction:self];
+	if (cancelable) {
+		[self cancelAction:self];
+	}
 }
 
 - (void)dealloc {
@@ -60,7 +61,6 @@
 - (IBAction) cancelAction: (id) sender {
 	[self hideViewAnimated:YES];
 }
-
 
 - (void)setHidden:(BOOL)isHidden {
 	if (!hidden) {
@@ -102,11 +102,17 @@
 
 - (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds; {
 	self.statusLabel.text = message;
-	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO];
+	if (timer != nil) {
+		[timer invalidate];
+		[timer release];
+	}
+	
+	timer = [[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO] retain];
 }
 
 - (void)hideStatus {
 	[self hideViewAnimated:YES];
+	cancelable = YES;
 }
 
 
@@ -144,15 +150,16 @@
 	cancelButton.hidden = state.cancelButton;
 	hintButton.hidden = state.hintButton;
 	
-	if (state.recoverySuggestion) {
-		[self showRecoverySuggestion];	
-	} else{
-		[self hideRecoverySuggestion];
-	}
+//	if (state.recoverySuggestion) {
+//		[self showRecoverySuggestion];	
+//	} else{
+//		[self hideRecoverySuggestion];
+//	}
 		
 	[cancelButton setImage:state.cancelButtonImage forState: UIControlStateNormal];
 	
 	[timer invalidate];
+	[timer release];
 	timer = nil;
 }
 
@@ -162,10 +169,21 @@
 	[self showLocationHint];
 	
 	[timer invalidate];
+	[timer release];
 	timer = nil;
 }
 
+- (void)setBlockingError: (NSError *)error {
+	cancelable =NO;
+	
+	[self setError:error];
+}
+
 - (void)setError:(NSError *)error {
+	hintText.hidden = NO;
+	
+	[self calculateHighForText: [error localizedDescription]];
+	
 	if ([error localizedDescription]) {
 		statusLabel.text = [error localizedDescription];
 		if ([error localizedRecoverySuggestion]) {
@@ -177,6 +195,20 @@
 	[self setState:[ErrorState stateWithRecovery:([error localizedRecoverySuggestion] != nil)]];
 }
 
+- (void)calculateHighForText: (NSString *)text {
+	CGSize size = CGSizeMake(statusLabel.frame.size.width, CGFLOAT_MAX);
+	CGSize errorMessageSize = [text sizeWithFont:statusLabel.font constrainedToSize: size];
+	
+	backgroundImage.hidden = YES;
+	CGRect frame = self.view.frame;
+	frame.size.height = errorMessageSize.height + 8;
+	//	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
+	self.view.frame = frame;
+	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
+
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 4, statusLabel.frame.size.width, errorMessageSize.height);
+	statusLabel.numberOfLines = 4; 
+}
 
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar
@@ -201,7 +233,6 @@
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	
 	if (animation) {
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
@@ -223,6 +254,7 @@
 
 #pragma mark -
 #pragma mark Getters
+
 - (UIImage *) smallBackground {
 	if (smallBackground == nil) {
 		smallBackground = [[UIImage imageNamed:@"statusbar_small.png"] retain];

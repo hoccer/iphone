@@ -11,10 +11,7 @@
 
 @class HoccerViewController;
 @class GesturesInterpreter;
-@class BaseHoccerRequest;
 @class StatusViewController;
-@class LocationController;
-@class HoccerConnection;
 
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
@@ -22,9 +19,12 @@
 @interface HoccerAppDelegate : NSObject <GesturesInterpreterDelegate> {
     UIWindow *window;
     HoccerViewController *viewController;
+	
+	BOOL networkReachable;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
+@property (nonatomic, assign) BOOL networkReachable; 
 
 @end

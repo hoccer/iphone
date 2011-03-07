@@ -62,9 +62,12 @@
 
 
 - (IBAction)playVideo: (id)sender {
-	self.player = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:self.content.videoPath]];
+	UIView *window = [[UIApplication sharedApplication] keyWindow];
 	
+	self.player = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:self.content.videoPath]];
+	[window addSubview: [player view]];
 	[player play];
+	[player setFullscreen:YES animated:YES];
 }
 
 - (void)dealloc {

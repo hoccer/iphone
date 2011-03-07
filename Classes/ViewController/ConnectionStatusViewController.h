@@ -9,16 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "StatusViewController.h"
 
+@class ConnectionStatusViewController;
+@protocol ConnectionStatusViewControllerDelegate <NSObject>
+@optional
+- (void)connectionStatusViewControllerDidCancel: (ConnectionStatusViewController *)controller;
+@end
+
+
 
 @interface ConnectionStatusViewController : StatusViewController {
-	HoccerController *hoccerController;
+	id <ConnectionStatusViewControllerDelegate> delegate;	
 }
 
-@property (retain) HoccerController* hoccerController;
+@property (assign, nonatomic) id <ConnectionStatusViewControllerDelegate> delegate;
 
 - (void)setUpdate: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
-
-- (void)monitorHoccerController: (HoccerController *)hoccerController;
 
 @end

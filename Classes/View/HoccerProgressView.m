@@ -28,8 +28,7 @@
     return self;
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	[progressLeft release];
 	[progressRight release];
 	[progressCenter release];

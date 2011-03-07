@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HoccerController;
+@class ItemViewController;
 @class StatusViewControllerState;
 
 
@@ -28,6 +28,7 @@
 	
 	NSTimer *timer;
 	BOOL hidden;
+	BOOL cancelable;
 }
 
 @property (retain) UIImage *smallBackground;
@@ -38,6 +39,7 @@
 
 - (void)setState: (StatusViewControllerState *)state;
 - (void)setError: (NSError *)error;
+- (void)setBlockingError: (NSError *)error;
 - (void)setLocationHint: (NSError *)hint;
 
 - (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds;
@@ -47,6 +49,9 @@
 
 - (void)hideViewAnimated: (BOOL)animation;
 - (void)showViewAnimated: (BOOL)animation;
+
+- (void)hideStatus;
+- (void)calculateHighForText: (NSString *)text;
 
 @end
 

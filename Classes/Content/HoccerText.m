@@ -18,7 +18,7 @@
 
 
 + (BOOL)isDataAUrl: (NSData *)data {
-	NSString *url = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	NSString *url = [[NSString stringWithData:data usingEncoding:NSUTF8StringEncoding] lowercaseString];
 	
 	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
 		return NO;
@@ -37,9 +37,8 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
-	
-	self.view.delegate = self;
-	if (!self.data) {
+	self.view.delegate = self;	
+	if (!self.data || [self.data length] == 0) {
 		[self.view setEditMode];
 	} else {
 		self.view.textView.text = self.content;
@@ -51,11 +50,6 @@
 - (void)dealloc {
 	[textView release];	
 	[super dealloc];
-}
-
-- (void)prepareSharing {
-	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
-	[self.data writeToFile: self.filepath atomically: NO];
 }
 
 - (NSString *)mimeType {
@@ -83,11 +77,7 @@
 }
 
 - (NSString *)content {
-	return [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
-}
-
-- (void)textPreviewDidEndEditing: (TextPreview *)preview {
-	self.data = [self.view.textView.text dataUsingEncoding: NSUTF8StringEncoding];
+	return [NSString stringWithData:super.data usingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)saveDataToContentStorage {
@@ -98,7 +88,6 @@
 	}
 	
 	return YES;
-
 }
 
 - (UIImage *)imageForSaveButton {
@@ -113,5 +102,24 @@
 	return [UIImage imageNamed:@"history_icon_text.png"];
 }
 
+- (NSDictionary *)dataDesctiption {
+	NSString *oldString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
+
+	if (![oldString isEqual:self.view.textView.text]) {
+		self.data = [self.view.textView.text dataUsingEncoding:NSUTF8StringEncoding];
+		[self saveDataToDocumentDirectory];
+	}	
+	
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	[dictionary setObject:self.view.textView.text forKey:@"content"];
+	
+	if ([HoccerText isDataAUrl:self.data]) {
+		[dictionary setObject:@"text/uri-list" forKey:@"type"];
+	} else {
+		[dictionary setObject:@"text/plain" forKey:@"type"];
+	}
+
+	return dictionary;
+}
 
 @end

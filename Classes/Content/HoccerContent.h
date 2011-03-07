@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
+#import "TransferController.h"
 
 @class Preview;
-@class HoccerContentIPadPreviewDelegate;
 
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filename;	
 	BOOL isFromContentSource;
+	NSString *mimeType;
 	
 	@private
 	NSData *data;
 	BOOL persist;
-	NSString *mimeType;
 	
 	id target;
 	SEL selector;
@@ -38,12 +38,13 @@
 @property (assign) BOOL persist;
 @property (readonly) id interactionController;
 
-+ (NSString *)contentDirectory;
+@property (readonly) BOOL readyForSending;
 
-- (id) initWithData: (NSData *)theData filename: (NSString *)filename;
+- (id) initWithData: (NSData *)theData;
 - (id) initWithFilename: (NSString *)filename;
-- (void) removeFromDocumentDirectory;
-- (void) saveDataToDocumentDirectory;
+- (id) initWithDictionary: (NSDictionary *)dict;
+- (void)removeFromDocumentDirectory;
+- (void)saveDataToDocumentDirectory;
 
 - (BOOL)saveDataToContentStorage;
 
@@ -53,20 +54,20 @@
 - (NSString *)defaultFilename;
 
 - (BOOL)isDataReady;
-- (void)prepareSharing;
 
 - (BOOL)needsWaiting;
 
 - (NSString *)descriptionOfSaveButton;
 - (void) saveDataToDocumentDirectory;
 
-- (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (UIImage *)imageForSaveButton;
 - (UIImage *)historyThumbButton;
 
 - (void)whenReadyCallTarget: (id)aTarget selector: (SEL)aSelector context: (id)aContext;
 - (void)sendSaveSuccessEvent;
 
+- (NSDictionary *)dataDesctiption;
 - (id)interactionController;
+- (NSObject <Transferable> *)transferer;
 
 @end

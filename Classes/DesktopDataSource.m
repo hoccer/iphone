@@ -8,7 +8,7 @@
 
 #import "DesktopDataSource.h"
 
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "HoccerContent.h"
 #import "ContentContainerView.h"
 
@@ -47,26 +47,16 @@
 	[encoder encodeObject:contentOnDesktop forKey:@"desktopContent"];	
 }
 
-- (void)addhoccerController: (HoccerController *)hoccerController {
+- (void)addhoccerController: (ItemViewController *)hoccerController {
 	[contentOnDesktop addObject:hoccerController];
 }
 
-- (void)removeHoccerController: (HoccerController *)hoccerController {
+- (void)removeHoccerController: (ItemViewController *)hoccerController {
 	[contentOnDesktop removeObject:hoccerController];
 }
 
-- (BOOL)hasActiveRequest {
-	for (HoccerController *item in contentOnDesktop) {
-		if ([item hasActiveRequest]) {
-			return YES;
-		}
-	}
-	
-	return NO;
-}
-
-- (HoccerController *)hoccerControllerDataForView: (UIView *)view {
-	for (HoccerController *item in contentOnDesktop) {
+- (ItemViewController *)hoccerControllerDataForView: (UIView *)view {
+	for (ItemViewController *item in contentOnDesktop) {
 		if ((UIView *)item.contentView == view) {
 			return item;
 		}
@@ -75,7 +65,7 @@
 	return nil;
 }
 
-- (HoccerController *)hoccerControllerDataAtIndex: (NSInteger) index {
+- (ItemViewController *)hoccerControllerDataAtIndex: (NSInteger) index {
 	return [contentOnDesktop objectAtIndex:index];
 }
 
@@ -87,7 +77,7 @@
 }
 
 - (UIView *)viewAtIndex: (NSInteger)index {
-	HoccerController *contentAtIndex = [contentOnDesktop objectAtIndex:index];
+	ItemViewController *contentAtIndex = [contentOnDesktop objectAtIndex:index];
 
 	return (UIView *) contentAtIndex.contentView; 	
 }
@@ -101,12 +91,12 @@
 }
 
 - (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
-	HoccerController *item = [self hoccerControllerDataForView:view];
+	ItemViewController *item = [self hoccerControllerDataForView:view];
 	item.viewOrigin = point;
 }
 
 - (void)removeView: (UIView *)view {
-	HoccerController *item = [self hoccerControllerDataForView:view];
+	ItemViewController *item = [self hoccerControllerDataForView:view];
 	
 	[self removeHoccerController:item];
 }

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "HoccerContent.h"
+#import "HoccerFileContent.h"
+#import "HoccerImage.h"
+#import "HoccerText.h"
+#import "HoccerVcard.h"
 
 
 @interface HoccerContentFactory : NSObject {
@@ -16,8 +21,9 @@
 
 + (HoccerContentFactory *) sharedHoccerContentFactory;
 
-- (HoccerContent*) createContentFromResponse: (NSHTTPURLResponse *)response withData:(NSData *)data;
 - (HoccerContent *)createContentFromFile: (NSString *)filename withMimeType: (NSString *)mimeType;
+- (HoccerContent *)createContentFromDict: (NSDictionary *)dictionary;
+
 - (BOOL) isSupportedType: (NSString *)mimeType;
 - (UIImage *)thumbForMimeType: (NSString *)mimeType;
 

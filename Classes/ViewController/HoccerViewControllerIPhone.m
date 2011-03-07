@@ -14,12 +14,11 @@
 #import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
-#import "LocationController.h"
 
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
@@ -98,8 +97,6 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	[self setHoccabilityButton: locationController.hoccability];
-	
 	hoccingRules = [[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
@@ -107,6 +104,8 @@
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+	[self setHoccabilityButton: 0];
+
 	
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -132,6 +131,11 @@
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
+	
+	helpController = [[HelpController alloc] initWithController:navigationController];
+	[helpController viewDidLoad];
+	
+	[self showHud];
 }
 
 - (void) dealloc {
@@ -141,6 +145,7 @@
 	[tabBar release];
 	[auxiliaryView release];
 	[delayedAction release];
+	[helpController release];
 	
 	[super dealloc];
 }
@@ -149,8 +154,7 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-	[self setHoccabilityButton:locationController.hoccability];
-
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -315,14 +319,13 @@
 	[self.delayedAction perform];
 	self.delayedAction = nil;
 	
-	[self setHoccabilityButton: locationController.hoccability];
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
-		
 		
 		if (animate) {
 			[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
@@ -346,17 +349,12 @@
 }
 
 #pragma mark -
-#pragma mark HocDataItem Delegate Methods
-- (void)hoccerControllerWasSent: (HoccerController *)item {
-	[super hoccerControllerWasSent:item];
-		
-	[hoccerHistoryController updateHistoryList];
-}
+#pragma mark Linccer Delegate Methods
+- (void) linccer:(HCLinccer *)aLinccer didUpdateEnvironment:(NSDictionary *)quality {
+	[super linccer:aLinccer didUpdateEnvironment:quality];
 
-- (void)hoccerControllerWasReceived: (HoccerController *)item {
-	[super hoccerControllerWasReceived:item];
-	
-	[hoccerHistoryController updateHistoryList];
+	self.hoccabilityInfo = quality;
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 
@@ -387,19 +385,16 @@
 	[self hidePopOverAnimated:YES];
 }
 
-#pragma mark -
-#pragma mark Location Controller Delegate Methods
-- (void) locationControllerDidUpdateLocation: (LocationController *)controller {
-	[super locationControllerDidUpdateLocation:controller];
-	[self setHoccabilityButton:controller.hoccability];
-}
-
-
 
 #pragma mark -
 #pragma mark Private Methods
 - (void)setHoccabilityButton: (NSInteger)theHoccability {
 	if (navigationItem.titleView == nil) {
+		return;
+	}
+	
+	if (theHoccability == 0) {
+		navigationItem.rightBarButtonItem = nil;
 		return;
 	}
 	
@@ -432,8 +427,18 @@
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
 	} else {
-		[infoViewController setLocationHint: [locationController messageForLocationInformation]];
+		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
+}
+
+- (void) showNetworkError:(NSError *)error {
+	[super showNetworkError:error];
+	[self setHoccabilityButton:0];
+}
+
+- (void)ensureViewIsHoccable {
+	[super ensureViewIsHoccable];
+	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 

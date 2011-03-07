@@ -70,6 +70,16 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	[super dealloc];
 }
 
+- (void) setContainedView:(Preview *)newContainedView {
+	if (containedView != newContainedView) {
+		[containedView removeFromSuperview];
+		[self insertSubview:newContainedView atIndex:[self.subviews count]-1];
+		
+		[containedView release];
+		containedView = [newContainedView retain];
+	}
+}
+
 - (IBAction)toggleOverlay: (id)sender {
 	if ([containedView allowsOverlay]) {
 		overlay.hidden = !overlay.hidden;

@@ -10,13 +10,13 @@
 #import "HoccerHistoryItem.h"
 #import "HoccerContent.h"
 #import "HistoryData.h"
-#import "HoccerController.h"
+#import "ItemViewController.h"
 #import "HoccerViewController.h"
 
 #import "HoccerContentFactory.h";
 #import "ReceivedContentViewController.h"
 #import "NSString+Regexp.h"
-
+#import "NSFileManager+FileHelper.h"
 
 
 @interface HoccerHistoryController ()
@@ -167,7 +167,6 @@
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 		
 		[self.tableView endUpdates];
-		// [self.tableView reloadData];
 	}   
 }
 
@@ -209,9 +208,7 @@
 - (void)viewDidUnload {
 }
 
-
-- (void)addContentToHistory: (HoccerController *) hoccerController {
-
+- (void)addContentToHistory: (ItemViewController *)hoccerController {
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
@@ -234,7 +231,7 @@
 }
 
 - (void)cleanUp {
-	NSString *documentsDirectoryUrl = [HoccerContent contentDirectory];
+	NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
 	
 	NSError *error = nil;
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
