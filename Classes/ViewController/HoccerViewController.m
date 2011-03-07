@@ -477,7 +477,6 @@
 	[self hideHUD];
 
 	[self ensureViewIsHoccable];
-	[self handleError:nil];
 }
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
@@ -487,7 +486,7 @@
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
 	[self ensureViewIsHoccable];
-
+	
 	connectionEsteblished = YES;
 
 	NSDictionary *firstPayload = [data objectAtIndex:0];
@@ -544,6 +543,7 @@
 }
 
 - (void)handleError: (NSError *)error {
+	NSLog(@"error %@", error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;
@@ -568,7 +568,7 @@
 	if (item.isUpload) {
 		item.viewOrigin = self.defaultOrigin;
 	} else {
-		[desktopData removeHoccerController:item];	
+		[desktopData removeHoccerController:item];
 	}
 	
 	[desktopView reloadData];	

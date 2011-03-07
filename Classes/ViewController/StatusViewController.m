@@ -180,20 +180,9 @@
 }
 
 - (void)setError:(NSError *)error {
-	CGSize size = CGSizeMake(statusLabel.frame.size.width, CGFLOAT_MAX);
-	CGSize errorMessageSize = [[error localizedDescription] sizeWithFont:statusLabel.font constrainedToSize: size];
-	
-	backgroundImage.hidden = YES;
-	CGRect frame = self.view.frame;
-	frame.size.height = errorMessageSize.height + 8;
-//	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
-	self.view.frame = frame;
-	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];
-	
 	hintText.hidden = NO;
 	
-	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 4, statusLabel.frame.size.width, errorMessageSize.height);
-	statusLabel.numberOfLines = 4; 
+	[self calculateHighForText: [error localizedDescription]];
 	
 	if ([error localizedDescription]) {
 		statusLabel.text = [error localizedDescription];
@@ -206,6 +195,20 @@
 	[self setState:[ErrorState stateWithRecovery:([error localizedRecoverySuggestion] != nil)]];
 }
 
+- (void)calculateHighForText: (NSString *)text {
+	CGSize size = CGSizeMake(statusLabel.frame.size.width, CGFLOAT_MAX);
+	CGSize errorMessageSize = [text sizeWithFont:statusLabel.font constrainedToSize: size];
+	
+	backgroundImage.hidden = YES;
+	CGRect frame = self.view.frame;
+	frame.size.height = errorMessageSize.height + 8;
+	//	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
+	self.view.frame = frame;
+	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
+
+	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 4, statusLabel.frame.size.width, errorMessageSize.height);
+	statusLabel.numberOfLines = 4; 
+}
 
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar

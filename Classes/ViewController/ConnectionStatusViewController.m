@@ -16,6 +16,8 @@
 
 - (void)setUpdate: (NSString *)update {
 	statusLabel.text = update;
+	
+	[self calculateHighForText:statusLabel.text];
 	[self setState: [[[ConnectionState alloc] init] autorelease]];
 }
 
