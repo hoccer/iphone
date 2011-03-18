@@ -21,7 +21,8 @@
 	return self;	
 }
 
-- (id) initWithFilename:(NSString *)theFilename {self = [super initWithFilename:theFilename];
+- (id) initWithFilename:(NSString *)theFilename {
+	self = [super initWithFilename:theFilename];
 	if (self != nil) {
 		transferable = [[FileUploader alloc] initWithFilename:filename];
 	}

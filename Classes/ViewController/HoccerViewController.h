@@ -43,7 +43,7 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
 						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
 			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, DownloadControllerDelegate, ConnectionStatusViewControllerDelegate> 
+						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -67,7 +67,7 @@
 	NSDictionary *hoccabilityInfo;
 		
 	HCLinccer *linccer;
-	TransferController *downloadController;
+	TransferController *transferController;
 	BOOL connectionEsteblished, fileUploaded;
 	
 	MBProgressHUD *hud;

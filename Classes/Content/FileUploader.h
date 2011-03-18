@@ -10,7 +10,7 @@
 #import "FileTransferer.h"
 
 @interface FileUploader : FileTransferer {
-
+    
 }
 
 - (id)initWithFilename: (NSString *)aFilename;

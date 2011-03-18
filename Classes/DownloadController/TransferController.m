@@ -63,7 +63,7 @@
 		[activeDownloads addObject:nextObject];
 		
 		[downloadQueue removeObjectAtIndex:0];
-	}
+    }
 }
 
 - (void)finalizeDownload: (NSObject <Transferable> *)object {

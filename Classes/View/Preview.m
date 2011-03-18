@@ -27,6 +27,7 @@
 }
 
 - (void) setImage: (UIImage *)image {
+//    NSLog(@"image %@", image);
 	NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 	

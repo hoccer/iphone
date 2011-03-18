@@ -14,10 +14,14 @@
 @interface HoccerImage : HoccerFileContent <HCFileCacheDelegate> {
 	UIImage *image;	
 	
+	UIImage *thumb;
+	NSString *thumbFilename;
+	
 	Preview *preview;
 }
 
 @property (nonatomic, readonly) UIImage* image;
+@property (nonatomic, readonly) UIImage* thumb;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)updateImage;

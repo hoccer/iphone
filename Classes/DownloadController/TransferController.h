@@ -22,12 +22,15 @@ typedef enum _TransferableState TransferableState;
 - (void)startTransfer;
 - (void)cancelTransfer;
 
+- (NSString *)url;
+
 - (TransferableState)state;
 - (NSNumber *)progress;
 - (NSError *)error;
+
 @end
 
-@protocol DownloadControllerDelegate <NSObject>
+@protocol TransferControllerDelegate <NSObject>
 
 @optional
 - (void)transferController: (TransferController *)controller didFinishTransfer: (id)object;
@@ -37,14 +40,14 @@ typedef enum _TransferableState TransferableState;
 
 @end
 
-@interface TransferController : NSObject {
+@interface TransferController: NSObject {
 	NSMutableArray *downloadQueue;
 	NSMutableArray *activeDownloads;
 	
-	id <DownloadControllerDelegate> delegate;
+	id <TransferControllerDelegate> delegate;
 }
 
-@property (assign, nonatomic) id <DownloadControllerDelegate> delegate;
+@property (assign, nonatomic) id <TransferControllerDelegate> delegate;
 
 - (BOOL)hasTransfers;
 - (void)addContentToTransferQueue: (id <Transferable>) downloadable;

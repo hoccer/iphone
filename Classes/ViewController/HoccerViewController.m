@@ -11,8 +11,8 @@
 #import <YAJLIOS/YAJLIOS.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import "Hoccer.h"
-#import "TransferController.h"
 
+#import "TransferController.h"
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
 
@@ -74,7 +74,6 @@
 @synthesize hoccabilityInfo;
 @synthesize linccer;
 
-
 + (void) initialize {
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
 	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithContentsOfFile: filepath]];
@@ -104,8 +103,10 @@
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 
-	downloadController = [[TransferController alloc] init];
-	downloadController.delegate = self;
+    
+    
+	transferController = [[TransferController alloc] init];
+	transferController.delegate = self;
 	
 	statusViewController.delegate = self;
 	
@@ -123,20 +124,6 @@
 }
 
 - (void)viewDidUnload {
-}
-
-- (void)dealloc {
-	[hoccabilityInfo release];
-	[desktopView release];	
-	[desktopData release];
-	[gestureInterpreter release];
-	[helpViewController release];
-	[statusViewController release];
-	[hoccingRules release];
-	[downloadController release];
-	[hud release];
-	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -206,7 +193,7 @@
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		fileUploaded = NO;
-		[downloadController addContentToTransferQueue:[content transferer]];		
+		[transferController addContentToTransferQueue:[content transferer]];		
 	}
 		
 	[desktopData addhoccerController:item];
@@ -317,8 +304,8 @@
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
-	if ([downloadController hasTransfers]) {
-		[downloadController cancelDownloads];	
+	if ([transferController hasTransfers]) {
+		[transferController cancelDownloads];	
 	} else{
 		[desktopData removeHoccerController:item];
 	}
@@ -377,7 +364,7 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
-	BOOL isConnecting = [linccer isLinccing] || [downloadController hasTransfers];
+	BOOL isConnecting = [linccer isLinccing] || [transferController hasTransfers];
 	if ([desktopData count] == 0 || !isConnecting) {
 		return;
 		
@@ -389,7 +376,7 @@
 		item.viewOrigin = self.defaultOrigin;
 	} else {
 		[desktopData removeHoccerController:item];	
-		[downloadController cancelDownloads];
+		[transferController cancelDownloads];
 	}
 
 	[desktopView reloadData];
@@ -403,7 +390,7 @@
 }
 
 - (void)itemViewControllerWasClosed:(ItemViewController *)item {
-	[downloadController cancelDownloads];
+	[transferController cancelDownloads];
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
@@ -444,6 +431,7 @@
 	if ([desktopData count] == 0) {
 		return;
 	}
+    
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
 	if ([object isKindOfClass:[FileUploader class]]) {
@@ -498,7 +486,7 @@
 	item.content.persist = YES;
 	
 	if ([hoccerContent transferer]) {
-		[downloadController addContentToTransferQueue:[hoccerContent transferer]];		
+		[transferController addContentToTransferQueue:[hoccerContent transferer]];		
 	} else {
 		[self showSuccess: item];
 	}
@@ -649,6 +637,21 @@
 	NSData * hashedData = [NSData dataWithBytes:hashedChars length:32];
 	
 	return [hashedData asBase64EncodedString];
+}
+
+
+- (void)dealloc {
+	[hoccabilityInfo release];
+	[desktopView release];	
+	[desktopData release];
+	[gestureInterpreter release];
+	[helpViewController release];
+	[statusViewController release];
+	[hoccingRules release];
+	[transferController release];
+	[hud release];
+	
+	[super dealloc];
 }
 
 @end
