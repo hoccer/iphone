@@ -16,7 +16,6 @@
 	UIImage *image;	
 	
 	UIImage *thumb;
-	NSString *thumbFilename;
 	
 	Preview *preview;
     

@@ -35,7 +35,14 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
+        NSLog(@"initWithFilename");
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+
 		[self createThumb];
+        
+        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+        [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
+        [transferables addObject: thumbUploader];
 	}
 	
 	return self;	
@@ -61,7 +68,11 @@
 - (id) initWithData:(NSData *)theData {
     self = [super initWithData:theData];
 	if (self != nil) {
-		[self createThumb];
+		NSLog(@"initWithData");
+        [self createThumb];
+        
+        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+        [transferables addObject: thumbUploader];
 	}
 	
 	return self;
@@ -70,10 +81,10 @@
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
+		image = [aImage retain];
 		isFromContentSource = YES;
 		
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-		image = [aImage retain];
         
 		NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
 		[transferables addObject: transferable];
@@ -89,27 +100,12 @@
 	return self;
 }
 
-- (void)createThumb {
-    NSInteger paddingLeft = 22;
-	NSInteger paddingTop = 22;
-    
-	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
-	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
-	
-	CGSize size =  CGSizeMake(frameWidth, frameHeight);
-    
-	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
-}
-
 - (void)createDataRepresentaion: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	[content saveDataToDocumentDirectory];
-	
-	NSData *thumbData = UIImageJPEGRepresentation(content.thumb, 0.5);
-	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
-    
+	    
 	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
 	
 	[pool drain];
@@ -128,15 +124,6 @@
 	return image;
 } 
 
-- (void) dealloc {
-	[image release];
-	[preview release];
-	[thumb release];
-    [thumbFilename release];
-    
-	[super dealloc];
-}
-
 - (UIView *)fullscreenView  {	
 	CGSize size = CGSizeMake(320, 480);
 	
@@ -148,9 +135,6 @@
 }
 
 - (void)updateImage {    
-    NSLog(@"thumbTransfer %d", thumbDownloader.state == TransferableStateTransferred);
-    NSLog(@"download %d", [[transferables objectAtIndex:0] state] == TransferableStateTransferred);
-    
     if (thumbDownloader.state == TransferableStateTransferred) {
         NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
         thumb = [[UIImage imageWithData:thumbData] retain];
@@ -225,16 +209,43 @@
 	[dict setObject:self.mimeType forKey:@"type"];
 	[dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
-	NSLog(@"dict %@", dict);
+    NSLog(@"dict %@", dict);
+    
 	return dict;
 }
 
+#pragma -
+#pragma Thumbnail
 - (NSString *)thumbFilename {
 	NSString *ext = [self.filename pathExtension];
 	NSString *tmpPath = [self.filename stringByDeletingPathExtension];
-	thumbFilename = [[[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext] copy];
     
-    return thumbFilename;
+	return [[[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext] copy];
 }
+
+
+- (void)createThumb {
+    NSInteger paddingLeft = 22;
+	NSInteger paddingTop = 22;
+    
+	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
+	
+	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+    
+	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+    
+    NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.1);
+	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+}
+
+- (void) dealloc {
+	[image release];
+	[preview release];
+	[thumb release];
+    
+	[super dealloc];
+}
+
 
 @end
