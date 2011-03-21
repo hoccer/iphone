@@ -20,6 +20,8 @@
 	Preview *preview;
     
     FileUploader *thumbUploader;
+    NSString *thumbURL;
+    
     FileDownloader *thumbDownloader;
 }
 
@@ -31,5 +33,6 @@
 - (void)didFinishDataRepresentation;
 
 - (NSString *)thumbFilename;
+- (NSString *)thumbURL;
 
 @end

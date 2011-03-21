@@ -38,7 +38,8 @@
         NSLog(@"initWithFilename");
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
 
-		[self createThumb];
+        
+        [self createThumb];
         
         thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
         [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
@@ -55,8 +56,8 @@
 
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
-            NSString *uri = [[previews objectAtIndex:0] objectForKey:@"uri"];
-            thumbDownloader = [[FileDownloader alloc] initWithURL:uri filename:nil];
+            thumbURL = [[previews objectAtIndex:0] objectForKey:@"uri"];
+            thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
             
             [transferables addObject:thumbDownloader];
         }
@@ -202,7 +203,7 @@
 - (NSDictionary *) dataDesctiption {
 	NSDictionary *previewDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                                     @"image/jpeg", @"type",
-                                                    [thumbUploader.url stringByRemovingQuery], @"uri" , nil];
+                                                    [self thumbURL], @"uri" , nil];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
@@ -237,6 +238,14 @@
     
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.1);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+}
+
+- (NSString *)thumbURL {
+    if (thumbURL) {
+        return thumbURL;
+    }
+    
+    return  [thumbUploader.url stringByRemovingQuery];
 }
 
 - (void) dealloc {
