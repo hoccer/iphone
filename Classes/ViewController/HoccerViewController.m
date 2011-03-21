@@ -567,7 +567,6 @@
 - (void)showSuccess: (ItemViewController *)item {
 	[historyData addContentToHistory:item];		
     
-    NSLog(@"item %@", item);
 	if (item.isUpload) {
 		[desktopData removeHoccerController:item];
 		[desktopView reloadData];

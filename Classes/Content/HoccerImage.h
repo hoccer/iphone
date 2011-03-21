@@ -27,6 +27,7 @@
 
 @property (nonatomic, readonly) UIImage* image;
 @property (nonatomic, readonly) UIImage* thumb;
+@property (readonly) Preview *preview;
 
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)updateImage;

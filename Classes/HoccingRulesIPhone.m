@@ -7,7 +7,7 @@
 //
 
 #import "HoccingRulesIPhone.h"
-#import "HoccerViewController.h";
+#import "HoccerViewController.h"
 #import "DesktopDataSource.h"
 
 @implementation HoccingRulesIPhone

@@ -23,7 +23,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
 	if (self != nil) {
-		self.filename = [decoder decodeObjectForKey:@"filepath"];
+		filename = [[decoder decodeObjectForKey:@"filepath"] copy];
 	}
 	return self;
 }
@@ -35,7 +35,7 @@
 - (id) initWithFilename: (NSString *)theFilename {
 	self = [super init];
 	if (self != nil) {
-		self.filename = theFilename;
+		filename = [theFilename copy];
 	}
 	
 	return self;
@@ -55,9 +55,9 @@
 	if (self != nil) {
 		NSString *theFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
 		
-		self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
-																	  inDirectory: [[NSFileManager defaultManager] contentDirectory]];
-		self.data = theData;
+		filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
+                                                                  inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
+		data = [theData retain];
 
 		[self saveDataToDocumentDirectory];
 	}
@@ -69,8 +69,8 @@
 	self = [super init];
 	if (self != nil) {
 		NSString *newFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
-		self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename 
-																	  inDirectory: [[NSFileManager defaultManager] contentDirectory]];
+		filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename 
+                                                                 inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 	}
 	
 	return self;

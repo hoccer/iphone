@@ -25,8 +25,6 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        filename = [theFilename copy];
-        
         transferables = [[NSMutableArray alloc] init];
 		NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
         [transferables addObject: transferable];

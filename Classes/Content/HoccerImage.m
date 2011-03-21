@@ -25,18 +25,14 @@
 
 @end
 
-
-
 @implementation HoccerImage
-
 @synthesize image;
 @synthesize thumb;
 
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-
+        
         [self viewDidLoad];
 	}
 	
@@ -45,9 +41,7 @@
 
 - (id) initWithDictionary:(NSDictionary *)dict {
 	self = [super initWithDictionary:dict];
-	if (self != nil) {
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-
+	if (self != nil) {        
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
             thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
@@ -60,32 +54,17 @@
 	return self;
 }
 
-- (id) initWithData:(NSData *)theData {
-    self = [super initWithData:theData];
-	if (self != nil) {
-		NSLog(@"initWithData");
-        [self createThumb];
-        
-        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
-        [transferables addObject: thumbUploader];
-	}
-	
-	return self;
-}
-
 - (id)initWithUIImage: (UIImage *)aImage {
 	self = [super init];
 	if (self != nil) {
 		image = [aImage retain];
 		isFromContentSource = YES;
 		
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        
 		NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
 		[transferables addObject: transferable];
 
-		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
         [self viewDidLoad];
+		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
 	
 	return self;
@@ -131,22 +110,18 @@
         thumb = [[UIImage imageWithData:thumbData] retain];
     }
     
+    NSLog(@"thumb %@", thumb);
     if (thumb != nil) {
-        [preview setImage: thumb];
+        [self.preview setImage: thumb];
     } else {
-        [preview setImage: self.image];
+        [self.preview setImage: self.image];
     }
 }
 
 - (Preview *)desktopItemView { 
-//	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-//
-//	[preview addSubview:backgroundImage];
-//	[preview sendSubviewToBack:backgroundImage];
-//	[backgroundImage release];
-
 	[self updateImage];
-	return preview;
+    
+	return self.preview;
 }
 
 - (NSString *)defaultFilename {
@@ -216,16 +191,17 @@
 
 
 - (void)createThumb {
+    NSLog(@"createThumb");
     NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
     
-	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
-	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
+	CGFloat frameWidth = self.preview.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = self.preview.frame.size.height - (2 * paddingTop);
 	
 	CGSize size =  CGSizeMake(frameWidth, frameHeight);
     
 	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
-    
+
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.1);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
@@ -238,8 +214,22 @@
     return  [thumbUploader.url stringByRemovingQuery];
 }
 
+- (Preview *)preview {
+    if (preview == nil) {
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
+        
+        [preview addSubview:backgroundImage];
+        [preview sendSubviewToBack:backgroundImage];
+        [backgroundImage release];
+    }
+    
+    return preview;
+}
+
+
 #pragma -
-#pragma Future Delegate Methods
+#pragma Hooks
 - (void)viewDidLoad {
     [self createThumb];
     
