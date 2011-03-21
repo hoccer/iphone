@@ -32,7 +32,6 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        
         [self viewDidLoad];
 	}
 	

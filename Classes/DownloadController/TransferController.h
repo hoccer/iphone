@@ -27,6 +27,7 @@ typedef enum _TransferableState TransferableState;
 - (TransferableState)state;
 - (NSNumber *)progress;
 - (NSError *)error;
+- (NSInteger)size;
 
 @end
 
@@ -36,7 +37,10 @@ typedef enum _TransferableState TransferableState;
 - (void)transferController: (TransferController *)controller didFinishTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
-- (void)transferController:(TransferController *)controller didPrepareContent: (id)object;
+- (void)transferController: (TransferController *)controller didPrepareContent: (id)object;
+
+- (void)transferController: (TransferController *)controller didUpdateTotalProgress: (NSNumber *)progress;
+- (void)transferControllerDidFinishAllTransfers: (TransferController *)controller;
 
 @end
 

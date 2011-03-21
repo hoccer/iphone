@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSNumber* progress;
 @property (nonatomic, retain) NSError* error;
 @property (nonatomic, assign) TransferableState state;
+@property (nonatomic, readonly) NSInteger size;
 
 @property (nonatomic, retain) NSString *filename;
 @property (nonatomic, retain) NSString *url;

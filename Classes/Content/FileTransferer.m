@@ -7,7 +7,7 @@
 //
 
 #import "FileTransferer.h"
-
+#import "NSFileManager+FileHelper.h"
 
 @implementation FileTransferer
 
@@ -32,6 +32,14 @@
 
 - (void) startTransfer {
 	[self doesNotRecognizeSelector:_cmd];
+}
+
+- (NSInteger)size {
+    NSString *directory = [[NSFileManager defaultManager] contentDirectory];
+    NSString *aFilename = [directory stringByAppendingPathComponent:self.filename];
+    
+    NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:aFilename error:nil];
+    return [[attr objectForKey:NSFileSize] intValue];
 }
 
 - (void)dealloc {

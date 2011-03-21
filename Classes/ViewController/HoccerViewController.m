@@ -425,7 +425,23 @@
 #pragma mark -
 #pragma mark TransferController Delegate
 
-- (void) transferController:(TransferController *)controller didFinishTransfer:(id)object {		
+- (void)transferController:(TransferController *)controller didFinishTransfer:(id)object {
+    [self ensureViewIsHoccable];
+    
+	if ([desktopData count] == 0) {
+		return;
+	}
+    
+	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+	
+	if (!item.isUpload) {
+        [item updateView];
+	}
+
+}
+
+
+- (void) transferControllerDidFinishAllTransfers:(TransferController *)controller {		
 	[self ensureViewIsHoccable];
 
 	if ([desktopData count] == 0) {
@@ -434,7 +450,7 @@
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
-	if ([object isKindOfClass:[FileUploader class]]) {
+	if (item.isUpload) {
 		fileUploaded = YES;
 		if (connectionEsteblished) {
 			[self showSuccess:item];
@@ -444,7 +460,7 @@
 	}
 }
 
-- (void) transferController:(TransferController *)controller didUpdateProgress:(NSNumber *)progress forTransfer:(id)object {
+- (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress {
 	if (connectionEsteblished) {
 		[statusViewController setProgressUpdate: [progress floatValue]];
 	}
@@ -533,7 +549,6 @@
 }
 
 - (void)handleError: (NSError *)error {
-	NSLog(@"error %@", error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;

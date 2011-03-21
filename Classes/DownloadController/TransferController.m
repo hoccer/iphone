@@ -20,6 +20,8 @@
 - (void)progress: (NSNumber *)progress forTransfer: (id)object;
 - (void)state: (TransferableState) state forTransfer: (id)object;
 
+- (void)updateTotalProgress;
+
 @end
 
 @implementation TransferController
@@ -69,7 +71,13 @@
 - (void)finalizeDownload: (NSObject <Transferable> *)object {
 	[self removeObservers:object];
 	[activeDownloads removeObject:object];
-
+    
+    if ([activeDownloads count] == 0 && [downloadQueue count] == 0) {
+        if ([delegate respondsToSelector:@selector(transferControllerDidFinishAllTransfers:)]) {
+            [delegate transferControllerDidFinishAllTransfers:self];
+        }
+    }
+    
 	[self startDownload];
 }
 
@@ -119,6 +127,8 @@
 	if ([delegate respondsToSelector:@selector(transferController:didUpdateProgress:forTransfer:)]) {
 		[delegate transferController:self didUpdateProgress:progress forTransfer:object];
 	}
+    
+    [self updateTotalProgress];
 }
 
 - (void)state: (TransferableState) state forTransfer: (id)object {
@@ -142,6 +152,22 @@
 	}
 	[object release];
 }
+
+- (void)updateTotalProgress {
+    NSInteger total = 0;
+    NSInteger transfered = 0;
+    
+    for (id <Transferable>t in activeDownloads) {
+        total += t.size;
+        transfered += t.size * [t.progress floatValue];
+    }
+    
+    if ([delegate respondsToSelector:@selector(transferController:didUpdateTotalProgress:)]){
+        [delegate transferController:self didUpdateTotalProgress:[NSNumber numberWithFloat:transfered/(float)total]];
+    }
+    
+}
+
 
 - (void) dealloc {
 	[downloadQueue release];
