@@ -35,15 +35,9 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        NSLog(@"initWithFilename");
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
 
-        
-        [self createThumb];
-        
-        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
-        [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
-        [transferables addObject: thumbUploader];
+        [self viewDidLoad];
 	}
 	
 	return self;	
@@ -56,7 +50,7 @@
 
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
-            thumbURL = [[previews objectAtIndex:0] objectForKey:@"uri"];
+            thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
             thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
             
             [transferables addObject:thumbDownloader];
@@ -90,12 +84,8 @@
 		NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
 		[transferables addObject: transferable];
 
-		[self createThumb];
-        
-        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
-        [transferables addObject: thumbUploader];
-
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
+        [self viewDidLoad];
 	}
 	
 	return self;
@@ -248,10 +238,22 @@
     return  [thumbUploader.url stringByRemovingQuery];
 }
 
+#pragma -
+#pragma Future Delegate Methods
+- (void)viewDidLoad {
+    [self createThumb];
+    
+    thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+    [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
+    [transferables addObject: thumbUploader];
+}
+
+
 - (void) dealloc {
 	[image release];
 	[preview release];
 	[thumb release];
+    [thumbURL release];
     
 	[super dealloc];
 }

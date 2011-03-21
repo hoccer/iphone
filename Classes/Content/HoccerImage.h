@@ -35,4 +35,6 @@
 - (NSString *)thumbFilename;
 - (NSString *)thumbURL;
 
+- (void)viewDidLoad;
+
 @end
