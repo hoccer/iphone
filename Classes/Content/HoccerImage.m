@@ -110,11 +110,12 @@
         thumb = [[UIImage imageWithData:thumbData] retain];
     }
     
-    NSLog(@"thumb %@", thumb);
+    if (self.image != nil && thumb == nil) {
+        [self createThumb];
+    }
+    
     if (thumb != nil) {
         [self.preview setImage: thumb];
-    } else {
-        [self.preview setImage: self.image];
     }
 }
 
@@ -175,7 +176,6 @@
 	[dict setObject:self.mimeType forKey:@"type"];
 	[dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
-    NSLog(@"dict %@", dict);
     
 	return dict;
 }
@@ -191,7 +191,6 @@
 
 
 - (void)createThumb {
-    NSLog(@"createThumb");
     NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
     
