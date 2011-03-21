@@ -42,9 +42,7 @@
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (cancelable) {
-		[self cancelAction:self];
-	}
+    [self cancelAction:self];
 }
 
 - (void)dealloc {

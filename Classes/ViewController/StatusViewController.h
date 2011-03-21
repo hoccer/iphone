@@ -31,11 +31,11 @@
 	BOOL cancelable;
 }
 
-@property (retain) UIImage *smallBackground;
-@property (retain) UIImage *largeBackground;
+@property (retain, nonatomic) UIImage *smallBackground;
+@property (retain, nonatomic) UIImage *largeBackground;
 @property (retain) IBOutlet UILabel *statusLabel;
 
-@property (assign, getter=isHidden) BOOL hidden;
+@property (assign, nonatomic, getter=isHidden) BOOL hidden;
 
 - (void)setState: (StatusViewControllerState *)state;
 - (void)setError: (NSError *)error;

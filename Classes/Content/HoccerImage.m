@@ -196,11 +196,10 @@
 	CGFloat frameWidth = self.preview.frame.size.width - (2 * paddingLeft); 
 	CGFloat frameHeight = self.preview.frame.size.height - (2 * paddingTop);
 	
-	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+	CGSize size = CGSizeMake(frameWidth, frameHeight);
     
 	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
-
-    NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.1);
+    NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
 
