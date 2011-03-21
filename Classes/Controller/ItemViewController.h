@@ -30,7 +30,7 @@
 
 @property (retain) HoccerContent *content;
 
-@property (retain) ContentContainerView* contentView;
+@property (retain, nonatomic) ContentContainerView* contentView;
 @property (assign) CGPoint viewOrigin;
 @property (assign) BOOL isUpload;
 

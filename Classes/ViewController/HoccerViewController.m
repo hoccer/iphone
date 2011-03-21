@@ -103,8 +103,6 @@
 	historyData = [[HistoryData alloc] init];
 	self.defaultOrigin = CGPointMake(7, 22);
 
-    
-    
 	transferController = [[TransferController alloc] init];
 	transferController.delegate = self;
 	
@@ -193,7 +191,9 @@
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		fileUploaded = NO;
-		[transferController addContentToTransferQueue:[content transferer]];		
+        for (id transferer in [content transferers]) {
+            [transferController addContentToTransferQueue: transferer];
+        }
 	}
 		
 	[desktopData addhoccerController:item];
@@ -486,7 +486,9 @@
 	item.content.persist = YES;
 	
 	if ([hoccerContent transferer]) {
-		[transferController addContentToTransferQueue:[hoccerContent transferer]];		
+        for (id transferer in [hoccerContent transferers]) {
+            [transferController addContentToTransferQueue: transferer];		
+        }
 	} else {
 		[self showSuccess: item];
 	}
@@ -564,7 +566,8 @@
 
 - (void)showSuccess: (ItemViewController *)item {
 	[historyData addContentToHistory:item];		
-
+    
+    NSLog(@"item %@", item);
 	if (item.isUpload) {
 		[desktopData removeHoccerController:item];
 		[desktopView reloadData];

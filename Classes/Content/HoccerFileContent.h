@@ -12,7 +12,7 @@
 #import "FileTransferer.h"
 
 @interface HoccerFileContent : HoccerContent {
-	FileTransferer *transferable;
+    NSMutableArray *transferables;
 }
 
 @end

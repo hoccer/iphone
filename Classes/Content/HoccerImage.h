@@ -10,6 +10,7 @@
 #import "Hoccer.h"
 #import "HoccerFileContent.h"
 #import "TransferController.h"
+#import "FileUploader.h"
 
 @interface HoccerImage : HoccerFileContent <HCFileCacheDelegate> {
 	UIImage *image;	
@@ -18,6 +19,9 @@
 	NSString *thumbFilename;
 	
 	Preview *preview;
+    
+    FileUploader *thumbUploader;
+    FileDownloader *thumbDownloader;
 }
 
 @property (nonatomic, readonly) UIImage* image;
@@ -26,5 +30,7 @@
 - (id)initWithUIImage: (UIImage *)aImage;
 - (void)updateImage;
 - (void)didFinishDataRepresentation;
+
+- (NSString *)thumbFilename;
 
 @end

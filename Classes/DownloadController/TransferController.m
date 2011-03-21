@@ -8,7 +8,7 @@
 
 #import "TransferController.h"
 
-#define CONCURENT_TRANSFERES 1
+#define CONCURENT_TRANSFERES 3
 
 @interface TransferController ()
 

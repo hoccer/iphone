@@ -185,8 +185,11 @@
 }
 
 - (NSObject <Transferable> *)transferer {
-	
 	return nil;
+}
+
+- (NSArray *)transferers {
+    return nil;
 }
 
 #pragma mark -

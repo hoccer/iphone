@@ -28,9 +28,9 @@
 	id interactionController;
 }
 
-@property (retain) NSData *data; 
-@property (retain) NSString *filename;
-@property (retain) NSString *mimeType;
+@property (nonatomic, retain) NSData *data; 
+@property (copy) NSString *filename;
+@property (nonatomic, retain) NSString *mimeType;
 @property (nonatomic, readonly) NSURL *fileUrl;
 @property (nonatomic, readonly) NSString *filepath;
 @property (nonatomic, readonly) NSString *extension;
@@ -68,6 +68,7 @@
 
 - (NSDictionary *)dataDesctiption;
 - (id)interactionController;
-- (NSObject <Transferable> *)transferer;
 
+- (NSObject <Transferable> *)transferer;
+- (NSArray *)transferers;
 @end

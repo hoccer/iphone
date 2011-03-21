@@ -17,6 +17,8 @@
 #import "FileDownloader.h"
 #import "DelayedFileUploaded.h"
 
+#import "NSFileManager+FileHelper.h"
+
 @interface HoccerImage ()
 
 - (void)createThumb;
@@ -31,10 +33,8 @@
 @synthesize thumb;
 
 - (id) initWithFilename:(NSString *)theFilename {
-	NSLog(@"%s", _cmd);
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-		NSLog(@"image %@", self.image);
 		[self createThumb];
 	}
 	
@@ -42,18 +42,23 @@
 }
 
 - (id) initWithDictionary:(NSDictionary *)dict {
-	NSLog(@"%s", _cmd);
 	self = [super initWithDictionary:dict];
 	if (self != nil) {
-		[self createThumb];
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+
+        NSArray *previews = [dict objectForKey:@"preview"];
+        if (previews && [previews count] > 0) {
+            NSString *uri = [[previews objectAtIndex:0] objectForKey:@"uri"];
+            thumbDownloader = [[FileDownloader alloc] initWithURL:uri filename:nil];
+            
+            [transferables addObject:thumbDownloader];
+        }
 	}
 	
 	return self;
 }
 
-
 - (id) initWithData:(NSData *)theData {
-	NSLog(@"%s", _cmd);
     self = [super initWithData:theData];
 	if (self != nil) {
 		[self createThumb];
@@ -63,16 +68,21 @@
 }
 
 - (id)initWithUIImage: (UIImage *)aImage {
-	NSLog(@"%s", _cmd);
 	self = [super init];
 	if (self != nil) {
-		transferable = [[DelayedFileUploaded alloc] initWithFilename:self.filename];
-		
 		isFromContentSource = YES;
 		
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
 		image = [aImage retain];
+        
+		NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
+		[transferables addObject: transferable];
+
 		[self createThumb];
-		
+        
+        thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+        [transferables addObject: thumbUploader];
+
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
 	
@@ -80,12 +90,15 @@
 }
 
 - (void)createThumb {
-	NSString *ext = [self.filename pathExtension];
-	NSString *tmpPath = [self.filename stringByDeletingPathExtension];
-	thumbFilename = [[[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext] copy];
+    NSInteger paddingLeft = 22;
+	NSInteger paddingTop = 22;
+    
+	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
+	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
 	
-	CGSize size = CGSizeMake(self.image.size.width / 4, self.image.size.height / 4);
-	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
+	CGSize size =  CGSizeMake(frameWidth, frameHeight);
+    
+	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
 }
 
 - (void)createDataRepresentaion: (HoccerImage *)content {
@@ -95,15 +108,17 @@
 	[content saveDataToDocumentDirectory];
 	
 	NSData *thumbData = UIImageJPEGRepresentation(content.thumb, 0.5);
-	[thumbData writeToFile: thumbFilename atomically: NO];
-	
+	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+    
 	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
 	
 	[pool drain];
 }
 
 - (void)didFinishDataRepresentation {
-	[((DelayedFileUploaded *)transferable) setFileReady:YES];
+    for (DelayedFileUploaded *transferable in transferables) {
+       [transferable setFileReady:YES];
+    }
 }
 
 - (UIImage*) image {
@@ -132,32 +147,28 @@
 	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
 }
 
-- (void)updateImage {
-//	NSInteger paddingLeft = 22;
-//	NSInteger paddingTop = 22;
-//
-//	CGFloat frameWidth = preview.frame.size.width - (2 * paddingLeft); 
-//	CGFloat frameHeight = preview.frame.size.height - (2 * paddingTop);
-//	
-//	CGSize size =  CGSizeMake(frameWidth, frameHeight);
-//
-//	UIImage *thumb = [self.image gtm_imageByResizingToSize: size preserveAspectRatio:YES
-//												 trimToFit: YES];
-	
-	[preview setImage: thumb];	
+- (void)updateImage {    
+    NSLog(@"thumbTransfer %d", thumbDownloader.state == TransferableStateTransferred);
+    NSLog(@"download %d", [[transferables objectAtIndex:0] state] == TransferableStateTransferred);
+    
+    if (thumbDownloader.state == TransferableStateTransferred) {
+        NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
+        thumb = [[UIImage imageWithData:thumbData] retain];
+    }
+    
+    if (thumb != nil) {
+        [preview setImage: thumb];
+    } else {
+        [preview setImage: self.image];
+    }
 }
 
-- (Preview *)desktopItemView {
-	if (self.image == nil) {
-		return nil;
-	}
-	
-	preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-
-	[preview addSubview:backgroundImage];
-	[preview sendSubviewToBack:backgroundImage];
-	[backgroundImage release];
+- (Preview *)desktopItemView { 
+//	UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
+//
+//	[preview addSubview:backgroundImage];
+//	[preview sendSubviewToBack:backgroundImage];
+//	[backgroundImage release];
 
 	[self updateImage];
 	return preview;
@@ -205,16 +216,25 @@
 }
 
 - (NSDictionary *) dataDesctiption {
-	NSDictionary *previewDict = [NSDictionary dictionaryWithObjectsAndKeys:@"image/jpeg", @"type", nil];
+	NSDictionary *previewDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    @"image/jpeg", @"type",
+                                                    [thumbUploader.url stringByRemovingQuery], @"uri" , nil];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
 	[dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
-    [dict setObject:previewDict forKey:@"preview"];
-	
-    NSLog(@"%@", dict);
+    [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
+	NSLog(@"dict %@", dict);
 	return dict;
+}
+
+- (NSString *)thumbFilename {
+	NSString *ext = [self.filename pathExtension];
+	NSString *tmpPath = [self.filename stringByDeletingPathExtension];
+	thumbFilename = [[[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext] copy];
+    
+    return thumbFilename;
 }
 
 @end
