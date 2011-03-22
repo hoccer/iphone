@@ -43,7 +43,7 @@
 		22638BC111B51DC50024AA7E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BAD11B51DC50024AA7E /* SweepOutRecognizer.m */; };
 		22638BC211B51DC50024AA7E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB011B51DC50024AA7E /* SweepRecognizer.m */; };
 		22638BC311B51DC50024AA7E /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB311B51DC50024AA7E /* TabRecognizer.m */; };
-		22638BC411B51DC50024AA7E /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HoccerProgressView.m */; };
+		22638BC411B51DC50024AA7E /* HCProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HCProgressView.m */; };
 		22638BC511B51DC50024AA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB911B51DC50024AA7E /* MBProgressHUD.m */; };
 		22638BC611B51DC50024AA7E /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBB11B51DC50024AA7E /* Preview.m */; };
 		22638BC711B51DC50024AA7E /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBD11B51DC50024AA7E /* TextPreview.m */; };
@@ -53,7 +53,7 @@
 		22638BCB11B51DC50024AA7E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BAD11B51DC50024AA7E /* SweepOutRecognizer.m */; };
 		22638BCC11B51DC50024AA7E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB011B51DC50024AA7E /* SweepRecognizer.m */; };
 		22638BCD11B51DC50024AA7E /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB311B51DC50024AA7E /* TabRecognizer.m */; };
-		22638BCE11B51DC50024AA7E /* HoccerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HoccerProgressView.m */; };
+		22638BCE11B51DC50024AA7E /* HCProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HCProgressView.m */; };
 		22638BCF11B51DC50024AA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB911B51DC50024AA7E /* MBProgressHUD.m */; };
 		22638BD011B51DC50024AA7E /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBB11B51DC50024AA7E /* Preview.m */; };
 		22638BD111B51DC50024AA7E /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBD11B51DC50024AA7E /* TextPreview.m */; };
@@ -611,8 +611,8 @@
 		22638BB211B51DC50024AA7E /* TabRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizer.h; sourceTree = "<group>"; };
 		22638BB311B51DC50024AA7E /* TabRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabRecognizer.m; sourceTree = "<group>"; };
 		22638BB411B51DC50024AA7E /* TabRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizerDelegate.h; sourceTree = "<group>"; };
-		22638BB511B51DC50024AA7E /* HoccerProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerProgressView.h; sourceTree = "<group>"; };
-		22638BB611B51DC50024AA7E /* HoccerProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerProgressView.m; sourceTree = "<group>"; };
+		22638BB511B51DC50024AA7E /* HCProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = HCProgressView.h; sourceTree = "<group>"; };
+		22638BB611B51DC50024AA7E /* HCProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProgressView.m; sourceTree = "<group>"; };
 		22638BB811B51DC50024AA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		22638BB911B51DC50024AA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		22638BBA11B51DC50024AA7E /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = ../View/Preview.h; sourceTree = "<group>"; };
@@ -1146,8 +1146,8 @@
 				22638BB711B51DC50024AA7E /* MBProgressHUD */,
 				22638B9F11B51DC50024AA7E /* CustomTabBar.h */,
 				22638BA011B51DC50024AA7E /* CustomTabBar.m */,
-				22638BB511B51DC50024AA7E /* HoccerProgressView.h */,
-				22638BB611B51DC50024AA7E /* HoccerProgressView.m */,
+				22638BB511B51DC50024AA7E /* HCProgressView.h */,
+				22638BB611B51DC50024AA7E /* HCProgressView.m */,
 				229B92A01208660000120752 /* HCButton.h */,
 				229B92A11208660000120752 /* HCButton.m */,
 			);
@@ -2408,7 +2408,7 @@
 				22638BCB11B51DC50024AA7E /* SweepOutRecognizer.m in Sources */,
 				22638BCC11B51DC50024AA7E /* SweepRecognizer.m in Sources */,
 				22638BCD11B51DC50024AA7E /* TabRecognizer.m in Sources */,
-				22638BCE11B51DC50024AA7E /* HoccerProgressView.m in Sources */,
+				22638BCE11B51DC50024AA7E /* HCProgressView.m in Sources */,
 				22638BCF11B51DC50024AA7E /* MBProgressHUD.m in Sources */,
 				22638BD011B51DC50024AA7E /* Preview.m in Sources */,
 				22638BD111B51DC50024AA7E /* TextPreview.m in Sources */,
@@ -2542,7 +2542,7 @@
 				22638BC111B51DC50024AA7E /* SweepOutRecognizer.m in Sources */,
 				22638BC211B51DC50024AA7E /* SweepRecognizer.m in Sources */,
 				22638BC311B51DC50024AA7E /* TabRecognizer.m in Sources */,
-				22638BC411B51DC50024AA7E /* HoccerProgressView.m in Sources */,
+				22638BC411B51DC50024AA7E /* HCProgressView.m in Sources */,
 				22638BC511B51DC50024AA7E /* MBProgressHUD.m in Sources */,
 				22638BC611B51DC50024AA7E /* Preview.m in Sources */,
 				22638BC711B51DC50024AA7E /* TextPreview.m in Sources */,

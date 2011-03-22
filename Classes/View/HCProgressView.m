@@ -6,10 +6,10 @@
 //  Copyright 2010 Art+Com AG. All rights reserved.
 //
 
-#import "HoccerProgressView.h"
+#import "HCProgressView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface HoccerProgressView ()
+@interface HCProgressView ()
 
 - (void)setUp;
 - (void)recalculatePositions;
@@ -18,7 +18,7 @@
 
 
 
-@implementation HoccerProgressView
+@implementation HCProgressView
 
 
 - (id)initWithFrame:(CGRect)frame {

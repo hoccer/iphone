@@ -12,7 +12,7 @@
 
 
 
-@interface HoccerProgressView : UIProgressView {
+@interface HCProgressView : UIProgressView {
 	CALayer *progressCenter, *progressRight, *progressLeft;
 }
 
