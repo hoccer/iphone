@@ -176,6 +176,8 @@
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
+    connectionEstablished = NO;
+    
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
 		[desktopData removeHoccerController: [desktopData hoccerControllerDataAtIndex:0]];
 	}
@@ -190,7 +192,9 @@
 	item.delegate = self;
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
-		fileUploaded = NO;
+		item.isUpload = YES;
+        fileUploaded = NO;
+        
         for (id transferer in [content transferers]) {
             [transferController addContentToTransferQueue: transferer];
         }
@@ -282,7 +286,6 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	item.isUpload = YES;
 	
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
@@ -450,9 +453,11 @@
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
+    NSLog(@"isUpload %d, connectionEstablished %d", item.isUpload, connectionEstablished);
+    
 	if (item.isUpload) {
 		fileUploaded = YES;
-		if (connectionEsteblished) {
+		if (connectionEstablished) {
 			[self showSuccess:item];
 		}
 	} else {
@@ -461,7 +466,8 @@
 }
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress {
-	if (connectionEsteblished) {
+    NSLog(@"connection %d -> %@", connectionEstablished, progress); 
+	if (connectionEstablished) {
 		[statusViewController setProgressUpdate: [progress floatValue]];
 	}
 }
@@ -484,14 +490,14 @@
 }
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
-	connectionEsteblished = NO;
+	connectionEstablished = NO;
 	[self handleError:error];
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
 	[self ensureViewIsHoccable];
 	
-	connectionEsteblished = YES;
+	connectionEstablished = YES;
 
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
@@ -519,7 +525,7 @@
 
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
 	[self ensureViewIsHoccable];
-	connectionEsteblished = YES;
+	connectionEstablished = YES;
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
@@ -592,7 +598,7 @@
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
-	connectionEsteblished = NO;
+	connectionEstablished = NO;
 }
 
 - (void)showNetworkError: (NSError *)error {	

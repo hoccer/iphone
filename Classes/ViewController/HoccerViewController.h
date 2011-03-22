@@ -68,7 +68,7 @@
 		
 	HCLinccer *linccer;
 	TransferController *transferController;
-	BOOL connectionEsteblished, fileUploaded;
+	BOOL connectionEstablished, fileUploaded;
 	
 	MBProgressHUD *hud;
 	

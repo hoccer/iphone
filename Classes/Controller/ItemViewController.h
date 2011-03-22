@@ -28,7 +28,7 @@
 	UIView *viewFromNib;
 }
 
-@property (retain) HoccerContent *content;
+@property (retain, nonatomic) HoccerContent *content;
 
 @property (retain, nonatomic) ContentContainerView* contentView;
 @property (assign) CGPoint viewOrigin;
