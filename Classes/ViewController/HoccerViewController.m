@@ -367,13 +367,15 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
+	connectionEstablished = NO;
+    
 	BOOL isConnecting = [linccer isLinccing] || [transferController hasTransfers];
 	if ([desktopData count] == 0 || !isConnecting) {
 		return;
 		
 	}
 	[linccer cancelAllRequest];
-	
+
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	if (item.isUpload) {
 		item.viewOrigin = self.defaultOrigin;
