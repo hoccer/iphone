@@ -109,7 +109,7 @@
         thumb = [[UIImage imageWithData:thumbData] retain];
     }
     
-    if (self.image != nil && thumb == nil) {
+    if (self.image != nil && (thumb == nil || thumbDownloader.state == TransferableStateTransferred)) {
         [self createThumb];
     }
     

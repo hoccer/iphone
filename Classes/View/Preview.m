@@ -27,18 +27,25 @@
 }
 
 - (void) setImage: (UIImage *)image {
-	NSInteger paddingLeft = 22;
+    [imageView removeFromSuperview];
+    [imageView release]; imageView = nil;
+	
+    NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 	
     CGSize size = { .width = 303 - 44, .height = 224 - 44 };
     image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
     
-	UIImageView *imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
+	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
 	imageView.contentMode = UIViewContentModeCenter;
 	imageView.image = image;
 	
 	[self insertSubview:imageView atIndex:1];
-	[imageView release];
+}
+
+- (void)dealloc {
+    [imageView release];
+    [super dealloc];
 }
 
 @end

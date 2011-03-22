@@ -11,6 +11,7 @@
 
 @interface Preview : UIView {
 	BOOL allowsOverlay;
+    UIImageView *imageView;
 }
 
 @property (assign) BOOL allowsOverlay;
