@@ -455,8 +455,6 @@
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
-    NSLog(@"isUpload %d, connectionEstablished %d", item.isUpload, connectionEstablished);
-    
 	if (item.isUpload) {
 		fileUploaded = YES;
 		if (connectionEstablished) {
@@ -468,7 +466,6 @@
 }
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress {
-    NSLog(@"connection %d -> %@", connectionEstablished, progress); 
 	if (connectionEstablished) {
 		[statusViewController setProgressUpdate: [progress floatValue]];
 	}

@@ -611,7 +611,7 @@
 		22638BB211B51DC50024AA7E /* TabRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizer.h; sourceTree = "<group>"; };
 		22638BB311B51DC50024AA7E /* TabRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabRecognizer.m; sourceTree = "<group>"; };
 		22638BB411B51DC50024AA7E /* TabRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizerDelegate.h; sourceTree = "<group>"; };
-		22638BB511B51DC50024AA7E /* HCProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = HCProgressView.h; sourceTree = "<group>"; };
+		22638BB511B51DC50024AA7E /* HCProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProgressView.h; sourceTree = "<group>"; };
 		22638BB611B51DC50024AA7E /* HCProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProgressView.m; sourceTree = "<group>"; };
 		22638BB811B51DC50024AA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		22638BB911B51DC50024AA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
