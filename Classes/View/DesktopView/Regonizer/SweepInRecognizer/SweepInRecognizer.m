@@ -9,7 +9,7 @@
 #import "SweepInRecognizer.h"
 #import "DesktopView.h"
 
-#define kSweepInBorder 40
+#define kSweepInBorder 50
 #define kSweepAcceptanceDistance 20
 
 @implementation SweepInRecognizer

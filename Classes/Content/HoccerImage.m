@@ -173,8 +173,19 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
-	[dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+    NSInteger count = 0;
+
+    while ([self.transferer url] == nil && count < 10) {
+        NSLog(@"wait...");
+        count++;
+        sleep(0.1);
+    }
+    
+    if ([self.transferer url]) {
+        [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+    }
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
+    NSLog(@"dict %@", dict);
     
 	return dict;
 }
