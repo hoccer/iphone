@@ -29,6 +29,7 @@
 		NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
         [transferables addObject: transferable];
 
+        mimeType = @"application/octet-stream";
 	}
 	
 	return self;	
