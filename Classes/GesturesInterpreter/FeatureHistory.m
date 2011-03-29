@@ -21,9 +21,7 @@
 
 @synthesize  xLineFeatures, yLineFeatures, zLineFeatures;
 
-
-- (id) init
-{
+- (id) init {
 	self = [super init];
 	if (self != nil) {
 		xLineFeatures =[[NSMutableArray alloc] init]; 
