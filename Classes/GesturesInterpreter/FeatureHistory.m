@@ -107,8 +107,10 @@
 		
 	for (int i = [lineFeatures count]-1; i >= 0 && timeInterval > 0; i--) {
 		LineFeature *feature = [lineFeatures objectAtIndex:i];
-		[featureTypeArray insertObject:[feature type]
-							   atIndex:0];
+        NSString *type = [feature type];
+        if (type != nil) {
+            [featureTypeArray insertObject:type atIndex:0];
+        }
 		
 		timeInterval -= feature.length;
 	}

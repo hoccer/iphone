@@ -2,9 +2,7 @@
 // Prefix header for all source files of the 'Hoccer' target in the 'Hoccer' project
 //
 
-#define USES_SANDBOX NO
-
-
+#define USES_SANDBOX YES
 
 // Production API Keys
 

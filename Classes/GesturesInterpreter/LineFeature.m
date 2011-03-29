@@ -126,20 +126,25 @@
 
 - (NSString *)type
 {
-	if ([self isFastDescending])
+	if ([self isFastDescending]) {
 		return @"<fastdown>";
-	
-	if ([self isFastAscending])
+	}
+    
+	if ([self isFastAscending]) {
 		return @"<fastup>";
+    }
 	
-	if ([self isDescending])
+	if ([self isDescending]) {
 		return  @"<down>";
+    }
 	
-	if ([self isAscending])
+	if ([self isAscending]) {
 		return @"<up>";
+	}
 	
-	if ([self isFlat])
+    if ([self isFlat]) {
 		return @"<flat>";
+    }
 	
 	return nil;
 }
