@@ -137,6 +137,12 @@
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
+    
+    // DEBUG
+    UIBarButtonItem *debug = [[UIBarButtonItem alloc] initWithTitle:@"FAIL!" style:UIBarButtonItemStyleBordered target:self action:@selector(log:)];
+    navigationItem.leftBarButtonItem = debug;
+    [debug release];
+    //
 	
 	[self showHud];
 }
@@ -424,13 +430,6 @@
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
 	[hoccabilityBarButtonItem release];
-    
-    // DEBUG
-    UIBarButtonItem *debug = [[UIBarButtonItem alloc] initWithTitle:@"FAIL!" style:UIBarButtonItemStyleBordered target:self action:@selector(log:)];
-    navigationItem.leftBarButtonItem = debug;
-    [debug release];
-    //
-
 }
 
 - (void)log:(id)sender {
