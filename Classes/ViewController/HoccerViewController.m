@@ -91,7 +91,7 @@
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
 	
-	desktopView.delegate = self;
+    desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
 
 	desktopData = [[DesktopDataSource alloc] init];
@@ -108,7 +108,7 @@
 	
 	statusViewController.delegate = self;
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self 
+    [[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(networkChanged:) 
 												 name:@"NetworkConnectionChanged" 
 											   object:nil];

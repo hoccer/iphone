@@ -23,6 +23,9 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 
+#import "NSFileManager+FileHelper.h"
+#import "HCLinccer.h"
+
 @interface ActionElement : NSObject
 {
 	id target;
@@ -421,7 +424,30 @@
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
 	[hoccabilityBarButtonItem release];
+    
+    // DEBUG
+    UIBarButtonItem *debug = [[UIBarButtonItem alloc] initWithTitle:@"FAIL!" style:UIBarButtonItemStyleBordered target:self action:@selector(log:)];
+    navigationItem.leftBarButtonItem = debug;
+    [debug release];
+    //
+
 }
+
+- (void)log:(id)sender {
+    NSString *path = [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:@"log.txt"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+    }
+    
+    NSFileHandle *file = [NSFileHandle fileHandleForWritingAtPath:path];
+    [file seekToEndOfFile];
+    
+    CLLocation *location = linccer.environmentController.environment.location;
+    NSString *message = [NSString stringWithFormat:@"%@ <%f, %f  ~%f>\n", [NSDate date], location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy];
+    [file writeData:[message dataUsingEncoding:NSUTF8StringEncoding]];
+    [file closeFile];
+}
+
 
 - (void)pressedButton: (id)sender {	
 	if (infoViewController.view.hidden == NO) {

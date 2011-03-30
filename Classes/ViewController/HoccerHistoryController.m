@@ -237,7 +237,7 @@
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
 	
 	for (NSString *file in files) {
-		if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
+		if (![file contains:@".sqlite"] && ![file contains:@"log.txt"] && ![historyData containsFile: file]) {
 			error = nil;
 			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
 		}
