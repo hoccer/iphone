@@ -176,7 +176,6 @@
     NSInteger count = 0;
 
     while ([self.transferer url] == nil && count < 10) {
-        NSLog(@"wait...");
         count++;
         sleep(0.1);
     }
@@ -185,7 +184,6 @@
         [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
     }
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
-    NSLog(@"dict %@", dict);
     
 	return dict;
 }
