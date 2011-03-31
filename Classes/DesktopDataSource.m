@@ -33,6 +33,7 @@
 	[super dealloc];
 }
 
+#pragma mark -
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];

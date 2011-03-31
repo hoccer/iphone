@@ -59,24 +59,24 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
 		NSLog(@"could not create reachability ref");
-		return NO;
+		return YES;
 	}
 	
 	SCNetworkReachabilityContext context = {0, self, NULL, NULL, NULL};
 	if (!SCNetworkReachabilitySetCallback(reachability, ReachabilityCallback, &context)) {
 		NSLog(@"could not add callback");
-		return NO;
+		return YES;
 	}
 	
 	if (!SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
 		NSLog(@"could not add to run loop");
-		return NO;
+		return YES;
 	}
     
-    return NO;
+    return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     NSLog(@"url %@", [url scheme]);
     if (!url) {
 		return NO;
@@ -106,10 +106,12 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *fileName = [url lastPathComponent];
     NSString *destPath = [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:fileName];
     NSURL *destURL = [NSURL fileURLWithPath:destPath];
-    
     NSError *error = nil;
     
-    [[NSFileManager defaultManager] copyItemAtURL:url toURL:destURL error:&error];
+    
+    
+   [[NSFileManager defaultManager] copyItemAtURL:url toURL:destURL error:&error];
+
     if (error != nil) {
         NSLog(@"error %@", error);
         return NO;
