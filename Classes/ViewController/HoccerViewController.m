@@ -501,36 +501,41 @@
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
-	HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	item.content = hoccerContent;
-	item.content.persist = YES;
 	
-	if ([hoccerContent transferer]) {
-        for (id transferer in [hoccerContent transferers]) {
-            [transferController addContentToTransferQueue: transferer];		
+    if ([desktopData count] > 0) {
+        HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+        item.content = hoccerContent;
+        item.content.persist = YES;
+        
+        if ([hoccerContent transferer]) {
+            for (id transferer in [hoccerContent transferers]) {
+                [transferController addContentToTransferQueue: transferer];		
+            }
+        } else {
+            [self showSuccess: item];
         }
-	} else {
-		[self showSuccess: item];
-	}
-	
-	[desktopView reloadData];
-
-	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
-		[item.content.interactionController setDelegate: self];
-		[item.content.interactionController presentPreviewAnimated:YES];
-	}
+        
+        [desktopView reloadData];        
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
+            [item.content.interactionController setDelegate: self];
+            [item.content.interactionController presentPreviewAnimated:YES];
+        }
+    }
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
 	
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+    if ([desktopData count] > 0) {
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
-	if (![[item.content transferer] isKindOfClass: [FileUploader class]] || fileUploaded) {
-		[self showSuccess: item];
-	}
+        if (![[item.content transferer] isKindOfClass: [FileUploader class]] || fileUploaded) {
+            [self showSuccess: item];
+        }
+    }
 }
 
 #pragma mark -
