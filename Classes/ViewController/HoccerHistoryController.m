@@ -235,9 +235,14 @@
 	
 	NSError *error = nil;
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectoryUrl error:&error];
-	
-	for (NSString *file in files) {
-		if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
+    for (NSString *file in files) {
+        BOOL isDir;
+        [[NSFileManager defaultManager] fileExistsAtPath:file isDirectory:&isDir];
+        if (isDir) {
+            continue;
+        }
+        
+        if (![file contains:@".sqlite"] && ![historyData containsFile: file]) {
 			error = nil;
 			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
 		}
