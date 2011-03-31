@@ -13,7 +13,7 @@
 #import "ItemViewController.h"
 #import "HoccerViewController.h"
 
-#import "HoccerContentFactory.h";
+#import "HoccerContentFactory.h"
 #import "ReceivedContentViewController.h"
 #import "NSString+Regexp.h"
 #import "NSFileManager+FileHelper.h"
