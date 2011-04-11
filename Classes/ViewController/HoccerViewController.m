@@ -497,10 +497,9 @@
 	[self ensureViewIsHoccable];
 	
 	connectionEstablished = YES;
-
+    NSLog(@"data %@", data);
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
-	
 	
     if ([desktopData count] > 0) {
         HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
