@@ -458,21 +458,17 @@
 
 - (void) transferControllerDidFinishAllTransfers:(TransferController *)controller {		
 	[self ensureViewIsHoccable];
-
-	if ([desktopData count] == 0) {
-		return;
-	}
     
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+    fileUploaded = YES;
     
-    if (self.sendingItem) {
-		fileUploaded = YES;
-		if (connectionEstablished) {
-			[self showSuccess:item];
-		}
-	} else {
-		[self showSuccess:item];
-	}
+    if (connectionEstablished) {
+        if (self.sendingItem) {
+            [self showSuccess:self.sendingItem];
+        } else {
+            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+            [self showSuccess:item];
+        }
+    }
 }
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress {
@@ -532,14 +528,9 @@
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
-	NSLog(@"did send content");
 
-    if ([desktopData count] > 0) {
-        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	
-        if (![[item.content transferer] isKindOfClass: [FileUploader class]] || fileUploaded) {
-            [self showSuccess: item];
-        }
+    if (self.sendingItem && fileUploaded) {
+        [self showSuccess:self.sendingItem];
     }
 }
 
@@ -597,11 +588,9 @@
 }
 
 - (void)showSuccess: (ItemViewController *)item {
-	NSLog(@"success! %@ %d", item, item.isUpload);
     [historyData addContentToHistory:item];		
     
 	if (self.sendingItem) {
-        NSLog(@"removing item");
         self.sendingItem = nil;
 		[desktopView reloadData];
 	} else {
