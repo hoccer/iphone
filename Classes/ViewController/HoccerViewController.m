@@ -351,7 +351,9 @@
 	item.isUpload = YES;
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
+    
     self.sendingItem = item;
+    [desktopData removeHoccerController:self.sendingItem];
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
