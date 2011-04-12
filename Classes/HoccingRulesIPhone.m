@@ -29,7 +29,10 @@
 		return NO;
 	}
 	
+    NSLog(@"may catch %d", [controller.desktopData count]);
+    
 	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
+        NSLog(@"YES! may catch");
 		return YES;
 	}
 	

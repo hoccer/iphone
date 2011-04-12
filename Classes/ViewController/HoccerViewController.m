@@ -52,6 +52,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 
 @interface HoccerViewController ()
+@property (retain, nonatomic) ItemViewController *sendingItem;
 
 - (void)handleError: (NSError *)error;
 - (NSString *)obfuscatedUUID: (NSString *)uuid;
@@ -73,6 +74,7 @@
 @synthesize hoccabilityLabel;
 @synthesize hoccabilityInfo;
 @synthesize linccer;
+@synthesize sendingItem;
 
 + (void) initialize {
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
@@ -300,6 +302,9 @@
 	animation.fillMode = kCAFillModeForwards;
 	
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
+    
+    self.sendingItem = item;
+    [desktopData removeHoccerController:item];
 }
 
 #pragma mark -
@@ -336,16 +341,17 @@
 	if ([linccer isLinccing]) {
 		return;
 	}
+	[FeedbackProvider playSweepOut];
 	
 	[infoViewController hideViewAnimated:YES];
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
-	[FeedbackProvider playSweepOut];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
+    self.sendingItem = item;
 }
 
 - (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
@@ -370,16 +376,20 @@
 	connectionEstablished = NO;
     
 	BOOL isConnecting = [linccer isLinccing] || [transferController hasTransfers];
-	if ([desktopData count] == 0 || !isConnecting) {
+	if (!self.sendingItem || !isConnecting) {
 		return;
-		
 	}
 	[linccer cancelAllRequest];
 
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	if (item.isUpload) {
-		item.viewOrigin = self.defaultOrigin;
+	if (self.sendingItem) {
+		self.sendingItem.viewOrigin = self.defaultOrigin;
+        [desktopData addhoccerController:self.sendingItem];
+        [desktopView reloadData];
+        
+        self.sendingItem = nil;
 	} else {
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+
 		[desktopData removeHoccerController:item];	
 		[transferController cancelDownloads];
 	}
@@ -454,8 +464,8 @@
 	}
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	
-	if (item.isUpload) {
+    
+    if (self.sendingItem) {
 		fileUploaded = YES;
 		if (connectionEstablished) {
 			[self showSuccess:item];
@@ -497,7 +507,7 @@
 	[self ensureViewIsHoccable];
 	
 	connectionEstablished = YES;
-    NSLog(@"data %@", data);
+
 	NSDictionary *firstPayload = [data objectAtIndex:0];
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
@@ -516,18 +526,14 @@
         }
         
         [desktopView reloadData];        
-        
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
-            [item.content.interactionController setDelegate: self];
-            [item.content.interactionController presentPreviewAnimated:YES];
-        }
     }
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
-	
+	NSLog(@"did send content");
+
     if ([desktopData count] > 0) {
         ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
@@ -579,8 +585,10 @@
 	}	
 	
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	if (item.isUpload) {
-		item.viewOrigin = self.defaultOrigin;
+	if (self.sendingItem) {
+		self.sendingItem.viewOrigin = self.defaultOrigin;
+        [desktopData addhoccerController:item];
+        self.sendingItem = nil;
 	} else {
 		[desktopData removeHoccerController:item];
 	}
@@ -589,10 +597,12 @@
 }
 
 - (void)showSuccess: (ItemViewController *)item {
-	[historyData addContentToHistory:item];		
+	NSLog(@"success! %@ %d", item, item.isUpload);
+    [historyData addContentToHistory:item];		
     
-	if (item.isUpload) {
-		[desktopData removeHoccerController:item];
+	if (self.sendingItem) {
+        NSLog(@"removing item");
+        self.sendingItem = nil;
 		[desktopView reloadData];
 	} else {
 		[item updateView];
@@ -602,6 +612,12 @@
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
 	connectionEstablished = NO;
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
+        [item.content.interactionController setDelegate: self];
+        [item.content.interactionController presentPreviewAnimated:YES];
+    }
+
 }
 
 - (void)showNetworkError: (NSError *)error {	
