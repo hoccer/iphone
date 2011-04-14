@@ -352,9 +352,14 @@
 #pragma mark Linccer Delegate Methods
 - (void) linccer:(HCLinccer *)aLinccer didUpdateEnvironment:(NSDictionary *)quality {
 	[super linccer:aLinccer didUpdateEnvironment:quality];
+//
+// 	self.hoccabilityInfo = quality;
+//	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
+}
 
-	self.hoccabilityInfo = quality;
-	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
+- (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
+    NSLog(@"group size %d", [group count]);
+    [self setHoccabilityButton: [group count]];
 }
 
 

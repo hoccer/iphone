@@ -47,8 +47,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [defaults registerDefaults:appDefaults];
 }
 
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
@@ -108,29 +106,24 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSURL *destURL = [NSURL fileURLWithPath:destPath];
     NSError *error = nil;
     
-    
-    
-   [[NSFileManager defaultManager] copyItemAtURL:url toURL:destURL error:&error];
+    [[NSFileManager defaultManager] copyItemAtURL:url toURL:destURL error:&error];
 
     if (error != nil) {
         NSLog(@"error %@", error);
         return NO;
     }
-    
-    
     [viewController setContentPreview:[[[HoccerFileContent alloc] initWithFilename:fileName] autorelease]];
     
     return YES;
 }
-          
-- (void)applicationWillTerminate: (UIApplication *)application {
+     
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [viewController.linccer reactivate];
 }
 
-- (void)dealloc {	
-    [viewController release];
-	[window release];
-	
-	[super dealloc];
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [viewController.linccer disconnect];
 }
 
 #pragma mark Terms Of Use Delegate Methods
@@ -150,6 +143,13 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	CFPreferencesSetAppValue(CFSTR("termsOfUse"), agreed, CFSTR("com.artcom.Hoccer"));
 
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
+}
+
+- (void)dealloc {	
+    [viewController release];
+	[window release];
+	
+	[super dealloc];
 }
 
 @end
