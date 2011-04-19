@@ -481,6 +481,8 @@
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
+		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
+		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AA13004E0D00C87E53 /* catch_180.m4v */; };
 		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
@@ -876,6 +878,7 @@
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
 		E12B51AA13004E0D00C87E53 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
 		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
@@ -1334,6 +1337,7 @@
 				22638D5011B52D9D0024AA7E /* SelectViewController.xib */,
 				22638D5111B52D9D0024AA7E /* SettingViewController.xib */,
 				22638D5211B52D9D0024AA7E /* StatusViewController.xib */,
+				E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */,
 				22638D5311B52D9D0024AA7E /* TermOfUse.xib */,
 				22638D5411B52D9D0024AA7E /* TextView.xib */,
 				E1A3400D131CF09A00D25708 /* ErrorView.xib */,
@@ -2172,6 +2176,7 @@
 				E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */,
 				E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */,
 				E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */,
+				E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2352,6 +2357,7 @@
 				22AB15EF120029110057548A /* statusbar_progress_thumb_R.png in Resources */,
 				22AB15F0120029110057548A /* statusbar_progress_track.png in Resources */,
 				22AB15F1120029110057548A /* statusbar_small.png in Resources */,
+				E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
