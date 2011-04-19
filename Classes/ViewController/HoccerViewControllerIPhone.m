@@ -318,8 +318,6 @@
 	
 	[self.delayedAction perform];
 	self.delayedAction = nil;
-	
-	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 - (void)hidePopOverAnimated: (BOOL) animate {
@@ -352,9 +350,6 @@
 #pragma mark Linccer Delegate Methods
 - (void) linccer:(HCLinccer *)aLinccer didUpdateEnvironment:(NSDictionary *)quality {
 	[super linccer:aLinccer didUpdateEnvironment:quality];
-//
-// 	self.hoccabilityInfo = quality;
-//	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
 }
 
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
@@ -398,34 +393,15 @@
 		return;
 	}
 	
-	if (theHoccability == 0) {
-		navigationItem.rightBarButtonItem = nil;
-		return;
-	}
-	
-	UIImage *hoccabilityImage = nil; 
-	switch (theHoccability) {
-		case 1:
-			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_yellow.png"];
-			break;
-		case 2:
-		case 3:
-			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_green.png"];
-			break;
-		default:
-			hoccabilityImage = [UIImage imageNamed: @"statusbar_indicator_red.png"];
-			break;
-	}
-	
-	UIButton *hoccabilityButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *hoccabilityButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[hoccabilityButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-	
 	hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
-	[hoccabilityButton setImage:hoccabilityImage forState:UIControlStateNormal];
-								   
+    
+    [hoccabilityButton setTitle:[[NSNumber numberWithInt:theHoccability] stringValue] 
+                       forState:UIControlStateNormal];
+    
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-	[hoccabilityBarButtonItem release];
 }
 
 - (void)pressedButton: (id)sender {	
@@ -440,11 +416,5 @@
 	[super showNetworkError:error];
 	[self setHoccabilityButton:0];
 }
-
-- (void)ensureViewIsHoccable {
-	[super ensureViewIsHoccable];
-	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
-}
-
 
 @end

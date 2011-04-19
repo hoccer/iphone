@@ -375,6 +375,7 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
+    NSLog(@"canceled");
 	connectionEstablished = NO;
     
 	BOOL isConnecting = [linccer isLinccing] || [transferController hasTransfers];
@@ -572,17 +573,13 @@
 	} else {
 		[statusViewController setError:error];
 	}
-
-	if ([desktopData count] == 0) {
-		return;
-	}	
 	
-	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	if (self.sendingItem) {
 		self.sendingItem.viewOrigin = self.defaultOrigin;
-        [desktopData addhoccerController:item];
+        [desktopData addhoccerController:self.sendingItem];
         self.sendingItem = nil;
 	} else {
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 		[desktopData removeHoccerController:item];
 	}
 	

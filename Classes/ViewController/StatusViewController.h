@@ -51,7 +51,7 @@
 - (void)showViewAnimated: (BOOL)animation;
 
 - (void)hideStatus;
-- (void)calculateHighForText: (NSString *)text;
+- (void)calculateHightForText: (NSString *)text;
 
 @end
 

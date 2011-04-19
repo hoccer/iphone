@@ -180,7 +180,7 @@
 - (void)setError:(NSError *)error {
 	hintText.hidden = NO;
 	
-	[self calculateHighForText: [error localizedDescription]];
+	[self calculateHightForText: [error localizedDescription]];
 	
 	if ([error localizedDescription]) {
 		statusLabel.text = [error localizedDescription];
@@ -193,7 +193,7 @@
 	[self setState:[ErrorState stateWithRecovery:([error localizedRecoverySuggestion] != nil)]];
 }
 
-- (void)calculateHighForText: (NSString *)text {
+- (void)calculateHightForText: (NSString *)text {
 	CGSize size = CGSizeMake(statusLabel.frame.size.width, CGFLOAT_MAX);
 	CGSize errorMessageSize = [text sizeWithFont:statusLabel.font constrainedToSize: size];
 	

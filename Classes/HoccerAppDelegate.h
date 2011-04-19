@@ -21,6 +21,8 @@
     HoccerViewController *viewController;
 	
 	BOOL networkReachable;
+    
+    UIBackgroundTaskIdentifier bgTask;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

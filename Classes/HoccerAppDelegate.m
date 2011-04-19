@@ -117,12 +117,19 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return YES;
 }
      
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive: (UIApplication *)application {
     [viewController.linccer reactivate];
 }
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
+- (void)applicationWillResignActive:(UIApplication *)application {
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    bgTask = [app beginBackgroundTaskWithExpirationHandler: ^{
+        [app endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+    
     [viewController.linccer disconnect];
 }
 
