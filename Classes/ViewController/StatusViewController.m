@@ -148,12 +148,6 @@
 	cancelButton.hidden = state.cancelButton;
 	hintButton.hidden = state.hintButton;
 	
-//	if (state.recoverySuggestion) {
-//		[self showRecoverySuggestion];	
-//	} else{
-//		[self hideRecoverySuggestion];
-//	}
-		
 	[cancelButton setImage:state.cancelButtonImage forState: UIControlStateNormal];
 	
 	[timer invalidate];
@@ -172,7 +166,7 @@
 }
 
 - (void)setBlockingError: (NSError *)error {
-	cancelable =NO;
+	cancelable = NO;
 	
 	[self setError:error];
 }
@@ -198,11 +192,12 @@
 	CGSize errorMessageSize = [text sizeWithFont:statusLabel.font constrainedToSize: size];
 	
 	backgroundImage.hidden = YES;
-	CGRect frame = self.view.frame;
+	
+    CGRect frame = self.view.frame;
 	frame.size.height = errorMessageSize.height + 8;
-	//	frame.origin.y = errorMessageSize.height - self.largeBackground.size.height;
-	self.view.frame = frame;
-	self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
+    self.view.frame = frame;
+	
+    self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
 
 	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 4, statusLabel.frame.size.width, errorMessageSize.height);
 	statusLabel.numberOfLines = 4; 

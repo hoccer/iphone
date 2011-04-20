@@ -11,6 +11,7 @@
 #import "DesktopView.h"
 #import "HoccerText.h"
 #import "StatusViewController.h"
+#import "GroupStatusViewController.h"
 #import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
@@ -355,6 +356,7 @@
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
     NSLog(@"group size %d", [group count]);
     [self setHoccabilityButton: [group count]];
+    [infoViewController setGroup: group];
 }
 
 

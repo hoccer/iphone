@@ -37,6 +37,7 @@
 @class HoccingRulesIPhone;
 @class HoccerHistoryController;
 @class SettingViewController;
+@class GroupStatusViewController;
 
 @class HCLinccer;
 
@@ -56,7 +57,7 @@
 	GesturesInterpreter *gestureInterpreter;
 	
 	ConnectionStatusViewController *statusViewController;
-	StatusViewController *infoViewController;
+	GroupStatusViewController *infoViewController;
 
 	HttpClient *httpClient;
 	HoccingRulesIPhone *hoccingRules;
@@ -80,7 +81,7 @@
 @property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
-@property (nonatomic, retain) IBOutlet 	StatusViewController *infoViewController;
+@property (nonatomic, retain) IBOutlet 	GroupStatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
 @property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;

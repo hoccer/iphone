@@ -483,6 +483,8 @@
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
+		E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12748B5135DE75800AA1829 /* GroupStatusViewController.m */; };
+		E12748B7135DE75800AA1829 /* GroupStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12748B5135DE75800AA1829 /* GroupStatusViewController.m */; };
 		E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AA13004E0D00C87E53 /* catch_180.m4v */; };
 		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
@@ -879,6 +881,8 @@
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
+		E12748B4135DE75800AA1829 /* GroupStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatusViewController.h; sourceTree = "<group>"; };
+		E12748B5135DE75800AA1829 /* GroupStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStatusViewController.m; sourceTree = "<group>"; };
 		E12B51AA13004E0D00C87E53 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
 		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
@@ -1290,6 +1294,8 @@
 				22638C3311B51E880024AA7E /* StatusViewController.m */,
 				22A21A6C1206B720001FA18A /* ConnectionStatusViewController.h */,
 				22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */,
+				E12748B4135DE75800AA1829 /* GroupStatusViewController.h */,
+				E12748B5135DE75800AA1829 /* GroupStatusViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2464,6 +2470,7 @@
 				E686C78F12B2715A006B5037 /* FileTransferer.m in Sources */,
 				E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */,
 				E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */,
+				E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2584,6 +2591,7 @@
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
 				229B92F31208738500120752 /* HCButton.m in Sources */,
 				ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */,
+				E12748B7135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
