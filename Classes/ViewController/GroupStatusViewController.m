@@ -16,10 +16,8 @@
 - (void)calculateHightForText: (NSString *)text {
     NSLog(@"calculating height");
     CGRect frame = self.view.frame;
-	frame.size.height = 100;
+	frame.size.height = [self.group count] * self.tableView.rowHeight;
     self.view.frame = frame;
-	
-    self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
 }
 
 - (void)setGroup: (NSArray *)newGroup {
