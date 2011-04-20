@@ -10,9 +10,16 @@
 #import "StatusViewController.h"
 
 
-@interface GroupStatusViewController : StatusViewController {
+@interface GroupStatusViewController : StatusViewController <UITableViewDataSource, UITableViewDelegate> {
     
+    NSArray *group;
+    UITableView *tableView;
 }
+
+
+@property (retain, nonatomic) NSArray *group;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+
 
 - (void)setGroup: (NSArray *)group;
 

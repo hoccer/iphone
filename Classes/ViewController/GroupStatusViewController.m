@@ -10,7 +10,8 @@
 
 
 @implementation GroupStatusViewController
-
+@synthesize group;
+@synthesize tableView;
 
 - (void)calculateHightForText: (NSString *)text {
     NSLog(@"calculating height");
@@ -21,9 +22,50 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
 }
 
-- (void)setGroup: (NSArray *)group {
-    [self calculateHightForText:@"bla"];
+- (void)setGroup: (NSArray *)newGroup {
+    NSLog(@"group %@", newGroup);
+    if (group != newGroup) {
+        [group release];
+        group = [newGroup retain];
+        [self.tableView reloadData];
+        
+        [self calculateHightForText:@"bla"];
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.group count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    NSDictionary *client = [group objectAtIndex:indexPath.row];
+    cell.textLabel.text = [client objectForKey:@"name"];
+    
+    return cell;
+}
+
+- (void)dealloc {
+    [group release];
+    [tableView release];
+    
+    [tableView release];
+    [super dealloc];
 }
 
 
+
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [super viewDidUnload];
+}
 @end
