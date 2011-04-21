@@ -14,7 +14,8 @@
 enum HCSettingsType {
 	HCInplaceSetting,
 	HCSwitchSetting,
-	HCContinueSetting
+	HCContinueSetting,
+    HCTextField
 } typedef HCSettingsType;
 
 
@@ -96,14 +97,16 @@ enum HCSettingsType {
 	
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
-	
+
+	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Name" selector:@selector(editedText:) type: HCTextField];
+    nameAction.defaultValue = @"clientName";
+	[sections addObject:[NSArray arrayWithObject:nameAction]];
+
 	NSMutableArray *section1 = [NSMutableArray arrayWithCapacity:3];
-	if (NSClassFromString(@"UIDocumentInteractionController")) {
-		SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
-		openPreviewAction.defaultValue = @"openInPreview";		
-		[section1 addObject:openPreviewAction];
-	}
-	
+
+    SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
+	openPreviewAction.defaultValue = @"openInPreview";		
+	[section1 addObject:openPreviewAction];
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
 	
@@ -163,6 +166,17 @@ enum HCSettingsType {
 		[switchView release];
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
+    } else if (action.type == HCTextField) {    
+        UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 170, 20)];
+		[field addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
+        field.text = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
+        field.textAlignment = UITextAlignmentRight;
+        field.delegate = self;
+        
+        cell.accessoryView = field;
+        [field release];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	} else {
 		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryNone;
@@ -175,14 +189,23 @@ enum HCSettingsType {
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {	
+    [self.view endEditing:YES];
+    
 	NSInteger section = indexPath.section;
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 	
-	if (action.type != HCSwitchSetting) {
+	if (action.type != HCSwitchSetting && action.type != HCTextField) {
 		[self performSelector:action.selector];	
 	}
+}
+
+#pragma mark -
+#pragma mark Touch Events
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 
@@ -197,6 +220,18 @@ enum HCSettingsType {
 - (void)switchSound: (id)sender {
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"playSound"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];    
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	[[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+
+    NSLog(@"typed %@", textField.text);
 }
 
 - (void)showTutorial {

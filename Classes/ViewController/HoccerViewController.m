@@ -78,7 +78,12 @@
 
 + (void) initialize {
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
-	[[NSUserDefaults standardUserDefaults] registerDefaults: [NSDictionary dictionaryWithContentsOfFile: filepath]];
+	
+    NSMutableDictionary *defauts = [NSMutableDictionary dictionaryWithContentsOfFile: filepath];
+    [defauts setObject:[UIDevice currentDevice].name forKey:@"clientName"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults: defauts];
+    
 }
 
 - (void)didReceiveMemoryWarning {

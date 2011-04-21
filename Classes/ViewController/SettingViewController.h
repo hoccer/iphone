@@ -11,7 +11,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface SettingViewController : UIViewController <UIAlertViewDelegate> {
+@interface SettingViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate> {
 	NSMutableArray *sections;
 	
 	UINavigationController *parentNavigationController;
