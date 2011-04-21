@@ -579,8 +579,10 @@
         [desktopData addhoccerController:self.sendingItem];
         self.sendingItem = nil;
 	} else {
-        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-		[desktopData removeHoccerController:item];
+        if ([desktopData count] > 0) {
+            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+            [desktopData removeHoccerController:item];
+        }
 	}
 	
 	[desktopView reloadData];	

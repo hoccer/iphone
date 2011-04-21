@@ -14,14 +14,12 @@
 @synthesize tableView;
 
 - (void)calculateHightForText: (NSString *)text {
-    NSLog(@"calculating height");
     CGRect frame = self.view.frame;
 	frame.size.height = [self.group count] * self.tableView.rowHeight;
     self.view.frame = frame;
 }
 
 - (void)setGroup: (NSArray *)newGroup {
-    NSLog(@"group %@", newGroup);
     if (group != newGroup) {
         [group release];
         group = [newGroup retain];
@@ -41,6 +39,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
+    
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
@@ -55,8 +54,7 @@
 - (void)dealloc {
     [group release];
     [tableView release];
-    
-    [tableView release];
+
     [super dealloc];
 }
 

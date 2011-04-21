@@ -86,6 +86,7 @@
 - (void)removePopOverFromSuperview;
 - (void)hidePopOverAnimated: (BOOL) animate;
 - (void)setHoccabilityButton: (NSInteger)theHoccability;
+- (void)showHoccability;
 
 @end
 
@@ -127,7 +128,7 @@
 	[desktopView addSubview:statusViewController.view];
 	statusViewController.view.frame = statusRect;
 	
-	[desktopView addSubview:infoViewController.view];
+	[desktopView insertSubview:infoViewController.view atIndex:0];
 	infoViewController.view.frame = statusRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
@@ -147,6 +148,7 @@
 	[auxiliaryView release];
 	[delayedAction release];
 	[helpController release];
+    [hoccabilityButton release];
 	
 	[super dealloc];
 }
@@ -247,7 +249,6 @@
 	[self hidePopOverAnimated:YES];
 }
 
-
 - (void)showSelectContentView {
 	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
 	selectContentViewController.delegate = self;
@@ -343,16 +344,13 @@
 	self.gestureInterpreter.delegate = self;
 	
 	[navigationController popToRootViewControllerAnimated:YES];
-	[navigationItem setRightBarButtonItem:nil animated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+    
+    [self showHoccability];
 }
 
 #pragma mark -
 #pragma mark Linccer Delegate Methods
-- (void) linccer:(HCLinccer *)aLinccer didUpdateEnvironment:(NSDictionary *)quality {
-	[super linccer:aLinccer didUpdateEnvironment:quality];
-}
-
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
     NSLog(@"group size %d", [group count]);
     [self setHoccabilityButton: [group count]];
@@ -395,16 +393,24 @@
 		return;
 	}
 	
-    UIButton *hoccabilityButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[hoccabilityButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-	hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
-    
+    if (hoccabilityButton == nil) {
+        hoccabilityButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [hoccabilityButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
+        hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
+    }
+
     [hoccabilityButton setTitle:[[NSNumber numberWithInt:theHoccability] stringValue] 
-                       forState:UIControlStateNormal];
-    
+                       forState:UIControlStateNormal];        
+
+    [self showHoccability];
+}
+
+- (void)showHoccability {
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
+    [hoccabilityButton release];    
 }
+
 
 - (void)pressedButton: (id)sender {	
 	if (infoViewController.view.hidden == NO) {

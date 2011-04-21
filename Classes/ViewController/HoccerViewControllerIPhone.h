@@ -23,7 +23,9 @@
 	
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
-	HelpController *helpController;
+	
+    HelpController *helpController;
+    UIButton *hoccabilityButton;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
