@@ -97,6 +97,7 @@
 	
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
+    linccer.clientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
 	
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -119,6 +120,11 @@
 											 selector:@selector(networkChanged:) 
 												 name:@"NetworkConnectionChanged" 
 											   object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(clientNameChanged:) 
+                                                 name:@"clientNameChanged" 
+                                               object:nil];
 }
 
 
@@ -551,6 +557,11 @@
 - (void)networkChanged: (NSNotification *)notification {
 	[linccer updateEnvironment];
 }
+
+- (void)clientNameChanged: (NSNotification *)notification {
+    linccer.clientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
+}
+
 
 #pragma mark -
 #pragma mark Private Methods

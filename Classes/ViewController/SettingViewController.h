@@ -21,7 +21,7 @@
 	UIView * hoccerSettingsLogo;
 	
 	MBProgressHUD *progressHUD;
-	
+	UITextField *activeField;
 	
 }
 

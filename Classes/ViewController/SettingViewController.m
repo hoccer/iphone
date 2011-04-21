@@ -72,6 +72,8 @@ enum HCSettingsType {
 - (void)showFacebook;
 - (void)showBookmarklet;
 
+- (void)registerForKeyboardNotifications;
+
 @end
 
 
@@ -125,6 +127,8 @@ enum HCSettingsType {
 	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section4];
+    
+    [self registerForKeyboardNotifications];
 }
 
 #pragma mark -
@@ -169,9 +173,11 @@ enum HCSettingsType {
     } else if (action.type == HCTextField) {    
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 170, 20)];
 		[field addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
-        field.text = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
-        field.textAlignment = UITextAlignmentRight;
-        field.delegate = self;
+        field.text            = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
+        field.textAlignment   = UITextAlignmentRight;
+        field.returnKeyType   = UIReturnKeyDone;
+        field.clearButtonMode = UITextFieldViewModeNever;
+        field.delegate        = self;
         
         cell.accessoryView = field;
         [field release];
@@ -227,11 +233,21 @@ enum HCSettingsType {
     return YES;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-	[[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    activeField = textField;
+}
 
-    NSLog(@"typed %@", textField.text);
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSString *oldClientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
+    if (![oldClientName isEqualToString:textField.text]) {
+        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"clientNameChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+    
+    activeField = nil;
 }
 
 - (void)showTutorial {
@@ -277,6 +293,52 @@ enum HCSettingsType {
 - (void)showFacebook {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://touch.facebook.com/hoccer"]];
 }
+
+
+// Call this method somewhere in your view controller setup code.
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGFloat kbHeight = kbSize.height - 50;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.tableView.frame;
+    aRect.size.height -= kbHeight;
+    NSLog(@"frame %@, %@", 
+          NSStringFromCGRect(aRect),
+          NSStringFromCGRect(activeField.frame));
+
+    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y + activeField.frame.size.height);
+        [self.tableView setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+}
+
+
 
 #pragma mark -
 #pragma mark Memory management
