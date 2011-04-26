@@ -359,9 +359,6 @@
             [others addObject:dict];            
         }
     }
-
-    
-    
     [infoViewController setGroup: others];
 }
 
@@ -407,8 +404,8 @@
         hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
     }
 
-    [hoccabilityButton setTitle:[[NSNumber numberWithInt:theHoccability] stringValue] 
-                       forState:UIControlStateNormal];        
+    NSString *count = (theHoccability < 2) ? @"--" : [[NSNumber numberWithInt:theHoccability-1] stringValue];
+    [hoccabilityButton setTitle: count forState:UIControlStateNormal];        
 
     [self showHoccability];
 }
