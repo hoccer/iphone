@@ -156,7 +156,8 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
+//	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
+    hoccabilityButton.hidden = NO;
 }
 
 - (IBAction)selectContacts: (id)sender {
