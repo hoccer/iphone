@@ -202,7 +202,11 @@ enum HCSettingsType {
 	
 	SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 	
-	if (action.type != HCSwitchSetting && action.type != HCTextField) {
+    if (action.type == HCTextField) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.accessoryView becomeFirstResponder];
+        
+    } else if (action.type != HCSwitchSetting) {
 		[self performSelector:action.selector];	
 	}
 }
