@@ -156,7 +156,6 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-//	[self setHoccabilityButton: [[self.hoccabilityInfo objectForKey:@"quality"] intValue]];
     hoccabilityButton.hidden = NO;
 }
 
@@ -352,9 +351,18 @@
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
-    NSLog(@"group size %d", [group count]);
     [self setHoccabilityButton: [group count]];
-    [infoViewController setGroup: group];
+    
+    NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
+    for (NSDictionary *dict in group) {
+        if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
+            [others addObject:dict];            
+        }
+    }
+
+    
+    
+    [infoViewController setGroup: others];
 }
 
 
