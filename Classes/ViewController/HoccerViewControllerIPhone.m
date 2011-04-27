@@ -351,6 +351,7 @@
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
+    NSLog(@"group %@", group);
     [self setHoccabilityButton: [group count]];
     
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];

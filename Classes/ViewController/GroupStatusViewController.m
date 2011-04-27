@@ -45,9 +45,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    NSLog(@"group %@", group);
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    
     if ([client objectForKey:@"name"] != [NSNull null]) {
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
