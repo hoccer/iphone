@@ -176,7 +176,6 @@ enum HCSettingsType {
         field.text            = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
         field.textAlignment   = UITextAlignmentRight;
         field.returnKeyType   = UIReturnKeyDone;
-        field.clearButtonMode = UITextFieldViewModeNever;
         field.delegate        = self;
         
         cell.accessoryView = field;
