@@ -81,7 +81,7 @@
 @property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
-@property (nonatomic, retain) IBOutlet 	GroupStatusViewController *infoViewController;
+@property (nonatomic, retain) IBOutlet GroupStatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
 @property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;

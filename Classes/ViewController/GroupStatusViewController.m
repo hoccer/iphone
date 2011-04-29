@@ -12,6 +12,12 @@
 @implementation GroupStatusViewController
 @synthesize group;
 @synthesize tableView;
+@synthesize delegate;
+
+- (void)viewDidLoad {
+    selectedClients = [[NSMutableArray alloc] init];
+}
+
 
 - (void)calculateHightForText: (NSString *)text {
     CGRect frame = self.view.frame;
@@ -26,6 +32,21 @@
         [self.tableView reloadData];
         
         [self calculateHightForText:@"bla"];
+        
+        BOOL selectionChanged = NO;
+        for (NSInteger i = [selectedClients count] - 1; i >= 0 ; i--) {
+            NSDictionary *client = [selectedClients objectAtIndex:i];
+            if (![group containsObject:client]) {
+                [selectedClients removeObject:client];
+                selectionChanged = YES;
+            }
+        }
+        
+        if (selectionChanged) {
+            if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+                [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+            }
+        }
     }
 }
 
@@ -49,23 +70,52 @@
     if ([client objectForKey:@"name"] != [NSNull null]) {
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
-        cell.textLabel.text = @"<unknown>";
+        NSString *uuid = [client objectForKey:@"id"];
+        NSString *tmpName = [NSString stringWithFormat:@"unknown %@", [uuid substringToIndex:8]];
+        cell.textLabel.text = tmpName;
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if ([selectedClients containsObject:client]) {
+        cell.accessoryType =UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType =UITableViewCellAccessoryNone;        
     }
     
     return cell;
 }
 
-- (void)dealloc {
-    [group release];
-    [tableView release];
-
-    [super dealloc];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    NSDictionary *client = [group objectAtIndex:indexPath.row];
+    if ([selectedClients containsObject:client]) {
+        [selectedClients removeObject:client];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        [selectedClients addObject:client];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+        [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+    }
 }
-
-
 
 - (void)viewDidUnload {
     [self setTableView:nil];
     [super viewDidUnload];
 }
+
+- (void)dealloc {
+    [group release];
+    [tableView release];
+    [selectedClients release];
+
+    [super dealloc];
+}
+
 @end

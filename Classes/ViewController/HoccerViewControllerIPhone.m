@@ -132,6 +132,7 @@
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
+    infoViewController.delegate = self;
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
@@ -351,7 +352,6 @@
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
-    NSLog(@"group %@", group);
     [self setHoccabilityButton: [group count]];
     
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
@@ -362,6 +362,11 @@
     }
     [infoViewController setGroup: others];
 }
+
+- (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients {
+    NSLog(@"clients %@", clients);
+}
+
 
 
 #pragma mark -
