@@ -389,10 +389,10 @@
     NSLog(@"canceled");
 	connectionEstablished = NO;
     
-	BOOL isConnecting = [linccer isLinccing] || [transferController hasTransfers];
-	if (!self.sendingItem || !isConnecting) {
-		return;
-	}
+    if (![linccer isLinccing] && ![transferController hasTransfers]) {
+        return;
+    }
+    
 	[linccer cancelAllRequest];
 
 	if (self.sendingItem) {
@@ -409,6 +409,8 @@
 	}
 
 	[desktopView reloadData];
+    
+    NSLog(@"is linccing %d", [linccer isLinccing]);
 }
 
 #pragma mark -
