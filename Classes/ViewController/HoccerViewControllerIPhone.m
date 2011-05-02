@@ -364,7 +364,19 @@
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients {
-    NSLog(@"clients %@", clients);
+    NSMutableArray *clientIds = [NSMutableArray array];
+    for (NSDictionary *dict in clients) {
+        [clientIds addObject:[dict objectForKey:@"id"]];
+    }
+
+    NSMutableDictionary *userInfo = [[linccer.userInfo mutableCopy] autorelease];
+    if (userInfo == nil) {
+        userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+    
+    [userInfo setObject:clientIds forKey:@"selected_clients"];
+    
+    linccer.userInfo = userInfo;
 }
 
 

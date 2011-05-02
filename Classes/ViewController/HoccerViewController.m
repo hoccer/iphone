@@ -60,6 +60,8 @@
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
 
+- (void)clientNameChanged: (NSNotification *)notification;
+
 @end
 
 @implementation HoccerViewController
@@ -97,8 +99,8 @@
 	
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
-    linccer.clientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
-	
+    [self clientNameChanged:nil];	
+    
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
 
@@ -561,7 +563,14 @@
 }
 
 - (void)clientNameChanged: (NSNotification *)notification {
-    linccer.clientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
+    NSMutableDictionary *userInfo = [[linccer.userInfo mutableCopy] autorelease];
+    if (userInfo == nil) {
+        userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+
+    [userInfo setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"] forKey:@"client_name"];
+
+    linccer.userInfo = userInfo;
 }
 
 
