@@ -106,9 +106,6 @@ enum HCSettingsType {
 
 	NSMutableArray *section1 = [NSMutableArray arrayWithCapacity:3];
 
-    SettingsAction *openPreviewAction = [SettingsAction actionWithDescription:@"Auto-Preview" selector:@selector(switchPreview:) type: HCSwitchSetting];
-	openPreviewAction.defaultValue = @"openInPreview";		
-	[section1 addObject:openPreviewAction];
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
 	

@@ -629,12 +629,6 @@
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
 	
 	connectionEstablished = NO;
-    
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"openInPreview"] boolValue]) {
-        [item.content.interactionController setDelegate: self];
-        [item.content.interactionController presentPreviewAnimated:YES];
-    }
-
 }
 
 - (void)showNetworkError: (NSError *)error {	
