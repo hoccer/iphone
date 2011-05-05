@@ -21,7 +21,7 @@
 
 - (void)calculateHightForText: (NSString *)text {
     CGRect frame = self.view.frame;
-	frame.size.height = [self.group count] * self.tableView.rowHeight;
+	frame.size.height = [self.group count] * self.tableView.rowHeight + 20;
     self.view.frame = frame;
 }
 
@@ -31,7 +31,7 @@
         group = [newGroup retain];
         [self.tableView reloadData];
         
-        [self calculateHightForText:@"bla"];
+        [self calculateHightForText: nil];
         
         BOOL selectionChanged = NO;
         for (NSInteger i = [selectedClients count] - 1; i >= 0 ; i--) {
@@ -84,6 +84,10 @@
     }
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return NSLocalizedString(@"Restrict transfer to:", nil);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
