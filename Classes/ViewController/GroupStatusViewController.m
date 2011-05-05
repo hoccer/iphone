@@ -8,6 +8,7 @@
 
 #import "GroupStatusViewController.h"
 
+#define HCGroupListHeight 367
 
 @implementation GroupStatusViewController
 @synthesize group;
@@ -18,11 +19,19 @@
     selectedClients = [[NSMutableArray alloc] init];
 }
 
-
 - (void)calculateHightForText: (NSString *)text {
+    CGFloat height = [self.group count] * self.tableView.rowHeight + 20;
+    if (height < HCGroupListHeight) {
+        tableView.scrollEnabled = NO;
+    } else {
+        height = HCGroupListHeight;
+        tableView.scrollEnabled = YES;
+    }
+
     CGRect frame = self.view.frame;
-	frame.size.height = [self.group count] * self.tableView.rowHeight + 20;
+    frame.size.height = height;
     self.view.frame = frame;
+    
 }
 
 - (void)setGroup: (NSArray *)newGroup {
