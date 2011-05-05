@@ -20,7 +20,9 @@
 }
 
 - (void)calculateHightForText: (NSString *)text {
-    CGFloat height = [self.group count] * self.tableView.rowHeight + 20;
+    NSInteger rows = [self tableView:self.tableView numberOfRowsInSection:0];
+    CGFloat height = rows * self.tableView.rowHeight + 20;
+    
     if (height < HCGroupListHeight) {
         tableView.scrollEnabled = NO;
     } else {
@@ -91,7 +93,7 @@
     } else {
         cell.accessoryType =UITableViewCellAccessoryNone;        
     }
-    
+
     return cell;
 }
 
