@@ -21,8 +21,12 @@
 
 - (void)calculateHightForText: (NSString *)text {
     NSInteger rows = [self tableView:self.tableView numberOfRowsInSection:0];
-    CGFloat height = rows * self.tableView.rowHeight + 20;
     
+    CGFloat height = 0;
+    if (rows != 0) {
+        height = rows * self.tableView.rowHeight + 20;        
+    }
+
     if (height < HCGroupListHeight) {
         tableView.scrollEnabled = NO;
     } else {
@@ -78,7 +82,7 @@
     }
     
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([client objectForKey:@"name"] == [NSNull null] ) {
+    if ([client objectForKey:@"name"] != [NSNull null] ) {
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
         NSString *uuid = [client objectForKey:@"id"];
