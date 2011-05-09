@@ -78,7 +78,7 @@
     }
     
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([client objectForKey:@"name"] != [NSNull null]) {
+    if ([client objectForKey:@"name"] == [NSNull null] ) {
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
         NSString *uuid = [client objectForKey:@"id"];
@@ -89,9 +89,9 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if ([selectedClients containsObject:client]) {
-        cell.accessoryType =UITableViewCellAccessoryCheckmark;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        cell.accessoryType =UITableViewCellAccessoryNone;        
+        cell.accessoryType = UITableViewCellAccessoryNone;        
     }
 
     return cell;

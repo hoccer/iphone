@@ -100,7 +100,7 @@ enum HCSettingsType {
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 
-	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Name" selector:@selector(editedText:) type: HCTextField];
+	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Hoccer Name" selector:@selector(editedText:) type: HCTextField];
     nameAction.defaultValue = @"clientName";
 	[sections addObject:[NSArray arrayWithObject:nameAction]];
 
