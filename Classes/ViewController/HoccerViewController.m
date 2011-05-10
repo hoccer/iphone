@@ -8,7 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
-#import <YAJLIOS/YAJLIOS.h>
+#import <YAJLiOS/YAJL.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import "Hoccer.h"
 

@@ -11,8 +11,6 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		220B0B25125601B600AE2AE3 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220B0B24125601B600AE2AE3 /* YAJLIOS.framework */; };
-		220B0BB91256350400AE2AE3 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220B0B24125601B600AE2AE3 /* YAJLIOS.framework */; };
 		221D758E11A6929400246D89 /* history_ads_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758B11A6929400246D89 /* history_ads_rowbg.png */; };
 		221D758F11A6929400246D89 /* history_empty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758C11A6929400246D89 /* history_empty_rowbg.png */; };
 		221D759011A6929400246D89 /* history_firstempty_rowbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 221D758D11A6929400246D89 /* history_firstempty_rowbg.png */; };
@@ -485,6 +483,7 @@
 		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12748B5135DE75800AA1829 /* GroupStatusViewController.m */; };
 		E12748B7135DE75800AA1829 /* GroupStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12748B5135DE75800AA1829 /* GroupStatusViewController.m */; };
+		E12AADD5137990B700843BE3 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12AADD4137990B700843BE3 /* YAJLiOS.framework */; };
 		E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AA13004E0D00C87E53 /* catch_180.m4v */; };
 		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
@@ -556,7 +555,6 @@
 		1D3623250D0F684500981E51 /* HoccerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Hoccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		220B0B24125601B600AE2AE3 /* YAJLIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLIOS.framework; path = lib/YAJLIOS.framework; sourceTree = "<group>"; };
 		221D758B11A6929400246D89 /* history_ads_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_ads_rowbg.png; sourceTree = "<group>"; };
 		221D758C11A6929400246D89 /* history_empty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_empty_rowbg.png; sourceTree = "<group>"; };
 		221D758D11A6929400246D89 /* history_firstempty_rowbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_firstempty_rowbg.png; sourceTree = "<group>"; };
@@ -883,6 +881,7 @@
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
 		E12748B4135DE75800AA1829 /* GroupStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatusViewController.h; sourceTree = "<group>"; };
 		E12748B5135DE75800AA1829 /* GroupStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStatusViewController.m; sourceTree = "<group>"; };
+		E12AADD4137990B700843BE3 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLiOS.framework; path = lib/YAJLiOS.framework; sourceTree = "<group>"; };
 		E12B51AA13004E0D00C87E53 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
 		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
@@ -972,8 +971,8 @@
 				22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */,
 				22CCDCEF1199B7EC00CDFAA2 /* MessageUI.framework in Frameworks */,
 				224EA1E711A3F02F003E02B5 /* StoreKit.framework in Frameworks */,
-				220B0B25125601B600AE2AE3 /* YAJLIOS.framework in Frameworks */,
 				E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */,
+				E12AADD5137990B700843BE3 /* YAJLiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,7 +1013,6 @@
 				2284F98811A2BBA7004EFF7F /* MessageUI.framework in Frameworks */,
 				22638DDA11B53DAE0024AA7E /* StoreKit.framework in Frameworks */,
 				22A172B21228159B0055975C /* libGHUnitIOSSimulator.a in Frameworks */,
-				220B0BB91256350400AE2AE3 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1778,6 +1776,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E12AADD4137990B700843BE3 /* YAJLiOS.framework */,
 				2271E2E6109F26EE003D5C68 /* QuartzCore.framework */,
 				227A960810973CED008CE547 /* MediaPlayer.framework */,
 				229DAF11107B331F00B47ABE /* AddressBook.framework */,
@@ -1791,7 +1790,6 @@
 				22A74BCF116C88A700F3E4B4 /* CoreData.framework */,
 				22CCDCEE1199B7EC00CDFAA2 /* MessageUI.framework */,
 				224EA1E611A3F02F003E02B5 /* StoreKit.framework */,
-				220B0B24125601B600AE2AE3 /* YAJLIOS.framework */,
 				E10685AB1317F7FF009247CF /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
@@ -2659,7 +2657,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -2868,8 +2866,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -2889,8 +2887,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../lib";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
