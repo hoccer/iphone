@@ -29,7 +29,7 @@
         NSLog(@"not registered");
 		return NO;
 	}
-	
+    	
 	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
 		return YES;
 	}

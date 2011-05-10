@@ -75,7 +75,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    NSLog(@"url %@", [url scheme]);
     if (!url) {
 		return NO;
 	}

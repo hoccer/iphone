@@ -320,9 +320,6 @@ enum HCSettingsType {
     
     CGRect aRect = self.tableView.frame;
     aRect.size.height -= kbHeight;
-    NSLog(@"frame %@, %@", 
-          NSStringFromCGRect(aRect),
-          NSStringFromCGRect(activeField.frame));
 
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
         CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y + activeField.frame.size.height);

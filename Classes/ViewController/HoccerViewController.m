@@ -213,7 +213,9 @@
         for (id transferer in [content transferers]) {
             [transferController addContentToTransferQueue: transferer];
         }
-	}
+	} else {
+        fileUploaded = YES;
+    }
 		
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
@@ -290,6 +292,8 @@
 	
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
+    
+    self.sendingItem = nil;
 }
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
@@ -348,6 +352,7 @@
 	[self willStartDownload:item];
 	
 	[linccer receiveWithMode:HCTransferModeOneToOne];
+    self.sendingItem = nil;
 }
 
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
@@ -388,7 +393,6 @@
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
-    NSLog(@"canceled");
 	connectionEstablished = NO;
     
     if (![linccer isLinccing] && ![transferController hasTransfers]) {
@@ -411,8 +415,6 @@
 	}
 
 	[desktopView reloadData];
-    
-    NSLog(@"is linccing %d", [linccer isLinccing]);
 }
 
 #pragma mark -
