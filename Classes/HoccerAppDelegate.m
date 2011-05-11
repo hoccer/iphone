@@ -6,6 +6,7 @@
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
 
+#import <YAJLiOS/YAJL.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
 #import "HoccerAppDelegate.h"
@@ -47,8 +48,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [defaults registerDefaults:appDefaults];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	application.applicationSupportsShakeToEdit = NO;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
 	
 	[window addSubview:viewController.view];

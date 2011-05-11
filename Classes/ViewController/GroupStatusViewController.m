@@ -86,7 +86,7 @@
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
         NSString *uuid = [client objectForKey:@"id"];
-        NSString *tmpName = [NSString stringWithFormat:@"unknown %@", [uuid substringToIndex:8]];
+        NSString *tmpName = [NSString stringWithFormat:@"#%@", [uuid substringToIndex:8]];
         cell.textLabel.text = tmpName;
     }
     
