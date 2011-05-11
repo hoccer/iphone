@@ -121,6 +121,13 @@ enum HCSettingsType {
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
+    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"Renew your client id on each startup" 
+                                                                    selector:@selector(renewUUID:) 
+                                                                        type:HCSwitchSetting];
+    renewUUIDOnStart.defaultValue = @"renewUUID";
+    
+    [sections addObject:[NSArray arrayWithObject:renewUUIDOnStart]];
+    
 	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section4];
@@ -226,6 +233,11 @@ enum HCSettingsType {
 - (void)switchSound: (id)sender {
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"playSound"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)renewUUID: (id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewUUID"];
+	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
