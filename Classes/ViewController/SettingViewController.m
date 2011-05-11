@@ -121,7 +121,7 @@ enum HCSettingsType {
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
-    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"Renew your client id on each startup" 
+    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"New clientId on start" 
                                                                     selector:@selector(renewUUID:) 
                                                                         type:HCSwitchSetting];
     renewUUIDOnStart.defaultValue = @"renewUUID";
