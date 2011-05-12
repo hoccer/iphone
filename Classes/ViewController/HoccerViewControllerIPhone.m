@@ -85,8 +85,8 @@
 - (void)showHistoryView;
 - (void)removePopOverFromSuperview;
 - (void)hidePopOverAnimated: (BOOL) animate;
-- (void)setHoccabilityButton: (NSInteger)theHoccability;
-- (void)showHoccability;
+- (void)updateGroupButton;
+- (void)showGroupButton;
 
 @end
 
@@ -106,7 +106,6 @@
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
-	[self setHoccabilityButton: 0];
 
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -138,6 +137,7 @@
 	[helpController viewDidLoad];
 	
 	[self showHud];
+    [self updateGroupButton];
 }
 
 - (void) dealloc {
@@ -148,7 +148,7 @@
 	[auxiliaryView release];
 	[delayedAction release];
 	[helpController release];
-    [hoccabilityButton release];
+    [groupSizeButton release];
 	
 	[super dealloc];
 }
@@ -157,7 +157,7 @@
 	[super setContentPreview:content];
 	
 	self.tabBar.selectedItem = nil;
-    hoccabilityButton.hidden = NO;
+    groupSizeButton.hidden = NO;
 }
 
 - (IBAction)selectContacts: (id)sender {
@@ -346,13 +346,12 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
-    [self showHoccability];
+    [self showGroupButton];
 }
 
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
-    [self setHoccabilityButton: [group count]];
     
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
     for (NSDictionary *dict in group) {
@@ -360,7 +359,9 @@
             [others addObject:dict];            
         }
     }
+    
     [infoViewController setGroup: others];
+    [self updateGroupButton];
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients {
@@ -377,6 +378,7 @@
     [userInfo setObject:clientIds forKey:@"selected_clients"];
     
     linccer.userInfo = userInfo;
+    [self updateGroupButton];
 }
 
 
@@ -411,27 +413,36 @@
 
 #pragma mark -
 #pragma mark Private Methods
-- (void)setHoccabilityButton: (NSInteger)theHoccability {
+- (void)updateGroupButton {
 	if (navigationItem.titleView == nil) {
 		return;
 	}
 	
-    if (hoccabilityButton == nil) {
-        hoccabilityButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-        [hoccabilityButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        hoccabilityButton.frame = CGRectMake(0, 0, 36, 52);
+    if (groupSizeButton == nil) {
+        groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
+        groupSizeButton.frame = CGRectMake(0, 0, 36, 52);
     }
+    
+    NSInteger groupCount = [[infoViewController group] count];
+    NSString *text = nil;
+    if (groupCount < 2) {
+        text = @"--";
+    } else if ([[infoViewController selectedClients] count] > 0) {
+        text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
+    } else {
+        text = [NSString stringWithFormat: @"%d", groupCount];
+    }
+    
+    [groupSizeButton setTitle: text forState:UIControlStateNormal];        
 
-    NSString *count = (theHoccability < 2) ? @"--" : [[NSNumber numberWithInt:theHoccability-1] stringValue];
-    [hoccabilityButton setTitle: count forState:UIControlStateNormal];        
-
-    [self showHoccability];
+    [self showGroupButton];
 }
 
-- (void)showHoccability {
-	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hoccabilityButton];
+- (void)showGroupButton {
+	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-    [hoccabilityButton release];    
+    [groupSizeButton release];    
 }
 
 
@@ -445,7 +456,7 @@
 
 - (void) showNetworkError:(NSError *)error {
 	[super showNetworkError:error];
-	[self setHoccabilityButton:0];
+	[self updateGroupButton];
 }
 
 @end

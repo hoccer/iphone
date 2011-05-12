@@ -26,7 +26,7 @@
 	UINavigationItem *navigationItem;
 	
     HelpController *helpController;
-    UIButton *hoccabilityButton;
+    UIButton *groupSizeButton;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;

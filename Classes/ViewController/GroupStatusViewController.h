@@ -24,6 +24,7 @@
 
 
 @property (retain, nonatomic) NSArray *group;
+@property (readonly, nonatomic) NSArray *selectedClients;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (retain) id <GroupStatusViewControllerDelegate> delegate;
 

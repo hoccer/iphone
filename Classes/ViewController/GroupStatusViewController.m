@@ -14,6 +14,7 @@
 @synthesize group;
 @synthesize tableView;
 @synthesize delegate;
+@synthesize selectedClients;
 
 - (void)viewDidLoad {
     selectedClients = [[NSMutableArray alloc] init];
@@ -82,7 +83,7 @@
     }
     
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([client objectForKey:@"name"] != [NSNull null] ) {
+    if ([client objectForKey:@"name"] != [NSNull null] && ![[client objectForKey:@"name"] isEqualToString:@""]) {
         cell.textLabel.text = [client objectForKey:@"name"];
     } else {
         NSString *uuid = [client objectForKey:@"id"];
