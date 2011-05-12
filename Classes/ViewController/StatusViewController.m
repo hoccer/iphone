@@ -228,7 +228,7 @@
 	
 	if (animation) {
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y - 100)];
+		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
 		animation.fillMode = kCAFillModeBoth;
 		animation.removedOnCompletion = NO;
 		animation.duration = 0.2;
