@@ -22,6 +22,7 @@
 @interface HoccerImage ()
 
 - (void)createThumb;
+- (CGSize)mediumVersionSizeForSize: (CGSize)size;
 
 @end
 
@@ -72,7 +73,9 @@
 - (void)createDataRepresentaion: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	content.data = UIImageJPEGRepresentation(content.image, 0.8);
+    CGSize smallerSize = [self mediumVersionSizeForSize:content.image.size];
+	content.data = UIImageJPEGRepresentation([content.image gtm_imageByResizingToSize:smallerSize 
+                                                                  preserveAspectRatio:YES trimToFit:NO], 0.8);
 	[content saveDataToDocumentDirectory];
 	    
 	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
@@ -231,6 +234,27 @@
     }
     
     return preview;
+}
+
+
+- (CGSize)mediumVersionSizeForSize: (CGSize)size {
+    CGFloat MAX_LENGTH = 960;
+    CGSize newSize = size;
+    
+    if (newSize.height > MAX_LENGTH) {
+        CGFloat factor = newSize.height / MAX_LENGTH;
+        newSize.height = newSize.height / factor;
+        newSize.width  = newSize.width  / factor;
+    }
+    
+    if (newSize.width > MAX_LENGTH) {
+        CGFloat factor = newSize.width / MAX_LENGTH;
+        newSize.height = newSize.height / factor;
+        newSize.width  = newSize.width  / factor;
+    }
+    
+    NSLog(@"size %@", NSStringFromCGSize(newSize));
+    return newSize;
 }
 
 
