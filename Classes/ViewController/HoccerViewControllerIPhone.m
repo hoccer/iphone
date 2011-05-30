@@ -426,7 +426,7 @@
     
     NSInteger groupCount = [[infoViewController group] count];
     NSString *text = nil;
-    if (groupCount < 2) {
+    if (groupCount < 1) {
         text = @"--";
     } else if ([[infoViewController selectedClients] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
