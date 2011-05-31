@@ -360,6 +360,7 @@
         }
     }
     
+    NSLog(@"setting group %@", others);
     [infoViewController setGroup: others];
     [self updateGroupButton];
 }

@@ -560,7 +560,7 @@
 }
 
 - (void)networkChanged: (NSNotification *)notification {
-	[linccer updateEnvironment];
+	[linccer reactivate];
 }
 
 - (void)clientNameChanged: (NSNotification *)notification {
