@@ -262,7 +262,7 @@
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = NSLocalizedString(@"Settings", nil);
-	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
