@@ -253,7 +253,6 @@
         newSize.width  = newSize.width  / factor;
     }
     
-    NSLog(@"size %@", NSStringFromCGSize(newSize));
     return newSize;
 }
 

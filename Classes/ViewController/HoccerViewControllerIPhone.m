@@ -360,7 +360,6 @@
         }
     }
     
-    NSLog(@"setting group %@", others);
     [infoViewController setGroup: others];
     [self updateGroupButton];
 }
@@ -407,8 +406,10 @@
 - (void)handleError: (NSError *)error {
     [super handleError:error];
     
-    [groupSizeButton setTitle: @"--" forState:UIControlStateNormal];
-    [infoViewController setGroup:nil];
+    if (error != nil && [[error domain] isEqual:NSURLErrorDomain]) {
+        [groupSizeButton setTitle: @"--" forState:UIControlStateNormal];
+        [infoViewController setGroup:nil];
+    }
 }
 
 #pragma mark -
