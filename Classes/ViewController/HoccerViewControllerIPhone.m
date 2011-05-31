@@ -403,6 +403,13 @@
 	}
 }
 
+- (void)handleError: (NSError *)error {
+    [super handleError:error];
+    
+    [groupSizeButton setTitle: @"--" forState:UIControlStateNormal];
+    [infoViewController setGroup:nil];
+}
+
 #pragma mark -
 #pragma mark User Actions
 - (IBAction)cancelPopOver {
@@ -427,7 +434,7 @@
     NSInteger groupCount = [[infoViewController group] count];
     NSString *text = nil;
     if (groupCount < 1) {
-        text = @"--";
+        text = @"0";
     } else if ([[infoViewController selectedClients] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
     } else {

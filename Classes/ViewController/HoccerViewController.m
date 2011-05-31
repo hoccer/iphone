@@ -54,7 +54,6 @@
 @interface HoccerViewController ()
 @property (retain, nonatomic) ItemViewController *sendingItem;
 
-- (void)handleError: (NSError *)error;
 - (NSString *)obfuscatedUUID: (NSString *)uuid;
 
 - (void)showNetworkError: (NSError *)error;

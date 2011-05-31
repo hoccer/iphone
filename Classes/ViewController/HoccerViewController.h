@@ -114,5 +114,7 @@
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
 
+- (void)handleError: (NSError *)error;
+
 @end
 
