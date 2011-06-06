@@ -488,6 +488,8 @@
 		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
+		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
+		E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C1CF2C139CCF7A00015DAC /* HocletView.xib */; };
 		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
 		E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
 		E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
@@ -886,6 +888,9 @@
 		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
+		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
+		E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHoclet.m; sourceTree = "<group>"; };
+		E1C1CF2C139CCF7A00015DAC /* HocletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HocletView.xib; sourceTree = "<group>"; };
 		E1EB75DD12FC593D007025A2 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 		E1EB75DE12FC593D007025A2 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		E609357F12A54A8500EE83EB /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
@@ -1343,8 +1348,9 @@
 				22638D5211B52D9D0024AA7E /* StatusViewController.xib */,
 				E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */,
 				22638D5311B52D9D0024AA7E /* TermOfUse.xib */,
-				22638D5411B52D9D0024AA7E /* TextView.xib */,
 				E1A3400D131CF09A00D25708 /* ErrorView.xib */,
+				E1C1CF2C139CCF7A00015DAC /* HocletView.xib */,
+				22638D5411B52D9D0024AA7E /* TextView.xib */,
 			);
 			name = Xibs;
 			path = Resources/Xibs;
@@ -1666,6 +1672,8 @@
 				22638BFD11B51E5C0024AA7E /* HoccerText.m */,
 				22638C0011B51E5C0024AA7E /* HoccerVcard.h */,
 				22638C0111B51E5C0024AA7E /* HoccerVcard.m */,
+				E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */,
+				E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -2181,6 +2189,7 @@
 				E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */,
 				E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */,
 				E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */,
+				E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2469,6 +2478,7 @@
 				E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */,
 				E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */,
 				E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
+				E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

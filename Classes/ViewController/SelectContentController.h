@@ -24,6 +24,5 @@
 - (IBAction)video: (id)sender;
 - (IBAction)text: (id)sender;
 - (IBAction)contact: (id)sender;
-- (IBAction)mycontact: (id)sender;
-
+- (IBAction)hoclet: (id)sender;
 @end

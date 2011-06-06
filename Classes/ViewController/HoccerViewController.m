@@ -144,6 +144,7 @@
 - (IBAction)selectContacts: (id)sender {}
 - (IBAction)selectImage: (id)sender {}
 - (IBAction)selectText: (id)sender {}
+- (IBAction)selectHoclet: (id)sender {}
 - (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}

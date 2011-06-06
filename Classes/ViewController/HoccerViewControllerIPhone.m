@@ -20,6 +20,7 @@
 #import "SettingViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
+#import "HoccerHoclet.h"
 
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
@@ -208,6 +209,12 @@
 	[imagePicker release];
 }
 
+- (IBAction)selectHoclet: (id)sender {
+    NSURL *URL = [NSURL URLWithString: @"http://hoccer.com/hoclet/test.html"];
+    HoccerContent *content = [[[HoccerHoclet alloc] initWithURL: URL] autorelease];
+    
+    [self setContentPreview:content];
+}
 
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			

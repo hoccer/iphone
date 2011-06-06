@@ -67,15 +67,6 @@
     [super viewDidLoad];
 }
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -117,8 +108,9 @@
 	[delegate checkAndPerformSelector:@selector(selectContacts:) withObject: self];
 }
 
-- (IBAction)mycontact: (id)sender; {
-	
+- (IBAction)hoclet: (id)sender {
+    NSLog(@"hoclet");
+    [delegate checkAndPerformSelector:@selector(selectHoclet:) withObject: self];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -134,8 +126,11 @@
 	
 	[buttons addObject: [Action actionWithAction:@selector(image:) label: NSLocalizedString(@"Photo", nil) image:[UIImage imageNamed: @"select_btn_photo.png"]]];
 	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
-	[buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
- 
+
+    [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    
+    [buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hoclet", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
 		HCButton *button = [self.buttonsContainer.subviews objectAtIndex:i];
@@ -148,6 +143,7 @@
 		[button addSubview: imageView];
 		[button setTitle:action.label forState:UIControlStateNormal];
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
+        button.enabled = YES;
 	}
 	
 	if ([buttons count] < 4) {
