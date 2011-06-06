@@ -197,7 +197,7 @@
 	NSString *ext = [self.filename pathExtension];
 	NSString *tmpPath = [self.filename stringByDeletingPathExtension];
     
-	return [[[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext] copy];
+	return [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
 }
 
 

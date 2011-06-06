@@ -28,7 +28,8 @@
         transferables = [[NSMutableArray alloc] init];
 		NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
         [transferables addObject: transferable];
-
+        [transferable release];
+        
         mimeType = @"application/octet-stream";
 	}
 	
@@ -46,6 +47,7 @@
         NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
         
         [transferables addObject: transferable];
+        [transferable release];
 	}
 	
 	return self;

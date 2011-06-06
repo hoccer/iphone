@@ -95,7 +95,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *urlString = [url absoluteString];
 	NSRange colon = [urlString rangeOfString:@":"];
 	NSString *content = [urlString substringFromIndex:(colon.location + 1)];
-	[viewController setContentPreview:[[HoccerText alloc] initWithData:[content dataUsingEncoding: NSUTF8StringEncoding]]];
+    HoccerText *contentView = [[[HoccerText alloc] initWithData:[content dataUsingEncoding: NSUTF8StringEncoding]] autorelease];
+	[viewController setContentPreview: contentView];
     
     return YES;
 }

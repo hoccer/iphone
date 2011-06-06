@@ -20,9 +20,7 @@
 	UITableView *tableView;
 	UIView * hoccerSettingsLogo;
 	
-	MBProgressHUD *progressHUD;
-	UITextField *activeField;
-	
+	UITextField *activeField;	
 }
 
 @property (retain) UINavigationController *parentNavigationController;

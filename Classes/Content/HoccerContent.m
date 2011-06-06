@@ -144,6 +144,7 @@
 
 	
 	[backgroundImage release];
+    [filenameLabel release];
 	[label release];
 	
 	return [view autorelease];

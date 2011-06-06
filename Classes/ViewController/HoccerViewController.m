@@ -169,9 +169,9 @@
 													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Update", nil];
 		[view show];
 		[view release];
-	
-		[httpClient release]; httpClient = nil;
 	}
+    
+    [httpClient release]; httpClient = nil;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -368,6 +368,7 @@
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 		
+    NSLog(@"sending %@", [self dictionaryToSend:item]);
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
     self.sendingItem = item;
@@ -705,6 +706,8 @@
 	[hoccingRules release];
 	[transferController release];
 	[hud release];
+    
+    [httpClient release];
 	
 	[super dealloc];
 }

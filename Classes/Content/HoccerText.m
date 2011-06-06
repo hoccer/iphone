@@ -48,6 +48,7 @@
 }
 	
 - (void)dealloc {
+    [view release];
 	[textView release];	
 	[super dealloc];
 }

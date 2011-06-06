@@ -23,6 +23,17 @@
     return self;
 }
 
+- (id) initWithDictionary: (NSDictionary *)dict {
+    self = [super init];
+    if (self != nil) {
+        if ([dict objectForKey:@"content"]) {
+            URL = [NSURL URLWithString:[dict objectForKey:@"content"]];
+        }
+    }
+    
+    return self;
+}
+
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
 	text.text = self.content;
@@ -34,15 +45,25 @@
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"HocletView" owner:self options:nil];
 	[webview loadRequest:[NSURLRequest requestWithURL:URL]];
-	return self.view;
+    
+    NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
+    NSString *code = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
+
+	[webview stringByEvaluatingJavaScriptFromString:code];
+
+    return self.view;
 }
 
 - (void)dealloc {
-	[webview release];	
+//	[webview release];	
     [view release];
     [URL release];
     
 	[super dealloc];
+}
+
+- (NSString *)content {
+    return [URL absoluteString];
 }
 
 - (NSString *)mimeType {
@@ -59,10 +80,6 @@
 
 - (NSString *)descriptionOfSaveButton {
     return nil;
-}
-
-- (NSString *)content {
-	return [NSString stringWithData:super.data usingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)saveDataToContentStorage {

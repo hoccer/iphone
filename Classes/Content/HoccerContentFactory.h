@@ -13,6 +13,7 @@
 #import "HoccerImage.h"
 #import "HoccerText.h"
 #import "HoccerVcard.h"
+#import "HoccerHoclet.h"
 
 
 @interface HoccerContentFactory : NSObject {

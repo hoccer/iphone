@@ -210,6 +210,8 @@
 }
 
 - (IBAction)selectHoclet: (id)sender {
+    [self hidePopOverAnimated: NO];
+
     NSURL *URL = [NSURL URLWithString: @"http://hoccer.com/hoclet/test.html"];
     HoccerContent *content = [[[HoccerHoclet alloc] initWithURL: URL] autorelease];
     

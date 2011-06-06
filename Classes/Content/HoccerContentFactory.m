@@ -20,7 +20,9 @@ static HoccerContentFactory* sharedInstance = nil;
 }
 
 - (HoccerContent *)createContentFromDict: (NSDictionary *)dictionary {
-	HoccerContent *hoccerContent = nil;
+	NSLog(@"creating from dict %@", dictionary);
+    
+    HoccerContent *hoccerContent = nil;
 	NSString *type = [dictionary objectForKey:@"type"];
 		
 	if ([type isEqual: @"text/x-vcard"]) {
@@ -29,7 +31,9 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerImage alloc] initWithDictionary: dictionary];
 	} else if ([type isEqual: @"text/plain"] || [type isEqual:@"text/uri-list"]) {
 		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
-	} else {
+	} else if ([type isEqual:@"text/x-hoclet"]) {
+        hoccerContent = [[HoccerHoclet alloc] initWithDictionary:dictionary];
+    } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
 		hoccerContent.mimeType = type;
 	}

@@ -49,7 +49,7 @@
 						<string key="NSFrameSize">{303, 224}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="523273710"/>
+						<reference key="NSNextKeyView" ref="153594661"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -57,10 +57,10 @@
 							<string key="NSResourceName">container_text-land.png</string>
 						</object>
 					</object>
-					<object class="IBUIWebView" id="523273710">
+					<object class="IBUIWebView" id="153594661">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {263, 189}}</string>
+						<string key="NSFrame">{{20, 20}, {263, 184}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -70,8 +70,7 @@
 						</object>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIDataDetectorTypes">1</int>
-						<bool key="IBUIDetectsPhoneNumbers">YES</bool>
+						<int key="IBUIDataDetectorTypes">2</int>
 					</object>
 				</object>
 				<string key="NSFrameSize">{303, 224}</string>
@@ -108,7 +107,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">webview</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="523273710"/>
+						<reference key="destination" ref="153594661"/>
 					</object>
 					<int key="connectionID">17</int>
 				</object>
@@ -128,7 +127,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="162352122"/>
-							<reference ref="523273710"/>
+							<reference ref="153594661"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -150,7 +149,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
-						<reference key="object" ref="523273710"/>
+						<reference key="object" ref="153594661"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
