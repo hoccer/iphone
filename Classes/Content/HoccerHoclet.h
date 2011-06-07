@@ -12,14 +12,13 @@
 @interface HoccerHoclet : HoccerContent {
     UIWebView *webview;
     Preview *view;
-    
-    NSURL *URL;
 }
 
 @property (nonatomic, readonly) NSString *content;
 @property (retain, nonatomic) IBOutlet UIWebView *webview;
 @property (retain, nonatomic) IBOutlet Preview *view;
 
-- (id)initWithURL: (NSString *)url;
+- (id)initWithURL: (NSURL *)url;
+- (NSURL *)url;
 
 @end

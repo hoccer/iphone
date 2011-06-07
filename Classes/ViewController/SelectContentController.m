@@ -109,7 +109,6 @@
 }
 
 - (IBAction)hoclet: (id)sender {
-    NSLog(@"hoclet");
     [delegate checkAndPerformSelector:@selector(selectHoclet:) withObject: self];
 }
 

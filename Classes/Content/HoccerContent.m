@@ -58,7 +58,8 @@
 		filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
                                                                   inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 		data = [theData retain];
-
+        
+        NSLog(@"init with data");
 		[self saveDataToDocumentDirectory];
 	}
 	
@@ -97,6 +98,7 @@
 #pragma mark -
 #pragma mark Saving and Removing 
 - (void) saveDataToDocumentDirectory {
+    NSLog(@"saveing to %@", self.filepath);
 	[data writeToFile: self.filepath atomically: NO];
 } 
 
@@ -142,7 +144,6 @@
 	filenameLabel.lineBreakMode = UILineBreakModeMiddleTruncation;
 	[view addSubview:filenameLabel];
 
-	
 	[backgroundImage release];
     [filenameLabel release];
 	[label release];

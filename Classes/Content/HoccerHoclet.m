@@ -9,73 +9,62 @@
 #import "HoccerHoclet.h"
 #import "NSString+StringWithData.h"
 
+@interface HoccerHoclet ()
+- (void)injectHocletToWebView: (UIWebView *)view;
+@end
+
 @implementation HoccerHoclet
 
 @synthesize webview;
 @synthesize view;
 
-- (id)initWithURL: (NSString *)url {
-    self = [super init];
-    if (self != nil) {
-        URL = [url retain];
-    }
-    
-    return self;
+- (id)initWithURL: (NSURL *)url {
+    return [super initWithData:[[url absoluteString] dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
-- (id) initWithDictionary: (NSDictionary *)dict {
-    self = [super init];
-    if (self != nil) {
-        if ([dict objectForKey:@"content"]) {
-            URL = [NSURL URLWithString:[dict objectForKey:@"content"]];
-        }
-    }
-    
-    return self;
+- (NSURL *)url {
+    NSString *urlString = [NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding];
+    return [NSURL URLWithString:urlString];
 }
+
 
 - (UIView *)fullscreenView {
-	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
-	text.text = self.content;
-	text.editable = YES;
-	
-	return [text autorelease];
+	UIWebView *aWebview = [[UIWebView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
+	[aWebview loadRequest:[NSURLRequest requestWithURL:[self url]]];
+    [self injectHocletToWebView:aWebview];
+    
+	return [aWebview autorelease];
 }
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"HocletView" owner:self options:nil];
-	[webview loadRequest:[NSURLRequest requestWithURL:URL]];
+	[webview loadRequest:[NSURLRequest requestWithURL:[self url]]];
+    [self injectHocletToWebView:webview];
     
-    NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
-    NSString *code = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
-
-	[webview stringByEvaluatingJavaScriptFromString:code];
-
     return self.view;
 }
 
 - (void)dealloc {
 //	[webview release];	
     [view release];
-    [URL release];
     
 	[super dealloc];
 }
 
 - (NSString *)content {
-    return [URL absoluteString];
+    return [[self url] absoluteString];
 }
 
 - (NSString *)mimeType {
-	return @"text/plain";
+	return @"text/x-hoclet";
 }
 
 - (NSString *)extension {
-	return @"txt";
+	return @"hlt";
 }
 
 - (NSString *)defaultFilename {
-	return @"Message";
+	return @"Hoclet";
 }
 
 - (NSString *)descriptionOfSaveButton {
@@ -83,8 +72,7 @@
 }
 
 - (BOOL)saveDataToContentStorage {
-	
-	return YES;
+	return NO;
 }
 
 - (UIImage *)imageForSaveButton {
@@ -102,6 +90,13 @@
 	[dictionary setObject:@"text/x-hoclet" forKey:@"type"];
     
 	return dictionary;
+}
+
+- (void)injectHocletToWebView: (UIWebView *)view {
+    NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
+    NSString *code = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
+    
+	[view stringByEvaluatingJavaScriptFromString:code];
 }
 
 @end
