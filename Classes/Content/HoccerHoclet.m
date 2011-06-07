@@ -92,11 +92,11 @@
 	return dictionary;
 }
 
-- (void)injectHocletToWebView: (UIWebView *)view {
+- (void)injectHocletToWebView: (UIWebView *)aView {
     NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
     NSString *code = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
     
-	[view stringByEvaluatingJavaScriptFromString:code];
+	[aView stringByEvaluatingJavaScriptFromString:code];
 }
 
 @end

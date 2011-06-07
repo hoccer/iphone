@@ -10,6 +10,7 @@
 #import "FileDownloader.h"
 #import "FileUploader.h"
 #import "NSString+URLHelper.h"
+#import "FileTransferer.h"
 
 @implementation HoccerFileContent
 
@@ -65,7 +66,8 @@
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
-	[dict setObject:[[[transferables objectAtIndex:0] url] stringByRemovingQuery] forKey:@"uri"];
+    NSString *string = [((FileTransferer *)[transferables objectAtIndex:0]) url];
+	[dict setObject:[string stringByRemovingQuery] forKey:@"uri"];
 	
 	return dict;
 }

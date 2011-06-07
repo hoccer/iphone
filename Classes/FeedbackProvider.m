@@ -8,6 +8,8 @@
 
 #import "FeedbackProvider.h"
 
+void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id);
+
 SystemSoundID catchId = 0;
 SystemSoundID throwId = 0;
 SystemSoundID sweepInId = 0;
@@ -18,8 +20,6 @@ SystemSoundID sweepOutId = 0;
 + (void)playSoundWithId: (SystemSoundID)soundId;
 
 @end
-
-
 
 void CreateSystemSoundIDFromWAVInRessources(CFStringRef name, SystemSoundID *id)
 {

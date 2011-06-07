@@ -31,7 +31,7 @@
 @property (retain, nonatomic) Preview* containedView;
 @property (retain) UIView *buttonContainer;
 
-@property (assign) CGPoint origin;
+@property (assign, nonatomic) CGPoint origin;
 
 - (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons;
 - (void)moveBy: (CGSize)distance;

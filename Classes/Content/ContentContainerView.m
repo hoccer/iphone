@@ -13,6 +13,8 @@
 #import "Preview.h"
 
 #define kSweepBorder 50
+CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y);
+CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY);
 
 CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y) {
 	return CGRectMake(x, y, rect.size.width, rect.size.height);
@@ -33,7 +35,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 - (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
-		containedView = [subview retain];
+		containedView = (Preview *)[subview retain];
 		
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
