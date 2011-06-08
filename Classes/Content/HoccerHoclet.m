@@ -11,6 +11,7 @@
 
 @interface HoccerHoclet ()
 - (void)injectHocletToWebView: (UIWebView *)view;
+- (void)setCookie;
 @end
 
 @implementation HoccerHoclet
@@ -19,7 +20,7 @@
 @synthesize view;
 
 - (id)initWithURL: (NSURL *)url {
-    return [super initWithData:[[url absoluteString] dataUsingEncoding:NSUTF8StringEncoding]];
+    return [self initWithData:[[url absoluteString] dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (NSURL *)url {
@@ -30,13 +31,17 @@
 
 - (UIView *)fullscreenView {
 	UIWebView *aWebview = [[UIWebView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
-	[aWebview loadRequest:[NSURLRequest requestWithURL:[self url]]];
+	
+    [self setCookie];
+    [aWebview loadRequest:[NSURLRequest requestWithURL:[self url]]];
     [self injectHocletToWebView:aWebview];
     
 	return [aWebview autorelease];
 }
 
 - (Preview *)desktopItemView {
+    [self setCookie];
+    
 	[[NSBundle mainBundle] loadNibNamed:@"HocletView" owner:self options:nil];
 	[webview loadRequest:[NSURLRequest requestWithURL:[self url]]];
     [self injectHocletToWebView:webview];
@@ -94,9 +99,27 @@
 
 - (void)injectHocletToWebView: (UIWebView *)aView {
     NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
-    NSString *code = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
+    NSString *js = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
     
-	[aView stringByEvaluatingJavaScriptFromString:code];
+	[aView stringByEvaluatingJavaScriptFromString:js];
+}
+
+- (void)setCookie {
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+    
+    NSString *uuid   = [[NSUserDefaults standardUserDefaults] stringForKey:@"hoccerClientUri"];
+    
+    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+    [cookieProperties setObject:@"client" forKey:NSHTTPCookieName];
+    [cookieProperties setObject:uuid forKey:NSHTTPCookieValue];
+    [cookieProperties setObject:@"hoclet-experimental.hoccer.com" forKey:NSHTTPCookieDomain];
+    [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];  
+    [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
+    [cookieProperties setObject:[[NSDate date] dateByAddingTimeInterval:2629743] forKey:NSHTTPCookieExpires];
+    
+    NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:cookieProperties];
+    
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie: cookie];
 }
 
 @end

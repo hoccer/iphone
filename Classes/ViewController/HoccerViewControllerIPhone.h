@@ -10,10 +10,13 @@
 #import "HoccerViewController.h"
 #import "HelpController.h"
 #import "GroupStatusViewController.h"
+#import "HocletSelectViewController.h"
 
 @class ActionElement;
 
-@interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate, GroupStatusViewControllerDelegate> {
+@interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate, 
+                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate> 
+{
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
 	HoccerHistoryController *hoccerHistoryController;

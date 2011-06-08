@@ -368,7 +368,6 @@
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	item.isUpload = YES;
 		
-    NSLog(@"sending %@", [self dictionaryToSend:item]);
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
     self.sendingItem = item;

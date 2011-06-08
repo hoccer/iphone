@@ -210,14 +210,26 @@
 }
 
 - (IBAction)selectHoclet: (id)sender {
-    [self hidePopOverAnimated: NO];
-
-    NSURL *URL = [NSURL URLWithString: @"http://hoccer.com/hoclet/test.html"];
-    HoccerContent *content = [[[HoccerHoclet alloc] initWithURL: URL] autorelease];
-    content.isFromContentSource = YES;
+    HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
+    controller.delegate = self;
+    [self presentModalViewController:controller.viewController animated:YES];
+    [controller release];
     
-    [self setContentPreview:content];
+    [self hidePopOverAnimated: NO];
 }
+
+
+#pragma mark -
+#pragma Content Select Controller Delegate
+- (void)contentSelectController:(id)controller didSelectContent:(HoccerContent *)content {
+    [self setContentPreview:content];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)contentSelectControllerDidCancel:(id)controller {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			

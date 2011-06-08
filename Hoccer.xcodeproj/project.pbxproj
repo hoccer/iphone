@@ -486,6 +486,9 @@
 		E12AADD5137990B700843BE3 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12AADD4137990B700843BE3 /* YAJLiOS.framework */; };
 		E12B51AC13004E0D00C87E53 /* catch_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AA13004E0D00C87E53 /* catch_180.m4v */; };
 		E12B51AD13004E0D00C87E53 /* throw_180.m4v in Resources */ = {isa = PBXBuildFile; fileRef = E12B51AB13004E0D00C87E53 /* throw_180.m4v */; };
+		E13A019D139E7A3B0052A4A1 /* HocletSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */; };
+		E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */; };
+		E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E13A019F139E7B030052A4A1 /* hoclets.plist */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
 		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
@@ -886,6 +889,10 @@
 		E12AADD4137990B700843BE3 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLiOS.framework; path = lib/YAJLiOS.framework; sourceTree = "<group>"; };
 		E12B51AA13004E0D00C87E53 /* catch_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = catch_180.m4v; sourceTree = "<group>"; };
 		E12B51AB13004E0D00C87E53 /* throw_180.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = throw_180.m4v; sourceTree = "<group>"; };
+		E13A019A139E7A3B0052A4A1 /* HocletSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HocletSelectViewController.h; path = SelectContentViewController/HocletSelectViewController.h; sourceTree = "<group>"; };
+		E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HocletSelectViewController.m; path = SelectContentViewController/HocletSelectViewController.m; sourceTree = "<group>"; };
+		E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HocletSelectViewController.xib; path = SelectContentViewController/HocletSelectViewController.xib; sourceTree = "<group>"; };
+		E13A019F139E7B030052A4A1 /* hoclets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hoclets.plist; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
 		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
@@ -1027,7 +1034,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E1A9DBD6139E5F2A0059905D /* New Group */,
+				E1A9DBD6139E5F2A0059905D /* ContentPickerViews */,
 				E6B9FC0C12AFBFE800A7E313 /* DownloadController */,
 				22638C7D11B51FEE0024AA7E /* Controller */,
 				22638C1811B51E880024AA7E /* ViewController */,
@@ -1778,6 +1785,7 @@
 				22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */,
 				221D771011A6DC8C00246D89 /* Default.png */,
 				229800C112098F5C0043BFA5 /* defaults.plist */,
+				E13A019F139E7B030052A4A1 /* hoclets.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1804,11 +1812,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E1A9DBD6139E5F2A0059905D /* New Group */ = {
+		E1A9DBD6139E5F2A0059905D /* ContentPickerViews */ = {
 			isa = PBXGroup;
 			children = (
+				E13A019A139E7A3B0052A4A1 /* HocletSelectViewController.h */,
+				E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */,
+				E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */,
 			);
-			name = "New Group";
+			name = ContentPickerViews;
 			sourceTree = "<group>";
 		};
 		E609353D12A549E500EE83EB /* Libs */ = {
@@ -2199,6 +2210,8 @@
 				E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */,
 				E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */,
 				E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */,
+				E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */,
+				E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2488,6 +2501,7 @@
 				E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */,
 				E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
 				E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */,
+				E13A019D139E7A3B0052A4A1 /* HocletSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
