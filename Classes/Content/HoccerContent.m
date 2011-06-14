@@ -239,6 +239,10 @@
 	return ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing;
 }
 
+- (BOOL)presentOpenInViewController: (UIViewController *)controller {
+    return [self.interactionController presentOpenInMenuFromRect:CGRectNull inView:controller.view animated:YES];
+}
+
 #pragma mark -
 #pragma mark UIDocumentInteractionController
 - (id)interactionController; {

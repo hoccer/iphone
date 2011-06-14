@@ -73,7 +73,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-    return nil;
+    return NSLocalizedString(@"Open", nil);
 }
 
 - (BOOL)saveDataToContentStorage {
@@ -81,15 +81,15 @@
 }
 
 - (UIImage *)imageForSaveButton {
-    return nil;
+	return [UIImage imageNamed:@"container_btn_double-save.png"];
 }
 
 - (UIImage *)historyThumbButton {
 	return [UIImage imageNamed:@"history_icon_text.png"];
 }
 
+
 - (NSDictionary *)dataDesctiption {
-	
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:self.content forKey:@"content"];
 	[dictionary setObject:@"text/x-hoclet" forKey:@"type"];
@@ -102,6 +102,12 @@
     NSString *js = [NSString stringWithFormat: @"hoclet = { getClientId: function() {return '%@'; }}", uuid];
     
 	[aView stringByEvaluatingJavaScriptFromString:js];
+}
+
+- (BOOL)presentOpenInViewController:(UIViewController *)controller {
+//    [controller presentModalViewController:navViewController animated:YES];
+    
+    return YES;
 }
 
 - (void)setCookie {

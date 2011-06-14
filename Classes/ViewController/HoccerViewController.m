@@ -451,13 +451,12 @@
 		return;
 	}
 	
-	if (![item.content.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view animated:YES]) {
+	if (![item.content presentOpenInViewController:self]) {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
 															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
 														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
 		[alertView show];
 		[alertView release];
-		
 	}
 }
 
@@ -484,7 +483,6 @@
 	}
 
 }
-
 
 - (void) transferControllerDidFinishAllTransfers:(TransferController *)controller {		
 	[self ensureViewIsHoccable];

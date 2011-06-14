@@ -122,7 +122,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HoccerContent *content = [[HoccerHoclet alloc] initWithURL:url];
-    content.isFromContentSource = YES;
+//    content.isFromContentSource = YES;
     
     if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
         [self.delegate contentSelectController:self didSelectContent:content];

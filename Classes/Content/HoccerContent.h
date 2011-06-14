@@ -71,4 +71,6 @@
 
 - (NSObject <Transferable> *)transferer;
 - (NSArray *)transferers;
+
+- (BOOL)presentOpenInViewController: (UIViewController *)controller;
 @end
