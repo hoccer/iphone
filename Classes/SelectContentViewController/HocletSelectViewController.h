@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HoccerContent.h"
-
-@protocol ContentSelectViewControllerDelegate <NSObject>
-
-@optional
-- (void)contentSelectController: (id)controller didSelectContent: (HoccerContent *)content;
-- (void)contentSelectControllerDidCancel: (id)controller;
-@end
+#import "ContentSelectController.h"
 
 @interface HocletSelectViewController : UITableViewController {
     NSArray *hoclets;

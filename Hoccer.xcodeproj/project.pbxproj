@@ -489,6 +489,7 @@
 		E13A019D139E7A3B0052A4A1 /* HocletSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */; };
 		E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */; };
 		E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E13A019F139E7B030052A4A1 /* hoclets.plist */; };
+		E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1587668139FC04E004ED9FF /* ImageSelectViewController.m */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
 		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
@@ -893,6 +894,9 @@
 		E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HocletSelectViewController.m; path = SelectContentViewController/HocletSelectViewController.m; sourceTree = "<group>"; };
 		E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HocletSelectViewController.xib; path = SelectContentViewController/HocletSelectViewController.xib; sourceTree = "<group>"; };
 		E13A019F139E7B030052A4A1 /* hoclets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hoclets.plist; sourceTree = "<group>"; };
+		E1587667139FC04E004ED9FF /* ImageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSelectViewController.h; path = SelectContentViewController/ImageSelectViewController.h; sourceTree = "<group>"; };
+		E1587668139FC04E004ED9FF /* ImageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSelectViewController.m; path = SelectContentViewController/ImageSelectViewController.m; sourceTree = "<group>"; };
+		E158766A139FC069004ED9FF /* ContentSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentSelectController.h; path = SelectContentViewController/ContentSelectController.h; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
 		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
@@ -1818,6 +1822,9 @@
 				E13A019A139E7A3B0052A4A1 /* HocletSelectViewController.h */,
 				E13A019B139E7A3B0052A4A1 /* HocletSelectViewController.m */,
 				E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */,
+				E1587667139FC04E004ED9FF /* ImageSelectViewController.h */,
+				E1587668139FC04E004ED9FF /* ImageSelectViewController.m */,
+				E158766A139FC069004ED9FF /* ContentSelectController.h */,
 			);
 			name = ContentPickerViews;
 			sourceTree = "<group>";
@@ -2502,6 +2509,7 @@
 				E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
 				E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */,
 				E13A019D139E7A3B0052A4A1 /* HocletSelectViewController.m in Sources */,
+				E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

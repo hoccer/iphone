@@ -210,6 +210,7 @@
 }
 
 - (IBAction)selectHoclet: (id)sender {
+    self.tabBar.selectedItem = NO;
     HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
     controller.delegate = self;
     [self presentModalViewController:controller.viewController animated:YES];

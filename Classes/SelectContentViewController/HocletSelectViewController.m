@@ -131,7 +131,6 @@
     [content release];
 }
 
-
 - (UIViewController *)viewController {
     self.navigationItem.title = NSLocalizedString(@"Hoclet", nil);
     

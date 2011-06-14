@@ -222,18 +222,6 @@
 }
 
 #pragma mark -
-#pragma mark UIImagePickerController Delegate Methods
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-	[self dismissModalViewControllerAnimated:YES];
-   	
-	HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
-								   [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
-	
-	[self setContentPreview: content];
-}
-
-#pragma mark -
 #pragma mark ABPeoplePickerNavigationController delegate
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
