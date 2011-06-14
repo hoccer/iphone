@@ -10,7 +10,7 @@
 #import "HoccerContent.h"
 #import "ContentSelectController.h"
 
-@interface HocletSelectViewController : UITableViewController {
+@interface HocletSelectViewController : UITableViewController <ContentSelectController> {
     NSArray *hoclets;
     
     id <ContentSelectViewControllerDelegate> delegate;

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import <AddressBookUI/AddressBookUI.h>
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
@@ -41,9 +40,8 @@
 
 @class HCLinccer;
 
-@interface HoccerViewController : UIViewController <UIApplicationDelegate, UIImagePickerControllerDelegate, 
-						UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate,
-			  			GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
+@interface HoccerViewController : UIViewController <UIApplicationDelegate, 
+						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
 						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate> 
 {
 

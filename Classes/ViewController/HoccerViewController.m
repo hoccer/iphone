@@ -222,37 +222,6 @@
 }
 
 #pragma mark -
-#pragma mark ABPeoplePickerNavigationController delegate
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-	
-	ACAddressBookPerson *addressBookPerson = [[ACAddressBookPerson alloc] initWithId: (ABRecordID) ABRecordGetRecordID(person)];
-	[addressBookPerson release];
-	
-	ABRecordID contactId = ABRecordGetRecordID(person);
-	ABAddressBookRef addressBook = ABAddressBookCreate();
-	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
-	
-	HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
-	[self setContentPreview: content];
-	
-	[self dismissModalViewControllerAnimated:YES];
-	CFRelease(addressBook);
-	return NO;
-}
-
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person 
-								property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
-	return NO;
-}
-
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
-	[self dismissModalViewControllerAnimated:YES];
-}
-
-#pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {

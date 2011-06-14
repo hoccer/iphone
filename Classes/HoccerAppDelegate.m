@@ -8,6 +8,7 @@
 
 #import <YAJLiOS/YAJL.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"

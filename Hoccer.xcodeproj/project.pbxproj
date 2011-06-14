@@ -492,6 +492,7 @@
 		E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1587668139FC04E004ED9FF /* ImageSelectViewController.m */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
+		E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF682413A76EFF00687AE4 /* ContactSelectViewController.m */; };
 		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
 		E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C1CF2C139CCF7A00015DAC /* HocletView.xib */; };
 		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
@@ -899,6 +900,8 @@
 		E158766A139FC069004ED9FF /* ContentSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentSelectController.h; path = SelectContentViewController/ContentSelectController.h; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
+		E1AF682313A76EFF00687AE4 /* ContactSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactSelectViewController.h; path = SelectContentViewController/ContactSelectViewController.h; sourceTree = "<group>"; };
+		E1AF682413A76EFF00687AE4 /* ContactSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactSelectViewController.m; path = SelectContentViewController/ContactSelectViewController.m; sourceTree = "<group>"; };
 		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
 		E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHoclet.m; sourceTree = "<group>"; };
 		E1C1CF2C139CCF7A00015DAC /* HocletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HocletView.xib; sourceTree = "<group>"; };
@@ -1825,6 +1828,8 @@
 				E1587667139FC04E004ED9FF /* ImageSelectViewController.h */,
 				E1587668139FC04E004ED9FF /* ImageSelectViewController.m */,
 				E158766A139FC069004ED9FF /* ContentSelectController.h */,
+				E1AF682313A76EFF00687AE4 /* ContactSelectViewController.h */,
+				E1AF682413A76EFF00687AE4 /* ContactSelectViewController.m */,
 			);
 			name = ContentPickerViews;
 			sourceTree = "<group>";
@@ -2510,6 +2515,7 @@
 				E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */,
 				E13A019D139E7A3B0052A4A1 /* HocletSelectViewController.m in Sources */,
 				E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */,
+				E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

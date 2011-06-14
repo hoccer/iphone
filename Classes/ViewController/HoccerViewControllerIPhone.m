@@ -25,6 +25,10 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 
+#import "ImageSelectViewController.h"
+#import "ContactSelectViewController.h"
+#import "HocletSelectViewController.h"
+
 @interface ActionElement : NSObject
 {
 	id target;
@@ -162,73 +166,66 @@
 }
 
 - (IBAction)selectContacts: (id)sender {
-	[self hidePopOverAnimated: YES];
-	
-	ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-	
-	[self presentModalViewController:picker animated:YES];
-	[picker release];
+	[self hidePopOverAnimated: NO];
+    
+    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+
+	//[controller release];
 }
 
 - (IBAction)selectImage: (id)sender {
-	self.tabBar.selectedItem = NO;
-	[self hidePopOverAnimated: NO];
-	
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.delegate = self;
-	[self presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
-}
-
-- (IBAction)selectVideo: (id)sender {
-	[self hidePopOverAnimated: NO];
-	
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	
-	imagePicker.delegate = self;
-	imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-	[self presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
+    
+    ImageSelectViewController *controller = [[ImageSelectViewController alloc] init];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+	//[controller release];
 }
 
 - (IBAction)selectText: (id)sender {
-	[self hidePopOverAnimated: YES];
-	
+    [self hidePopOverAnimated: NO];
+
 	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 }
 
 - (IBAction)selectCamera: (id)sender {
-	[self hidePopOverAnimated: NO];
-	
-	UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-	imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-	imagePicker.delegate = self;
-	[self presentModalViewController:imagePicker animated:YES];
-	[imagePicker release];
+    
+    ImageSelectViewController *controller = [[ImageSelectViewController alloc] initWithSourceType:UIImagePickerControllerSourceTypeCamera];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+
+	//[controller release];
 }
 
 - (IBAction)selectHoclet: (id)sender {
-    self.tabBar.selectedItem = NO;
+    
     HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
     controller.delegate = self;
-    [self presentModalViewController:controller.viewController animated:YES];
-    [controller release];
     
+    [self presentContentSelectViewController:controller];
+}
+
+- (void)presentContentSelectViewController: (id <ContentSelectController>)controller {
     [self hidePopOverAnimated: NO];
+    [self presentModalViewController:controller.viewController animated:YES];    
+}
+
+- (void)dismissContentSelectViewController {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
 #pragma mark -
 #pragma Content Select Controller Delegate
 - (void)contentSelectController:(id)controller didSelectContent:(HoccerContent *)content {
-    [self setContentPreview:content];
     [self dismissModalViewControllerAnimated:YES];
+    [self setContentPreview:content];
 }
 
 - (void)contentSelectControllerDidCancel:(id)controller {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissContentSelectViewController];
 }
 
 

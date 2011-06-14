@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HoccerContent
+@class HoccerContent;
 
 @protocol ContentSelectController <NSObject>
 - (UIViewController *)viewController;

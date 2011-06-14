@@ -36,4 +36,7 @@
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 
+- (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
+- (void)dismissContentSelectViewController;
+
 @end

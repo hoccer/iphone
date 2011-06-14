@@ -14,9 +14,14 @@
 @synthesize delegate;
 
 - (id)init {
+    return [self initWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+
+- (id)initWithSourceType: (UIImagePickerControllerSourceType)type {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        sourceType = type;
     }
     
     return self;
@@ -24,9 +29,10 @@
 
 - (UIViewController *)viewController {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = sourceType;
 	imagePicker.delegate = self;
 
-	[imagePicker autorelease];
+	return [imagePicker autorelease];
 }
 
 #pragma mark -
@@ -40,9 +46,6 @@
     if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
         [self.delegate contentSelectController:self didSelectContent:content];
     }
-
-    
-    
 }
 
 
