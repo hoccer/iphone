@@ -21,6 +21,7 @@
 #import "Hoccer.h"
 
 #import "ConnectionStatusViewController.h"
+#import "ContentSelectController.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -42,7 +43,8 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate> 
+						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate, 
+                        ContentSelectViewControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -113,6 +115,9 @@
 - (void)ensureViewIsHoccable;
 
 - (void)handleError: (NSError *)error;
+
+- (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
+- (void)dismissContentSelectViewController;
 
 @end
 

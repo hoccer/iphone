@@ -23,7 +23,6 @@
 #import "HoccerText.h"
 #import "Preview.h"
 #import "ContentContainerView.h"
-#import "ACAddressBookPerson.h"
 
 #import "DesktopView.h"
 #import "ReceivedContentViewController.h"
@@ -48,6 +47,10 @@
 
 #import "FileUploader.h"
 #import "NSData_Base64Extensions.h"
+
+#import "ImageSelectViewController.h"
+#import "ContactSelectViewController.h"
+#import "HocletSelectViewController.h"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 
@@ -128,29 +131,16 @@
                                                object:nil];
 }
 
+- (void)viewDidUnload {
+}
 
+#pragma mark -
+#pragma mark Fetching Status from Server
 - (void)fetchStatusUpdate {
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status2.json" success:@selector(httpConnection:didReceiveStatus:)];
 }
-
-- (void)viewDidUnload {
-}
-
-#pragma mark -
-#pragma mark User Action
-
-- (IBAction)selectContacts: (id)sender {}
-- (IBAction)selectImage: (id)sender {}
-- (IBAction)selectText: (id)sender {}
-- (IBAction)selectHoclet: (id)sender {}
-- (IBAction)showHistory: (id)sender {}
-- (IBAction)toggleSelectContent: (id)sender {}
-- (IBAction)toggleHistory: (id)sender {}
-- (IBAction)toggleHelp: (id)sender {}
-
-- (void)showDesktop {}
 
 - (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {		
 	linccer.latency = connection.roundTripTime;
@@ -161,7 +151,7 @@
 		message = [data yajl_JSON];		
 	}
 	@catch (NSException * e) {}
-
+    
 	if ([[message objectForKey:@"status"] isEqualToString: @"update"]) {
 		
 		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
@@ -177,8 +167,71 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
 	[[UIApplication sharedApplication] openURL: appStoreUrl];
-}														
-														
+}
+
+#pragma mark -
+#pragma mark Content Select Controller Delegate
+- (void)contentSelectController:(id)controller didSelectContent:(HoccerContent *)content {
+    [self dismissContentSelectViewController];
+    [self setContentPreview:content];
+}
+
+- (void)contentSelectControllerDidCancel:(id)controller {
+    [self dismissContentSelectViewController];
+}
+
+#pragma mark -
+#pragma mark Presenting Content Selector View
+- (void)presentContentSelectViewController: (id <ContentSelectController>)controller {}
+- (void)dismissContentSelectViewController {}
+
+
+
+#pragma mark -
+#pragma mark User Action
+
+- (IBAction)selectContacts: (id)sender {
+    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+    [controller release];
+}
+
+- (IBAction)selectImage: (id)sender {
+    ImageSelectViewController *controller = [[ImageSelectViewController alloc] init];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+	[controller release];
+}
+
+- (IBAction)selectText: (id)sender {    
+	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
+	[self setContentPreview: content];
+}
+
+- (IBAction)selectCamera: (id)sender {
+    ImageSelectViewController *controller = [[ImageSelectViewController alloc] initWithSourceType:UIImagePickerControllerSourceTypeCamera];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+    
+	[controller release];
+}
+
+- (IBAction)selectHoclet: (id)sender {
+    HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
+    controller.delegate = self;
+    
+    [self presentContentSelectViewController:controller];
+    [controller release];
+}
+
+- (IBAction)showHistory: (id)sender {}
+- (IBAction)toggleSelectContent: (id)sender {}
+- (IBAction)toggleHistory: (id)sender {}
+- (IBAction)toggleHelp: (id)sender {}
+
+- (void)showDesktop {}
+
 #pragma mark -
 #pragma mark View Manipulation
 
@@ -544,6 +597,7 @@
 }
 
 - (void)handleError: (NSError *)error {
+    NSLog(@"error %@", error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;

@@ -30,6 +30,8 @@
 	
     HelpController *helpController;
     UIButton *groupSizeButton;
+    
+    id <ContentSelectController> activeContentSelectController;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
