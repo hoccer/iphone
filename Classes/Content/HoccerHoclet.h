@@ -12,6 +12,8 @@
 @interface HoccerHoclet : HoccerContent {
     UIWebView *webview;
     Preview *view;
+    
+    UIViewController *controller;
 }
 
 @property (nonatomic, readonly) NSString *content;

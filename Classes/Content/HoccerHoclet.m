@@ -8,6 +8,7 @@
 
 #import "HoccerHoclet.h"
 #import "NSString+StringWithData.h"
+#import "HocletBrowserViewController.h"
 
 @interface HoccerHoclet ()
 - (void)injectHocletToWebView: (UIWebView *)view;
@@ -52,6 +53,7 @@
 - (void)dealloc {
 //	[webview release];	
     [view release];
+    [controller release];
     
 	[super dealloc];
 }
@@ -104,10 +106,21 @@
 	[aView stringByEvaluatingJavaScriptFromString:js];
 }
 
-- (BOOL)presentOpenInViewController:(UIViewController *)controller {
-//    [controller presentModalViewController:navViewController animated:YES];
+- (BOOL)presentOpenInViewController:(UIViewController *)aController {
+    controller = [aController retain];
+    
+    HocletBrowserViewController *viewController = [[HocletBrowserViewController alloc] initWithURL:[self url]];
+    [controller presentModalViewController:viewController animated:YES];
+    viewController.delegate = self;
     
     return YES;
+}
+
+- (void)closeHocletBrowser: (HocletBrowserViewController *)hocletBrowser {
+    [controller dismissModalViewControllerAnimated:YES];
+
+    [controller release];
+    controller = nil;
 }
 
 - (void)setCookie {
