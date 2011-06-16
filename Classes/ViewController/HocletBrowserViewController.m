@@ -34,7 +34,7 @@
     [webView loadRequest:request];
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close:)];
-    self.navigationItem.leftBarButtonItem = button;
+    self.navigationItem.rightBarButtonItem = button;
     [button release];
 }
 

@@ -75,7 +75,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-    return NSLocalizedString(@"Open", nil);
+    return NSLocalizedString(@"Show", nil);
 }
 
 - (BOOL)saveDataToContentStorage {
@@ -111,6 +111,8 @@
     
     HocletBrowserViewController *viewController = [[HocletBrowserViewController alloc] initWithURL:[self url]];
     [controller presentModalViewController:viewController animated:YES];
+    
+    [self injectHocletToWebView:viewController.webView];
     viewController.delegate = self;
     
     return YES;
