@@ -479,6 +479,7 @@
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
+		E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D6D9913AA411E004F39B0 /* NSData+CommonCrypto.m */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B6135DE75800AA1829 /* GroupStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12748B5135DE75800AA1829 /* GroupStatusViewController.m */; };
@@ -887,6 +888,8 @@
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E11D6D9813AA411E004F39B0 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		E11D6D9913AA411E004F39B0 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
 		E12748B4135DE75800AA1829 /* GroupStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatusViewController.h; sourceTree = "<group>"; };
 		E12748B5135DE75800AA1829 /* GroupStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStatusViewController.m; sourceTree = "<group>"; };
@@ -1155,6 +1158,8 @@
 		22638B8D11B51D2E0024AA7E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E11D6D9813AA411E004F39B0 /* NSData+CommonCrypto.h */,
+				E11D6D9913AA411E004F39B0 /* NSData+CommonCrypto.m */,
 				22638B8E11B51D2E0024AA7E /* GTMUIImage+Resize.h */,
 				22638B8F11B51D2E0024AA7E /* GTMUIImage+Resize.m */,
 				22638B9011B51D2E0024AA7E /* NSObject+DelegateHelper.h */,
@@ -2526,6 +2531,7 @@
 				E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */,
 				E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */,
 				E1AF682E13A7AA1900687AE4 /* HocletBrowserViewController.m in Sources */,
+				E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
