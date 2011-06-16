@@ -133,7 +133,8 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	
 	HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 
-    [HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];	
+    [HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
+	[HUD autorelease];
 }
 
 - (void)myTask {

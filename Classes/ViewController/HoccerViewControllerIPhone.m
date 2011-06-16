@@ -116,7 +116,7 @@
 
 	[self.view addSubview:navigationController.view];
 	
-	self.hoccerHistoryController = [[HoccerHistoryController alloc] init];
+	self.hoccerHistoryController = [[[HoccerHistoryController alloc] init] autorelease];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
@@ -424,7 +424,7 @@
 - (void)showGroupButton {
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-    [groupSizeButton release];    
+    [hoccabilityBarButtonItem release];    
 }
 
 

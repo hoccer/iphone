@@ -126,11 +126,11 @@
 		if ((row == 0 && [historyData count] == 0)) {
 			[cell viewWithTag:6].hidden = NO;
 
-			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]]; 
+			cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease]; 
 		} else 	if ( (row == 1 && [historyData count] == 0) || (row == [historyData count] && [historyData count] != 0)) {
-			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_firstempty_rowbg.png"]];
+			cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_firstempty_rowbg.png"]] autorelease];
 		} else {
-			cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
+			cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_empty_rowbg.png"]] autorelease];
 		}
 	}
 		

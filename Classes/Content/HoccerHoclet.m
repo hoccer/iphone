@@ -141,6 +141,7 @@
     NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:cookieProperties];
     
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie: cookie];
+    [cookie release];
 }
 
 @end

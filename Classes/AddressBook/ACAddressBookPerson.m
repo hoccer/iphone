@@ -28,6 +28,7 @@
 		personRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, personId);
 		CFRetain(personRecordRef);
 		
+        CFRelease(addressBook);
 		[self createMultiValueWithID: kABPersonPhoneProperty toVcardProperty: @"TEL"];
 	}
 	
@@ -87,6 +88,7 @@
 		return;
 	}
 	
+    CFRelease(multi);
 //	NSMutableArray *values = 
 //	CFStringRef value, valueLabel;
 //	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {

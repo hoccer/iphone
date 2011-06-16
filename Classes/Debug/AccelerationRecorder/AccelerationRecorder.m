@@ -25,7 +25,7 @@
 	[UIAccelerometer sharedAccelerometer].delegate = self;
 	[UIAccelerometer sharedAccelerometer].updateInterval = 0.02;
 	
-	self.featureHistory = [[FeatureHistory alloc] init]; 
+	self.featureHistory = [[[FeatureHistory alloc] init] autorelease]; 
 	
 	NSString *gesturesDirectory = [self directoryForAccelerationData];
 	self.filename = [self filenameFromCurrentTime];
