@@ -111,8 +111,10 @@
 		[self saveDataToDocumentDirectory];
 	}	
 	
+    NSString *crypted = [self.cryptor encryptString:self.view.textView.text];
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	[dictionary setObject:self.view.textView.text forKey:@"content"];
+    
+	[dictionary setObject:crypted forKey:@"content"];
 	
 	if ([HoccerText isDataAUrl:self.data]) {
 		[dictionary setObject:@"text/uri-list" forKey:@"type"];

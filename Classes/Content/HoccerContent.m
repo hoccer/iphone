@@ -19,6 +19,8 @@
 @synthesize persist;
 @synthesize mimeType;
 
+@synthesize cryptor;
+
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
 	self = [super init];
@@ -43,7 +45,9 @@
 
 - (id) initWithDictionary: (NSDictionary *)dict {
 	if ([dict objectForKey:@"content"]) {
-		NSData *theData = [[dict objectForKey:@"content"] dataUsingEncoding:NSUTF8StringEncoding]; 
+		NSString *content = [self.cryptor decryptString:[dict objectForKey:@"content"]]; 
+        
+        NSData *theData = [content dataUsingEncoding:NSUTF8StringEncoding]; 
 		return [self initWithData:theData];
 	} else {
 		return [super init];
@@ -59,7 +63,6 @@
                                                                   inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 		data = [theData retain];
         
-        NSLog(@"init with data");
 		[self saveDataToDocumentDirectory];
 	}
 	
@@ -98,7 +101,6 @@
 #pragma mark -
 #pragma mark Saving and Removing 
 - (void) saveDataToDocumentDirectory {
-    NSLog(@"saveing to %@", self.filepath);
 	[data writeToFile: self.filepath atomically: NO];
 } 
 
@@ -252,5 +254,14 @@
 	
 	return interactionController;
 }
+
+- (id<Cryptor>)cryptor {
+    if (cryptor == nil) {
+        cryptor = [[AESCryptor alloc] initWithKey:@"secret"];
+    }
+    
+    return cryptor;
+}
+
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HoccerContent.h"
 #import "TransferController.h"
+#import "Crypto.h"
 
 @class Preview;
 
@@ -26,6 +27,8 @@
 	id context;
 	
 	id interactionController;
+    
+    id <Cryptor> cryptor;
 }
 
 @property (nonatomic, retain) NSData *data; 
@@ -36,7 +39,9 @@
 @property (nonatomic, readonly) NSString *extension;
 @property (assign) BOOL isFromContentSource;
 @property (assign) BOOL persist;
+
 @property (readonly) id interactionController;
+@property (retain, nonatomic) id <Cryptor> cryptor;
 
 @property (readonly) BOOL readyForSending;
 
