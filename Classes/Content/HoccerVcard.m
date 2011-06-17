@@ -140,9 +140,11 @@
 }
 
 - (NSDictionary *) dataDesctiption {
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	NSString *crypted = [self.cryptor encryptString:vcardString];
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:@"text/x-vcard" forKey:@"type"];
-	[dictionary setObject:vcardString forKey:@"content"];
+	[dictionary setObject:crypted forKey:@"content"];
 		
 	return dictionary;
 }
