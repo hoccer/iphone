@@ -146,6 +146,10 @@
 	[dictionary setObject:@"text/x-vcard" forKey:@"type"];
 	[dictionary setObject:crypted forKey:@"content"];
 		
+    if ([self.cryptor type]) {
+        [dictionary setObject:[self.cryptor type] forKey:@"encryption"];
+    }
+
 	return dictionary;
 }
 
