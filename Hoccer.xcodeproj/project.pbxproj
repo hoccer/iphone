@@ -491,6 +491,7 @@
 		E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */; };
 		E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E13A019F139E7B030052A4A1 /* hoclets.plist */; };
 		E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1587668139FC04E004ED9FF /* ImageSelectViewController.m */; };
+		E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = E16ABCAB13AB47BC00B28CA4 /* Crypto.m */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
 		E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF682413A76EFF00687AE4 /* ContactSelectViewController.m */; };
@@ -903,6 +904,8 @@
 		E1587667139FC04E004ED9FF /* ImageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSelectViewController.h; path = SelectContentViewController/ImageSelectViewController.h; sourceTree = "<group>"; };
 		E1587668139FC04E004ED9FF /* ImageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSelectViewController.m; path = SelectContentViewController/ImageSelectViewController.m; sourceTree = "<group>"; };
 		E158766A139FC069004ED9FF /* ContentSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentSelectController.h; path = SelectContentViewController/ContentSelectController.h; sourceTree = "<group>"; };
+		E16ABCAA13AB47BC00B28CA4 /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crypto.h; path = lib/ios/Classes/Crypto/Crypto.h; sourceTree = "<group>"; };
+		E16ABCAB13AB47BC00B28CA4 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Crypto.m; path = lib/ios/Classes/Crypto/Crypto.m; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
 		E1AF682313A76EFF00687AE4 /* ContactSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactSelectViewController.h; path = SelectContentViewController/ContactSelectViewController.h; sourceTree = "<group>"; };
@@ -1832,6 +1835,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E16ABCA913AB46CB00B28CA4 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				E16ABCAA13AB47BC00B28CA4 /* Crypto.h */,
+				E16ABCAB13AB47BC00B28CA4 /* Crypto.m */,
+			);
+			name = Crypto;
+			sourceTree = "<group>";
+		};
 		E1A9DBD6139E5F2A0059905D /* ContentPickerViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1858,6 +1870,7 @@
 		E609357D12A54A4200EE83EB /* HoccerClient */ = {
 			isa = PBXGroup;
 			children = (
+				E16ABCA913AB46CB00B28CA4 /* Crypto */,
 				E609357E12A54A8500EE83EB /* EnvironmentController */,
 				E609358812A54A8500EE83EB /* HCFileCache.h */,
 				E609358912A54A8500EE83EB /* HCFileCache.m */,
@@ -2532,6 +2545,7 @@
 				E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */,
 				E1AF682E13A7AA1900687AE4 /* HocletBrowserViewController.m in Sources */,
 				E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */,
+				E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
