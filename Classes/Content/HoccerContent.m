@@ -257,7 +257,7 @@
 
 - (id<Cryptor>)cryptor {
     if (cryptor == nil) {
-        cryptor = [[AESCryptor alloc] initWithKey:@"secret"];
+        cryptor = [[NoCryptor alloc] init];
     }
     
     return cryptor;

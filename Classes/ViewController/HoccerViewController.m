@@ -15,6 +15,7 @@
 #import "TransferController.h"
 #import "NSObject+DelegateHelper.h"
 #import "NSString+StringWithData.h"
+#import "Crypto.h"
 
 #import "HoccerViewController.h"
 #import "HoccerAppDelegate.h"
@@ -52,6 +53,7 @@
 #import "ContactSelectViewController.h"
 #import "HocletSelectViewController.h"
 
+
 #import <SystemConfiguration/SystemConfiguration.h>
 
 @interface HoccerViewController ()
@@ -63,6 +65,7 @@
 - (void)ensureViewIsHoccable;
 
 - (void)clientNameChanged: (NSNotification *)notification;
+- (id <Cryptor>)currentCryptor;
 
 @end
 
@@ -322,7 +325,8 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-	
+    item.content.cryptor = [self currentCryptor];
+    
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
 	[statusViewController setState:[ConnectionState state]];
@@ -383,6 +387,7 @@
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
+    item.content.cryptor = [self currentCryptor];
 	item.isUpload = YES;
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
@@ -707,6 +712,17 @@
 
 - (void)hideHUD {
 	[hud hide:YES];
+}
+
+- (id <Cryptor>)currentCryptor {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:@"encryption"]) {
+        NSString *key = [defaults objectForKey:@"encryptionKey"];
+        NSLog(@"key %@", key);
+        return [[[AESCryptor alloc] initWithKey:key] autorelease];
+    } else {
+        return [[[NoCryptor alloc] init] autorelease];
+    }
 }
 
 - (NSString *)obfuscatedUUID: (NSString *)uuid {
