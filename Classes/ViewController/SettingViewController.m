@@ -104,16 +104,18 @@ enum HCSettingsType {
     nameAction.defaultValue = @"clientName";
 	[sections addObject:[NSArray arrayWithObject:nameAction]];
 
-	NSMutableArray *section1 = [NSMutableArray arrayWithCapacity:3];
-
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
 	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
 	
-	[section1 addObjectsFromArray:[NSArray arrayWithObjects: playSoundAction, bookmarkletAction, nil]];
+	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, bookmarkletAction, nil];
 	[sections addObject:section1];
 		
+    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encrypt data" selector:@selector(encrypt:) type:HCSwitchSetting];
+    encrypt.defaultValue = @"encrypt";
+    [sections addObject:[NSArray arrayWithObject:encrypt]];
+    
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
 	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook) type: HCContinueSetting]; 
@@ -142,11 +144,9 @@ enum HCSettingsType {
 	return [sections count];
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {	
     return [[sections objectAtIndex:section] count];
 }
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -283,8 +283,27 @@ enum HCSettingsType {
 										   otherButtonTitles:NSLocalizedString(@"Install", nil), nil];
 	[prompt show];
 	[prompt release];
-	
+}
 
+- (void)encrypt: (UISwitch *)sender {
+    NSMutableArray *group = [[sections objectAtIndex:3] mutableCopy];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:3];
+
+    if ([sender isOn]) {
+        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(password:) type:HCTextField];
+        passwordAction.defaultValue = @"secret";
+        
+        [group addObject:passwordAction];
+        [sections replaceObjectAtIndex:3 withObject:group];
+        
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    } else {
+        [group removeLastObject];
+        [sections replaceObjectAtIndex:3 withObject:group];
+
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    }
+    [group release];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {         	
