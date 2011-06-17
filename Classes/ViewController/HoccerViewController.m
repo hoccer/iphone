@@ -129,9 +129,16 @@
                                              selector:@selector(clientNameChanged:) 
                                                  name:@"clientNameChanged" 
                                                object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(encryptionChanged:) 
+                                                 name:@"encryptionChanged" 
+                                               object:nil];
+
 }
 
 - (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -
@@ -568,6 +575,9 @@
 	return self;
 }
 
+
+#pragma mark -
+#pragma mark Notifications
 - (void)networkChanged: (NSNotification *)notification {
 	[linccer reactivate];
 }
@@ -583,6 +593,13 @@
     linccer.userInfo = userInfo;
 }
 
+- (void)encryptionChanged: (NSNotification *)notification {
+    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    if (encrypting) {
+    } else {
+    }
+}
+
 
 #pragma mark -
 #pragma mark Private Methods
@@ -595,7 +612,6 @@
 }
 
 - (void)handleError: (NSError *)error {
-    NSLog(@"error %@", error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;

@@ -100,7 +100,7 @@ enum HCSettingsType {
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 
-	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Name" selector:@selector(editedText:) type: HCTextField];
+	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Name" selector:@selector(changedName:) type: HCTextField];
     nameAction.defaultValue = @"clientName";
 	[sections addObject:[NSArray arrayWithObject:nameAction]];
 
@@ -112,9 +112,20 @@ enum HCSettingsType {
 	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, bookmarkletAction, nil];
 	[sections addObject:section1];
 		
+    
+    
+    NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:2];
     SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encrypt data" selector:@selector(encrypt:) type:HCSwitchSetting];
-    encrypt.defaultValue = @"encrypt";
-    [sections addObject:[NSArray arrayWithObject:encrypt]];
+    encrypt.defaultValue = @"encryption";
+    [encryptGroup addObject:encrypt];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
+        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(passwordChanged:) type:HCTextField];
+        passwordAction.defaultValue = @"encryptionKey";
+        [encryptGroup addObject:passwordAction];
+    }
+    
+    [sections addObject:encryptGroup];
     
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
@@ -181,7 +192,7 @@ enum HCSettingsType {
         field.textAlignment   = UITextAlignmentRight;
         field.returnKeyType   = UIReturnKeyDone;
         field.delegate        = self;
-        
+
         cell.accessoryView = field;
         [field release];
         
@@ -240,6 +251,9 @@ enum HCSettingsType {
 	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
+
+#pragma mark -
+#pragma mark 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];    
     return YES;
@@ -249,14 +263,12 @@ enum HCSettingsType {
     activeField = textField;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSString *oldClientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
-    if (![oldClientName isEqualToString:textField.text]) {
-        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        NSNotification *notification = [NSNotification notificationWithName:@"clientNameChanged" object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+- (void)textFieldDidEndEditing:(UITextField *)textField {    
+    NSIndexPath *path = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview];
+    
+    SettingsAction *action = [[sections objectAtIndex:path.section] objectAtIndex:path.row];
+    if ([self respondsToSelector:action.selector]) {
+        [self performSelector:action.selector withObject:textField];
     }
     
     activeField = nil;
@@ -267,6 +279,17 @@ enum HCSettingsType {
 	helpView.navigationItem.title = @"Tutorial";
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
+}
+
+- (void)changedName: (UITextField *)textField {    
+    NSString *oldClientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
+    if (![oldClientName isEqualToString:textField.text]) {
+        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+       
+        NSNotification *notification = [NSNotification notificationWithName:@"clientNameChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
 }
 
 - (void)showAbout {
@@ -290,8 +313,8 @@ enum HCSettingsType {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:3];
 
     if ([sender isOn]) {
-        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(password:) type:HCTextField];
-        passwordAction.defaultValue = @"secret";
+        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(passwordChanged:) type:HCTextField];
+        passwordAction.defaultValue = @"encryptionKey";
         
         [group addObject:passwordAction];
         [sections replaceObjectAtIndex:3 withObject:group];
@@ -304,6 +327,24 @@ enum HCSettingsType {
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }
     [group release];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:sender.isOn forKey:@"encryption"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
+- (void)passwordChanged: (UITextField *)textField {
+    NSString *oldEncryptionKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
+    if (![oldEncryptionKey isEqualToString:textField.text]) {
+        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"encryptionKey"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {         	
@@ -324,7 +365,6 @@ enum HCSettingsType {
 - (void)showFacebook {
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://touch.facebook.com/hoccer"]];
 }
-
 
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
@@ -372,15 +412,10 @@ enum HCSettingsType {
 #pragma mark Memory management
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
 - (void)dealloc {
