@@ -22,7 +22,6 @@
 @interface HoccerImage ()
 
 - (void)createThumb;
-- (CGSize)mediumVersionSizeForSize: (CGSize)size;
 
 @end
 
@@ -46,6 +45,7 @@
         if (previews && [previews count] > 0) {
             thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
             thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
+            thumbDownloader.cryptor = self.cryptor;
             
             [transferables addObject:thumbDownloader];
         }
@@ -60,22 +60,27 @@
 		image = [aImage retain];
 		isFromContentSource = YES;
 		
-		NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
-		[transferables addObject: transferable];
-
-        [self viewDidLoad];
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
 	
 	return self;
 }
 
+
+- (void)upload {
+    NSLog(@"upload image");
+    NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
+    NSLog(@"cryptor %@", self.cryptor);
+    transferable.cryptor = self.cryptor;
+    [transferables addObject: transferable];
+    
+    [self viewDidLoad];
+}
+
 - (void)createDataRepresentaion: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-    CGSize smallerSize = [self mediumVersionSizeForSize:content.image.size];
-	content.data = UIImageJPEGRepresentation([content.image gtm_imageByResizingToSize:smallerSize 
-                                                                  preserveAspectRatio:YES trimToFit:NO], 0.8);
+	content.data = UIImageJPEGRepresentation(content.image, 0.8);
 	[content saveDataToDocumentDirectory];
 	    
 	[self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
@@ -186,6 +191,14 @@
     if ([self.transferer url]) {
         [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
     }
+    
+    NSLog(@"%@", self.transferer.cryptor);
+    NSString *encryption = [self.transferer.cryptor type];
+    if (encryption) {
+        [dict setObject:encryption forKey:@"encryption"];
+    }
+
+    
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
     
 	return dict;
@@ -236,37 +249,17 @@
     return preview;
 }
 
-
-- (CGSize)mediumVersionSizeForSize: (CGSize)size {
-    CGFloat MAX_LENGTH = 960;
-    CGSize newSize = size;
-    
-    if (newSize.height > MAX_LENGTH) {
-        CGFloat factor = newSize.height / MAX_LENGTH;
-        newSize.height = newSize.height / factor;
-        newSize.width  = newSize.width  / factor;
-    }
-    
-    if (newSize.width > MAX_LENGTH) {
-        CGFloat factor = newSize.width / MAX_LENGTH;
-        newSize.height = newSize.height / factor;
-        newSize.width  = newSize.width  / factor;
-    }
-    
-    return newSize;
-}
-
-
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
     [self createThumb];
     
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+    thumbUploader.cryptor = self.cryptor;
+    
     [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
 }
-
 
 - (void) dealloc {
 	[image release];

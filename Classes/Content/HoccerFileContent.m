@@ -26,15 +26,21 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        transferables = [[NSMutableArray alloc] init];
-		NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
-        [transferables addObject: transferable];
-        [transferable release];
-        
         mimeType = @"application/octet-stream";
-	}
+        transferables = [[NSMutableArray alloc] init];        
+    }
 	
 	return self;	
+}
+
+- (void)upload {
+    NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
+    transferable.cryptor = self.cryptor;
+    
+    NSLog(@"cryptor %@", self.cryptor);
+    
+    [transferables addObject: transferable];
+    [transferable release];
 }
 
 - (id) initWithDictionary:(NSDictionary *)dict {
@@ -46,6 +52,9 @@
 		NSString *downloadURL = [dict objectForKey:@"uri"];
         
         NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
+        
+        
+        transferable.cryptor = self.cryptor;
         
         [transferables addObject: transferable];
         [transferable release];
@@ -67,6 +76,11 @@
 	
 	[dict setObject:self.mimeType forKey:@"type"];
     NSString *string = [((FileTransferer *)[transferables objectAtIndex:0]) url];
+    NSString *encryption = [((FileTransferer *)[transferables objectAtIndex:0]).cryptor type];
+    if (encryption) {
+        [dict setObject:encryption forKey:@"encryption"];
+    }
+    
 	[dict setObject:[string stringByRemovingQuery] forKey:@"uri"];
 	
 	return dict;

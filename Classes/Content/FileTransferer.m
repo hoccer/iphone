@@ -17,6 +17,7 @@
 
 @synthesize filename;
 @synthesize url;
+@synthesize cryptor;
 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
 	self.progress = theProgress;

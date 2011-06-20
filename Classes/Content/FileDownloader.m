@@ -11,6 +11,7 @@
 
 
 @implementation FileDownloader
+@synthesize cryptor;
 
 - (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename {
 	self = [super init];
@@ -40,7 +41,9 @@
 																  inDirectory: directory];
 	
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
- 	[data writeToFile: filepath atomically:YES];
+    
+    NSData* decrypted = [cryptor decrypt:data];
+ 	[decrypted writeToFile: filepath atomically:YES];
 
 	self.state = TransferableStateTransferred;
 }

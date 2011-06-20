@@ -44,7 +44,12 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-	if ([dict objectForKey:@"content"]) {
+    NSString *encryption = nil;
+    if ((encryption = [dict objectForKey:@"encryption"])) {
+        [self cryptorWithType:encryption];
+    }
+	
+    if ([dict objectForKey:@"content"]) {
 		NSString *content = [self.cryptor decryptString:[dict objectForKey:@"content"]]; 
         
         NSData *theData = [content dataUsingEncoding:NSUTF8StringEncoding]; 
@@ -78,6 +83,15 @@
 	}
 	
 	return self;
+}
+
+- (void)cryptorWithType: (NSString *)type {
+    NSLog(@"generating cryptor with %@", type);
+    
+    if ([type isEqualToString:@"AES"]) {
+        NSString *key = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
+        self.cryptor = [[[AESCryptor alloc] initWithKey:key] autorelease];
+    }
 }
 
 

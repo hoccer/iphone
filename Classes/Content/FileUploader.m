@@ -11,6 +11,7 @@
 
 
 @implementation FileUploader
+@synthesize cryptor;
 
 - (id)initWithFilename: (NSString *)aFilename {
 	self = [super init];
@@ -32,7 +33,8 @@
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
 	
 	NSData *data = [NSData dataWithContentsOfFile:filepath];
-	self.url = [fileCache cacheData: data withFilename:self.filename forTimeInterval:180*60];
+    NSData *crypted = [cryptor encrypt:data];
+	self.url = [fileCache cacheData: crypted withFilename:self.filename forTimeInterval:180*60];
 	self.state = TransferableStateTransfering;
 	
 	idString = [self.url copy];

@@ -15,4 +15,6 @@
     NSMutableArray *transferables;
 }
 
+- (void)upload;
+
 @end

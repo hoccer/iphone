@@ -78,4 +78,6 @@
 - (NSArray *)transferers;
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller;
+- (void)cryptorWithType: (NSString *)type;
+
 @end

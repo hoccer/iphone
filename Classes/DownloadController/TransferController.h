@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Crypto.h"
 
 @class TransferController;
 
@@ -19,6 +20,7 @@ enum _TransferableState {
 typedef enum _TransferableState TransferableState;
 
 @protocol Transferable <NSObject>
+@property (retain, nonatomic) id <Cryptor> cryptor;
 - (void)startTransfer;
 - (void)cancelTransfer;
 
