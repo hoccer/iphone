@@ -257,9 +257,7 @@
     connectionEstablished = NO;
     content.cryptor = [self currentCryptor];
         
-    if ([content isKindOfClass:[HoccerFileContent class]]) {
-        [((HoccerFileContent *)content) upload];
-    }
+    [content viewDidLoad];
     
 	if (![hoccingRules hoccerViewControllerMayAddAnotherView:self]) {
 		[desktopData removeHoccerController: [desktopData hoccerControllerDataAtIndex:0]];

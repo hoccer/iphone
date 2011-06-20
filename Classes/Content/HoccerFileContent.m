@@ -33,7 +33,7 @@
 	return self;	
 }
 
-- (void)upload {
+- (void)viewDidLoad {
     NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
     transferable.cryptor = self.cryptor;
     

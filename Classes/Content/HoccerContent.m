@@ -277,5 +277,7 @@
     return cryptor;
 }
 
+- (void)viewDidLoad {}
+
 
 @end

@@ -80,4 +80,6 @@
 - (BOOL)presentOpenInViewController: (UIViewController *)controller;
 - (void)cryptorWithType: (NSString *)type;
 
+- (void)viewDidLoad;
+
 @end

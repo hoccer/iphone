@@ -32,7 +32,6 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        [self viewDidLoad];
 	}
 	
 	return self;	
@@ -64,17 +63,6 @@
 	}
 	
 	return self;
-}
-
-
-- (void)upload {
-    NSLog(@"upload image");
-    NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
-    NSLog(@"cryptor %@", self.cryptor);
-    transferable.cryptor = self.cryptor;
-    [transferables addObject: transferable];
-    
-    [self viewDidLoad];
 }
 
 - (void)createDataRepresentaion: (HoccerImage *)content {
@@ -252,6 +240,12 @@
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
+    NSLog(@"upload image");
+    NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
+    NSLog(@"cryptor %@", self.cryptor);
+    transferable.cryptor = self.cryptor;
+    [transferables addObject: transferable];
+    
     [self createThumb];
     
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];

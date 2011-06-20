@@ -15,6 +15,7 @@
     NSMutableArray *transferables;
 }
 
-- (void)upload;
+- (void)viewDidLoad;
+
 
 @end
