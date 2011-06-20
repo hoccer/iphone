@@ -32,6 +32,7 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
+        
 	}
 	
 	return self;	
@@ -240,14 +241,19 @@
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
-    NSLog(@"upload image");
+    NSLog(@"upload image %@", self.filename);
     NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
     NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
     
+    if (self.data) {
+        [(DelayedFileUploaded *)transferable setFileReady: YES];
+    }
+    
     [self createThumb];
     
+    NSLog(@"uploading thumb %@",[self thumbFilename]);
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     
