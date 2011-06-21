@@ -222,6 +222,7 @@
 
 - (void)showDesktop {
 	[self hidePopOverAnimated:YES];
+    tabBar.selectedItem = nil;
 }
 
 - (void)showSelectContentView {
