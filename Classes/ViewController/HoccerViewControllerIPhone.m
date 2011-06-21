@@ -178,6 +178,8 @@
 }
 
 - (IBAction)selectText: (id)sender {    
+    self.tabBar.selectedItem = nil;
+
     [super selectText:sender];
     [self hidePopOverAnimated:  NO];
 }
