@@ -181,13 +181,7 @@
         [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
     }
     
-    NSLog(@"%@", self.transferer.cryptor);
-    NSString *encryption = [self.transferer.cryptor type];
-    if (encryption) {
-        [dict setObject:encryption forKey:@"encryption"];
-    }
-
-    
+    [self.transferer.cryptor appendInfoToDictionary:dict];
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
     
 	return dict;

@@ -36,9 +36,7 @@
 - (void)viewDidLoad {
     NSObject <Transferable> *transferable = [[FileUploader alloc] initWithFilename:filename];
     transferable.cryptor = self.cryptor;
-    
-    NSLog(@"cryptor %@", self.cryptor);
-    
+        
     [transferables addObject: transferable];
     [transferable release];
 }
@@ -52,9 +50,8 @@
 		NSString *downloadURL = [dict objectForKey:@"uri"];
         
         NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
-        
-        
         transferable.cryptor = self.cryptor;
+        NSLog(@"cryptor %@", self.cryptor);
         
         [transferables addObject: transferable];
         [transferable release];
@@ -76,13 +73,9 @@
 	
 	[dict setObject:self.mimeType forKey:@"type"];
     NSString *string = [((FileTransferer *)[transferables objectAtIndex:0]) url];
-    NSString *encryption = [((FileTransferer *)[transferables objectAtIndex:0]).cryptor type];
-    if (encryption) {
-        [dict setObject:encryption forKey:@"encryption"];
-    }
-    
 	[dict setObject:[string stringByRemovingQuery] forKey:@"uri"];
-	
+
+    [self.cryptor appendInfoToDictionary:dict];
 	return dict;
 }
 

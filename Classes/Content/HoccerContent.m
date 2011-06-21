@@ -10,6 +10,7 @@
 #import "HoccerContent.h"
 #import "Preview.h"
 #import "NSFileManager+FileHelper.h"
+#import "NSData_Base64Extensions.h"
 
 @implementation HoccerContent
 @synthesize data;
@@ -44,9 +45,11 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
+    NSLog(@"received %@", dict);
+    
     NSString *encryption = nil;
     if ((encryption = [dict objectForKey:@"encryption"])) {
-        [self cryptorWithType:encryption];
+        [self cryptorWithType:encryption salt: [dict objectForKey:@"salt"]];
     }
 	
     if ([dict objectForKey:@"content"]) {
@@ -85,12 +88,13 @@
 	return self;
 }
 
-- (void)cryptorWithType: (NSString *)type {
+- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt {
     NSLog(@"generating cryptor with %@", type);
     
     if ([type isEqualToString:@"AES"]) {
-        NSString *key = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
-        self.cryptor = [[[AESCryptor alloc] initWithKey:key] autorelease];
+        NSString *key  = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
+        self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
+        NSLog(@"cryptor %@", self.cryptor);
     }
 }
 

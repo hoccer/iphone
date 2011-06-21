@@ -122,10 +122,7 @@
 		[dictionary setObject:@"text/plain" forKey:@"type"];
 	}
     
-    if ([self.cryptor type]) {
-        [dictionary setObject:[self.cryptor type] forKey:@"encryption"];
-    }
-
+    [self.cryptor appendInfoToDictionary:dictionary];
 	return dictionary;
 }
 

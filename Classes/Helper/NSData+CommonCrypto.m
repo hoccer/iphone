@@ -171,6 +171,7 @@ NSString * const kCommonCryptoErrorDomain = @"CommonCryptoErrorDomain";
 
 - (NSData *) AES256EncryptedDataUsingKey: (id) key error: (NSError **) error
 {
+    NSLog(@"key %@", key);
 	CCCryptorStatus status = kCCSuccess;
 	NSData * result = [self dataEncryptedUsingAlgorithm: kCCAlgorithmAES128
 													key: key
@@ -280,7 +281,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 	{
 		case kCCAlgorithmAES128:
 		{
-			if ( keyLength < 16 )
+			if ( keyLength <= 16 )
 			{
 				[keyData setLength: 16];
 			}
@@ -397,7 +398,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 								 options: (CCOptions) options
 								   error: (CCCryptorStatus *) error
 {
-	CCCryptorRef cryptor = NULL;
+    CCCryptorRef cryptor = NULL;
 	CCCryptorStatus status = kCCSuccess;
 	
 	NSParameterAssert([key isKindOfClass: [NSData class]] || [key isKindOfClass: [NSString class]]);
@@ -419,6 +420,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 	
 	// ensure correct lengths for key and iv data, based on algorithms
 	FixKeyLengths( algorithm, keyData, ivData );
+    NSLog(@"iv %@, %@, %d",keyData, ivData, options );
 	
 	status = CCCryptorCreate( kCCEncrypt, algorithm, options,
 							  [keyData bytes], [keyData length], [ivData bytes],

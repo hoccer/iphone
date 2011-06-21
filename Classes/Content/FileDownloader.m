@@ -42,7 +42,10 @@
 	
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
     
-    NSData* decrypted = [cryptor decrypt:data];
+    NSLog(@"cryptor in downloaded %@ %@", self.cryptor, filepath);
+    
+    NSData* decrypted = [self.cryptor decrypt:data];
+    
  	[decrypted writeToFile: filepath atomically:YES];
 
 	self.state = TransferableStateTransferred;

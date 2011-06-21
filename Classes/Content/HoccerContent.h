@@ -78,7 +78,7 @@
 - (NSArray *)transferers;
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller;
-- (void)cryptorWithType: (NSString *)type;
+- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt;
 
 - (void)viewDidLoad;
 
