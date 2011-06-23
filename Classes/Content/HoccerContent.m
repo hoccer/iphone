@@ -47,9 +47,11 @@
 - (id) initWithDictionary: (NSDictionary *)dict {
     NSLog(@"received %@", dict);
     
-    NSString *encryption = nil;
+    NSDictionary *encryption = nil;
     if ((encryption = [dict objectForKey:@"encryption"])) {
-        [self cryptorWithType:encryption salt: [dict objectForKey:@"salt"]];
+        NSString *method = [encryption objectForKey:@"method"];
+        NSString *salt    = [encryption objectForKey:@"salt"];
+        [self cryptorWithType:method salt: salt];
     }
 	
     if ([dict objectForKey:@"content"]) {
@@ -94,8 +96,8 @@
     if ([type isEqualToString:@"AES"]) {
         NSString *key  = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
-        NSLog(@"cryptor %@", self.cryptor);
-    }
+
+}
 }
 
 

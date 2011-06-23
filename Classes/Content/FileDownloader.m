@@ -41,9 +41,6 @@
 																  inDirectory: directory];
 	
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
-    
-    NSLog(@"cryptor in downloaded %@ %@", self.cryptor, filepath);
-    
     NSData* decrypted = [self.cryptor decrypt:data];
     
  	[decrypted writeToFile: filepath atomically:YES];
