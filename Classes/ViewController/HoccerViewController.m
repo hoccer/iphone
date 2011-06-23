@@ -721,7 +721,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"encryption"]) {
         NSString *key = [defaults objectForKey:@"encryptionKey"];
-        NSLog(@"key %@", key);
         return [[[AESCryptor alloc] initWithKey:key] autorelease];
     } else {
         return [[[NoCryptor alloc] init] autorelease];
