@@ -59,8 +59,6 @@
 @interface HoccerViewController ()
 @property (retain, nonatomic) ItemViewController *sendingItem;
 
-- (NSString *)obfuscatedUUID: (NSString *)uuid;
-
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
 
@@ -612,8 +610,7 @@
 #pragma mark -
 #pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
-	NSDictionary *sender = [NSDictionary dictionaryWithObject:[self obfuscatedUUID:linccer.uuid] forKey:@"client-id"];
-	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: sender, @"sender", 
+	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: 
 							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
 	
 	return content;
@@ -726,17 +723,6 @@
         return [[[NoCryptor alloc] init] autorelease];
     }
 }
-
-- (NSString *)obfuscatedUUID: (NSString *)uuid {
-	unsigned char hashedChars[32];
-	CC_SHA256([uuid UTF8String],
-			  [uuid lengthOfBytesUsingEncoding:NSUTF8StringEncoding], 
-			  hashedChars);
-	NSData * hashedData = [NSData dataWithBytes:hashedChars length:32];
-	
-	return [hashedData asBase64EncodedString];
-}
-
 
 - (void)dealloc {
 	[hoccabilityInfo release];
