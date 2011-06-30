@@ -598,10 +598,24 @@
 #pragma mark -
 #pragma mark LongTouch Detector
 
--(void)desktopLongPressed:(UILongPressGestureRecognizer *)sender {
+-(void)desktopLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer {
     
-    NSLog(@"YEAH");
-    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
+        if([hoccingRules hoccerViewControllerMayAddAnotherView:self]){
+            CGPoint location = [gestureRecognizer locationInView:desktopView ];
+            UIMenuController *menuController = [UIMenuController sharedMenuController];
+            UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
+           
+            NSAssert([self becomeFirstResponder], @"Sorry, UIMenuController will not work with %@ since it cannot become first responder", self);
+            [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
+            [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];
+            [menuController setMenuVisible:YES animated:YES];
+        }
+    }    
+}
+
+- (BOOL) canBecomeFirstResponder {
+    return YES;
 }
 
 #pragma mark -
