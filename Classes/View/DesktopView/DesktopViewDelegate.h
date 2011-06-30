@@ -19,4 +19,5 @@
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view;
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)view;
 
+
 @end

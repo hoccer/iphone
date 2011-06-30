@@ -478,6 +478,8 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
+		B45A96A813B8D1F8005E4255 /* lochblech_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45A96A713B8D1F8005E4255 /* lochblech_bg@2x.png */; };
+		B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B45A96AB13B8DA45005E4255 /* HoccerPasteboard.m */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D6D9913AA411E004F39B0 /* NSData+CommonCrypto.m */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -888,6 +890,9 @@
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
+		B45A96A713B8D1F8005E4255 /* lochblech_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg@2x.png"; sourceTree = "<group>"; };
+		B45A96AA13B8DA44005E4255 /* HoccerPasteboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerPasteboard.h; sourceTree = "<group>"; };
+		B45A96AB13B8DA45005E4255 /* HoccerPasteboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerPasteboard.m; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11D6D9813AA411E004F39B0 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
 		E11D6D9913AA411E004F39B0 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
@@ -1518,6 +1523,7 @@
 		2292542E11889709008B4FFB /* general */ = {
 			isa = PBXGroup;
 			children = (
+				B45A96A713B8D1F8005E4255 /* lochblech_bg@2x.png */,
 				22F83BFB12539688006E5680 /* hoccer_logo_bar@2x.png */,
 				22972CC611905864006A6A8C /* help_bg.png */,
 				2292542F11889709008B4FFB /* hoccer_bar.png */,
@@ -1705,6 +1711,8 @@
 				22638C0111B51E5C0024AA7E /* HoccerVcard.m */,
 				E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */,
 				E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */,
+				B45A96AA13B8DA44005E4255 /* HoccerPasteboard.h */,
+				B45A96AB13B8DA45005E4255 /* HoccerPasteboard.m */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -2251,6 +2259,7 @@
 				E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */,
 				E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */,
 				E1AF682F13A7AA1900687AE4 /* HocletBrowserViewController.xib in Resources */,
+				B45A96A813B8D1F8005E4255 /* lochblech_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2546,6 +2555,7 @@
 				E1AF682E13A7AA1900687AE4 /* HocletBrowserViewController.m in Sources */,
 				E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */,
 				E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */,
+				B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,8 +16,6 @@
 
 @interface StatusViewController ()
 @property (retain) NSError *badLocationHint;
-- (void)showRecoverySuggestion;
-- (void)hideRecoverySuggestion;
 
 - (void)showLocationHint;
 
@@ -32,10 +30,8 @@
 @synthesize statusLabel;
 
 @synthesize badLocationHint;
-@synthesize hidden;
 
 - (void)viewDidLoad {
-	[self hideRecoverySuggestion];
 	self.view.backgroundColor = [UIColor clearColor];
 	
 	self.view.layer.hidden = YES;	
@@ -50,7 +46,6 @@
 	[progressView release];
 	[hintButton release];
 	[cancelButton release];
-	[badLocationHint release];
 	[backgroundImage release];
 	
     [super dealloc];
@@ -60,43 +55,11 @@
 	[self hideViewAnimated:YES];
 }
 
-- (void)setHidden:(BOOL)isHidden {
-	if (!hidden) {
-		self.view.hidden = YES;
-	} else if (badLocationHint != nil){
-		self.view.hidden = NO;
-	}
-	
-	hidden = isHidden;
-}
 
 
 #pragma mark -
 #pragma mark Managing Status Bar Size
 
-- (void)showRecoverySuggestion {
-	backgroundImage.image = self.largeBackground;
-	hintText.hidden = NO;
-
-	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 2, statusLabel.frame.size.width, statusLabel.frame.size.height);
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 121);
-}
-
-- (void)hideRecoverySuggestion {
-	backgroundImage.image = self.smallBackground;
-	self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 35); 
-
-	statusLabel.frame = CGRectMake(statusLabel.frame.origin.x, 1, statusLabel.frame.size.width, statusLabel.frame.size.height);
-	hintText.hidden = YES;
-}
-
-- (IBAction)toggelRecoveryHelp: (id)sender {
-	if (self.view.frame.size.height > 35) {
-		[self hideRecoverySuggestion];
-	} else {
-		[self showRecoverySuggestion];
-	}
-}	
 
 - (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds; {
 	self.statusLabel.text = message;
@@ -141,7 +104,8 @@
 - (void)setState: (StatusViewControllerState *)state {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = state.activitySpinner;
 	
-	[self showViewAnimated: YES];
+	
+    [self showViewAnimated: YES];
 	
 	progressView.hidden = state.progressView;
  	statusLabel.hidden = state.statusLabel;
@@ -172,7 +136,6 @@
 }
 
 - (void)setError:(NSError *)error {
-	hintText.hidden = NO;
 	
 	[self calculateHightForText: [error localizedDescription]];
 	
@@ -180,7 +143,6 @@
 		statusLabel.text = [error localizedDescription];
 		if ([error localizedRecoverySuggestion]) {
 			hintButton.hidden = NO;
-			hintText.text = [error localizedRecoverySuggestion];
 		}
 	}
 
@@ -207,7 +169,7 @@
 #pragma mark Showing and Hiding StatusBar
 
 - (void)showViewAnimated: (BOOL)animation {
-	if (!self.view.hidden || self.hidden) {
+	if (!self.view.hidden ) {
 		return;
 	}
 

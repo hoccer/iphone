@@ -39,7 +39,7 @@
 	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text-land.png"]];
 	self.opaque = NO;
 	textView.userInteractionEnabled = NO; 
-	
+	textView.textColor = [UIColor colorWithWhite:0.222 alpha:1.000];
 	[textView resignFirstResponder];
 }
 
@@ -52,6 +52,7 @@
 	self.opaque = YES;
 	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text_edit-land.png"]];
 	self.opaque = NO;
+    textView.textColor = [UIColor colorWithWhite:0.222 alpha:1.000];
 
 	textView.userInteractionEnabled = YES; 
 	[textView becomeFirstResponder];	

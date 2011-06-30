@@ -99,6 +99,7 @@
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
+- (IBAction)selectPasteboard: (id)sender;
 - (IBAction)showHistory: (id)sender;
 
 - (void)showDesktop;

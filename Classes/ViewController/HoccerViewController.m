@@ -22,6 +22,7 @@
 
 #import "HoccerVcard.h"
 #import "HoccerText.h"
+#import "HoccerPasteboard.h"
 #import "Preview.h"
 #import "ContentContainerView.h"
 
@@ -135,6 +136,9 @@
                                              selector:@selector(encryptionChanged:) 
                                                  name:@"encryptionChanged" 
                                                object:nil];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
+
+    [desktopView addGestureRecognizer:longPress];
 
 }
 
@@ -233,6 +237,21 @@
     [controller release];
 }
 
+- (IBAction)selectPasteboard: (id)sender {
+
+    HoccerPasteboard* content = [[[HoccerPasteboard alloc] init] autorelease];
+    if (content != nil){
+        [self setContentPreview: [content returnPastedContent]];
+    }
+    else {
+        
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Pasteboard content could not be read", nil) forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"Pasteboard failed" code:666 userInfo:userInfo];
+        [self handleError:error];
+
+    }
+
+}
 - (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}
@@ -252,6 +271,7 @@
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
+    [statusViewController hideViewAnimated:NO];
     connectionEstablished = NO;
     content.cryptor = [self currentCryptor];
         
@@ -576,6 +596,15 @@
 }
 
 #pragma mark -
+#pragma mark LongTouch Detector
+
+-(void)desktopLongPressed:(UILongPressGestureRecognizer *)sender {
+    
+    NSLog(@"YEAH");
+    
+}
+
+#pragma mark -
 #pragma mark UIDocumentInteractionController Delegate Methods
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
@@ -617,6 +646,7 @@
 }
 
 - (void)handleError: (NSError *)error {
+    
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;
@@ -633,6 +663,8 @@
 		[statusViewController setError:error];
 	}
 	
+
+    
 	if (self.sendingItem) {
 		self.sendingItem.viewOrigin = self.defaultOrigin;
         [desktopData addhoccerController:self.sendingItem];

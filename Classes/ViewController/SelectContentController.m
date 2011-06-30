@@ -112,6 +112,10 @@
     [delegate checkAndPerformSelector:@selector(selectHoclet:) withObject: self];
 }
 
+- (IBAction)pasteboard: (id)sender {
+    [delegate checkAndPerformSelector:@selector(selectPasteboard:) withObject: self];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[delegate checkAndPerformSelector:@selector(toggleSelectContent:) withObject:self];
 // 	[[self nextResponder] touchesBegan:touches withEvent:event];
@@ -129,6 +133,7 @@
     [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
     
     [buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hoclet", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Pasteboard", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
 
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];

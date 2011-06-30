@@ -18,6 +18,10 @@
 
 - (void)viewDidLoad {
     selectedClients = [[NSMutableArray alloc] init];
+    self.view.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+
+
 }
 
 - (void)calculateHightForText: (NSString *)text {
@@ -92,11 +96,14 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     
     if ([selectedClients containsObject:client]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;        
+        cell.accessoryView = nil;        
     }
 
     return cell;
@@ -123,6 +130,46 @@
     if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
         [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
     }
+}
+
+
+
+
+- (CGFloat)tableView:(UITableView *)theTableView heightForHeaderInSection:(NSInteger)section {
+    if ([self tableView:theTableView titleForHeaderInSection:section] != nil) {
+        return 19;
+    }
+    else {
+        // If no section header title, no section header needed
+        return 0;
+    }
+}
+
+
+- (UIView *)tableView:(UITableView *)theTableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionTitle = [self tableView:theTableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    // Create label with section title
+    UILabel *label = [[[UILabel alloc] init] autorelease];
+    label.frame = CGRectMake(0, 0, 320, 19);
+
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+    label.textColor = [UIColor colorWithRed:0.000 green:0.596 blue:0.555 alpha:1.000];
+    label.shadowColor = [UIColor clearColor];
+    label.shadowOffset = CGSizeMake(0.0, 0.0);
+    label.font = [UIFont boldSystemFontOfSize:14];
+    label.textAlignment = UITextAlignmentCenter;
+    label.text = sectionTitle;
+    
+    // Create header view and add label as a subview
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 19)];
+    [view autorelease];
+    [view addSubview:label];
+    
+    return view;
 }
 
 - (void)viewDidUnload {
