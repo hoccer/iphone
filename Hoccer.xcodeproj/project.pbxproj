@@ -501,6 +501,8 @@
 		E1AF682F13A7AA1900687AE4 /* HocletBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AF682D13A7AA1900687AE4 /* HocletBrowserViewController.xib */; };
 		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
 		E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C1CF2C139CCF7A00015DAC /* HocletView.xib */; };
+		E1CDA9FD13B3835400E304AA /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CDA9FC13B3835400E304AA /* RSA.m */; };
+		E1CDA9FF13B387AD00E304AA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CDA9FE13B387AD00E304AA /* Security.framework */; };
 		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
 		E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
 		E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
@@ -921,6 +923,9 @@
 		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
 		E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHoclet.m; sourceTree = "<group>"; };
 		E1C1CF2C139CCF7A00015DAC /* HocletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HocletView.xib; sourceTree = "<group>"; };
+		E1CDA9FB13B3835400E304AA /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSA.h; path = lib/ios/Classes/Crypto/RSA.h; sourceTree = "<group>"; };
+		E1CDA9FC13B3835400E304AA /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSA.m; path = lib/ios/Classes/Crypto/RSA.m; sourceTree = "<group>"; };
+		E1CDA9FE13B387AD00E304AA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1EB75DD12FC593D007025A2 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 		E1EB75DE12FC593D007025A2 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
 		E609357F12A54A8500EE83EB /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
@@ -993,6 +998,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CDA9FF13B387AD00E304AA /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -1771,6 +1777,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDA9FE13B387AD00E304AA /* Security.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				E609353D12A549E500EE83EB /* Libs */,
 				22762D17105E4408003BF968 /* Tests */,
@@ -1848,6 +1855,8 @@
 			children = (
 				E16ABCAA13AB47BC00B28CA4 /* Crypto.h */,
 				E16ABCAB13AB47BC00B28CA4 /* Crypto.m */,
+				E1CDA9FB13B3835400E304AA /* RSA.h */,
+				E1CDA9FC13B3835400E304AA /* RSA.m */,
 			);
 			name = Crypto;
 			sourceTree = "<group>";
@@ -2556,6 +2565,7 @@
 				E11D6D9A13AA411E004F39B0 /* NSData+CommonCrypto.m in Sources */,
 				E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */,
 				B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */,
+				E1CDA9FD13B3835400E304AA /* RSA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
