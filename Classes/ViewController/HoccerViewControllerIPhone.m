@@ -121,13 +121,14 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+	desktopView.backgroundColor = background;
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+    
 
-	CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = 0;
-
-	[desktopView addSubview:statusViewController.view];
+	[desktopView insertSubview:statusViewController.view atIndex:0];
+    CGRect statusRect = statusViewController.view.frame;
+	statusRect.origin.y = desktopView.frame.origin.y-19;
 	statusViewController.view.frame = statusRect;
 	
 	[desktopView insertSubview:infoViewController.view atIndex:0];
@@ -181,6 +182,13 @@
     self.tabBar.selectedItem = nil;
 
     [super selectText:sender];
+    [self hidePopOverAnimated:  NO];
+}
+
+- (IBAction)selectPasteboard: (id)sender {    
+    self.tabBar.selectedItem = nil;
+    
+    [super selectPasteboard:sender];
     [self hidePopOverAnimated:  NO];
 }
 
@@ -278,7 +286,7 @@
 	
 	isPopUpDisplayed = TRUE;
 	
-	statusViewController.hidden = YES;
+    [infoViewController hideStatus];
 	[popOverView viewDidAppear:YES];
 }
 
@@ -287,7 +295,6 @@
 }
 
 - (void)removePopOverFromSuperview {
-	statusViewController.hidden = NO;
 
 	[auxiliaryView.view removeFromSuperview];	 
 	self.auxiliaryView = nil;
@@ -432,6 +439,7 @@
 
 
 - (void)pressedButton: (id)sender {	
+    [statusViewController hideStatus];
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
 	} else {

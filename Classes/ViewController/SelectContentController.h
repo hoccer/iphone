@@ -25,4 +25,5 @@
 - (IBAction)text: (id)sender;
 - (IBAction)contact: (id)sender;
 - (IBAction)hoclet: (id)sender;
+- (IBAction)pasteboard: (id)sender;
 @end
