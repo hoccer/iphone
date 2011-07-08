@@ -33,7 +33,6 @@
 
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor clearColor];
-	
 	self.view.layer.hidden = YES;	
 }
 

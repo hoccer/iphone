@@ -17,6 +17,7 @@
 #import "ReceivedContentViewController.h"
 #import "NSString+Regexp.h"
 #import "NSFileManager+FileHelper.h"
+#import "NSString+StringWithData.h"
 
 
 @interface HoccerHistoryController ()
@@ -108,7 +109,19 @@
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
 		
 		[cell viewWithTag:5].hidden = NO;
-		((UILabel *)[cell viewWithTag:1]).text = [[item filepath] lastPathComponent];
+        
+        NSString *shortString = [item.filepath lastPathComponent];
+        
+        if ([item.mimeType isEqualToString:@"text/plain"] && item.data != nil){
+            NSString *theTextContent = [NSString stringWithData:[item data] usingEncoding:NSUTF8StringEncoding];
+            NSRange stringRange = {0, MIN([theTextContent length], 18)};
+        
+            stringRange = [theTextContent rangeOfComposedCharacterSequencesForRange:stringRange];
+        
+            shortString = [[theTextContent substringWithRange:stringRange] stringByAppendingString:@" ..."];
+        }
+        
+        ((UILabel *)[cell viewWithTag:1]).text = shortString;
 		((UILabel *)[cell viewWithTag:2]).text = [dateFormatter stringFromDate: item.creationDate];
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";

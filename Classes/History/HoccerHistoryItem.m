@@ -18,4 +18,10 @@
 @dynamic mimeType;
 @dynamic upload;
 
+@synthesize data;
+
+-(void)dealloc{
+    [data release];
+    [super dealloc];
+}
 @end

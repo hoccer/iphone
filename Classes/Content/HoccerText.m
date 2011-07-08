@@ -30,6 +30,7 @@
 - (UIView *)fullscreenView {
 	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
 	text.text = self.content;
+    text.textColor = [UIColor blackColor];
 	text.editable = YES;
 	
 	return [text autorelease];
@@ -62,6 +63,7 @@
 }
 
 - (NSString *)defaultFilename {
+   
 	return @"Message";
 }
 

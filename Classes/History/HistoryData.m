@@ -71,7 +71,9 @@
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
-    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"HocHistory_v2" ofType:@"momd"];
+    NSURL *momURL = [NSURL fileURLWithPath:path];
+    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
     return managedObjectModel;
 }
 
@@ -88,9 +90,14 @@
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"HocHistory.sqlite"]];
 	
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+
+    
 	NSError *error;
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
 		NSLog(@"error: %@", error);
 	}    
 	
@@ -140,6 +147,7 @@
 	historyItem.mimeType = [hoccerController.content mimeType];
 	historyItem.creationDate = [NSDate date];
 	historyItem.upload = [NSNumber numberWithBool: hoccerController.isUpload];
+    historyItem.data = hoccerController.content.data;
 	
 	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	

@@ -41,7 +41,6 @@
 		22638BC111B51DC50024AA7E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BAD11B51DC50024AA7E /* SweepOutRecognizer.m */; };
 		22638BC211B51DC50024AA7E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB011B51DC50024AA7E /* SweepRecognizer.m */; };
 		22638BC311B51DC50024AA7E /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB311B51DC50024AA7E /* TabRecognizer.m */; };
-		22638BC411B51DC50024AA7E /* HCProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HCProgressView.m */; };
 		22638BC511B51DC50024AA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB911B51DC50024AA7E /* MBProgressHUD.m */; };
 		22638BC611B51DC50024AA7E /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBB11B51DC50024AA7E /* Preview.m */; };
 		22638BC711B51DC50024AA7E /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBD11B51DC50024AA7E /* TextPreview.m */; };
@@ -51,7 +50,6 @@
 		22638BCB11B51DC50024AA7E /* SweepOutRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BAD11B51DC50024AA7E /* SweepOutRecognizer.m */; };
 		22638BCC11B51DC50024AA7E /* SweepRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB011B51DC50024AA7E /* SweepRecognizer.m */; };
 		22638BCD11B51DC50024AA7E /* TabRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB311B51DC50024AA7E /* TabRecognizer.m */; };
-		22638BCE11B51DC50024AA7E /* HCProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB611B51DC50024AA7E /* HCProgressView.m */; };
 		22638BCF11B51DC50024AA7E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BB911B51DC50024AA7E /* MBProgressHUD.m */; };
 		22638BD011B51DC50024AA7E /* Preview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBB11B51DC50024AA7E /* Preview.m */; };
 		22638BD111B51DC50024AA7E /* TextPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638BBD11B51DC50024AA7E /* TextPreview.m */; };
@@ -261,8 +259,6 @@
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
-		22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
-		22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22AB1584120027BF0057548A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4D11B52D9D0024AA7E /* MainWindow.xib */; };
 		22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* HoccerAppDelegate.m */; };
 		22AB1591120028430057548A /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22638D4711B52D9D0024AA7E /* AboutViewController.xib */; };
@@ -359,7 +355,6 @@
 		22AB15EF120029110057548A /* statusbar_progress_thumb_R.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292544011889709008B4FFB /* statusbar_progress_thumb_R.png */; };
 		22AB15F0120029110057548A /* statusbar_progress_track.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292544111889709008B4FFB /* statusbar_progress_track.png */; };
 		22AB15F1120029110057548A /* statusbar_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2292544211889709008B4FFB /* statusbar_small.png */; };
-		22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */; };
 		22AB17A51200818A0057548A /* statusbar_indicator_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A21200818A0057548A /* statusbar_indicator_green.png */; };
 		22AB17A61200818A0057548A /* statusbar_indicator_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A31200818A0057548A /* statusbar_indicator_red.png */; };
 		22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AB17A41200818A0057548A /* statusbar_indicator_yellow.png */; };
@@ -478,8 +473,14 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2011B51E880024AA7E /* HoccerHistoryController.m */; };
 		ADC28C201219684600E3AD11 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = ADC28C1F1219684600E3AD11 /* RunTests.sh */; };
+		B425094713C33153003AF3F8 /* HocHistory_v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B425094413C33153003AF3F8 /* HocHistory_v2.xcdatamodeld */; };
+		B425160C13C355DE00CF859D /* select_btn_paste.png in Resources */ = {isa = PBXBuildFile; fileRef = B425160B13C355DE00CF859D /* select_btn_paste.png */; };
+		B425160E13C355E600CF859D /* select_btn_paste@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B425160D13C355E600CF859D /* select_btn_paste@2x.png */; };
+		B425161113C35A9800CF859D /* PublicKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B425161013C35A9800CF859D /* PublicKeyManager.m */; };
 		B45A96A813B8D1F8005E4255 /* lochblech_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45A96A713B8D1F8005E4255 /* lochblech_bg@2x.png */; };
 		B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B45A96AB13B8DA45005E4255 /* HoccerPasteboard.m */; };
+		B4797B3413C5C10D00B649C2 /* select_btn_hocclet.png in Resources */ = {isa = PBXBuildFile; fileRef = B4797B3213C5C10D00B649C2 /* select_btn_hocclet.png */; };
+		B4797B3513C5C10D00B649C2 /* select_btn_hocclet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4797B3313C5C10D00B649C2 /* select_btn_hocclet@2x.png */; };
 		B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -628,8 +629,6 @@
 		22638BB211B51DC50024AA7E /* TabRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizer.h; sourceTree = "<group>"; };
 		22638BB311B51DC50024AA7E /* TabRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabRecognizer.m; sourceTree = "<group>"; };
 		22638BB411B51DC50024AA7E /* TabRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabRecognizerDelegate.h; sourceTree = "<group>"; };
-		22638BB511B51DC50024AA7E /* HCProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCProgressView.h; sourceTree = "<group>"; };
-		22638BB611B51DC50024AA7E /* HCProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCProgressView.m; sourceTree = "<group>"; };
 		22638BB811B51DC50024AA7E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		22638BB911B51DC50024AA7E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		22638BBA11B51DC50024AA7E /* Preview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preview.h; path = ../View/Preview.h; sourceTree = "<group>"; };
@@ -817,7 +816,6 @@
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
 		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = HocHistory.xcdatamodel; sourceTree = "<group>"; };
 		22AB1549120025B20057548A /* GHAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHAsyncTestCase.h; path = Tests/libGHUnitIPhone4/GHAsyncTestCase.h; sourceTree = "<group>"; };
 		22AB154A120025B20057548A /* GHTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHTest.h; path = Tests/libGHUnitIPhone4/GHTest.h; sourceTree = "<group>"; };
 		22AB154B120025B20057548A /* GHTest+JUnitXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GHTest+JUnitXML.h"; path = "Tests/libGHUnitIPhone4/GHTest+JUnitXML.h"; sourceTree = "<group>"; };
@@ -892,9 +890,17 @@
 		32CA4F630368D1EE00C91783 /* Hoccer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Hoccer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Hoccer-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		ADC28C1F1219684600E3AD11 /* RunTests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = RunTests.sh; sourceTree = "<group>"; };
+		B425094513C33153003AF3F8 /* HocHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HocHistory.xcdatamodel; sourceTree = "<group>"; };
+		B425094613C33153003AF3F8 /* HocHistory_v 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HocHistory_v 2.xcdatamodel"; sourceTree = "<group>"; };
+		B425160B13C355DE00CF859D /* select_btn_paste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_paste.png; sourceTree = "<group>"; };
+		B425160D13C355E600CF859D /* select_btn_paste@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_paste@2x.png"; sourceTree = "<group>"; };
+		B425160F13C35A9800CF859D /* PublicKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicKeyManager.h; path = lib/ios/Classes/Crypto/PublicKeyManager.h; sourceTree = "<group>"; };
+		B425161013C35A9800CF859D /* PublicKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicKeyManager.m; path = lib/ios/Classes/Crypto/PublicKeyManager.m; sourceTree = "<group>"; };
 		B45A96A713B8D1F8005E4255 /* lochblech_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg@2x.png"; sourceTree = "<group>"; };
 		B45A96AA13B8DA44005E4255 /* HoccerPasteboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerPasteboard.h; sourceTree = "<group>"; };
 		B45A96AB13B8DA45005E4255 /* HoccerPasteboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerPasteboard.m; sourceTree = "<group>"; };
+		B4797B3213C5C10D00B649C2 /* select_btn_hocclet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_hocclet.png; sourceTree = "<group>"; };
+		B4797B3313C5C10D00B649C2 /* select_btn_hocclet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_hocclet@2x.png"; sourceTree = "<group>"; };
 		B4AEA8B113BC7DB100F5AA76 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CommonCrypto.h"; path = "lib/ios/Classes/Crypto/NSData+CommonCrypto.h"; sourceTree = SOURCE_ROOT; };
 		B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CommonCrypto.m"; path = "lib/ios/Classes/Crypto/NSData+CommonCrypto.m"; sourceTree = SOURCE_ROOT; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1193,8 +1199,6 @@
 				22638BB711B51DC50024AA7E /* MBProgressHUD */,
 				22638B9F11B51DC50024AA7E /* CustomTabBar.h */,
 				22638BA011B51DC50024AA7E /* CustomTabBar.m */,
-				22638BB511B51DC50024AA7E /* HCProgressView.h */,
-				22638BB611B51DC50024AA7E /* HCProgressView.m */,
 				229B92A01208660000120752 /* HCButton.h */,
 				229B92A11208660000120752 /* HCButton.m */,
 			);
@@ -1818,8 +1822,8 @@
 				22F83C7A1253AA42006E5680 /* Icon@2x.png */,
 				22AD327B11107C7700BC7DEC /* Icon.png */,
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
-				22A74BD5116C88F500F3E4B4 /* HocHistory.xcdatamodel */,
 				221D771011A6DC8C00246D89 /* Default.png */,
+				B425094413C33153003AF3F8 /* HocHistory_v2.xcdatamodeld */,
 				229800C112098F5C0043BFA5 /* defaults.plist */,
 				E13A019F139E7B030052A4A1 /* hoclets.plist */,
 			);
@@ -1855,6 +1859,8 @@
 				E16ABCAB13AB47BC00B28CA4 /* Crypto.m */,
 				E1CDA9FB13B3835400E304AA /* RSA.h */,
 				E1CDA9FC13B3835400E304AA /* RSA.m */,
+				B425160F13C35A9800CF859D /* PublicKeyManager.h */,
+				B425161013C35A9800CF859D /* PublicKeyManager.m */,
 			);
 			name = Crypto;
 			sourceTree = "<group>";
@@ -1962,10 +1968,14 @@
 			isa = PBXGroup;
 			children = (
 				22F83C591253A6F3006E5680 /* select_btn_cam@2x.png */,
+				B425160B13C355DE00CF859D /* select_btn_paste.png */,
+				B425160D13C355E600CF859D /* select_btn_paste@2x.png */,
 				22F83C5A1253A6F3006E5680 /* select_btn_contact@2x.png */,
 				22F83C5B1253A6F3006E5680 /* select_btn_mycontact@2x.png */,
 				22F83C5C1253A6F3006E5680 /* select_btn_photo@2x.png */,
 				22F83C5D1253A6F3006E5680 /* select_btn_text@2x.png */,
+				B4797B3213C5C10D00B649C2 /* select_btn_hocclet.png */,
+				B4797B3313C5C10D00B649C2 /* select_btn_hocclet@2x.png */,
 				22F83C5E1253A6F3006E5680 /* select_btn_video@2x.png */,
 				E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */,
 				E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */,
@@ -2269,6 +2279,10 @@
 				E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */,
 				E1AF682F13A7AA1900687AE4 /* HocletBrowserViewController.xib in Resources */,
 				B45A96A813B8D1F8005E4255 /* lochblech_bg@2x.png in Resources */,
+				B425160C13C355DE00CF859D /* select_btn_paste.png in Resources */,
+				B425160E13C355E600CF859D /* select_btn_paste@2x.png in Resources */,
+				B4797B3413C5C10D00B649C2 /* select_btn_hocclet.png in Resources */,
+				B4797B3513C5C10D00B649C2 /* select_btn_hocclet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2490,7 +2504,6 @@
 				228100C310A9CDCC00DFA0BF /* HelpOverview.m in Sources */,
 				22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */,
 				229A7F3F116B4E3C00FFAD1B /* HoccingRulesIPhone.m in Sources */,
-				22A74BD6116C88F500F3E4B4 /* HocHistory.xcdatamodel in Sources */,
 				22B65A5111770975003E7058 /* GesturesInterpreter.m in Sources */,
 				22B65A5211770975003E7058 /* LineFeature.m in Sources */,
 				22B65A5311770975003E7058 /* FeatureHistory.m in Sources */,
@@ -2506,7 +2519,6 @@
 				22638BCB11B51DC50024AA7E /* SweepOutRecognizer.m in Sources */,
 				22638BCC11B51DC50024AA7E /* SweepRecognizer.m in Sources */,
 				22638BCD11B51DC50024AA7E /* TabRecognizer.m in Sources */,
-				22638BCE11B51DC50024AA7E /* HCProgressView.m in Sources */,
 				22638BCF11B51DC50024AA7E /* MBProgressHUD.m in Sources */,
 				22638BD011B51DC50024AA7E /* Preview.m in Sources */,
 				22638BD111B51DC50024AA7E /* TextPreview.m in Sources */,
@@ -2566,6 +2578,8 @@
 				B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */,
 				E1CDA9FD13B3835400E304AA /* RSA.m in Sources */,
 				B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */,
+				B425094713C33153003AF3F8 /* HocHistory_v2.xcdatamodeld in Sources */,
+				B425161113C35A9800CF859D /* PublicKeyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2586,7 +2600,6 @@
 				22B1CBC71159160600EFD709 /* HelpOverview.m in Sources */,
 				22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */,
 				229A842A116B7B5A00FFAD1B /* HoccingRulesIPhone.m in Sources */,
-				22A74CFC116CBEF800F3E4B4 /* HocHistory.xcdatamodel in Sources */,
 				22903EC6116DF48600230C1E /* HoccingRulesIPad.m in Sources */,
 				22B65A4A1177095A003E7058 /* FeatureHistory.m in Sources */,
 				22B65A5611770976003E7058 /* GesturesInterpreter.m in Sources */,
@@ -2650,7 +2663,6 @@
 				22638BC111B51DC50024AA7E /* SweepOutRecognizer.m in Sources */,
 				22638BC211B51DC50024AA7E /* SweepRecognizer.m in Sources */,
 				22638BC311B51DC50024AA7E /* TabRecognizer.m in Sources */,
-				22638BC411B51DC50024AA7E /* HCProgressView.m in Sources */,
 				22638BC511B51DC50024AA7E /* MBProgressHUD.m in Sources */,
 				22638BC611B51DC50024AA7E /* Preview.m in Sources */,
 				22638BC711B51DC50024AA7E /* TextPreview.m in Sources */,
@@ -2682,7 +2694,6 @@
 				22638DEE11B53E2C0024AA7E /* HelpOverview.m in Sources */,
 				22638DF111B53E420024AA7E /* HoccingRulesIPhone.m in Sources */,
 				22AB1588120027F50057548A /* HoccerAppDelegate.m in Sources */,
-				22AB1609120029BC0057548A /* HocHistory.xcdatamodel in Sources */,
 				229B92F01208737300120752 /* StatusBarStates.m in Sources */,
 				229B92F31208738500120752 /* HCButton.m in Sources */,
 				ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */,
@@ -2710,6 +2721,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2735,6 +2747,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2780,6 +2793,7 @@
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -3038,6 +3052,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B425094413C33153003AF3F8 /* HocHistory_v2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B425094513C33153003AF3F8 /* HocHistory.xcdatamodel */,
+				B425094613C33153003AF3F8 /* HocHistory_v 2.xcdatamodel */,
+			);
+			currentVersion = B425094613C33153003AF3F8 /* HocHistory_v 2.xcdatamodel */;
+			path = HocHistory_v2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

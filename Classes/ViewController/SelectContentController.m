@@ -132,8 +132,8 @@
 
     [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
     
-    [buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hoclet", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
-    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hocclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
 
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];

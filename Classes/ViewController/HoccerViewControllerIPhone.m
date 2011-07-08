@@ -121,8 +121,7 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
-	desktopView.backgroundColor = background;
+	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
     
 
@@ -363,7 +362,6 @@
     linccer.userInfo = userInfo;
     [self updateGroupButton];
 }
-
 
 
 #pragma mark -

@@ -139,7 +139,7 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
     [desktopView addGestureRecognizer:longPress];
-
+    [longPress release];
 }
 
 - (void)viewDidUnload {
@@ -604,11 +604,11 @@
             CGPoint location = [gestureRecognizer locationInView:desktopView ];
             UIMenuController *menuController = [UIMenuController sharedMenuController];
             UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
-           
-            NSAssert([self becomeFirstResponder], @"Sorry, UIMenuController will not work with %@ since it cannot become first responder", self);
+            [self becomeFirstResponder];
             [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
             [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];
             [menuController setMenuVisible:YES animated:YES];
+            [pasteMenuItem release];
         }
     }    
 }
