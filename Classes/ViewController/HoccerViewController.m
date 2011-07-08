@@ -142,6 +142,10 @@
     [longPress release];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [self becomeFirstResponder];
+}
+
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -604,7 +608,6 @@
             CGPoint location = [gestureRecognizer locationInView:desktopView ];
             UIMenuController *menuController = [UIMenuController sharedMenuController];
             UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
-            [self becomeFirstResponder];
             [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
             [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];
             [menuController setMenuVisible:YES animated:YES];
@@ -615,6 +618,22 @@
 
 - (BOOL) canBecomeFirstResponder {
     return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    
+    if (USES_SANDBOX){
+        if (event.type == UIEventSubtypeMotionShake){
+            if (!shaked){
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pony_bg.png"]];
+                shaked = YES;
+            }
+            else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+                shaked = NO;
+            }
+        }
+    }
 }
 
 #pragma mark -

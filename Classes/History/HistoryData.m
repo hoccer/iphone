@@ -147,7 +147,9 @@
 	historyItem.mimeType = [hoccerController.content mimeType];
 	historyItem.creationDate = [NSDate date];
 	historyItem.upload = [NSNumber numberWithBool: hoccerController.isUpload];
-    historyItem.data = hoccerController.content.data;
+    if([[hoccerController.content mimeType] isEqualToString:@"text/plain"]){
+        historyItem.data = hoccerController.content.data;
+    }
 	
 	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	

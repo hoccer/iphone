@@ -90,6 +90,9 @@
 - (void)hidePopOverAnimated: (BOOL) animate;
 - (void)updateGroupButton;
 - (void)showGroupButton;
+- (void)updateEncryptionIndicator;
+- (void)showEncryption:(BOOL)toogle;
+
 
 @end
 
@@ -142,6 +145,8 @@
 	
 	[self showHud];
     [self updateGroupButton];
+    [self updateEncryptionIndicator];
+
 }
 
 - (void) dealloc {
@@ -250,6 +255,7 @@
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
+    navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)showHistoryView {
@@ -261,6 +267,7 @@
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
 	navigationItem.titleView = nil;
+    navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -329,6 +336,7 @@
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupButton];
+    [self updateEncryptionIndicator];
 }
 
 #pragma mark -
@@ -434,6 +442,32 @@
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
     [hoccabilityBarButtonItem release];    
 }
+
+- (void)updateEncryptionIndicator{
+    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    [self showEncryption:encrypting];
+}
+
+- (void)showEncryption:(BOOL)toogle{
+    UIBarButtonItem *encryptionBarButtomItem;
+    if (toogle){
+        encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"nav_bar_enc_on"]]];
+    }
+    else {
+        encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"nav_bar_enc_off"]]];
+    }
+    navigationItem.leftBarButtonItem = encryptionBarButtomItem;
+    [encryptionBarButtomItem release];
+}
+
+- (void)encryptionChanged: (NSNotification *)notification {
+    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    if (navigationItem.titleView != nil){
+        [self showEncryption:encrypting];
+    }
+}
+
+
 
 
 - (void)pressedButton: (id)sender {	

@@ -69,12 +69,13 @@
 		
 	HCLinccer *linccer;
 	TransferController *transferController;
-	BOOL connectionEstablished, fileUploaded;
+	BOOL connectionEstablished, fileUploaded, shaked;
     
 	MBProgressHUD *hud;
 	
 	UIView *errorView;
     ItemViewController *sendingItem;
+    
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
