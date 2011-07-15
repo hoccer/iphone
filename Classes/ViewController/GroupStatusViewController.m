@@ -50,19 +50,19 @@
         [group release];
         group = [newGroup retain];
         [self.tableView reloadData];
-        
+
         [self calculateHightForText: nil];
         
         BOOL selectionChanged = NO;
-        for (NSInteger i = [selectedClients count] - 1; i >= 0 ; i--) {
-            NSDictionary *client = [selectedClients objectAtIndex:i];
-            if (![group containsObject:client]) {
-                [selectedClients removeObject:client];
+        for (NSDictionary *aClient in selectedClients) {
+            if (![group containsObject:aClient]) {
+                [selectedClients removeObject:aClient];
                 selectionChanged = YES;
             }
         }
         
         if (selectionChanged) {
+            
             if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
                 [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
             }

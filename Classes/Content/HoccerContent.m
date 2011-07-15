@@ -11,6 +11,9 @@
 #import "Preview.h"
 #import "NSFileManager+FileHelper.h"
 #import "NSData_Base64Extensions.h"
+#import "NSData+CommonCrypto.h"
+#import "PublicKeyManager.h"
+#import "RSA.h"
 
 @implementation HoccerContent
 @synthesize data;
@@ -45,17 +48,32 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
+    keyManager = [[PublicKeyManager alloc]init];
+
     NSLog(@"received %@", dict);
     
     NSDictionary *encryption = nil;
-    if ((encryption = [dict objectForKey:@"encryption"])) {
+    if ((encryption = [dict objectForKey:@"encryption"])&& [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == YES && [[NSUserDefaults standardUserDefaults] stringForKey:@"encryptionKey"]!=nil) {
         NSString *method = [encryption objectForKey:@"method"];
         NSString *salt    = [encryption objectForKey:@"salt"];
-        [self cryptorWithType:method salt: salt];
+        NSString *password    = [encryption objectForKey:@"password"];
+        if (password != nil && salt !=nil){
+            [self cryptorWithType:method salt: salt password:password];
+        }
+        else {
+            NSLog(@"FAIL!");
+        }
     }
-	
+    else if((encryption = [dict objectForKey:@"encryption"])) {
+        NSNotification *notification = [NSNotification notificationWithName:@"encryptionNotEnabled" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+
+    }
+
     if ([dict objectForKey:@"content"]) {
 		NSString *content = [self.cryptor decryptString:[dict objectForKey:@"content"]]; 
+        
+        NSLog(@"The decrypted Content: %@",content);
         
         NSData *theData = [content dataUsingEncoding:NSUTF8StringEncoding]; 
 		return [self initWithData:theData];
@@ -90,16 +108,24 @@
 	return self;
 }
 
-- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt {
+- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt password:(NSString *)password{
     NSLog(@"generating cryptor with %@", type);
     
     if ([type isEqualToString:@"AES"]) {
-        NSString *key  = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
+        
+        SecKeyRef thePrivateKey = [[RSA sharedInstance] getPrivateKeyRef];
+        
+        NSData *cipherData = [NSData dataWithBase64EncodedString:password];
+        
+        NSData *keyData = [[RSA sharedInstance] decryptWithKey:thePrivateKey cipherData:cipherData];
+        
+        NSString *key  = [[[NSString alloc] initWithData:keyData encoding:NSUTF8StringEncoding] autorelease];
+        
+        NSLog(@"The Key: %@",key);
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
 
+    }
 }
-}
-
 
 - (void) dealloc {		
 	[data release];
@@ -204,7 +230,6 @@
 - (NSDictionary *)dataDesctiption {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:self.mimeType forKey:@"type"];
-	
 	return dictionary;
 }
 

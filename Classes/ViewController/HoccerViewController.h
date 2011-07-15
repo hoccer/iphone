@@ -69,7 +69,7 @@
 		
 	HCLinccer *linccer;
 	TransferController *transferController;
-	BOOL connectionEstablished, fileUploaded, shaked;
+	BOOL connectionEstablished, fileUploaded, shaked, cipherNeeded;
     
 	MBProgressHUD *hud;
 	
@@ -90,6 +90,7 @@
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
 @property (readonly) HCLinccer *linccer;
+
 
 - (void)setContentPreview: (HoccerContent *)content;
 

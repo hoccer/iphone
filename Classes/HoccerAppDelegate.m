@@ -73,6 +73,9 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		return YES;
 	}
     
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     return YES;
 }
 

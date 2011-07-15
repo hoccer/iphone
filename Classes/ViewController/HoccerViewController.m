@@ -136,10 +136,20 @@
                                              selector:@selector(encryptionChanged:) 
                                                  name:@"encryptionChanged" 
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(encryptionNotEnabled:) 
+                                                 name:@"encryptionNotEnabled" 
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(encryptionError:) 
+                                                 name:@"encryptionError" 
+                                               object:nil];
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
     [desktopView addGestureRecognizer:longPress];
     [longPress release];
+    cipherNeeded = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -261,6 +271,7 @@
 - (IBAction)toggleHelp: (id)sender {}
 
 - (void)showDesktop {}
+
 
 #pragma mark -
 #pragma mark View Manipulation
@@ -506,9 +517,13 @@
 #pragma mark TransferController Delegate
 
 - (void)transferController:(TransferController *)controller didFinishTransfer:(id)object {
+    
+    fileUploaded = NO;
     [self ensureViewIsHoccable];
     
 	if ([desktopData count] == 0) {
+        fileUploaded = YES;
+        cipherNeeded = YES;
 		return;
 	}
     
@@ -531,6 +546,7 @@
         } else {
             ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
             [self showSuccess:item];
+            cipherNeeded = NO;
         }
     }
 }
@@ -543,10 +559,12 @@
 
 - (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
 	[self handleError: error];
+    cipherNeeded = YES;
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
 	[self hideHUD];
+    cipherNeeded = NO;
 }
 
 #pragma mark -
@@ -667,6 +685,27 @@
     }
 }
 
+- (void)encryptionNotEnabled: (NSNotification *)notification {
+    
+    UIAlertView *encryptionAlert = [[UIAlertView alloc]
+                            initWithTitle:NSLocalizedString(@"Encryption not enabled",nil) message:NSLocalizedString(@"You need to enable encryption to view this content",nil)
+                            delegate:nil 
+                            cancelButtonTitle:nil
+                            otherButtonTitles:@"OK", nil];
+    [encryptionAlert show]; 
+
+}
+
+- (void)encryptionError: (NSNotification *)notification {
+    
+    UIAlertView *encryptionAlert = [[UIAlertView alloc]
+                                    initWithTitle:NSLocalizedString(@"Encryption Error",nil) message:NSLocalizedString(@"Something went wrong please check if you have selected clients for this transaction.",nil)
+                                    delegate:nil 
+                                    cancelButtonTitle:nil
+                                    otherButtonTitles:@"OK", nil];
+    [encryptionAlert show]; 
+    
+}
 
 #pragma mark -
 #pragma mark Private Methods
@@ -781,8 +820,12 @@
 - (id <Cryptor>)currentCryptor {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"encryption"]) {
-        NSString *key = [defaults objectForKey:@"encryptionKey"];
-        return [[[AESCryptor alloc] initWithKey:key] autorelease];
+        if (cipherNeeded){
+            return [[[AESCryptor alloc] initWithRandomKey] autorelease];
+        }
+        else {
+            return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
+        }
     } else {
         return [[[NoCryptor alloc] init] autorelease];
     }

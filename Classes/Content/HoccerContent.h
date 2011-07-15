@@ -10,6 +10,7 @@
 #import "HoccerContent.h"
 #import "TransferController.h"
 #import "Crypto.h"
+#import "PublicKeyManager.h"
 
 @class Preview;
 
@@ -21,6 +22,8 @@
 	@private
 	NSData *data;
 	BOOL persist;
+    
+    PublicKeyManager *keyManager;
 	
 	id target;
 	SEL selector;
@@ -78,7 +81,7 @@
 - (NSArray *)transferers;
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller;
-- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt;
+- (void)cryptorWithType: (NSString *)type salt: (NSString *)salt password:(NSString *)password;
 
 - (void)viewDidLoad;
 

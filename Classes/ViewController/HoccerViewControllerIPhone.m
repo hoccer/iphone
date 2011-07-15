@@ -367,6 +367,9 @@
     
     [userInfo setObject:clientIds forKey:@"selected_clients"];
     
+    [[NSUserDefaults standardUserDefaults] setObject:clients forKey:@"selected_clients"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     linccer.userInfo = userInfo;
     [self updateGroupButton];
 }
@@ -426,10 +429,14 @@
     NSString *text = nil;
     if (groupCount < 1) {
         text = @"0";
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     } else if ([[infoViewController selectedClients] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
     } else {
         text = [NSString stringWithFormat: @"%d", groupCount];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];        
