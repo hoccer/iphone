@@ -136,13 +136,15 @@
                                              selector:@selector(encryptionChanged:) 
                                                  name:@"encryptionChanged" 
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(encryptionNotEnabled:) 
-                                                 name:@"encryptionNotEnabled" 
-                                               object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(encryptionError:) 
                                                  name:@"encryptionError" 
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(encryptionNotEnabled:) 
+                                                 name:@"encryptionNotEnabled" 
                                                object:nil];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
@@ -150,6 +152,7 @@
     [desktopView addGestureRecognizer:longPress];
     [longPress release];
     cipherNeeded = YES;
+    encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -355,6 +358,16 @@
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
+    
+    if (encryptionEnabled && !clientSelected){
+        
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
+        [statusViewController setError:error];
+        
+        return;
+        
+    }
 	
 	[infoViewController hideViewAnimated:YES];
 	
@@ -415,6 +428,19 @@
 	if ([linccer isLinccing]) {
 		return;
 	}
+    
+    if (encryptionEnabled && !clientSelected){
+
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
+        [statusViewController setError:error];
+        
+        return;
+
+    }
+    
+    NSLog(@"Sending");
+    
 	[FeedbackProvider playSweepOut];
 	
 	[infoViewController hideViewAnimated:YES];
@@ -681,31 +707,32 @@
 - (void)encryptionChanged: (NSNotification *)notification {
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     if (encrypting) {
-    } else {
+        encryptionEnabled = YES;
     }
-}
+    else {
+        
+        encryptionEnabled = NO;
 
-- (void)encryptionNotEnabled: (NSNotification *)notification {
-    
-    UIAlertView *encryptionAlert = [[UIAlertView alloc]
-                            initWithTitle:NSLocalizedString(@"Encryption not enabled",nil) message:NSLocalizedString(@"You need to enable encryption to view this content",nil)
-                            delegate:nil 
-                            cancelButtonTitle:nil
-                            otherButtonTitles:@"OK", nil];
-    [encryptionAlert show]; 
-
+    }
 }
 
 - (void)encryptionError: (NSNotification *)notification {
     
-    UIAlertView *encryptionAlert = [[UIAlertView alloc]
-                                    initWithTitle:NSLocalizedString(@"Encryption Error",nil) message:NSLocalizedString(@"Something went wrong please check if you have selected clients for this transaction.",nil)
-                                    delegate:nil 
-                                    cancelButtonTitle:nil
-                                    otherButtonTitles:@"OK", nil];
-    [encryptionAlert show]; 
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The selected client is not able to recieve encrypted data", nil) forKey:NSLocalizedDescriptionKey];
+    NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
+    [statusViewController setError:error];
     
 }
+
+- (void)encryptionNotEnabled: (NSNotification *)notification {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enable encryption", nil) message:NSLocalizedString(@"You need to enable encryption to communicate with this sender", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [alertView show];
+    [alertView release];
+    
+}
+
 
 #pragma mark -
 #pragma mark Private Methods

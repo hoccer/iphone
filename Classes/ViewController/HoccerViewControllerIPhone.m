@@ -431,12 +431,15 @@
         text = @"0";
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        clientSelected = NO;
     } else if ([[infoViewController selectedClients] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
+        clientSelected = YES;
     } else {
         text = [NSString stringWithFormat: @"%d", groupCount];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        clientSelected = NO;
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];        

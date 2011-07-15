@@ -14,6 +14,7 @@
 #import "NSData+CommonCrypto.h"
 #import "PublicKeyManager.h"
 #import "RSA.h"
+#import "NSData+CommonCrypto.h"
 
 @implementation HoccerContent
 @synthesize data;
@@ -56,7 +57,8 @@
     if ((encryption = [dict objectForKey:@"encryption"])&& [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == YES && [[NSUserDefaults standardUserDefaults] stringForKey:@"encryptionKey"]!=nil) {
         NSString *method = [encryption objectForKey:@"method"];
         NSString *salt    = [encryption objectForKey:@"salt"];
-        NSString *password    = [encryption objectForKey:@"password"];
+        NSDictionary *passwordDict    = [encryption objectForKey:@"password"];
+        NSString *password = [passwordDict objectForKey:[[[[[HCLinccer alloc]uuid] dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash] hexString]];
         if (password != nil && salt !=nil){
             [self cryptorWithType:method salt: salt password:password];
         }

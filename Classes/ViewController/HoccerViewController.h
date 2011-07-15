@@ -69,7 +69,7 @@
 		
 	HCLinccer *linccer;
 	TransferController *transferController;
-	BOOL connectionEstablished, fileUploaded, shaked, cipherNeeded;
+	BOOL connectionEstablished, fileUploaded, shaked, cipherNeeded, clientSelected, encryptionEnabled;
     
 	MBProgressHUD *hud;
 	

@@ -119,12 +119,6 @@ enum HCSettingsType {
     encrypt.defaultValue = @"encryption";
     [encryptGroup addObject:encrypt];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
-        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(passwordChanged:) type:HCTextField];
-        passwordAction.defaultValue = @"encryptionKey";
-        [encryptGroup addObject:passwordAction];
-    }
-    
     [sections addObject:encryptGroup];
     
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
@@ -309,24 +303,6 @@ enum HCSettingsType {
 }
 
 - (void)encrypt: (UISwitch *)sender {
-    NSMutableArray *group = [[sections objectAtIndex:3] mutableCopy];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:3];
-
-    if ([sender isOn]) {
-        SettingsAction *passwordAction = [SettingsAction actionWithDescription:@"Password" selector:@selector(passwordChanged:) type:HCTextField];
-        passwordAction.defaultValue = @"encryptionKey";
-        
-        [group addObject:passwordAction];
-        [sections replaceObjectAtIndex:3 withObject:group];
-        
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    } else {
-        [group removeLastObject];
-        [sections replaceObjectAtIndex:3 withObject:group];
-
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
-    }
-    [group release];
     
     [[NSUserDefaults standardUserDefaults] setBool:sender.isOn forKey:@"encryption"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -335,17 +311,6 @@ enum HCSettingsType {
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
-- (void)passwordChanged: (UITextField *)textField {
-    NSString *oldEncryptionKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
-    if (![oldEncryptionKey isEqualToString:textField.text]) {
-        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"encryptionKey"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-    }
-
-}
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {         	
 	if (buttonIndex == 1) {
