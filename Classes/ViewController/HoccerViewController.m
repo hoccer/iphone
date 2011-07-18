@@ -642,6 +642,12 @@
     }
 }
 
+- (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client{
+    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key  changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The string for the client %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [keyAlert show];
+    [keyAlert release];
+}
+
 #pragma mark -
 #pragma mark LongTouch Detector
 
