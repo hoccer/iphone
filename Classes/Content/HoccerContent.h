@@ -21,7 +21,6 @@
 	@private
 	NSData *data;
 	BOOL persist;
-    PublicKeyManager *keyManager;
 	
 	id target;
 	SEL selector;
