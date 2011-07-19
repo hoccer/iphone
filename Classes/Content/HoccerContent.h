@@ -10,7 +10,6 @@
 #import "HoccerContent.h"
 #import "TransferController.h"
 #import "Crypto.h"
-#import "PublicKeyManager.h"
 
 @class Preview;
 
@@ -22,7 +21,6 @@
 	@private
 	NSData *data;
 	BOOL persist;
-    
     PublicKeyManager *keyManager;
 	
 	id target;

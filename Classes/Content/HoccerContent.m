@@ -12,7 +12,6 @@
 #import "NSFileManager+FileHelper.h"
 #import "NSData_Base64Extensions.h"
 #import "NSData+CommonCrypto.h"
-#import "PublicKeyManager.h"
 #import "RSA.h"
 #import "NSData+CommonCrypto.h"
 
@@ -49,7 +48,6 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-    keyManager = [[PublicKeyManager alloc]init];
 
     NSLog(@"received %@", dict);
     
@@ -58,7 +56,8 @@
         NSString *method = [encryption objectForKey:@"method"];
         NSString *salt    = [encryption objectForKey:@"salt"];
         NSDictionary *passwordDict    = [encryption objectForKey:@"password"];
-        NSString *password = [passwordDict objectForKey:[[[[[HCLinccer alloc]uuid] dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash] hexString]];
+        NSString *uuid = [[NSUserDefaults standardUserDefaults]stringForKey:@"hoccerClientUri"];
+        NSString *password = [passwordDict objectForKey:[[[uuid dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash] hexString]];
         if (password != nil && salt !=nil){
             [self cryptorWithType:method salt: salt password:password];
         }

@@ -133,7 +133,13 @@ enum HCSettingsType {
                                                                         type:HCSwitchSetting];
     renewUUIDOnStart.defaultValue = @"renewUUID";
     
-    [sections addObject:[NSArray arrayWithObject:renewUUIDOnStart]];
+    
+    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:@"New public key at start" 
+                                                                    selector:@selector(renewPubKey:) 
+                                                                        type:HCSwitchSetting];
+    renewPublicKeyOnStart.defaultValue = @"renewPubKey";
+    
+    [sections addObject:[NSArray arrayWithObjects:renewUUIDOnStart,renewPublicKeyOnStart,nil]];
     
 	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
@@ -245,6 +251,10 @@ enum HCSettingsType {
 	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
+- (void)renewPubKey: (id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewPubKey"];
+	[[NSUserDefaults standardUserDefaults] synchronize];    
+}
 
 #pragma mark -
 #pragma mark 

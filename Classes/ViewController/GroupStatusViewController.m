@@ -85,7 +85,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
     NSDictionary *client = [group objectAtIndex:indexPath.row];
     if ([client objectForKey:@"name"] != [NSNull null] && ![[client objectForKey:@"name"] isEqualToString:@""]) {
         cell.textLabel.text = [client objectForKey:@"name"];
@@ -93,6 +93,13 @@
         NSString *uuid = [client objectForKey:@"id"];
         NSString *tmpName = [NSString stringWithFormat:@"#%@", [uuid substringToIndex:8]];
         cell.textLabel.text = tmpName;
+    }
+    
+    if ([client objectForKey:@"pubkey"] != nil){
+        cell.imageView.image = [UIImage imageNamed:@"dev_enc_on.png"];
+    }
+    else {
+        cell.imageView.image = [UIImage imageNamed:@"dev_enc_off.png"];
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -117,18 +124,38 @@
  
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([selectedClients containsObject:client]) {
-        [selectedClients removeObject:client];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        [selectedClients addObject:client];
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO){
+        if ([selectedClients containsObject:client]) {
+            [selectedClients removeObject:client];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        } else {
+            [selectedClients addObject:client];
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+        if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+            [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+        }
     }
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
-        [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+    else {
+        if ([selectedClients containsObject:client]) {
+            [selectedClients removeObject:client];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        else {
+            if([client objectForKey:@"pubkey"]!=nil){
+                [selectedClients addObject:client];
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+        }
+        
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+            [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+        }
     }
 }
 

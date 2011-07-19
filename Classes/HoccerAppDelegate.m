@@ -20,6 +20,7 @@
 #import "HistoryData.h"
 #import "NSString+Regexp.h"
 #import "NSFileManager+FileHelper.h"
+#import "RSA.h"
 
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
@@ -47,6 +48,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"AdFree"];
 	
     [defaults registerDefaults:appDefaults];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
+        [[RSA sharedInstance] generateKeyPairKeys];
+    }
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
