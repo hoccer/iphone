@@ -544,12 +544,10 @@
 
 - (void)transferController:(TransferController *)controller didFinishTransfer:(id)object {
     
-    fileUploaded = NO;
     [self ensureViewIsHoccable];
     
 	if ([desktopData count] == 0) {
-        fileUploaded = YES;
-        cipherNeeded = YES;
+
 		return;
 	}
     
