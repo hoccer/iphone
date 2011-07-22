@@ -44,6 +44,8 @@
     HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
                                [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
 
+    UIImageWriteToSavedPhotosAlbum([info objectForKey: UIImagePickerControllerOriginalImage], nil,nil,nil);
+
     if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
         [self.delegate contentSelectController:self didSelectContent:content];
     }
