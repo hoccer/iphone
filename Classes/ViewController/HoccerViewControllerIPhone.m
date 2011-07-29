@@ -165,7 +165,6 @@
 
 - (void)setContentPreview: (HoccerContent *)content {
 	[super setContentPreview:content];
-	
     groupSizeButton.hidden = NO;
 }
 

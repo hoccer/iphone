@@ -9,7 +9,6 @@
 #import "FileDownloader.h"
 #import "NSFileManager+FileHelper.h"
 
-
 @implementation FileDownloader
 @synthesize cryptor;
 

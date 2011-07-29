@@ -14,6 +14,7 @@
 #import "HoccerText.h"
 #import "HoccerVcard.h"
 #import "HoccerHoclet.h"
+#import "HoccerVideo.h"
 
 
 @interface HoccerContentFactory : NSObject {

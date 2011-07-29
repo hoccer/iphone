@@ -32,6 +32,8 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
 	} else if ([type isEqual:@"text/x-hoclet"]) {
         hoccerContent = [[HoccerHoclet alloc] initWithDictionary:dictionary];
+    } else if ([type isEqual:@"video/quicktime"]) {
+        hoccerContent = [[HoccerVideo alloc] initWithDictionary:dictionary];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
 		hoccerContent.mimeType = type;
@@ -51,6 +53,8 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else if ([mimeType isEqualToString:@"text/x-hoclet"]) {
         hoccerContent = [[HoccerHoclet alloc] initWithFilename: filename];
+    } else if ([mimeType isEqualToString:@"video/quicktime"]) {
+        hoccerContent = [[HoccerVideo alloc] initWithFilename: filename];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithFilename: filename];
 		hoccerContent.mimeType = mimeType;
@@ -73,6 +77,10 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerImage = [UIImage imageNamed:@"history_icon_image.png"];
 	} else if ([mimeType isEqual: @"text/plain"]) {
 	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
+    } else if ([mimeType isEqual: @"video/quicktime"]) {
+        hoccerImage = [UIImage imageNamed:@"history_icon_video.png"];
+    } else if ([mimeType isEqual: @"audio/mp4a-latm"]) {
+        hoccerImage = [UIImage imageNamed:@"history_icon_audio.png"];
 	} else {
 	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
 	}

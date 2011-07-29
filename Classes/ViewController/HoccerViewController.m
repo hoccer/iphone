@@ -23,6 +23,7 @@
 #import "HoccerVcard.h"
 #import "HoccerText.h"
 #import "HoccerPasteboard.h"
+#import "HoccerMusic.h"
 #import "Preview.h"
 #import "ContentContainerView.h"
 
@@ -56,6 +57,9 @@
 
 
 #import <SystemConfiguration/SystemConfiguration.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "MPMediaItemCollection-Utils.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface HoccerViewController ()
 @property (retain, nonatomic) ItemViewController *sendingItem;
@@ -245,6 +249,20 @@
 	[controller release];
 }
 
+- (IBAction)selectMedia: (id)sender {
+    
+    UIActionSheet *mediaChooser;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Take Photo/Video", nil), NSLocalizedString(@"Choose Photo/Video", nil),NSLocalizedString(@"Choose Music", nil), nil];
+    }
+    else {
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil),NSLocalizedString(@"Choose Music", nil), nil];
+    }
+    mediaChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [mediaChooser showInView:self.view];
+    [mediaChooser release];
+}
+
 - (IBAction)selectHoclet: (id)sender {
     HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
     controller.delegate = self;
@@ -268,6 +286,7 @@
     }
 
 }
+
 - (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}
@@ -275,7 +294,75 @@
 
 - (void)showDesktop {}
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        switch (buttonIndex) {
+            case 0: {
+                [self checkAndPerformSelector:@selector(selectCamera:) withObject:self];
+                break;
+            }
+            case 1: {
+                [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                break;
+            }
+            case 2: {
+                MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+                
+                mediaPicker.delegate = self;
+                mediaPicker.allowsPickingMultipleItems = NO;
+                mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
+                
+                [self presentModalViewController:mediaPicker animated:YES];
+                [mediaPicker release];
+            }
+            default: {
+                break;
+            }
+        }
+    }
+    else {
+        switch (buttonIndex) {
+            case 0: {
+                [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                break;
+            }
+            case 1: {
+                MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+                
+                mediaPicker.delegate = self;
+                mediaPicker.allowsPickingMultipleItems = NO;
+                mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
+                
+                [self presentModalViewController:mediaPicker animated:YES];
+                [mediaPicker release];
+            }
 
+            default: {
+                break;
+            }
+        }
+
+    }
+}
+
+-(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+    
+    if (mediaItemCollection) {
+        
+        MPMediaItem *song = [mediaItemCollection firstMediaItem];
+        
+        HoccerContent *content = [[[HoccerMusic alloc]initWithMediaItem:song]autorelease];
+        [self setContentPreview:content];
+    }
+
+    [self dismissModalViewControllerAnimated:YES];
+    [self showDesktop];
+
+}
 #pragma mark -
 #pragma mark View Manipulation
 
@@ -583,11 +670,21 @@
 
 - (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
 	[self handleError: error];
+    [self hideHUD];
     cipherNeeded = YES;
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
 	[self hideHUD];
+    
+    if ([object isKindOfClass:[HoccerMusic class]]){
+        HoccerMusic *tempMusic = (HoccerMusic *)object;
+        if (tempMusic.thumb && tempMusic.data ==nil){
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Song could not be loaded", nil) forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
+            [self handleError:error];
+        }
+    }
     cipherNeeded = NO;
 }
 

@@ -96,6 +96,10 @@
 	[delegate checkAndPerformSelector:@selector(selectImage:) withObject: self];
 }
 
+- (IBAction)media: (id)sender; {
+    [delegate checkAndPerformSelector:@selector(selectMedia:) withObject:self];
+}
+
 - (IBAction)video: (id)sender; {
 	[delegate checkAndPerformSelector:@selector(selectVideo:) withObject: self];
 }
@@ -123,11 +127,9 @@
 
 
 - (void)initButtons {
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-		[buttons addObject: [Action actionWithAction:@selector(camera:) label: @"Camera" image:[UIImage imageNamed: @"select_btn_cam.png"]]];
-	}
-	
-	[buttons addObject: [Action actionWithAction:@selector(image:) label: NSLocalizedString(@"Photo", nil) image:[UIImage imageNamed: @"select_btn_photo.png"]]];
+
+    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Media", nil) image:[UIImage imageNamed: @"select_btn_multimedia.png"]]];
+    
 	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
 
     [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];

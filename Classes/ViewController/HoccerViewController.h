@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import <MediaPlayer/MediaPlayer.h>
+
 
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
@@ -44,7 +46,7 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
 						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate, 
-                        ContentSelectViewControllerDelegate> 
+                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;

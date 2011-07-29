@@ -9,6 +9,11 @@
 #import "ImageSelectViewController.h"
 #import "HoccerContent.h"
 #import "HoccerImage.h"
+#import "HoccerVideo.h"
+#import "NSFileManager+FileHelper.h"
+
+#import <MobileCoreServices/UTCoreTypes.h>
+
 
 @implementation ImageSelectViewController
 
@@ -23,13 +28,22 @@
     self = [super init];
     if (self) {
         sourceType = type;
-    }
+            }
     
     return self;
 }
 
 - (UIViewController *)viewController {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    if (sourceType == UIImagePickerControllerSourceTypeCamera){
+        imagePicker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+    }
+    else {
+        imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        imagePicker.videoQuality = UIImagePickerControllerQualityTypeMedium;
+    }
+
     imagePicker.sourceType = sourceType;
 	imagePicker.delegate = self;
 
@@ -41,16 +55,36 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
-    HoccerContent* content = [[[HoccerImage alloc] initWithUIImage:
+    HoccerContent* content;
+    if (CFStringCompare((CFStringRef) [info objectForKey:UIImagePickerControllerMediaType], kUTTypeImage, 0) == kCFCompareEqualTo){
+     content = [[[HoccerImage alloc] initWithUIImage:
                                [info objectForKey: UIImagePickerControllerOriginalImage]] autorelease];
+    }
+    else {
+        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        
+        content = [[HoccerVideo alloc] initWithURL:videoURL];
+        
+        NSString *tempFilePath = [videoURL path];
 
-    UIImageWriteToSavedPhotosAlbum([info objectForKey: UIImagePickerControllerOriginalImage], nil,nil,nil);
+        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(tempFilePath))
+            {
+                UISaveVideoAtPathToSavedPhotosAlbum(tempFilePath, nil, nil, nil);
+            }
+        }
+    }
+
+    if ([info objectForKey:UIImagePickerControllerMediaMetadata]){
+    
+        UIImageWriteToSavedPhotosAlbum([info objectForKey: UIImagePickerControllerOriginalImage], nil,nil,nil);
+
+    }
 
     if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
         [self.delegate contentSelectController:self didSelectContent:content];
     }
 }
-
 
 
 
