@@ -48,10 +48,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"AdFree"];
 	
     [defaults registerDefaults:appDefaults];
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
-        [[RSA sharedInstance] generateKeyPairKeys];
-    }
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
@@ -80,6 +76,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
+        [[RSA sharedInstance] generateKeyPairKeys];
+    }
     
     return YES;
 }

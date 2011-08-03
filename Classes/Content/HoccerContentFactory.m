@@ -34,6 +34,8 @@ static HoccerContentFactory* sharedInstance = nil;
         hoccerContent = [[HoccerHoclet alloc] initWithDictionary:dictionary];
     } else if ([type isEqual:@"video/quicktime"]) {
         hoccerContent = [[HoccerVideo alloc] initWithDictionary:dictionary];
+    } else if ([type isEqualToString:@"audio/mp4a-latm"]) {
+        hoccerContent = [[HoccerMusic alloc] initWithDictionary:dictionary];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
 		hoccerContent.mimeType = type;
@@ -55,6 +57,8 @@ static HoccerContentFactory* sharedInstance = nil;
         hoccerContent = [[HoccerHoclet alloc] initWithFilename: filename];
     } else if ([mimeType isEqualToString:@"video/quicktime"]) {
         hoccerContent = [[HoccerVideo alloc] initWithFilename: filename];
+    } else if ([mimeType isEqualToString:@"audio/mp4a-latm"]) {
+        hoccerContent = [[HoccerMusic alloc] initWithFilename: filename];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithFilename: filename];
 		hoccerContent.mimeType = mimeType;

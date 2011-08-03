@@ -43,6 +43,39 @@
 	[self insertSubview:imageView atIndex:1];
 }
 
+- (void) setAudioImage: (UIImage *)image {
+    [imageView removeFromSuperview];
+    [imageView release]; imageView = nil;
+	
+    NSInteger paddingLeft = 30;
+	NSInteger paddingTop = 6;
+	
+    CGSize size = { .width = 200, .height = 200 };
+    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
+    
+	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
+	imageView.contentMode = UIViewContentModeCenter;
+	imageView.image = image;
+    [self insertSubview:imageView atIndex:1];
+
+}
+
+- (void) setVideoImage: (UIImage *)image {
+    [imageView removeFromSuperview];
+    [imageView release]; imageView = nil;
+	
+    NSInteger paddingLeft = 27;
+	NSInteger paddingTop = 24;
+	
+    CGSize size = { .width = 210, .height = 160 };
+    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
+    
+	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
+	imageView.contentMode = UIViewContentModeCenter;
+	imageView.image = image;
+    [self insertSubview:imageView atIndex:1];
+    
+}
 - (void)dealloc {
     [imageView release];
     [super dealloc];

@@ -95,7 +95,7 @@
         cell.textLabel.text = tmpName;
     }
     
-    if ([client objectForKey:@"pubkey"] != nil){
+    if ([client objectForKey:@"pubkey_id"] != nil){
         cell.imageView.image = [UIImage imageNamed:@"dev_enc_on.png"];
     }
     else {
@@ -124,7 +124,7 @@
  
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO){
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO || [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"] == NO) {
         if ([selectedClients containsObject:client]) {
             [selectedClients removeObject:client];
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -145,7 +145,7 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         else {
-            if([client objectForKey:@"pubkey"]!=nil){
+            if([client objectForKey:@"pubkey_id"]!=nil){
                 [selectedClients addObject:client];
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }

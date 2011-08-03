@@ -17,6 +17,7 @@
 @property (assign) BOOL allowsOverlay;
 
 - (void) setImage: (UIImage *)image;
-
+- (void) setAudioImage: (UIImage *)image;
+- (void) setVideoImage: (UIImage *)image;
 
 @end

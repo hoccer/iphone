@@ -357,6 +357,7 @@
         
         HoccerContent *content = [[[HoccerMusic alloc]initWithMediaItem:song]autorelease];
         [self setContentPreview:content];
+        
     }
 
     [self dismissModalViewControllerAnimated:YES];
@@ -386,7 +387,7 @@
 	}
 	
 	if (!content.readyForSending) {
-		[self showHud];
+		[self showHudWithMessage:NSLocalizedString(@"Preparing Content...",nil)];
 	}
 	
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
@@ -446,12 +447,12 @@
 		return;
 	}
     
-    if (encryptionEnabled && !clientSelected){
+    if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
+        
         
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [statusViewController setError:error];
-        
         return;
         
     }
@@ -516,7 +517,7 @@
 		return;
 	}
     
-    if (encryptionEnabled && !clientSelected){
+    if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
@@ -692,7 +693,9 @@
 #pragma mark HCLinccerDelegate Methods
 
 - (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
-	[self hideHUD];
+    if(![hud.labelText isEqualToString:NSLocalizedString(@"Preparing Content...",nil)]){
+        [self hideHUD];
+    }
 
 	[self ensureViewIsHoccable];
 }
@@ -738,7 +741,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client{
-    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key  changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The public key of %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key  changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The name or the public key of %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [keyAlert show];
     [keyAlert release];
 }
@@ -805,23 +808,14 @@
     linccer.userInfo = userInfo;
 }
 
-- (void)encryptionChanged: (NSNotification *)notification {
-    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    if (encrypting) {
-        encryptionEnabled = YES;
-    }
-    else {
-        
-        encryptionEnabled = NO;
-
-    }
-}
 
 - (void)encryptionError: (NSNotification *)notification {
     
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The selected client is not able to recieve encrypted data", nil) forKey:NSLocalizedDescriptionKey];
-    NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-    [statusViewController setError:error];
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
+                                                   message:NSLocalizedString(@"Could not decrypt data. Maybe you entered a wrong PSK?", nil)
+                                                  delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles: nil];
+    [view show];
+    [view release];
     
 }
 
@@ -949,7 +943,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"encryption"]) {
         if (cipherNeeded){
-            return [[[AESCryptor alloc] initWithRandomKey] autorelease];
+            if ([defaults boolForKey:@"autoPassword"]){
+                return [[[AESCryptor alloc] initWithRandomKey] autorelease];
+            }
+            else {
+                return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
+            }
         }
         else {
             return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];

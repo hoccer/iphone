@@ -48,37 +48,42 @@
 }
 
 - (id) initWithDictionary: (NSDictionary *)dict {
-
+    
     NSLog(@"received %@", dict);
     
     NSDictionary *encryption = nil;
     if ((encryption = [dict objectForKey:@"encryption"])&& [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == YES && [[NSUserDefaults standardUserDefaults] stringForKey:@"encryptionKey"]!=nil) {
         NSString *method = [encryption objectForKey:@"method"];
         NSString *salt    = [encryption objectForKey:@"salt"];
-        NSDictionary *passwordDict    = [encryption objectForKey:@"password"];
+        NSString *password;
+        NSDictionary *passwordDict = [encryption objectForKey:@"password"];
         NSString *uuid = [[NSUserDefaults standardUserDefaults]stringForKey:@"hoccerClientUri"];
-        NSString *password = [passwordDict objectForKey:[[[uuid dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash] hexString]];
-        if (password != nil && salt !=nil){
+        if (passwordDict != nil){
+            password = [passwordDict objectForKey:[[[uuid dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash] hexString]];
             [self cryptorWithType:method salt: salt password:password];
         }
         else {
-            NSLog(@"FAIL!");
+            password = [[NSUserDefaults standardUserDefaults]stringForKey:@"encryptionKey"];
+            [self cryptorWithType:@"AESwoRSA" salt: salt password:password];
+        }
+       
+        if (password == nil) {
+            NSNotification *notification = [NSNotification notificationWithName:@"encryptionError" object:self];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     }
-    else if((encryption = [dict objectForKey:@"encryption"])) {
+    else if((encryption = [dict objectForKey:@"encryption"]) && ![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
         NSNotification *notification = [NSNotification notificationWithName:@"encryptionNotEnabled" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
-
+        
     }
-
+    
     if ([dict objectForKey:@"content"]) {
 		NSString *content = [self.cryptor decryptString:[dict objectForKey:@"content"]]; 
-        
-        NSLog(@"The decrypted Content: %@",content);
-        
         NSData *theData = [content dataUsingEncoding:NSUTF8StringEncoding]; 
-		return [self initWithData:theData];
-	} else {
+        return [self initWithData:theData];
+        	
+    } else {
 		return [super init];
 	}
 }
@@ -126,6 +131,10 @@
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
 
     }
+    if ([type isEqualToString:@"AESwoRSA"]) {
+        self.cryptor = [[[AESCryptor alloc] initWithKey:password salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
+    }
+
 }
 
 - (void) dealloc {		
@@ -284,7 +293,7 @@
 }
 
 - (BOOL) readyForSending {
-	return ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing;
+	return ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing || [self isDataReady];
 }
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller {
@@ -300,6 +309,7 @@
 	
 	return interactionController;
 }
+
 
 - (id<Cryptor>)cryptor {
     if (cryptor == nil) {

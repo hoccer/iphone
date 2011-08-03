@@ -10,6 +10,7 @@
 #import "NSString+URLHelper.h"
 #import "Hoccer.h"
 #import "Preview.h"
+#import "AudioPreview.h"
 
 #import "NSObject+DelegateHelper.h"
 #import "GTMUIImage+Resize.h"
@@ -27,17 +28,21 @@
 @end
 
 @implementation HoccerMusic
-@synthesize song;
+@synthesize song,recievedSong;
 @synthesize thumb;
+@synthesize view;
 
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
         
+                
 	}
 	
 	return self;	
 }
+
+
 
 - (id) initWithDictionary:(NSDictionary *)dict {
 	self = [super initWithDictionary:dict];
@@ -54,6 +59,9 @@
 	
 	return self;
 }
+
+
+
 
 - (id)initWithMediaItem: (MPMediaItem *)aMediaItem{
 	self = [super init];
@@ -99,6 +107,7 @@
                 NSLog (@"AVAssetExportSessionStatusCompleted");
                 content.data = [NSData dataWithContentsOfURL:exporter.outputURL];
                 [content saveDataToDocumentDirectory];
+                audioFileReady = YES;
                 [self performSelectorOnMainThread:@selector(didFinishDataRepresentation) withObject:nil waitUntilDone:YES];
                 break;
             }
@@ -132,6 +141,11 @@
     
 }
 - (void)updateImage {    
+    if (view == nil){
+        [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
+    }
+    self.view.songLabel.text = @"Transfering...";
+    
     if (thumbDownloader.state == TransferableStateTransferred) {
         NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
         thumb = [[UIImage imageWithData:thumbData] retain];
@@ -142,18 +156,25 @@
     }
     
     if (thumb != nil) {
-        [self.preview setImage: thumb];
+        self.view.coverImage.image = self.thumb;
+        if (song != nil){
+            self.view.songLabel.text = [NSString stringWithFormat:@"%@ - %@",[song valueForProperty:MPMediaItemPropertyArtist],[song valueForProperty:MPMediaItemPropertyTitle]];
+        }
+        else {
+            self.view.songLabel.text = @"Recieved Song";
+        }
     }
 }
 
 - (Preview *)desktopItemView { 
-	[self updateImage];
-    
-	return self.preview;
-}
+    [self updateImage];
+
+    return view;
+ }
 
 - (NSString *)defaultFilename {
-	return @"Song";
+    
+    return @"Song";
 }
 
 - (NSString *)extension {
@@ -166,13 +187,15 @@
 
 
 - (BOOL)isDataReady {
-	return (self.data != nil);
+    
+    if (self.data != nil && audioFileReady == YES){
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
-
--(void) video: (NSString *)videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
-	[self sendSaveSuccessEvent];
-}
 
 - (BOOL)needsWaiting {
 	return YES;
@@ -184,7 +207,7 @@
 
 - (NSDictionary *) dataDesctiption {
 	NSDictionary *previewDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @"audio/mp4a-latm", @"type",
+                                 @"image/jpg", @"type",
                                  [self thumbURL], @"uri" , nil];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -207,6 +230,8 @@
 	return dict;
 }
 
+
+
 #pragma -
 #pragma Thumbnail
 - (NSString *)thumbFilename {
@@ -217,9 +242,15 @@
 
 
 - (void)createThumb {
-   
-    thumb = [[[song valueForProperty:MPMediaItemPropertyArtwork]imageWithSize:CGSizeMake(330, 330)]retain];
+
+    if ([song valueForProperty:MPMediaItemPropertyArtwork] != nil){
+        thumb = [[[song valueForProperty:MPMediaItemPropertyArtwork]imageWithSize:CGSizeMake(400, 400)]retain];
+    }
+    else {
+        thumb = [UIImage imageNamed:@"audio_leer.png"];
+    }
     
+        
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
@@ -232,19 +263,6 @@
     return  [thumbUploader.url stringByRemovingQuery];
 }
 
-- (Preview *)preview {
-    if (preview == nil) {
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-        
-        [preview addSubview:backgroundImage];
-        [preview sendSubviewToBack:backgroundImage];
-        [backgroundImage release];
-    }
-    
-    return preview;
-}
-
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
@@ -253,7 +271,7 @@
     NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
-    
+    audioFileReady = NO;
     if (self.data) {
         [(DelayedFileUploaded *)transferable setFileReady: YES];
     }
@@ -270,10 +288,10 @@
 
 - (void) dealloc {
 	[song release];
-	[preview release];
+    [recievedSong release];
+    [view release];
 	[thumb release];
     [thumbURL release];
-    
 	[super dealloc];
 }
 

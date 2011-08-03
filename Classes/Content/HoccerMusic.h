@@ -7,28 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 #import "Hoccer.h"
 #import "HoccerFileContent.h"
 #import "TransferController.h"
 #import "FileUploader.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import "AudioPreview.h"
 
 @interface HoccerMusic : HoccerFileContent <HCFileCacheDelegate> {
 	MPMediaItem *song;	
-	
+	AVAsset *recievedSong;
 	UIImage *thumb;
-	
-	Preview *preview;
     
     FileUploader *thumbUploader;
     NSString *thumbURL;
-    
+
     FileDownloader *thumbDownloader;
+    
+    AudioPreview *view;
+    BOOL audioFileReady;
 }
 
 @property (nonatomic, readonly) MPMediaItem* song;
+@property (nonatomic, readonly) AVAsset* recievedSong;
 @property (nonatomic, readonly) UIImage* thumb;
-@property (readonly) Preview *preview;
+@property (retain) IBOutlet AudioPreview *view;
 
 - (id)initWithMediaItem: (MPMediaItem *)aMediaItem;
 - (void)updateImage;

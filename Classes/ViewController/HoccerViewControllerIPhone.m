@@ -471,6 +471,7 @@
 
 - (void)encryptionChanged: (NSNotification *)notification {
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    encryptionEnabled = encrypting;
     if (navigationItem.titleView != nil){
         [self showEncryption:encrypting];
     }

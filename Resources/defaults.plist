@@ -8,5 +8,15 @@
 	<true/>
 	<key>firstRunTipShown</key>
 	<false/>
+	<key>autoKey</key>
+	<true/>
+	<key>autoPassword</key>
+	<true/>
+	<key>encryptionKey</key>
+	<string>changeme</string>
+	<key>encryption</key>
+	<true/>
+	<key>sendPassword</key>
+	<true/>
 </dict>
 </plist>

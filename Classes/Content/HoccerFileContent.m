@@ -47,7 +47,8 @@
         transferables = [[NSMutableArray alloc] init];
         
         mimeType = [[dict objectForKey:@"type"] retain];
-		NSString *downloadURL = [dict objectForKey:@"uri"];
+		if ([dict objectForKey:@"uri"]){
+            NSString *downloadURL = [dict objectForKey:@"uri"];
         
         NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
         transferable.cryptor = self.cryptor;
@@ -55,6 +56,10 @@
         
         [transferables addObject: transferable];
         [transferable release];
+        }
+        else {
+            return nil;
+        }
 	}
 	
 	return self;

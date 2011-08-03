@@ -95,7 +95,7 @@
     }
     
     if (thumb != nil) {
-        [self.preview setImage: thumb];
+        [self.preview setVideoImage: thumb];
     }
 }
 
@@ -187,8 +187,8 @@
 
 
 - (void)createThumb {
-    NSInteger paddingLeft = 22;
-	NSInteger paddingTop = 22;
+    NSInteger paddingLeft = 24;
+	NSInteger paddingTop = 24;
     
 	CGFloat frameWidth = self.preview.frame.size.width - (2 * paddingLeft); 
 	CGFloat frameHeight = self.preview.frame.size.height - (2 * paddingTop);
@@ -221,12 +221,14 @@
 
 - (Preview *)preview {
     if (preview == nil) {
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-        
-        [preview addSubview:backgroundImage];
-        [preview sendSubviewToBack:backgroundImage];
-        [backgroundImage release];
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 263, 212)];
+        UIImageView *frontImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"video_frame.png"]];
+        UIView *backgroundView = [[UIView alloc] init];
+        preview.backgroundColor = [UIColor clearColor];
+        [preview addSubview:backgroundView];
+        [preview sendSubviewToBack:backgroundView];
+        [preview insertSubview:frontImage atIndex:2];
+        [frontImage release];
     }
     
     return preview;

@@ -10,57 +10,8 @@
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 #import "HelpScrollView.h"
-
-enum HCSettingsType {
-	HCInplaceSetting,
-	HCSwitchSetting,
-	HCContinueSetting,
-    HCTextField
-} typedef HCSettingsType;
-
-
-
-
-@interface SettingsAction : NSObject {
-	NSString *description;
-	SEL selector;
-	HCSettingsType type;
-	
-	id defaultValue;
-}
-
-@property (copy) NSString *description;
-@property (assign) SEL selector;
-@property (assign) HCSettingsType type;
-@property (retain) id defaultValue;
-
-+ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType;
-
-@end
-
-
-@implementation SettingsAction
-@synthesize description;
-@synthesize selector;
-@synthesize type;
-@synthesize defaultValue;
-
-+ (SettingsAction *)actionWithDescription: (NSString *)theDescription selector: (SEL)theSelector type: (HCSettingsType)theType; {
-	SettingsAction *action = [[SettingsAction alloc] init];
-	action.description = theDescription;
-	action.selector = theSelector;
-	action.type = theType;
-	
-	return [action autorelease];
-}
-
-- (void) dealloc {
-	[defaultValue release];
-	[description release];
-	[super dealloc];
-}
-
-@end
+#import "EncryptionSettingsViewController.h"
+#import "SettingsAction.h"
 
 
 @interface SettingViewController ()
@@ -71,6 +22,7 @@ enum HCSettingsType {
 - (void)showTwitter;
 - (void)showFacebook;
 - (void)showBookmarklet;
+- (void)showEncryptionSettings;
 
 - (void)registerForKeyboardNotifications;
 
@@ -118,6 +70,11 @@ enum HCSettingsType {
     SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encrypt data" selector:@selector(encrypt:) type:HCSwitchSetting];
     encrypt.defaultValue = @"encryption";
     [encryptGroup addObject:encrypt];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
+        SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+        [encryptGroup addObject:encryptOptions];
+    }
     
     [sections addObject:encryptGroup];
     
@@ -303,6 +260,13 @@ enum HCSettingsType {
 	[aboutView release];
 }
 
+- (void)showEncryptionSettings {
+	EncryptionSettingsViewController *viewController = [[EncryptionSettingsViewController alloc] initWithNibName:@"EncryptionSettingsViewController" bundle:nil];
+	viewController.navigationItem.title = @"Encryption";
+	[parentNavigationController pushViewController:viewController animated:YES];
+	[viewController release];
+}
+
 - (void)showBookmarklet {
 	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Install Bookmarklet", nil) 
 													 message:NSLocalizedString(@"Safari will be opened now to complete the bookmarklet installation.", nil) 
@@ -313,6 +277,25 @@ enum HCSettingsType {
 }
 
 - (void)encrypt: (UISwitch *)sender {
+    
+    NSMutableArray *group = [[sections objectAtIndex:3] mutableCopy];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:3];
+    
+    if ([sender isOn]) {
+        SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+        
+        [group addObject:encryptOptions];
+        [sections replaceObjectAtIndex:3 withObject:group];
+        
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    } else {
+        [group removeLastObject];
+        [sections replaceObjectAtIndex:3 withObject:group];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    }
+    [group release];
+    
     
     [[NSUserDefaults standardUserDefaults] setBool:sender.isOn forKey:@"encryption"];
     [[NSUserDefaults standardUserDefaults] synchronize];
