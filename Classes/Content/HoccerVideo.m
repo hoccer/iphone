@@ -19,6 +19,7 @@
 
 #import "NSFileManager+FileHelper.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface HoccerVideo ()
 
@@ -33,7 +34,7 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        
+        canBeCiphered = YES;
 	}
 	
 	return self;	
@@ -44,11 +45,17 @@
 	if (self != nil) {        
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
-            thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
-            thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
-            thumbDownloader.cryptor = self.cryptor;
+            if ([[previews objectAtIndex:0] objectForKey:@"uri"]){
+                thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
+                thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
+                thumbDownloader.cryptor = self.cryptor;
             
-            [transferables addObject:thumbDownloader];
+                [transferables addObject:thumbDownloader];
+            }
+            canBeCiphered = NO;
+        }
+        else {
+            thumb = [UIImage imageNamed:@"container_overlay"];
         }
 	}
 	
@@ -60,7 +67,7 @@
 	if (self != nil) {
 		videoURL = [aURL retain];
 		isFromContentSource = YES;
-		
+		canBeCiphered = YES;
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
 	
@@ -103,6 +110,17 @@
 	[self updateImage];
     
 	return self.preview;
+}
+
+- (UIView *)fullscreenView {
+
+    MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
+    player.view.frame = CGRectMake(0, 0, 320, 367);
+    
+    player.controlStyle = MPMovieControlStyleDefault;  
+    player.shouldAutoplay = NO;  
+    
+    return player.view;
 }
 
 - (NSString *)defaultFilename {

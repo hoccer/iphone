@@ -10,6 +10,8 @@
 #import "NSObject+DelegateHelper.h"
 #import "HoccerContent.h"
 #import "HoccerImage.h"
+#import "HoccerVideo.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ReceivedContentViewController () 
 - (void)hideReceivedContentView;
@@ -31,18 +33,53 @@
 - (void)viewDidLoad {
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:HUD];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+	[notificationCenter postNotificationName:@"PausePlayer" object:nil];
+    
+}
 
 - (void)dealloc {
 	[hoccerContent release];
-	[saveButton release];
-	[toolbar release];
 	[HUD release];
 	
-	[super dealloc];
+    [super dealloc];
 }
 
+- (void)showActionSheet {
+    if (hoccerContent.descriptionOfSaveButton != nil){
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showInView:super.view];
+        [actionSheet release];
+    }
+    else {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil), nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showInView:super.view];
+        [actionSheet release];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self resend:nil];
+            break;
+        case 1:
+            if (hoccerContent.descriptionOfSaveButton != nil){
+                [self save:nil];
+            }
+            break;
+        default:
+            break;
+    }
+}
 - (IBAction)save: (id)sender	{
 	[hoccerContent whenReadyCallTarget:self selector:@selector(setReady) context: nil];
 	if ([hoccerContent needsWaiting]) {
@@ -75,17 +112,8 @@
 	}
 	
 	[self.view insertSubview: content.fullscreenView atIndex:0];
+	self.view.multipleTouchEnabled = YES;
 	
-	if ([content descriptionOfSaveButton] == nil) {
-		NSMutableArray *items = [NSMutableArray arrayWithArray: toolbar.items];
-		[items removeObject: saveButton];
-		
-		[toolbar setItems:items animated: NO];
-	} else {
-		saveButton.title = [content descriptionOfSaveButton];
-	}
-	
-	[toolbar setHidden: NO];
 	[self.view setNeedsDisplay];
 }
 
@@ -104,13 +132,11 @@
 	}
 }
 
-
 -  (void)setWaiting {
 	HUD.mode = MBProgressHUDModeIndeterminate;
 	HUD.labelText = @"Saving";
 	
 	[HUD show:YES];
-	toolbar.hidden = YES;
 }
 
 - (void)setReady {
@@ -119,7 +145,6 @@
 	HUD.labelText = @"Saved";
 	[NSTimer scheduledTimerWithTimeInterval:1 target: self selector:@selector(hideHUD) userInfo:nil repeats:NO];
 	
-	toolbar.hidden = NO;
 }
 
 - (void)hideHUD {

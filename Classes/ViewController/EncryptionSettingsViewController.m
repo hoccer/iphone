@@ -12,7 +12,7 @@
 #import "EncryptionSettingsViewController.h"
 #import "SettingsAction.h"
 #import "RSAKeyViewController.h"
-
+#import "KnownKeysViewController.h"
 
 @implementation EncryptionSettingsViewController
 
@@ -60,16 +60,33 @@
     SettingsAction *privateKeyAction = [SettingsAction actionWithDescription:@"Show private key" selector:@selector(showPrivateKey) type:HCContinueSetting];
     
     SettingsAction *publicKeyAction = [SettingsAction actionWithDescription:@"Show public key" selector:@selector(showPublicKey) type:HCContinueSetting];
+
+    SettingsAction *keyViewerAction = [SettingsAction actionWithDescription:@"Manage Public Keys" selector:@selector(showKeyViewer) type:HCContinueSetting];
+
     
     SettingsAction *encryptionKey = [SettingsAction actionWithDescription:@"Shared Keyphrase" selector:@selector(showSharedKey) type:HCContinueSetting];
 
     
-    NSMutableArray *section1 = [NSMutableArray arrayWithObjects:autoKeyAction,autoPasswordAction,sendPasswordAction,privateKeyAction,publicKeyAction,encryptionKey, nil];
+    NSMutableArray *section1 = [NSMutableArray arrayWithObjects:autoKeyAction,autoPasswordAction,sendPasswordAction,privateKeyAction,publicKeyAction,keyViewerAction,encryptionKey, nil];
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"autoPassword"]) {
             }
     
     [sections addObject:section1];
+    
+    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"New id on startup" 
+                                                                    selector:@selector(renewUUID:) 
+                                                                        type:HCSwitchSetting];
+    renewUUIDOnStart.defaultValue = @"renewUUID";
+    
+    
+    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:@"New public key at start" 
+                                                                         selector:@selector(renewPubKey:) 
+                                                                             type:HCSwitchSetting];
+    renewPublicKeyOnStart.defaultValue = @"renewPubKey";
+    
+    [sections addObject:[NSArray arrayWithObjects:renewUUIDOnStart,renewPublicKeyOnStart,nil]];
+
 }
 
 - (void)viewDidUnload
@@ -244,12 +261,29 @@
 	[viewController release];
 }
 
+- (void)showKeyViewer {
+	KnownKeysViewController *viewController = [[KnownKeysViewController alloc] initWithNibName:@"KnownKeysViewController" bundle:nil];
+	viewController.navigationItem.title = @"Known Keys";
+	[self.navigationController pushViewController:viewController animated:YES];
+	[viewController release];
+}
+
 - (void)showSharedKey {
 	RSAKeyViewController *viewController = [[RSAKeyViewController alloc] initWithNibName:@"RSAKeyViewController" bundle:nil];
 	viewController.navigationItem.title = @"Shared Key";
     viewController.key = @"shared";
 	[self.navigationController pushViewController:viewController animated:YES];
 	[viewController release];
+}
+
+- (void)renewUUID: (id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewUUID"];
+	[[NSUserDefaults standardUserDefaults] synchronize];    
+}
+
+- (void)renewPubKey: (id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewPubKey"];
+	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
 # pragma mark - Keyboard

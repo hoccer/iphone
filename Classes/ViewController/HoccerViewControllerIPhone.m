@@ -91,7 +91,7 @@
 - (void)updateGroupButton;
 - (void)showGroupButton;
 - (void)updateEncryptionIndicator;
-- (void)showEncryption:(BOOL)toogle;
+- (void)showEncryption;
 
 
 @end
@@ -366,9 +366,6 @@
     
     [userInfo setObject:clientIds forKey:@"selected_clients"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:clients forKey:@"selected_clients"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     linccer.userInfo = userInfo;
     [self updateGroupButton];
 }
@@ -428,16 +425,12 @@
     NSString *text = nil;
     if (groupCount < 1) {
         text = @"0";
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         clientSelected = NO;
-    } else if ([[infoViewController selectedClients] count] > 0) {
-        text = [NSString stringWithFormat: @"%d✓", [[infoViewController selectedClients] count]];
+    } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
+        text = [NSString stringWithFormat: @"%d✓", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
         clientSelected = YES;
     } else {
         text = [NSString stringWithFormat: @"%d", groupCount];
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         clientSelected = NO;
     }
     
@@ -453,18 +446,42 @@
 }
 
 - (void)updateEncryptionIndicator{
-    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    [self showEncryption:encrypting];
-}
+    if (navigationItem.titleView == nil) {
+		return;
+	}
+	
+    if (encryptionButton == nil) {
+        encryptionButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [encryptionButton addTarget:self action:@selector(toggleEncryption:) forControlEvents:UIControlEventTouchUpInside];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
+            UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_on"];
+            encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+            [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
+        }
+        else {
+            UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_off"];
+            encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+            [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
+        }
 
-- (void)showEncryption:(BOOL)toogle{
-    UIBarButtonItem *encryptionBarButtomItem;
-    if (toogle){
-        encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"nav_bar_enc_on"]]];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
+        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_on"];
+        encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+        [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
     }
     else {
-        encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"nav_bar_enc_off"]]];
+        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_off"];
+        encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+        [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
     }
+    
+    [self showEncryption];
+}
+
+- (void)showEncryption{
+    UIBarButtonItem *encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:encryptionButton];
     navigationItem.leftBarButtonItem = encryptionBarButtomItem;
     [encryptionBarButtomItem release];
 }
@@ -473,7 +490,7 @@
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     encryptionEnabled = encrypting;
     if (navigationItem.titleView != nil){
-        [self showEncryption:encrypting];
+        [self updateEncryptionIndicator];
     }
 }
 
@@ -487,6 +504,15 @@
 	} else {
 		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
+}
+
+- (void)toggleEncryption: (id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] forKey:@"encryption"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
 }
 
 - (void) showNetworkError:(NSError *)error {

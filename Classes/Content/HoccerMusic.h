@@ -17,9 +17,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioPreview.h"
 
-@interface HoccerMusic : HoccerFileContent <HCFileCacheDelegate> {
+@interface HoccerMusic : HoccerFileContent <HCFileCacheDelegate,AVAudioPlayerDelegate> {
 	MPMediaItem *song;	
-	AVAsset *recievedSong;
 	UIImage *thumb;
     
     FileUploader *thumbUploader;
@@ -28,6 +27,8 @@
     FileDownloader *thumbDownloader;
     
     AudioPreview *view;
+    
+    MPMoviePlayerController *fullscreenPlayer;
     BOOL audioFileReady;
 }
 
@@ -35,6 +36,7 @@
 @property (nonatomic, readonly) AVAsset* recievedSong;
 @property (nonatomic, readonly) UIImage* thumb;
 @property (retain) IBOutlet AudioPreview *view;
+@property (retain) MPMoviePlayerController *fullscreenPlayer;
 
 - (id)initWithMediaItem: (MPMediaItem *)aMediaItem;
 - (void)updateImage;

@@ -23,15 +23,16 @@
 	if (![NSURL URLWithString: url] || [url rangeOfString:@"http"].location != 0) {
 		return NO;
 	}
-	
 	return YES;
 }
 
 - (UIView *)fullscreenView {
-	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(20, 60, 280, 150)];
+	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(9, 65, 303, 206)];
 	text.text = self.content;
+    text.font = [UIFont fontWithName:@"Courier" size:22];
+    text.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"content_text_background_history"]];
     text.textColor = [UIColor blackColor];
-	text.editable = YES;
+	text.editable = NO;
 	
 	return [text autorelease];
 }

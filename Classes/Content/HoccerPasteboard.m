@@ -44,6 +44,7 @@
         NSData *data = [pastedText dataUsingEncoding:NSUTF8StringEncoding];
         HoccerText *text = [[[HoccerText alloc] initWithData:data] autorelease];
         text.isFromContentSource =YES;
+        text.canBeCiphered = YES;
         return text;
     }
     else if (pastedImage != nil){
@@ -54,7 +55,7 @@
         NSData *data = [[pastedURL absoluteString] dataUsingEncoding:NSUTF8StringEncoding];
         HoccerText *text = [[[HoccerText alloc] initWithData:data] autorelease];
         text.isFromContentSource = YES;
-
+        text.canBeCiphered = YES;
         return text;
     }
     else {

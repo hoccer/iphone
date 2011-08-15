@@ -10,12 +10,9 @@
 #import "HoccerContent.h"
 #import "MBProgressHUD.h"
 
-@interface ReceivedContentViewController : UIViewController {
+@interface ReceivedContentViewController : UIViewController <UIActionSheetDelegate>{
 	id delegate;
-	
-	IBOutlet UIBarButtonItem *saveButton;
-	IBOutlet UIToolbar *toolbar;
-	
+    
 	HoccerContent* hoccerContent;
 	
 	MBProgressHUD *HUD;

@@ -54,18 +54,28 @@
         [self calculateHightForText: nil];
         
         BOOL selectionChanged = NO;
+        
         for (NSDictionary *aClient in selectedClients) {
             if (![group containsObject:aClient]) {
                 [selectedClients removeObject:aClient];
                 selectionChanged = YES;
             }
         }
-        
-        if (selectionChanged) {
+         
+        if (selectionChanged) {            
+            if (selectedClients.count != 0){
+                [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
             
             if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
                 [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
             }
+            [self.tableView reloadData];
         }
     }
 }
@@ -102,6 +112,7 @@
         cell.imageView.image = [UIImage imageNamed:@"dev_enc_off.png"];
     }
     
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
@@ -110,7 +121,7 @@
     if ([selectedClients containsObject:client]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        cell.accessoryView = nil;        
+        cell.accessoryType = UITableViewCellAccessoryNone;        
     }
 
     return cell;
@@ -152,6 +163,17 @@
         }
         
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        
+        if (selectedClients.count != 0){
+            [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+
         
         if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
             [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];

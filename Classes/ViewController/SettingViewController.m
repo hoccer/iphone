@@ -66,15 +66,18 @@
 		
     
     
-    NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:2];
-    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encrypt data" selector:@selector(encrypt:) type:HCSwitchSetting];
+    NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:3];
+    
+    SettingsAction *enableTLS = [SettingsAction actionWithDescription:@"Encryption (TLS)" selector:nil type:HCSwitchSetting];
+    enableTLS.defaultValue = @"enableTLS";
+    [encryptGroup addObject:enableTLS];
+    
+    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
     encrypt.defaultValue = @"encryption";
     [encryptGroup addObject:encrypt];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
-        SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
-        [encryptGroup addObject:encryptOptions];
-    }
+    SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+    [encryptGroup addObject:encryptOptions];
     
     [sections addObject:encryptGroup];
     
@@ -85,19 +88,6 @@
 	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
-    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"New id on startup" 
-                                                                    selector:@selector(renewUUID:) 
-                                                                        type:HCSwitchSetting];
-    renewUUIDOnStart.defaultValue = @"renewUUID";
-    
-    
-    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:@"New public key at start" 
-                                                                    selector:@selector(renewPubKey:) 
-                                                                        type:HCSwitchSetting];
-    renewPublicKeyOnStart.defaultValue = @"renewPubKey";
-    
-    [sections addObject:[NSArray arrayWithObjects:renewUUIDOnStart,renewPublicKeyOnStart,nil]];
-    
 	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section4];
@@ -105,6 +95,11 @@
     [self registerForKeyboardNotifications];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+        
+    [tableView reloadData];
+
+}
 #pragma mark -
 #pragma mark Table view data source
 
@@ -134,10 +129,18 @@
 	if (action.type == HCContinueSetting) {
 		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	} else if (action.type == HCSwitchSetting) {
+	} else if (action.type == HCSwitchSetting && ![action.description isEqualToString:@"Encryption (TLS)"]) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
 		[switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
+		cell.accessoryView = switchView;
+		[switchView release];
+		
+		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
+    } else if (action.type == HCSwitchSetting && [action.description isEqualToString:@"Encryption (TLS)"]) {
+		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+        switchView.enabled = NO;
+        [switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
 		cell.accessoryView = switchView;
 		[switchView release];
 		
@@ -201,16 +204,6 @@
 - (void)switchSound: (id)sender {
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"playSound"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)renewUUID: (id)sender {
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewUUID"];
-	[[NSUserDefaults standardUserDefaults] synchronize];    
-}
-
-- (void)renewPubKey: (id)sender {
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"renewPubKey"];
-	[[NSUserDefaults standardUserDefaults] synchronize];    
 }
 
 #pragma mark -
@@ -278,25 +271,7 @@
 
 - (void)encrypt: (UISwitch *)sender {
     
-    NSMutableArray *group = [[sections objectAtIndex:3] mutableCopy];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:3];
-    
-    if ([sender isOn]) {
-        SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
         
-        [group addObject:encryptOptions];
-        [sections replaceObjectAtIndex:3 withObject:group];
-        
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    } else {
-        [group removeLastObject];
-        [sections replaceObjectAtIndex:3 withObject:group];
-        
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
-    }
-    [group release];
-    
-    
     [[NSUserDefaults standardUserDefaults] setBool:sender.isOn forKey:@"encryption"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

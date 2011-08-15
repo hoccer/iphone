@@ -32,9 +32,9 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerText alloc] initWithDictionary: dictionary];
 	} else if ([type isEqual:@"text/x-hoclet"]) {
         hoccerContent = [[HoccerHoclet alloc] initWithDictionary:dictionary];
-    } else if ([type isEqual:@"video/quicktime"]) {
+    } else if ([type rangeOfString:@"video/"].location == 0) {
         hoccerContent = [[HoccerVideo alloc] initWithDictionary:dictionary];
-    } else if ([type isEqualToString:@"audio/mp4a-latm"]) {
+    } else if ([type rangeOfString:@"audio/"].location == 0) {
         hoccerContent = [[HoccerMusic alloc] initWithDictionary:dictionary];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithDictionary:dictionary];
@@ -55,9 +55,9 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerContent = [[HoccerText alloc] initWithFilename: filename];
 	} else if ([mimeType isEqualToString:@"text/x-hoclet"]) {
         hoccerContent = [[HoccerHoclet alloc] initWithFilename: filename];
-    } else if ([mimeType isEqualToString:@"video/quicktime"]) {
+    } else if ([mimeType rangeOfString:@"video/"].location == 0) {
         hoccerContent = [[HoccerVideo alloc] initWithFilename: filename];
-    } else if ([mimeType isEqualToString:@"audio/mp4a-latm"]) {
+    } else if ([mimeType rangeOfString:@"audio/"].location == 0) {
         hoccerContent = [[HoccerMusic alloc] initWithFilename: filename];
     } else {
 		hoccerContent = [[HoccerFileContent alloc] initWithFilename: filename];
@@ -81,9 +81,9 @@ static HoccerContentFactory* sharedInstance = nil;
 		hoccerImage = [UIImage imageNamed:@"history_icon_image.png"];
 	} else if ([mimeType isEqual: @"text/plain"]) {
 	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];
-    } else if ([mimeType isEqual: @"video/quicktime"]) {
+    } else if ([mimeType rangeOfString:@"video/"].location == 0) {
         hoccerImage = [UIImage imageNamed:@"history_icon_video.png"];
-    } else if ([mimeType isEqual: @"audio/mp4a-latm"]) {
+    } else if ([mimeType rangeOfString:@"audio/"].location == 0) {
         hoccerImage = [UIImage imageNamed:@"history_icon_audio.png"];
 	} else {
 	   hoccerImage = [UIImage imageNamed:@"history_icon_text.png"];

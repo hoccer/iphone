@@ -26,17 +26,17 @@
         keyText.text = [publicKey asBase64EncodedString];
         [publicKey release];
     }
-    
-    if ([key isEqualToString:@"private"]){
+    else if ([key isEqualToString:@"private"]){
         NSData *privateKey = [[RSA sharedInstance] getPrivateKeyBits];
         keyText.text = [privateKey asBase64EncodedString];
         [privateKey release];
     }
-    
-    if ([key isEqualToString:@"shared"]){
+    else if ([key isEqualToString:@"shared"]){
         keyText.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
     }
-
+    else {
+        keyText.text = key;
+    }
     
     
     // Do any additional setup after loading the view from its nib.

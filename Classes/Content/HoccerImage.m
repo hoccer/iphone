@@ -34,7 +34,7 @@
 	if (self != nil) {
         
 	}
-	
+	canBeCiphered = YES;
 	return self;	
 }
 
@@ -43,12 +43,15 @@
 	if (self != nil) {        
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
-            thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
-            thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
-            thumbDownloader.cryptor = self.cryptor;
+            if ([[previews objectAtIndex:0] objectForKey:@"uri"]){
+                thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
+                thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
+                thumbDownloader.cryptor = self.cryptor;
             
             [transferables addObject:thumbDownloader];
+            }
         }
+        canBeCiphered = NO;
 	}
 	
 	return self;
@@ -59,6 +62,7 @@
 	if (self != nil) {
 		image = [aImage retain];
 		isFromContentSource = YES;
+        canBeCiphered = YES;
 		
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
@@ -91,13 +95,31 @@
 } 
 
 - (UIView *)fullscreenView  {	
-	CGSize size = CGSizeMake(320, 480);
-	
-	UIImage *scaledImage = [self.image gtm_imageByResizingToSize: size
-										 preserveAspectRatio: YES
-												   trimToFit: YES];
+    fullScreenImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
+    fullScreenImage.image = self.image;
+	fullScreenImage.contentMode = UIViewContentModeScaleAspectFit;
+    UIScrollView *theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,367)];
+    theScrollView.contentSize = self.image.size;
+    theScrollView.delegate = self;
+    theScrollView.maximumZoomScale = 4.0;
+    theScrollView.minimumZoomScale = 1.0;
+    theScrollView.decelerationRate = .85;
+	theScrollView.contentSize = CGSizeMake(320,367);
+    theScrollView.bouncesZoom = YES;
+    theScrollView.autoresizesSubviews = YES;
+    theScrollView.contentMode = (UIViewContentModeCenter);
+    theScrollView.multipleTouchEnabled = YES;
+    theScrollView.userInteractionEnabled = YES;
+    theScrollView.backgroundColor = [UIColor blackColor];
+    [theScrollView addSubview:fullScreenImage];
+    return theScrollView;
+}
 
-	return [[[UIImageView alloc] initWithImage: scaledImage] autorelease]; 
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+
+    return fullScreenImage;
+    
 }
 
 - (void)updateImage {    

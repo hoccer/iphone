@@ -54,9 +54,21 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
 	
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstRunTipShown"]){
+        [[RSA sharedInstance]cleanKeyChain];
+    }
+    
+    
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults]boolForKey:@"firstRunTipShown"]){
+        [[RSA sharedInstance] generateKeyPairKeys];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"encryptionTipShown"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
 	
+
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
 		NSLog(@"could not create reachability ref");

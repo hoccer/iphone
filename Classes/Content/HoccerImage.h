@@ -12,7 +12,7 @@
 #import "TransferController.h"
 #import "FileUploader.h"
 
-@interface HoccerImage : HoccerFileContent <HCFileCacheDelegate> {
+@interface HoccerImage : HoccerFileContent <HCFileCacheDelegate, UIScrollViewDelegate> {
 	UIImage *image;	
 	
 	UIImage *thumb;
@@ -23,6 +23,7 @@
     NSString *thumbURL;
     
     FileDownloader *thumbDownloader;
+    UIImageView *fullScreenImage;
 }
 
 @property (nonatomic, readonly) UIImage* image;

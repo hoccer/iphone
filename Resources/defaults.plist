@@ -18,5 +18,9 @@
 	<true/>
 	<key>sendPassword</key>
 	<true/>
+	<key>enableTLS</key>
+	<true/>
+	<key>encryptionTipShown</key>
+	<false/>
 </dict>
 </plist>

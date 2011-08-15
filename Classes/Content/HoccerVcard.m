@@ -36,6 +36,7 @@
 
 		[self saveDataToDocumentDirectory];
 		isFromContentSource = YES;
+        canBeCiphered = YES;
 	}
 	
 	return self;
@@ -46,7 +47,7 @@
 	if (self != nil) {
 		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
 	}
-	
+	canBeCiphered = YES;
 	return self;
 }
 
@@ -54,6 +55,7 @@
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
 		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+        canBeCiphered = YES;
 	}
 	
 	return self;

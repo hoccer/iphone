@@ -27,7 +27,8 @@
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
         mimeType = @"application/octet-stream";
-        transferables = [[NSMutableArray alloc] init];        
+        transferables = [[NSMutableArray alloc] init];  
+        canBeCiphered = YES;
     }
 	
 	return self;	
@@ -56,6 +57,8 @@
         
         [transferables addObject: transferable];
         [transferable release];
+            
+            canBeCiphered = NO;
         }
         else {
             return nil;

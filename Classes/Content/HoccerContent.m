@@ -18,7 +18,7 @@
 @implementation HoccerContent
 @synthesize data;
 @synthesize filename;
-@synthesize isFromContentSource;
+@synthesize isFromContentSource,canBeCiphered;
 
 @synthesize persist;
 @synthesize mimeType;
@@ -42,6 +42,7 @@
 	self = [super init];
 	if (self != nil) {
 		filename = [theFilename copy];
+        canBeCiphered = YES;
 	}
 	
 	return self;
@@ -98,6 +99,8 @@
 		data = [theData retain];
         
 		[self saveDataToDocumentDirectory];
+        
+        canBeCiphered = YES;
 	}
 	
 	return self;
@@ -127,7 +130,8 @@
         
         NSString *key  = [[[NSString alloc] initWithData:keyData encoding:NSUTF8StringEncoding] autorelease];
         
-        NSLog(@"The Key: %@",key);
+        [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
+        
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
 
     }
@@ -171,7 +175,7 @@
 #pragma mark -
 #pragma mark View Generator Methods
 - (UIView *)fullscreenView {
-	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 0, 320, 323)];
+	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 0, 320, 367)];
 	webView.scalesPageToFit = YES;
 		
 	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL fileURLWithPath:self.filepath]]];	

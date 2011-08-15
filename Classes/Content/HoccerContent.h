@@ -16,6 +16,7 @@
 @interface HoccerContent : NSObject <NSCoding> {
 	NSString *filename;	
 	BOOL isFromContentSource;
+    BOOL canBeCiphered;
 	NSString *mimeType;
 	
 	@private
@@ -38,6 +39,7 @@
 @property (nonatomic, readonly) NSString *filepath;
 @property (nonatomic, readonly) NSString *extension;
 @property (assign) BOOL isFromContentSource;
+@property (assign) BOOL canBeCiphered;
 @property (assign) BOOL persist;
 
 @property (readonly) id interactionController;

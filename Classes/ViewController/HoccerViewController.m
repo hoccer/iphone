@@ -150,6 +150,10 @@
                                              selector:@selector(encryptionNotEnabled:) 
                                                  name:@"encryptionNotEnabled" 
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(noPublicKey:) 
+                                                 name:@"noPublicKey" 
+                                               object:nil];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
@@ -450,7 +454,7 @@
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select a client for auto key transmission", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [statusViewController setError:error];
         return;
@@ -461,6 +465,7 @@
 	
 	[FeedbackProvider playThrowFeedback];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+    self.sendingItem = item;
     item.content.cryptor = [self currentCryptor];
     
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
@@ -477,7 +482,6 @@
 	
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
     
-    self.sendingItem = item;
     [desktopData removeHoccerController:item];
 }
 
@@ -519,15 +523,15 @@
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select clients for this crypted transaction.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select a client for auto key transmission", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [statusViewController setError:error];
-        
+        NSLog(@"Data on Desktop; %d",desktopData.count);
+        [desktopView reloadData];
         return;
 
     }
     
-    NSLog(@"Sending");
     
 	[FeedbackProvider playSweepOut];
 	
@@ -536,12 +540,12 @@
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
+    self.sendingItem = item;
     item.content.cryptor = [self currentCryptor];
 	item.isUpload = YES;
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
-    self.sendingItem = item;
     [desktopData removeHoccerController:self.sendingItem];
 }
 
@@ -658,7 +662,7 @@
         } else {
             ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
             [self showSuccess:item];
-            cipherNeeded = NO;
+            cipherNeeded = YES;
         }
     }
 }
@@ -812,7 +816,7 @@
 - (void)encryptionError: (NSNotification *)notification {
     
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
-                                                   message:NSLocalizedString(@"Could not decrypt data. Maybe you entered a wrong PSK?", nil)
+                                                   message:NSLocalizedString(@"Could not decrypt data. Maybe you entered a wrong shared keyphrase?", nil)
                                                   delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles: nil];
     [view show];
     [view release];
@@ -825,6 +829,15 @@
     
     [alertView show];
     [alertView release];
+    
+}
+
+- (void)noPublicKey: (NSNotification *)notification {
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not find public key", nil) forKey:NSLocalizedDescriptionKey];
+    NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
+    [statusViewController setError:error];
+
     
 }
 
@@ -863,7 +876,7 @@
         [desktopData addhoccerController:self.sendingItem];
         self.sendingItem = nil;
 	} else {
-        if ([desktopData count] > 0) {
+        if ([desktopData count] > 0 && ![[error domain] isEqualToString:@"PubKeyError"]) {
             ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
             [desktopData removeHoccerController:item];
         }
@@ -942,16 +955,21 @@
 - (id <Cryptor>)currentCryptor {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"encryption"]) {
-        if (cipherNeeded){
-            if ([defaults boolForKey:@"autoPassword"]){
+        if (cipherNeeded && [defaults boolForKey:@"autoPassword"]){
+            NSLog(@"Should I cipher? = %@\n", (self.sendingItem.content.canBeCiphered ? @"YES" : @"NO"));
+            if (self.sendingItem.content.canBeCiphered){
+                NSLog(@"Random Key");
                 return [[[AESCryptor alloc] initWithRandomKey] autorelease];
             }
             else {
+                NSLog(@"Stored Key");
                 return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
             }
         }
         else {
+            NSLog(@"Stored Key");
             return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
+
         }
     } else {
         return [[[NoCryptor alloc] init] autorelease];

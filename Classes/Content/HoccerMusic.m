@@ -19,7 +19,8 @@
 #import "DelayedFileUploaded.h"
 
 #import "NSFileManager+FileHelper.h"
-#import <AVFoundation/AVFoundation.h>
+
+
 
 @interface HoccerMusic ()
 
@@ -30,13 +31,12 @@
 @implementation HoccerMusic
 @synthesize song,recievedSong;
 @synthesize thumb;
-@synthesize view;
+@synthesize view,fullscreenPlayer;
 
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        
-                
+      	canBeCiphered = YES;
 	}
 	
 	return self;	
@@ -49,12 +49,15 @@
 	if (self != nil) {        
         NSArray *previews = [dict objectForKey:@"preview"];
         if (previews && [previews count] > 0) {
-            thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
-            thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
-            thumbDownloader.cryptor = self.cryptor;
+            if ([[previews objectAtIndex:0] objectForKey:@"uri"]){
+                thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
+                thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
+                thumbDownloader.cryptor = self.cryptor;
             
-            [transferables addObject:thumbDownloader];
+                [transferables addObject:thumbDownloader];
+            }
         }
+        canBeCiphered = NO;
 	}
 	
 	return self;
@@ -68,7 +71,7 @@
 	if (self != nil) {
 		song = [aMediaItem retain];
 		isFromContentSource = YES;
-		
+		canBeCiphered = YES;
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
 	
@@ -231,6 +234,25 @@
 }
 
 
+- (UIView *)fullscreenView {
+    
+    self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
+    self.fullscreenPlayer.view.frame = CGRectMake(0, 0, 320, 367);
+    
+    self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;  
+    self.fullscreenPlayer.shouldAutoplay = NO;  
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(pausePlayer) 
+                                                 name:@"PausePlayer" 
+                                               object:nil];
+    
+    
+    return self.fullscreenPlayer.view;
+
+}
+
 
 #pragma -
 #pragma Thumbnail
@@ -263,6 +285,11 @@
     return  [thumbUploader.url stringByRemovingQuery];
 }
 
+- (void)pausePlayer {
+    [self.fullscreenPlayer pause];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
@@ -284,6 +311,7 @@
     
     [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
+    
 }
 
 - (void) dealloc {
@@ -292,6 +320,7 @@
     [view release];
 	[thumb release];
     [thumbURL release];
+    [fullscreenPlayer release];
 	[super dealloc];
 }
 
