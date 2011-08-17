@@ -147,7 +147,7 @@
     if (view == nil){
         [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
     }
-    self.view.songLabel.text = @"Transfering...";
+    self.view.songLabel.text = @"Transferring...";
     
     if (thumbDownloader.state == TransferableStateTransferred) {
         NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
@@ -185,7 +185,7 @@
 }
 
 - (NSString *)mimeType {
-	return @"audio/mp4a-latm";
+	return @"audio/mp4";
 }    
 
 
@@ -197,11 +197,6 @@
     else {
         return NO;
     }
-}
-
-
-- (BOOL)needsWaiting {
-	return YES;
 }
 
 - (UIImage *)historyThumbButton {

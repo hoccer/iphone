@@ -194,6 +194,8 @@
 		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
 													   message:[message objectForKey:@"message"]
 													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Update", nil];
+        
+        view.tag = 1;
 		[view show];
 		[view release];
 	}
@@ -202,8 +204,15 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
-	[[UIApplication sharedApplication] openURL: appStoreUrl];
+    if (alertView.tag == 1){
+        NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
+        [[UIApplication sharedApplication] openURL: appStoreUrl];
+    }
+    else if(alertView.tag == 2){
+        if (buttonIndex == 1){
+            [self showMediaPicker];
+        }
+    }
 }
 
 #pragma mark -
@@ -310,14 +319,12 @@
                 break;
             }
             case 2: {
-                MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
                 
-                mediaPicker.delegate = self;
-                mediaPicker.allowsPickingMultipleItems = NO;
-                mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
+                UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                musicAlert.tag = 2;
+                [musicAlert show];
+                [musicAlert release];
                 
-                [self presentModalViewController:mediaPicker animated:YES];
-                [mediaPicker release];
             }
             default: {
                 break;
@@ -331,14 +338,12 @@
                 break;
             }
             case 1: {
-                MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+              
+                UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                musicAlert.tag = 3;
+                [musicAlert show];
+                [musicAlert release];
                 
-                mediaPicker.delegate = self;
-                mediaPicker.allowsPickingMultipleItems = NO;
-                mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
-                
-                [self presentModalViewController:mediaPicker animated:YES];
-                [mediaPicker release];
             }
 
             default: {
@@ -347,6 +352,18 @@
         }
 
     }
+}
+
+- (void)showMediaPicker {
+    MPMediaPickerController *mediaPicker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeAny];
+    
+    mediaPicker.delegate = self;
+    mediaPicker.allowsPickingMultipleItems = NO;
+    mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
+    
+    [self presentModalViewController:mediaPicker animated:YES];
+    [mediaPicker release];
+
 }
 
 -(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
@@ -793,7 +810,6 @@
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
 	return self;
 }
-
 
 #pragma mark -
 #pragma mark Notifications

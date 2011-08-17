@@ -22,7 +22,7 @@
 }
 
 - (void) startTransfer {
-	self.state = TransferableStateTransfering;
+	self.state = TransferableStateTransferring;
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 		fileCache.delegate = self;

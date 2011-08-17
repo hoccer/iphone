@@ -13,7 +13,7 @@
 
 @class Preview;
 
-@interface HoccerContent : NSObject <NSCoding> {
+@interface HoccerContent : NSObject <NSCoding,UIDocumentInteractionControllerDelegate> {
 	NSString *filename;	
 	BOOL isFromContentSource;
     BOOL canBeCiphered;
@@ -27,7 +27,7 @@
 	SEL selector;
 	id context;
 	
-	id interactionController;
+	UIDocumentInteractionController *interactionController;
     
     id <Cryptor> cryptor;
 }
@@ -42,7 +42,7 @@
 @property (assign) BOOL canBeCiphered;
 @property (assign) BOOL persist;
 
-@property (readonly) id interactionController;
+@property (readonly) UIDocumentInteractionController *interactionController;
 @property (retain, nonatomic) id <Cryptor> cryptor;
 
 @property (readonly) BOOL readyForSending;
@@ -74,7 +74,7 @@
 - (void)sendSaveSuccessEvent;
 
 - (NSDictionary *)dataDesctiption;
-- (id)interactionController;
+- (UIDocumentInteractionController *)interactionController;
 
 - (NSObject <Transferable> *)transferer;
 - (NSArray *)transferers;

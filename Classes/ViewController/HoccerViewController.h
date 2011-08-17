@@ -46,7 +46,7 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
 						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate, 
-                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate> 
+                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -123,6 +123,7 @@
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
+- (void)showMediaPicker;
 
 @end
 

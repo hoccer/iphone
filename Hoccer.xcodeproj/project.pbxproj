@@ -478,6 +478,7 @@
 		B41043A813E83BD500F25705 /* RSAKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41043A613E83BD500F25705 /* RSAKeyViewController.xib */; };
 		B41043B013E85F1800F25705 /* video_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = B41043AE13E85F1800F25705 /* video_frame.png */; };
 		B41043B113E85F1800F25705 /* video_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41043AF13E85F1800F25705 /* video_frame@2x.png */; };
+		B41A779113FBC9A800848817 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */; };
 		B421D2FF13E2B5E200F4DC25 /* HoccerVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = B421D2FE13E2B5E200F4DC25 /* HoccerVideo.m */; };
 		B421D30813E2D09200F4DC25 /* MPMediaItemCollection-Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B421D30713E2D09200F4DC25 /* MPMediaItemCollection-Utils.m */; };
 		B421D30A13E2E51D00F4DC25 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B421D30913E2E51D00F4DC25 /* AVFoundation.framework */; };
@@ -956,6 +957,7 @@
 		B41043AE13E85F1800F25705 /* video_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_frame.png; sourceTree = "<group>"; };
 		B41043AF13E85F1800F25705 /* video_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_frame@2x.png"; sourceTree = "<group>"; };
 		B41043B213E8781600F25705 /* Hoccer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hoccer.entitlements; sourceTree = "<group>"; };
+		B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		B421D2FD13E2B5E200F4DC25 /* HoccerVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerVideo.h; sourceTree = "<group>"; };
 		B421D2FE13E2B5E200F4DC25 /* HoccerVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerVideo.m; sourceTree = "<group>"; };
 		B421D30613E2D09200F4DC25 /* MPMediaItemCollection-Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMediaItemCollection-Utils.h"; sourceTree = "<group>"; };
@@ -1988,6 +1990,7 @@
 			children = (
 				ADC28C1F1219684600E3AD11 /* RunTests.sh */,
 				22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */,
+				B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */,
 				E1A34049131D031A00D25708 /* fail_kitten.jpg */,
 				22638D4611B52D9D0024AA7E /* Xibs */,
 				22638D6711B52EC70024AA7E /* ContentPreviewXibs */,
@@ -2547,6 +2550,7 @@
 				B499844F13F9246D007DA68B /* nav_bar_enc_off@2x.png in Resources */,
 				B499845013F9246D007DA68B /* nav_bar_enc_on.png in Resources */,
 				B499845113F9246D007DA68B /* nav_bar_enc_on@2x.png in Resources */,
+				B41A779113FBC9A800848817 /* 37x-Checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2980,6 +2984,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3008,6 +3013,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -3057,6 +3063,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

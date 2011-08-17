@@ -14,7 +14,7 @@
 enum _TransferableState {
 	TransferableStatePreparing,
 	TransferableStateReady,
-	TransferableStateTransfering,
+	TransferableStateTransferring,
 	TransferableStateTransferred
 };
 typedef enum _TransferableState TransferableState;

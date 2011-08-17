@@ -308,10 +308,17 @@
 #pragma mark UIDocumentInteractionController
 - (id)interactionController; {
 	if (interactionController == nil) {
-		interactionController = [[NSClassFromString(@"UIDocumentInteractionController") interactionControllerWithURL:self.fileUrl] retain];
+		interactionController = [[UIDocumentInteractionController interactionControllerWithURL:self.fileUrl] retain];
+        interactionController.delegate = self;
 	}
 	
 	return interactionController;
+}
+
+- (void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller {
+    
+    
+
 }
 
 

@@ -35,7 +35,7 @@
 	NSData *data = [NSData dataWithContentsOfFile:filepath];
     NSData *crypted = [cryptor encrypt:data];
 	self.url = [fileCache cacheData: crypted withFilename:self.filename forTimeInterval:180*60];
-	self.state = TransferableStateTransfering;
+	self.state = TransferableStateTransferring;
 	
 	idString = [self.url copy];
 }
