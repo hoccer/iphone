@@ -9,10 +9,13 @@
 #import "ContactPreview.h"
 
 @implementation ContactPreview
-@synthesize name;
+@synthesize name,otherInfo,image,company;
 
 - (void) dealloc {
 	[name release];
+    [otherInfo release];
+    [image release];
+    [company release];
 	[super dealloc];
 }
 

@@ -11,8 +11,14 @@
 
 @interface ContactPreview : Preview {
 	UILabel *name;
+    UILabel *company;
+    UILabel *otherInfo;
+    UIImageView *image;
 }
 
 @property (retain) IBOutlet UILabel *name;
+@property (retain) IBOutlet UILabel *company;
+@property (retain) IBOutlet UILabel *otherInfo;
+@property (retain) IBOutlet UIImageView *image;
 
 @end

@@ -98,8 +98,64 @@
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"ContactsView" owner:self options:nil];
 	self.view.name.text = self.name;
+    self.view.company.text = (NSString *)ABRecordCopyValue(person, kABPersonOrganizationProperty);
+    self.view.image.image = [UIImage imageWithData:(NSData *)ABPersonCopyImageData(person)];
+    
+    NSMutableArray *telephone = [[NSMutableArray alloc] initWithCapacity:2];
+    ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
+    {
+        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
+        
+        CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, i);
+
+        NSString *phoneNumber = (NSString *)phoneNumberRef;
+        NSString *phoneLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+        
+        NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
+        [telephone addObject:toPhoneArray];
+    }
+    
+    NSMutableArray *emails = [[NSMutableArray alloc] initWithCapacity:2];
+    ABMultiValueRef email = ABRecordCopyValue(person, kABPersonEmailProperty);
+    for(CFIndex i = 0; i < ABMultiValueGetCount(email); i++)
+    {
+        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(email, i);
+        
+        CFStringRef emailRef = ABMultiValueCopyValueAtIndex(email, i);
+        
+        NSString *emailAdress = (NSString *)emailRef;
+        NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+        
+        NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
+        [emails addObject:toEmailArray];
+    }
+    
+    NSString *otherInfo = @"";
+    
+    for (NSString *number in telephone){
+        otherInfo = [otherInfo stringByAppendingFormat:@"%@\n",number];
+    }
+    
+    for (NSString *address in emails){
+        otherInfo = [otherInfo stringByAppendingFormat:@"%@\n",address];
+    }
 	
+    self.view.otherInfo.text = otherInfo;
+    
+    CGSize theLabelSize = [self calcLabelSize:otherInfo withFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(252, 106)];
+    
+    self.view.otherInfo.frame = CGRectMake(26, 98, theLabelSize.width, theLabelSize.height);
+    
 	return self.view;
+}
+
+-(CGSize) calcLabelSize:(NSString *)string withFont:(UIFont *)font  maxSize:(CGSize)maxSize{
+    return [string
+            sizeWithFont:font
+            constrainedToSize:maxSize
+            lineBreakMode:UILineBreakModeWordWrap];
+    
 }
 
 - (NSString *)mimeType {

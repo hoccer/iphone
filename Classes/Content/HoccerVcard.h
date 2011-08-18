@@ -27,5 +27,5 @@
 @property (retain) IBOutlet ContactPreview *view;
 
 - (id)initWitPerson: (ABRecordRef) aPerson;
-
+-(CGSize) calcLabelSize:(NSString *)string withFont:(UIFont *)font  maxSize:(CGSize)maxSize;
 @end
