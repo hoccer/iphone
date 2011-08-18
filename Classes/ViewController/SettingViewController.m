@@ -301,44 +301,60 @@
 
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
+{ NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyboardDidAppear:) name:UIKeyboardDidShowNotification object:nil];
+    [center addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];    
 }
 
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+- (void) keyboardDidAppear:(NSNotification*) n {
     
-    CGFloat kbHeight = kbSize.height - 50;
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0);
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
+    CGRect bounds = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    bounds = [self.view convertRect:bounds fromView:nil];
     
-    CGRect aRect = self.tableView.frame;
-    aRect.size.height -= kbHeight;
+    CGRect tableFrame = tableView.frame;
+    tableFrame.size.height -= bounds.size.height; // subtract the keyboard height
+    //if (self.tabBarController != nil) {
+        tableFrame.size.height += 48; // add the tab bar height
+    //}
+    
+    [UIView beginAnimations:nil context:NULL];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(shrinkDidEnd:finished:contextInfo:)];
+    tableView.frame = tableFrame;
+    [UIView commitAnimations];
+  
+}
 
-    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y + activeField.frame.size.height);
-        [self.tableView setContentOffset:scrollPoint animated:YES];
+- (void) shrinkDidEnd:(NSString*) ident finished:(BOOL) finished contextInfo:(void*) nothing {
+    NSIndexPath* sel = [tableView indexPathForSelectedRow];
+    
+    if (![[tableView indexPathsForVisibleRows] containsObject:sel])
+    {
+        [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
 }
 
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
+- (void) keyboardWillDisappear:(NSNotification*) n {
+    CGRect bounds = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    bounds = [self.view convertRect:bounds fromView:nil];
+    
+    CGRect tableFrame = tableView.frame;
+    tableFrame.size.height += bounds.size.height; // add the keyboard height
+    
+    //if (self.tabBarController != nil) {
+        tableFrame.size.height -= 48; // subtract the tab bar height
+    //}
+    
+    [UIView beginAnimations:nil context:NULL];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(shrinkDidEnd:finished:contextInfo:)];
+    tableView.frame = tableFrame;    
+    [UIView commitAnimations];
+    
+    [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
-
 
 
 #pragma mark -

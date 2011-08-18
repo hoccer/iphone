@@ -507,12 +507,14 @@
 }
 
 - (void)toggleEncryption: (id)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] forKey:@"encryption"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    if (desktopData.count == 0){
+        [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] forKey:@"encryption"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     
+        NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
 }
 
 - (void) showNetworkError:(NSError *)error {
