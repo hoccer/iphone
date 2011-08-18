@@ -114,7 +114,7 @@
 
 - (UIView *)fullscreenView {
 
-    MPMoviePlayerController *player =[[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl] autorelease];
+    MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
     player.view.frame = CGRectMake(0, 0, 320, 367);
     
     player.controlStyle = MPMovieControlStyleDefault;  
@@ -144,14 +144,13 @@
 }
 
 - (BOOL)saveDataToContentStorage {
-    NSString *tempFilePath = [videoURL path];
    
-    if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(tempFilePath))
+    if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath))
     {
-        UISaveVideoAtPathToSavedPhotosAlbum(tempFilePath, self, @selector(video:didFinishSavingWithError:contextInfo:), tempFilePath);
+        UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
-	
-	return YES;
+    return YES;
+
 }
 
 -(void) video: (NSString *)videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
@@ -216,10 +215,10 @@
     MPMoviePlayerController *mp = [[MPMoviePlayerController alloc] 
                                    initWithContentURL:videoURL];
     mp.shouldAutoplay = NO;
-    mp.initialPlaybackTime = 1.0;
-    mp.currentPlaybackTime = 1.0;
+    mp.initialPlaybackTime = 0.1;
+    mp.currentPlaybackTime = 0.1;
     // get the thumbnail
-    UIImage *thumbnail = [mp thumbnailImageAtTime:1.0 
+    UIImage *thumbnail = [mp thumbnailImageAtTime:0.1 
                                        timeOption:MPMovieTimeOptionNearestKeyFrame];
     // clean up the movie player
     [mp stop];
