@@ -23,19 +23,39 @@
 }
 	
 - (void)viewDidLoad {
-	if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"firstRunTipShown"] boolValue]) {
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"]){
 		return;
 	}
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] ){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Added", nil)
+                                                        message:NSLocalizedString(@"We added secure end to end encryption to Hoccer. Would you like to read more about it?", nil)
+                                                       delegate:self 
+                                              cancelButtonTitle:@"Continue" otherButtonTitles:@"Show Tutorial", nil];
+        [alert show];	
+        [alert release];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"encryptionTipShown"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"]){
 	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome to Hoccer", nil)
-													message:NSLocalizedString(@"Do you want to see the tutorial to learn how hoccer works?", nil)
-												   delegate:self 
-										  cancelButtonTitle:@"Continue" otherButtonTitles:@"Show Tutorial", nil];
-	[alert show];	
-	[alert release];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome to Hoccer", nil)
+                                                        message:NSLocalizedString(@"Do you want to see the tutorial to learn how hoccer works?", nil)
+                                                       delegate:self 
+                                                        cancelButtonTitle:NSLocalizedString(@"Continue", nil) otherButtonTitles:NSLocalizedString(@"Show Tutorial", nil), nil];
+        [alert show];	
+        [alert release];
 	
-	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"firstRunTipShown"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"firstRunTipShown"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"encryptionTipShown"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

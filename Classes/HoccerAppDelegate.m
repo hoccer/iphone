@@ -44,30 +44,32 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 
 + (void)initialize {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"AdFree"];
+    NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
 	
-    [defaults registerDefaults:appDefaults];
+    NSMutableDictionary *defaults = [NSMutableDictionary dictionaryWithContentsOfFile: filepath];
+    [defaults setObject:[UIDevice currentDevice].name forKey:@"clientName"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults: defaults];
+ 
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = YES;
-	
-    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstRunTipShown"]){
-        [[RSA sharedInstance]cleanKeyChain];
-    }
+
     
-    
-    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults]boolForKey:@"firstRunTipShown"]){
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"encryptionInit"]){
         [[RSA sharedInstance] generateKeyPairKeys];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"encryptionTipShown"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"encryptionInit"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-
+    
+    [[RSA sharedInstance] genRandomString:64];
+    
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
-	
+    	
 
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {

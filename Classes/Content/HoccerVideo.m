@@ -114,7 +114,7 @@
 
 - (UIView *)fullscreenView {
 
-    MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
+    MPMoviePlayerController *player =[[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl] autorelease];
     player.view.frame = CGRectMake(0, 0, 320, 367);
     
     player.controlStyle = MPMovieControlStyleDefault;  

@@ -25,6 +25,8 @@
 + (HelpContent *)throwHelp;
 + (HelpContent *)tabHelp;
 + (HelpContent *)sweepHelp;
++ (HelpContent *)keyHelp;
++ (HelpContent *)encryptionHelp;
 
 
 @end

@@ -24,12 +24,10 @@
     if ([key isEqualToString:@"public"]){
         NSData *publicKey = [[RSA sharedInstance] getPublicKeyBits];
         keyText.text = [publicKey asBase64EncodedString];
-        [publicKey release];
     }
     else if ([key isEqualToString:@"private"]){
         NSData *privateKey = [[RSA sharedInstance] getPrivateKeyBits];
         keyText.text = [privateKey asBase64EncodedString];
-        [privateKey release];
     }
     else if ([key isEqualToString:@"shared"]){
         keyText.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];

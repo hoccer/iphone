@@ -10,6 +10,7 @@
 #import "RSA.h"
 #import "PublicKeyManager.h"
 #import "RSAKeyViewController.h"
+#import "NSData_Base64Extensions.h"
 
 @implementation KnownKeysViewController
 
@@ -161,7 +162,13 @@
      RSAKeyViewController *detailViewController = [[RSAKeyViewController alloc] initWithNibName:@"RSAKeyViewController" bundle:nil];
     
     NSDictionary *aClient =[keyManager.collectedKeys objectAtIndex:indexPath.row];
-    detailViewController.key = [aClient objectForKey:@"key"];
+    //detailViewController.key = [aClient objectForKey:@"key"];
+    NSString *theName = [NSString stringWithFormat:@"com.hoccer.publickey.store.%@",[aClient objectForKey:@"clientId"]];
+    
+    NSData *storedKey = [[RSA sharedInstance] getKeyBitsForPeerRef:theName];
+    detailViewController.key = [storedKey asBase64EncodedString];
+    [storedKey release];
+
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];

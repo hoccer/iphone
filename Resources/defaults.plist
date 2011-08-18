@@ -20,6 +20,8 @@
 	<true/>
 	<key>enableTLS</key>
 	<true/>
+	<key>encryptionInit</key>
+	<false/>
 	<key>encryptionTipShown</key>
 	<false/>
 </dict>

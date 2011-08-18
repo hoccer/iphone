@@ -46,8 +46,8 @@
 	self = [super initWithData:theData];
 	if (self != nil) {
 		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
+        canBeCiphered = YES;
 	}
-	canBeCiphered = YES;
 	return self;
 }
 

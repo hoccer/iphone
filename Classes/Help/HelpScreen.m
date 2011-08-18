@@ -62,12 +62,31 @@
 
 
 - (IBAction)playVideo: (id)sender {
+    /*
 	UIView *window = [[UIApplication sharedApplication] keyWindow];
 	
 	self.player = [[[MPMoviePlayerController alloc] initWithContentURL: [NSURL fileURLWithPath:self.content.videoPath]] autorelease];
 	[window addSubview: [player view]];
 	[player play];
 	[player setFullscreen:YES animated:YES];
+     */
+    
+    player = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:self.content.videoPath]];
+    player.view.frame = CGRectMake(78, 10, 160, 160);
+    player.view.backgroundColor = [UIColor clearColor];
+    player.controlStyle = MPMovieControlStyleNone;
+    imageView.hidden =TRUE;
+    [self.view addSubview:player.view];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(moviePlayBackDidFinish:) 
+												 name:MPMoviePlayerPlaybackDidFinishNotification 
+											   object:nil];
+    [player play];
+}
+
+- (void)moviePlayBackDidFinish:(NSNotification *)notification {
+    player.view.hidden = TRUE;
+    imageView.hidden = FALSE;
 }
 
 - (void)dealloc {

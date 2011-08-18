@@ -32,9 +32,8 @@
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
 	if (self != nil) {
-        
+        canBeCiphered = YES;
 	}
-	canBeCiphered = YES;
 	return self;	
 }
 

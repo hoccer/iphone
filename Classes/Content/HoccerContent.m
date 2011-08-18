@@ -130,7 +130,10 @@
         
         NSString *key  = [[[NSString alloc] initWithData:keyData encoding:NSUTF8StringEncoding] autorelease];
         
-        [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
+        if (![key isEqualToString:@""]){
+            [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
 
