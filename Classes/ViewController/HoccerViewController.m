@@ -832,7 +832,7 @@
 - (void)encryptionError: (NSNotification *)notification {
     
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
-                                                   message:NSLocalizedString(@"Could not decrypt data. Maybe you entered a wrong shared keyphrase?", nil)
+                                                   message:NSLocalizedString(@"Could not decrypt data. Something went horribly wrong.", nil)
                                                   delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles: nil];
     [view show];
     [view release];
@@ -972,7 +972,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"encryption"]) {
         if (cipherNeeded && [defaults boolForKey:@"autoPassword"]){
-            NSLog(@"Should I cipher? = %@\n", (self.sendingItem.content.canBeCiphered ? @"YES" : @"NO"));
             if (self.sendingItem.content.canBeCiphered){
                 NSLog(@"Random Key");
                 return [[[AESCryptor alloc] initWithRandomKey] autorelease];

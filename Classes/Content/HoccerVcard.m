@@ -22,7 +22,7 @@
 
 @implementation HoccerVcard
 
-@synthesize view;
+@synthesize view,person;
 
 - (id)initWitPerson: (ABRecordRef)aPerson {
 	self = [super init];
@@ -89,9 +89,10 @@
 }
 
 - (UIView *)fullscreenView {
-	unknownPersonController = [[ABUnknownPersonViewController alloc] init];
-	unknownPersonController.displayedPerson =self.person;
-	
+	unknownPersonController = [[ABUnknownPersonViewController alloc] init] ;
+    
+	unknownPersonController.displayedPerson = self.person;
+
 	return unknownPersonController.view;
 }
 
@@ -103,34 +104,37 @@
     
     NSMutableArray *telephone = [[NSMutableArray alloc] initWithCapacity:2];
     ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
-    {
-        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
+    if (phones != nil){
+        for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
+        {
+            CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
         
-        CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, i);
+            CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, i);
 
-        NSString *phoneNumber = (NSString *)phoneNumberRef;
-        NSString *phoneLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
-        
-        NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
-        [telephone addObject:toPhoneArray];
+            NSString *phoneNumber = (NSString *)phoneNumberRef;
+            NSString *phoneLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+            
+            NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
+            [telephone addObject:toPhoneArray];
+        }
     }
     
     NSMutableArray *emails = [[NSMutableArray alloc] initWithCapacity:2];
     ABMultiValueRef email = ABRecordCopyValue(person, kABPersonEmailProperty);
-    for(CFIndex i = 0; i < ABMultiValueGetCount(email); i++)
-    {
-        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(email, i);
-        
-        CFStringRef emailRef = ABMultiValueCopyValueAtIndex(email, i);
-        
-        NSString *emailAdress = (NSString *)emailRef;
-        NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
-        
-        NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
-        [emails addObject:toEmailArray];
+    if (email != nil){
+        for(CFIndex i = 0; i < ABMultiValueGetCount(email); i++)
+        {
+            CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(email, i);
+            
+            CFStringRef emailRef = ABMultiValueCopyValueAtIndex(email, i);
+            
+            NSString *emailAdress = (NSString *)emailRef;
+            NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+            
+            NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
+            [emails addObject:toEmailArray];
+        }
     }
-    
     NSString *otherInfo = @"";
     
     for (NSString *number in telephone){

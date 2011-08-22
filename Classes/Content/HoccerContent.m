@@ -53,7 +53,7 @@
     NSLog(@"received %@", dict);
     
     NSDictionary *encryption = nil;
-    if ((encryption = [dict objectForKey:@"encryption"])&& [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == YES && [[NSUserDefaults standardUserDefaults] stringForKey:@"encryptionKey"]!=nil) {
+    if ((encryption = [dict objectForKey:@"encryption"])) {
         NSString *method = [encryption objectForKey:@"method"];
         NSString *salt    = [encryption objectForKey:@"salt"];
         NSString *password;
@@ -72,11 +72,6 @@
             NSNotification *notification = [NSNotification notificationWithName:@"encryptionError" object:self];
             [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
-    }
-    else if((encryption = [dict objectForKey:@"encryption"]) && ![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
-        NSNotification *notification = [NSNotification notificationWithName:@"encryptionNotEnabled" object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        
     }
     
     if ([dict objectForKey:@"content"]) {
@@ -133,6 +128,10 @@
         if (![key isEqualToString:@""]){
             [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        else {
+            NSNotification *notification = [NSNotification notificationWithName:@"encryptionError" object:self];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
         
         self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];

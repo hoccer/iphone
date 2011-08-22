@@ -25,6 +25,7 @@
 }
 
 @property (retain) IBOutlet ContactPreview *view;
+@property (nonatomic) ABRecordRef person;
 
 - (id)initWitPerson: (ABRecordRef) aPerson;
 -(CGSize) calcLabelSize:(NSString *)string withFont:(UIFont *)font  maxSize:(CGSize)maxSize;
