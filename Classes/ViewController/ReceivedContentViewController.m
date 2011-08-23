@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:HUD];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
 }
 
@@ -54,13 +54,13 @@
 - (void)showActionSheet {
     if (hoccerContent.descriptionOfSaveButton != nil){
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [actionSheet showInView:super.view];
         [actionSheet release];
     }
     else {
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil), nil];
-        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [actionSheet showInView:super.view];
         [actionSheet release];
     }
