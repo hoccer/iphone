@@ -71,7 +71,7 @@
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"HocHistory_v2" ofType:@"momd"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"HocHistory" ofType:@"momd"];
     NSURL *momURL = [NSURL fileURLWithPath:path];
     managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
     return managedObjectModel;

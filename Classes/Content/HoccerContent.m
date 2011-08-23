@@ -143,8 +143,10 @@
 
 }
 
-- (void) dealloc {		
-	[data release];
+- (void) dealloc {	
+	if (data){
+        [data release];
+    }
 	[filename release];
 	[interactionController release];
 	

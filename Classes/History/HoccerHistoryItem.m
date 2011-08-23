@@ -17,11 +17,9 @@
 @dynamic creationDate;
 @dynamic mimeType;
 @dynamic upload;
-
-@synthesize data;
+@dynamic data;
 
 -(void)dealloc{
-    [data release];
     [super dealloc];
 }
 @end

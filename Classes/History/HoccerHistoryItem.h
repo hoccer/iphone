@@ -21,6 +21,6 @@
 @property (nonatomic, retain) NSDate *creationDate;
 @property (nonatomic, retain) NSString *mimeType;
 @property (nonatomic, assign) NSNumber *upload;
-@property (nonatomic, assign) NSData *data;
+@property (nonatomic, retain) NSData *data;
 
 @end

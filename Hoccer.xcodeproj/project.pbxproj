@@ -523,7 +523,7 @@
 		B499844F13F9246D007DA68B /* nav_bar_enc_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B499844B13F9246D007DA68B /* nav_bar_enc_off@2x.png */; };
 		B499845013F9246D007DA68B /* nav_bar_enc_on.png in Resources */ = {isa = PBXBuildFile; fileRef = B499844C13F9246D007DA68B /* nav_bar_enc_on.png */; };
 		B499845113F9246D007DA68B /* nav_bar_enc_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B499844D13F9246D007DA68B /* nav_bar_enc_on@2x.png */; };
-		B4A73DB113D5CE7C00F43F49 /* HocHistory_v2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4A73DAE13D5CE7C00F43F49 /* HocHistory_v2.xcdatamodeld */; };
+		B4A73DB113D5CE7C00F43F49 /* HocHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4A73DAE13D5CE7C00F43F49 /* HocHistory.xcdatamodeld */; };
 		B4A73DB413D5CFA200F43F49 /* PublicKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A73DB313D5CFA200F43F49 /* PublicKeyManager.m */; };
 		B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */; };
 		B4AFE68E13E6BE8700E8D096 /* pony_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AFE68813E6BE8600E8D096 /* pony_bg.png */; };
@@ -2023,7 +2023,7 @@
 				22AD329B11107D7500BC7DEC /* iTunesArtwork.png */,
 				227A94D6109713AB008CE547 /* HelpScreen.xib */,
 				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
-				B4A73DAE13D5CE7C00F43F49 /* HocHistory_v2.xcdatamodeld */,
+				B4A73DAE13D5CE7C00F43F49 /* HocHistory.xcdatamodeld */,
 				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
 				22F83C7A1253AA42006E5680 /* Icon@2x.png */,
 				22AD327B11107C7700BC7DEC /* Icon.png */,
@@ -2874,7 +2874,7 @@
 				B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */,
 				E1CDA9FD13B3835400E304AA /* RSA.m in Sources */,
 				B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */,
-				B4A73DB113D5CE7C00F43F49 /* HocHistory_v2.xcdatamodeld in Sources */,
+				B4A73DB113D5CE7C00F43F49 /* HocHistory.xcdatamodeld in Sources */,
 				B4A73DB413D5CFA200F43F49 /* PublicKeyManager.m in Sources */,
 				B421D2FF13E2B5E200F4DC25 /* HoccerVideo.m in Sources */,
 				B421D30813E2D09200F4DC25 /* MPMediaItemCollection-Utils.m in Sources */,
@@ -3012,7 +3012,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3041,7 +3040,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -3091,7 +3089,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Hoccer.entitlements;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3362,14 +3359,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B4A73DAE13D5CE7C00F43F49 /* HocHistory_v2.xcdatamodeld */ = {
+		B4A73DAE13D5CE7C00F43F49 /* HocHistory.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				B4A73DAF13D5CE7C00F43F49 /* HocHistory.xcdatamodel */,
 				B4A73DB013D5CE7C00F43F49 /* HocHistory_v 2.xcdatamodel */,
 			);
 			currentVersion = B4A73DB013D5CE7C00F43F49 /* HocHistory_v 2.xcdatamodel */;
-			path = HocHistory_v2.xcdatamodeld;
+			path = HocHistory.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
