@@ -32,6 +32,7 @@
 @synthesize hoccerViewController;
 @synthesize historyData;
 @synthesize historyCell;
+@synthesize selectedArray;
 
 
 #pragma mark -
@@ -59,6 +60,7 @@
 	self.tableView.rowHeight = 64;
 	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self populateSelectedArray];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,6 +86,7 @@
 	
 	return rows;
 }
+
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,12 +129,25 @@
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
-		((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+        if (inMassEditMode){
+             NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
+            if ([selected boolValue]){
+                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
+            }
+            else {
+                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+            }
+        }
+        else {
+            ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+        }
 		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
 		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
 		
 		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
+        
+        
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
@@ -154,6 +170,10 @@
 	if (![self rowIsValidListItem: indexPath]) {
 		return NO;	
 	}
+    
+    if (inMassEditMode){
+        return NO;
+    }
 	
 	return YES;
 }
@@ -188,26 +208,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
-
-	NSInteger row = [indexPath row];
-
-	if (row >= [historyData count]) {
-		return;
-	}
-	
-	HoccerHistoryItem *item = [historyData itemAtIndex:row];
-	
-	HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
-	content.persist = YES;
-	
-	ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
-	[detailViewController setHoccerContent:content];
-	detailViewController.delegate = self;
-	detailViewController.navigationItem.title = [content.filename lastPathComponent];
-	
-     // Pass the selected object to the new view controller.
-	[self.parentNavigationController pushViewController:detailViewController animated:YES];
-	[detailViewController release];
+    
+    if (inMassEditMode)
+    {
+        BOOL selected = [[selectedArray objectAtIndex:[indexPath row]] boolValue];
+        [selectedArray replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:!selected]];
+        [self updateHistoryList];
+    }
+    else {
+        
+        NSInteger row = [indexPath row];
+        
+        if (row >= [historyData count]) {
+            return;
+        }
+        
+        HoccerHistoryItem *item = [historyData itemAtIndex:row];
+        
+        HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
+        content.persist = YES;
+        
+        ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
+        [detailViewController setHoccerContent:content];
+        detailViewController.delegate = self;
+        detailViewController.navigationItem.title = [content.filename lastPathComponent];
+        
+        // Pass the selected object to the new view controller.
+        [self.parentNavigationController pushViewController:detailViewController animated:YES];
+        [detailViewController release];
+    }
 }
 
 
@@ -260,6 +289,71 @@
 			[[NSFileManager defaultManager] removeItemAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:file] error:&error]; 
 		}
 	}
+}
+
+- (void)populateSelectedArray
+{
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:[historyData count]];
+    for (int i=0; i < [historyData count]; i++)
+        [array addObject:[NSNumber numberWithBool:NO]];
+    self.selectedArray = array;
+    [array release]; 
+} 
+
+- (IBAction)enterCustomEditMode:(id)sender {
+    inMassEditMode = !inMassEditMode;
+    
+    [self populateSelectedArray];
+    
+    if (inMassEditMode){
+        UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Delete", nil) style:UIBarButtonItemStyleDone target:self action:@selector(deleteSelection:)];
+        delete.tintColor = [UIColor redColor];
+        [hoccerViewController.navigationItem setRightBarButtonItem:delete];
+        [delete release];
+    }
+    else {
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                target:hoccerViewController action:@selector(cancelPopOver)];
+        [hoccerViewController.navigationItem setRightBarButtonItem:cancel];
+        [cancel release];
+    }
+    
+    [self updateHistoryList];
+
+}
+
+- (IBAction)deleteSelection:(id)sender {
+
+    NSMutableArray *rowsToBeDeleted = [[NSMutableArray alloc] init];
+
+    int index = 0;
+    for (NSNumber *rowSelected in selectedArray)
+    {
+        if ([rowSelected boolValue])
+        {
+            HoccerHistoryItem *item = [[historyData itemAtIndex:index] autorelease];
+            [rowsToBeDeleted addObject:item];
+        }  
+        index++;
+    }
+    
+    for (HoccerHistoryItem *value in rowsToBeDeleted)
+    {
+        [historyData removeItem:value];
+    }
+    
+    inMassEditMode = NO;
+    
+    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                            target:hoccerViewController action:@selector(cancelPopOver)];
+    [hoccerViewController.navigationItem setRightBarButtonItem:cancel];
+    [cancel release];
+    
+    [self cleanUp];
+    [self updateHistoryList];
+    [self populateSelectedArray];
+
+
 }
 
 

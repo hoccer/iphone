@@ -38,6 +38,7 @@
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
+@property (nonatomic, retain) UINavigationItem *navigationItem;
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;

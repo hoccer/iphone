@@ -102,6 +102,7 @@
 @synthesize auxiliaryView;
 @synthesize tabBar;
 @synthesize activeContentSelectController;
+@synthesize navigationItem;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -265,8 +266,11 @@
 																			target:self action:@selector(cancelPopOver)];
 	navigationItem.rightBarButtonItem = cancel;
 	[cancel release];
+    UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", nil) style:UIBarButtonItemStyleDone target:self.hoccerHistoryController action:@selector(enterCustomEditMode:)];
+	navigationItem.leftBarButtonItem = delete;
+	[delete release];
+
 	navigationItem.titleView = nil;
-    navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {

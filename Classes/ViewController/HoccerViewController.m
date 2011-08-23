@@ -159,6 +159,7 @@
 
     [desktopView addGestureRecognizer:longPress];
     [longPress release];
+    
     cipherNeeded = YES;
     encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
 }

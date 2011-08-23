@@ -50,6 +50,13 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [defaults setObject:[UIDevice currentDevice].name forKey:@"clientName"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults: defaults];
+ 
+    
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    application.applicationSupportsShakeToEdit = NO;
+	application.idleTimerDisabled = YES;
     
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"encryptionInit"]){
         [[RSA sharedInstance] cleanKeyChain];
@@ -58,13 +65,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
     
     [[RSA sharedInstance] genRandomString:64];
- 
-    
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    application.applicationSupportsShakeToEdit = NO;
-	application.idleTimerDisabled = YES;
     
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];

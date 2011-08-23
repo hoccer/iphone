@@ -24,6 +24,7 @@
 
 }
 
+
 - (void)calculateHightForText: (NSString *)text {
     NSInteger rows = [self tableView:self.tableView numberOfRowsInSection:0];
     

@@ -22,16 +22,25 @@
 	UIViewController *rootViewController;
 	UINavigationController *parentNavigationController;
 	HoccerViewController *hoccerViewController;
-	
+    
 	UITableViewCell *historyCell;
+    
+    BOOL inMassEditMode;
+    
+    NSMutableArray *selectedArray;
 }
 
 @property (nonatomic, retain) UINavigationController *parentNavigationController;
 @property (nonatomic, assign) HoccerViewController *hoccerViewController;
 @property (nonatomic, retain) HistoryData *historyData;
+@property (nonatomic, retain) NSMutableArray *selectedArray;
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 
 - (void)updateHistoryList;
+- (void)populateSelectedArray;
+
+- (IBAction)enterCustomEditMode:(id)sender;
+- (IBAction)deleteSelection:(id)sender;
 
 @end

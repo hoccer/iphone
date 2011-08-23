@@ -32,7 +32,7 @@
 		// Execute the fetch -- create a mutable copy of the result.
 		NSError *error = nil;
 		hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-		
+
 		if (hoccerHistoryItemArray == nil) {
 			NSLog(@"error!");
 		}
@@ -134,10 +134,9 @@
 	[hoccerHistoryItemArray removeObject:item];
 	[managedObjectContext deleteObject:item];
 	
+
 	NSError *error;
-	if (![managedObjectContext save:&error]) {
-		NSLog(@"error: %@", error);
-	}
+	[managedObjectContext save:&error];
 }
 
 - (void)addContentToHistory: (ItemViewController *) hoccerController {
@@ -154,9 +153,7 @@
 	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	
 	NSError *error;
-	if (![managedObjectContext save:&error]) {
-		NSLog(@"error: %@", error);
-	}
+	[managedObjectContext save:&error];
 }
 
 - (BOOL)containsFile: (NSString *)filename {
