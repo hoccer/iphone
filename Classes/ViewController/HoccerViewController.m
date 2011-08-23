@@ -341,7 +341,7 @@
             case 1: {
               
                 UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-                musicAlert.tag = 3;
+                musicAlert.tag = 2;
                 [musicAlert show];
                 [musicAlert release];
                 
