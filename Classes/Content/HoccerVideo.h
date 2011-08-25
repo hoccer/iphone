@@ -11,6 +11,7 @@
 #import "HoccerFileContent.h"
 #import "TransferController.h"
 #import "FileUploader.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface HoccerVideo : HoccerFileContent <HCFileCacheDelegate> {
 	NSURL *videoURL;	
@@ -23,11 +24,14 @@
     NSString *thumbURL;
     
     FileDownloader *thumbDownloader;
+    MPMoviePlayerViewController *fullscreenPlayer;
 }
 
 @property (nonatomic, readonly) NSURL* videoURL;
 @property (nonatomic, readonly) UIImage* thumb;
 @property (readonly) Preview *preview;
+@property (retain) MPMoviePlayerViewController *fullscreenPlayer;
+
 
 - (id)initWithURL: (NSURL *)aURL;
 - (void)updateImage;

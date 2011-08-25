@@ -1,5 +1,5 @@
 //
-//  HoccerData.h
+//  HoccerContent.h
 //  Hoccer
 //
 //  Created by Robert Palmer on 24.03.10.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HoccerContent.h"
+#import <MediaPlayer/MediaPlayer.h>
 #import "TransferController.h"
 #import "Crypto.h"
 

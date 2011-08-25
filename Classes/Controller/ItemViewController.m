@@ -100,6 +100,7 @@
 	Preview *preview = [content desktopItemView];
 	if (preview != nil) {
 		contentView.containedView = preview;
+        [contentView updateFrame];
 	}	
 }
 

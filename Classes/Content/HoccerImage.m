@@ -227,7 +227,7 @@
 	
 	CGSize size = CGSizeMake(frameWidth, frameHeight);
     
-	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
@@ -243,11 +243,8 @@
 - (Preview *)preview {
     if (preview == nil) {
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"container_image-land.png"]];
-        
-        [preview addSubview:backgroundImage];
-        [preview sendSubviewToBack:backgroundImage];
-        [backgroundImage release];
+        [preview setBackgroundImage:[UIImage imageNamed:@"container_image-land.png"]];
+
     }
     
     return preview;

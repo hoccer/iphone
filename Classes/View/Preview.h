@@ -12,12 +12,14 @@
 @interface Preview : UIView {
 	BOOL allowsOverlay;
     UIImageView *imageView;
+    UIImageView *backgroundImage;
+    UIImageView *contentIdentifier;
 }
 
 @property (assign) BOOL allowsOverlay;
 
 - (void) setImage: (UIImage *)image;
-- (void) setAudioImage: (UIImage *)image;
-- (void) setVideoImage: (UIImage *)image;
+- (void) setBackgroundImage: (UIImage *)aImage;
+- (void) setContentIdentifier: (UIImage *)aImage;
 
 @end

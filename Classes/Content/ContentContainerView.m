@@ -141,6 +141,11 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	sleep(1);
 }
 
+- (void)updateFrame {
+    self.frame = containedView.frame;
+    overlay.frame = ACRectShrinked(self.frame, 15, 15);
+    buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+}
 
 
 @end

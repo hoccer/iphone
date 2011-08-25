@@ -51,6 +51,7 @@
     [super dealloc];
 }
 
+
 - (void)showActionSheet {
     if (hoccerContent.descriptionOfSaveButton != nil){
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];

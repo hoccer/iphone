@@ -29,53 +29,48 @@
 - (void) setImage: (UIImage *)image {
     [imageView removeFromSuperview];
     [imageView release]; imageView = nil;
+        
 	
     NSInteger paddingLeft = 22;
 	NSInteger paddingTop = 22;
 	
-    CGSize size = { .width = 303 - 44, .height = 224 - 44 };
-    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
     
+    CGSize size = { .width = 303 - (2*paddingLeft), .height = 224 - (2*paddingTop) };
+    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO];
+        
 	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
-	imageView.contentMode = UIViewContentModeCenter;
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+    imageView.center = self.center;
 	imageView.image = image;
-	
-	[self insertSubview:imageView atIndex:1];
+    
+  	[self insertSubview:imageView atIndex:1];
 }
 
-- (void) setAudioImage: (UIImage *)image {
-    [imageView removeFromSuperview];
-    [imageView release]; imageView = nil;
-	
-    NSInteger paddingLeft = 30;
-	NSInteger paddingTop = 6;
-	
-    CGSize size = { .width = 200, .height = 200 };
-    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
+
+- (void)setBackgroundImage:(UIImage *)aImage {
+    [backgroundImage removeFromSuperview];
+    [backgroundImage release]; backgroundImage = nil;
+
+    backgroundImage = [[UIImageView alloc] initWithImage:aImage];
+    [backgroundImage setContentMode:UIViewContentModeScaleToFill];
     
-	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
-	imageView.contentMode = UIViewContentModeCenter;
-	imageView.image = image;
-    [self insertSubview:imageView atIndex:1];
+    [self addSubview:backgroundImage];
+    [self sendSubviewToBack:backgroundImage];
 
 }
 
-- (void) setVideoImage: (UIImage *)image {
-    [imageView removeFromSuperview];
-    [imageView release]; imageView = nil;
-	
-    NSInteger paddingLeft = 27;
-	NSInteger paddingTop = 24;
-	
-    CGSize size = { .width = 210, .height = 160 };
-    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
+- (void)setContentIdentifier:(UIImage *)aImage {
+
+    [contentIdentifier removeFromSuperview];
+    [contentIdentifier release]; contentIdentifier = nil;
     
-	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
-	imageView.contentMode = UIViewContentModeCenter;
-	imageView.image = image;
-    [self insertSubview:imageView atIndex:1];
+    contentIdentifier = [[UIImageView alloc] initWithFrame: CGRectMake(251, 178, 38, 26)];
+	contentIdentifier.contentMode = UIViewContentModeScaleAspectFit;
+    contentIdentifier.image = aImage;
     
+    [self addSubview:contentIdentifier];
 }
+
 - (void)dealloc {
     [imageView release];
     [super dealloc];

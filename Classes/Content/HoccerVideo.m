@@ -5,7 +5,8 @@
 //  Created by Robert Palmer on 09.09.09.
 //  Copyright 2009 ART+COM. All rights reserved.
 //
-
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 #import "HoccerVideo.h"
 #import "NSString+URLHelper.h"
 #import "Hoccer.h"
@@ -18,8 +19,6 @@
 #import "DelayedFileUploaded.h"
 
 #import "NSFileManager+FileHelper.h"
-#import <MediaPlayer/MediaPlayer.h>
-#import <AVFoundation/AVFoundation.h>
 
 @interface HoccerVideo ()
 
@@ -30,6 +29,7 @@
 @implementation HoccerVideo
 @synthesize videoURL;
 @synthesize thumb;
+@synthesize fullscreenPlayer;
 
 - (id) initWithFilename:(NSString *)theFilename {
 	self = [super initWithFilename:theFilename];
@@ -102,7 +102,7 @@
     }
     
     if (thumb != nil) {
-        [self.preview setVideoImage: thumb];
+        [self.preview setImage: thumb];
     }
 }
 
@@ -113,14 +113,30 @@
 }
 
 - (UIView *)fullscreenView {
+    
+        
+    self.fullscreenPlayer =[[MPMoviePlayerViewController alloc] initWithContentURL: self.fileUrl];
+    self.fullscreenPlayer.view.frame = CGRectMake(0, 0, 320, 367);
+    
+    self.fullscreenPlayer.moviePlayer.controlStyle = MPMovieControlStyleDefault;  
+    self.fullscreenPlayer.moviePlayer.shouldAutoplay = NO;  
+    [self.fullscreenPlayer.moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
+    self.fullscreenPlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.fullscreenPlayer.moviePlayer prepareToPlay];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(pausePlayer) 
+                                                 name:@"PausePlayer" 
+                                               object:nil];
+    
+    return self.fullscreenPlayer.view;
+}
 
-    MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
-    player.view.frame = CGRectMake(0, 0, 320, 367);
+- (void)pausePlayer {
+    [self.fullscreenPlayer.moviePlayer stop];
+    [self.fullscreenPlayer release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    player.controlStyle = MPMovieControlStyleDefault;  
-    player.shouldAutoplay = NO;  
-    
-    return player.view;
 }
 
 - (NSString *)defaultFilename {
@@ -209,23 +225,42 @@
     
 	CGFloat frameWidth = self.preview.frame.size.width - (2 * paddingLeft); 
 	CGFloat frameHeight = self.preview.frame.size.height - (2 * paddingTop);
-	
+    
 	CGSize size = CGSizeMake(frameWidth, frameHeight);
     
-    MPMoviePlayerController *mp = [[MPMoviePlayerController alloc] 
-                                   initWithContentURL:videoURL];
-    mp.shouldAutoplay = NO;
-    mp.initialPlaybackTime = 0.1;
-    mp.currentPlaybackTime = 0.1;
-    // get the thumbnail
-    UIImage *thumbnail = [mp thumbnailImageAtTime:0.1 
-                                       timeOption:MPMovieTimeOptionNearestKeyFrame];
-    // clean up the movie player
-    [mp stop];
-    [mp release];
-    thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
-    NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
-	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+    AVURLAsset *asset=[[AVURLAsset alloc] initWithURL:self.fileUrl options:nil];
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    generator.appliesPreferredTrackTransform=TRUE;
+    [asset release];
+    CMTime thumbTime = CMTimeMakeWithSeconds(0,30);
+    
+    AVAssetImageGeneratorCompletionHandler handler = ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
+        if (result != AVAssetImageGeneratorSucceeded) {
+            UIImage *thumbnail=[UIImage imageNamed:@"video_dummy"];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+            
+            NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
+            
+            [thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+            [generator release];
+            [self.preview setImage: thumb];        }
+        else {
+            UIImage *thumbnail=[[UIImage imageWithCGImage:im] retain];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+        
+            NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
+        
+            [thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
+            [generator release];
+            [self.preview setImage: thumb];
+        }
+    };
+    
+    CGSize maxSize = CGSizeMake(320, 180);
+    generator.maximumSize = maxSize;
+    [generator generateCGImagesAsynchronouslyForTimes:[NSArray arrayWithObject:[NSValue valueWithCMTime:thumbTime]] completionHandler:handler];    
+    
+
 }
 
 - (NSString *)thumbURL {
@@ -238,18 +273,16 @@
 
 - (Preview *)preview {
     if (preview == nil) {
-        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 263, 212)];
-        UIImageView *frontImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"video_frame.png"]];
-        UIView *backgroundView = [[UIView alloc] init];
-        preview.backgroundColor = [UIColor clearColor];
-        [preview addSubview:backgroundView];
-        [preview sendSubviewToBack:backgroundView];
-        [preview insertSubview:frontImage atIndex:2];
-        [frontImage release];
+        preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
+        [preview setBackgroundImage:[UIImage imageNamed:@"container_image-land.png"]];
+        [preview setContentIdentifier:[UIImage imageNamed:@"video_icon"]];
+
     }
     
     return preview;
 }
+
+
 
 #pragma -
 #pragma Hooks
@@ -279,6 +312,7 @@
 	[preview release];
 	[thumb release];
     [thumbURL release];
+    [fullscreenPlayer release];
     
 	[super dealloc];
 }

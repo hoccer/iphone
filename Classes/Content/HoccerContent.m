@@ -124,7 +124,7 @@
         NSData *keyData = [[RSA sharedInstance] decryptWithKey:thePrivateKey cipherData:cipherData];
         
         NSString *key  = [[[NSString alloc] initWithData:keyData encoding:NSUTF8StringEncoding] autorelease];
-        
+                
         if (![key isEqualToString:@""]){
             [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -295,6 +295,7 @@
 - (NSString *)defaultFilename {
 	return @"File";
 }
+
 
 - (BOOL)saveDataToContentStorage {	
 	return NO;

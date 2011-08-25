@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ContentContainerViewDelegate.h";
+#import "ContentContainerViewDelegate.h"
 #import "MBProgressHUD.h"
 @class Preview;
 
@@ -41,5 +41,6 @@
 - (void)showSpinner;
 - (void)hideSpinner;
 - (void)showSuccess;
+- (void)updateFrame;
 
 @end

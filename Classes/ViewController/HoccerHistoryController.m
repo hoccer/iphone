@@ -236,6 +236,7 @@
         // Pass the selected object to the new view controller.
         [self.parentNavigationController pushViewController:detailViewController animated:YES];
         [detailViewController release];
+
     }
 }
 
@@ -325,7 +326,7 @@
 - (IBAction)deleteSelection:(id)sender {
 
     NSMutableArray *rowsToBeDeleted = [[NSMutableArray alloc] init];
-
+    
     int index = 0;
     for (NSNumber *rowSelected in selectedArray)
     {
@@ -333,6 +334,7 @@
         {
             HoccerHistoryItem *item = [[historyData itemAtIndex:index] autorelease];
             [rowsToBeDeleted addObject:item];
+
         }  
         index++;
     }
@@ -342,13 +344,13 @@
         [historyData removeItem:value];
     }
     
+    
     inMassEditMode = NO;
     
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                             target:hoccerViewController action:@selector(cancelPopOver)];
     [hoccerViewController.navigationItem setRightBarButtonItem:cancel];
     [cancel release];
-    
     [self cleanUp];
     [self updateHistoryList];
     [self populateSelectedArray];

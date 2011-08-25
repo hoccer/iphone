@@ -116,6 +116,9 @@
             
             NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
             [telephone addObject:toPhoneArray];
+            
+            CFRelease(locLabel);
+            CFRelease(phoneNumberRef);
         }
     }
     
@@ -133,8 +136,15 @@
             
             NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
             [emails addObject:toEmailArray];
+            
+            
+            CFRelease(locLabel);
+            CFRelease(emailRef);
         }
     }
+    
+    
+    
     NSString *otherInfo = @"";
     
     for (NSString *number in telephone){
@@ -146,6 +156,9 @@
     }
 	
     self.view.otherInfo.text = otherInfo;
+    
+    [telephone release];
+    [emails release];
     
     CGSize theLabelSize = [self calcLabelSize:otherInfo withFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(252, 106)];
     
