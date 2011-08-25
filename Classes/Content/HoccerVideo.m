@@ -97,10 +97,6 @@
         thumb = [[UIImage imageWithData:thumbData] retain];
     }
     
-    if (self.videoURL != nil && (thumb == nil || thumbDownloader.state == TransferableStateTransferred)) {
-        [self createThumb];
-    }
-    
     if (thumb != nil) {
         [self.preview setImage: thumb];
     }
@@ -235,18 +231,19 @@
     CMTime thumbTime = CMTimeMakeWithSeconds(0,30);
     
     AVAssetImageGeneratorCompletionHandler handler = ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
-        if (result != AVAssetImageGeneratorSucceeded) {
-            UIImage *thumbnail=[UIImage imageNamed:@"video_dummy"];
-            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+        if (result == AVAssetImageGeneratorSucceeded) {
+            UIImage *thumbnail=[[UIImage imageWithCGImage:im] retain];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
             
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
             
             [thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
             [generator release];
-            [self.preview setImage: thumb];        }
+            [self.preview setImage: thumb];   
+        }
         else {
-            UIImage *thumbnail=[[UIImage imageWithCGImage:im] retain];
-            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
+            UIImage *thumbnail=[[UIImage imageNamed:@"video_dummy"] retain];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
         
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
         
@@ -299,12 +296,14 @@
     
     [self createThumb];
     
+    
     NSLog(@"uploading thumb %@",[self thumbFilename]);
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     
     [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
+    
 }
 
 - (void) dealloc {
