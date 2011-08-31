@@ -15,7 +15,7 @@
 - (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename {
 	self = [super init];
 	if (self != nil) {
-		url = [aUrl retain];
+		super.url = [aUrl retain];
 	}
 	
 	return self;
@@ -28,7 +28,7 @@
 		fileCache.delegate = self;
 	}
 	
-	idString = [[fileCache load: url] copy];		
+	idString = [[fileCache load: self.url] copy];		
 }
 
 #pragma mark -

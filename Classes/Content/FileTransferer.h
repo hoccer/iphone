@@ -23,6 +23,7 @@
 	
 }
 
+
 @property (nonatomic, retain) NSNumber* progress;
 @property (nonatomic, retain) NSError* error;
 @property (nonatomic, assign) TransferableState state;

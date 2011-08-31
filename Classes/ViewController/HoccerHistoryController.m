@@ -307,8 +307,19 @@
     [self populateSelectedArray];
     
     if (inMassEditMode){
-        UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Delete", nil) style:UIBarButtonItemStyleDone target:self action:@selector(deleteSelection:)];
-        delete.tintColor = [UIColor redColor];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
+        [button setTitle:@"Delete" forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12.0f];
+        [button.layer setCornerRadius:4.0f];
+        [button.layer setMasksToBounds:YES];
+        [button.layer setBorderWidth:1.0f];
+        [button.layer setBorderColor: [[UIColor grayColor] CGColor]];
+        button.frame=CGRectMake(0.0, 100.0, 60.0, 30.0);
+        [button addTarget:self action:@selector(deleteSelection:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithCustomView:button];
         [hoccerViewController.navigationItem setRightBarButtonItem:delete];
         [delete release];
     }

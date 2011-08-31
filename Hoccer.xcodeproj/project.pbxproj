@@ -553,6 +553,7 @@
 		B4E4BAF213E15C2A00118BBE /* select_btn_hocclet.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E4BAF013E15C2900118BBE /* select_btn_hocclet.png */; };
 		B4E4BAF313E15C2A00118BBE /* select_btn_hocclet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E4BAF113E15C2900118BBE /* select_btn_hocclet@2x.png */; };
 		B4F20A6A13E7ECA100F3F51A /* SettingsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F20A6913E7ECA100F3F51A /* SettingsAction.m */; };
+		B4FDD6AE140E358600EED06C /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FDD6AD140E358600EED06C /* delete.png */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -1056,6 +1057,7 @@
 		B4E4BAF113E15C2900118BBE /* select_btn_hocclet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_hocclet@2x.png"; sourceTree = "<group>"; };
 		B4F20A6813E7ECA100F3F51A /* SettingsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsAction.h; sourceTree = "<group>"; };
 		B4F20A6913E7ECA100F3F51A /* SettingsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsAction.m; sourceTree = "<group>"; };
+		B4FDD6AD140E358600EED06C /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
 		E12748B4135DE75800AA1829 /* GroupStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatusViewController.h; sourceTree = "<group>"; };
@@ -1734,6 +1736,7 @@
 		2292543411889709008B4FFB /* navbar */ = {
 			isa = PBXGroup;
 			children = (
+				B4FDD6AD140E358600EED06C /* delete.png */,
 				B499844A13F9246D007DA68B /* nav_bar_enc_off.png */,
 				B499844B13F9246D007DA68B /* nav_bar_enc_off@2x.png */,
 				B499844C13F9246D007DA68B /* nav_bar_enc_on.png */,
@@ -2601,6 +2604,7 @@
 				B4DEE30F14053EF700AD1D7C /* video_dummy@2x.png in Resources */,
 				B4DEE31014053EF700AD1D7C /* video_icon.png in Resources */,
 				B4DEE31114053EF700AD1D7C /* video_icon@2x.png in Resources */,
+				B4FDD6AE140E358600EED06C /* delete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3048,8 +3052,8 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -3076,8 +3080,8 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
 				PROVISIONING_PROFILE = "";
@@ -3124,8 +3128,8 @@
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
 				TARGETED_DEVICE_FAMILY = 1;

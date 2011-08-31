@@ -17,7 +17,7 @@
 	self = [super init];
 	if (self != nil) {
 		self.state = TransferableStateReady; 
-		filename = [aFilename retain];
+		self.filename = [aFilename retain];
 	}
 	
 	return self;
