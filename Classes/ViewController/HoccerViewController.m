@@ -763,7 +763,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client{
-    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key  changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The name or the public key of %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The name or the public key of %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [keyAlert show];
     [keyAlert release];
 }
@@ -790,21 +790,6 @@
     return YES;
 }
 
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    
-    if (USES_SANDBOX){
-        if (event.type == UIEventSubtypeMotionShake){
-            if (!shaked){
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pony_bg.png"]];
-                shaked = YES;
-            }
-            else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
-                shaked = NO;
-            }
-        }
-    }
-}
 
 #pragma mark -
 #pragma mark UIDocumentInteractionController Delegate Methods

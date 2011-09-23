@@ -40,8 +40,8 @@
 
 - (void)desktopView: (DesktopView*)view touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	CGPoint currentLocation = [[touches anyObject] locationInView: view]; 
-	if (sweepDirection == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance || 
-		sweepDirection == kSweepDirectionRightIn && currentLocation.x < view.frame.size. width - kSweepAcceptanceDistance) {
+	if ((sweepDirection == kSweepDirectionLeftIn && currentLocation.x > kSweepAcceptanceDistance) || 
+		(sweepDirection == kSweepDirectionRightIn && currentLocation.x < view.frame.size. width - kSweepAcceptanceDistance)) {
 		
 		if ([delegate respondsToSelector:@selector(sweepInRecognizerDidRecognizeSweepIn:)]) {
 			[delegate sweepInRecognizerDidRecognizeSweepIn:self];

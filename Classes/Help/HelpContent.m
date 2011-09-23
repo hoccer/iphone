@@ -20,8 +20,8 @@
 	HelpContent *content = [[HelpContent alloc] init];
 	
 	content.name = NSLocalizedString(@"Sweep",nil);
-	content.description = NSLocalizedString(@"In order to share with one person directly, place you mobiles screen to screen and drag the content from one screen to the other mobile.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
+	content.description = NSLocalizedString(@"In order to share with one person directly, place you mobiles screen to screen and drag the content from one screen to the other mobile. Make sure you continue your touch over the other device's screen.",nil);
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_drag" ofType:@"png"];
 	content.videoPath = nil;
 	
 	return [content autorelease];
@@ -32,8 +32,8 @@
 	HelpContent *content = [[HelpContent alloc] init];
 	
 	content.name = NSLocalizedString(@"Catch",nil);
-	content.description = NSLocalizedString(@"To catch thrown content, raise your mobile like catching a ball and hold it for a second. You can try it now, too!",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_catch_icon" ofType:@"png"];
+	content.description = NSLocalizedString(@"To catch thrown content, raise your mobile quickly from horocitaly to vertical positon. You will hear a sound if you did it right.",nil);
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_catch" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"m4v"];
 	
 	return [content autorelease];
@@ -43,8 +43,8 @@
 	HelpContent *content = [[HelpContent alloc] init];
 	
 	content.name = NSLocalizedString(@"Throw",nil);
-	content.description = NSLocalizedString(@"Move your mobile like throwing a frisbee to share selected content with catchers nearby. Try the gesture now!",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_throw_icon" ofType:@"png"];
+	content.description = NSLocalizedString(@"Move your mobile like throwing a frisbee to share selected content with catchers nearby. You will hear a sound if you did it right.",nil);
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_throw" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"m4v"];
 	
 	return [content autorelease];
@@ -66,8 +66,8 @@
     HelpContent *content = [[HelpContent alloc] init];
 	
 	content.name = NSLocalizedString(@"Key exchange",nil);
-	content.description = NSLocalizedString(@"Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
+	content.description = NSLocalizedString(@"To send your data encrypted select one or more clients to automatically exchange keys between your devices.",nil);
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_key_exchange" ofType:@"png"];
 	content.videoPath = nil;
 	
 	return [content autorelease];
@@ -76,8 +76,8 @@
     HelpContent *content = [[HelpContent alloc] init];
 	
 	content.name = NSLocalizedString(@"Encryption",nil);
-	content.description = NSLocalizedString(@"Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
+	content.description = NSLocalizedString(@"To enable end-to-end encryption tap the lock in the upper left corner of the screen. Devices capable of encryption are marked with a key in the client list.",nil);
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_encryption" ofType:@"png"];
 	content.videoPath = nil;
 	
 	return [content autorelease];

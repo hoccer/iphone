@@ -7,7 +7,7 @@
 //
 
 #import "AboutViewController.h"
-#import "NSObject+DelegateHelper.h";
+#import "NSObject+DelegateHelper.h"
 
 
 @implementation AboutViewController
