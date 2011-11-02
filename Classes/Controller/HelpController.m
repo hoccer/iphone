@@ -26,7 +26,7 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"]){
 		return;
 	}
-    
+    /*
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] ){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Added", nil)
@@ -39,7 +39,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"encryptionTipShown"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-
+     */
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"]){
 	

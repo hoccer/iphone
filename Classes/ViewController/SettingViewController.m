@@ -60,8 +60,10 @@
 	playSoundAction.defaultValue = @"playSound";
 	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
+    SettingsAction *abookAction = [SettingsAction actionWithDescription:@"Delete My Contact reference" selector:@selector(deleteContactReference) type: HCInplaceSetting];
+
 	
-	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, bookmarkletAction, nil];
+	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, bookmarkletAction, abookAction, nil];
 	[sections addObject:section1];
 		
     
@@ -72,12 +74,12 @@
     enableTLS.defaultValue = @"enableTLS";
     [encryptGroup addObject:enableTLS];
     
-    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
-    encrypt.defaultValue = @"encryption";
-    [encryptGroup addObject:encrypt];
+    //SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
+    //encrypt.defaultValue = @"encryption";
+    //[encryptGroup addObject:encrypt];
     
-    SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings" selector:@selector(showEncryptionSettings) type:HCContinueSetting];
-    [encryptGroup addObject:encryptOptions];
+    //SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings"selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+    //[encryptGroup addObject:encryptOptions];
     
     [sections addObject:encryptGroup];
     
@@ -85,7 +87,7 @@
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
 	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook) type: HCContinueSetting]; 
 
-	NSArray *section3 = [NSArray arrayWithObjects:websiteAction, facebookAction, twitterAction, nil];
+	NSArray *section3 = [NSArray arrayWithObjects: websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
 	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
@@ -286,7 +288,14 @@
 	}
 }
 
-
+-(void)deleteContactReference {
+    
+    int deleted = 0;
+    [[NSUserDefaults standardUserDefaults] setInteger:deleted forKey:@"uservCardRef"];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Deleted" message:@"The reference was deleted" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+    [alert release];
+}
 - (void)showHoccerWebsite { 
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com?piwik_campaign=iphone_settings"]];
 }

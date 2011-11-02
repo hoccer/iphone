@@ -237,10 +237,11 @@
 #pragma mark User Action
 
 - (IBAction)selectContacts: (id)sender {
-    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
-    controller.delegate = self;
-    [self presentContentSelectViewController:controller];
-    [controller release];
+    UIActionSheet *contactChooser = [[UIActionSheet alloc]initWithTitle:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Choose Contact", nil),NSLocalizedString(@"My Contact", nil), nil];
+    contactChooser.tag = 2;
+    contactChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [contactChooser showInView:self.view];
+    [contactChooser release];
 }
 
 - (IBAction)selectImage: (id)sender {
@@ -273,6 +274,7 @@
         mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil),NSLocalizedString(@"Choose Music", nil), nil];
     }
     mediaChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    mediaChooser.tag = 1;
     [mediaChooser showInView:self.view];
     [mediaChooser release];
 }
@@ -309,49 +311,85 @@
 - (void)showDesktop {}
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        switch (buttonIndex) {
-            case 0: {
-                [self checkAndPerformSelector:@selector(selectCamera:) withObject:self];
-                break;
+    if (actionSheet.tag == 1){
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            switch (buttonIndex) {
+                case 0: {
+                    [self checkAndPerformSelector:@selector(selectCamera:) withObject:self];
+                    break;
+                }
+                case 1: {
+                    [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                    break;
+                }
+                case 2: {
+                    
+                    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                    musicAlert.tag = 2;
+                    [musicAlert show];
+                    [musicAlert release];
+                    
+                }
+                default: {
+                    break;
+                }
             }
-            case 1: {
-                [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
-                break;
+        }
+        else {
+            switch (buttonIndex) {
+                case 0: {
+                    [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                    break;
+                }
+                case 1: {
+                    
+                    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                    musicAlert.tag = 2;
+                    [musicAlert show];
+                    [musicAlert release];
+                    
+                }
+                    
+                default: {
+                    break;
+                }
             }
-            case 2: {
-                
-                UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-                musicAlert.tag = 2;
-                [musicAlert show];
-                [musicAlert release];
-                
-            }
-            default: {
-                break;
-            }
+            
         }
     }
-    else {
+    else if (actionSheet.tag == 2) {
         switch (buttonIndex) {
             case 0: {
-                [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+                controller.delegate = self;
+                [self presentContentSelectViewController:controller];
+                [controller release];
                 break;
             }
             case 1: {
-              
-                UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-                musicAlert.tag = 2;
-                [musicAlert show];
-                [musicAlert release];
-                
-            }
-
-            default: {
-                break;
+                ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
+                if (ownContact == 0){
+                    UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                    [contactAlert show];
+                    [contactAlert release];
+                    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+                    controller.delegate = self;
+                    controller.settingOwnContact = YES;
+                    [self presentContentSelectViewController:controller];
+                    [controller release];
+                    break;
+                }
+                else {
+                    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+                    controller.delegate = self;
+                    [controller choosePersonByID:ownContact];
+                    [controller release];
+                    [self toggleSelectContent:nil];
+                    break;
+                }
             }
         }
-
+        
     }
 }
 

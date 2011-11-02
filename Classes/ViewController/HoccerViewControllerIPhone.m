@@ -146,7 +146,7 @@
 	
 	[self showHud];
     [self updateGroupButton];
-    [self updateEncryptionIndicator];
+    //[self updateEncryptionIndicator];
 
 }
 
@@ -339,7 +339,8 @@
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupButton];
-    [self updateEncryptionIndicator];
+    navigationItem.leftBarButtonItem = nil;
+    //[self updateEncryptionIndicator];
 }
 
 #pragma mark -
@@ -491,11 +492,11 @@
 }
 
 - (void)encryptionChanged: (NSNotification *)notification {
-    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    encryptionEnabled = encrypting;
-    if (navigationItem.titleView != nil){
-        [self updateEncryptionIndicator];
-    }
+    //BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    //encryptionEnabled = encrypting;
+    //if (navigationItem.titleView != nil){
+    //    [self updateEncryptionIndicator];
+    //}
 }
 
 

@@ -11,12 +11,13 @@
 #import "HoccerVcard.h"
 
 @implementation ContactSelectViewController 
-@synthesize delegate;
+@synthesize delegate,settingOwnContact;
 
 - (id)init {
     self = [super init];
     if (self) {
         // Initialization code here.
+        settingOwnContact = NO;
     }
     
     return self;
@@ -33,24 +34,39 @@
 #pragma mark -
 #pragma mark ABPeoplePickerNavigationController delegate
 
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
-	  shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	
-	ACAddressBookPerson *addressBookPerson = [[ACAddressBookPerson alloc] initWithId: (ABRecordID) ABRecordGetRecordID(person)];
-	[addressBookPerson release];
-	
-	ABRecordID contactId = ABRecordGetRecordID(person);
-	ABAddressBookRef addressBook = ABAddressBookCreate();
-	ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
-	
-	HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
-	
-    if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
-        [self.delegate contentSelectController:self didSelectContent:content];
+    if (!settingOwnContact) {
+               ABRecordID contactId = ABRecordGetRecordID(person);
+        ABAddressBookRef addressBook = ABAddressBookCreate();
+        ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
+        
+        HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
+        
+        if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
+            [self.delegate contentSelectController:self didSelectContent:content];
+        }
+        
+        CFRelease(addressBook);
     }
+    else {
+        
+        ABRecordID contactId = ABRecordGetRecordID(person);
 
-	CFRelease(addressBook);
-	return NO;
+        [[NSUserDefaults standardUserDefaults] setInteger:contactId forKey:@"uservCardRef"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        ABAddressBookRef addressBook = ABAddressBookCreate();
+        ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
+        
+        HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
+        
+        if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
+            [self.delegate contentSelectController:self didSelectContent:content];
+        }
+        CFRelease(addressBook);
+    }
+    return NO;
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker 
@@ -66,6 +82,21 @@
 }
 
 
+- (void)choosePersonByID:(ABRecordID)theid{
+    
+    ABRecordID contactId = theid;
+    ABAddressBookRef addressBook = ABAddressBookCreate();
+    ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
+    
+    HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
+    
+    if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
+        [self.delegate contentSelectController:self didSelectContent:content];
+    }
+    
+    CFRelease(addressBook);
+
+}
 
 
 @end

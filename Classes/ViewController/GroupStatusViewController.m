@@ -146,6 +146,15 @@
         }
     
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        if (selectedClients.count != 0){
+            [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        else {
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     
         if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
             [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
