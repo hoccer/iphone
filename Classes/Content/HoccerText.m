@@ -37,6 +37,7 @@
 	return [text autorelease];
 }
 
+
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
 	self.view.delegate = self;	

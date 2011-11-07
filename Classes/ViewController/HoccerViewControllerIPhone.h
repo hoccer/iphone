@@ -11,6 +11,7 @@
 #import "HelpController.h"
 #import "GroupStatusViewController.h"
 #import "HocletSelectViewController.h"
+#import "ActionElement.h"
 
 @class ActionElement;
 

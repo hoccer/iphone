@@ -21,57 +21,10 @@
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
 #import "HoccerHoclet.h"
-
+#import "CustomNavigationBar.h"
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 
-@interface ActionElement : NSObject
-{
-	id target;
-	SEL selector;
-}
-
-+ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)selector;
-- (id)initWithTargat: (id)aTarget selector: (SEL)selector;
-- (void)perform;
-
-@end
-
-
-@implementation ActionElement
-
-+ (ActionElement *)actionElementWithTarget: (id)aTarget selector: (SEL)aSelector {
-	return [[[ActionElement alloc] initWithTargat:aTarget selector:aSelector] autorelease];
-}
-
-- (id)initWithTargat: (id)aTarget selector: (SEL)aSelector {
-	self = [super init];
-	if (self != nil) {
-		target = aTarget;
-		selector = aSelector;	
-	}
-	
-	return self;
-}
-
-- (void)perform {
-	[target performSelector:selector];
-}
-
-@end
-
-@interface CustomNavigationBar : UINavigationBar
-{}
-@end
-
-@implementation CustomNavigationBar
-
-- (void)drawRect: (CGRect)dirtyRect {
-	UIImage *image = [UIImage imageNamed: @"hoccer_bar.png"];
-    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-}
-
-@end
 
 
 @interface HoccerViewControllerIPhone ()
@@ -107,7 +60,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	hoccingRules = [[HoccingRulesIPhone alloc] init];
+	hoccingRules = (HoccingRules *)[[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
 	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];

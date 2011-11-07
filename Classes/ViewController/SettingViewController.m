@@ -40,7 +40,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        [parentNavigationController setTitle:@"Settings"];
+    }
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
+    
+    UIView *tbBgView = [[[UIView alloc]init]autorelease];
+    tbBgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
+    tbBgView.opaque = YES;
+    self.tableView.backgroundView = tbBgView;
 	self.tableView.backgroundColor = [UIColor clearColor];
 
 	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];	
@@ -101,6 +109,10 @@
         
     [tableView reloadData];
 
+}
+
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
 }
 #pragma mark -
 #pragma mark Table view data source
@@ -310,9 +322,12 @@
 
 // Call this method somewhere in your view controller setup code.
 - (void)registerForKeyboardNotifications
-{ NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(keyboardDidAppear:) name:UIKeyboardDidShowNotification object:nil];
-    [center addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];    
+{ 
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
+        NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self selector:@selector(keyboardDidAppear:) name:UIKeyboardDidShowNotification object:nil];
+        [center addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];    
+    }
 }
 
 - (void) keyboardDidAppear:(NSNotification*) n {

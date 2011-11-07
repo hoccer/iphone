@@ -118,6 +118,9 @@
 	[self.view setNeedsDisplay];
 }
 
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
+}
 #pragma mark -
 #pragma mark ReceivedContentView Delegate Methods
 

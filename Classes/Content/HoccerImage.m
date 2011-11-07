@@ -115,6 +115,7 @@
 }
 
 
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
 
     return fullScreenImage;

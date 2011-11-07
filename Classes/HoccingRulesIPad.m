@@ -15,33 +15,57 @@
 @implementation HoccingRulesIPad
 
 - (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller {
+	if (!controller.linccer.isRegistered) {
+		return NO;
+	}
+	
+	if (![controller.linccer isLinccing]) {
+		return YES;
+	}
+	
 	return NO;
 }
 
-- (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {	
+- (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {
+	if (!controller.linccer.isRegistered) {
+        NSLog(@"not registered");
+		return NO;
+	}
+    
+	if (![controller.linccer isLinccing]) {
+		return YES;
+	}
+	
 	return NO;
 }
 
 - (BOOL)hoccerViewControllerMaySweepIn: (HoccerViewController *)controller {
-	if (![controller.desktopData hasActiveRequest]) {
-		return YES;
+	if (!controller.linccer.isRegistered) {
+		return NO;
 	}
 	
-	return NO;;
-}
-
-- (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
-	if ([controller.desktopData count] > 0 && ![controller.desktopData hasActiveRequest]) {
+	if (![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
 	return NO;
 }
 
-- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {
-	return YES;
+- (BOOL)hoccerViewControllerMaySweepOut: (HoccerViewController *)controller {
+	if (!controller.linccer.isRegistered) {
+		return NO;
+	}
+	
+	if ([controller.desktopData count] > 1 && ![controller.linccer isLinccing]) {
+		return YES;
+	}
+	
+	return NO;
 }
 
-
+- (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {	
+	
+	return YES;
+}
 
 @end

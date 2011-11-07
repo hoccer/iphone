@@ -40,6 +40,7 @@
 #import "StatusViewController.h"
 
 #import "HoccingRulesIPhone.h"
+#import "HoccingRulesIPad.h"
 #import "HistoryData.h"
 
 #import "SettingViewController.h"
@@ -244,6 +245,35 @@
     [contactChooser release];
 }
 
+-(IBAction)selectContact:(id)sender {
+    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+    controller.delegate = self;
+    [self presentContentSelectViewController:controller];
+    [controller release];
+}
+
+-(IBAction)selectMyContact:(id)sender {
+    
+    ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
+    if (ownContact == 0){
+        UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+        [contactAlert show];
+        [contactAlert release];
+        ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+        controller.delegate = self;
+        controller.settingOwnContact = YES;
+        [self presentContentSelectViewController:controller];
+        [controller release];
+    }
+    else {
+        ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+        controller.delegate = self;
+        [controller choosePersonByID:ownContact];
+        [controller release];
+    }
+
+    
+}
 - (IBAction)selectImage: (id)sender {
     ImageSelectViewController *controller = [[ImageSelectViewController alloc] init];
     controller.delegate = self;
@@ -277,6 +307,14 @@
     mediaChooser.tag = 1;
     [mediaChooser showInView:self.view];
     [mediaChooser release];
+}
+
+- (IBAction)selectMusic:(id)sender {
+    
+    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    musicAlert.tag = 2;
+    [musicAlert show];
+    [musicAlert release];
 }
 
 - (IBAction)selectHoclet: (id)sender {
@@ -400,7 +438,30 @@
     mediaPicker.allowsPickingMultipleItems = NO;
     mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
     
-    [self presentModalViewController:mediaPicker animated:YES];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
+        [self presentModalViewController:mediaPicker animated:YES];
+    }   
+    else {
+        musicPopOverController = [[UIPopoverController alloc]initWithContentViewController:mediaPicker];
+        BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            if (isPortrait) {
+                [musicPopOverController presentPopoverFromRect:CGRectMake(248, 953, 49, 49) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            }
+            else {
+                [musicPopOverController presentPopoverFromRect:CGRectMake(380, 698, 49, 49) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            }
+        }
+        else {
+            if (isPortrait) {
+                [musicPopOverController presentPopoverFromRect:CGRectMake(198, 953, 49, 49) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            }
+            else {
+                [musicPopOverController presentPopoverFromRect:CGRectMake(325, 698, 49, 49) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            }
+            
+        }
+    }
     [mediaPicker release];
 
 }
@@ -419,9 +480,14 @@
         [self setContentPreview:content];
         
     }
-
-    [self dismissModalViewControllerAnimated:YES];
-    [self showDesktop];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
+        [self dismissModalViewControllerAnimated:YES];
+        [self showDesktop];
+    }
+    else {
+        [musicPopOverController dismissPopoverAnimated:YES];
+        [self showDesktop];
+    }
 
 }
 #pragma mark -
@@ -639,10 +705,21 @@
         
         self.sendingItem = nil;
 	} else {
-        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+        if ([desktopData count] == 1){
+            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 
-		[desktopData removeHoccerController:item];	
-		[transferController cancelDownloads];
+            [desktopData removeHoccerController:item];	
+            [transferController cancelDownloads];
+        }
+        else {
+            for (int i=0;i<[desktopData count];i++){
+                ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
+                if (item.content == nil){
+                    [desktopData removeHoccerController:item];
+                    [transferController cancelDownloads];
+                }
+            }
+        }
 	}
 
 	[desktopView reloadData];
@@ -917,8 +994,19 @@
         self.sendingItem = nil;
 	} else {
         if ([desktopData count] > 0 && ![[error domain] isEqualToString:@"PubKeyError"]) {
-            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-            [desktopData removeHoccerController:item];
+            if ([desktopData count] == 1){
+                ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+                
+                [desktopData removeHoccerController:item];	
+            }
+            else {
+                for (int i=0;i<[desktopData count];i++){
+                    ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
+                    if (item.content == nil){
+                        [desktopData removeHoccerController:item];
+                    }
+                }
+            }
         }
 	}
 	
@@ -1014,6 +1102,7 @@
         return [[[NoCryptor alloc] init] autorelease];
     }
 }
+
 
 - (void)dealloc {
 	[hoccabilityInfo release];

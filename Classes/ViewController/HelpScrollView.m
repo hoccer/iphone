@@ -72,6 +72,9 @@
 - (void)viewDidUnload {
 }
 
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
+}
 
 - (void)dealloc {
 	[scrollView release];

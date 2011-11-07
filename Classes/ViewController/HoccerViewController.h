@@ -36,7 +36,7 @@
 @class DesktopDataSource;
 @class ItemViewController;
 @class HistoryData;
-@class HoccingRulesIPhone;
+@class HoccingRules;
 @class HoccerHistoryController;
 @class SettingViewController;
 @class GroupStatusViewController;
@@ -62,12 +62,15 @@
 	GroupStatusViewController *infoViewController;
 
 	HttpClient *httpClient;
-	HoccingRulesIPhone *hoccingRules;
+    
+	HoccingRules *hoccingRules;
 							
 	CGPoint defaultOrigin;
 
 	UILabel *hoccabilityLabel;
 	NSDictionary *hoccabilityInfo;
+    
+    UIPopoverController *musicPopOverController;
 		
 	HCLinccer *linccer;
 	TransferController *transferController;
@@ -104,6 +107,11 @@
 - (IBAction)selectImage: (id)sender;
 - (IBAction)selectText: (id)sender;
 - (IBAction)selectPasteboard: (id)sender;
+- (IBAction)selectMedia: (id)sender;
+- (IBAction)selectCamera: (id)sender;
+- (IBAction)selectMusic: (id)sender;
+- (IBAction)selectMyContact: (id)sender;
+- (IBAction)selectContact: (id)sender;
 - (IBAction)showHistory: (id)sender;
 
 - (void)showDesktop;
