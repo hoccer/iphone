@@ -42,6 +42,7 @@
 - (void)showGroupButton;
 - (void)updateEncryptionIndicator;
 - (void)showEncryption;
+- (void)showGroupAndEncryption;
 
 
 @end
@@ -98,6 +99,7 @@
 	
     
     CGRect infoRect = CGRectMake(0, 0, 320, 400);
+    infoViewController = [[GroupStatusViewController alloc] init];
 	infoViewController.view.frame = infoRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
 	[infoViewController setState:[LocationState state]];
@@ -108,7 +110,7 @@
 	
 	[self showHud];
     [self updateGroupButton];
-    //[self updateEncryptionIndicator];
+    [self updateEncryptionIndicator];
     
     CGRect historySettingsRect = CGRectMake(0, 0, 150, 35);
     NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
@@ -382,7 +384,7 @@
 	[navigationController popToRootViewControllerAnimated:YES];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
-    [self showGroupButton];
+    [self showGroupAndEncryption];
     //navigationItem.leftBarButtonItem = nil;
     //[self updateEncryptionIndicator];
 }
@@ -481,7 +483,7 @@
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        groupSizeButton.frame = CGRectMake(0, 0, 36, 52);
+        groupSizeButton.frame = CGRectMake(80, -6, 36, 52);
     }
     
     NSInteger groupCount = [[infoViewController group] count];
@@ -489,6 +491,9 @@
     if (groupCount < 1) {
         text = @"0";
         clientSelected = NO;
+        if (groupSelectPopOverController){
+            [groupSelectPopOverController dismissPopoverAnimated:YES];
+        }
     } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
         clientSelected = YES;
@@ -499,11 +504,14 @@
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];   
     
-    if (groupSelectPopOverController){
-        [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupCount * 44)+19)) animated:YES];
+    if (groupSelectPopOverController && groupCount > 0){
+        if (groupCount > 1)
+            [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupCount * 44)+20)) animated:YES];
+        else
+            [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 63) animated:YES];
     }
     
-    [self showGroupButton];
+    [self showGroupAndEncryption];
 }
 
 - (void)showGroupButton {
@@ -544,21 +552,32 @@
         [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
     }
     
-    [self showEncryption];
+    [self showGroupAndEncryption];
 }
 
 - (void)showEncryption{
     UIBarButtonItem *encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:encryptionButton];
-    navigationItem.leftBarButtonItem = encryptionBarButtomItem;
+    navigationItem.rightBarButtonItem = encryptionBarButtomItem;
     [encryptionBarButtomItem release];
+    
 }
-
+- (void)showGroupAndEncryption {
+    
+    
+    UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (encryptionButton.frame.size.width*2)+40, encryptionButton.frame.size.height)];
+    [containerView addSubview:encryptionButton];
+    [containerView addSubview:groupSizeButton];
+    UIBarButtonItem *encryptionGroupButton = [[UIBarButtonItem alloc]initWithCustomView:containerView];
+    self.navigationItem.rightBarButtonItem = encryptionGroupButton;
+    [encryptionGroupButton release];
+    [containerView release];
+}
 - (void)encryptionChanged: (NSNotification *)notification {
-    //BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    //encryptionEnabled = encrypting;
-    //if (navigationItem.titleView != nil){
-    //    [self updateEncryptionIndicator];
-    //}
+    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    encryptionEnabled = encrypting;
+    if (navigationItem.titleView != nil){
+        [self updateEncryptionIndicator];
+    }
 }
 
 
@@ -575,16 +594,16 @@
     }
     else {
         int groupsize = infoViewController.group.count;
-        [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupsize * 44)+19))];
+        if (groupsize > 0){
         [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            if (groupsize > 1){
+                [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupsize * 44)+20))];
+            }
+            else {
+                [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
+            }
+        }
     }
-    /*
-	if (infoViewController.view.hidden == NO) {
-		[infoViewController setLocationHint:nil];
-	} else {
-		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
-	}
-     */
 }
 
 - (void)toggleEncryption: (id)sender {

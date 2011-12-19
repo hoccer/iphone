@@ -249,7 +249,7 @@
 		22A172B21228159B0055975C /* libGHUnitIOSSimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A172B11228159B0055975C /* libGHUnitIOSSimulator.a */; };
 		22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */; };
 		22A21AC11206BE4B001FA18A /* statusbar_icon_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A21AC01206BE4B001FA18A /* statusbar_icon_warning.png */; };
-		22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */; };
+		22A3656811E4A69D008AEBC9 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A3656711E4A69D008AEBC9 /* checkmark.png */; };
 		22A5B6B8115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A5B6B9115CC69600579AC5 /* DesktopDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */; };
 		22A74BD0116C88A700F3E4B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A74BCF116C88A700F3E4B4 /* CoreData.framework */; };
@@ -471,7 +471,7 @@
 		B41043A813E83BD500F25705 /* RSAKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41043A613E83BD500F25705 /* RSAKeyViewController.xib */; };
 		B41043B013E85F1800F25705 /* video_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = B41043AE13E85F1800F25705 /* video_frame.png */; };
 		B41043B113E85F1800F25705 /* video_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41043AF13E85F1800F25705 /* video_frame@2x.png */; };
-		B41A779113FBC9A800848817 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */; };
+		B41A779113FBC9A800848817 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B41A779013FBC9A800848817 /* checkmark@2x.png */; };
 		B421D2FF13E2B5E200F4DC25 /* HoccerVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = B421D2FE13E2B5E200F4DC25 /* HoccerVideo.m */; };
 		B421D30813E2D09200F4DC25 /* MPMediaItemCollection-Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B421D30713E2D09200F4DC25 /* MPMediaItemCollection-Utils.m */; };
 		B421D30A13E2E51D00F4DC25 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B421D30913E2E51D00F4DC25 /* AVFoundation.framework */; };
@@ -520,6 +520,27 @@
 		B4754B9F13E3073E00303DEB /* select_btn_multimedia.png in Resources */ = {isa = PBXBuildFile; fileRef = B4754B9D13E3073E00303DEB /* select_btn_multimedia.png */; };
 		B4754BA013E3073E00303DEB /* select_btn_multimedia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4754B9E13E3073E00303DEB /* select_btn_multimedia@2x.png */; };
 		B47D28641461A8B00028AE03 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47D28631461A8B00028AE03 /* MainWindow-iPad.xib */; };
+		B488C78E149FA17E0071194B /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75A149FA17E0071194B /* Crypto.m */; };
+		B488C78F149FA17E0071194B /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75C149FA17E0071194B /* NSData+CommonCrypto.m */; };
+		B488C790149FA17E0071194B /* PublicKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75E149FA17E0071194B /* PublicKeyManager.m */; };
+		B488C791149FA17E0071194B /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C760149FA17E0071194B /* RSA.m */; };
+		B488C792149FA17E0071194B /* NSFileManager+FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C763149FA17E0071194B /* NSFileManager+FileHelper.m */; };
+		B488C793149FA17E0071194B /* NSObject+DelegateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C765149FA17E0071194B /* NSObject+DelegateHelper.m */; };
+		B488C794149FA17E0071194B /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C767149FA17E0071194B /* NSString+Regexp.m */; };
+		B488C795149FA17E0071194B /* NSString+StringWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C769149FA17E0071194B /* NSString+StringWithData.m */; };
+		B488C796149FA17E0071194B /* NSString+URLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C76B149FA17E0071194B /* NSString+URLHelper.m */; };
+		B488C797149FA17E0071194B /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C76F149FA17E0071194B /* HCEnvironment.m */; };
+		B488C798149FA17E0071194B /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C771149FA17E0071194B /* HCEnvironmentManager.m */; };
+		B488C799149FA17E0071194B /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C775149FA17E0071194B /* WifiScanner.m */; };
+		B488C79A149FA17E0071194B /* HCFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C778149FA17E0071194B /* HCFileCache.m */; };
+		B488C79B149FA17E0071194B /* HCGeoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C77A149FA17E0071194B /* HCGeoStorage.m */; };
+		B488C79C149FA17E0071194B /* HCLinccer.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C77D149FA17E0071194B /* HCLinccer.m */; };
+		B488C79D149FA17E0071194B /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = B488C780149FA17E0071194B /* Base64Transcoder.c */; };
+		B488C79E149FA17E0071194B /* NSData_Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C783149FA17E0071194B /* NSData_Base64Extensions.m */; };
+		B488C79F149FA17E0071194B /* NSDictionary+CSURLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C785149FA17E0071194B /* NSDictionary+CSURLParams.m */; };
+		B488C7A0149FA17E0071194B /* HCAuthenticatedHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C789149FA17E0071194B /* HCAuthenticatedHttpClient.m */; };
+		B488C7A1149FA17E0071194B /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C78B149FA17E0071194B /* HttpClient.m */; };
+		B488C7A2149FA17E0071194B /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C78D149FA17E0071194B /* HttpConnection.m */; };
 		B49143BF1403F8FB0003483F /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = B49143BB1403F8FB0003483F /* check_off.png */; };
 		B49143C01403F8FB0003483F /* check_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B49143BC1403F8FB0003483F /* check_off@2x.png */; };
 		B49143C11403F8FB0003483F /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = B49143BD1403F8FB0003483F /* check_on.png */; };
@@ -537,8 +558,6 @@
 		B4A502E21462C78D007205B9 /* HoccerViewControlleriPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */; };
 		B4A502E51462C968007205B9 /* ActionElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A502E41462C968007205B9 /* ActionElement.m */; };
 		B4A73DB113D5CE7C00F43F49 /* HocHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4A73DAE13D5CE7C00F43F49 /* HocHistory.xcdatamodeld */; };
-		B4A73DB413D5CFA200F43F49 /* PublicKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A73DB313D5CFA200F43F49 /* PublicKeyManager.m */; };
-		B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */; };
 		B4AFE68E13E6BE8700E8D096 /* pony_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AFE68813E6BE8600E8D096 /* pony_bg.png */; };
 		B4AFE68F13E6BE8700E8D096 /* pony_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AFE68913E6BE8600E8D096 /* pony_bg@2x.png */; };
 		B4AFE69213E6BF4500E8D096 /* Icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = B4AFE69013E6BF4500E8D096 /* Icon57.png */; };
@@ -588,7 +607,6 @@
 		E13A019E139E7A3B0052A4A1 /* HocletSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13A019C139E7A3B0052A4A1 /* HocletSelectViewController.xib */; };
 		E13A01A0139E7B030052A4A1 /* hoclets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E13A019F139E7B030052A4A1 /* hoclets.plist */; };
 		E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1587668139FC04E004ED9FF /* ImageSelectViewController.m */; };
-		E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = E16ABCAB13AB47BC00B28CA4 /* Crypto.m */; };
 		E1A3400E131CF09A00D25708 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A3400D131CF09A00D25708 /* ErrorView.xib */; };
 		E1A3404A131D031A00D25708 /* fail_kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1A34049131D031A00D25708 /* fail_kitten.jpg */; };
 		E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF682413A76EFF00687AE4 /* ContactSelectViewController.m */; };
@@ -596,35 +614,8 @@
 		E1AF682F13A7AA1900687AE4 /* HocletBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AF682D13A7AA1900687AE4 /* HocletBrowserViewController.xib */; };
 		E1C1CF2B139CCC2A00015DAC /* HoccerHoclet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */; };
 		E1C1CF2D139CCF7A00015DAC /* HocletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C1CF2C139CCF7A00015DAC /* HocletView.xib */; };
-		E1CDA9FD13B3835400E304AA /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CDA9FC13B3835400E304AA /* RSA.m */; };
 		E1CDA9FF13B387AD00E304AA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CDA9FE13B387AD00E304AA /* Security.framework */; };
 		E1EB75DF12FC593D007025A2 /* HelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EB75DE12FC593D007025A2 /* HelpController.m */; };
-		E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
-		E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
-		E60935A112A54A8500EE83EB /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358612A54A8500EE83EB /* WifiScanner.m */; };
-		E60935A212A54A8500EE83EB /* HCFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358912A54A8500EE83EB /* HCFileCache.m */; };
-		E60935A312A54A8500EE83EB /* HCGeoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358B12A54A8500EE83EB /* HCGeoStorage.m */; };
-		E60935A412A54A8500EE83EB /* HCLinccer.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358E12A54A8500EE83EB /* HCLinccer.m */; };
-		E60935A512A54A8500EE83EB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E609359112A54A8500EE83EB /* Base64Transcoder.c */; };
-		E60935A612A54A8500EE83EB /* NSData_Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359412A54A8500EE83EB /* NSData_Base64Extensions.m */; };
-		E60935A712A54A8500EE83EB /* NSDictionary+CSURLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359612A54A8500EE83EB /* NSDictionary+CSURLParams.m */; };
-		E60935A812A54A8500EE83EB /* HCAuthenticatedHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359A12A54A8500EE83EB /* HCAuthenticatedHttpClient.m */; };
-		E60935A912A54A8500EE83EB /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359C12A54A8500EE83EB /* HttpClient.m */; };
-		E60935AA12A54A8500EE83EB /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359E12A54A8500EE83EB /* HttpConnection.m */; };
-		E60935AB12A54A8500EE83EB /* HCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358012A54A8500EE83EB /* HCEnvironment.m */; };
-		E60935AC12A54A8500EE83EB /* HCEnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358212A54A8500EE83EB /* HCEnvironmentManager.m */; };
-		E60935AD12A54A8500EE83EB /* WifiScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358612A54A8500EE83EB /* WifiScanner.m */; };
-		E60935AE12A54A8500EE83EB /* HCFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358912A54A8500EE83EB /* HCFileCache.m */; };
-		E60935AF12A54A8500EE83EB /* HCGeoStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358B12A54A8500EE83EB /* HCGeoStorage.m */; };
-		E60935B012A54A8500EE83EB /* HCLinccer.m in Sources */ = {isa = PBXBuildFile; fileRef = E609358E12A54A8500EE83EB /* HCLinccer.m */; };
-		E60935B112A54A8500EE83EB /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = E609359112A54A8500EE83EB /* Base64Transcoder.c */; };
-		E60935B212A54A8500EE83EB /* NSData_Base64Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359412A54A8500EE83EB /* NSData_Base64Extensions.m */; };
-		E60935B312A54A8500EE83EB /* NSDictionary+CSURLParams.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359612A54A8500EE83EB /* NSDictionary+CSURLParams.m */; };
-		E60935B412A54A8500EE83EB /* HCAuthenticatedHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359A12A54A8500EE83EB /* HCAuthenticatedHttpClient.m */; };
-		E60935B512A54A8500EE83EB /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359C12A54A8500EE83EB /* HttpClient.m */; };
-		E60935B612A54A8500EE83EB /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E609359E12A54A8500EE83EB /* HttpConnection.m */; };
-		E60935C312A5552800EE83EB /* NSString+URLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E60935C212A5552800EE83EB /* NSString+URLHelper.m */; };
-		E60935C412A5552800EE83EB /* NSString+URLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E60935C212A5552800EE83EB /* NSString+URLHelper.m */; };
 		E63FE78A118C2CE300DB0DA8 /* select_btn_1L-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */; };
 		E63FE78B118C2CE300DB0DA8 /* select_btn_1L-over.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */; };
 		E63FE78C118C2CE300DB0DA8 /* select_btn_1M-out.png in Resources */ = {isa = PBXBuildFile; fileRef = E63FE77A118C2CE300DB0DA8 /* select_btn_1M-out.png */; };
@@ -903,7 +894,7 @@
 		22A21A6C1206B720001FA18A /* ConnectionStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusViewController.h; sourceTree = "<group>"; };
 		22A21A6D1206B720001FA18A /* ConnectionStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusViewController.m; sourceTree = "<group>"; };
 		22A21AC01206BE4B001FA18A /* statusbar_icon_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusbar_icon_warning.png; sourceTree = "<group>"; };
-		22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "Resources/37x-Checkmark.png"; sourceTree = "<group>"; };
+		22A3656711E4A69D008AEBC9 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = Resources/checkmark.png; sourceTree = "<group>"; };
 		22A5B6B6115CC69600579AC5 /* DesktopDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopDataSource.h; sourceTree = "<group>"; };
 		22A5B6B7115CC69600579AC5 /* DesktopDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopDataSource.m; sourceTree = "<group>"; };
 		22A74BCF116C88A700F3E4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -988,7 +979,7 @@
 		B41043AE13E85F1800F25705 /* video_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_frame.png; sourceTree = "<group>"; };
 		B41043AF13E85F1800F25705 /* video_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_frame@2x.png"; sourceTree = "<group>"; };
 		B41043B213E8781600F25705 /* Hoccer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hoccer.entitlements; sourceTree = "<group>"; };
-		B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		B41A779013FBC9A800848817 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
 		B421D2FD13E2B5E200F4DC25 /* HoccerVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerVideo.h; sourceTree = "<group>"; };
 		B421D2FE13E2B5E200F4DC25 /* HoccerVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerVideo.m; sourceTree = "<group>"; };
 		B421D30613E2D09200F4DC25 /* MPMediaItemCollection-Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMediaItemCollection-Utils.h"; sourceTree = "<group>"; };
@@ -1043,6 +1034,53 @@
 		B4754B9D13E3073E00303DEB /* select_btn_multimedia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn_multimedia.png; sourceTree = "<group>"; };
 		B4754B9E13E3073E00303DEB /* select_btn_multimedia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_multimedia@2x.png"; sourceTree = "<group>"; };
 		B47D28631461A8B00028AE03 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources/Xibs/iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		B488C759149FA17E0071194B /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
+		B488C75A149FA17E0071194B /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
+		B488C75B149FA17E0071194B /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		B488C75C149FA17E0071194B /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		B488C75D149FA17E0071194B /* PublicKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicKeyManager.h; sourceTree = "<group>"; };
+		B488C75E149FA17E0071194B /* PublicKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicKeyManager.m; sourceTree = "<group>"; };
+		B488C75F149FA17E0071194B /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		B488C760149FA17E0071194B /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		B488C762149FA17E0071194B /* NSFileManager+FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FileHelper.h"; sourceTree = "<group>"; };
+		B488C763149FA17E0071194B /* NSFileManager+FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileHelper.m"; sourceTree = "<group>"; };
+		B488C764149FA17E0071194B /* NSObject+DelegateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DelegateHelper.h"; sourceTree = "<group>"; };
+		B488C765149FA17E0071194B /* NSObject+DelegateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DelegateHelper.m"; sourceTree = "<group>"; };
+		B488C766149FA17E0071194B /* NSString+Regexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regexp.h"; sourceTree = "<group>"; };
+		B488C767149FA17E0071194B /* NSString+Regexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regexp.m"; sourceTree = "<group>"; };
+		B488C768149FA17E0071194B /* NSString+StringWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringWithData.h"; sourceTree = "<group>"; };
+		B488C769149FA17E0071194B /* NSString+StringWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringWithData.m"; sourceTree = "<group>"; };
+		B488C76A149FA17E0071194B /* NSString+URLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLHelper.h"; sourceTree = "<group>"; };
+		B488C76B149FA17E0071194B /* NSString+URLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLHelper.m"; sourceTree = "<group>"; };
+		B488C76E149FA17E0071194B /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
+		B488C76F149FA17E0071194B /* HCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEnvironment.m; sourceTree = "<group>"; };
+		B488C770149FA17E0071194B /* HCEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironmentManager.h; sourceTree = "<group>"; };
+		B488C771149FA17E0071194B /* HCEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEnvironmentManager.m; sourceTree = "<group>"; };
+		B488C772149FA17E0071194B /* HCEnvironmentManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironmentManagerDelegate.h; sourceTree = "<group>"; };
+		B488C774149FA17E0071194B /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
+		B488C775149FA17E0071194B /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
+		B488C776149FA17E0071194B /* WifiScannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScannerDelegate.h; sourceTree = "<group>"; };
+		B488C777149FA17E0071194B /* HCFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFileCache.h; sourceTree = "<group>"; };
+		B488C778149FA17E0071194B /* HCFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFileCache.m; sourceTree = "<group>"; };
+		B488C779149FA17E0071194B /* HCGeoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGeoStorage.h; sourceTree = "<group>"; };
+		B488C77A149FA17E0071194B /* HCGeoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGeoStorage.m; sourceTree = "<group>"; };
+		B488C77B149FA17E0071194B /* HCGeoStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGeoStorageDelegate.h; sourceTree = "<group>"; };
+		B488C77C149FA17E0071194B /* HCLinccer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLinccer.h; sourceTree = "<group>"; };
+		B488C77D149FA17E0071194B /* HCLinccer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLinccer.m; sourceTree = "<group>"; };
+		B488C77E149FA17E0071194B /* HCLinccerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLinccerDelegate.h; sourceTree = "<group>"; };
+		B488C780149FA17E0071194B /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		B488C781149FA17E0071194B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		B488C782149FA17E0071194B /* NSData_Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSData_Base64Extensions.h; sourceTree = "<group>"; };
+		B488C783149FA17E0071194B /* NSData_Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSData_Base64Extensions.m; sourceTree = "<group>"; };
+		B488C784149FA17E0071194B /* NSDictionary+CSURLParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CSURLParams.h"; sourceTree = "<group>"; };
+		B488C785149FA17E0071194B /* NSDictionary+CSURLParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CSURLParams.m"; sourceTree = "<group>"; };
+		B488C786149FA17E0071194B /* Hoccer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hoccer.h; sourceTree = "<group>"; };
+		B488C788149FA17E0071194B /* HCAuthenticatedHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAuthenticatedHttpClient.h; sourceTree = "<group>"; };
+		B488C789149FA17E0071194B /* HCAuthenticatedHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthenticatedHttpClient.m; sourceTree = "<group>"; };
+		B488C78A149FA17E0071194B /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		B488C78B149FA17E0071194B /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		B488C78C149FA17E0071194B /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		B488C78D149FA17E0071194B /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
 		B49143BB1403F8FB0003483F /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
 		B49143BC1403F8FB0003483F /* check_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check_off@2x.png"; sourceTree = "<group>"; };
 		B49143BD1403F8FB0003483F /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
@@ -1061,10 +1099,6 @@
 		B4A502E41462C968007205B9 /* ActionElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionElement.m; sourceTree = "<group>"; };
 		B4A73DAF13D5CE7C00F43F49 /* HocHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HocHistory.xcdatamodel; sourceTree = "<group>"; };
 		B4A73DB013D5CE7C00F43F49 /* HocHistory_v 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HocHistory_v 2.xcdatamodel"; sourceTree = "<group>"; };
-		B4A73DB213D5CFA200F43F49 /* PublicKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicKeyManager.h; path = lib/ios/Classes/Crypto/PublicKeyManager.h; sourceTree = "<group>"; };
-		B4A73DB313D5CFA200F43F49 /* PublicKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicKeyManager.m; path = lib/ios/Classes/Crypto/PublicKeyManager.m; sourceTree = "<group>"; };
-		B4AEA8B113BC7DB100F5AA76 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CommonCrypto.h"; path = "lib/ios/Classes/Crypto/NSData+CommonCrypto.h"; sourceTree = SOURCE_ROOT; };
-		B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CommonCrypto.m"; path = "lib/ios/Classes/Crypto/NSData+CommonCrypto.m"; sourceTree = SOURCE_ROOT; };
 		B4AFE68813E6BE8600E8D096 /* pony_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pony_bg.png; sourceTree = "<group>"; };
 		B4AFE68913E6BE8600E8D096 /* pony_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pony_bg@2x.png"; sourceTree = "<group>"; };
 		B4AFE69013E6BF4500E8D096 /* Icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57.png; sourceTree = "<group>"; };
@@ -1119,8 +1153,6 @@
 		E1587667139FC04E004ED9FF /* ImageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSelectViewController.h; path = SelectContentViewController/ImageSelectViewController.h; sourceTree = "<group>"; };
 		E1587668139FC04E004ED9FF /* ImageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageSelectViewController.m; path = SelectContentViewController/ImageSelectViewController.m; sourceTree = "<group>"; };
 		E158766A139FC069004ED9FF /* ContentSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentSelectController.h; path = SelectContentViewController/ContentSelectController.h; sourceTree = "<group>"; };
-		E16ABCAA13AB47BC00B28CA4 /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crypto.h; path = lib/ios/Classes/Crypto/Crypto.h; sourceTree = "<group>"; };
-		E16ABCAB13AB47BC00B28CA4 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Crypto.m; path = lib/ios/Classes/Crypto/Crypto.m; sourceTree = "<group>"; };
 		E1A3400D131CF09A00D25708 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		E1A34049131D031A00D25708 /* fail_kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fail_kitten.jpg; path = Resources/assets/fail_kitten.jpg; sourceTree = "<group>"; };
 		E1AF682313A76EFF00687AE4 /* ContactSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactSelectViewController.h; path = SelectContentViewController/ContactSelectViewController.h; sourceTree = "<group>"; };
@@ -1131,42 +1163,9 @@
 		E1C1CF29139CCC2A00015DAC /* HoccerHoclet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHoclet.h; sourceTree = "<group>"; };
 		E1C1CF2A139CCC2A00015DAC /* HoccerHoclet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHoclet.m; sourceTree = "<group>"; };
 		E1C1CF2C139CCF7A00015DAC /* HocletView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HocletView.xib; sourceTree = "<group>"; };
-		E1CDA9FB13B3835400E304AA /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSA.h; path = lib/ios/Classes/Crypto/RSA.h; sourceTree = "<group>"; };
-		E1CDA9FC13B3835400E304AA /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSA.m; path = lib/ios/Classes/Crypto/RSA.m; sourceTree = "<group>"; };
 		E1CDA9FE13B387AD00E304AA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1EB75DD12FC593D007025A2 /* HelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpController.h; sourceTree = "<group>"; };
 		E1EB75DE12FC593D007025A2 /* HelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpController.m; sourceTree = "<group>"; };
-		E609357F12A54A8500EE83EB /* HCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironment.h; sourceTree = "<group>"; };
-		E609358012A54A8500EE83EB /* HCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEnvironment.m; sourceTree = "<group>"; };
-		E609358112A54A8500EE83EB /* HCEnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironmentManager.h; sourceTree = "<group>"; };
-		E609358212A54A8500EE83EB /* HCEnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCEnvironmentManager.m; sourceTree = "<group>"; };
-		E609358312A54A8500EE83EB /* HCEnvironmentManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCEnvironmentManagerDelegate.h; sourceTree = "<group>"; };
-		E609358512A54A8500EE83EB /* WifiScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScanner.h; sourceTree = "<group>"; };
-		E609358612A54A8500EE83EB /* WifiScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiScanner.m; sourceTree = "<group>"; };
-		E609358712A54A8500EE83EB /* WifiScannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiScannerDelegate.h; sourceTree = "<group>"; };
-		E609358812A54A8500EE83EB /* HCFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCFileCache.h; path = lib/ios/Classes/HoccerClient/HCFileCache.h; sourceTree = "<group>"; };
-		E609358912A54A8500EE83EB /* HCFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCFileCache.m; path = lib/ios/Classes/HoccerClient/HCFileCache.m; sourceTree = "<group>"; };
-		E609358A12A54A8500EE83EB /* HCGeoStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCGeoStorage.h; path = lib/ios/Classes/HoccerClient/HCGeoStorage.h; sourceTree = "<group>"; };
-		E609358B12A54A8500EE83EB /* HCGeoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCGeoStorage.m; path = lib/ios/Classes/HoccerClient/HCGeoStorage.m; sourceTree = "<group>"; };
-		E609358C12A54A8500EE83EB /* HCGeoStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCGeoStorageDelegate.h; path = lib/ios/Classes/HoccerClient/HCGeoStorageDelegate.h; sourceTree = "<group>"; };
-		E609358D12A54A8500EE83EB /* HCLinccer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCLinccer.h; path = lib/ios/Classes/HoccerClient/HCLinccer.h; sourceTree = "<group>"; };
-		E609358E12A54A8500EE83EB /* HCLinccer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCLinccer.m; path = lib/ios/Classes/HoccerClient/HCLinccer.m; sourceTree = "<group>"; };
-		E609358F12A54A8500EE83EB /* HCLinccerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCLinccerDelegate.h; path = lib/ios/Classes/HoccerClient/HCLinccerDelegate.h; sourceTree = "<group>"; };
-		E609359112A54A8500EE83EB /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
-		E609359212A54A8500EE83EB /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
-		E609359312A54A8500EE83EB /* NSData_Base64Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSData_Base64Extensions.h; sourceTree = "<group>"; };
-		E609359412A54A8500EE83EB /* NSData_Base64Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSData_Base64Extensions.m; sourceTree = "<group>"; };
-		E609359512A54A8500EE83EB /* NSDictionary+CSURLParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CSURLParams.h"; sourceTree = "<group>"; };
-		E609359612A54A8500EE83EB /* NSDictionary+CSURLParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CSURLParams.m"; sourceTree = "<group>"; };
-		E609359712A54A8500EE83EB /* Hoccer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hoccer.h; path = lib/ios/Classes/HoccerClient/Hoccer.h; sourceTree = "<group>"; };
-		E609359912A54A8500EE83EB /* HCAuthenticatedHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAuthenticatedHttpClient.h; sourceTree = "<group>"; };
-		E609359A12A54A8500EE83EB /* HCAuthenticatedHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthenticatedHttpClient.m; sourceTree = "<group>"; };
-		E609359B12A54A8500EE83EB /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
-		E609359C12A54A8500EE83EB /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
-		E609359D12A54A8500EE83EB /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
-		E609359E12A54A8500EE83EB /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
-		E60935C112A5552800EE83EB /* NSString+URLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLHelper.h"; path = "lib/ios/Classes/NSString+URLHelper.h"; sourceTree = SOURCE_ROOT; };
-		E60935C212A5552800EE83EB /* NSString+URLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLHelper.m"; path = "lib/ios/Classes/NSString+URLHelper.m"; sourceTree = SOURCE_ROOT; };
 		E63FE778118C2CE300DB0DA8 /* select_btn_1L-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1L-out.png"; sourceTree = "<group>"; };
 		E63FE779118C2CE300DB0DA8 /* select_btn_1L-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1L-over.png"; sourceTree = "<group>"; };
 		E63FE77A118C2CE300DB0DA8 /* select_btn_1M-out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_1M-out.png"; sourceTree = "<group>"; };
@@ -2088,8 +2087,8 @@
 			isa = PBXGroup;
 			children = (
 				ADC28C1F1219684600E3AD11 /* RunTests.sh */,
-				22A3656711E4A69D008AEBC9 /* 37x-Checkmark.png */,
-				B41A779013FBC9A800848817 /* 37x-Checkmark@2x.png */,
+				22A3656711E4A69D008AEBC9 /* checkmark.png */,
+				B41A779013FBC9A800848817 /* checkmark@2x.png */,
 				E1A34049131D031A00D25708 /* fail_kitten.jpg */,
 				22638D4611B52D9D0024AA7E /* Xibs */,
 				22638D6711B52EC70024AA7E /* ContentPreviewXibs */,
@@ -2177,6 +2176,117 @@
 			name = iPad;
 			sourceTree = "<group>";
 		};
+		B488C757149FA17E0071194B /* Hoccer */ = {
+			isa = PBXGroup;
+			children = (
+				B488C758149FA17E0071194B /* Crypto */,
+				B488C761149FA17E0071194B /* Helper */,
+				B488C76C149FA17E0071194B /* HoccerClient */,
+			);
+			name = Hoccer;
+			path = lib/ios/Hoccer;
+			sourceTree = "<group>";
+		};
+		B488C758149FA17E0071194B /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				B488C759149FA17E0071194B /* Crypto.h */,
+				B488C75A149FA17E0071194B /* Crypto.m */,
+				B488C75B149FA17E0071194B /* NSData+CommonCrypto.h */,
+				B488C75C149FA17E0071194B /* NSData+CommonCrypto.m */,
+				B488C75D149FA17E0071194B /* PublicKeyManager.h */,
+				B488C75E149FA17E0071194B /* PublicKeyManager.m */,
+				B488C75F149FA17E0071194B /* RSA.h */,
+				B488C760149FA17E0071194B /* RSA.m */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		B488C761149FA17E0071194B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B488C762149FA17E0071194B /* NSFileManager+FileHelper.h */,
+				B488C763149FA17E0071194B /* NSFileManager+FileHelper.m */,
+				B488C764149FA17E0071194B /* NSObject+DelegateHelper.h */,
+				B488C765149FA17E0071194B /* NSObject+DelegateHelper.m */,
+				B488C766149FA17E0071194B /* NSString+Regexp.h */,
+				B488C767149FA17E0071194B /* NSString+Regexp.m */,
+				B488C768149FA17E0071194B /* NSString+StringWithData.h */,
+				B488C769149FA17E0071194B /* NSString+StringWithData.m */,
+				B488C76A149FA17E0071194B /* NSString+URLHelper.h */,
+				B488C76B149FA17E0071194B /* NSString+URLHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B488C76C149FA17E0071194B /* HoccerClient */ = {
+			isa = PBXGroup;
+			children = (
+				B488C76D149FA17E0071194B /* EnvironmentController */,
+				B488C777149FA17E0071194B /* HCFileCache.h */,
+				B488C778149FA17E0071194B /* HCFileCache.m */,
+				B488C779149FA17E0071194B /* HCGeoStorage.h */,
+				B488C77A149FA17E0071194B /* HCGeoStorage.m */,
+				B488C77B149FA17E0071194B /* HCGeoStorageDelegate.h */,
+				B488C77C149FA17E0071194B /* HCLinccer.h */,
+				B488C77D149FA17E0071194B /* HCLinccer.m */,
+				B488C77E149FA17E0071194B /* HCLinccerDelegate.h */,
+				B488C77F149FA17E0071194B /* Helper */,
+				B488C786149FA17E0071194B /* Hoccer.h */,
+				B488C787149FA17E0071194B /* HttpClient */,
+			);
+			path = HoccerClient;
+			sourceTree = "<group>";
+		};
+		B488C76D149FA17E0071194B /* EnvironmentController */ = {
+			isa = PBXGroup;
+			children = (
+				B488C76E149FA17E0071194B /* HCEnvironment.h */,
+				B488C76F149FA17E0071194B /* HCEnvironment.m */,
+				B488C770149FA17E0071194B /* HCEnvironmentManager.h */,
+				B488C771149FA17E0071194B /* HCEnvironmentManager.m */,
+				B488C772149FA17E0071194B /* HCEnvironmentManagerDelegate.h */,
+				B488C773149FA17E0071194B /* Wifi */,
+			);
+			path = EnvironmentController;
+			sourceTree = "<group>";
+		};
+		B488C773149FA17E0071194B /* Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				B488C774149FA17E0071194B /* WifiScanner.h */,
+				B488C775149FA17E0071194B /* WifiScanner.m */,
+				B488C776149FA17E0071194B /* WifiScannerDelegate.h */,
+			);
+			path = Wifi;
+			sourceTree = "<group>";
+		};
+		B488C77F149FA17E0071194B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B488C780149FA17E0071194B /* Base64Transcoder.c */,
+				B488C781149FA17E0071194B /* Base64Transcoder.h */,
+				B488C782149FA17E0071194B /* NSData_Base64Extensions.h */,
+				B488C783149FA17E0071194B /* NSData_Base64Extensions.m */,
+				B488C784149FA17E0071194B /* NSDictionary+CSURLParams.h */,
+				B488C785149FA17E0071194B /* NSDictionary+CSURLParams.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B488C787149FA17E0071194B /* HttpClient */ = {
+			isa = PBXGroup;
+			children = (
+				B488C788149FA17E0071194B /* HCAuthenticatedHttpClient.h */,
+				B488C789149FA17E0071194B /* HCAuthenticatedHttpClient.m */,
+				B488C78A149FA17E0071194B /* HttpClient.h */,
+				B488C78B149FA17E0071194B /* HttpClient.m */,
+				B488C78C149FA17E0071194B /* HttpConnection.h */,
+				B488C78D149FA17E0071194B /* HttpConnection.m */,
+			);
+			path = HttpClient;
+			sourceTree = "<group>";
+		};
 		B4AFE6B113E6FE1000E8D096 /* content_music */ = {
 			isa = PBXGroup;
 			children = (
@@ -2191,19 +2301,6 @@
 			);
 			name = content_music;
 			path = Resources/assets/content_music;
-			sourceTree = "<group>";
-		};
-		E16ABCA913AB46CB00B28CA4 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				B4A73DB213D5CFA200F43F49 /* PublicKeyManager.h */,
-				B4A73DB313D5CFA200F43F49 /* PublicKeyManager.m */,
-				E16ABCAA13AB47BC00B28CA4 /* Crypto.h */,
-				E16ABCAB13AB47BC00B28CA4 /* Crypto.m */,
-				E1CDA9FB13B3835400E304AA /* RSA.h */,
-				E1CDA9FC13B3835400E304AA /* RSA.m */,
-			);
-			name = Crypto;
 			sourceTree = "<group>";
 		};
 		E1A9DBD6139E5F2A0059905D /* ContentPickerViews */ = {
@@ -2224,85 +2321,9 @@
 		E609353D12A549E500EE83EB /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				E609357D12A54A4200EE83EB /* HoccerClient */,
+				B488C757149FA17E0071194B /* Hoccer */,
 			);
 			name = Libs;
-			sourceTree = "<group>";
-		};
-		E609357D12A54A4200EE83EB /* HoccerClient */ = {
-			isa = PBXGroup;
-			children = (
-				E16ABCA913AB46CB00B28CA4 /* Crypto */,
-				E609357E12A54A8500EE83EB /* EnvironmentController */,
-				E609358812A54A8500EE83EB /* HCFileCache.h */,
-				E609358912A54A8500EE83EB /* HCFileCache.m */,
-				E609358A12A54A8500EE83EB /* HCGeoStorage.h */,
-				E609358B12A54A8500EE83EB /* HCGeoStorage.m */,
-				E609358C12A54A8500EE83EB /* HCGeoStorageDelegate.h */,
-				E609358D12A54A8500EE83EB /* HCLinccer.h */,
-				E609358E12A54A8500EE83EB /* HCLinccer.m */,
-				E609358F12A54A8500EE83EB /* HCLinccerDelegate.h */,
-				E609359012A54A8500EE83EB /* Helper */,
-				E609359712A54A8500EE83EB /* Hoccer.h */,
-				E609359812A54A8500EE83EB /* HttpClient */,
-			);
-			name = HoccerClient;
-			sourceTree = "<group>";
-		};
-		E609357E12A54A8500EE83EB /* EnvironmentController */ = {
-			isa = PBXGroup;
-			children = (
-				E609357F12A54A8500EE83EB /* HCEnvironment.h */,
-				E609358012A54A8500EE83EB /* HCEnvironment.m */,
-				E609358112A54A8500EE83EB /* HCEnvironmentManager.h */,
-				E609358212A54A8500EE83EB /* HCEnvironmentManager.m */,
-				E609358312A54A8500EE83EB /* HCEnvironmentManagerDelegate.h */,
-				E609358412A54A8500EE83EB /* Wifi */,
-			);
-			name = EnvironmentController;
-			path = lib/ios/Classes/HoccerClient/EnvironmentController;
-			sourceTree = "<group>";
-		};
-		E609358412A54A8500EE83EB /* Wifi */ = {
-			isa = PBXGroup;
-			children = (
-				E609358512A54A8500EE83EB /* WifiScanner.h */,
-				E609358612A54A8500EE83EB /* WifiScanner.m */,
-				E609358712A54A8500EE83EB /* WifiScannerDelegate.h */,
-			);
-			path = Wifi;
-			sourceTree = "<group>";
-		};
-		E609359012A54A8500EE83EB /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				B4AEA8B113BC7DB100F5AA76 /* NSData+CommonCrypto.h */,
-				B4AEA8B213BC7DB100F5AA76 /* NSData+CommonCrypto.m */,
-				E60935C112A5552800EE83EB /* NSString+URLHelper.h */,
-				E60935C212A5552800EE83EB /* NSString+URLHelper.m */,
-				E609359112A54A8500EE83EB /* Base64Transcoder.c */,
-				E609359212A54A8500EE83EB /* Base64Transcoder.h */,
-				E609359312A54A8500EE83EB /* NSData_Base64Extensions.h */,
-				E609359412A54A8500EE83EB /* NSData_Base64Extensions.m */,
-				E609359512A54A8500EE83EB /* NSDictionary+CSURLParams.h */,
-				E609359612A54A8500EE83EB /* NSDictionary+CSURLParams.m */,
-			);
-			name = Helper;
-			path = lib/ios/Classes/HoccerClient/Helper;
-			sourceTree = "<group>";
-		};
-		E609359812A54A8500EE83EB /* HttpClient */ = {
-			isa = PBXGroup;
-			children = (
-				E609359912A54A8500EE83EB /* HCAuthenticatedHttpClient.h */,
-				E609359A12A54A8500EE83EB /* HCAuthenticatedHttpClient.m */,
-				E609359B12A54A8500EE83EB /* HttpClient.h */,
-				E609359C12A54A8500EE83EB /* HttpClient.m */,
-				E609359D12A54A8500EE83EB /* HttpConnection.h */,
-				E609359E12A54A8500EE83EB /* HttpConnection.m */,
-			);
-			name = HttpClient;
-			path = lib/ios/Classes/HoccerClient/HttpClient;
 			sourceTree = "<group>";
 		};
 		E63FE777118C2CE300DB0DA8 /* content_select_btns */ = {
@@ -2583,7 +2604,7 @@
 				22638D6211B52D9D0024AA7E /* TextView.xib in Resources */,
 				22638D6A11B52EC70024AA7E /* ContactsView.xib in Resources */,
 				22638D6B11B52EC70024AA7E /* EmptyContent.xib in Resources */,
-				22A3656811E4A69D008AEBC9 /* 37x-Checkmark.png in Resources */,
+				22A3656811E4A69D008AEBC9 /* checkmark.png in Resources */,
 				22AB17A51200818A0057548A /* statusbar_indicator_green.png in Resources */,
 				22AB17A61200818A0057548A /* statusbar_indicator_red.png in Resources */,
 				22AB17A71200818A0057548A /* statusbar_indicator_yellow.png in Resources */,
@@ -2673,7 +2694,7 @@
 				B499844F13F9246D007DA68B /* nav_bar_enc_off@2x.png in Resources */,
 				B499845013F9246D007DA68B /* nav_bar_enc_on.png in Resources */,
 				B499845113F9246D007DA68B /* nav_bar_enc_on@2x.png in Resources */,
-				B41A779113FBC9A800848817 /* 37x-Checkmark@2x.png in Resources */,
+				B41A779113FBC9A800848817 /* checkmark@2x.png in Resources */,
 				B44363A913FD13D0000FBA09 /* dev_enc_on.png in Resources */,
 				B44363AA13FD13D0000FBA09 /* dev_enc_on@2x.png in Resources */,
 				B44363AD13FD1412000FBA09 /* dev_enc_off.png in Resources */,
@@ -2975,19 +2996,6 @@
 				22D9EDFC120303F5006546A9 /* StatusBarStates.m in Sources */,
 				22A21A6E1206B720001FA18A /* ConnectionStatusViewController.m in Sources */,
 				229B92A21208660000120752 /* HCButton.m in Sources */,
-				E609359F12A54A8500EE83EB /* HCEnvironment.m in Sources */,
-				E60935A012A54A8500EE83EB /* HCEnvironmentManager.m in Sources */,
-				E60935A112A54A8500EE83EB /* WifiScanner.m in Sources */,
-				E60935A212A54A8500EE83EB /* HCFileCache.m in Sources */,
-				E60935A312A54A8500EE83EB /* HCGeoStorage.m in Sources */,
-				E60935A412A54A8500EE83EB /* HCLinccer.m in Sources */,
-				E60935A512A54A8500EE83EB /* Base64Transcoder.c in Sources */,
-				E60935A612A54A8500EE83EB /* NSData_Base64Extensions.m in Sources */,
-				E60935A712A54A8500EE83EB /* NSDictionary+CSURLParams.m in Sources */,
-				E60935A812A54A8500EE83EB /* HCAuthenticatedHttpClient.m in Sources */,
-				E60935A912A54A8500EE83EB /* HttpClient.m in Sources */,
-				E60935AA12A54A8500EE83EB /* HttpConnection.m in Sources */,
-				E60935C312A5552800EE83EB /* NSString+URLHelper.m in Sources */,
 				E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */,
 				E686C59612B12A37006B5037 /* FileDownloader.m in Sources */,
 				E686C5A512B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,
@@ -3002,12 +3010,8 @@
 				E1587669139FC04E004ED9FF /* ImageSelectViewController.m in Sources */,
 				E1AF682513A76EFF00687AE4 /* ContactSelectViewController.m in Sources */,
 				E1AF682E13A7AA1900687AE4 /* HocletBrowserViewController.m in Sources */,
-				E16ABCAC13AB47BC00B28CA4 /* Crypto.m in Sources */,
 				B45A96AC13B8DA45005E4255 /* HoccerPasteboard.m in Sources */,
-				E1CDA9FD13B3835400E304AA /* RSA.m in Sources */,
-				B4AEA8B313BC7DB100F5AA76 /* NSData+CommonCrypto.m in Sources */,
 				B4A73DB113D5CE7C00F43F49 /* HocHistory.xcdatamodeld in Sources */,
-				B4A73DB413D5CFA200F43F49 /* PublicKeyManager.m in Sources */,
 				B421D2FF13E2B5E200F4DC25 /* HoccerVideo.m in Sources */,
 				B421D30813E2D09200F4DC25 /* MPMediaItemCollection-Utils.m in Sources */,
 				B421D30D13E2E60700F4DC25 /* HoccerMusic.m in Sources */,
@@ -3021,6 +3025,27 @@
 				B4A502E51462C968007205B9 /* ActionElement.m in Sources */,
 				B45148331462CA5C00927495 /* CustomNavigationBar.m in Sources */,
 				B45148381462D56F00927495 /* HoccingRulesIPad.m in Sources */,
+				B488C78E149FA17E0071194B /* Crypto.m in Sources */,
+				B488C78F149FA17E0071194B /* NSData+CommonCrypto.m in Sources */,
+				B488C790149FA17E0071194B /* PublicKeyManager.m in Sources */,
+				B488C791149FA17E0071194B /* RSA.m in Sources */,
+				B488C792149FA17E0071194B /* NSFileManager+FileHelper.m in Sources */,
+				B488C793149FA17E0071194B /* NSObject+DelegateHelper.m in Sources */,
+				B488C794149FA17E0071194B /* NSString+Regexp.m in Sources */,
+				B488C795149FA17E0071194B /* NSString+StringWithData.m in Sources */,
+				B488C796149FA17E0071194B /* NSString+URLHelper.m in Sources */,
+				B488C797149FA17E0071194B /* HCEnvironment.m in Sources */,
+				B488C798149FA17E0071194B /* HCEnvironmentManager.m in Sources */,
+				B488C799149FA17E0071194B /* WifiScanner.m in Sources */,
+				B488C79A149FA17E0071194B /* HCFileCache.m in Sources */,
+				B488C79B149FA17E0071194B /* HCGeoStorage.m in Sources */,
+				B488C79C149FA17E0071194B /* HCLinccer.m in Sources */,
+				B488C79D149FA17E0071194B /* Base64Transcoder.c in Sources */,
+				B488C79E149FA17E0071194B /* NSData_Base64Extensions.m in Sources */,
+				B488C79F149FA17E0071194B /* NSDictionary+CSURLParams.m in Sources */,
+				B488C7A0149FA17E0071194B /* HCAuthenticatedHttpClient.m in Sources */,
+				B488C7A1149FA17E0071194B /* HttpClient.m in Sources */,
+				B488C7A2149FA17E0071194B /* HttpConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3046,19 +3071,6 @@
 				22B65A5711770976003E7058 /* LineFeature.m in Sources */,
 				22B65A5811770976003E7058 /* CatchDetector.m in Sources */,
 				22B65A5911770976003E7058 /* ThrowDetector.m in Sources */,
-				E60935AB12A54A8500EE83EB /* HCEnvironment.m in Sources */,
-				E60935AC12A54A8500EE83EB /* HCEnvironmentManager.m in Sources */,
-				E60935AD12A54A8500EE83EB /* WifiScanner.m in Sources */,
-				E60935AE12A54A8500EE83EB /* HCFileCache.m in Sources */,
-				E60935AF12A54A8500EE83EB /* HCGeoStorage.m in Sources */,
-				E60935B012A54A8500EE83EB /* HCLinccer.m in Sources */,
-				E60935B112A54A8500EE83EB /* Base64Transcoder.c in Sources */,
-				E60935B212A54A8500EE83EB /* NSData_Base64Extensions.m in Sources */,
-				E60935B312A54A8500EE83EB /* NSDictionary+CSURLParams.m in Sources */,
-				E60935B412A54A8500EE83EB /* HCAuthenticatedHttpClient.m in Sources */,
-				E60935B512A54A8500EE83EB /* HttpClient.m in Sources */,
-				E60935B612A54A8500EE83EB /* HttpConnection.m in Sources */,
-				E60935C412A5552800EE83EB /* NSString+URLHelper.m in Sources */,
 				E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */,
 				E686C59712B12A37006B5037 /* FileDownloader.m in Sources */,
 				E686C5A612B13153006B5037 /* NSFileManager+FileHelper.m in Sources */,

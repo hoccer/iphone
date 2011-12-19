@@ -36,11 +36,21 @@
 
 #pragma mark - View lifecycle
 
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
 
+    UIView *tbBgView = [[[UIView alloc]init]autorelease];
+    tbBgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
+    tbBgView.opaque = YES;
+    self.tableView.backgroundView = tbBgView;
+	self.tableView.backgroundColor = [UIColor clearColor];
+    
     [[NSBundle mainBundle] loadNibNamed:@"EncryptionSettingsHeader" owner:self options:nil];	
 	self.tableView.tableHeaderView = self.encryptionSettingsHeader;
 	self.encryptionSettingsHeader = nil;

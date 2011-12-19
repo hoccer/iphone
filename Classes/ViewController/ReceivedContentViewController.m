@@ -145,7 +145,7 @@
 
 - (void)setReady {
 	HUD.mode = MBProgressHUDModeCustomView;
-	HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+	HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
 	HUD.labelText = @"Saved";
 	[NSTimer scheduledTimerWithTimeInterval:1 target: self selector:@selector(hideHUD) userInfo:nil repeats:NO];
 	

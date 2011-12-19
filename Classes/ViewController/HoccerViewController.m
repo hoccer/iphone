@@ -970,6 +970,7 @@
 
 - (void)handleError: (NSError *)error {
     
+    NSLog(@"ERROR %@ ",error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;

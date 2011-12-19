@@ -99,7 +99,7 @@
 	
 	[self showHud];
     [self updateGroupButton];
-    //[self updateEncryptionIndicator];
+    [self updateEncryptionIndicator];
 
 }
 
@@ -445,11 +445,11 @@
 }
 
 - (void)encryptionChanged: (NSNotification *)notification {
-    //BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    //encryptionEnabled = encrypting;
-    //if (navigationItem.titleView != nil){
-    //    [self updateEncryptionIndicator];
-    //}
+    BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    encryptionEnabled = encrypting;
+    if (navigationItem.titleView != nil){
+        [self updateEncryptionIndicator];
+    }
 }
 
 

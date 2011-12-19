@@ -128,10 +128,10 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self];
 	HUD.mode = MBProgressHUDModeCustomView;
-	[self addSubview:HUD];
 	HUD.labelText = @"Saved";
 	
-	HUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+	HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
+    [self addSubview:HUD];
 
     [HUD showWhileExecuting:@selector(myTask) onTarget:self withObject:nil animated:YES];
 	[HUD autorelease];

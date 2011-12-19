@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     selectedClients = [[NSMutableArray alloc] init];
+    
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
 
@@ -62,6 +63,10 @@
                 selectionChanged = YES;
             }
         }
+        
+        //NSDictionary *dummyClient = [NSDictionary dictionaryWithObjectsAndKeys:@"dummy",@"name",@"dummy",@"id", nil];
+        //[selectedClients addObject:dummyClient];
+        //selectionChanged = YES;
          
         if (selectionChanged) {            
             if (selectedClients.count != 0){

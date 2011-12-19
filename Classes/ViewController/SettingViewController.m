@@ -82,12 +82,12 @@
     enableTLS.defaultValue = @"enableTLS";
     [encryptGroup addObject:enableTLS];
     
-    //SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
-    //encrypt.defaultValue = @"encryption";
-    //[encryptGroup addObject:encrypt];
+    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
+    encrypt.defaultValue = @"encryption";
+    [encryptGroup addObject:encrypt];
     
-    //SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings"selector:@selector(showEncryptionSettings) type:HCContinueSetting];
-    //[encryptGroup addObject:encryptOptions];
+    SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings"selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+    [encryptGroup addObject:encryptOptions];
     
     [sections addObject:encryptGroup];
     
