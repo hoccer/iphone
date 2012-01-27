@@ -120,6 +120,9 @@
     [delegate checkAndPerformSelector:@selector(selectPasteboard:) withObject: self];
 }
 
+- (IBAction)music:(id)sender {
+    [delegate checkAndPerformSelector:@selector(selectMusic:) withObject: self];
+}
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[delegate checkAndPerformSelector:@selector(toggleSelectContent:) withObject:self];
 // 	[[self nextResponder] touchesBegan:touches withEvent:event];
@@ -128,14 +131,22 @@
 
 - (void)initButtons {
 
-    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Media", nil) image:[UIImage imageNamed: @"select_btn_multimedia.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(text:) label:nil image:[UIImage imageNamed: @"select_btn_text.png"]]];
     
-	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
+	[buttons addObject: [Action actionWithAction:@selector(image:) label:nil image:[UIImage imageNamed: @"select_btn_image.png"]]];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        [buttons addObject: [Action actionWithAction:@selector(camera:) label:nil image:[UIImage imageNamed: @"select_btn_camera.png"]]];
+    }
+    [buttons addObject: [Action actionWithAction:@selector(contact:) label:nil image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    
+    //[buttons addObject: [Action actionWithAction:@selector(mycontact:) label:nil image:[UIImage imageNamed: @"select_btn_mycontact.png"]]];
 
-    [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(music:) label:nil image:[UIImage imageNamed: @"select_btn_audio.png"]]];
+
     
     //[buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hocclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
-    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label:nil image:[UIImage imageNamed: @"select_btn_paste.png"]]];
 
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
@@ -143,7 +154,7 @@
 		
 		UIImageView *imageView = [[[UIImageView alloc] initWithImage: action.button] autorelease];
 		CGRect frame = imageView.frame;
-		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2 + 13);
+		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2);
 		imageView.frame = frame;
 		
 		[button addSubview: imageView];

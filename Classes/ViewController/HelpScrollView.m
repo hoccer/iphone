@@ -39,6 +39,12 @@
 	
 	CGSize scrollViewSize = scrollView.frame.size;
 	
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backButton setBackgroundImage:[UIImage imageNamed:@"settings_nav_bar_back"] forState:UIControlStateNormal];
+    backButton.frame=CGRectMake(0, 0, 85, 44);
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+    [backButton release];
+    
 	scrollView.pagingEnabled = YES;
 	scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
@@ -49,7 +55,7 @@
 	pageControl.numberOfPages = [pages count]; 
 	
 	[self setUpPages];
-	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"help_bg.png"]];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
 }
 
 - (void)setUpPages {

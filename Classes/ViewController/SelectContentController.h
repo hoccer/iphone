@@ -26,4 +26,6 @@
 - (IBAction)contact: (id)sender;
 - (IBAction)hoclet: (id)sender;
 - (IBAction)pasteboard: (id)sender;
+- (IBAction)music: (id)sender;
+
 @end

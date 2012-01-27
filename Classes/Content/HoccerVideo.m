@@ -233,7 +233,7 @@
     AVAssetImageGeneratorCompletionHandler handler = ^(CMTime requestedTime, CGImageRef im, CMTime actualTime, AVAssetImageGeneratorResult result, NSError *error){
         if (result == AVAssetImageGeneratorSucceeded) {
             UIImage *thumbnail=[[UIImage imageWithCGImage:im] retain];
-            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
             
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
             
@@ -243,7 +243,7 @@
         }
         else {
             UIImage *thumbnail=[[UIImage imageNamed:@"video_dummy"] retain];
-            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
+            thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
         
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
         
@@ -271,7 +271,7 @@
 - (Preview *)preview {
     if (preview == nil) {
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        [preview setBackgroundImage:[UIImage imageNamed:@"container_image-land.png"]];
+        [preview setBackgroundImage:[UIImage imageNamed:@"content_bg_image"]];
         [preview setContentIdentifier:[UIImage imageNamed:@"video_icon"]];
 
     }

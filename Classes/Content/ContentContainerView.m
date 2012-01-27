@@ -39,8 +39,11 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
+        
+        shineImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"content_bg_image_shine"]];
+        [self addSubview:shineImage];
 		
-		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
+		overlay = [[UIImageView alloc] init];
 		overlay.frame = ACRectShrinked(self.frame, 15, 15);
 		overlay.hidden = YES;
 		overlay.userInteractionEnabled = YES;
@@ -58,6 +61,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
 		buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+        [buttonContainer setBackgroundColor:[UIColor clearColor]];
 
 		[overlay addSubview:buttonContainer];
 	}

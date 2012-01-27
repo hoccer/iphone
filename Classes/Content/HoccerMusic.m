@@ -138,8 +138,13 @@
 }
 
 - (void)audioExporterFailed:(NSError *)error {
+    NSMutableDictionary *errorInfo = [NSMutableDictionary dictionary];
+    [errorInfo setObject:[NSString stringWithFormat:NSLocalizedString(@"Could not read music", nil)] forKey:NSLocalizedDescriptionKey];
+    [errorInfo setObject:NSLocalizedString(@"Maybe DRM?", nil) forKey:NSLocalizedRecoverySuggestionErrorKey];
+    
+    NSError *audioError = [NSError errorWithDomain:@"AudioExporterError" code:404 userInfo:errorInfo];
     for (DelayedFileUploaded *transferable in transferables) {
-        [transferable setError:error];
+        [transferable setError:audioError];
     }
     
 }

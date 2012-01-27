@@ -22,5 +22,7 @@
 @property (nonatomic, retain) NSString *mimeType;
 @property (nonatomic, assign) NSNumber *upload;
 @property (nonatomic, retain) NSData *data;
+@property (atomic) BOOL alreadyViewed;
+
 
 @end

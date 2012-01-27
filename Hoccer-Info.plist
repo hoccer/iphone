@@ -27,8 +27,8 @@
 	<string>Icon.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon.png</string>
-		<string>Icon@2x.png</string>
+		<string>Icon57.png</string>
+		<string>Icon114.png</string>
 		<string>Icon-Small.png</string>
 		<string>icon-ipad.png</string>
 	</array>
@@ -38,8 +38,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Icon.png</string>
-				<string>Icon@2x.png</string>
+				<string>Icon57.png</string>
+				<string>Icon114.png</string>
 				<string>Icon-Small.png</string>
 				<string>icon-ipad.png</string>
 			</array>

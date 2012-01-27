@@ -149,11 +149,21 @@
     if([[hoccerController.content mimeType] isEqualToString:@"text/plain"]){
         historyItem.data = hoccerController.content.data;
     }
+    historyItem.alreadyViewed = NO;
 	
 	[hoccerHistoryItemArray insertObject:historyItem atIndex:0];
 	
 	NSError *error;
 	[managedObjectContext save:&error];
+}
+
+- (void)setHistoryItem:(HoccerHistoryItem *)item wasViewed:(BOOL)viewed {
+    
+    [item setAlreadyViewed:viewed];
+    
+    NSError *error;
+	[managedObjectContext save:&error];
+    
 }
 
 - (BOOL)containsFile: (NSString *)filename {

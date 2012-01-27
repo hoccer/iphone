@@ -61,6 +61,12 @@
 	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self populateSelectedArray];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewWillAppear:) 
+                                                 name:@"viewControllerWillAppear"
+                                               object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -133,24 +139,24 @@
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
-        if (inMassEditMode){
              NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
             if ([selected boolValue]){
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
+                ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"check_on"];
             }
             else {
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+                ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"check_off"];
             }
+            ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+		
+		cell.accessoryType = UITableViewCellAccessoryNone;		
+		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+		
+        if (item.alreadyViewed){
+            cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
         }
         else {
-            ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+            cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg_visited.png"]] autorelease];
         }
-		
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
-		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
-		
-		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
-        
         
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
@@ -231,6 +237,7 @@
         
         HoccerContent *content = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromFile:[item.filepath lastPathComponent] withMimeType:item.mimeType];
         content.persist = YES;
+        [historyData setHistoryItem:item wasViewed:YES];
         
         ReceivedContentViewController *detailViewController = [[ReceivedContentViewController alloc] init];
         [detailViewController setHoccerContent:content];
@@ -313,25 +320,41 @@
     if (inMassEditMode){
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setBackgroundImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
-        [button setTitle:@"Delete" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12.0f];
-        [button.layer setCornerRadius:4.0f];
-        [button.layer setMasksToBounds:YES];
-        [button.layer setBorderWidth:1.0f];
-        [button.layer setBorderColor: [[UIColor grayColor] CGColor]];
-        button.frame=CGRectMake(0.0, 100.0, 60.0, 30.0);
+        [button setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_delete"] forState:UIControlStateNormal];
+        button.frame=CGRectMake(0.0, 100.0, 85.0, 51.0);
         [button addTarget:self action:@selector(deleteSelection:) forControlEvents:UIControlEventTouchUpInside];
         
         UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithCustomView:button];
         [hoccerViewController.navigationItem setRightBarButtonItem:delete];
         [delete release];
+        
+        UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [leftButton setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_cancel"] forState:UIControlStateNormal];
+        leftButton.frame=CGRectMake(0.0, 100.0, 85.0, 51.0);
+        [leftButton addTarget:self action:@selector(enterCustomEditMode:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+        [hoccerViewController.navigationItem setLeftBarButtonItem:done];
+        [done release];
     }
     else {
-        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                target:hoccerViewController action:@selector(cancelPopOver)];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_done"] forState:UIControlStateNormal];
+        button.frame=CGRectMake(0.0, 100.0, 85.0, 51.0);
+        [button addTarget:hoccerViewController action:@selector(cancelPopOver) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithCustomView:button];
         [hoccerViewController.navigationItem setRightBarButtonItem:cancel];
         [cancel release];
+        UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [leftButton setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_edit"] forState:UIControlStateNormal];
+        leftButton.frame=CGRectMake(0.0, 100.0, 85.0, 51.0);
+        [leftButton addTarget:self action:@selector(enterCustomEditMode:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+        [hoccerViewController.navigationItem setLeftBarButtonItem:edit];
+        [edit release];
     }
     
     [self updateHistoryList];
@@ -362,10 +385,25 @@
     
     inMassEditMode = NO;
     
-    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                            target:hoccerViewController action:@selector(cancelPopOver)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_done"] forState:UIControlStateNormal];
+    button.frame=CGRectMake(0.0, 100.0, 85, 51.0);
+    [button addTarget:hoccerViewController action:@selector(cancelPopOver) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithCustomView:button];
     [hoccerViewController.navigationItem setRightBarButtonItem:cancel];
     [cancel release];
+
+
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"history_nav_bar_edit"] forState:UIControlStateNormal];
+    leftButton.frame=CGRectMake(0.0, 100.0, 85.0, 51.0);
+    [leftButton addTarget:self action:@selector(enterCustomEditMode:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    [hoccerViewController.navigationItem setLeftBarButtonItem:edit];
+    [edit release];
+    
     [self cleanUp];
     [self updateHistoryList];
     [self populateSelectedArray];

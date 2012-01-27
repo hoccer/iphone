@@ -30,6 +30,7 @@
 - (NSInteger)count;
 - (id)itemAtIndex: (NSInteger)index;
 - (void)addContentToHistory: (ItemViewController *) hoccerController;
+- (void)setHistoryItem:(HoccerHistoryItem *)item wasViewed:(BOOL)viewed;
 - (void)removeItem: (HoccerHistoryItem *)item;
 
 - (BOOL)containsFile: (NSString *)filename;

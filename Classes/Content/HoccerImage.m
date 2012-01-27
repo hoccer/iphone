@@ -220,15 +220,15 @@
 
 
 - (void)createThumb {
-    NSInteger paddingLeft = 22;
-	NSInteger paddingTop = 22;
+    NSInteger paddingLeft = 4;
+	NSInteger paddingTop = 4;
     
 	CGFloat frameWidth = self.preview.frame.size.width - (2 * paddingLeft); 
 	CGFloat frameHeight = self.preview.frame.size.height - (2 * paddingTop);
 	
 	CGSize size = CGSizeMake(frameWidth, frameHeight);
     
-	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
+	thumb = [[self.image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES] retain];
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
@@ -244,7 +244,7 @@
 - (Preview *)preview {
     if (preview == nil) {
         preview = [[Preview alloc] initWithFrame: CGRectMake(0, 0, 303, 224)];
-        [preview setBackgroundImage:[UIImage imageNamed:@"container_image-land.png"]];
+        [preview setBackgroundImage:[UIImage imageNamed:@"content_bg_image"]];
 
     }
     

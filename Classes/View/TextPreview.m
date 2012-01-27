@@ -46,7 +46,7 @@
 
 - (void)setEditMode {
 	textView.editable = YES;
-	textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text_edit_linie.png"]];
+	//textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text_edit_linie.png"]];
     textView.textColor = [UIColor blackColor];
 	textView.opaque = NO;
 	[editButton setImage:[UIImage imageNamed:@"container_text_edit_savebtn.png"] forState:UIControlStateNormal];

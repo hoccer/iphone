@@ -31,7 +31,7 @@
     
     CGFloat height = 0;
     if (rows != 0) {
-        height = rows * self.tableView.rowHeight + 20;        
+        height = rows * 60 + 20;        
     }
 
     if (height < HCGroupListHeight) {
@@ -111,23 +111,24 @@
         cell.textLabel.text = tmpName;
     }
     
+    
+    
     if ([client objectForKey:@"pubkey_id"] != nil){
-        cell.imageView.image = [UIImage imageNamed:@"dev_enc_on.png"];
+        cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_satus_background_enc_on"]] autorelease];
     }
     else {
-        cell.imageView.image = [UIImage imageNamed:@"dev_enc_off.png"];
+        cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_satus_background_enc_off"]] autorelease];
     }
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
     if ([selectedClients containsObject:client]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.imageView.image = [UIImage imageNamed:@"check_on"];
     } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;        
+        cell.imageView.image = [UIImage imageNamed:@"check_off"];
     }
 
     return cell;
@@ -144,10 +145,10 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO || [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"] == NO) {
         if ([selectedClients containsObject:client]) {
             [selectedClients removeObject:client];
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.imageView.image = [UIImage imageNamed:@"check_off"];
         } else {
             [selectedClients addObject:client];
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            cell.imageView.image = [UIImage imageNamed:@"check_on"];
         }
     
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -168,12 +169,12 @@
     else {
         if ([selectedClients containsObject:client]) {
             [selectedClients removeObject:client];
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.imageView.image = [UIImage imageNamed:@"check_off"];
         }
         else {
             if([client objectForKey:@"pubkey_id"]!=nil){
                 [selectedClients addObject:client];
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                cell.imageView.image = [UIImage imageNamed:@"check_on"];
             }
         }
         
@@ -201,7 +202,7 @@
 
 - (CGFloat)tableView:(UITableView *)theTableView heightForHeaderInSection:(NSInteger)section {
     if ([self tableView:theTableView titleForHeaderInSection:section] != nil) {
-        return 19;
+        return 20;
     }
     else {
         // If no section header title, no section header needed
@@ -209,6 +210,9 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
 
 - (UIView *)tableView:(UITableView *)theTableView viewForHeaderInSection:(NSInteger)section {
     NSString *sectionTitle = [self tableView:theTableView titleForHeaderInSection:section];

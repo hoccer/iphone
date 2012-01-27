@@ -14,6 +14,17 @@
 @implementation ConnectionStatusViewController
 @synthesize delegate;
 
+- (void)viewDidLoad {
+    if([progressView canPerformAction:@selector(setProgressImage:) withSender:nil]){
+        UIImage *progressImage = [[UIImage imageNamed:@"statusbar_progress"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+        [progressView setProgressImage:progressImage];
+        [progressView setTrackImage:[UIImage imageNamed:@"statusbar_track"]];
+         
+    }
+    [progressView setBackgroundColor:[UIColor clearColor]];
+    [progressView setProgressViewStyle:UIProgressViewStyleBar];
+    [self hideViewAnimated:NO];
+}
 - (void)setUpdate: (NSString *)update {
 	statusLabel.text = update;
 	

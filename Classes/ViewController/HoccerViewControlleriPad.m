@@ -64,7 +64,7 @@
 	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
-	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar_ipad.png"]] autorelease];
     
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -91,6 +91,11 @@
 	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
     
+    if ([tabBar canPerformAction:@selector(setSelectedImageTintColor:) withSender:nil]){
+        [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_ipad_selectionindicator"]];
+        [tabBar setSelectedImageTintColor:[UIColor colorWithWhite:1.0 alpha:1.0]];
+        //[tabBar setSelectedImageTintColor:[UIColor colorWithWhite:0.1 alpha:1.0]];
+    }
     
 	[desktopView insertSubview:statusViewController.view atIndex:0];
     CGRect statusRect = statusViewController.view.frame;
@@ -112,21 +117,26 @@
     [self updateGroupButton];
     [self updateEncryptionIndicator];
     
-    CGRect historySettingsRect = CGRectMake(0, 0, 150, 35);
-    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
-    historySettings = [[UISegmentedControl alloc]initWithItems:histSetItems];
-    historySettings.segmentedControlStyle = UISegmentedControlStyleBar;
-    historySettings.tintColor = [UIColor clearColor];
-    historySettings.momentary = YES;
-    historySettings.backgroundColor = [UIColor clearColor];
-    [historySettings addTarget:self action:@selector(historySettingsAction:) forControlEvents:UIControlEventValueChanged];
-    [historySettings setFrame:historySettingsRect];
+    CGRect historySettingsRect = CGRectMake(0, 0, 134, 44);
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:historySettings];
+    UIView *containerView = [[UIView alloc]initWithFrame:historySettingsRect];
+   
+    UIButton *historyButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 67, 44)];
+    [historyButton setImage:[UIImage imageNamed:@"nav_bar_ipad_history"] forState:UIControlStateNormal];
+    [historyButton addTarget:self action:@selector(historySettingsAction:) forControlEvents:UIControlEventTouchUpInside];
+    historyButton.tag = 0;
+    [containerView addSubview:historyButton];
+    
+    UIButton *settingsButton = [[UIButton alloc]initWithFrame:CGRectMake(67, 0, 67, 44)];
+    [settingsButton setImage:[UIImage imageNamed:@"nav_bar_ipad_settings"] forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(historySettingsAction:) forControlEvents:UIControlEventTouchUpInside];
+    settingsButton.tag = 1;
+    [containerView addSubview:settingsButton];
+        
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:containerView];
     
     self.navigationItem.leftBarButtonItem = leftButton;
     
-    [historySettings release];
     [leftButton release];
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -255,7 +265,7 @@
     if (!historyPopOverNavigationController) {
         historyPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.hoccerHistoryController];
         self.hoccerHistoryController.parentNavigationController = historyPopOverNavigationController;
-        [historyPopOverNavigationController setTitle:@"History"];
+        [historyPopOverNavigationController setTitle:@" "];
     }
     if (!historyPopOverController) {
         historyPopOverController = [[UIPopoverController alloc]initWithContentViewController:historyPopOverNavigationController];
@@ -291,9 +301,9 @@
 
 - (IBAction)historySettingsAction:(id)sender{
     
-    int selectedIndex = [historySettings selectedSegmentIndex];
+    UIButton *theButton = sender;
     
-    switch (selectedIndex) {
+    switch (theButton.tag) {
         case 0:
             [self toggleHistory:nil];
             break;
@@ -385,8 +395,7 @@
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupAndEncryption];
-    //navigationItem.leftBarButtonItem = nil;
-    //[self updateEncryptionIndicator];
+    [self updateEncryptionIndicator];
 }
 
 #pragma mark -
@@ -483,7 +492,10 @@
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        groupSizeButton.frame = CGRectMake(80, -6, 36, 52);
+        [groupSizeButton setTitleColor:[UIColor colorWithWhite:0.1 alpha:1.0] forState:UIControlStateNormal];
+        [groupSizeButton.titleLabel setFont:[UIFont fontWithName:@"TrebuchetMS-Bold" size:24]];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_ipad_status_off"] forState:UIControlStateNormal];
+        groupSizeButton.frame = CGRectMake(67, 0, 67, 44);
     }
     
     NSInteger groupCount = [[infoViewController group] count];
@@ -496,10 +508,12 @@
         }
     } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
         text = [NSString stringWithFormat: @"%d✓", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_ipad_status_on"] forState:UIControlStateNormal];
         clientSelected = YES;
     } else {
         text = [NSString stringWithFormat: @"%d", groupCount];
         clientSelected = NO;
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_ipad_status_off"] forState:UIControlStateNormal];
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];   
@@ -530,11 +544,14 @@
         [encryptionButton addTarget:self action:@selector(toggleEncryption:) forControlEvents:UIControlEventTouchUpInside];
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
             UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_on"];
+            UIImage *buttonImageOver = [UIImage imageNamed:@"nav_bar_ipad_enc_on"];
+
             encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
             [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
+            [encryptionButton setImage:buttonImageOver forState:UIControlStateSelected];
         }
         else {
-            UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_off"];
+            UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_ipad_enc_off"];
             encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
             [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
         }
@@ -542,12 +559,12 @@
     }
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_on"];
+        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_ipad_enc_on"];
         encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
         [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
     }
     else {
-        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_enc_off"];
+        UIImage *buttonImage = [UIImage imageNamed:@"nav_bar_ipad_enc_off"];
         encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
         [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
     }
@@ -555,16 +572,18 @@
     [self showGroupAndEncryption];
 }
 
-- (void)showEncryption{
+
+- (void)showEncryption {
     UIBarButtonItem *encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:encryptionButton];
     navigationItem.rightBarButtonItem = encryptionBarButtomItem;
     [encryptionBarButtomItem release];
     
 }
+
 - (void)showGroupAndEncryption {
     
     
-    UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (encryptionButton.frame.size.width*2)+40, encryptionButton.frame.size.height)];
+    UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 137 , 44)];
     [containerView addSubview:encryptionButton];
     [containerView addSubview:groupSizeButton];
     UIBarButtonItem *encryptionGroupButton = [[UIBarButtonItem alloc]initWithCustomView:containerView];
@@ -588,6 +607,7 @@
     if (!groupSelectPopOverController){
         groupSelectPopOverController = [[UIPopoverController alloc]initWithContentViewController:infoViewController];
         groupSelectPopOverController.popoverContentSize = CGSizeMake(320, 400);
+        [groupSelectPopOverController setContentViewController:infoViewController];
     }
     if ([groupSelectPopOverController isPopoverVisible]){
         [groupSelectPopOverController dismissPopoverAnimated:YES];

@@ -31,19 +31,19 @@
     [imageView release]; imageView = nil;
         
 	
-    NSInteger paddingLeft = 22;
-	NSInteger paddingTop = 22;
+    NSInteger paddingLeft = 13;
+	NSInteger paddingTop = 13;
 	
     
     CGSize size = { .width = 303 - (2*paddingLeft), .height = 224 - (2*paddingTop) };
-    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO];
+    image = [image gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:YES];
         
-	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(paddingLeft, paddingTop, image.size.width, image.size.height)];
+	imageView = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, size.width,size.height)];
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.center = self.center;
 	imageView.image = image;
     
-  	[self insertSubview:imageView atIndex:1];
+  	[self addSubview:imageView];
 }
 
 

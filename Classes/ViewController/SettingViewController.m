@@ -54,6 +54,8 @@
 	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];	
 	self.tableView.tableHeaderView = self.hoccerSettingsLogo;
 	self.hoccerSettingsLogo = nil;
+    
+   
 		
 	sections = [[NSMutableArray alloc] init];
 	
@@ -244,7 +246,7 @@
 
 - (void)showTutorial {
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
-	helpView.navigationItem.title = @"Tutorial";
+	helpView.navigationItem.title = @" ";
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
 }
@@ -262,7 +264,7 @@
 
 - (void)showAbout {
 	AboutViewController *aboutView = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-	aboutView.navigationItem.title = @"About Hoccer";
+	aboutView.navigationItem.title = @" ";
 	[parentNavigationController pushViewController:aboutView animated:YES];
 	[aboutView release];
 }

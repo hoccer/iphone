@@ -33,6 +33,10 @@
 
 #pragma mark - View lifecycle
 
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

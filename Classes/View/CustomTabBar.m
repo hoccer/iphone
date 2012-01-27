@@ -13,6 +13,9 @@
 
 - (void)drawRect: (CGRect)dirtyRect {
 	UIImage *image = [UIImage imageNamed: @"nav_bar.png"];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        image = [UIImage imageNamed:@"tab_bar_ipad"];
+    }
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 }
 

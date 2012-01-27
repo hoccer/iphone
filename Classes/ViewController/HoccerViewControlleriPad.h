@@ -29,7 +29,6 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 	IBOutlet UINavigationController *navigationController;
     UINavigationController *settingsPopOverNavigationController;
     UINavigationController *historyPopOverNavigationController;
-    UISegmentedControl *historySettings;
     
     
 	UINavigationItem *navigationItem;

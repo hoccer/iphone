@@ -18,6 +18,7 @@
 @dynamic mimeType;
 @dynamic upload;
 @dynamic data;
+@dynamic alreadyViewed;
 
 -(void)dealloc{
     [super dealloc];

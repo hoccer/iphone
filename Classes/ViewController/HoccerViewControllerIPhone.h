@@ -24,7 +24,7 @@
 	
 	BOOL isPopUpDisplayed;
 	
-	UITabBar *tabBar;
+	UIView *tabBar;
 	
 	IBOutlet UINavigationController *navigationController;
 	UINavigationItem *navigationItem;
@@ -33,15 +33,22 @@
     UIButton *groupSizeButton;
     UIButton *encryptionButton;
     
+    IBOutlet UIButton *contentSelectButton;
+    IBOutlet UIButton *historySelectButton;
+    IBOutlet UIButton *settingsSelectButton;
+
+    
     id <ContentSelectController> activeContentSelectController;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
-@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
+@property (nonatomic, retain) IBOutlet UIView *tabBar;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 @property (nonatomic, retain) UINavigationItem *navigationItem;
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
+- (IBAction)tabBarButtonPressed:(id)sender;
+-(void)resetTabBar;
 
 @end

@@ -16,7 +16,7 @@
 @class ItemViewController;
 @class HistoryData;
 
-@interface HoccerHistoryController : UITableViewController {
+@interface HoccerHistoryController : UITableViewController <UINavigationControllerDelegate>{
 	HistoryData *historyData;
 	
 	UIViewController *rootViewController;
