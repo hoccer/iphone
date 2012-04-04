@@ -20,7 +20,8 @@
 	UITableView *tableView;
 	UIView * hoccerSettingsLogo;
 	
-	UITextField *activeField;	
+	UITextField *activeField;
+	BOOL encrypting;
 }
 
 @property (retain) UINavigationController *parentNavigationController;

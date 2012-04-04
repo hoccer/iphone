@@ -84,6 +84,7 @@
     
     SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
     encrypt.defaultValue = @"encryption";
+    encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     [encryptGroup addObject:encrypt];
     
     SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings"selector:@selector(showEncryptionSettings) type:HCContinueSetting];
@@ -279,25 +280,60 @@
 													 message:NSLocalizedString(@"Safari will be opened now to complete the bookmarklet installation.", nil) 
 													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
 										   otherButtonTitles:NSLocalizedString(@"Install", nil), nil];
+    prompt.tag = 0;
 	[prompt show];
 	[prompt release];
 }
 
 - (void)encrypt: (UISwitch *)sender {
-    
+    encrypting = sender.on;
+    if (sender.on){
+    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption", nil) 
+													 message:NSLocalizedString(@"If you enable end-to-end encryption the current desktop object will be removed and you must choose one or more receivers for your transactions", nil) 
+													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+										   otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    prompt.tag = 1;
+	[prompt show];
+	[prompt release];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"encryption"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
-    [[NSUserDefaults standardUserDefaults] setBool:sender.isOn forKey:@"encryption"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
-}
+        NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+        
+  }
 
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {         	
-	if (buttonIndex == 1) {
-		[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];	
-	}
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {      
+   	switch (alertView.tag) {
+        case 0:
+            if (buttonIndex == 1) {
+                [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];	
+            }
+            break;
+        case 1:
+            if (buttonIndex == 1) {
+                
+                [[NSUserDefaults standardUserDefaults] setBool:encrypting forKey:@"encryption"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                NSNotification *notification = [NSNotification notificationWithName:@"encryptionChanged" object:self];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
+
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"encryption"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+
+            }
+            [tableView reloadData];
+        default:
+            break;
+    }
+	
 }
 
 -(void)deleteContactReference {

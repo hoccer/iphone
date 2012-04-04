@@ -385,8 +385,8 @@
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupAndEncryption];
-    //navigationItem.leftBarButtonItem = nil;
-    //[self updateEncryptionIndicator];
+    navigationItem.leftBarButtonItem = nil;
+    [self updateEncryptionIndicator];
 }
 
 #pragma mark -
@@ -588,6 +588,7 @@
     if (!groupSelectPopOverController){
         groupSelectPopOverController = [[UIPopoverController alloc]initWithContentViewController:infoViewController];
         groupSelectPopOverController.popoverContentSize = CGSizeMake(320, 400);
+        [groupSelectPopOverController setContentViewController:infoViewController];
     }
     if ([groupSelectPopOverController isPopoverVisible]){
         [groupSelectPopOverController dismissPopoverAnimated:YES];

@@ -99,7 +99,7 @@
 	
 	[self showHud];
     [self updateGroupButton];
-    [self updateEncryptionIndicator];
+    //[self updateEncryptionIndicator];
 
 }
 
@@ -447,8 +447,12 @@
 - (void)encryptionChanged: (NSNotification *)notification {
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     encryptionEnabled = encrypting;
+    for (int i = 0;i < desktopData.numberOfItems; i++){
+        [desktopData removeHoccerController:[desktopData hoccerControllerDataAtIndex:i]];
+    }
+    [desktopView reloadData];
     if (navigationItem.titleView != nil){
-        [self updateEncryptionIndicator];
+        //[self updateEncryptionIndicator];
     }
 }
 

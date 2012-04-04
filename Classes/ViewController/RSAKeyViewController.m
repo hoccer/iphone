@@ -53,6 +53,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (CGSize)contentSizeForViewInPopover {
+    return CGSizeMake(320, 367);
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if ([key isEqualToString:@"shared"]){
         NSString *oldPSK = [[NSUserDefaults standardUserDefaults] objectForKey:@"encryptionKey"];
