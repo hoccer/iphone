@@ -26,11 +26,11 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"]){
 		return;
 	}
-    /*
+    
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] ){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Added", nil)
-                                                        message:NSLocalizedString(@"We added secure end to end encryption to Hoccer. Would you like to read more about it?", nil)
+                                                        message:NSLocalizedString(@"We added secure end to end encryption to Hoccer. Would you like to know more about it?", nil)
                                                        delegate:self 
                                               cancelButtonTitle:@"Continue" otherButtonTitles:@"Show Tutorial", nil];
         [alert show];	
@@ -39,7 +39,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"encryptionTipShown"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-     */
+     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"]){
 	

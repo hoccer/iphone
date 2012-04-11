@@ -649,7 +649,7 @@
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [statusViewController setError:error];
         NSLog(@"Data on Desktop; %d",desktopData.count);
-        [desktopView reloadData];
+        [self->desktopView reloadData];
         return;
 
     }
