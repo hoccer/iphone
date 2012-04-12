@@ -114,11 +114,18 @@
             NSString *phoneNumber = (NSString *)phoneNumberRef;
             NSString *phoneLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
             
+            if ([phoneLabel isEqualToString:@""]){
+                phoneLabel = @"phone";
+            }
             NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
             [telephone addObject:toPhoneArray];
             
-            CFRelease(locLabel);
-            CFRelease(phoneNumberRef);
+            if (locLabel != NULL){
+                CFRelease(locLabel);
+            }
+            if (phoneNumberRef != NULL){
+                CFRelease(phoneNumberRef);
+            }
         }
     }
     
@@ -134,7 +141,7 @@
             NSString *emailAdress = (NSString *)emailRef;
             NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
             if ([emailLabel isEqualToString:@""]) {
-                emailLabel = @"Email";
+                emailLabel = @"email";
             }
             
             NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
