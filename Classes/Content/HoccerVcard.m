@@ -133,13 +133,19 @@
             
             NSString *emailAdress = (NSString *)emailRef;
             NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+            if ([emailLabel isEqualToString:@""]) {
+                emailLabel = @"Email";
+            }
             
             NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
             [emails addObject:toEmailArray];
             
-            
-            CFRelease(locLabel);
-            CFRelease(emailRef);
+            if (locLabel != NULL){
+                CFRelease(locLabel);
+            }
+            if (emailRef !=NULL){
+                CFRelease(emailRef);
+            }
         }
     }
     
