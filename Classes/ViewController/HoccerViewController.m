@@ -298,10 +298,10 @@
     
     UIActionSheet *mediaChooser;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Take Photo/Video", nil), NSLocalizedString(@"Choose Photo/Video", nil),NSLocalizedString(@"Choose Music", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Take Photo/Video", nil), NSLocalizedString(@"Choose Photo/Video", nil), nil];
     }
     else {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil),NSLocalizedString(@"Choose Music", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
     }
     mediaChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     mediaChooser.tag = 1;
@@ -360,14 +360,7 @@
                     [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
                     break;
                 }
-                case 2: {
-                    
-                    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-                    musicAlert.tag = 2;
-                    [musicAlert show];
-                    [musicAlert release];
-                    
-                }
+               
                 default: {
                     break;
                 }
@@ -379,14 +372,7 @@
                     [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
                     break;
                 }
-                case 1: {
-                    
-                    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-                    musicAlert.tag = 2;
-                    [musicAlert show];
-                    [musicAlert release];
-                    
-                }
+               
                     
                 default: {
                     break;

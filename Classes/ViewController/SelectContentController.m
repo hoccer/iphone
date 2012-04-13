@@ -100,6 +100,14 @@
     [delegate checkAndPerformSelector:@selector(selectMedia:) withObject:self];
 }
 
+- (IBAction)mycontact: (id)sender; {
+    [delegate checkAndPerformSelector:@selector(selectMyContact:) withObject:self];
+}
+
+- (IBAction)audio: (id)sender; {
+    [delegate checkAndPerformSelector:@selector(selectMusic:) withObject:self];
+}
+
 - (IBAction)video: (id)sender; {
 	[delegate checkAndPerformSelector:@selector(selectVideo:) withObject: self];
 }
@@ -109,7 +117,7 @@
 }
 
 - (IBAction)contact: (id)sender; {
-	[delegate checkAndPerformSelector:@selector(selectContacts:) withObject: self];
+	[delegate checkAndPerformSelector:@selector(selectContact:) withObject: self];
 }
 
 - (IBAction)hoclet: (id)sender {
@@ -128,14 +136,18 @@
 
 - (void)initButtons {
 
-    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Media", nil) image:[UIImage imageNamed: @"select_btn_multimedia.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Media", nil) image:[UIImage imageNamed: @"select_btn_camera.png"]]];
     
 	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
 
     [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
     
     //[buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hocclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(audio:) label: NSLocalizedString(@"Audio", nil) image:[UIImage imageNamed: @"select_btn_audio.png"]]];
+    
     [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
+    
+    [buttons addObject: [Action actionWithAction:@selector(mycontact:) label: NSLocalizedString(@"My Contact", nil) image:[UIImage imageNamed: @"select_btn_mycontact.png"]]];
 
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
@@ -143,11 +155,11 @@
 		
 		UIImageView *imageView = [[[UIImageView alloc] initWithImage: action.button] autorelease];
 		CGRect frame = imageView.frame;
-		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2 + 13);
+		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2);
 		imageView.frame = frame;
 		
 		[button addSubview: imageView];
-		[button setTitle:action.label forState:UIControlStateNormal];
+		//[button setTitle:action.label forState:UIControlStateNormal];
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
         button.enabled = YES;
 	}

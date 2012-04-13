@@ -66,7 +66,7 @@
 	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
-	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
+	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar"]] autorelease];
 
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
 												 self.view.frame.size.height - tabBar.frame.size.height); 
@@ -78,7 +78,15 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-	desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
+    }
+    else {
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+        
+    }
+    
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
     
 
@@ -149,6 +157,11 @@
     [self hidePopOverAnimated:  NO];
 }
 
+- (IBAction)selectMyContact:(id)sender {
+    [super selectMyContact:sender];
+    self.tabBar.selectedItem = nil;
+    [self hidePopOverAnimated:NO];
+}
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
 		[self showHelpView];
@@ -289,10 +302,11 @@
 	self.gestureInterpreter.delegate = self;
 	
 	[navigationController popToRootViewControllerAnimated:YES];
+    navigationItem.leftBarButtonItem = nil;
+
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupButton];
-    navigationItem.leftBarButtonItem = nil;
     //[self updateEncryptionIndicator];
 }
 
@@ -376,7 +390,8 @@
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        groupSizeButton.frame = CGRectMake(0, 0, 36, 52);
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
+        groupSizeButton.frame = CGRectMake(0, 0, 44, 44);
     }
     
     NSInteger groupCount = [[infoViewController group] count];
@@ -385,7 +400,7 @@
         text = @"0";
         clientSelected = NO;
     } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
-        text = [NSString stringWithFormat: @"%d✓", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
+        text = [NSString stringWithFormat: @"%d", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
         clientSelected = YES;
     } else {
         text = [NSString stringWithFormat: @"%d", groupCount];
@@ -393,7 +408,13 @@
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];        
+    if (clientSelected){
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_on"] forState:UIControlStateNormal];
+    }
+    else {
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
 
+    }
     [self showGroupButton];
 }
 
@@ -451,6 +472,13 @@
         [desktopData removeHoccerController:[desktopData hoccerControllerDataAtIndex:i]];
     }
     [desktopView reloadData];
+    if (encrypting){
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
+    }
+    else {
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+
+    }
     if (navigationItem.titleView != nil){
         //[self updateEncryptionIndicator];
     }
