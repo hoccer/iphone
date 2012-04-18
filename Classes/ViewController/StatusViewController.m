@@ -187,18 +187,20 @@
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	if (animation) {
-		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-		animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
-		animation.fillMode = kCAFillModeBoth;
-		animation.removedOnCompletion = NO;
-		animation.duration = 0.2;
-		animation.delegate = self;
-		
-		[self.view.layer addAnimation:animation forKey:@"slideUp"];		
-	} else {
-		self.view.hidden = YES;
-	}
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
+        if (animation) {
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+            animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
+            animation.fillMode = kCAFillModeBoth;
+            animation.removedOnCompletion = NO;
+            animation.duration = 0.2;
+            animation.delegate = self;
+            
+            [self.view.layer addAnimation:animation forKey:@"slideUp"];		
+        } else {
+            self.view.hidden = YES;
+        }
+    }
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {

@@ -342,7 +342,6 @@
     [self updateGroupButton];
 }
 
-
 #pragma mark -
 #pragma mark TapBar delegate Methods
 
@@ -485,7 +484,9 @@
 }
 
 
-
+- (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches {
+    [infoViewController hideViewAnimated:YES];
+}
 
 - (void)pressedButton: (id)sender {	
     [statusViewController hideStatus];

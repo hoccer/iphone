@@ -306,7 +306,11 @@
 }
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller {
-    return [self.interactionController presentOpenInMenuFromRect:CGRectNull inView:controller.view animated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        return [self.interactionController presentOpenInMenuFromRect:CGRectMake(320, 40, 20, 20) inView:controller.view animated:YES];
+
+    }
+        return [self.interactionController presentOpenInMenuFromRect:CGRectNull inView:controller.view animated:YES];
 }
 
 #pragma mark -

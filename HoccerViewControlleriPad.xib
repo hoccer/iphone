@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">11C74</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1138.23</string>
-		<string key="IBDocument.HIToolboxVersion">567.00</string>
+		<int key="IBDocument.SystemTarget">1296</int>
+		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
+		<string key="IBDocument.AppKitVersion">1138.32</string>
+		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">933</string>
+			<string key="NS.object.0">1181</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -48,7 +48,6 @@
 						<string key="NSFrame">{{0, 955}, {768, 49}}</string>
 						<reference key="NSSuperview" ref="753051744"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:543</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -61,7 +60,7 @@
 								<string key="IBUITitle">Select Camera</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_cam.png</string>
+									<string key="NSResourceName">tab_bar_cam_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -71,7 +70,7 @@
 								<string key="IBUITitle">Select Image</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_photo.png</string>
+									<string key="NSResourceName">tab_bar_image_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -81,7 +80,7 @@
 								<string key="IBUITitle">Select Music</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_music.png</string>
+									<string key="NSResourceName">tab_bar_audio_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -91,7 +90,7 @@
 								<string key="IBUITitle">Select Text</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_text.png</string>
+									<string key="NSResourceName">tab_bar_text_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -101,7 +100,7 @@
 								<string key="IBUITitle">Select Contact</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_contact.png</string>
+									<string key="NSResourceName">tab_bar_contact_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -111,7 +110,7 @@
 								<string key="IBUITitle">My Contact</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_mycontact.png</string>
+									<string key="NSResourceName">tab_bar_vcard_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -121,7 +120,7 @@
 								<string key="IBUITitle">Paste</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_paste.png</string>
+									<string key="NSResourceName">tab_bar_paste_ipad.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUITabBar" ref="423052921"/>
@@ -217,7 +216,6 @@
 									<string key="NSFrame">{{0, 374}, {320, 13}}</string>
 									<reference key="NSSuperview" ref="610213867"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 									<object class="NSCustomResource" key="IBUIImage">
@@ -807,19 +805,23 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
+		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
+			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
+			<real value="1296" key="NS.object.0"/>
+		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="select_btn_cam.png">{106, 60}</string>
-			<string key="select_btn_contact.png">{106, 60}</string>
-			<string key="select_btn_music.png">{106, 60}</string>
-			<string key="select_btn_mycontact.png">{106, 60}</string>
-			<string key="select_btn_paste.png">{106, 60}</string>
-			<string key="select_btn_photo.png">{106, 60}</string>
-			<string key="select_btn_text.png">{106, 60}</string>
 			<string key="shadow_bottom.png">{320, 13}</string>
 			<string key="shadow_top.png">{320, 15}</string>
+			<string key="tab_bar_audio_ipad.png">{22, 28}</string>
+			<string key="tab_bar_cam_ipad.png">{32, 23}</string>
+			<string key="tab_bar_contact_ipad.png">{26, 20}</string>
+			<string key="tab_bar_image_ipad.png">{25, 29}</string>
+			<string key="tab_bar_paste_ipad.png">{29, 31}</string>
+			<string key="tab_bar_text_ipad.png">{25, 30}</string>
+			<string key="tab_bar_vcard_ipad.png">{29, 23}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">933</string>
+		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
 </archive>

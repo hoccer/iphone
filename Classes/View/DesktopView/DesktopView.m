@@ -84,7 +84,9 @@
 	CGPoint initialTouchPoint = [[touches anyObject] locationInView: self]; 
 	
 	self.currentlyTouchedViews = [self findTouchedViews:initialTouchPoint];
-
+    
+    [self.delegate desktopView:self wasTouchedWithTouches:touches];
+    
 	for (SweepInRecognizer *recognizer in sweepRecognizers) {
 		[recognizer desktopView:self touchesBegan:touches withEvent:event];
 	}

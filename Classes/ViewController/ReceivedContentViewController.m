@@ -91,14 +91,26 @@
 		return;
 	}
 	
-	if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view.superview animated:YES]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
-															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
-														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
-		[alertView show];
-		[alertView release];
-		
-	}
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectMake(320, 40, 10, 10) inView:self.view.superview animated:YES]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
+                                                                message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
+                                                               delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+            [alertView show];
+            [alertView release];
+            
+        }
+    }
+    else {
+        if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view.superview animated:YES]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
+                                                                message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
+                                                               delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+            [alertView show];
+            [alertView release];
+            
+        }
+    }
 }
 
 - (IBAction)resend: (id)sender {

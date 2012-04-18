@@ -18,6 +18,6 @@
 - (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view;
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view;
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)view;
-
+- (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches;
 
 @end
