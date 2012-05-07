@@ -90,11 +90,11 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    /*
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
         [[RSA sharedInstance] generateKeyPairKeys];
     }
-    */
+    
     return YES;
 }
 

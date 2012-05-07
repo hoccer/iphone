@@ -142,10 +142,10 @@
 
     [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
     
-    //[buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hocclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hocclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
     [buttons addObject: [Action actionWithAction:@selector(audio:) label: NSLocalizedString(@"Audio", nil) image:[UIImage imageNamed: @"select_btn_audio.png"]]];
     
-    [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
+    //[buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
     
     [buttons addObject: [Action actionWithAction:@selector(mycontact:) label: NSLocalizedString(@"My Contact", nil) image:[UIImage imageNamed: @"select_btn_mycontact.png"]]];
 

@@ -460,6 +460,7 @@
 		B44363B813FD2639000FBA09 /* Play_Video_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363B413FD2639000FBA09 /* Play_Video_Button@2x.png */; };
 		B44363C613FD49C7000FBA09 /* container_contact_contacticon.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363C413FD49C7000FBA09 /* container_contact_contacticon.png */; };
 		B44363C713FD49C7000FBA09 /* container_contact_contacticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363C513FD49C7000FBA09 /* container_contact_contacticon@2x.png */; };
+		B4449EB3154EBA4400942269 /* MDNSAnnouncer.m in Sources */ = {isa = PBXBuildFile; fileRef = B4449EB2154EBA4400942269 /* MDNSAnnouncer.m */; };
 		B44B9C4E146446C0007A88E4 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B44B9C4D146446C0007A88E4 /* Default-Portrait~ipad.png */; };
 		B44B9C5014644724007A88E4 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B44B9C4F14644724007A88E4 /* icon-ipad.png */; };
 		B45148331462CA5C00927495 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B45148321462CA5C00927495 /* CustomNavigationBar.m */; };
@@ -625,6 +626,7 @@
 		B4F3D0F8142CB5C40041D444 /* tutorial_throw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0F4142CB5C40041D444 /* tutorial_throw@2x.png */; };
 		B4F3D0FB142CB7E30041D444 /* tutorial_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0F9142CB7E30041D444 /* tutorial_catch.png */; };
 		B4F3D0FC142CB7E30041D444 /* tutorial_catch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0FA142CB7E30041D444 /* tutorial_catch@2x.png */; };
+		B4FC539D154EA39500A01020 /* MDNSBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FC539C154EA39500A01020 /* MDNSBrowser.m */; };
 		B4FDD6AE140E358600EED06C /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FDD6AD140E358600EED06C /* delete.png */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -1010,6 +1012,8 @@
 		B44363B413FD2639000FBA09 /* Play_Video_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play_Video_Button@2x.png"; sourceTree = "<group>"; };
 		B44363C413FD49C7000FBA09 /* container_contact_contacticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container_contact_contacticon.png; sourceTree = "<group>"; };
 		B44363C513FD49C7000FBA09 /* container_contact_contacticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_contact_contacticon@2x.png"; sourceTree = "<group>"; };
+		B4449EB1154EBA4400942269 /* MDNSAnnouncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNSAnnouncer.h; sourceTree = "<group>"; };
+		B4449EB2154EBA4400942269 /* MDNSAnnouncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNSAnnouncer.m; sourceTree = "<group>"; };
 		B44B9C4D146446C0007A88E4 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		B44B9C4F14644724007A88E4 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
 		B45148311462CA5C00927495 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
@@ -1207,6 +1211,9 @@
 		B4F3D0F4142CB5C40041D444 /* tutorial_throw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_throw@2x.png"; sourceTree = "<group>"; };
 		B4F3D0F9142CB7E30041D444 /* tutorial_catch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_catch.png; sourceTree = "<group>"; };
 		B4F3D0FA142CB7E30041D444 /* tutorial_catch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_catch@2x.png"; sourceTree = "<group>"; };
+		B4FC539B154EA39500A01020 /* MDNSBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNSBrowser.h; sourceTree = "<group>"; };
+		B4FC539C154EA39500A01020 /* MDNSBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNSBrowser.m; sourceTree = "<group>"; };
+		B4FC539E154EA58900A01020 /* MDNSBrowserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDNSBrowserDelegate.h; sourceTree = "<group>"; };
 		B4FDD6AD140E358600EED06C /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
@@ -2340,6 +2347,7 @@
 				B488C770149FA17E0071194B /* HCEnvironmentManager.h */,
 				B488C771149FA17E0071194B /* HCEnvironmentManager.m */,
 				B488C772149FA17E0071194B /* HCEnvironmentManagerDelegate.h */,
+				B4FC5399154EA25A00A01020 /* mDNS */,
 				B488C773149FA17E0071194B /* Wifi */,
 			);
 			path = EnvironmentController;
@@ -2395,6 +2403,18 @@
 			);
 			name = content_music;
 			path = Resources/assets/content_music;
+			sourceTree = "<group>";
+		};
+		B4FC5399154EA25A00A01020 /* mDNS */ = {
+			isa = PBXGroup;
+			children = (
+				B4FC539B154EA39500A01020 /* MDNSBrowser.h */,
+				B4FC539C154EA39500A01020 /* MDNSBrowser.m */,
+				B4FC539E154EA58900A01020 /* MDNSBrowserDelegate.h */,
+				B4449EB1154EBA4400942269 /* MDNSAnnouncer.h */,
+				B4449EB2154EBA4400942269 /* MDNSAnnouncer.m */,
+			);
+			path = mDNS;
 			sourceTree = "<group>";
 		};
 		E1A9DBD6139E5F2A0059905D /* ContentPickerViews */ = {
@@ -3149,6 +3169,8 @@
 				B488C7A1149FA17E0071194B /* HttpClient.m in Sources */,
 				B488C7A2149FA17E0071194B /* HttpConnection.m in Sources */,
 				B47668CD153C379E00EE5574 /* KSCustomPopoverBackgroundView.m in Sources */,
+				B4FC539D154EA39500A01020 /* MDNSBrowser.m in Sources */,
+				B4449EB3154EBA4400942269 /* MDNSAnnouncer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
