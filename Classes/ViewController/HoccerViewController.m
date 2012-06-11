@@ -652,7 +652,7 @@
     item.content.cryptor = [self currentCryptor];
 	item.isUpload = YES;
 		
-	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
+	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToMany];	
     
     [desktopData removeHoccerController:self.sendingItem];
 }
