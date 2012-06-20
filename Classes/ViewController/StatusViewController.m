@@ -187,7 +187,6 @@
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
         if (animation) {
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
             animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
@@ -200,7 +199,6 @@
         } else {
             self.view.hidden = YES;
         }
-    }
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
@@ -221,7 +219,7 @@
 
 - (UIImage *) largeBackground {
 	if (largeBackground == nil) {
-		largeBackground = [[UIImage imageNamed:@"statusbar_large.png"] retain];
+		largeBackground = [[UIImage imageNamed:@"statusbar_small.png"] retain];
 	}
 	
 	return largeBackground;

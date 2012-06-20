@@ -59,6 +59,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+    
 
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
@@ -94,10 +95,16 @@
     CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = desktopView.frame.origin.y-19;
 	statusViewController.view.frame = statusRect;
+    
+    [desktopView insertSubview:errorViewController.view atIndex:1];
+    CGRect errorRect = errorViewController.view.frame;
+    errorRect.origin.y = desktopView.frame.origin.y-19;
+	errorViewController.view.frame = errorRect;
+
 	
 	[desktopView insertSubview:infoViewController.view atIndex:0];
 	infoViewController.view.frame = statusRect;
-	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
+	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
     infoViewController.delegate = self;
@@ -107,6 +114,8 @@
 	
 	[self showHud];
     [self updateGroupButton];
+    
+    
     //[self updateEncryptionIndicator];
 
 }
@@ -319,6 +328,13 @@
         if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
             [others addObject:dict];            
         }
+    }
+    
+    if (others.count == 0){
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+    }
+    else {
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
     }
     
     [infoViewController setGroup: others];

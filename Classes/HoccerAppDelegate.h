@@ -15,11 +15,11 @@
 
 #import "GesturesInterpreterDelegate.h"
 #import "HoccerContent.h"
-
+#import "StartAnimationiPhoneViewController.h"
 @interface HoccerAppDelegate : NSObject <GesturesInterpreterDelegate> {
     UIWindow *window;
     HoccerViewController *viewController;
-	
+	StartAnimationiPhoneViewController *startAnimation;
 	BOOL networkReachable;
     
     UIBackgroundTaskIdentifier bgTask;

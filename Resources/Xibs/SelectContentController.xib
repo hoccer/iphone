@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1181</string>
@@ -175,10 +175,6 @@
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="983922564"/>
 								<reference key="IBUIHighlightedBackgroundImage" ref="1010664932"/>
-								<object class="NSCustomResource" key="IBUIDisabledBackgroundImage" id="681421952">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">select_btn_2M-out.png</string>
-								</object>
 								<reference key="IBUISelectedBackgroundImage" ref="1010664932"/>
 								<reference key="IBUINormalBackgroundImage" ref="678832278"/>
 								<reference key="IBUIFontDescription" ref="1034789263"/>
@@ -190,7 +186,6 @@
 								<string key="NSFrame">{{213, 85}, {107, 75}}</string>
 								<reference key="NSSuperview" ref="873135308"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -202,7 +197,6 @@
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="983922564"/>
 								<reference key="IBUIHighlightedBackgroundImage" ref="1010664932"/>
-								<reference key="IBUIDisabledBackgroundImage" ref="681421952"/>
 								<reference key="IBUISelectedBackgroundImage" ref="1010664932"/>
 								<reference key="IBUINormalBackgroundImage" ref="678832278"/>
 								<reference key="IBUIFontDescription" ref="1034789263"/>
@@ -293,10 +287,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="362281544"/>
 							<reference ref="712592176"/>
-							<reference ref="634792137"/>
 							<reference ref="211107697"/>
 							<reference ref="756404479"/>
 							<reference ref="230074745"/>
+							<reference ref="634792137"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -371,22 +365,22 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="3"/>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>HCButton</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="3"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -519,13 +513,11 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>select_btn.png</string>
-				<string>select_btn_2M-out.png</string>
 				<string>select_btn_over.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{80, 75}</string>
-				<string>{106, 75}</string>
 				<string>{80, 75}</string>
 			</object>
 		</object>

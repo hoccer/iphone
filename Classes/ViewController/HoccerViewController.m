@@ -48,6 +48,7 @@
 
 #import "StatusBarStates.h"
 #import "HoccerContentFactory.h"
+#import "ErrorViewController.h"
 
 #import "FileUploader.h"
 #import "NSData_Base64Extensions.h"
@@ -61,6 +62,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "MPMediaItemCollection-Utils.h"
 #import <AVFoundation/AVFoundation.h>
+#import "StartAnimationiPhoneViewController.h"
+
+
 
 @interface HoccerViewController ()
 @property (retain, nonatomic) ItemViewController *sendingItem;
@@ -75,6 +79,15 @@
 
 @implementation HoccerViewController
 
+typedef enum {
+    HOCCER_SENDING_SWIPE = 0,
+    HOCCER_SENDING_THROW,
+    HOCCER_RECEIVING_SWIPE,
+    HOCCER_RECEIVING_THROW,
+    HOCCER_LOADING_FROM_FILECACHE,
+    HOCCER_IDLING
+} HOCCER_STATUS;
+
 @synthesize delegate; 
 @synthesize helpViewController;
 @synthesize gestureInterpreter;
@@ -86,6 +99,7 @@
 @synthesize hoccabilityInfo;
 @synthesize linccer;
 @synthesize sendingItem;
+@synthesize errorViewController;
 
 + (void) initialize {
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
@@ -104,8 +118,10 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+    
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
-	
+
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
     [self clientNameChanged:nil];	
@@ -126,7 +142,11 @@
 	transferController.delegate = self;
 	
 	statusViewController.delegate = self;
-	
+    errorViewController = [[ErrorViewController alloc] initWithNibName:@"ErrorViewController" bundle:[NSBundle mainBundle]];
+    
+    hoccerStatus = HOCCER_IDLING;
+	failcounter = 0;
+    
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(networkChanged:) 
 												 name:@"NetworkConnectionChanged" 
@@ -163,6 +183,7 @@
     
     cipherNeeded = YES;
     encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -333,7 +354,7 @@
     }
     else {
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Pasteboard content could not be read", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Pasteboard failed" code:666 userInfo:userInfo];
         [self handleError:error];
 
@@ -551,6 +572,8 @@
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
     
+    hoccerStatus = HOCCER_RECEIVING_THROW;
+    
     self.sendingItem = nil;
 }
 
@@ -562,9 +585,9 @@
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select a client for auto key transmission", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-        [statusViewController setError:error];
+        [errorViewController showError:error forSeconds:6];
         return;
         
     }
@@ -590,6 +613,10 @@
 	
 	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
     
+    hoccerStatus = HOCCER_SENDING_THROW;
+    
+    [self showInfoHudForMode:HCTransferModeOneToMany];
+
     [desktopData removeHoccerController:item];
 }
 
@@ -621,6 +648,9 @@
 	[self willStartDownload:item];
 	
 	[linccer receiveWithMode:HCTransferModeOneToOne];
+    
+    hoccerStatus = HOCCER_RECEIVING_SWIPE;
+    
     self.sendingItem = nil;
 }
 
@@ -631,10 +661,9 @@
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please select a client for auto key transmission", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-        [statusViewController setError:error];
-        NSLog(@"Data on Desktop; %d",desktopData.count);
+        [errorViewController showError:error forSeconds:6];
         [self->desktopView reloadData];
         return;
 
@@ -651,6 +680,10 @@
     self.sendingItem = item;
     item.content.cryptor = [self currentCryptor];
 	item.isUpload = YES;
+    
+    hoccerStatus = HOCCER_SENDING_SWIPE;
+    
+    [self showInfoHudForMode:HCTransferModeOneToOne];
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
@@ -756,7 +789,7 @@
 #pragma mark TransferController Delegate
 
 - (void)transferController:(TransferController *)controller didFinishTransfer:(id)object {
-    
+    failcounter = 0;
     [self ensureViewIsHoccable];
     
 	if ([desktopData count] == 0) {
@@ -795,9 +828,16 @@
 }
 
 - (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
-	[self handleError: error];
-    [self hideHUD];
-    cipherNeeded = YES;
+//    if (failcounter < 3){
+//        [self retryLastAction];
+//        failcounter++;
+//    }
+//    else {
+        [self handleError: error];
+        [self hideHUD];
+        cipherNeeded = YES;
+        failcounter = 0;
+//    }
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
@@ -806,7 +846,7 @@
     if ([object isKindOfClass:[HoccerMusic class]]){
         HoccerMusic *tempMusic = (HoccerMusic *)object;
         if (tempMusic.thumb && tempMusic.data ==nil){
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Song could not be loaded", nil) forKey:NSLocalizedDescriptionKey];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
             [self handleError:error];
         }
@@ -826,11 +866,19 @@
 }
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
+    if (failcounter < 3 && error.code != 409){
+        [self retryLastAction];
+        failcounter ++;
+    }
+    else {
 	connectionEstablished = NO;
-	[self handleError:error];
+        [self handleError:error];
+        failcounter = 0;
+    }
 }
 
 - (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
+    failcounter = 0;
 	[self ensureViewIsHoccable];
 	
 	connectionEstablished = YES;
@@ -843,9 +891,10 @@
         ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
         item.content = hoccerContent;
         item.content.persist = YES;
-        
+        currentContent = hoccerContent;
         if ([hoccerContent transferer]) {
             for (id transferer in [hoccerContent transferers]) {
+                hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
                 [transferController addContentToTransferQueue: transferer];		
             }
         } else {
@@ -857,6 +906,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
+    failcounter = 0;
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
 
@@ -866,7 +916,7 @@
 }
 
 - (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client{
-    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The name or the public key of %@ has changed, please make shure you trust this client and be aware that this transaction could be attacked with a man-in-the-middle-attack",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"SECURITY PROBLEM: Public key changed. The name or the public key of %@ has changed, please make sure you trust this person. If you are not sure please stop transaction.",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [keyAlert show];
     [keyAlert release];
 }
@@ -941,7 +991,7 @@
     
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not find public key", nil) forKey:NSLocalizedDescriptionKey];
     NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-    [statusViewController setError:error];
+    [self handleError:error];
 
     
 }
@@ -958,21 +1008,24 @@
 
 - (void)handleError: (NSError *)error {
     
-    NSLog(@"ERROR %@ ",error);
 	if (error == nil) {
 		[statusViewController hideStatus];
 		return;
 	}
-	
+    
+    [infoHud hide:YES];
+
 	if ([[error domain] isEqual:NSURLErrorDomain]) {
 		[statusViewController hideStatus];
 		[self showNetworkError:error];
 	} else if ([[error domain] isEqual:@"HttpErrorDomain"] && 
 					[[[error userInfo] objectForKey:@"HttpClientErrorURL"] rangeOfString:@"environment"].location != NSNotFound) {
 		[statusViewController hideStatus];
-		[self showNetworkError:error];		
-	} else {
-		[statusViewController setError:error];
+		[self showNetworkError:error];	
+	} 
+    else {
+        [statusViewController hideStatus];
+		[errorViewController showError:error forSeconds:4];
 	}
 	
 
@@ -1013,8 +1066,10 @@
 	}
 	
 	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 4];
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 6];
 	
+    [infoHud hide:YES];
+    
 	connectionEstablished = NO;
 }
 
@@ -1025,16 +1080,19 @@
 	if (errorView == nil) {
 		NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ErrorView" owner:self options:nil];
 		errorView = [[views objectAtIndex:0] retain];
+        [errorView setFrame:desktopView.frame];
 		[desktopView insertSubview:errorView atIndex:0];
 	}
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
 	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"You must connect to a Wi-Fi or cellular data network to use Hoccer.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"NO Internet connection. Please connect to a Wi-Fi or another network.", nil);
 	} else {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"The Hoccer Server cannot response to your request. Try again leter.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"Bugger: The HOCCER service is kaputt. Our monkeys are informed. Please try again later.", nil);
 	}
-	
+    [self sizeLabel:((UILabel *)[errorView viewWithTag:1]) toRect:((UILabel *)[errorView viewWithTag:1]).frame];
+	[self sizeLabel:((UILabel *)[errorView viewWithTag:2]) toRect:((UILabel *)[errorView viewWithTag:2]).frame];
+    
 	[self hideHUD];
 }
 
@@ -1065,6 +1123,28 @@
 	[hud show:YES];
 }
 
+
+- (void)showInfoHudForMode:(NSString *)mode {
+    if (infoHud == nil) {
+		infoHud = [[MBProgressHUD alloc] initWithView:self.view];
+		[self.view addSubview:infoHud];
+	}
+	
+    if (mode == HCTransferModeOneToOne){
+        infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_swipe-in"]] autorelease];
+        infoHud.mode = MBProgressHUDModeCustomView;
+        infoHud.labelText = @"Swipe on the other phone!";
+        [infoHud show:YES];
+    }
+    else if (mode == HCTransferModeOneToMany){
+        infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_catch"]] autorelease];
+        infoHud.mode = MBProgressHUDModeCustomView;
+        infoHud.labelText = @"Catch with the other phones!";
+        [infoHud show:YES];
+    }
+
+
+    }
 - (void)hideHUD {
 	[hud hide:YES];
 }
@@ -1092,6 +1172,58 @@
     }
 }
 
+- (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect  {
+    
+    label.frame = labelRect;
+    
+    int fontSize = 300;
+    int minFontSize = 5;
+    
+    CGSize constraintSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
+    
+    do {
+        label.font = [UIFont boldSystemFontOfSize:fontSize];
+        
+        CGSize labelSize = [[label text] sizeWithFont:label.font
+                                    constrainedToSize:constraintSize
+                                        lineBreakMode:UILineBreakModeWordWrap];
+        
+        if( labelSize.height <= label.frame.size.height )
+            break;
+        
+        fontSize -= 2;
+        
+    } while (fontSize > minFontSize);
+}
+
+- (void) retryLastAction {
+    switch (hoccerStatus) {
+        case HOCCER_SENDING_SWIPE:
+                [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToOne];	
+            break;
+        case HOCCER_RECEIVING_SWIPE:
+                [linccer receiveWithMode:HCTransferModeOneToOne];
+            break;
+            
+        case HOCCER_SENDING_THROW:
+            [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToMany];	
+            break;
+            
+        case HOCCER_RECEIVING_THROW:
+            [linccer receiveWithMode:HCTransferModeOneToMany];
+            break;
+            
+        case HOCCER_LOADING_FROM_FILECACHE: {
+                for (id transferer in [currentContent transferers]) {
+                    hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
+                    [transferController addContentToTransferQueue: transferer];		
+                }
+            }
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)dealloc {
 	[hoccabilityInfo release];

@@ -111,11 +111,15 @@
 	statusRect = CGRectMake(0, 0, 768, 38);
 	statusViewController.view.frame = statusRect;
 	
+    [desktopView insertSubview:errorViewController.view atIndex:1];
+    CGRect errorRect = errorViewController.view.frame;
+	errorRect = CGRectMake(0, 0, 768, 38);
+	errorViewController.view.frame = errorRect;
     
     CGRect infoRect = CGRectMake(0, 0, 320, 400);
     infoViewController = [[GroupStatusViewController alloc] init];
 	infoViewController.view.frame = infoRect;
-	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
+	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
 	[infoViewController setState:[LocationState state]];
     infoViewController.delegate = self;
 	
@@ -642,7 +646,7 @@
     if (!infoViewController){
         infoViewController = [[GroupStatusViewController alloc] init];
         infoViewController.view.frame = CGRectMake(0, 0, 320, 400);
-        infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_large_hoccability.png"];
+        infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
         [infoViewController setState:[LocationState state]];
         infoViewController.delegate = self;
     }

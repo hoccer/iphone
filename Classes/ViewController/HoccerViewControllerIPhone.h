@@ -21,7 +21,7 @@
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
 	HoccerHistoryController *hoccerHistoryController;
-	
+    
 	BOOL isPopUpDisplayed;
 	
 	UITabBar *tabBar;

@@ -24,6 +24,7 @@
 
 #import "ConnectionStatusViewController.h"
 #import "ContentSelectController.h"
+#import "ErrorViewController.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -60,6 +61,7 @@
 	
 	ConnectionStatusViewController *statusViewController;
 	GroupStatusViewController *infoViewController;
+    ErrorViewController *errorViewController;
 
 	HttpClient *httpClient;
     
@@ -77,10 +79,13 @@
 	BOOL connectionEstablished, fileUploaded, shaked, cipherNeeded, clientSelected, encryptionEnabled;
     
 	MBProgressHUD *hud;
-	
+    MBProgressHUD *infoHud;
+    int hoccerStatus;
+	int failcounter;
+    
 	UIView *errorView;
     ItemViewController *sendingItem;
-    
+    HoccerContent *currentContent;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -90,6 +95,8 @@
 @property (nonatomic, retain) IBOutlet GroupStatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
+@property (nonatomic, retain) IBOutlet ErrorViewController *errorViewController;
+
 @property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;
@@ -124,6 +131,8 @@
 - (void)showHudWithMessage: (NSString *)message;
 - (void)hideHUD;
 
+- (void)showInfoHudForMode: (NSString *)mode;
+
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
 
@@ -132,6 +141,8 @@
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
 - (void)showMediaPicker;
+- (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 
+- (void)retryLastAction;
 @end
 
