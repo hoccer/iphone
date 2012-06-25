@@ -91,7 +91,7 @@
 	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
     
 
-	[desktopView insertSubview:statusViewController.view atIndex:0];
+	[desktopView insertSubview:statusViewController.view atIndex:2];
     CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = desktopView.frame.origin.y-19;
 	statusViewController.view.frame = statusRect;

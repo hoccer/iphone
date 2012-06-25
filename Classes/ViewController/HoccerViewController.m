@@ -601,9 +601,9 @@ typedef enum {
     
 	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
-	[statusViewController setState:[ConnectionState state]];
-	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
-	
+	[statusViewController setState:[SendingState state]];
+		[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
+    
 	UIView *view = [desktopData viewAtIndex:0];
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 	animation.duration = 0.2;
@@ -673,9 +673,9 @@ typedef enum {
 	[FeedbackProvider playSweepOut];
 	
 	[infoViewController hideViewAnimated:YES];
-	[statusViewController setState:[ConnectionState state]];
-	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
-	
+	[statusViewController setState:[SendingState state]];
+	[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
+    
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
     self.sendingItem = item;
     item.content.cryptor = [self currentCryptor];
@@ -718,8 +718,10 @@ typedef enum {
     }
     
 	[linccer cancelAllRequest];
-
-	if (self.sendingItem) {
+    if (![infoHud isHidden])
+        [infoHud hide:YES];
+	
+    if (self.sendingItem) {
 		self.sendingItem.viewOrigin = self.defaultOrigin;
         [desktopData addhoccerController:self.sendingItem];
         [desktopView reloadData];
@@ -1125,15 +1127,15 @@ typedef enum {
 
 
 - (void)showInfoHudForMode:(NSString *)mode {
-    if (infoHud == nil) {
-		infoHud = [[MBProgressHUD alloc] initWithView:self.view];
-		[self.view addSubview:infoHud];
-	}
+		
+    infoHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [infoHud setAllowsCancelation:YES];
+    [infoHud setDelegate:self];
 	
     if (mode == HCTransferModeOneToOne){
         infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_swipe-in"]] autorelease];
         infoHud.mode = MBProgressHUDModeCustomView;
-        infoHud.labelText = @"Swipe on the other phone!";
+        infoHud.labelText = @"Swipe on the\nother phone!";
         [infoHud show:YES];
     }
     else if (mode == HCTransferModeOneToMany){
@@ -1145,6 +1147,15 @@ typedef enum {
 
 
     }
+
+- (void)hudDidCancel {
+    [statusViewController cancelAction:nil];
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    
+}
+
 - (void)hideHUD {
 	[hud hide:YES];
 }

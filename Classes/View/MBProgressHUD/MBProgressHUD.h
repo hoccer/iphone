@@ -6,7 +6,7 @@
 
 // This code is distributed under the terms and conditions of the MIT license. 
 
-// Copyright (c) 2011 Matej Bukovinski
+// Copyright (c) 2009 Matej Bukovinski
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,8 +28,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MBProgressHUDDelegate;
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 typedef enum {
@@ -47,6 +45,41 @@ typedef enum {
     /** Opacity + scale animation */
     MBProgressHUDAnimationZoom
 } MBProgressHUDAnimation;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+@class MBProgressHUD;
+
+@protocol MBProgressHUDDelegate <NSObject>
+
+@required
+
+/** 
+ * A callback function that is called after the HUD was fully hidden from the screen. 
+ */
+- (void)hudWasHidden:(MBProgressHUD *)hud;
+
+@optional
+/** 
+ * A callback function that is called after the HUD get's cancelled. 
+ */
+- (void)hudDidCancel;
+@end
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A progress view for showing definite progress by filling up a circle (similar to the indicator for building in xcode).
+ */
+@interface MBRoundProgressView : UIProgressView {}
+
+/**
+ * Create a 37 by 37 pixel indicator. 
+ * This is the same size as used by the larger UIActivityIndicatorView.
+ */
+- (id)initWithDefaultSize;
+
+@end
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -84,10 +117,6 @@ typedef enum {
 	float width;
 	float height;
 	
-	float margin;
-	
-	BOOL dimBackground;
-	
 	BOOL taskInProgress;
 	float graceTime;
 	float minShowTime;
@@ -114,10 +143,19 @@ typedef enum {
 	UIView *customView;
 	
 	CGAffineTransform rotationTransform;
+	
+	//public
+	BOOL dimBackground, drawStroke, allowsCancelation;
+	UIViewAnimationTransition animationTransition;
+	
+	//private
+	BOOL _firstLayout;
+	UIView *_backgroundDimmingView;
+	UIButton *_cancelButton;
 }
 
 /**
- * Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
+ * Creates a new hud, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
  * 
  * @param view The view that the HUD will be added to
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
@@ -210,21 +248,9 @@ typedef enum {
 @property (assign) float xOffset;
 
 /** 
- * The y-ayis offset of the HUD relative to the centre of the superview. 
+ *The y-ayis offset of the HUD relative to the centre of the superview. 
  */
 @property (assign) float yOffset;
-
-/**
- * The amounth of space between the HUD edge and the HUD elements (labels, indicators or custom views).
- *
- * Defaults to 20.0
- */
-@property (assign) float margin;
-
-/** 
- * Cover the HUD background view with a radial gradient. 
- */
-@property (assign) BOOL dimBackground;
 
 /*
  * Grace period is the time (in seconds) that the invoked method may be run without 
@@ -276,16 +302,32 @@ typedef enum {
  */
 @property (assign) float progress;
 
+/** 
+ * Makes the background dark when shown 
+ */
+@property (assign) BOOL dimBackground;
+
+/** 
+ * Draws a pretty white line around the HUD window
+ */
+@property (assign) BOOL drawStroke;
+
+/** 
+ * Shows a cancel button that allows a task to be stopped before completion 
+ * Will call the delegate's hudDidCancel, and remove the HUD (as if hide: was sent), when the button is pressed
+ */
+@property (assign) BOOL allowsCancelation;
+
+/** 
+ * The kind of UIViewAnimationTransition when the title/subtitle or custom view get updated, NOT used when the HUD appears or disappears
+ * Defaults to UIViewAnimationTransitionFlipFromRight but will only animate if show: is sent with YES
+ */
+@property (assign) UIViewAnimationTransition animationTransition;
 
 /** 
  * Display the HUD. You need to make sure that the main thread completes its run loop soon after this method call so
  * the user interface can be updated. Call this method when your task is already set-up to be executed in a new thread
  * (e.g., when using something like NSOperation or calling an asynchronous call like NSUrlRequest).
- *
- * If you need to perform a blocking thask on the main thread, you can try spining the run loop imeidiately after calling this 
- * method by using:
- *
- * [[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantPast]];
  *
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
  * animations while disappearing.
@@ -293,23 +335,13 @@ typedef enum {
 - (void)show:(BOOL)animated;
 
 /** 
- * Hide the HUD. This still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to
+ * Hide the HUD, this still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to
  * hide the HUD when your task completes.
  *
  * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
  * animations while disappearing.
  */
 - (void)hide:(BOOL)animated;
-
-/** 
- * Hide the HUD after a delay. This still calls the hudWasHidden delegate. This is the counterpart of the hide: method. Use it to
- * hide the HUD when your task completes.
- *
- * @param animated If set to YES the HUD will disappear using the current animationType. If set to NO the HUD will not use
- * animations while disappearing.
- * @param delay Delay in secons until the HUD is hidden.
- */
-- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay;
 
 /** 
  * Shows the HUD while a background task is executing in a new thread, then hides the HUD.
@@ -326,42 +358,3 @@ typedef enum {
 - (void)showWhileExecuting:(SEL)method onTarget:(id)target withObject:(id)object animated:(BOOL)animated;
 
 @end
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-@protocol MBProgressHUDDelegate <NSObject>
-
-@optional
-
-/** 
- * Called after the HUD was fully hidden from the screen. 
- */
-- (void)hudWasHidden:(MBProgressHUD *)hud;
-
-/**
- * @deprecated use hudWasHidden: instead
- * @see hudWasHidden:
- */
-- (void)hudWasHidden __attribute__ ((deprecated)); 
-
-@end
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * A progress view for showing definite progress by filling up a circle (pie chart).
- */
-@interface MBRoundProgressView : UIView {
-@private
-    float _progress;
-}
-
-/**
- * Progress (0.0 to 1.0)
- */
-@property (nonatomic, assign) float progress;
-
-@end
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-

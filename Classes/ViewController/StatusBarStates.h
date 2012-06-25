@@ -43,6 +43,10 @@
 {}
 @end
 
+@interface SendingState : StatusViewControllerState
+{}
+@end
+
 @interface SuccessState : StatusViewControllerState
 {}
 @end

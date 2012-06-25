@@ -24,6 +24,7 @@
 @property (assign, nonatomic) id <ConnectionStatusViewControllerDelegate> delegate;
 
 - (void)setUpdate: (NSString *)update;
+- (void)setUpdateSending: (NSString *)update;
 - (void)setProgressUpdate: (CGFloat) percentage;
 
 @end

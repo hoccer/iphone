@@ -47,7 +47,7 @@
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
 						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate, 
-                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate> 
+                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate,MBProgressHUDDelegate> 
 {
 
 	IBOutlet DesktopView *desktopView;

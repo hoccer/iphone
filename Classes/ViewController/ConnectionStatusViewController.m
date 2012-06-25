@@ -21,6 +21,13 @@
 	[self setState: [[[ConnectionState alloc] init] autorelease]];
 }
 
+- (void)setUpdateSending: (NSString *)update {
+	statusLabel.text = update;
+	
+	[self calculateHightForText:statusLabel.text];
+	[self setState: [[[SendingState alloc] init] autorelease]];
+}
+
 - (void)setProgressUpdate: (CGFloat) percentage {
 	progressView.progress = percentage;
 	statusLabel.text = @"Transferring";

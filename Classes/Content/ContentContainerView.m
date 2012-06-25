@@ -134,10 +134,10 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	HUD.mode = MBProgressHUDModeCustomView;
 
 	HUD.labelText = @"Saved";
-	
+	HUD.minShowTime = 1;
 
     [HUD show:YES];
-    [HUD hide:YES afterDelay:1];
+    [HUD hide:YES];
 	[HUD autorelease];
 }
 

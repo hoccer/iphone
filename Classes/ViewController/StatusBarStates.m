@@ -54,9 +54,27 @@
 	self = [super init];
 	if (self != nil) {		
 		statusLabel = NO;
-		cancelButton = NO;		
-		recoverySuggestion = NO;
+        progressView = YES;
+		activitySpinner = YES;
+		cancelButton = NO;
+		recoverySuggestion = YES;
+		hintButton = YES;
 	}
+	return self;
+}
+
+@end
+
+@implementation SendingState 
+
+- (id) init {
+	self = [super init];
+	if (self != nil) {
+		statusLabel = NO;
+        recoverySuggestion = YES;
+		cancelButton = YES;		
+        progressView = YES;
+    }
 	return self;
 }
 

@@ -146,7 +146,7 @@
     if (view == nil){
         [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
     }
-    self.view.songLabel.text = @"Transferring...";
+    self.view.songLabel.text = @"Untitled Song";
     
     if (thumbDownloader.state == TransferableStateTransferred) {
         NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
