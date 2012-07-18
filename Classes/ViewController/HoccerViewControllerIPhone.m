@@ -24,7 +24,7 @@
 #import "CustomNavigationBar.h"
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
-
+#import "UIBarButtonItem+CustomImageButton.h"
 
 
 @interface HoccerViewControllerIPhone ()
@@ -225,10 +225,9 @@
 	[self showPopOver:self.helpViewController];
 	
 	navigationItem.title = NSLocalizedString(@"Settings", nil);
-	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-																			target:self action:@selector(cancelPopOver)];
-	navigationItem.rightBarButtonItem = cancel;
-	[cancel release];
+	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    [doneButton release];
 	navigationItem.titleView = nil;
     navigationItem.leftBarButtonItem = nil;
 }
@@ -237,14 +236,16 @@
 	[self showPopOver: self.hoccerHistoryController];
 	
 	navigationItem.title = NSLocalizedString(@"History", nil);
-	UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-																			target:self action:@selector(cancelPopOver)];
-	navigationItem.rightBarButtonItem = cancel;
-	[cancel release];
-    UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Edit", nil) style:UIBarButtonItemStyleDone target:self.hoccerHistoryController action:@selector(enterCustomEditMode:)];
-	navigationItem.leftBarButtonItem = delete;
-	[delete release];
-
+	
+        UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    [doneButton release];
+    
+    UIBarButtonItem *editButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_edit"] target:self.hoccerHistoryController action:@selector(enterCustomEditMode:)];
+    [self.navigationItem setLeftBarButtonItem:editButton];
+    [editButton release];
+    
+    
 	navigationItem.titleView = nil;
 }
 

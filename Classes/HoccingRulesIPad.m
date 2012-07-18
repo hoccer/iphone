@@ -13,13 +13,12 @@
 
 
 @implementation HoccingRulesIPad
-
 - (BOOL)hoccerViewControllerMayThrow: (HoccerViewController *)controller {
 	if (!controller.linccer.isRegistered) {
 		return NO;
 	}
 	
-	if (![controller.linccer isLinccing]) {
+	if ([controller.desktopData count] == 1 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -32,7 +31,7 @@
 		return NO;
 	}
     
-	if (![controller.linccer isLinccing]) {
+	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -44,7 +43,7 @@
 		return NO;
 	}
 	
-	if (![controller.linccer isLinccing]) {
+	if ([controller.desktopData count] == 0 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -56,7 +55,7 @@
 		return NO;
 	}
 	
-	if ([controller.desktopData count] > 1 && ![controller.linccer isLinccing]) {
+	if ([controller.desktopData count] == 1 && ![controller.linccer isLinccing]) {
 		return YES;
 	}
 	
@@ -64,6 +63,9 @@
 }
 
 - (BOOL)hoccerViewControllerMayAddAnotherView: (HoccerViewController *)controller {	
+	if ([controller.desktopData count] == 1) {
+		return NO;
+	}
 	
 	return YES;
 }

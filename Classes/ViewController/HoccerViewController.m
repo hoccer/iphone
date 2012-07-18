@@ -354,7 +354,7 @@ typedef enum {
     }
     else {
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Pasteboard failed" code:666 userInfo:userInfo];
         [self handleError:error];
 
@@ -585,9 +585,9 @@ typedef enum {
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-        [errorViewController showError:error forSeconds:6];
+        [errorViewController showError:error forSeconds:10];
         return;
         
     }
@@ -661,9 +661,9 @@ typedef enum {
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
-        [errorViewController showError:error forSeconds:6];
+        [errorViewController showError:error forSeconds:10];
         [self->desktopView reloadData];
         return;
 
@@ -848,7 +848,7 @@ typedef enum {
     if ([object isKindOfClass:[HoccerMusic class]]){
         HoccerMusic *tempMusic = (HoccerMusic *)object;
         if (tempMusic.thumb && tempMusic.data ==nil){
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Oooops: The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
             [self handleError:error];
         }
@@ -1015,7 +1015,9 @@ typedef enum {
 		return;
 	}
     
-    [infoHud hide:YES];
+   	if (!infoHud.hidden){
+        [infoHud hide:YES];
+    }
 
 	if ([[error domain] isEqual:NSURLErrorDomain]) {
 		[statusViewController hideStatus];
@@ -1027,7 +1029,7 @@ typedef enum {
 	} 
     else {
         [statusViewController hideStatus];
-		[errorViewController showError:error forSeconds:4];
+		[errorViewController showError:error forSeconds:10];
 	}
 	
 
@@ -1068,10 +1070,12 @@ typedef enum {
 	}
 	
 	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 6];
-	
-    [infoHud hide:YES];
-    
+	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 10];
+	if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
+        if (!infoHud.isHidden){
+        [infoHud hide:YES];
+        }
+    }
 	connectionEstablished = NO;
 }
 

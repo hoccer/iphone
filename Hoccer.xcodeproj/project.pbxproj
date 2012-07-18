@@ -470,6 +470,15 @@
 		B44363B813FD2639000FBA09 /* Play_Video_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363B413FD2639000FBA09 /* Play_Video_Button@2x.png */; };
 		B44363C613FD49C7000FBA09 /* container_contact_contacticon.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363C413FD49C7000FBA09 /* container_contact_contacticon.png */; };
 		B44363C713FD49C7000FBA09 /* container_contact_contacticon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B44363C513FD49C7000FBA09 /* container_contact_contacticon@2x.png */; };
+		B4455FD615B6E37A0082763A /* errorbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FD515B6E37A0082763A /* errorbar_bg@2x.png */; };
+		B4455FDE15B6ED8E0082763A /* nav_bar_btn_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FD815B6ED8E0082763A /* nav_bar_btn_delete.png */; };
+		B4455FDF15B6ED8E0082763A /* nav_bar_btn_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FD915B6ED8E0082763A /* nav_bar_btn_delete@2x.png */; };
+		B4455FE015B6ED8E0082763A /* nav_bar_btn_done.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FDA15B6ED8E0082763A /* nav_bar_btn_done.png */; };
+		B4455FE115B6ED8E0082763A /* nav_bar_btn_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FDB15B6ED8E0082763A /* nav_bar_btn_done@2x.png */; };
+		B4455FE215B6ED8E0082763A /* nav_bar_btn_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FDC15B6ED8E0082763A /* nav_bar_btn_edit.png */; };
+		B4455FE315B6ED8E0082763A /* nav_bar_btn_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4455FDD15B6ED8E0082763A /* nav_bar_btn_edit@2x.png */; };
+		B4455FE615B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455FE515B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m */; };
+		B4455FE715B6EFD00082763A /* UIBarButtonItem+CustomImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4455FE515B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m */; };
 		B44816AE1598B4850053FA3B /* CloseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B44816AD1598B4850053FA3B /* CloseButton.png */; };
 		B44816B11598BB660053FA3B /* CloseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B44816B01598BB660053FA3B /* CloseButton@2x.png */; };
 		B44B9C4E146446C0007A88E4 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B44B9C4D146446C0007A88E4 /* Default-Portrait~ipad.png */; };
@@ -795,7 +804,7 @@
 		22638C1F11B51E880024AA7E /* HoccerHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHistoryController.h; sourceTree = "<group>"; };
 		22638C2011B51E880024AA7E /* HoccerHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHistoryController.m; sourceTree = "<group>"; };
 		22638C2111B51E880024AA7E /* HoccerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewController.h; sourceTree = "<group>"; };
-		22638C2211B51E880024AA7E /* HoccerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewController.m; sourceTree = "<group>"; };
+		22638C2211B51E880024AA7E /* HoccerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HoccerViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22638C2311B51E880024AA7E /* HoccerViewControlleriPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewControlleriPad.h; sourceTree = "<group>"; };
 		22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerViewControlleriPad.m; sourceTree = "<group>"; };
 		22638C2511B51E880024AA7E /* HoccerViewControllerIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerViewControllerIPhone.h; sourceTree = "<group>"; };
@@ -1054,6 +1063,15 @@
 		B44363B413FD2639000FBA09 /* Play_Video_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play_Video_Button@2x.png"; sourceTree = "<group>"; };
 		B44363C413FD49C7000FBA09 /* container_contact_contacticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container_contact_contacticon.png; sourceTree = "<group>"; };
 		B44363C513FD49C7000FBA09 /* container_contact_contacticon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_contact_contacticon@2x.png"; sourceTree = "<group>"; };
+		B4455FD515B6E37A0082763A /* errorbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "errorbar_bg@2x.png"; sourceTree = "<group>"; };
+		B4455FD815B6ED8E0082763A /* nav_bar_btn_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_delete.png; sourceTree = "<group>"; };
+		B4455FD915B6ED8E0082763A /* nav_bar_btn_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_delete@2x.png"; sourceTree = "<group>"; };
+		B4455FDA15B6ED8E0082763A /* nav_bar_btn_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_done.png; sourceTree = "<group>"; };
+		B4455FDB15B6ED8E0082763A /* nav_bar_btn_done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_done@2x.png"; sourceTree = "<group>"; };
+		B4455FDC15B6ED8E0082763A /* nav_bar_btn_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_edit.png; sourceTree = "<group>"; };
+		B4455FDD15B6ED8E0082763A /* nav_bar_btn_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_edit@2x.png"; sourceTree = "<group>"; };
+		B4455FE415B6EDA80082763A /* UIBarButtonItem+CustomImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CustomImageButton.h"; sourceTree = "<group>"; };
+		B4455FE515B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CustomImageButton.m"; sourceTree = "<group>"; };
 		B44816AD1598B4850053FA3B /* CloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseButton.png; sourceTree = "<group>"; };
 		B44816B01598BB660053FA3B /* CloseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloseButton@2x.png"; sourceTree = "<group>"; };
 		B44B9C4D146446C0007A88E4 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -1531,6 +1549,8 @@
 				22638BB711B51DC50024AA7E /* MBProgressHUD */,
 				22638B9F11B51DC50024AA7E /* CustomTabBar.h */,
 				22638BA011B51DC50024AA7E /* CustomTabBar.m */,
+				B4455FE415B6EDA80082763A /* UIBarButtonItem+CustomImageButton.h */,
+				B4455FE515B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m */,
 				B47668CB153C379E00EE5574 /* KSCustomPopoverBackgroundView.h */,
 				B47668CC153C379E00EE5574 /* KSCustomPopoverBackgroundView.m */,
 				229B92A01208660000120752 /* HCButton.h */,
@@ -1941,6 +1961,12 @@
 				2292543611889709008B4FFB /* nav_bar_content_btn.png */,
 				2292543711889709008B4FFB /* nav_bar_history_btn.png */,
 				2292543811889709008B4FFB /* nav_bar_settings_btn.png */,
+				B4455FD815B6ED8E0082763A /* nav_bar_btn_delete.png */,
+				B4455FD915B6ED8E0082763A /* nav_bar_btn_delete@2x.png */,
+				B4455FDA15B6ED8E0082763A /* nav_bar_btn_done.png */,
+				B4455FDB15B6ED8E0082763A /* nav_bar_btn_done@2x.png */,
+				B4455FDC15B6ED8E0082763A /* nav_bar_btn_edit.png */,
+				B4455FDD15B6ED8E0082763A /* nav_bar_btn_edit@2x.png */,
 			);
 			name = navbar;
 			path = Resources/assets/navbar;
@@ -2308,6 +2334,7 @@
 				B4201E8F158A138600DD9F72 /* errorbar_icon@2x.png */,
 				B4201E90158A138600DD9F72 /* errorbar_icon.png */,
 				B4201E8B158A12B600DD9F72 /* errorbar_bg.png */,
+				B4455FD515B6E37A0082763A /* errorbar_bg@2x.png */,
 			);
 			name = errorview;
 			path = Resources/assets/errorview;
@@ -3019,6 +3046,13 @@
 				B467C3CC1590C44400F59065 /* lochblech_bg_alone@2x.png in Resources */,
 				B44816AE1598B4850053FA3B /* CloseButton.png in Resources */,
 				B44816B11598BB660053FA3B /* CloseButton@2x.png in Resources */,
+				B4455FD615B6E37A0082763A /* errorbar_bg@2x.png in Resources */,
+				B4455FDE15B6ED8E0082763A /* nav_bar_btn_delete.png in Resources */,
+				B4455FDF15B6ED8E0082763A /* nav_bar_btn_delete@2x.png in Resources */,
+				B4455FE015B6ED8E0082763A /* nav_bar_btn_done.png in Resources */,
+				B4455FE115B6ED8E0082763A /* nav_bar_btn_done@2x.png in Resources */,
+				B4455FE215B6ED8E0082763A /* nav_bar_btn_edit.png in Resources */,
+				B4455FE315B6ED8E0082763A /* nav_bar_btn_edit@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3310,6 +3344,7 @@
 				B4201E87158A086000DD9F72 /* ErrorViewController.m in Sources */,
 				B4201E98158A3B6300DD9F72 /* CustomProgressView.m in Sources */,
 				B49381FA158F35C0000391B5 /* StartAnimationiPhoneViewController.m in Sources */,
+				B4455FE715B6EFD00082763A /* UIBarButtonItem+CustomImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3412,6 +3447,7 @@
 				229B92F31208738500120752 /* HCButton.m in Sources */,
 				ADC28C07121962C900E3AD11 /* HoccerHistoryController.m in Sources */,
 				E12748B7135DE75800AA1829 /* GroupStatusViewController.m in Sources */,
+				B4455FE615B6EDA80082763A /* UIBarButtonItem+CustomImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

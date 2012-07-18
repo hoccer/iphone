@@ -68,11 +68,12 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
-    	
-    startAnimation = [[StartAnimationiPhoneViewController alloc] initWithNibName:@"StartAnimationiPhoneViewController" bundle:[NSBundle mainBundle]];
-    [startAnimation.view setFrame:CGRectMake(0, 19, 320, 460)];
-    [window addSubview:startAnimation.view];
     
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        startAnimation = [[StartAnimationiPhoneViewController alloc] initWithNibName:@"StartAnimationiPhoneViewController" bundle:[NSBundle mainBundle]];
+        [startAnimation.view setFrame:CGRectMake(0, 19, 320, 460)];
+        [window addSubview:startAnimation.view];
+    }
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
 		NSLog(@"could not create reachability ref");

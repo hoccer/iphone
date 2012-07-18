@@ -14,6 +14,7 @@
 @synthesize titleLabel,messageLabel;
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"errorbar_bg"]];
 	self.view.hidden = YES;	
 }
 
