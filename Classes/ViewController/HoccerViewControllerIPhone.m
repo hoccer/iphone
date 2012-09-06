@@ -90,7 +90,7 @@
     if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]){
         [tabBar setSelectedImageTintColor:[UIColor lightGrayColor]];
         [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_active"]];
-        NSMutableArray *styledItems = [[NSMutableArray arrayWithCapacity:3] autorelease];
+        NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:3];
         
         UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
         [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];

@@ -325,7 +325,7 @@ typedef enum {
     else {
         mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
     }
-    mediaChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    mediaChooser.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     mediaChooser.tag = 1;
     [mediaChooser showInView:self.view];
     [mediaChooser release];
