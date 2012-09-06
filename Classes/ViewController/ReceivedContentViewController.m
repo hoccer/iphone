@@ -13,6 +13,7 @@
 #import "HoccerVideo.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "UIBarButtonItem+CustomImageButton.h"
+#import "HoccerAppDelegate.h"
 
 @interface ReceivedContentViewController () 
 - (void)hideReceivedContentView;
@@ -58,13 +59,13 @@
     if (hoccerContent.descriptionOfSaveButton != nil){
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-        [actionSheet showInView:super.view];
+        [actionSheet showInView:self.view];
         [actionSheet release];
     }
     else {
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil), nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-        [actionSheet showInView:super.view];
+        [actionSheet showInView:self.view];
         [actionSheet release];
     }
 }
