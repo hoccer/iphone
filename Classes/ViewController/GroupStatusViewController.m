@@ -251,6 +251,14 @@
     return view;
 }
 
+- (CGSize)contentSizeForViewInPopover {
+    if (self.group.count > 0){
+        return CGSizeMake(320, (self.group.count * 44) + 20);
+    }
+    else {
+        return CGSizeMake(320, 64);
+    }
+}
 
 - (void)viewDidUnload {
     [self setTableView:nil];
