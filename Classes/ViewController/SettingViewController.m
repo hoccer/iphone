@@ -51,7 +51,8 @@
     self.tableView.backgroundView = tbBgView;
 	self.tableView.backgroundColor = [UIColor clearColor];
 
-	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];	
+	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];
+
 	self.tableView.tableHeaderView = self.hoccerSettingsLogo;
 	self.hoccerSettingsLogo = nil;
 		
