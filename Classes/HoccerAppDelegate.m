@@ -107,18 +107,20 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         }
     }
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
-        [[RSA sharedInstance] generateKeyPairKeys];
-    }
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
+//        [[RSA sharedInstance] generateKeyPairKeys];
+//    }
     
   //  [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound)];
     
     NSString *reqSysVer = @"5.0";
     NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
     if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending) {
-        UIImage *backButton = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 12)];
+        UIImage *backButton = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
         [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"hoccer_bar"] forBarMetrics:UIBarMetricsDefault];
+        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
+            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"hoccer_bar"] forBarMetrics:UIBarMetricsDefault];
+        }
     }
 
     return YES;

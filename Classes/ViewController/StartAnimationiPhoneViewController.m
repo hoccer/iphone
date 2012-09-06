@@ -29,7 +29,7 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self performSelector:@selector(appear:finished:context:) withObject:nil afterDelay:0.5 ];
+    [self performSelector:@selector(appear:finished:context:) withObject:nil afterDelay:0.5];
 }
 
 - (void)appear:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {

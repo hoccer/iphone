@@ -64,8 +64,6 @@
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
-	navigationController.navigationBar.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"hoccer_bar.png"]];
-	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar"]] autorelease];
 
@@ -92,19 +90,21 @@
     if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]){
         [tabBar setSelectedImageTintColor:[UIColor lightGrayColor]];
         [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_active"]];
-        NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:3];
+        NSMutableArray *styledItems = [[NSMutableArray arrayWithCapacity:3] autorelease];
         
         UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
         [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];
         [styledItems addObject:content];
+        [content release];
         UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:@"History" image:nil tag:2];
         [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
         [styledItems addObject:history];
+        [history release];
         UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:3];
         [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
         [styledItems addObject:settings];
+        [settings release];
         [tabBar setItems:styledItems];
-        [styledItems release];
     }
     
 
