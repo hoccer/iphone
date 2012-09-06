@@ -56,16 +56,19 @@
 
 
 - (void)showActionSheet {
+    HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
+    
     if (hoccerContent.descriptionOfSaveButton != nil){
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-        [actionSheet showInView:self.view];
+
+        [actionSheet showInView:appDelegate.viewController.view];
         [actionSheet release];
     }
     else {
         UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil), nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-        [actionSheet showInView:self.view];
+        [actionSheet showInView:appDelegate.viewController.view];
         [actionSheet release];
     }
 }
