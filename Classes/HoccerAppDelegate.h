@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.09.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Hoccer GmbH 2009. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

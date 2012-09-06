@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.09.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Hoccer GmbH 2009. All rights reserved.
 //
 
 #import <YAJLiOS/YAJL.h>
@@ -21,6 +21,7 @@
 #import "NSString+Regexp.h"
 #import "NSFileManager+FileHelper.h"
 #import "RSA.h"
+#import "NSData_Base64Extensions.h"
 
 @interface HoccerAppDelegate ()
 - (void)userNeedToAgreeToTermsOfUse;
@@ -68,7 +69,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];
-    
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         startAnimation = [[StartAnimationiPhoneViewController alloc] initWithNibName:@"StartAnimationiPhoneViewController" bundle:[NSBundle mainBundle]];
         [startAnimation.view setFrame:CGRectMake(0, 19, 320, 460)];
@@ -94,11 +94,25 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    /*
+    [TestFlight takeOff:@"67055e64e1b65aed68c6fa79120286a3_OTg4NjIwMTItMDMtMDcgMDU6MDk6NDYuOTM5Mzc0"];
+
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]){
+        
+        if ([[[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"hoccer"]) {
+            return [self handleHoccerURL:[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
+        }
+        
+        if ([[[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"file"]) {
+            return [self handleFileURL:[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
+        }
+    }
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"renewPubKey"]){
         [[RSA sharedInstance] generateKeyPairKeys];
     }
-    */
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound)];
+
     return YES;
 }
 
@@ -144,6 +158,21 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     return YES;
 }
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    NSLog(@"devToken=%@",[deviceToken asBase64EncodedString]);
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",[deviceToken asBase64EncodedString]] forKey:@"apnToken"];
+    
+}
+
+
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSLog(@"Error in registration. Error: %@", err);
+}
+
+
      
 - (void)applicationDidBecomeActive: (UIApplication *)application {
     [viewController.linccer reactivate];

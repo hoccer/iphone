@@ -173,8 +173,9 @@ typedef enum {
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(noPublicKey:) 
-                                                 name:@"noPublicKey" 
+                                                 name:@"noPublicKey"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTextInputVC:) name:@"showTextInputVC" object:nil];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
@@ -354,7 +355,7 @@ typedef enum {
     }
     else {
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Pasteboard failed" code:666 userInfo:userInfo];
         [self handleError:error];
 
@@ -585,7 +586,7 @@ typedef enum {
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [errorViewController showError:error forSeconds:10];
         return;
@@ -661,7 +662,7 @@ typedef enum {
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [errorViewController showError:error forSeconds:10];
         [self->desktopView reloadData];
@@ -848,7 +849,7 @@ typedef enum {
     if ([object isKindOfClass:[HoccerMusic class]]){
         HoccerMusic *tempMusic = (HoccerMusic *)object;
         if (tempMusic.thumb && tempMusic.data ==nil){
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
             [self handleError:error];
         }
@@ -1002,10 +1003,13 @@ typedef enum {
 #pragma mark -
 #pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
-	NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys: 
-							 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
-	
-	return content;
+    if (item){
+        NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
+        
+        return content;
+    }
+    return nil;
 }
 
 - (void)handleError: (NSError *)error {
@@ -1015,8 +1019,11 @@ typedef enum {
 		return;
 	}
     
-   	if (!infoHud.hidden){
-        [infoHud hide:YES];
+   	if (infoHud && [infoHud isKindOfClass:[MBProgressHUD class]]) {
+        
+        if (!infoHud.isHidden){
+            [infoHud hide:YES];
+        }
     }
 
 	if ([[error domain] isEqual:NSURLErrorDomain]) {
@@ -1068,12 +1075,19 @@ typedef enum {
 	} else {
 		[item updateView];
 	}
-	
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 10];
-	if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
-        if (!infoHud.isHidden){
-        [infoHud hide:YES];
+    if (hoccerStatus == 0){
+        if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
+            if (!infoHud.isHidden){
+                @try {
+                    [infoHud hide:YES];
+
+                }
+                @catch (NSException *exception) {
+                    NSLog(@"Error: %@",exception);
+                }
+            }
         }
     }
 	connectionEstablished = NO;
@@ -1214,16 +1228,19 @@ typedef enum {
 - (void) retryLastAction {
     switch (hoccerStatus) {
         case HOCCER_SENDING_SWIPE:
-                [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToOne];	
+            if (self.sendingItem){
+                [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToOne];
+            }
             break;
         case HOCCER_RECEIVING_SWIPE:
                 [linccer receiveWithMode:HCTransferModeOneToOne];
             break;
             
         case HOCCER_SENDING_THROW:
-            [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToMany];	
+            if (self.sendingItem){
+                [linccer send:[self dictionaryToSend: self.sendingItem] withMode:HCTransferModeOneToMany];
+            }
             break;
-            
         case HOCCER_RECEIVING_THROW:
             [linccer receiveWithMode:HCTransferModeOneToMany];
             break;
@@ -1238,6 +1255,12 @@ typedef enum {
         default:
             break;
     }
+}
+
+- (void)showTextInputVC:(NSNotification *)notification {
+    TextInputViewController *inputVC = (TextInputViewController *)notification.object;
+    [inputVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:inputVC animated:YES];
 }
 
 - (void)dealloc {

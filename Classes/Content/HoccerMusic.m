@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 09.09.09.
-//  Copyright 2009 ART+COM. All rights reserved.
+//  Copyright 2009 Hoccer GmbH. All rights reserved.
 //
 
 #import "HoccerMusic.h"
@@ -100,7 +100,7 @@
         switch (exportStatus) {
             case AVAssetExportSessionStatusFailed: {
                 // log error to text view
-                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Sorry! The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
                 NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
                 [self audioExporterFailed:error];
                 break;

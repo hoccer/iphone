@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 06.10.09.
-//  Copyright 2009 ART+COM. All rights reserved.
+//  Copyright 2009 Hoccer GmbH. All rights reserved.
 //
 
 #import "VcardWriterTests.h"
@@ -88,7 +88,7 @@
 	ABRecordRef person = ABPersonCreate();
 	ABRecordSetValue(person, kABPersonFirstNameProperty, @"Foo", &errorRef);
 	ABRecordSetValue(person, kABPersonLastNameProperty, @"Bar", &errorRef);
-	ABRecordSetValue(person, kABPersonOrganizationProperty, @"Art+Com", &errorRef);
+	ABRecordSetValue(person, kABPersonOrganizationProperty, @"Hoccer GmbH", &errorRef);
 	ABRecordSetValue(person, kABPersonJobTitleProperty, @"Developer", &errorRef);
 	
 	
@@ -109,7 +109,7 @@
 	
 	NSString *vcardString = [[[NSString  alloc] initWithData:vcardData encoding:NSUTF8StringEncoding]  autorelease];
 	
-	GHAssertEqualStrings(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nORG:Art+Com\r\nTEL;TYPE=MOBILE:555\r\nTEL;TYPE=HOME:666\r\nEMAIL;TYPE=WORK:foo@artcom.de\r\nEND:VCARD", 
+	GHAssertEqualStrings(vcardString, @"BEGIN:VCARD\r\nVERSION:3.0\r\nFN:Foo Bar\r\nORG:Hoccer GmbH\r\nTEL;TYPE=MOBILE:555\r\nTEL;TYPE=HOME:666\r\nEMAIL;TYPE=WORK:foo@artcom.de\r\nEND:VCARD", 
 						 @"vcards should match %@", vcardString);
 	
 	CFRelease(person);	

@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 09.09.09.
-//  Copyright 2009 ART+COM. All rights reserved.
+//  Copyright 2009 Hoccer GmbH. All rights reserved.
 //
 
 #import "HoccerImage.h"
@@ -103,7 +103,6 @@
     theScrollView.maximumZoomScale = 4.0;
     theScrollView.minimumZoomScale = 1.0;
     theScrollView.decelerationRate = .85;
-	theScrollView.contentSize = CGSizeMake(320,367);
     theScrollView.bouncesZoom = YES;
     theScrollView.autoresizesSubviews = YES;
     theScrollView.contentMode = (UIViewContentModeCenter);

@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 20.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 
 #import "HoccerClientTestCase.h"

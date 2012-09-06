@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 06.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 
 #import <AddressBookUI/AddressBookUI.h>
@@ -103,7 +103,7 @@
         desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
         
     }
-	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+
     
     
 	[desktopView insertSubview:statusViewController.view atIndex:0];
@@ -113,7 +113,7 @@
 	
     [desktopView insertSubview:errorViewController.view atIndex:1];
     CGRect errorRect = errorViewController.view.frame;
-	errorRect = CGRectMake(0, 0, 768, 38);
+	errorRect = CGRectMake(0, 0, 768, 134);
 	errorViewController.view.frame = errorRect;
     
     CGRect infoRect = CGRectMake(0, 0, 320, 400);
@@ -509,31 +509,32 @@
 	
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
-        groupSizeButton.frame = CGRectMake(0, 0, 44, 44);
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        groupSizeButton.frame = CGRectMake(-10, 0, 56, 44);
     }
     
     NSInteger groupCount = [[infoViewController group] count];
     NSString *text = nil;
     if (groupCount < 1) {
-        text = @"0";
+        text = @"0   ";
         clientSelected = NO;
     } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
-        text = [NSString stringWithFormat: @"%d", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
+        text = [NSString stringWithFormat: @"%d   ", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
         clientSelected = YES;
     } else {
-        text = [NSString stringWithFormat: @"%d", groupCount];
+        text = [NSString stringWithFormat: @"%d   ", groupCount];
         clientSelected = NO;
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];   
     
     if (clientSelected){
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_on"] forState:UIControlStateNormal];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
     }
     else {
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
         
     }
     

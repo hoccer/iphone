@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.09.09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Hoccer GmbH 2009. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,6 +25,7 @@
 #import "ConnectionStatusViewController.h"
 #import "ContentSelectController.h"
 #import "ErrorViewController.h"
+#import "TextPreview.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -46,8 +47,7 @@
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate, 
-                        ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate,MBProgressHUDDelegate> 
+						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate,ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate,MBProgressHUDDelegate>
 {
 
 	IBOutlet DesktopView *desktopView;

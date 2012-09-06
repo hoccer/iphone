@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 15.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 //  See Also: http://developer.apple.com/iphone/library/documentation/Xcode/Conceptual/iphone_development/135-Unit_Testing_Applications/unit_testing_applications.html
 

@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 29.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 
 #import "TextPreview.h"
@@ -16,6 +16,8 @@
 @synthesize delegate;
 
 - (void)awakeFromNib {
+    textView.editable = NO;
+    editing = NO;
 	[self setStaticMode];
 }
 
@@ -26,6 +28,24 @@
 	} else {
 		[self setEditMode];
 	}
+}
+
+- (IBAction)showTextInputView:(id)sender; {
+    if (!editing){
+        TextInputViewController *textInputViewController;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+            textInputViewController = [[TextInputViewController alloc] initWithNibName:@"TextInputViewController" bundle:[NSBundle mainBundle]];
+        }
+        else {
+            textInputViewController = [[TextInputViewController alloc] initWithNibName:@"TextInputViewController-iPad" bundle:[NSBundle mainBundle]];
+        }
+        [textInputViewController setInitialText:textView.text andDelegate:self];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"showTextInputVC" object:textInputViewController];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+
+    }
 }
 
 - (void)setStaticMode {
@@ -64,6 +84,14 @@
 	return !textView.editable;
 }
 
+- (void)textInputViewControllerdidCancel {
+    NSNotification *notification = [NSNotification notificationWithName:@"textInputVCDidCancel" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
 
+- (void)textInputViewController:(TextInputViewController *)controller didFinishedWithString:(NSString *)string {
+    [self.textView setText:string];
+    [self setStaticMode];
+}
 
 @end

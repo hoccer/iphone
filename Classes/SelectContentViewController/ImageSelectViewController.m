@@ -11,9 +11,9 @@
 #import "HoccerImage.h"
 #import "HoccerVideo.h"
 #import "NSFileManager+FileHelper.h"
-
+#import "UIBarButtonItem+CustomImageButton.h"
 #import <MobileCoreServices/UTCoreTypes.h>
-
+#import "CustomNavigationBar.h"
 
 @implementation ImageSelectViewController
 
@@ -47,11 +47,13 @@
     imagePicker.sourceType = sourceType;
 	imagePicker.delegate = self;
 
+    
 	return [imagePicker autorelease];
 }
 
 #pragma mark -
 #pragma mark UIImagePickerController Delegate Methods
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
@@ -83,6 +85,19 @@
 
     if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
         [self.delegate contentSelectController:self didSelectContent:content];
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
+    
+    if ([navigationController isKindOfClass:[UIImagePickerController class]] &&
+        ((UIImagePickerController *)navigationController).sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        [navigationController.navigationBar setTranslucent:NO];
+        [navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+        
     }
 }
 

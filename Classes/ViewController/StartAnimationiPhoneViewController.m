@@ -15,7 +15,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor clearColor];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -119,11 +119,17 @@
 
 
 - (void)animationFinished {
-    [self performSelector:@selector(removeSelf) withObject:nil afterDelay:0.4];
+    [self performSelector:@selector(removeSelf) withObject:nil afterDelay:0.6];
 }
 
 - (void)removeSelf {
-    [self.view removeFromSuperview];
+    [UIView beginAnimations:@"removeWithEffect" context:nil];
+    [UIView setAnimationDuration:0.5f];
+    //Change frame parameters, you have to adjust
+    //self.view.frame = CGRectMake(0,0,320,480);
+    self.view.alpha = 0.0f;
+    [UIView commitAnimations];
+    [self.view performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:0.5f];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

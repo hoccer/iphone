@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 07.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 
 #import "HoccerHistoryController.h"
@@ -65,6 +65,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (inMassEditMode) {
+        inMassEditMode = NO;
+    }
 }
 
 - (CGSize)contentSizeForViewInPopover {
@@ -312,13 +318,20 @@
     
     if (inMassEditMode){
         UIBarButtonItem *delete = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_delete"] target:self action:@selector(deleteSelection:)];
+        UIBarButtonItem *cancel =  [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(enterCustomEditMode:)];
 
         [hoccerViewController.navigationItem setRightBarButtonItem:delete];
+        [hoccerViewController.navigationItem setLeftBarButtonItem:cancel];
+
+        [cancel release];
         [delete release];
     }
     else {
         UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:hoccerViewController action:@selector(cancelPopOver)];
+        UIBarButtonItem *editButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_edit"] target:self action:@selector(enterCustomEditMode:)];
         [hoccerViewController.navigationItem setRightBarButtonItem:doneButton];
+        [hoccerViewController.navigationItem setLeftBarButtonItem:editButton];
+        [editButton release];
         [doneButton release];
     }
     

@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 15.09.09.
-//  Copyright 2009 ART+COM. All rights reserved.
+//  Copyright 2009 Hoccer GmbH. All rights reserved.
 //
 
 #import "HoccerText.h"
@@ -27,10 +27,9 @@
 }
 
 - (UIView *)fullscreenView {
-	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(9, 65, 303, 206)];
+	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(0, 0, 320, 387)];
 	text.text = self.content;
-    text.font = [UIFont fontWithName:@"Courier" size:22];
-    text.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"content_text_background_history"]];
+    text.font = [UIFont systemFontOfSize:16];
     text.textColor = [UIColor blackColor];
 	text.editable = NO;
 	
@@ -42,7 +41,7 @@
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
 	self.view.delegate = self;	
 	if (!self.data || [self.data length] == 0) {
-		[self.view setEditMode];
+		[self.view showTextInputView:nil];
 	} else {
 		self.view.textView.text = self.content;
 	}

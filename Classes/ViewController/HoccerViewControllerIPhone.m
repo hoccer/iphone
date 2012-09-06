@@ -3,7 +3,7 @@
 //  Hoccer
 //
 //  Created by Robert Palmer on 06.04.10.
-//  Copyright 2010 Art+Com AG. All rights reserved.
+//  Copyright 2010 Hoccer GmbH AG. All rights reserved.
 //
 
 #import <AddressBookUI/AddressBookUI.h>
@@ -88,7 +88,24 @@
         
     }
     
-	tabBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+    
+    if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]){
+        [tabBar setSelectedImageTintColor:[UIColor lightGrayColor]];
+        [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_active"]];
+        NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:3];
+        
+        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
+        [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];
+        [styledItems addObject:content];
+        UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:@"History" image:nil tag:2];
+        [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
+        [styledItems addObject:history];
+        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:3];
+        [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
+        [styledItems addObject:settings];
+        [tabBar setItems:styledItems];
+        [styledItems release];
+    }
     
 
 	[desktopView insertSubview:statusViewController.view atIndex:2];
@@ -335,7 +352,12 @@
         desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
     }
     else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
+        }
+        else {
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+        }
     }
     
     [infoViewController setGroup: others];
@@ -405,30 +427,33 @@
 	
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
-        groupSizeButton.frame = CGRectMake(0, 0, 44, 44);
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        groupSizeButton.frame = CGRectMake(0, 0, 56, 44);
+
+    
     }
     
     NSInteger groupCount = [[infoViewController group] count];
     NSString *text = nil;
     if (groupCount < 1) {
-        text = @"0";
+        text = @"0   ";
         clientSelected = NO;
     } else if ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"] count] > 0) {
-        text = [NSString stringWithFormat: @"%d", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
+        text = [NSString stringWithFormat: @"%d   ", [[[NSUserDefaults standardUserDefaults] arrayForKey:@"selected_clients"]  count]];
         clientSelected = YES;
     } else {
-        text = [NSString stringWithFormat: @"%d", groupCount];
+        text = [NSString stringWithFormat: @"%d   ", groupCount];
         clientSelected = NO;
     }
     
-    [groupSizeButton setTitle: text forState:UIControlStateNormal];        
+    [groupSizeButton setTitle: text forState:UIControlStateNormal];
     if (clientSelected){
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_on"] forState:UIControlStateNormal];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
     }
     else {
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_status_off"] forState:UIControlStateNormal];
+        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
 
     }
     [self showGroupButton];
