@@ -12,6 +12,7 @@
 #import "HoccerImage.h"
 #import "HoccerVideo.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "UIBarButtonItem+CustomImageButton.h"
 
 @interface ReceivedContentViewController () 
 - (void)hideReceivedContentView;
@@ -34,7 +35,8 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:HUD];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_more"] target:self action:@selector(showActionSheet)];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -665,6 +665,10 @@
             }
             [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         }
+        else {
+            [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
+            [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        }
     }
 }
 

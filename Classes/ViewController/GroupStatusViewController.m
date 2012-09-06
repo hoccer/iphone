@@ -91,7 +91,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.group count];
+    if (self.group.count > 0)
+        return [self.group count];
+    else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,34 +105,44 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
-    NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([client objectForKey:@"name"] != [NSNull null] && ![[client objectForKey:@"name"] isEqualToString:@""]) {
-        cell.textLabel.text = [client objectForKey:@"name"];
-    } else {
-        NSString *uuid = [client objectForKey:@"id"];
-        NSString *tmpName = [NSString stringWithFormat:@"#%@", [uuid substringToIndex:8]];
-        cell.textLabel.text = tmpName;
-    }
     
-    if ([client objectForKey:@"pubkey_id"] != nil){
-        cell.imageView.image = [UIImage imageNamed:@"dev_enc_on.png"];
+    if (self.group.count > 0) {
+        
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
+        NSDictionary *client = [group objectAtIndex:indexPath.row];
+        if ([client objectForKey:@"name"] != [NSNull null] && ![[client objectForKey:@"name"] isEqualToString:@""]) {
+            cell.textLabel.text = [client objectForKey:@"name"];
+        } else {
+            NSString *uuid = [client objectForKey:@"id"];
+            NSString *tmpName = [NSString stringWithFormat:@"#%@", [uuid substringToIndex:8]];
+            cell.textLabel.text = tmpName;
+        }
+        
+        if ([client objectForKey:@"pubkey_id"] != nil){
+            cell.imageView.image = [UIImage imageNamed:@"dev_enc_on.png"];
+        }
+        else {
+            cell.imageView.image = [UIImage imageNamed:@"dev_enc_off.png"];
+        }
+        
+        if ([selectedClients containsObject:client]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     else {
-        cell.imageView.image = [UIImage imageNamed:@"dev_enc_off.png"];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.text = NSLocalizedString(@"No other devices nearby", nil);
+        cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
     }
-    
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
-    if ([selectedClients containsObject:client]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;        
-    }
+    
 
     return cell;
 }
@@ -138,60 +152,61 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- 
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    NSDictionary *client = [group objectAtIndex:indexPath.row];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO || [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"] == NO) {
-        if ([selectedClients containsObject:client]) {
-            [selectedClients removeObject:client];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        } else {
-            [selectedClients addObject:client];
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }
-    
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        if (selectedClients.count != 0){
-            [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-        else {
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-    
-        if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
-            [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
-        }
-    }
-    else {
-        if ([selectedClients containsObject:client]) {
-            [selectedClients removeObject:client];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        else {
-            if([client objectForKey:@"pubkey_id"]!=nil){
+    if (self.group.count > 0){
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSDictionary *client = [group objectAtIndex:indexPath.row];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] == NO || [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"] == NO) {
+            if ([selectedClients containsObject:client]) {
+                [selectedClients removeObject:client];
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            } else {
                 [selectedClients addObject:client];
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }
-        }
-        
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        
-        if (selectedClients.count != 0){
-            [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            if (selectedClients.count != 0){
+                [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+                [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+            }
         }
         else {
-            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-
-        
-        if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
-            [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+            if ([selectedClients containsObject:client]) {
+                [selectedClients removeObject:client];
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+            else {
+                if([client objectForKey:@"pubkey_id"]!=nil){
+                    [selectedClients addObject:client];
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+            }
+            
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            
+            if (selectedClients.count != 0){
+                [[NSUserDefaults standardUserDefaults] setObject:selectedClients forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            else {
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"selected_clients"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+            
+            
+            if ([self.delegate respondsToSelector:@selector(groupStatusViewController:didUpdateSelection:)]) {
+                [self.delegate groupStatusViewController:self didUpdateSelection: selectedClients];
+            }
         }
     }
 }
