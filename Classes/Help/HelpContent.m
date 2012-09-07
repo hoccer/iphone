@@ -21,7 +21,7 @@
 	
 	content.name = NSLocalizedString(@"Sweep",nil);
 	content.description = NSLocalizedString(@"In order to share with one person directly, place you mobiles screen to screen and drag the content from one screen to the other mobile. Make sure you continue your touch over the other device's screen.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_drag" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
 	content.videoPath = nil;
 	
 	return [content autorelease];
@@ -33,7 +33,7 @@
 	
 	content.name = NSLocalizedString(@"Catch",nil);
 	content.description = NSLocalizedString(@"To catch thrown content, raise your mobile quickly from horocitaly to vertical positon. You will hear a sound if you did it right.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_catch" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_catch_icon" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"catch_180" ofType:@"m4v"];
 	
 	return [content autorelease];
@@ -44,7 +44,7 @@
 	
 	content.name = NSLocalizedString(@"Throw",nil);
 	content.description = NSLocalizedString(@"Move your mobile like throwing a frisbee to share selected content with catchers nearby. You will hear a sound if you did it right.",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_throw" ofType:@"png"];
+	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_throw_icon" ofType:@"png"];
 	content.videoPath = [[NSBundle mainBundle] pathForResource:@"throw_180" ofType:@"m4v"];
 	
 	return [content autorelease];
