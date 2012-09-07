@@ -1087,7 +1087,7 @@ typedef enum {
 	}
 	[statusViewController setState:[SuccessState state]];
 	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 10];
-    if (hoccerStatus == 0){
+    if (hoccerStatus <= 1){
         if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
             if (!infoHud.isHidden){
                 @try {
