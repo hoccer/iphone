@@ -126,14 +126,14 @@
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
-		[button setTextLabelOffset:0];
+		[button setTextLabelOffset:1];
 		[button setFrame: CGRectMake(0, 0, 45, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget:self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
-		[button2 setTextLabelOffset:0];
+		[button2 setTextLabelOffset:2];
 		[button2 setFrame: CGRectMake(0, 0, 45, 40)];
 		
 		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil]; 
