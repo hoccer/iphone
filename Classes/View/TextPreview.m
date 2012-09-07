@@ -84,7 +84,7 @@
 }
 
 - (BOOL)allowsOverlay {
-	return !textView.editable;
+	return YES;
 }
 
 - (void)textInputViewControllerdidCancel {

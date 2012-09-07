@@ -49,7 +49,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 			
 			xpos += button.frame.size.width;
 		}
-       
+        buttonContainer.hidden = ![containedView allowsOverlay];
 		[self addSubview:buttonContainer];
 	}
 	return self;
@@ -70,6 +70,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		
 		[containedView release];
 		containedView = [newContainedView retain];
+        buttonContainer.hidden = ![containedView allowsOverlay];
 	}
 }
 
