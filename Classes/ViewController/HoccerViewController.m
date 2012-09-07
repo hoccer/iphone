@@ -444,7 +444,7 @@ typedef enum {
     
     mediaPicker.delegate = self;
     mediaPicker.allowsPickingMultipleItems = NO;
-    mediaPicker.prompt = NSLocalizedString(@"Select a song", nil);
+    mediaPicker.prompt = nil;
     
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
         [self presentModalViewController:mediaPicker animated:YES];

@@ -119,8 +119,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         UIImage *backButton = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
         [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
-            [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"hoccer_bar"] forBarMetrics:UIBarMetricsDefault];
-            UIImage *defaultButton = [[UIImage imageNamed:@"nav_bar_btn_default"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+            [[UINavigationBar appearance] setBackgroundImage:[[UIImage imageNamed:@"hoccer_bar"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 2, 20, 2)] forBarMetrics:UIBarMetricsDefault];
+            UIImage *defaultButton = [[UIImage imageNamed:@"nav_bar_btn_default"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
             [[UIBarButtonItem appearance] setBackgroundImage:defaultButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         }
     }
