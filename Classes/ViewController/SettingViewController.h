@@ -27,5 +27,5 @@
 @property (retain) UINavigationController *parentNavigationController;
 @property (retain) IBOutlet UITableView *tableView;
 @property (retain) IBOutlet UIView *hoccerSettingsLogo;
-
+@property (retain) IBOutlet UILabel *versionLabel;
 @end

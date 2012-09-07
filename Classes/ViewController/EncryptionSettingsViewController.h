@@ -18,5 +18,6 @@
 }
 
 @property (retain) IBOutlet UIView *encryptionSettingsHeader;
+@property (retain) IBOutlet UILabel *versionLabel;
 
 @end

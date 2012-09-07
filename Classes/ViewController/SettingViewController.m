@@ -33,6 +33,7 @@
 @synthesize parentNavigationController;
 @synthesize tableView;
 @synthesize hoccerSettingsLogo;
+@synthesize versionLabel;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -52,7 +53,8 @@
 	self.tableView.backgroundColor = [UIColor clearColor];
 
 	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];
-
+    NSString *versionString = [NSString stringWithFormat:@"Verion: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
+    self.versionLabel.text = versionString;
 	self.tableView.tableHeaderView = self.hoccerSettingsLogo;
 	self.hoccerSettingsLogo = nil;
 		
@@ -432,6 +434,7 @@
 	[sections release];
 	[hoccerSettingsLogo release];
 	[tableView release];
+    [versionLabel release];
     [super dealloc];
 }
 

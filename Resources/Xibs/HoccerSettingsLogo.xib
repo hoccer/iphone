@@ -43,7 +43,7 @@
 					<object class="IBUILabel" id="551402957">
 						<reference key="NSNextResponder" ref="481857727"/>
 						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{160, 56}, {111, 36}}</string>
+						<string key="NSFrame">{{160, 56}, {140, 36}}</string>
 						<reference key="NSSuperview" ref="481857727"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -151,6 +151,14 @@
 					</object>
 					<int key="connectionID">12</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">versionLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="551402957"/>
+					</object>
+					<int key="connectionID">14</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -239,7 +247,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">13</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -253,11 +261,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>hoccerSettingsLogo</string>
 							<string>tableView</string>
+							<string>versionLabel</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIView</string>
 							<string>UITableView</string>
+							<string>UILabel</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -266,6 +276,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>hoccerSettingsLogo</string>
 							<string>tableView</string>
+							<string>versionLabel</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -276,6 +287,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">tableView</string>
 								<string key="candidateClassName">UITableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">versionLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 						</object>
 					</object>

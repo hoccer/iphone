@@ -17,6 +17,8 @@
 @implementation EncryptionSettingsViewController
 
 @synthesize encryptionSettingsHeader;
+@synthesize versionLabel;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -51,7 +53,11 @@
     self.tableView.backgroundView = tbBgView;
 	self.tableView.backgroundColor = [UIColor clearColor];
     
-    [[NSBundle mainBundle] loadNibNamed:@"EncryptionSettingsHeader" owner:self options:nil];	
+    [[NSBundle mainBundle] loadNibNamed:@"EncryptionSettingsHeader" owner:self options:nil];
+    
+    NSString *versionString = [NSString stringWithFormat:@"Verion: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
+    self.versionLabel.text = versionString;
+    
 	self.tableView.tableHeaderView = self.encryptionSettingsHeader;
 	self.encryptionSettingsHeader = nil;
 
@@ -340,6 +346,7 @@
 - (void)dealloc {
     [encryptionSettingsHeader release];
     [sections release];
+    [versionLabel release];
     [super dealloc];
 }
 @end
