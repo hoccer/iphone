@@ -134,7 +134,7 @@
 		[button2 addTarget:self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
 		[button2 setTextLabelOffset:2];
-		[button2 setFrame: CGRectMake(0, 0, 42, 40)];
+		[button2 setFrame: CGRectMake(0, 0, 43, 40)];
 		
 		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil]; 
 		
