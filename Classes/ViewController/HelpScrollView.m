@@ -49,7 +49,7 @@
 	pageControl.numberOfPages = [pages count]; 
 	
 	[self setUpPages];
-	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"help_bg.png"]];
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
 }
 
 - (void)setUpPages {
