@@ -773,6 +773,7 @@ typedef enum {
 	[desktopView reloadData];
 }
 
+
 - (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item; {
 	[item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
 	if ([item.content needsWaiting]) {
@@ -1268,9 +1269,7 @@ typedef enum {
 }
 
 - (void)showTextInputVC:(NSNotification *)notification {
-    TextInputViewController *inputVC = (TextInputViewController *)notification.object;
-    [inputVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentModalViewController:inputVC animated:YES];
+    
 }
 
 - (void)dealloc {

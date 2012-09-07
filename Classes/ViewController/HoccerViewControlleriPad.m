@@ -799,6 +799,13 @@
 
 }
 
+- (void)showTextInputVC:(NSNotification *)notification {
+    TextInputViewController *inputVC = (TextInputViewController *)notification.object;
+    [inputVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:inputVC animated:YES];
+    
+}
+
 - (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches {
     
 }

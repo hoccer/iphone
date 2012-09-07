@@ -171,9 +171,9 @@
 
 - (IBAction)selectText: (id)sender {    
     self.tabBar.selectedItem = nil;
+    [self hidePopOverAnimated:  NO];
 
     [super selectText:sender];
-    [self hidePopOverAnimated:  NO];
 }
 
 - (IBAction)selectPasteboard: (id)sender {    
@@ -292,6 +292,18 @@
 	[popOverView viewDidAppear:YES];
 }
 
+- (void)showTextInputVC:(NSNotification *)notification {
+    TextInputViewController *inputVC = (TextInputViewController *)notification.object;
+    [self showPopOver:inputVC];
+    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:inputVC action:@selector(doneButtonTapped:)];
+    UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelPopOver)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    [self.navigationItem setLeftBarButtonItem:canelButton];
+    [canelButton release];
+    [doneButton release];
+    navigationItem.titleView = nil;
+    navigationItem.title = @"";
+}
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
 	[self removePopOverFromSuperview];
 }
@@ -414,6 +426,9 @@
 #pragma mark User Actions
 - (IBAction)cancelPopOver {
 	tabBar.selectedItem = nil;
+    if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
+        [[UIDevice currentDevice] performSelector:NSSelectorFromString(@"setOrientation:") withObject:(id)UIInterfaceOrientationPortrait];
+    }
 	[self hidePopOverAnimated:YES];
 }
 
@@ -555,4 +570,38 @@
 	[self updateGroupButton];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    if ([self.auxiliaryView isKindOfClass:[TextInputViewController class]]) {
+        return YES;
+    }
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if ([self.auxiliaryView isKindOfClass:[TextInputViewController class]]) {
+        TextInputViewController *textInputVC = (TextInputViewController *)self.auxiliaryView;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)){
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+                
+                CGRect newFrame = CGRectMake(0, 10, 480, 96);
+                textInputVC.textView.frame = newFrame;
+                
+                [UIView commitAnimations];
+            }
+            else {
+                [UIView beginAnimations:nil context:nil];
+                [UIView setAnimationDuration:0.5];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+                
+                CGRect newFrame = CGRectMake(0, 0, 320, 200);
+                textInputVC.textView.frame = newFrame;
+                
+                [UIView commitAnimations];
+            }
+        }
+    }
+}
 @end

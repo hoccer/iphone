@@ -10,6 +10,7 @@
 #import "UIBarButtonItem+CustomImageButton.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "HoccerAppDelegate.h"
 
 @implementation TextInputViewController
 @synthesize textView;
@@ -23,7 +24,7 @@
     
     [textView becomeFirstResponder];
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:self action:@selector(doneButtonTapped:)];
-    UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(doneButtonTapped:)];
+    UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelButtonTapped:)];
     [self.theNavItem setRightBarButtonItem:doneButton];
     [self.theNavItem setLeftBarButtonItem:canelButton];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
@@ -40,13 +41,6 @@
     [canelButton release];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(keyboardWillShow:) name: UIKeyboardWillShowNotification object:nil];
-        [nc addObserver:self selector:@selector(keyboardWillHide:) name: UIKeyboardWillHideNotification object:nil];
-    }
-}
 
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -71,13 +65,6 @@
     return YES;
 }
 
-- (void)keyboardWillShow:(NSNotification *)not {
-    [self moveTextViewForKeyboard:not up:YES];
-}
-
-- (void)keyboardWillHide:(NSNotification *)not {
-    [self moveTextViewForKeyboard:not up:NO];
-}
 
 - (void) moveTextViewForKeyboard:(NSNotification*)aNotification up: (BOOL) up
 {
@@ -88,7 +75,7 @@
     UIViewAnimationCurve animationCurve;
     
     CGRect keyboardEndFrame;
-    float editHeight;
+    float editHeight = textView.frame.size.height;
     
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
@@ -106,8 +93,10 @@
     } else {
         newFrame.size.height = editHeight;
     }
+    NSLog(@"Old Frame: %@", NSStringFromCGRect(textView.frame));
     textView.frame = newFrame;
-    
+    NSLog(@"New Frame: %@", NSStringFromCGRect(newFrame));
+
     [UIView commitAnimations];
 }
 - (void)dealloc {
@@ -115,9 +104,17 @@
     [theNavItem release];
     [super dealloc];
 }
+
 - (IBAction)doneButtonTapped:(id)sender {
+    [textView resignFirstResponder];
     [self.delegate textInputViewController:self didFinishedWithString:textView.text];
-    [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
+        HoccerViewController *hcVC = (HoccerViewController *)appDelegate.viewController;
+        [hcVC cancelPopOver];
+    }else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
