@@ -40,7 +40,7 @@
 					<object class="IBUILabel" id="255402537">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrame">{{75, 4}, {202, 26}}</string>
+						<string key="NSFrame">{{75, 0}, {202, 26}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="478061681"/>
@@ -78,7 +78,7 @@
 					<object class="IBUILabel" id="478061681">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{75, 38}, {245, 96}}</string>
+						<string key="NSFrame">{{75, 20}, {245, 103}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -88,7 +88,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Ooops: Apperantly nobody wants your file. Please try again and do the fuck. and bla bla bla bla bla bla bla lba bla bla bla bla lba lasldllads asd alsd alsd </string>
+						<string key="IBUIText">test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC40IDAuMzMzMzMzMzMzMyAwLjEzMzMzMzMzMzMAA</bytes>
@@ -100,8 +100,8 @@
 						</object>
 						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">14</float>
-						<int key="IBUINumberOfLines">4</int>
+						<float key="IBUIMinimumFontSize">12</float>
+						<int key="IBUINumberOfLines">5</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">HelveticaNeue-Medium</string>
 							<string key="family">Helvetica Neue</string>
