@@ -95,8 +95,8 @@
 //		value	   = ABMultiValueCopyValueAtIndex(multi, i);
 //		valueLabel = ABMultiValueCopyLabelAtIndex(multi, i);
 //	
-//		NSLog(@"value: %@", value);
-//		NSLog(@"valueLabel: %@", valueLabel);
+//		//NSLog(@"value: %@", value);
+//		//NSLog(@"valueLabel: %@", valueLabel);
 //		
 //		if (value != NULL) CFRelease(value);
 //		if (valueLabel != NULL) CFRelease(valueLabel);

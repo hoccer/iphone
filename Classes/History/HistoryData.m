@@ -34,7 +34,7 @@
 		hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
 
 		if (hoccerHistoryItemArray == nil) {
-			NSLog(@"error!");
+			//NSLog(@"error!");
 		}
 	}
 	return self;
@@ -98,7 +98,7 @@
 	NSError *error;
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
-		NSLog(@"error: %@", error);
+		//NSLog(@"error: %@", error);
 	}    
 	
     return persistentStoreCoordinator;

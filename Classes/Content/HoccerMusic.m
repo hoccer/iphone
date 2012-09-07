@@ -106,7 +106,7 @@
                 break;
             }
             case AVAssetExportSessionStatusCompleted: {
-                NSLog (@"AVAssetExportSessionStatusCompleted");
+                //NSLog (@"AVAssetExportSessionStatusCompleted");
                 content.data = [NSData dataWithContentsOfURL:exporter.outputURL];
                 [content saveDataToDocumentDirectory];
                 audioFileReady = YES;
@@ -114,14 +114,14 @@
                 break;
             }
             case AVAssetExportSessionStatusUnknown: {
-                NSLog (@"AVAssetExportSessionStatusUnknown"); break;}
+                //NSLog (@"AVAssetExportSessionStatusUnknown"); break;}
             case AVAssetExportSessionStatusExporting: {
-                NSLog (@"AVAssetExportSessionStatusExporting"); break;}
+                //NSLog (@"AVAssetExportSessionStatusExporting"); break;}
             case AVAssetExportSessionStatusCancelled: {
-                NSLog (@"AVAssetExportSessionStatusCancelled"); break;}
+                //NSLog (@"AVAssetExportSessionStatusCancelled"); break;}
             case AVAssetExportSessionStatusWaiting: {
-                NSLog (@"AVAssetExportSessionStatusWaiting"); break;}
-            default: { NSLog (@"didn't get export status"); break;}
+                //NSLog (@"AVAssetExportSessionStatusWaiting"); break;}
+            default: { //NSLog (@"didn't get export status"); break;}
         }
     }];
     
@@ -287,9 +287,9 @@
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
-    NSLog(@"upload song %@", self.filename);
+    //NSLog(@"upload song %@", self.filename);
     NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
-    NSLog(@"cryptor %@", self.cryptor);
+    //NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
     audioFileReady = NO;
@@ -299,7 +299,7 @@
     
     [self createThumb];
     
-    NSLog(@"uploading thumb %@",[self thumbFilename]);
+    //NSLog(@"uploading thumb %@",[self thumbFilename]);
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     

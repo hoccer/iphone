@@ -50,7 +50,7 @@
 
 - (id) initWithDictionary: (NSDictionary *)dict {
     
-    NSLog(@"received %@", dict);
+    //NSLog(@"received %@", dict);
     
     NSDictionary *encryption = nil;
     if ((encryption = [dict objectForKey:@"encryption"])) {
@@ -113,7 +113,7 @@
 }
 
 - (void)cryptorWithType: (NSString *)type salt: (NSString *)salt password:(NSString *)password{
-    NSLog(@"generating cryptor with %@", type);
+    //NSLog(@"generating cryptor with %@", type);
     
     if ([type isEqualToString:@"AES"]) {
         

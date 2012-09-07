@@ -76,18 +76,18 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
-		NSLog(@"could not create reachability ref");
+		//NSLog(@"could not create reachability ref");
 		return YES;
 	}
 	
 	SCNetworkReachabilityContext context = {0, self, NULL, NULL, NULL};
 	if (!SCNetworkReachabilitySetCallback(reachability, ReachabilityCallback, &context)) {
-		NSLog(@"could not add callback");
+		//NSLog(@"could not add callback");
 		return YES;
 	}
 	
 	if (!SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
-		NSLog(@"could not add to run loop");
+		//NSLog(@"could not add to run loop");
 		return YES;
 	}
     
@@ -163,7 +163,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [[NSFileManager defaultManager] copyItemAtURL:url toURL:destURL error:&error];
 
     if (error != nil) {
-        NSLog(@"error %@", error);
+        //NSLog(@"error %@", error);
         return NO;
     }
     [viewController setContentPreview:[[[HoccerFileContent alloc] initWithFilename:fileName] autorelease]];
@@ -173,7 +173,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    NSLog(@"devToken=%@",[deviceToken asBase64EncodedString]);
+    //NSLog(@"devToken=%@",[deviceToken asBase64EncodedString]);
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",[deviceToken asBase64EncodedString]] forKey:@"apnToken"];
     
 }
@@ -181,7 +181,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    NSLog(@"Error in registration. Error: %@", err);
+    //NSLog(@"Error in registration. Error: %@", err);
 }
 
 

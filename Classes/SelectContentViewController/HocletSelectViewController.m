@@ -16,7 +16,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         hoclets = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"hoclets" ofType:@"plist"]];
-        NSLog(@"hoclets %@", hoclets);        
+        //NSLog(@"hoclets %@", hoclets);        
     }
     
     return self;

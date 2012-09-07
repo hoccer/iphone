@@ -1095,7 +1095,7 @@ typedef enum {
 
                 }
                 @catch (NSException *exception) {
-                    NSLog(@"Error: %@",exception);
+                    //NSLog(@"Error: %@",exception);
                 }
             }
         }
@@ -1193,16 +1193,16 @@ typedef enum {
     if ([defaults boolForKey:@"encryption"]) {
         if (cipherNeeded && [defaults boolForKey:@"autoPassword"]){
             if (self.sendingItem.content.canBeCiphered){
-                NSLog(@"Random Key");
+                //NSLog(@"Random Key");
                 return [[[AESCryptor alloc] initWithRandomKey] autorelease];
             }
             else {
-                NSLog(@"Stored Key");
+                //NSLog(@"Stored Key");
                 return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
             }
         }
         else {
-            NSLog(@"Stored Key");
+            //NSLog(@"Stored Key");
             return [[[AESCryptor alloc] initWithKey:[defaults stringForKey:@"encryptionKey"]] autorelease];
 
         }

@@ -284,9 +284,9 @@
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
-    NSLog(@"upload video %@", self.filename);
+    //NSLog(@"upload video %@", self.filename);
     NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
-    NSLog(@"cryptor %@", self.cryptor);
+    //NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
     
@@ -297,7 +297,7 @@
     [self createThumb];
     
     
-    NSLog(@"uploading thumb %@",[self thumbFilename]);
+    //NSLog(@"uploading thumb %@",[self thumbFilename]);
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     

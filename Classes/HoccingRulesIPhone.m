@@ -26,7 +26,7 @@
 
 - (BOOL)hoccerViewControllerMayCatch: (HoccerViewController *)controller {
 	if (!controller.linccer.isRegistered) {
-        NSLog(@"not registered");
+        //NSLog(@"not registered");
 		return NO;
 	}
     	

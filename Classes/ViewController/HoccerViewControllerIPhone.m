@@ -396,7 +396,7 @@
 			[self toggleHelp:self];
 			break;
 		default:
-			NSLog(@"this should not happen");
+			//NSLog(@"this should not happen");
 			break;
 	}
 }

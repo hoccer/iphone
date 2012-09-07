@@ -53,7 +53,7 @@
         
         NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
         transferable.cryptor = self.cryptor;
-        NSLog(@"cryptor %@", self.cryptor);
+        //NSLog(@"cryptor %@", self.cryptor);
         
         [transferables addObject: transferable];
         [transferable release];
