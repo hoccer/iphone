@@ -93,6 +93,11 @@
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+
     CGRect newFrame = textView.frame;
     CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
     if (up) {
@@ -102,6 +107,8 @@
         newFrame.size.height = editHeight;
     }
     textView.frame = newFrame;
+    
+    [UIView commitAnimations];
 }
 - (void)dealloc {
     [textView release];
