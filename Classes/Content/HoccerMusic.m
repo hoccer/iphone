@@ -114,14 +114,14 @@
                 break;
             }
             case AVAssetExportSessionStatusUnknown: {
-                //NSLog (@"AVAssetExportSessionStatusUnknown"); break;}
+                NSLog (@"AVAssetExportSessionStatusUnknown"); break;}
             case AVAssetExportSessionStatusExporting: {
-                //NSLog (@"AVAssetExportSessionStatusExporting"); break;}
+                NSLog (@"AVAssetExportSessionStatusExporting"); break;}
             case AVAssetExportSessionStatusCancelled: {
-                //NSLog (@"AVAssetExportSessionStatusCancelled"); break;}
+                NSLog (@"AVAssetExportSessionStatusCancelled"); break;}
             case AVAssetExportSessionStatusWaiting: {
-                //NSLog (@"AVAssetExportSessionStatusWaiting"); break;}
-            default: { //NSLog (@"didn't get export status"); break;}
+                NSLog (@"AVAssetExportSessionStatusWaiting"); break;}
+            default: { NSLog (@"didn't get export status"); break;}
         }
     }];
     
