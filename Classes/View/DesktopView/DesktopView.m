@@ -270,15 +270,15 @@
 #pragma mark -
 #pragma mark Tab Recognizer Delegate Methods
 - (void)tabRecognizer: (TabRecognizer*) recognizer didDetectTabs: (NSInteger)numberOfTabs {
-	if (numberOfTabs == 1) {
-		if ([recognizer.tabedView isKindOfClass:[ContentContainerView class]]) {
-			[(ContentContainerView *)recognizer.tabedView toggleOverlay:self];
-		} else {
-			for (ContentContainerView *view in volatileView) {
-				[view checkAndPerformSelector:@selector(hideOverlay)];
-			}
-		}
-	}
+//	if (numberOfTabs == 1) {
+//		if ([recognizer.tabedView isKindOfClass:[ContentContainerView class]]) {
+//			[(ContentContainerView *)recognizer.tabedView toggleOverlay:self];
+//		} else {
+//			for (ContentContainerView *view in volatileView) {
+//				[view checkAndPerformSelector:@selector(hideOverlay)];
+//			}
+//		}
+//	}
 }
 
 #pragma mark -

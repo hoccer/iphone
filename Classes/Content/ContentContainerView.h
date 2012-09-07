@@ -23,7 +23,7 @@
 	
 	Preview *containedView;
 	
-	UIImageView *overlay;
+	UIView *overlay;
 	UIView *buttonContainer;	
 }
 

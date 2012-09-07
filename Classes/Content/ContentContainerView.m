@@ -40,14 +40,8 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
 		
-		overlay = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"container_overlay.png"]];
-		overlay.frame = ACRectShrinked(self.frame, 15, 15);
-		overlay.hidden = YES;
-		overlay.userInteractionEnabled = YES;
 
-		[self addSubview:overlay];
-		
-		buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(0, 0, 65, 130)]; 
+        buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(23, 160, 90, 40)];
 		NSInteger xpos = 0;
 		for (UIView *button in buttons) {
 			button.frame = ACPositionedRect(button.frame, xpos, 0);
@@ -55,11 +49,8 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 			
 			xpos += button.frame.size.width;
 		}
-
-		buttonContainer.frame = CGRectMake(0, 0, xpos, ((UIView* )[buttons lastObject]).frame.size.height);
-		buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
-
-		[overlay addSubview:buttonContainer];
+       
+		[self addSubview:buttonContainer];
 	}
 	return self;
 }

@@ -21,6 +21,11 @@
 	[self setStaticMode];
 }
 
+- (void)viewDidLoad {
+    [editButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
+
+}
+
 - (IBAction)toggleEditMode: (id)sender {
 	if (textView.editable) {
 		[delegate checkAndPerformSelector:@selector(textPreviewDidEndEditing:)];
@@ -54,9 +59,7 @@
     textView.textColor = [UIColor blackColor];
 	textView.opaque = YES;
 	
-	[editButton setImage:[UIImage imageNamed:@"container_text_editbtn.png"] forState:UIControlStateNormal];
-	
-	self.opaque = YES;
+    self.opaque = YES;
 	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text-land.png"]];
 	self.opaque = NO;
 	textView.userInteractionEnabled = NO; 
@@ -69,7 +72,7 @@
 	textView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text_edit_linie.png"]];
     textView.textColor = [UIColor blackColor];
 	textView.opaque = NO;
-	[editButton setImage:[UIImage imageNamed:@"container_text_edit_savebtn.png"] forState:UIControlStateNormal];
+	[editButton setImage:[UIImage imageNamed:@"container_btn_single-edit"] forState:UIControlStateNormal];
 	
 	self.opaque = YES;
 	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"container_text_edit-land.png"]];

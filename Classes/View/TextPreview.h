@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Preview.h"
 #import "TextInputViewController.h"
+#import "HCButton.h"
 
 @interface TextPreview : Preview <TextInputViewControllerDelegate> {
 	UITextView *textView;
-	UIButton *editButton;
+	HCButton *editButton;
 	
     BOOL *editing;
 	id delegate;
 }
 
 @property (retain) IBOutlet UITextView *textView;
-@property (retain) IBOutlet UIButton *editButton;
+@property (retain) IBOutlet HCButton *editButton;
 
 @property (assign) id delegate;
 
