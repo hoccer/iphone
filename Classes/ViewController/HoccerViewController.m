@@ -599,8 +599,7 @@ typedef enum {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
     self.sendingItem = item;
     item.content.cryptor = [self currentCryptor];
-    
-	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
+   	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
 	[statusViewController setState:[SendingState state]];
 		[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
@@ -685,6 +684,17 @@ typedef enum {
     hoccerStatus = HOCCER_SENDING_SWIPE;
     
     [self showInfoHudForMode:HCTransferModeOneToOne];
+    
+//
+//  plaetzchens black magic: DO NOT REMOVE !!!11!1!
+//
+    if ([item.content isKindOfClass:[HoccerText class]]) {
+        HoccerText *text = (HoccerText *)item.content;
+        if ([text.content isEqualToString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"]]){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCVideoLink"]]];
+        }
+    }
+
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
