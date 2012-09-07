@@ -239,10 +239,10 @@
     UILabel *label = [[[UILabel alloc] init] autorelease];
     label.frame = CGRectMake(0, 0, 320, 19);
 
-    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
-    label.textColor = [UIColor colorWithRed:0.000 green:0.596 blue:0.555 alpha:1.000];
-    label.shadowColor = [UIColor clearColor];
-    label.shadowOffset = CGSizeMake(0.0, 0.0);
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"group_infobg"]];
+    label.textColor = [UIColor colorWithWhite:0.90 alpha:1.000];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(-1.0, -1.0);
     label.font = [UIFont boldSystemFontOfSize:14];
     label.textAlignment = UITextAlignmentCenter;
     label.text = sectionTitle;
