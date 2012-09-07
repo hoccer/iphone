@@ -2741,6 +2741,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				B46A352B15FA1C7300755292 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3317,6 +3318,19 @@
 			shellPath = /bin/sh;
 			shellScript = "sh RunTests.sh";
 			showEnvVarsInLog = 0;
+		};
+		B46A352B15FA1C7300755292 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" Hoccer-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" Hoccer-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" Hoccer-Info.plist";
 		};
 /* End PBXShellScriptBuildPhase section */
 
