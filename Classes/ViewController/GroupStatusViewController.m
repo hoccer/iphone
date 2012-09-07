@@ -139,12 +139,16 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
+    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
     
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -216,7 +220,7 @@
 
 - (CGFloat)tableView:(UITableView *)theTableView heightForHeaderInSection:(NSInteger)section {
     if ([self tableView:theTableView titleForHeaderInSection:section] != nil) {
-        return 19;
+        return 22;
     }
     else {
         // If no section header title, no section header needed
@@ -256,7 +260,7 @@
         return CGSizeMake(320, (self.group.count * 44) + 20);
     }
     else {
-        return CGSizeMake(320, 64);
+        return CGSizeMake(320, 62);
     }
 }
 
