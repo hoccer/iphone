@@ -100,24 +100,24 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 - (void)showSpinner {
 	UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
-	indicator.center = buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+	indicator.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
 	indicator.hidden = NO;
 	[indicator startAnimating];
-	[overlay addSubview:indicator];
+	[self addSubview:indicator];
 	
-	buttonContainer.hidden = YES;
 }
 
 - (void)hideSpinner {
-	if ([[overlay subviews] count] > 1) {
-		[[[overlay subviews] objectAtIndex:1] removeFromSuperview];
+	if ([[self subviews] count] > 1) {
+		for (id view in [self subviews])
+            if ([view isKindOfClass:[UIActivityIndicatorView class]]){
+                [view removeFromSuperview];
+            }
 	}
 	buttonContainer.hidden = NO;
 }
 
-- (void)showSuccess {
-	[self hideOverlay];
-	
+- (void)showSuccess {	
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self];
     [self addSubview:HUD];
 
@@ -135,8 +135,9 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 - (void)updateFrame {
     self.frame = containedView.frame;
-    overlay.frame = ACRectShrinked(self.frame, 15, 15);
-    buttonContainer.center = CGPointMake(overlay.frame.size.width / 2, overlay.frame.size.height / 2);
+    [buttonContainer setFrame:CGRectMake(18, 165, 90, 41)];
+
+    
 }
 
 
