@@ -108,7 +108,7 @@
     theScrollView.contentMode = (UIViewContentModeCenter);
     theScrollView.multipleTouchEnabled = YES;
     theScrollView.userInteractionEnabled = YES;
-    theScrollView.backgroundColor = [UIColor blackColor];
+    theScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
     [theScrollView addSubview:fullScreenImage];
     return theScrollView;
 }
