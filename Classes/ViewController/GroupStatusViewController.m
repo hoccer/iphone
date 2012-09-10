@@ -21,6 +21,7 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
 
 }
