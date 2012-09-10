@@ -741,8 +741,9 @@ typedef enum {
 	} else {
         if ([desktopData count] == 1){
             ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-
-            [desktopData removeHoccerController:item];	
+            if (item) {
+                [desktopData removeHoccerController:item];	
+            }
             [transferController cancelDownloads];
         }
         else {
@@ -1060,9 +1061,9 @@ typedef enum {
         if ([desktopData count] > 0 && ![[error domain] isEqualToString:@"PubKeyError"]) {
             if ([desktopData count] == 1){
                 ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-                
-                [desktopData removeHoccerController:item];	
-            }
+                if (item) {
+                    [desktopData removeHoccerController:item];
+                }
             else {
                 for (int i=0;i<[desktopData count];i++){
                     ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
