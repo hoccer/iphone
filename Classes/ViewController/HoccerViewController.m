@@ -742,7 +742,7 @@ typedef enum {
         if ([desktopData count] == 1){
             ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
             if (item) {
-                [desktopData removeHoccerController:item];	
+                [desktopData removeHoccerController:item];
             }
             [transferController cancelDownloads];
         }
@@ -1064,6 +1064,7 @@ typedef enum {
                 if (item) {
                     [desktopData removeHoccerController:item];
                 }
+            }
             else {
                 for (int i=0;i<[desktopData count];i++){
                     ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
