@@ -70,7 +70,8 @@
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
     
-    SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:@"Auto-Save" selector:@selector(switchAutoSave) type:HCSwitchSetting];
+    SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:@"Auto-Save" selector:@selector(switchAutoSave:) type:HCSwitchSetting];
+    autoSaveAction.defaultValue = @"autoSave";
 	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
     SettingsAction *abookAction = [SettingsAction actionWithDescription:@"Delete My Contact reference" selector:@selector(deleteContactReference) type: HCInplaceSetting];
