@@ -69,12 +69,14 @@
 
 	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
+    
+    SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:@"Auto-Save" selector:@selector(switchAutoSave) type:HCSwitchSetting];
 	
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
     SettingsAction *abookAction = [SettingsAction actionWithDescription:@"Delete My Contact reference" selector:@selector(deleteContactReference) type: HCInplaceSetting];
 
 	
-	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, bookmarkletAction, abookAction, nil];
+	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, bookmarkletAction, abookAction, nil];
 	[sections addObject:section1];
 		
     
@@ -221,6 +223,11 @@
 
 - (void)switchSound: (id)sender {
 	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"playSound"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)switchAutoSave: (id)sender {
+	[[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:[sender isOn]] forKey:@"autoSave"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
