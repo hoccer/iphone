@@ -320,7 +320,7 @@ typedef enum {
     
     UIActionSheet *mediaChooser;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Take Photo/Video", nil), NSLocalizedString(@"Choose Photo/Video", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), NSLocalizedString(@"Take Photo/Video", nil), nil];
     }
     else {
         mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
@@ -375,11 +375,11 @@ typedef enum {
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             switch (buttonIndex) {
                 case 0: {
-                    [self checkAndPerformSelector:@selector(selectCamera:) withObject:self];
+                    [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
                     break;
                 }
                 case 1: {
-                    [self checkAndPerformSelector:@selector(selectImage:) withObject:self];
+                    [self checkAndPerformSelector:@selector(selectCamera:) withObject:self];
                     break;
                 }
                
