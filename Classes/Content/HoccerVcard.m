@@ -68,7 +68,9 @@
 		
 		person = creator.person;
 		CFRetain(person);
-		
+		if([[NSUserDefaults standardUserDefaults] boolForKey:@"autoSave"]){
+            [self saveDataToContentStorage];
+        }
 		[creator release];	
 	}
 	

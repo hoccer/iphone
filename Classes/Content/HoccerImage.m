@@ -89,6 +89,9 @@
 - (UIImage*) image {
 	if (image == nil && self.data != nil) {
 		image = [[UIImage imageWithData:self.data] retain];
+        if ([[NSUserDefaults standardUserDefaults]boolForKey:@"autoSave"]){
+            [self saveDataToContentStorage];
+        }
 	}
 	return image;
 } 
