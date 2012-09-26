@@ -96,24 +96,14 @@
 	return image;
 } 
 
-- (UIView *)fullscreenView  {	
-    fullScreenImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 367)];
+- (UIView *)fullscreenView  {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    screenRect.size.height = screenRect.size.height - (20+44+48);
+    fullScreenImage = [[UIImageView alloc] initWithFrame:screenRect];
     fullScreenImage.image = self.image;
 	fullScreenImage.contentMode = UIViewContentModeScaleAspectFit;
-    UIScrollView *theScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,367)];
-    theScrollView.contentSize = self.image.size;
-    theScrollView.delegate = self;
-    theScrollView.maximumZoomScale = 4.0;
-    theScrollView.minimumZoomScale = 1.0;
-    theScrollView.decelerationRate = .85;
-    theScrollView.bouncesZoom = YES;
-    theScrollView.autoresizesSubviews = YES;
-    theScrollView.contentMode = (UIViewContentModeCenter);
-    theScrollView.multipleTouchEnabled = YES;
-    theScrollView.userInteractionEnabled = YES;
-    theScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
-    [theScrollView addSubview:fullScreenImage];
-    return theScrollView;
+    fullScreenImage.backgroundColor = [UIColor clearColor];
+    return fullScreenImage;
 }
 
 
