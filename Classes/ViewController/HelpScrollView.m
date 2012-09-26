@@ -43,11 +43,17 @@
 	scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollsToTop = NO;
-	
+    
+    
 	scrollView.contentSize = CGSizeMake(scrollViewSize.width  * [pages count], scrollViewSize.height);
-
-	pageControl.numberOfPages = [pages count]; 
-	
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        pageControl.numberOfPages = [pages count];
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGRect newPageFrame = pageControl.frame;
+        newPageFrame.origin.y = screenRect.size.height - (20+44+48+30);
+        pageControl.frame = newPageFrame;
+	}
 	[self setUpPages];
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
 }

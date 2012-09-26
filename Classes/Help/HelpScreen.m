@@ -21,6 +21,15 @@
 	self = [super initWithNibName:@"HelpScreen" bundle:nil];
 	if (self != nil) {
 		self.content = helpContent;
+        CGRect screenRect;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+            screenRect = [[UIScreen mainScreen] bounds];
+            screenRect.size.height = screenRect.size.height - (20+44+48);
+        }
+        else {
+            screenRect = CGRectMake(0, 0, 320, 367);
+        }
+        self.view.frame = screenRect;
 	}
 	
 	return self;
