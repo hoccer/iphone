@@ -18,13 +18,14 @@
     self.view.backgroundColor = [UIColor clearColor];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-        
+    
+    [lowerBarImageView setFrame:CGRectMake(0, screenHeight-20, 320, 62)];
+    
     if (screenHeight > 480) {
         backgroundImageView.image = [UIImage imageNamed:@"startanimation_bg-568h"];
         overlayImageView.image = [UIImage imageNamed:@"startanimation_overlay-568h"];
         desolveBackgroundImageView.image = [UIImage imageNamed:@"startanimation_lochblech_bg-568h"];
     }
-    NSLog(@"Lower Bar Rect: %@",NSStringFromCGRect(lowerBarImageView.frame));
     // Do any additional setup after loading the view from its nib.
 
 }
@@ -103,6 +104,7 @@
                      }
                      completion:^(BOOL finished){
                          [self animationFinished];
+
                      }];
     
 }
@@ -111,7 +113,7 @@
     CGRect upperBarFrame = self.upperBarImageView.frame;
     upperBarFrame.origin.y = 0;
     CGRect lowerBarFrame = self.lowerBarImageView.frame;
-    lowerBarFrame.origin.y = lowerBarFrame.origin.y+62;
+    lowerBarFrame.origin.y = lowerBarFrame.origin.y-62;
     
     [UIView animateWithDuration:0.5
                           delay:0.1
@@ -121,7 +123,6 @@
                          [self.lowerBarImageView setFrame:lowerBarFrame];
                      } 
                      completion:^(BOOL finished){
-                         NSLog(@"Lower Bar Rect: %@",NSStringFromCGRect(lowerBarImageView.frame));
                          [self animationFinished];
                      }];
     
