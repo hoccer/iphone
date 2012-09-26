@@ -179,7 +179,16 @@
 #pragma mark -
 #pragma mark View Generator Methods
 - (UIView *)fullscreenView {
-	UIWebView *webView = [[UIWebView alloc] initWithFrame: CGRectMake(0, 0, 320, 367)];
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        screenRect = [[UIScreen mainScreen] bounds];
+        screenRect.size.height = screenRect.size.height - (20+44+48);
+    }
+    else {
+        screenRect = CGRectMake(0, 0, 320, 367);
+    }
+    
+	UIWebView *webView = [[UIWebView alloc] initWithFrame:screenRect];
 	webView.scalesPageToFit = YES;
 		
 	[webView loadRequest: [NSURLRequest requestWithURL: [NSURL fileURLWithPath:self.filepath]]];	

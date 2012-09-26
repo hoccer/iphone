@@ -97,8 +97,14 @@
 } 
 
 - (UIView *)fullscreenView  {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    screenRect.size.height = screenRect.size.height - (20+44+48);
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        screenRect = [[UIScreen mainScreen] bounds];
+        screenRect.size.height = screenRect.size.height - (20+44+48);
+    }
+    else {
+        screenRect = CGRectMake(0, 0, 320, 367);
+    }
     fullScreenImage = [[UIImageView alloc] initWithFrame:screenRect];
     fullScreenImage.image = self.image;
 	fullScreenImage.contentMode = UIViewContentModeScaleAspectFit;

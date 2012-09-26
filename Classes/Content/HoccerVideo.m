@@ -110,9 +110,17 @@
 
 - (UIView *)fullscreenView {
     
-        
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        screenRect = [[UIScreen mainScreen] bounds];
+        screenRect.size.height = screenRect.size.height - (20+44+48);
+    }
+    else {
+        screenRect = CGRectMake(0, 0, 320, 367);
+    }
+    
     self.fullscreenPlayer =[[MPMoviePlayerViewController alloc] initWithContentURL: self.fileUrl];
-    self.fullscreenPlayer.view.frame = CGRectMake(0, 0, 320, 367);
+    self.fullscreenPlayer.view.frame = screenRect;
     
     self.fullscreenPlayer.moviePlayer.controlStyle = MPMovieControlStyleDefault;  
     self.fullscreenPlayer.moviePlayer.shouldAutoplay = NO;  

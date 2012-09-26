@@ -27,7 +27,16 @@
 }
 
 - (UIView *)fullscreenView {
-	UITextView *text = [[UITextView alloc] initWithFrame: CGRectMake(0, 0, 320, 387)];
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        screenRect = [[UIScreen mainScreen] bounds];
+        screenRect.size.height = screenRect.size.height - (20+44+48);
+    }
+    else {
+        screenRect = CGRectMake(0, 0, 320, 367);
+    }
+
+	UITextView *text = [[UITextView alloc] initWithFrame: screenRect];
 	text.text = self.content;
     text.font = [UIFont systemFontOfSize:16];
     text.textColor = [UIColor blackColor];
