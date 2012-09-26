@@ -44,11 +44,12 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         [parentNavigationController setTitle:@"Settings"];
     }
-   
-    CGRect parentFrame = parentNavigationController.view.frame;
-    parentFrame.size.height = parentFrame.size.height - 48;
-    [self.view setFrame:parentFrame];
-    [self.tableView setFrame:parentFrame];
+    else {
+        CGRect parentFrame = parentNavigationController.view.frame;
+        parentFrame.size.height = parentFrame.size.height - 48;
+        [self.view setFrame:parentFrame];
+        [self.tableView setFrame:parentFrame];
+    }
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
     
     UIView *tbBgView = [[[UIView alloc]init]autorelease];
