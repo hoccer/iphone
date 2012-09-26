@@ -15,6 +15,7 @@
     IBOutlet UIImageView *backgroundImageView;
     IBOutlet UIImageView *upperBarImageView;
     IBOutlet UIImageView *lowerBarImageView;
+    IBOutlet UIImageView *desolveBackgroundImageView;
 
 }
 
@@ -23,6 +24,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic, retain) IBOutlet UIImageView *upperBarImageView;
 @property (nonatomic, retain) IBOutlet UIImageView *lowerBarImageView;
+@property (nonatomic, retain) IBOutlet UIImageView *desolveBackgroundImageView;
+
 - (void)removeSelf;
 
 @end

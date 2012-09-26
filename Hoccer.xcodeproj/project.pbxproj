@@ -558,6 +558,7 @@
 		B47668E7153C6B6F00EE5574 /* Icon-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47668E6153C6B6F00EE5574 /* Icon-ipad@2x.png */; };
 		B47C809615FE030A003981D6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B47C809515FE030A003981D6 /* Icon-Small@2x.png */; };
 		B47D28641461A8B00028AE03 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B47D28631461A8B00028AE03 /* MainWindow-iPad.xib */; };
+		B48000861603656E007A5F51 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B48000851603656E007A5F51 /* Default-568h@2x.png */; };
 		B488C78E149FA17E0071194B /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75A149FA17E0071194B /* Crypto.m */; };
 		B488C78F149FA17E0071194B /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75C149FA17E0071194B /* NSData+CommonCrypto.m */; };
 		B488C790149FA17E0071194B /* PublicKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B488C75E149FA17E0071194B /* PublicKeyManager.m */; };
@@ -640,6 +641,12 @@
 		B4B5C5E115F4EF9700BC9A43 /* nav_bar_location_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B5C5DD15F4EF9700BC9A43 /* nav_bar_location_off@2x.png */; };
 		B4B5C5E215F4EF9700BC9A43 /* nav_bar_location_on.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B5C5DE15F4EF9700BC9A43 /* nav_bar_location_on.png */; };
 		B4B5C5E315F4EF9700BC9A43 /* nav_bar_location_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B5C5DF15F4EF9700BC9A43 /* nav_bar_location_on@2x.png */; };
+		B4CBE10F1610A49000D2CFD0 /* lochblech_bg_alone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE10C1610A49000D2CFD0 /* lochblech_bg_alone-568h@2x.png */; };
+		B4CBE1101610A49000D2CFD0 /* lochblech_bg_encrypted-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE10D1610A49000D2CFD0 /* lochblech_bg_encrypted-568h@2x.png */; };
+		B4CBE1111610A49000D2CFD0 /* lochblech_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE10E1610A49000D2CFD0 /* lochblech_bg-568h@2x.png */; };
+		B4CBE1151610A4AC00D2CFD0 /* startanimation_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE1121610A4AC00D2CFD0 /* startanimation_bg-568h@2x.png */; };
+		B4CBE1161610A4AC00D2CFD0 /* startanimation_lochblech_bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE1131610A4AC00D2CFD0 /* startanimation_lochblech_bg-568h@2x.png */; };
+		B4CBE1171610A4AC00D2CFD0 /* startanimation_overlay-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CBE1141610A4AC00D2CFD0 /* startanimation_overlay-568h@2x.png */; };
 		B4CD7A2B13E1D62500842B2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD7A2A13E1D62500842B2A /* MobileCoreServices.framework */; };
 		B4DEE30E14053EF700AD1D7C /* video_dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = B4DEE30A14053EF700AD1D7C /* video_dummy.png */; };
 		B4DEE30F14053EF700AD1D7C /* video_dummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4DEE30B14053EF700AD1D7C /* video_dummy@2x.png */; };
@@ -1177,6 +1184,7 @@
 		B4779D2115B6FFCD000A4ABD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B47C809515FE030A003981D6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		B47D28631461A8B00028AE03 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources/Xibs/iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		B48000851603656E007A5F51 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B488C759149FA17E0071194B /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		B488C75A149FA17E0071194B /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		B488C75B149FA17E0071194B /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
@@ -1289,6 +1297,12 @@
 		B4B5C5DD15F4EF9700BC9A43 /* nav_bar_location_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_location_off@2x.png"; sourceTree = "<group>"; };
 		B4B5C5DE15F4EF9700BC9A43 /* nav_bar_location_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_location_on.png; sourceTree = "<group>"; };
 		B4B5C5DF15F4EF9700BC9A43 /* nav_bar_location_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_location_on@2x.png"; sourceTree = "<group>"; };
+		B4CBE10C1610A49000D2CFD0 /* lochblech_bg_alone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_alone-568h@2x.png"; sourceTree = "<group>"; };
+		B4CBE10D1610A49000D2CFD0 /* lochblech_bg_encrypted-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_encrypted-568h@2x.png"; sourceTree = "<group>"; };
+		B4CBE10E1610A49000D2CFD0 /* lochblech_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg-568h@2x.png"; sourceTree = "<group>"; };
+		B4CBE1121610A4AC00D2CFD0 /* startanimation_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startanimation_bg-568h@2x.png"; sourceTree = "<group>"; };
+		B4CBE1131610A4AC00D2CFD0 /* startanimation_lochblech_bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startanimation_lochblech_bg-568h@2x.png"; sourceTree = "<group>"; };
+		B4CBE1141610A4AC00D2CFD0 /* startanimation_overlay-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startanimation_overlay-568h@2x.png"; sourceTree = "<group>"; };
 		B4CD7A2A13E1D62500842B2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B4DEE30A14053EF700AD1D7C /* video_dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_dummy.png; sourceTree = "<group>"; };
 		B4DEE30B14053EF700AD1D7C /* video_dummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_dummy@2x.png"; sourceTree = "<group>"; };
@@ -1960,6 +1974,9 @@
 		2292542E11889709008B4FFB /* general */ = {
 			isa = PBXGroup;
 			children = (
+				B4CBE10C1610A49000D2CFD0 /* lochblech_bg_alone-568h@2x.png */,
+				B4CBE10D1610A49000D2CFD0 /* lochblech_bg_encrypted-568h@2x.png */,
+				B4CBE10E1610A49000D2CFD0 /* lochblech_bg-568h@2x.png */,
 				B467C3C91590C44400F59065 /* lochblech_bg_alone.png */,
 				B467C3CA1590C44400F59065 /* lochblech_bg_alone@2x.png */,
 				B4F2D267153842B300138890 /* lochblech_bg_encrypted.png */,
@@ -2276,6 +2293,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B48000851603656E007A5F51 /* Default-568h@2x.png */,
 				B4779D2115B6FFCD000A4ABD /* libz.dylib */,
 				B415A6E015485E8D00AA1328 /* Default-Portrait@2x~ipad.png */,
 				B415A6DE15485E7A00AA1328 /* Default-Landscape@2x~ipad.png */,
@@ -2589,6 +2607,9 @@
 		B49381FD158F37D9000391B5 /* startanimation */ = {
 			isa = PBXGroup;
 			children = (
+				B4CBE1121610A4AC00D2CFD0 /* startanimation_bg-568h@2x.png */,
+				B4CBE1131610A4AC00D2CFD0 /* startanimation_lochblech_bg-568h@2x.png */,
+				B4CBE1141610A4AC00D2CFD0 /* startanimation_overlay-568h@2x.png */,
 				B4938212158F65F0000391B5 /* startanimation_lochblech_bg@2x.png */,
 				B4938213158F65F0000391B5 /* startanimation_lochblech_bg.png */,
 				B493820A158F5DD6000391B5 /* startanimation_lower_bar.png */,
@@ -2793,7 +2814,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Hoccer GmbH";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Hoccer" */;
@@ -3150,6 +3171,13 @@
 				B431144E15FA4A3200749C0E /* group_infobg@2x.png in Resources */,
 				B431144F15FA4A3200749C0E /* group_infobg.png in Resources */,
 				B47C809615FE030A003981D6 /* Icon-Small@2x.png in Resources */,
+				B48000861603656E007A5F51 /* Default-568h@2x.png in Resources */,
+				B4CBE10F1610A49000D2CFD0 /* lochblech_bg_alone-568h@2x.png in Resources */,
+				B4CBE1101610A49000D2CFD0 /* lochblech_bg_encrypted-568h@2x.png in Resources */,
+				B4CBE1111610A49000D2CFD0 /* lochblech_bg-568h@2x.png in Resources */,
+				B4CBE1151610A4AC00D2CFD0 /* startanimation_bg-568h@2x.png in Resources */,
+				B4CBE1161610A4AC00D2CFD0 /* startanimation_lochblech_bg-568h@2x.png in Resources */,
+				B4CBE1171610A4AC00D2CFD0 /* startanimation_overlay-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3580,7 +3608,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3617,7 +3645,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -3674,7 +3702,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (

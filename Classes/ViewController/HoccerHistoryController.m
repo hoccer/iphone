@@ -43,6 +43,7 @@
 	if (self != nil) {
 		historyData = [[HistoryData alloc] init];
 		[self cleanUp];
+        self.view.frame = self.parentNavigationController.view.frame;
 	}
 	return self;
 }

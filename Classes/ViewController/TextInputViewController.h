@@ -17,7 +17,7 @@
 
 @property (retain, nonatomic) IBOutlet UITextView *textView;
 @property (retain, nonatomic) IBOutlet UINavigationItem *theNavItem;
-@property (strong, atomic) id delegate;
+@property (assign) id <TextInputViewControllerDelegate> delegate;
 
 - (IBAction)doneButtonTapped:(id)sender;
 - (IBAction)cancelButtonTapped:(id)sender;

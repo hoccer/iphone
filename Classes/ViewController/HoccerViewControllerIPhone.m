@@ -66,24 +66,36 @@
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar"]] autorelease];
-
-	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, 
-												 self.view.frame.size.height - tabBar.frame.size.height); 
-
+    
+    
+       
+	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - tabBar.frame.size.height);
 	[self.view addSubview:navigationController.view];
-	
+    
 	self.hoccerHistoryController = [[[HoccerHistoryController alloc] init] autorelease];
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
+   
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
-    }
+        if (screenHeight > 480){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+        }
+        else {
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
+        }
+        }
     else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
-        
+        if (screenHeight > 480){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+        }
+        else {
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+        }
     }
     
     
@@ -131,10 +143,11 @@
 	
 	[self showHud];
     [self updateGroupButton];
-    
-    
     //[self updateEncryptionIndicator];
-
+    
+    tabBar.userInteractionEnabled = YES;
+    [self.view bringSubviewToFront:tabBar];
+    
 }
 
 - (void) dealloc {
@@ -360,15 +373,32 @@
         }
     }
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
     if (others.count == 0){
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+        if (screenHeight > 480){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone-568h"]];
+        }
+        else {
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+        }
     }
     else {
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
+            if (screenHeight > 480){
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+            }
+            else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
+            }
         }
         else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+            if (screenHeight > 480){
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+            }
+            else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+            }
         }
     }
     
@@ -528,12 +558,25 @@
         [desktopData removeHoccerController:[desktopData hoccerControllerDataAtIndex:i]];
     }
     [desktopView reloadData];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
     if (encrypting){
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted.png"]];
+        if (screenHeight > 480){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+        }
+        else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
+        }
     }
     else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+        if (screenHeight > 480){
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+        }
+        else {
+            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
 
+        }
     }
     if (navigationItem.titleView != nil){
         //[self updateEncryptionIndicator];
@@ -604,4 +647,5 @@
         }
     }
 }
+
 @end

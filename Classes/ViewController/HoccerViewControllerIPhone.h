@@ -16,7 +16,7 @@
 @class ActionElement;
 
 @interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate, 
-                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate> 
+                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
