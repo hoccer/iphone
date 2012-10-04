@@ -18,6 +18,7 @@
 #import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
+#import "ChannelViewController.h"
 #import "HoccingRulesIPhone.h"
 #import "GesturesInterpreter.h"
 #import "HoccerHoclet.h"
@@ -67,7 +68,6 @@
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar"]] autorelease];
     
-    
        
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - tabBar.frame.size.height);
 	[self.view addSubview:navigationController.view];
@@ -78,33 +78,28 @@
 	self.hoccerHistoryController.historyData = historyData;
 	
    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        if (screenHeight > 480){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+    NSArray *group = infoViewController.group;
+    if (group != nil) {
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
+        for (NSDictionary *dict in group) {
+            if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
+                [others addObject:dict];
+            }
         }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
-        }
-        }
-    else {
-        if (screenHeight > 480){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
-        }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
-        }
+        [self setDesktopBackgroundImage:others];
     }
-    
+    else {
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:0];
+        [self setDesktopBackgroundImage:others];
+    }
     
     if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]){
         [tabBar setSelectedImageTintColor:[UIColor lightGrayColor]];
         [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_active"]];
-        NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:3];
+        NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:4];
         
-        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
+        //UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
+        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Content" image:nil tag:1];
         [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];
         [styledItems addObject:content];
         [content release];
@@ -112,7 +107,11 @@
         [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
         [styledItems addObject:history];
         [history release];
-        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:3];
+        UITabBarItem *channel = [[UITabBarItem alloc] initWithTitle:@"Channel" image:nil tag:3];
+        [channel setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"]];
+        [styledItems addObject:channel];
+        [channel release];
+        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:4];
         [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
         [styledItems addObject:settings];
         [settings release];
@@ -147,7 +146,6 @@
     
     tabBar.userInteractionEnabled = YES;
     [self.view bringSubviewToFront:tabBar];
-    
 }
 
 - (void) dealloc {
@@ -226,10 +224,22 @@
 }
 
 - (IBAction)toggleHistory: (id)sender {
-	if (!isPopUpDisplayed) {			
+	if (!isPopUpDisplayed) {
 		[self showHistoryView];
 	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
+		[self hidePopOverAnimated: YES];
+	} else {
+		[self hidePopOverAnimated: YES];
+		tabBar.selectedItem = nil;
+	}
+}
+
+- (IBAction)toggleChannel: (id)sender {
+	if (!isPopUpDisplayed) {
+		[self showChannelView];
+    } else if (auxiliaryView != self.channelViewController) {
+		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showChannelView)];
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
@@ -241,6 +251,7 @@
 	[self hidePopOverAnimated:YES];
     tabBar.selectedItem = nil;
 }
+
 
 - (void)showSelectContentView {
 	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
@@ -277,6 +288,19 @@
     
     
 	navigationItem.titleView = nil;
+}
+
+- (void)showChannelView {
+	self.channelViewController.parentNavigationController = navigationController;
+	[self showPopOver:self.channelViewController];
+	
+	navigationItem.title = NSLocalizedString(@"Channel", nil);
+	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    [doneButton release];
+	navigationItem.titleView = nil;
+    navigationItem.leftBarButtonItem = nil;
+
 }
 
 - (void)showPopOver: (UIViewController *)popOverView  {
@@ -372,15 +396,34 @@
             [others addObject:dict];            
         }
     }
+    [self setDesktopBackgroundImage:others];
     
+    [infoViewController setGroup: others];
+    [self updateGroupButton];
+}
+
+- (void)setDesktopBackgroundImage:(NSMutableArray *)others
+{
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    if (others.count == 0){
+    if (others.count == 0) {
         if (screenHeight > 480){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone-568h"]];
+            NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+            if ((channel != nil) && (channel.length > 0)) {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone_channel-568h"]];
+            }
+            else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone-568h"]];
+            }
         }
         else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+            NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+            if ((channel != nil) && (channel.length > 0)) {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone_channel"]];
+            }
+            else {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+            }
         }
     }
     else {
@@ -401,9 +444,6 @@
             }
         }
     }
-    
-    [infoViewController setGroup: others];
-    [self updateGroupButton];
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients {
@@ -435,6 +475,9 @@
 			[self toggleHistory:self];
 			break;
 		case 3:
+			[self toggleChannel:self];
+			break;
+		case 4:
 			[self toggleHelp:self];
 			break;
 		default:
@@ -460,6 +503,24 @@
         [[UIDevice currentDevice] performSelector:NSSelectorFromString(@"setOrientation:") withObject:(id)UIInterfaceOrientationPortrait];
     }
 	[self hidePopOverAnimated:YES];
+    
+    // RALPH : channel
+    [self updateGroupButton];
+
+    NSArray *group = infoViewController.group;
+    if (group != nil) {
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
+        for (NSDictionary *dict in group) {
+            if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
+                [others addObject:dict];
+            }
+        }
+        [self setDesktopBackgroundImage:others];
+    }
+    else {
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:0];
+        [self setDesktopBackgroundImage:others];
+    }
 }
 
 
@@ -474,10 +535,17 @@
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        
+        // RALPH : channel
+        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+        if ((channel != nil) && (channel.length > 0)) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_off"] forState:UIControlStateNormal];
+        }
+        else {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        }
+        
         groupSizeButton.frame = CGRectMake(0, 0, 56, 44);
-
-    
     }
     
     NSInteger groupCount = [[infoViewController group] count];
@@ -494,12 +562,25 @@
     }
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];
-    if (clientSelected){
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
+    if (clientSelected) {
+        // RALPH : channel
+        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+        if ((channel != nil) && (channel.length > 0)) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_on"] forState:UIControlStateNormal];
+        }
+        else {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
+        }
     }
     else {
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
-
+        // RALPH : channel
+        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+        if ((channel != nil) && (channel.length > 0)) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_off"] forState:UIControlStateNormal];
+        }
+        else {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        }
     }
     [self showGroupButton];
 }
@@ -559,25 +640,21 @@
     }
     [desktopView reloadData];
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    if (encrypting){
-        if (screenHeight > 480){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+    NSArray *group = infoViewController.group;
+    if (group != nil) {
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
+        for (NSDictionary *dict in group) {
+            if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
+                [others addObject:dict];
+            }
         }
-        else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
-        }
+        [self setDesktopBackgroundImage:others];
     }
     else {
-        if (screenHeight > 480){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
-        }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
-
-        }
+        NSMutableArray *others = [NSMutableArray arrayWithCapacity:0];
+        [self setDesktopBackgroundImage:others];
     }
+    
     if (navigationItem.titleView != nil){
         //[self updateEncryptionIndicator];
     }

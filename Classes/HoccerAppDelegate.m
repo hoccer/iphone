@@ -77,7 +77,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         [startAnimation.view setFrame:CGRectMake(0, 20, screenFrame.size.width, screenFrame.size.height-20)];
         [window addSubview:startAnimation.view];
     }
-	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
+	//SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://www.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
 		//NSLog(@"could not create reachability ref");
 		return YES;

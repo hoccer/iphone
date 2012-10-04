@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1024</int>
 		<string key="IBDocument.SystemVersion">12C54</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">1929</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -48,6 +48,7 @@
 						<string key="NSFrame">{{0, 411}, {320, 49}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -76,11 +77,18 @@
 							</object>
 							<object class="IBUITabBarItem" id="195199696">
 								<int key="IBUITag">3</int>
-								<string key="IBUITitle">Settings</string>
-								<object class="NSCustomResource" key="IBUIImage">
+								<string key="IBUITitle">Channel</string>
+								<object class="NSCustomResource" key="IBUIImage" id="45418193">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">tab_bar_settings_btn_ios4.png</string>
 								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUITabBar" ref="986704132"/>
+							</object>
+							<object class="IBUITabBarItem" id="252286749">
+								<int key="IBUITag">3</int>
+								<string key="IBUITitle">Settings</string>
+								<reference key="IBUIImage" ref="45418193"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
 							</object>
@@ -125,7 +133,7 @@
 				<array class="NSMutableArray" key="IBUIViewControllers">
 					<object class="IBUIViewController" id="424575191">
 						<object class="IBUIView" key="IBUIView" id="264601323">
-							<reference key="NSNextResponder"/>
+							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">308</int>
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="IBUILabel" id="284235471">
@@ -133,7 +141,6 @@
 									<int key="NSvFlags">-2147483356</int>
 									<string key="NSFrame">{{119, 48}, {83, 21}}</string>
 									<reference key="NSSuperview" ref="264601323"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="333398635"/>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
@@ -165,7 +172,6 @@
 									<int key="NSvFlags">292</int>
 									<string key="NSFrameSize">{320, 15}</string>
 									<reference key="NSSuperview" ref="264601323"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="284235471"/>
 									<float key="IBUIAlpha">0.5</float>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -180,7 +186,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{0, 374}, {320, 13}}</string>
 									<reference key="NSSuperview" ref="264601323"/>
-									<reference key="NSWindow"/>
 									<float key="IBUIAlpha">0.5</float>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -191,8 +196,6 @@
 								</object>
 							</array>
 							<string key="NSFrame">{{0, 44}, {320, 387}}</string>
-							<reference key="NSSuperview"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="403723230"/>
 							<object class="NSColor" key="IBUIBackgroundColor">
 								<int key="NSColorSpace">3</int>
@@ -201,7 +204,6 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="513324182">
-							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">Hoccer</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -396,6 +398,7 @@
 							<reference ref="195199696"/>
 							<reference ref="379352711"/>
 							<reference ref="584568462"/>
+							<reference ref="252286749"/>
 						</array>
 						<reference key="parent" ref="774585933"/>
 					</object>
@@ -430,6 +433,11 @@
 						<reference key="object" ref="883640974"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">266</int>
+						<reference key="object" ref="252286749"/>
+						<reference key="parent" ref="986704132"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -456,13 +464,14 @@
 				<string key="233.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="235.CustomClassName">GroupStatusViewController</string>
 				<string key="235.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="266.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">265</int>
+			<int key="maxID">266</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -802,6 +811,6 @@
 			<string key="tab_bar_history_btn_ios4.png">{33, 20}</string>
 			<string key="tab_bar_settings_btn_ios4.png">{31, 27}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>
 </archive>

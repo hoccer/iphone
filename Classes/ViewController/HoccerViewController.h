@@ -41,6 +41,7 @@
 @class HoccingRules;
 @class HoccerHistoryController;
 @class SettingViewController;
+@class ChannelViewController;
 @class GroupStatusViewController;
 
 @class HCLinccer;
@@ -54,6 +55,7 @@
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	SettingViewController *helpViewController;
+	ChannelViewController *channelViewController;
 	HistoryData *historyData;
 
 	DesktopDataSource *desktopData;
@@ -92,6 +94,7 @@
 @property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
+@property (nonatomic, retain) ChannelViewController *channelViewController;
 @property (nonatomic, retain) IBOutlet GroupStatusViewController *infoViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
@@ -109,6 +112,7 @@
 - (IBAction)toggleSelectContent: (id)sender;
 - (IBAction)toggleHelp: (id)sender;
 - (IBAction)toggleHistory: (id)sender;
+- (IBAction)toggleChannel: (id)sender;
 
 - (IBAction)selectContacts: (id)sender;
 - (IBAction)selectImage: (id)sender;

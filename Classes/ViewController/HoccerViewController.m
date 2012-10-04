@@ -44,6 +44,7 @@
 #import "HistoryData.h"
 
 #import "SettingViewController.h"
+#import "ChannelViewController.h"
 #import "ConnectionStatusViewController.h"
 
 #import "StatusBarStates.h"
@@ -73,6 +74,7 @@
 - (void)ensureViewIsHoccable;
 
 - (void)clientNameChanged: (NSNotification *)notification;
+- (void)clientChannelChanged: (NSNotification *)notification;
 - (id <Cryptor>)currentCryptor;
 
 @end
@@ -90,6 +92,7 @@ typedef enum {
 
 @synthesize delegate; 
 @synthesize helpViewController;
+@synthesize channelViewController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
 @synthesize infoViewController;
@@ -124,7 +127,8 @@ typedef enum {
 
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
-    [self clientNameChanged:nil];	
+    [self clientNameChanged:nil];
+    [self clientChannelChanged:nil];
     
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
@@ -152,12 +156,17 @@ typedef enum {
 												 name:@"NetworkConnectionChanged" 
 											   object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(clientNameChanged:) 
-                                                 name:@"clientNameChanged" 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clientNameChanged:)
+                                                 name:@"clientNameChanged"
                                                object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clientChannelChanged:)
+                                                 name:@"clientChannelChanged"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(encryptionChanged:) 
                                                  name:@"encryptionChanged" 
                                                object:nil];
@@ -366,6 +375,7 @@ typedef enum {
 - (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}
+- (IBAction)toggleChannel: (id)sender {}
 - (IBAction)toggleHelp: (id)sender {}
 
 - (void)showDesktop {}
@@ -507,6 +517,14 @@ typedef enum {
 	}
 	
 	return helpViewController;
+}
+
+- (ChannelViewController *)channelViewController {
+	if (channelViewController == nil) {
+		channelViewController = [[ChannelViewController alloc] initWithNibName:@"ChannelViewController" bundle:nil];
+	}
+	
+	return channelViewController;
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
@@ -976,10 +994,25 @@ typedef enum {
     if (userInfo == nil) {
         userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
     }
-
+    
     [userInfo setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"] forKey:@"client_name"];
-
+    
     linccer.userInfo = userInfo;
+}
+
+- (void)clientChannelChanged: (NSNotification *)notification {
+
+    //NSMutableDictionary *channel = [[[NSMutableDictionary alloc] init] autorelease];
+    //if (channel == nil) {
+    //    channel = [NSMutableDictionary dictionaryWithCapacity:1];
+    //}
+    //
+    //[channel setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"channel"] forKey:@"_channel"];
+    //
+    //linccer.userInfo = channel;
+    
+    //NSLog(@"HoccerViewController channel: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"]);
+
 }
 
 

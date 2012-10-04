@@ -28,7 +28,6 @@
 
 @end
 
-
 @implementation SettingViewController
 @synthesize parentNavigationController;
 @synthesize tableView;
@@ -267,12 +266,12 @@
 	[helpView release];
 }
 
-- (void)changedName: (UITextField *)textField {    
+- (void)changedName: (UITextField *)textField {
     NSString *oldClientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
     if (![oldClientName isEqualToString:textField.text]) {
         [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-       
+        
         NSNotification *notification = [NSNotification notificationWithName:@"clientNameChanged" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
     }

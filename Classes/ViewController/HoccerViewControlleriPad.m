@@ -18,6 +18,7 @@
 #import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
+#import "ChannelViewController.h"
 #import "HoccingRulesIPad.h"
 #import "GesturesInterpreter.h"
 #import "HoccerHoclet.h"
@@ -298,6 +299,19 @@
     }
 }
 
+- (IBAction)toggleChannel: (id)sender {
+	if (!isPopUpDisplayed) {
+		[self showChannelView];
+        //} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
+        //	self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
+        //	[self hidePopOverAnimated: YES];
+	} else {
+		[self hidePopOverAnimated: YES];
+		tabBar.selectedItem = nil;
+	}
+}
+
+
 - (IBAction)selectMyContact:(id)sender {
     [super selectMyContact:nil];
     
@@ -333,10 +347,15 @@
     
 }
 
-
 - (void)showDesktop {
     tabBar.selectedItem = nil;
 }
+
+- (void)showChannelView {
+	[self hidePopOverAnimated:YES];
+    tabBar.selectedItem = nil;
+}
+
 
 - (void)showSelectContentView {
 	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
