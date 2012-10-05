@@ -31,6 +31,7 @@
 	
     HelpController *helpController;
     UIButton *groupSizeButton;
+    UIButton *channelSizeButton;
     UIButton *encryptionButton;
     
     id <ContentSelectController> activeContentSelectController;

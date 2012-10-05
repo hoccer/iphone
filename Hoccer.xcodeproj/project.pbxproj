@@ -722,6 +722,9 @@
 		E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C81812B28164006B5037 /* DelayedFileUploaded.m */; };
 		E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 		E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
+		F15174E5161F1EB7002DDE4E /* ChannelHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */; };
+		F15174EB161F21B1002DDE4E /* ChannelHelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = F15174EA161F21B1002DDE4E /* ChannelHelpView.m */; };
+		F15174EE161F3490002DDE4E /* ChannelHelpTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */; };
 		F1A4150A161D998E0045CFFE /* nav_bar_location_red_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41506161D998D0045CFFE /* nav_bar_location_red_on.png */; };
 		F1A4150C161D998E0045CFFE /* nav_bar_location_red_off.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41507161D998D0045CFFE /* nav_bar_location_red_off.png */; };
 		F1A4150E161D998E0045CFFE /* nav_bar_location_red_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41508161D998D0045CFFE /* nav_bar_location_red_off@2x.png */; };
@@ -1230,7 +1233,7 @@
 		B488C77A149FA17E0071194B /* HCGeoStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGeoStorage.m; sourceTree = "<group>"; };
 		B488C77B149FA17E0071194B /* HCGeoStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGeoStorageDelegate.h; sourceTree = "<group>"; };
 		B488C77C149FA17E0071194B /* HCLinccer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLinccer.h; sourceTree = "<group>"; };
-		B488C77D149FA17E0071194B /* HCLinccer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLinccer.m; sourceTree = "<group>"; };
+		B488C77D149FA17E0071194B /* HCLinccer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HCLinccer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B488C77E149FA17E0071194B /* HCLinccerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLinccerDelegate.h; sourceTree = "<group>"; };
 		B488C780149FA17E0071194B /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		B488C781149FA17E0071194B /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
@@ -1398,6 +1401,11 @@
 		E686C81812B28164006B5037 /* DelayedFileUploaded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedFileUploaded.m; sourceTree = "<group>"; };
 		E6B9FC0D12AFC09000A7E313 /* TransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferController.h; path = DownloadController/TransferController.h; sourceTree = "<group>"; };
 		E6B9FC0E12AFC09000A7E313 /* TransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferController.m; path = DownloadController/TransferController.m; sourceTree = "<group>"; };
+		F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelHelpView.xib; sourceTree = "<group>"; };
+		F15174E9161F21B1002DDE4E /* ChannelHelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelHelpView.h; sourceTree = "<group>"; };
+		F15174EA161F21B1002DDE4E /* ChannelHelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelHelpView.m; sourceTree = "<group>"; };
+		F15174EC161F348F002DDE4E /* ChannelHelpTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelHelpTextField.h; sourceTree = "<group>"; };
+		F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelHelpTextField.m; sourceTree = "<group>"; };
 		F1A41506161D998D0045CFFE /* nav_bar_location_red_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_location_red_on.png; sourceTree = "<group>"; };
 		F1A41507161D998D0045CFFE /* nav_bar_location_red_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_location_red_off.png; sourceTree = "<group>"; };
 		F1A41508161D998D0045CFFE /* nav_bar_location_red_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_location_red_off@2x.png"; sourceTree = "<group>"; };
@@ -1529,7 +1537,6 @@
 				B471462915F7691900AD7937 /* tabbar */,
 				B4201E8A158A129200DD9F72 /* errorview */,
 				B45148351462CBD600927495 /* iPad */,
-				22F99C28125DBB4700C085A0 /* Default@2x.png */,
 				2299928F11916AC5006DA5DD /* history */,
 				2299923B1191617F006DA5DD /* help */,
 				2299922811915C0F006DA5DD /* about */,
@@ -1843,6 +1850,7 @@
 				B49381F9158F35C0000391B5 /* StartAnimationiPhoneViewController.xib */,
 				B471464C15F7AAE800AD7937 /* TextInputViewController-iPad.xib */,
 				F1DC4B4A161DF2D1003A8D8C /* ChannelViewController.xib */,
+				F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */,
 			);
 			name = Xibs;
 			path = Resources/Xibs;
@@ -1887,6 +1895,10 @@
 				B44A907215F5FC57002E47E6 /* TextInputViewControllerDelegate.h */,
 				F1DC4B47161DEC57003A8D8C /* ChannelViewController.h */,
 				F1DC4B48161DEC57003A8D8C /* ChannelViewController.m */,
+				F15174E9161F21B1002DDE4E /* ChannelHelpView.h */,
+				F15174EA161F21B1002DDE4E /* ChannelHelpView.m */,
+				F15174EC161F348F002DDE4E /* ChannelHelpTextField.h */,
+				F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */,
 			);
 			name = "Auxiliary Views";
 			sourceTree = "<group>";
@@ -2331,9 +2343,10 @@
 			isa = PBXGroup;
 			children = (
 				B48000851603656E007A5F51 /* Default-568h@2x.png */,
-				B4779D2115B6FFCD000A4ABD /* libz.dylib */,
 				B415A6E015485E8D00AA1328 /* Default-Portrait@2x~ipad.png */,
 				B415A6DE15485E7A00AA1328 /* Default-Landscape@2x~ipad.png */,
+				22F99C28125DBB4700C085A0 /* Default@2x.png */,
+				221D771011A6DC8C00246D89 /* Default.png */,
 				B41043B213E8781600F25705 /* Hoccer.entitlements */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				E609353D12A549E500EE83EB /* Libs */,
@@ -2371,22 +2384,21 @@
 				2219BF261185D54E007AB243 /* Assets */,
 				2299926111916650006DA5DD /* sounds */,
 				2299927411916741006DA5DD /* videos */,
-				22AD329B11107D7500BC7DEC /* iTunesArtwork */,
-				B44B9C4F14644724007A88E4 /* icon-ipad.png */,
+				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
+				229800C112098F5C0043BFA5 /* defaults.plist */,
+				E13A019F139E7B030052A4A1 /* hoclets.plist */,
 				227A94D6109713AB008CE547 /* HelpScreen.xib */,
 				228100C210A9CDCC00DFA0BF /* HelpOverview.xib */,
 				B4A73DAE13D5CE7C00F43F49 /* HocHistory.xcdatamodeld */,
-				8D1107310486CEB800E47090 /* Hoccer-Info.plist */,
+				22AD329B11107D7500BC7DEC /* iTunesArtwork */,
 				22F83C7A1253AA42006E5680 /* Icon@2x.png */,
 				22AD327B11107C7700BC7DEC /* Icon.png */,
 				22AD32AE11107FA200BC7DEC /* Icon-Small.png */,
 				B47C809515FE030A003981D6 /* Icon-Small@2x.png */,
-				221D771011A6DC8C00246D89 /* Default.png */,
 				B45CC00813E82BDE005351F8 /* Icon_ex.png */,
 				B45CC00913E82BDE005351F8 /* Icon_ex@2x.png */,
 				B47668E6153C6B6F00EE5574 /* Icon-ipad@2x.png */,
-				229800C112098F5C0043BFA5 /* defaults.plist */,
-				E13A019F139E7B030052A4A1 /* hoclets.plist */,
+				B44B9C4F14644724007A88E4 /* icon-ipad.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2394,6 +2406,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4779D2115B6FFCD000A4ABD /* libz.dylib */,
 				B49D675D140665520044EB5D /* CoreMedia.framework */,
 				B421D30913E2E51D00F4DC25 /* AVFoundation.framework */,
 				B4CD7A2A13E1D62500842B2A /* MobileCoreServices.framework */,
@@ -3231,6 +3244,7 @@
 				F1DC4B4D161E0F3F003A8D8C /* lochblech_bg_alone_channel-568h@2x.png in Resources */,
 				F1DC4B50161E0F4D003A8D8C /* lochblech_bg_alone_channel.png in Resources */,
 				F1DC4B51161E0F4D003A8D8C /* lochblech_bg_alone_channel@2x.png in Resources */,
+				F15174E5161F1EB7002DDE4E /* ChannelHelpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3532,6 +3546,8 @@
 				B4455FE715B6EFD00082763A /* UIBarButtonItem+CustomImageButton.m in Sources */,
 				B44A906F15F5F9EA002E47E6 /* TextInputViewController.m in Sources */,
 				F1DC4B49161DEC58003A8D8C /* ChannelViewController.m in Sources */,
+				F15174EB161F21B1002DDE4E /* ChannelHelpView.m in Sources */,
+				F15174EE161F3490002DDE4E /* ChannelHelpTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3664,7 +3680,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3688,8 +3704,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3701,7 +3717,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3711,8 +3727,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "ACC2D9A7-9A72-4AF3-BE62-ED25BCE7A3BA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ACC2D9A7-9A72-4AF3-BE62-ED25BCE7A3BA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3746,7 +3762,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3758,7 +3775,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -3768,7 +3785,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ACC2D9A7-9A72-4AF3-BE62-ED25BCE7A3BA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ACC2D9A7-9A72-4AF3-BE62-ED25BCE7A3BA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

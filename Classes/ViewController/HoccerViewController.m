@@ -1000,22 +1000,6 @@ typedef enum {
     linccer.userInfo = userInfo;
 }
 
-- (void)clientChannelChanged: (NSNotification *)notification {
-
-    //NSMutableDictionary *channel = [[[NSMutableDictionary alloc] init] autorelease];
-    //if (channel == nil) {
-    //    channel = [NSMutableDictionary dictionaryWithCapacity:1];
-    //}
-    //
-    //[channel setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"channel"] forKey:@"_channel"];
-    //
-    //linccer.userInfo = channel;
-    
-    //NSLog(@"HoccerViewController channel: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"]);
-
-}
-
-
 - (void)encryptionError: (NSNotification *)notification {
     
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)

@@ -43,10 +43,11 @@
 - (void)removePopOverFromSuperview;
 - (void)hidePopOverAnimated: (BOOL) animate;
 - (void)updateGroupButton;
+- (void)updateChannelButton;
 - (void)showGroupButton;
+- (void)showChannelButton;
 - (void)updateEncryptionIndicator;
 - (void)showEncryption;
-
 
 @end
 
@@ -142,6 +143,7 @@
 	
 	[self showHud];
     [self updateGroupButton];
+    [self updateChannelButton];
     //[self updateEncryptionIndicator];
     
     tabBar.userInteractionEnabled = YES;
@@ -157,6 +159,7 @@
 	[delayedAction release];
 	[helpController release];
     [groupSizeButton release];
+    [channelSizeButton release];
     [activeContentSelectController release];
 	
 	[super dealloc];
@@ -165,6 +168,7 @@
 - (void)setContentPreview: (HoccerContent *)content {
 	[super setContentPreview:content];
     groupSizeButton.hidden = NO;
+    channelSizeButton.hidden = NO;
 }
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller {
@@ -245,6 +249,7 @@
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
+    [self updateChannelButton];
 }
 
 - (void)showDesktop {
@@ -383,6 +388,7 @@
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupButton];
+    [self showChannelButton];
     //[self updateEncryptionIndicator];
 }
 
@@ -400,6 +406,7 @@
     
     [infoViewController setGroup: others];
     [self updateGroupButton];
+    [self updateChannelButton];
 }
 
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
@@ -461,6 +468,7 @@
     
     linccer.userInfo = userInfo;
     [self updateGroupButton];
+    [self updateChannelButton];
 }
 
 #pragma mark -
@@ -506,6 +514,7 @@
     
     // RALPH : channel
     [self updateGroupButton];
+    [self updateChannelButton];
 
     NSArray *group = infoViewController.group;
     if (group != nil) {
@@ -583,12 +592,60 @@
         }
     }
     [self showGroupButton];
+    [self showChannelButton];
 }
 
-- (void)showGroupButton {
+// RALPH : channel
+- (void)clientChannelChanged:(NSNotification *)notification {
+    
+    //NSMutableDictionary *channel = [[[NSMutableDictionary alloc] init] autorelease];
+    //if (channel == nil) {
+    //    channel = [NSMutableDictionary dictionaryWithCapacity:1];
+    //}
+    //
+    //[channel setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"channel"] forKey:@"_channel"];
+    //
+    //linccer.userInfo = channel;
+    
+    
+    [self updateGroupButton];
+    [self updateChannelButton];
+    
+    [linccer updateEnvironment];
+}
+
+- (void)updateChannelButton {
+	
+    if (channelSizeButton == nil) {
+        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+        
+        channelSizeButton.frame = CGRectMake(0, 0, 68, 44);
+        channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    }
+
+    NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+    if ((channel != nil) && (channel.length > 0)) {
+        [channelSizeButton setTitle:channel forState:UIControlStateNormal];
+    }
+    else {
+        [channelSizeButton setTitle:@"" forState:UIControlStateNormal];
+    }
+
+    [self showChannelButton];
+}
+
+- (void)showGroupButton
+{
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-    [hoccabilityBarButtonItem release];    
+    [hoccabilityBarButtonItem release];
+}
+
+- (void)showChannelButton
+{
+	UIBarButtonItem *channelBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:channelSizeButton] autorelease];
+	navigationItem.leftBarButtonItem = channelBarButtonItem;
 }
 
 - (void)updateEncryptionIndicator{
@@ -626,13 +683,15 @@
     [self showEncryption];
 }
 
-- (void)showEncryption{
+- (void)showEncryption
+{
     UIBarButtonItem *encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:encryptionButton];
     navigationItem.leftBarButtonItem = encryptionBarButtomItem;
     [encryptionBarButtomItem release];
 }
 
-- (void)encryptionChanged: (NSNotification *)notification {
+- (void)encryptionChanged: (NSNotification *)notification
+{
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     encryptionEnabled = encrypting;
     for (int i = 0;i < desktopData.numberOfItems; i++){
@@ -660,8 +719,8 @@
     }
 }
 
-
-- (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches {
+- (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches
+{
     [infoViewController hideViewAnimated:YES];
 }
 

@@ -48,7 +48,6 @@
 						<string key="NSFrame">{{0, 411}, {320, 49}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -78,9 +77,9 @@
 							<object class="IBUITabBarItem" id="195199696">
 								<int key="IBUITag">3</int>
 								<string key="IBUITitle">Channel</string>
-								<object class="NSCustomResource" key="IBUIImage" id="45418193">
+								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">tab_bar_settings_btn_ios4.png</string>
+									<string key="NSResourceName">tab_bar_channel_btn.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
@@ -88,7 +87,10 @@
 							<object class="IBUITabBarItem" id="252286749">
 								<int key="IBUITag">3</int>
 								<string key="IBUITitle">Settings</string>
-								<reference key="IBUIImage" ref="45418193"/>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">tab_bar_settings_btn_ios4.png</string>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUITabBar" ref="986704132"/>
 							</object>
@@ -614,6 +616,7 @@
 						<string key="selectPasteboard:">id</string>
 						<string key="selectText:">id</string>
 						<string key="showHistory:">id</string>
+						<string key="toggleChannel:">id</string>
 						<string key="toggleHelp:">id</string>
 						<string key="toggleHistory:">id</string>
 						<string key="toggleSelectContent:">id</string>
@@ -657,6 +660,10 @@
 						</object>
 						<object class="IBActionInfo" key="showHistory:">
 							<string key="name">showHistory:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toggleChannel:">
+							<string key="name">toggleChannel:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="toggleHelp:">
@@ -807,6 +814,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="shadow_bottom.png">{320, 13}</string>
 			<string key="shadow_top.png">{320, 15}</string>
+			<string key="tab_bar_channel_btn.png">{21, 21}</string>
 			<string key="tab_bar_content_btn_ios4.png">{33, 22}</string>
 			<string key="tab_bar_history_btn_ios4.png">{33, 20}</string>
 			<string key="tab_bar_settings_btn_ios4.png">{31, 27}</string>
