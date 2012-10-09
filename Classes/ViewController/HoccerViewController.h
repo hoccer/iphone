@@ -105,7 +105,7 @@
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
 @property (readonly) HCLinccer *linccer;
-
+@property (nonatomic, assign) BOOL channelAutoReceiveMode;
 
 - (void)setContentPreview: (HoccerContent *)content;
 
@@ -148,5 +148,9 @@
 - (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 
 - (void)retryLastAction;
+
+- (void)channelSwitchAutoReceiveMode:(BOOL)on;
+- (void)toggleChannelAutoReceiveMode;
+
 @end
 

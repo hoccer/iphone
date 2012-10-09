@@ -44,5 +44,6 @@
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
+- (void)pressedToggleAutoReceive:(id)sender;
 
 @end

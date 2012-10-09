@@ -27,6 +27,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UIViewController *viewController;
-@property (nonatomic, assign) BOOL networkReachable; 
+@property (nonatomic, assign) BOOL networkReachable;
+@property (nonatomic, assign) BOOL channelMode;
 
 @end

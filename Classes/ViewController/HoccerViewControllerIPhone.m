@@ -26,6 +26,7 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 #import "UIBarButtonItem+CustomImageButton.h"
+#import "HoccerAppDelegate.h"
 
 
 @interface HoccerViewControllerIPhone ()
@@ -108,10 +109,10 @@
         [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
         [styledItems addObject:history];
         [history release];
-        UITabBarItem *channel = [[UITabBarItem alloc] initWithTitle:@"Channel" image:nil tag:3];
-        [channel setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"]];
-        [styledItems addObject:channel];
-        [channel release];
+        UITabBarItem *channelBarItem = [[UITabBarItem alloc] initWithTitle:@"Channel" image:nil tag:3];
+        [channelBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"]];
+        [styledItems addObject:channelBarItem];
+        [channelBarItem release];
         UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:4];
         [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
         [styledItems addObject:settings];
@@ -227,7 +228,8 @@
 	}
 }
 
-- (IBAction)toggleHistory: (id)sender {
+- (IBAction)toggleHistory: (id)sender
+{
 	if (!isPopUpDisplayed) {
 		[self showHistoryView];
 	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
@@ -239,26 +241,30 @@
 	}
 }
 
-- (IBAction)toggleChannel: (id)sender {
+- (IBAction)toggleChannel: (id)sender
+{
 	if (!isPopUpDisplayed) {
 		[self showChannelView];
-    } else if (auxiliaryView != self.channelViewController) {
+    }
+    else if (auxiliaryView != self.channelViewController) {
 		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showChannelView)];
 		[self hidePopOverAnimated: YES];
-	} else {
+	}
+    else {
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
     [self updateChannelButton];
 }
 
-- (void)showDesktop {
+- (void)showDesktop
+{
 	[self hidePopOverAnimated:YES];
     tabBar.selectedItem = nil;
 }
 
-
-- (void)showSelectContentView {
+- (void)showSelectContentView
+{
 	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
 	selectContentViewController.delegate = self;
 	
@@ -266,7 +272,8 @@
 	[selectContentViewController release];
 }
 
-- (void)showHelpView {
+- (void)showHelpView
+{
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
 	
@@ -413,20 +420,21 @@
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+
     if (others.count == 0) {
         if (screenHeight > 480){
-            NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-            if ((channel != nil) && (channel.length > 0)) {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone_channel-568h"]];
+            if (isChannelMode) {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel_alone-568h"]];
             }
             else {
                 desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone-568h"]];
             }
         }
         else {
-            NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-            if ((channel != nil) && (channel.length > 0)) {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone_channel"]];
+            if (isChannelMode) {
+                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel_alone"]];
             }
             else {
                 desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
@@ -444,10 +452,20 @@
         }
         else {
             if (screenHeight > 480){
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+                if (isChannelMode) {
+                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel-568h"]];
+                }
+                else {
+                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+                }
             }
             else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+                if (isChannelMode) {
+                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel"]];
+                }
+                else {
+                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+                }
             }
         }
     }
@@ -474,7 +492,8 @@
 #pragma mark -
 #pragma mark TapBar delegate Methods
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
 	switch (item.tag) {
 		case 1:
 			[self toggleSelectContent:self];
@@ -512,7 +531,6 @@
     }
 	[self hidePopOverAnimated:YES];
     
-    // RALPH : channel
     [self updateGroupButton];
     [self updateChannelButton];
 
@@ -530,25 +548,31 @@
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:0];
         [self setDesktopBackgroundImage:others];
     }
+    
+    
+//    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+//    if (isChannelMode) {
+//        [self channelSwitchAutoReceiveMode];
+//    }
 }
 
 
 #pragma mark -
 #pragma mark Private Methods
-- (void)updateGroupButton {
+- (void)updateGroupButton
+{
 	if (navigationItem.titleView == nil) {
 		return;
 	}
-	
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+
     if (groupSizeButton == nil) {
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        // RALPH : channel
-        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-        if ((channel != nil) && (channel.length > 0)) {
-            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_off"] forState:UIControlStateNormal];
+        if (isChannelMode) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_off"] forState:UIControlStateNormal];
         }
         else {
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
@@ -572,20 +596,16 @@
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];
     if (clientSelected) {
-        // RALPH : channel
-        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-        if ((channel != nil) && (channel.length > 0)) {
-            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_on"] forState:UIControlStateNormal];
+        if (isChannelMode) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_on"] forState:UIControlStateNormal];
         }
         else {
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
         }
     }
     else {
-        // RALPH : channel
-        NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-        if ((channel != nil) && (channel.length > 0)) {
-            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_red_off"] forState:UIControlStateNormal];
+        if (isChannelMode) {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_off"] forState:UIControlStateNormal];
         }
         else {
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
@@ -595,9 +615,8 @@
     [self showChannelButton];
 }
 
-// RALPH : channel
-- (void)clientChannelChanged:(NSNotification *)notification {
-    
+- (void)clientChannelChanged:(NSNotification *)notification
+{
     //NSMutableDictionary *channel = [[[NSMutableDictionary alloc] init] autorelease];
     //if (channel == nil) {
     //    channel = [NSMutableDictionary dictionaryWithCapacity:1];
@@ -607,32 +626,59 @@
     //
     //linccer.userInfo = channel;
     
-    
     [self updateGroupButton];
     [self updateChannelButton];
     
     [linccer updateEnvironment];
-}
-
-- (void)updateChannelButton {
-	
-    if (channelSizeButton == nil) {
-        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        
-        channelSizeButton.frame = CGRectMake(0, 0, 68, 44);
-        channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    }
-
-    NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-    if ((channel != nil) && (channel.length > 0)) {
-        [channelSizeButton setTitle:channel forState:UIControlStateNormal];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self cancelPopOver];
     }
     else {
-        [channelSizeButton setTitle:@"" forState:UIControlStateNormal];
+        [self dismissModalViewControllerAnimated:YES];
     }
+    
+    self.channelAutoReceiveMode = NO;
+    
+//    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+//    if (isChannelMode) {
+//        [self channelSwitchAutoReceiveMode];
+//    }
+}
 
-    [self showChannelButton];
+- (void)updateChannelButton
+{
+
+//    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+//    NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+//    if (isChannelMode) {
+//        NSString *channelStr = [NSString stringWithFormat:@"# %@",channel];
+//        [channelSizeButton setTitle:channelStr forState:UIControlStateNormal];
+//    }
+//    else {
+//        [channelSizeButton setTitle:@"" forState:UIControlStateNormal];
+//    }
+
+    if (self.channelAutoReceiveMode) {
+        //NSString *channelStr = @"Receive ON";
+        //[channelSizeButton setTitle:channelStr forState:UIControlStateNormal];
+        
+        // switch Button to view the state
+    }
+    else {
+        //NSString *channelStr = @"Receive OFF";
+        //[channelSizeButton setTitle:channelStr forState:UIControlStateNormal];
+        
+        // switch Button to view the state
+    }
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        [self showChannelButton];
+    }
+    else {
+        navigationItem.leftBarButtonItem = nil;
+    }
 }
 
 - (void)showGroupButton
@@ -644,8 +690,20 @@
 
 - (void)showChannelButton
 {
-	UIBarButtonItem *channelBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:channelSizeButton] autorelease];
+    //BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+
+    if (channelSizeButton == nil) {
+        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch"] forState:UIControlStateNormal];
+        channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
+
+        [channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
+    }
+
+	UIBarButtonItem *channelBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:channelSizeButton];
 	navigationItem.leftBarButtonItem = channelBarButtonItem;
+    [channelBarButtonItem release];
 }
 
 - (void)updateEncryptionIndicator{
@@ -724,13 +782,30 @@
     [infoViewController hideViewAnimated:YES];
 }
 
-- (void)pressedButton: (id)sender {	
+- (void)pressedButton:(id)sender
+{
     [statusViewController hideStatus];
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
 	} else {
 		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
 	}
+}
+
+- (void)pressedToggleAutoReceive:(id)sender
+{
+    [self toggleChannelAutoReceiveMode];
+    [self updateChannelButton];
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        if (self.channelAutoReceiveMode) {
+            [self channelSwitchAutoReceiveMode:YES];
+        }
+        else {
+            [self channelSwitchAutoReceiveMode:NO];
+        }
+    }
 }
 
 - (void)toggleEncryption: (id)sender {

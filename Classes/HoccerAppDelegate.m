@@ -31,9 +31,10 @@
 
 
 @implementation HoccerAppDelegate
-@synthesize networkReachable;
 
-static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
+@synthesize networkReachable;
+static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
+{
 	((HoccerAppDelegate *)info).networkReachable = (flags & kSCNetworkReachabilityFlagsReachable);
 	
 	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
@@ -42,20 +43,31 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 @synthesize window;
 @synthesize viewController;
+@synthesize channelMode;
 
+- (BOOL)channelMode
+{
+    NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+    if ((channel != nil) && (channel.length > 0)) {
+        return YES;
+    }
+    return NO;
+}
 
-+ (void)initialize {
+//########
+
++ (void)initialize
+{
     NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
 	
     NSMutableDictionary *defaults = [NSMutableDictionary dictionaryWithContentsOfFile: filepath];
     [defaults setObject:[UIDevice currentDevice].name forKey:@"clientName"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults: defaults];
- 
-    
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     application.applicationSupportsShakeToEdit = NO;
 	application.idleTimerDisabled = NO;
    
@@ -128,11 +140,11 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
             [[UIBarButtonItem appearance] setBackgroundImage:defaultButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         }
     }
-
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
     if (!url) {
 		return NO;
 	}
@@ -144,11 +156,11 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if ([[url scheme] isEqualToString:@"file"]) {
         return [self handleFileURL:url];
     }
-    
 	return NO;
 }
 
-- (BOOL)handleHoccerURL: (NSURL *)url {
+- (BOOL)handleHoccerURL: (NSURL *)url
+{
     NSString *urlString = [url absoluteString];
 	NSRange colon = [urlString rangeOfString:@":"];
 	NSString *content = [urlString substringFromIndex:(colon.location + 1)];
@@ -158,7 +170,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return YES;
 }
 
-- (BOOL)handleFileURL: (NSURL *)url {    
+- (BOOL)handleFileURL: (NSURL *)url
+{
     NSString *fileName = [url lastPathComponent];
     NSString *destPath = [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:fileName];
     NSURL *destURL = [NSURL fileURLWithPath:destPath];
@@ -175,32 +188,30 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return YES;
 }
 
-- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
     //NSLog(@"devToken=%@",[deviceToken asBase64EncodedString]);
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",[deviceToken asBase64EncodedString]] forKey:@"apnToken"];
-    
 }
 
-
-
-- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    //NSLog(@"Error in registration. Error: %@", err);
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    NSLog(@"Error in registration. Error: %@", err);
 }
 
-
-     
-- (void)applicationDidBecomeActive: (UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
     [viewController.linccer reactivate];
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {    
+- (void)applicationWillResignActive:(UIApplication *)application
+{
     [viewController.linccer disconnect];
 }
 
 #pragma mark Terms Of Use Delegate Methods
-- (void)userNeedToAgreeToTermsOfUse {
+- (void)userNeedToAgreeToTermsOfUse
+{
 	TermOfUse *terms = [[TermOfUse alloc] init];
 	
 	terms.delegate = self;
@@ -209,7 +220,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	[terms release];
 }
 
-- (void)userDidAgreeToTermsOfUse {
+- (void)userDidAgreeToTermsOfUse
+{
 	[viewController dismissModalViewControllerAnimated:YES];
 	
 	CFBooleanRef agreed = kCFBooleanTrue;
@@ -218,7 +230,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	CFPreferencesAppSynchronize(CFSTR("com.artcom.Hoccer"));
 }
 
-- (void)dealloc {	
+- (void)dealloc
+{
     [viewController release];
 	[window release];
 	

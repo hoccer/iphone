@@ -23,7 +23,6 @@
 
 
 
-
 - (void)dealloc {
     [channelName release];
     [super dealloc];

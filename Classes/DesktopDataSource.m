@@ -66,8 +66,14 @@
 	return nil;
 }
 
-- (ItemViewController *)hoccerControllerDataAtIndex: (NSInteger) index {
-	return [contentOnDesktop objectAtIndex:index];
+- (ItemViewController *)hoccerControllerDataAtIndex: (NSInteger) index
+{
+    if (contentOnDesktop != nil) {
+        if ([contentOnDesktop count] >= index + 1) {
+            return [contentOnDesktop objectAtIndex:index];
+        }
+    }
+    return nil;
 }
 
 #pragma mark -

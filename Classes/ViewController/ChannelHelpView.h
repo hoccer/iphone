@@ -10,6 +10,7 @@
 
 @interface ChannelHelpView : UIView
 
+
 @property (retain, nonatomic) IBOutlet UITextField *channelName;
 
 @end

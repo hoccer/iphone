@@ -9,6 +9,8 @@
 #import "ChannelViewController.h"
 #import "SettingsAction.h"
 #import "ChannelHelpView.h"
+#import "HoccerAppDelegate.h"
+#import "HoccerViewController.h"
 
 @interface ChannelViewController ()
 
@@ -23,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [parentNavigationController setTitle:@"Channel"];
     }
     else {
@@ -166,7 +168,8 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self.view endEditing:YES];
     
 	NSInteger section = indexPath.section;
@@ -183,7 +186,8 @@
 #pragma mark -
 #pragma mark Touch Events
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [self.view endEditing:YES];
 }
 
@@ -194,12 +198,15 @@
 
 #pragma mark -
 #pragma mark 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
+
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
     activeField = textField;
 }
 
@@ -213,7 +220,8 @@
     activeField = nil;
 }
 
-- (void)changedChannel:(UITextField *)textField {
+- (void)changedChannel:(UITextField *)textField
+{
     NSString *oldchannel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
     if (![oldchannel isEqualToString:textField.text]) {
         
@@ -248,7 +256,8 @@
 {
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
 	[sections release];
 	[tableView release];
     [super dealloc];

@@ -103,25 +103,28 @@ typedef enum {
 @synthesize linccer;
 @synthesize sendingItem;
 @synthesize errorViewController;
+@synthesize channelAutoReceiveMode;
 
-+ (void) initialize {
++ (void) initialize
+{
 	NSString * filepath = [[NSBundle mainBundle] pathForResource: @"defaults" ofType: @"plist"];
 	
     NSMutableDictionary *defauts = [NSMutableDictionary dictionaryWithContentsOfFile: filepath];
     [defauts setObject:[UIDevice currentDevice].name forKey:@"clientName"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults: defauts];
-    
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
 	self.helpViewController = nil;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
 	[super viewDidLoad];
-
+    channelAutoReceiveMode = NO;
     
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
 
@@ -218,7 +221,10 @@ typedef enum {
 	
 	NSDictionary *message = nil;
 	@try {
-		message = [data yajl_JSON];		
+        
+        if (USES_DEBUG_MESSAGES) { NSLog(@"  HttpConnection didReceiveStatus   %@", connection.request); }
+
+		message = [data yajl_JSON];
 	}
 	@catch (NSException * e) {}
     
@@ -638,6 +644,58 @@ typedef enum {
     [desktopData removeHoccerController:item];
 }
 
+- (void)channelSwitchAutoReceiveMode:(BOOL)on
+{
+    if (on) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  ON ####"); }
+
+        [infoViewController hideViewAnimated:YES];
+        
+        //[FeedbackProvider playCatchFeedback];
+        ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
+        item.delegate = self;
+        item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
+        
+        [desktopData addhoccerController:item];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
+        animation.duration = 0.2;
+        
+        [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
+        
+        [self willStartDownload:item];
+        
+        [linccer pollWithMode:HCTransferModeOneToMany];
+        
+        [statusViewController setState:[ConnectionState state]];
+        [statusViewController setUpdate:NSLocalizedString(@"Receiving from Channel..", nil)];
+        
+        hoccerStatus = HOCCER_RECEIVING_THROW;
+        
+        self.sendingItem = nil;
+    }
+    else {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  OFF ----"); }
+     
+        if ([transferController hasTransfers]) {
+            [transferController cancelDownloads];
+        }
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+        if (item != nil) {
+            [desktopData removeHoccerController:item];
+        }
+        [desktopView reloadData];
+
+        [linccer cancelAllRequest];
+
+        [statusViewController setState:[ConnectionState state]];
+        //[statusViewController setUpdate:NSLocalizedString(@"Stop Receiving from Channel..", nil)];
+        [statusViewController showMessage: NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 10];
+
+    }
+}
+
 #pragma mark -
 #pragma mark DesktopViewDelegate
 
@@ -739,9 +797,18 @@ typedef enum {
 
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
-- (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller {
+- (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller
+{
 	connectionEstablished = NO;
-    
+
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController connectionStatusViewControllerDidCancel ---- isChannelMode"); }
+    }
+    else {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController connectionStatusViewControllerDidCancel ## NO isChannelMode"); }
+    }
+
     if (![linccer isLinccing] && ![transferController hasTransfers]) {
         return;
     }
@@ -774,8 +841,18 @@ typedef enum {
             }
         }
 	}
-
+    
 	[desktopView reloadData];
+}
+
+- (void)toggleChannelAutoReceiveMode
+{
+    if (channelAutoReceiveMode) {
+        channelAutoReceiveMode = NO;
+    }
+    else {
+        channelAutoReceiveMode = YES;
+    }
 }
 
 #pragma mark -
@@ -835,10 +912,16 @@ typedef enum {
 	if (!item.isUpload) {
         [item updateView];
 	}
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        //[self ];
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController transferController:(TransferController *)controller didFinishTransfer"); }
+    }
 
 }
 
-- (void) transferControllerDidFinishAllTransfers:(TransferController *)controller {		
+- (void)transferControllerDidFinishAllTransfers:(TransferController *)controller {
 	[self ensureViewIsHoccable];
     
     fileUploaded = YES;
@@ -1000,6 +1083,8 @@ typedef enum {
     linccer.userInfo = userInfo;
 }
 
+- (void)clientChannelChanged:(NSNotification *)notification {}
+
 - (void)encryptionError: (NSNotification *)notification {
     
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
@@ -1032,11 +1117,15 @@ typedef enum {
 #pragma mark -
 #pragma mark Private Methods
 - (NSDictionary *)dictionaryToSend: (ItemViewController *)item {
-    if (item){
-        NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
-        
-        return content;
+    if (item) {
+        if (item.content) {
+            if ([item.content dataDesctiption]) {
+                NSDictionary *content = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         [NSArray arrayWithObject:[item.content dataDesctiption]], @"data", nil];
+                
+                return content;
+            }
+        }
     }
     return nil;
 }
