@@ -691,7 +691,7 @@ typedef enum {
 
         [statusViewController setState:[ConnectionState state]];
         //[statusViewController setUpdate:NSLocalizedString(@"Stop Receiving from Channel..", nil)];
-        [statusViewController showMessage: NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 10];
+        [statusViewController showMessage: NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 5];
 
     }
 }

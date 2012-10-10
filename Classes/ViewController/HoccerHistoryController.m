@@ -126,7 +126,7 @@
         
         NSString *shortString = [item.filepath lastPathComponent];
         
-        if ([item.mimeType isEqualToString:@"text/plain"] && item.data != nil){
+        if ([item.mimeType isEqualToString:@"text/plain"] && item.data != nil) {
             NSString *theTextContent = [NSString stringWithData:[item data] usingEncoding:NSUTF8StringEncoding];
             NSRange stringRange = {0, MIN([theTextContent length], 18)};
         
@@ -150,7 +150,33 @@
             }
         }
         else {
-            ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+            // nicht sehr schnell
+            //HoccerImage *hoccerImage = [[HoccerImage alloc] initWithFilename:[item.filepath lastPathComponent]];
+            //[hoccerImage updateImage];
+            //((UIImageView *)[cell viewWithTag:4]).image = hoccerImage.thumb;
+
+            // besser etwas schneller - klar weil thumbs ... hoffentlich sind die immer da ... sollte ich noch sicherstellen
+            if ([item.mimeType isEqualToString:@"image/jpeg"]) {
+                NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
+                NSString *ext = [[item.filepath lastPathComponent] pathExtension];
+                NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
+                NSString *thumbPath = [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
+                
+                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageWithContentsOfFile:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]];
+                //NSLog(@"use thumb : %@", [documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]);
+            }
+            else if ([item.mimeType isEqualToString:@"image/png"]) {
+                NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
+                NSString *ext = [[item.filepath lastPathComponent] pathExtension];
+                NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
+                NSString *thumbPath = [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
+                
+                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageWithContentsOfFile:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]];
+                //NSLog(@"use thumb : %@", [documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]);
+            }
+            else {
+                ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+            }
         }
 		
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		

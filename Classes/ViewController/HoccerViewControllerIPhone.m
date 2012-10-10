@@ -648,7 +648,6 @@
 
 - (void)updateChannelButton
 {
-
 //    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
 //    NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
 //    if (isChannelMode) {
@@ -659,26 +658,21 @@
 //        [channelSizeButton setTitle:@"" forState:UIControlStateNormal];
 //    }
 
-    if (self.channelAutoReceiveMode) {
-        //NSString *channelStr = @"Receive ON";
-        //[channelSizeButton setTitle:channelStr forState:UIControlStateNormal];
-        
-        // switch Button to view the state
+    if (channelSizeButton == nil) {
+        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
+        channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
+        [channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
     }
-    else {
-        //NSString *channelStr = @"Receive OFF";
-        //[channelSizeButton setTitle:channelStr forState:UIControlStateNormal];
-        
-        // switch Button to view the state
-    }
+
     
-    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
-    if (isChannelMode) {
-        [self showChannelButton];
+    if (self.channelAutoReceiveMode) {
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
     }
     else {
-        navigationItem.leftBarButtonItem = nil;
-    }
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
+    }    
+    [self showChannelButton];
 }
 
 - (void)showGroupButton
@@ -690,12 +684,16 @@
 
 - (void)showChannelButton
 {
-    //BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (!isChannelMode) {
+        navigationItem.leftBarButtonItem = nil;
+        return;
+    }
 
     if (channelSizeButton == nil) {
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch"] forState:UIControlStateNormal];
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
         channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
 
         [channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
