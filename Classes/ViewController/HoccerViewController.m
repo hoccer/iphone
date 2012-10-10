@@ -993,7 +993,7 @@ typedef enum {
     }
 }
 
-- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {	
+- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
     failcounter = 0;
 	[self ensureViewIsHoccable];
 	
@@ -1016,8 +1016,8 @@ typedef enum {
         } else {
             [self showSuccess: item];
         }
-        
-        [desktopView reloadData];        
+
+        [desktopView reloadData];
     }
 }
 

@@ -416,6 +416,21 @@
     [self updateChannelButton];
 }
 
+- (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
+    
+    [super linccer:linncer didReceiveData:data];
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController linccer:(HCLinccer *)linncer didReceiveData ---- isChannelMode"); }
+        
+        self.channelAutoReceiveMode = NO;
+        
+        [self updateChannelButton];
+    }
+}
+
+
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
