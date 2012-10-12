@@ -60,14 +60,15 @@
 #pragma mark Managing Status Bar Size
 
 
-- (void)showMessage: (NSString *)message forSeconds: (NSInteger)seconds; {
+- (void)showMessage:(NSString *)message forSeconds:(NSInteger)seconds
+{
 	self.statusLabel.text = message;
 	if (timer != nil) {
 		[timer invalidate];
 		[timer release];
 	}
 	
-	timer = [[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(hideStatus) userInfo:nil repeats:NO] retain];
+	timer = [[NSTimer scheduledTimerWithTimeInterval:seconds target:self selector:@selector(hideStatus) userInfo:nil repeats:NO] retain];
 }
 
 - (void)hideStatus {

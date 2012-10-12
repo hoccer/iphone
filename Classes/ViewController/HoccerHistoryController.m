@@ -155,24 +155,18 @@
             //[hoccerImage updateImage];
             //((UIImageView *)[cell viewWithTag:4]).image = hoccerImage.thumb;
 
-            // besser etwas schneller - klar weil thumbs ... hoffentlich sind die immer da ... sollte ich noch sicherstellen
-            if ([item.mimeType isEqualToString:@"image/jpeg"]) {
+            if ([item.mimeType startsWith:@"image/"]) {
                 NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
                 NSString *ext = [[item.filepath lastPathComponent] pathExtension];
                 NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
                 NSString *thumbPath = [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
-                
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageWithContentsOfFile:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]];
-                //NSLog(@"use thumb : %@", [documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]);
-            }
-            else if ([item.mimeType isEqualToString:@"image/png"]) {
-                NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
-                NSString *ext = [[item.filepath lastPathComponent] pathExtension];
-                NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
-                NSString *thumbPath = [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
-                
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageWithContentsOfFile:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]];
-                //NSLog(@"use thumb : %@", [documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]);
+
+                if ([[NSFileManager defaultManager] fileExistsAtPath:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]]) {
+                    ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageWithContentsOfFile:[documentsDirectoryUrl stringByAppendingPathComponent:thumbPath]];
+                }
+                else {
+                    ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];
+                }
             }
             else {
                 ((UIImageView *)[cell viewWithTag:4]).image = [[HoccerContentFactory sharedHoccerContentFactory] thumbForMimeType: item.mimeType];

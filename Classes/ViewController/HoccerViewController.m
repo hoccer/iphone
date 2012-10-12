@@ -222,11 +222,14 @@ typedef enum {
 	NSDictionary *message = nil;
 	@try {
         
-        if (USES_DEBUG_MESSAGES) { NSLog(@"  HttpConnection didReceiveStatus   %@", connection.request); }
+        if (USES_DEBUG_MESSAGES) { NSLog(@"  HttpConnection didReceiveStatus connection = #%@#", connection.request); }
 
 		message = [data yajl_JSON];
 	}
-	@catch (NSException * e) {}
+	@catch (NSException * e) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController httpConnection:connection didReceiveStatus : %@", e); }
+        else { NSLog(@"%@", e); }
+    }
     
 	if ([[message objectForKey:@"status"] isEqualToString: @"update"]) {
 		
@@ -664,6 +667,8 @@ typedef enum {
         
         [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
         
+        
+        
         [self willStartDownload:item];
         
         [linccer pollWithMode:HCTransferModeOneToMany];
@@ -678,21 +683,37 @@ typedef enum {
     else {
         if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  OFF ----"); }
      
+        if ([desktopData count] == 1){
+            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+            if (item) {
+                [desktopData removeHoccerController:item];
+            }
+        }
+        else {
+            for (int i=0;i<[desktopData count];i++){
+                ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
+                if (item.content == nil){
+                    [desktopData removeHoccerController:item];
+                }
+            }
+        }
         if ([transferController hasTransfers]) {
             [transferController cancelDownloads];
         }
+
         ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
         if (item != nil) {
             [desktopData removeHoccerController:item];
         }
-        [desktopView reloadData];
 
         [linccer cancelAllRequest];
+        
+        hoccerStatus = HOCCER_IDLING;
+
+        [desktopView reloadData];
 
         [statusViewController setState:[ConnectionState state]];
-        //[statusViewController setUpdate:NSLocalizedString(@"Stop Receiving from Channel..", nil)];
-        [statusViewController showMessage: NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 5];
-
+        [statusViewController showMessage:NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 2];
     }
 }
 

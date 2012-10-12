@@ -11,6 +11,7 @@
 #import "StatusViewController.h"
 #import "ContentContainerView.h"
 #import "Preview.h"
+#import "HoccerAppDelegate.h"
 
 #import "HCButton.h"
 
@@ -77,11 +78,13 @@
 }
 
 
-- (ContentContainerView *)contentView {
+- (ContentContainerView *)contentView
+{
 	if (contentView == nil) {
 		Preview *preview = [content desktopItemView];
 		if (preview != nil) {
 			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
+            NSLog(@"2");
 		}
 	}
 	
@@ -92,7 +95,7 @@
 		preview.allowsOverlay = NO;
 		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
 	}
-	
+
 	return contentView;
 }
 
@@ -107,8 +110,11 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (NSArray *)actionButtons {
+- (NSArray *)actionButtons
+{
 	if (content.isFromContentSource) {
+        //NSLog(@"actionButtons  ---- content.isFromContentSource ----");
+
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
@@ -121,7 +127,9 @@
 		[buttons addObject:button];
 		
 		return buttons;
-	} else {
+	}
+    else {
+        //NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
