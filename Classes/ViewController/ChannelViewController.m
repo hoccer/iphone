@@ -8,7 +8,6 @@
 
 #import "ChannelViewController.h"
 #import "SettingsAction.h"
-#import "ChannelHelpView.h"
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
 

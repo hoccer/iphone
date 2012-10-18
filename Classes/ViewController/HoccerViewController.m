@@ -209,13 +209,15 @@ typedef enum {
 
 #pragma mark -
 #pragma mark Fetching Status from Server
-- (void)fetchStatusUpdate {
+- (void)fetchStatusUpdate
+{
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
 	httpClient.target = self;
 	[httpClient getURI:@"/iphone/status2.json" success:@selector(httpConnection:didReceiveStatus:)];
 }
 
-- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data {		
+- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data
+{
 	linccer.latency = connection.roundTripTime;
 	[linccer updateEnvironment];
 	
@@ -574,7 +576,8 @@ typedef enum {
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
 
-- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter {
+- (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
+{
 	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
@@ -605,7 +608,8 @@ typedef enum {
     self.sendingItem = nil;
 }
 
-- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter {
+- (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
+{
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
@@ -667,8 +671,6 @@ typedef enum {
         
         [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
         
-        
-        
         [self willStartDownload:item];
         
         [linccer pollWithMode:HCTransferModeOneToMany];
@@ -683,23 +685,10 @@ typedef enum {
     else {
         if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  OFF ----"); }
      
-        if ([desktopData count] == 1){
-            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
-            if (item) {
-                [desktopData removeHoccerController:item];
-            }
-        }
-        else {
-            for (int i=0;i<[desktopData count];i++){
-                ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
-                if (item.content == nil){
-                    [desktopData removeHoccerController:item];
-                }
-            }
-        }
         if ([transferController hasTransfers]) {
             [transferController cancelDownloads];
         }
+        [self removeAllItemsFromDesktop];
 
         ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
         if (item != nil) {
@@ -717,19 +706,40 @@ typedef enum {
     }
 }
 
+- (void)removeAllItemsFromDesktop
+{
+    if ([desktopData count] == 1) {
+        ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+        if (item) {
+            [desktopData removeHoccerController:item];
+        }
+    }
+    else {
+        for (int i=0;i<[desktopData count];i++){
+            ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
+            if (item.content == nil){
+                [desktopData removeHoccerController:item];
+            }
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark DesktopViewDelegate
 
-- (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex: (NSInteger)index {
+- (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex:(NSInteger)index
+{
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([transferController hasTransfers]) {
 		[transferController cancelDownloads];	
-	} else{
+	}
+    else{
 		[desktopData removeHoccerController:item];
 	}
 }
 
-- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view {	
+- (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view
+{
 	if ([self.linccer isLinccing]) {
 		return;
 	}
@@ -751,7 +761,8 @@ typedef enum {
     self.sendingItem = nil;
 }
 
-- (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view {
+- (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view
+{
 	if ([linccer isLinccing]) {
 		return;
 	}
@@ -763,9 +774,7 @@ typedef enum {
         [errorViewController showError:error forSeconds:10];
         [self->desktopView reloadData];
         return;
-
     }
-    
     
 	[FeedbackProvider playSweepOut];
 	
@@ -791,14 +800,14 @@ typedef enum {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCVideoLink"]]];
         }
     }
-
 		
 	[linccer send:[self dictionaryToSend: item] withMode:HCTransferModeOneToOne];	
     
     [desktopData removeHoccerController:self.sendingItem];
 }
 
-- (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point {
+- (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point
+{
 	if (![hoccingRules hoccerViewControllerMaySweepIn:self]) {
 		return NO;
 	}
@@ -883,7 +892,9 @@ typedef enum {
 	item.isUpload = NO;
 }
 
-- (void)itemViewControllerWasClosed:(ItemViewController *)item {
+- (void)itemViewControllerWasClosed:(ItemViewController *)item
+{
+    if (USES_DEBUG_MESSAGES) { NSLog(@"itemViewControllerWasClosed:"); }
 	[transferController cancelDownloads];
 	
 	[desktopData removeHoccerController:item];
@@ -938,8 +949,12 @@ typedef enum {
     if (isChannelMode) {
         //[self ];
         if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController transferController:(TransferController *)controller didFinishTransfer"); }
+        
+        if (self.channelAutoReceiveMode) {
+            [self removeAllItemsFromDesktop];
+            [desktopView reloadData];
+        }
     }
-
 }
 
 - (void)transferControllerDidFinishAllTransfers:(TransferController *)controller {
@@ -994,7 +1009,8 @@ typedef enum {
 #pragma mark -
 #pragma mark HCLinccerDelegate Methods
 
-- (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality {
+- (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality
+{
     if(![hud.labelText isEqualToString:NSLocalizedString(@"Preparing Content...",nil)]){
         [self hideHUD];
     }
@@ -1002,7 +1018,8 @@ typedef enum {
 	[self ensureViewIsHoccable];
 }
 
-- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error {
+- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error
+{
     if (failcounter < 3 && error.code != 409){
         [self retryLastAction];
         failcounter ++;
@@ -1014,7 +1031,10 @@ typedef enum {
     }
 }
 
-- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
+- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
+{
+    if (USES_DEBUG_MESSAGES) { NSLog(@"  1 linccer:   didReceiveData:"); }
+    
     failcounter = 0;
 	[self ensureViewIsHoccable];
 	
@@ -1032,17 +1052,21 @@ typedef enum {
         if ([hoccerContent transferer]) {
             for (id transferer in [hoccerContent transferers]) {
                 hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
-                [transferController addContentToTransferQueue: transferer];		
+                [transferController addContentToTransferQueue:transferer];		
             }
-        } else {
-            [self showSuccess: item];
         }
-
+        else {
+            [self showSuccess:item];
+        }
         [desktopView reloadData];
+        if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }        
     }
 }
 
-- (void) linccer:(HCLinccer *)linccer didSendData: (NSArray *)info {
+- (void) linccer:(HCLinccer *)linccer didSendData:(NSArray *)info
+{
+    if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData:"); }
+
     failcounter = 0;
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
@@ -1052,7 +1076,8 @@ typedef enum {
     }
 }
 
-- (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client{
+- (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client
+{
     UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"SECURITY PROBLEM: Public key changed. The name or the public key of %@ has changed, please make sure you trust this person. If you are not sure please stop transaction.",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [keyAlert show];
     [keyAlert release];
@@ -1061,8 +1086,8 @@ typedef enum {
 #pragma mark -
 #pragma mark LongTouch Detector
 
--(void)desktopLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer {
-    
+-(void)desktopLongPressed:(UILongPressGestureRecognizer *)gestureRecognizer
+{
     if ([gestureRecognizer state] == UIGestureRecognizerStateBegan) {
         if([hoccingRules hoccerViewControllerMayAddAnotherView:self]){
             CGPoint location = [gestureRecognizer locationInView:desktopView ];
@@ -1093,7 +1118,8 @@ typedef enum {
 	[linccer reactivate];
 }
 
-- (void)clientNameChanged: (NSNotification *)notification {
+- (void)clientNameChanged: (NSNotification *)notification
+{
     NSMutableDictionary *userInfo = [[linccer.userInfo mutableCopy] autorelease];
     if (userInfo == nil) {
         userInfo = [NSMutableDictionary dictionaryWithCapacity:1];
@@ -1256,7 +1282,8 @@ typedef enum {
 	[self hideHUD];
 }
 
-- (void)ensureViewIsHoccable {	
+- (void)ensureViewIsHoccable
+{
 	desktopView.userInteractionEnabled = YES;
 	linccer.environmentUpdateInterval = 25;
 
@@ -1284,8 +1311,8 @@ typedef enum {
 }
 
 
-- (void)showInfoHudForMode:(NSString *)mode {
-		
+- (void)showInfoHudForMode:(NSString *)mode
+{		
     infoHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [infoHud setAllowsCancelation:YES];
     [infoHud setDelegate:self];
@@ -1398,7 +1425,8 @@ typedef enum {
 }
 
 - (void)showTextInputVC:(NSNotification *)notification {
-    
+    if (USES_DEBUG_MESSAGES) { NSLog(@"showTextInputVC:(NSNotification *)notification"); }
+
 }
 
 - (void)dealloc {

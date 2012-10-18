@@ -57,10 +57,8 @@
 		vcardString = [[NSString stringWithData:self.data usingEncoding:NSUTF8StringEncoding] retain];
         canBeCiphered = YES;
 	}
-	
 	return self;
 }
-
 
 - (ABRecordRef)person {
 	if (person == NULL) {
@@ -68,12 +66,11 @@
 		
 		person = creator.person;
 		CFRetain(person);
-		if([[NSUserDefaults standardUserDefaults] boolForKey:@"autoSave"]){
+		if([[NSUserDefaults standardUserDefaults] boolForKey:@"autoSave"]) {
             [self saveDataToContentStorage];
         }
 		[creator release];	
-	}
-	
+	}	
 	return person;
 }
 

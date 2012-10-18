@@ -15,6 +15,7 @@
 #import "SelectContentController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
+#import "HCHistoryTVC.h"
 #import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
@@ -54,6 +55,7 @@
 
 @implementation HoccerViewControllerIPhone
 @synthesize hoccerHistoryController;
+@synthesize historyTVC;
 @synthesize delayedAction;
 @synthesize auxiliaryView;
 @synthesize tabBar;
@@ -79,6 +81,9 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
+	self.historyTVC = [[[HCHistoryTVC alloc] init] autorelease];
+	self.historyTVC.parentNavigationController = navigationController;
+	self.historyTVC.hoccerViewController = self;
    
     NSArray *group = infoViewController.group;
     if (group != nil) {
@@ -153,6 +158,7 @@
 
 - (void) dealloc {
 	[hoccerHistoryController release];
+	[historyTVC release];
 	[navigationController release];
 	[navigationItem release];
 	[tabBar release];
@@ -230,12 +236,26 @@
 
 - (IBAction)toggleHistory: (id)sender
 {
-	if (!isPopUpDisplayed) {
-		[self showHistoryView];
-	} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
-		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
+//	if (!isPopUpDisplayed) {
+//		[self showHistoryView];
+//	}
+//    else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
+//		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showHistoryView)];
+//		[self hidePopOverAnimated: YES];
+//	}
+//    else {
+//		[self hidePopOverAnimated: YES];
+//		tabBar.selectedItem = nil;
+//	}
+
+    if (!isPopUpDisplayed) {
+		[self showNewHistoryView];
+	}
+    else if (![auxiliaryView isKindOfClass:[HCHistoryTVC class]]) {
+		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showNewHistoryView)];
 		[self hidePopOverAnimated: YES];
-	} else {
+	}
+    else {
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
@@ -286,11 +306,11 @@
 }
 
 - (void)showHistoryView {
-	[self showPopOver: self.hoccerHistoryController];
+	[self showPopOver:self.hoccerHistoryController];
 	
 	navigationItem.title = NSLocalizedString(@"History", nil);
 	
-        UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
     
@@ -298,6 +318,19 @@
     [self.navigationItem setLeftBarButtonItem:editButton];
     [editButton release];
     
+    
+	navigationItem.titleView = nil;
+}
+
+- (void)showNewHistoryView {
+	[self showPopOver:self.historyTVC];
+	
+    
+	navigationItem.title = NSLocalizedString(@"History", nil);
+	
+    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    [doneButton release];
     
 	navigationItem.titleView = nil;
 }
@@ -424,7 +457,7 @@
     if (isChannelMode) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController linccer:(HCLinccer *)linncer didReceiveData ---- isChannelMode"); }
         
-        self.channelAutoReceiveMode = NO;
+        //self.channelAutoReceiveMode = NO;
         
         [self updateChannelButton];
     }

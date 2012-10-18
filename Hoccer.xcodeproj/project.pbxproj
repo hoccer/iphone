@@ -732,11 +732,22 @@
 		F1147FF116230C15000D3A61 /* lochblech_bg_channel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FE916230C15000D3A61 /* lochblech_bg_channel@2x.png */; };
 		F1147FF516234B42000D3A61 /* nav_bar_btn_receive.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FF316234B3B000D3A61 /* nav_bar_btn_receive.png */; };
 		F1147FF616234B42000D3A61 /* nav_bar_btn_receive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FF416234B3F000D3A61 /* nav_bar_btn_receive@2x.png */; };
+		F117AE4F16301D4C00330DF5 /* HCHistoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F117AE4E16301D4C00330DF5 /* HCHistoryTVC.m */; };
+		F117AE521630224700330DF5 /* HCDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F117AE511630224700330DF5 /* HCDataManager.m */; };
+		F117AE55163023B000330DF5 /* HCWidgetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F117AE54163023B000330DF5 /* HCWidgetCell.m */; };
+		F117AE5916302C0000330DF5 /* HCHistoryImageWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = F117AE5816302C0000330DF5 /* HCHistoryImageWidget.xib */; };
+		F117AE5C16302C6400330DF5 /* HCHistoryImageWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = F117AE5B16302C6400330DF5 /* HCHistoryImageWidget.m */; };
 		F135115A1624842500D346B6 /* nav_bar_btn_switch.png in Resources */ = {isa = PBXBuildFile; fileRef = F13511581624842500D346B6 /* nav_bar_btn_switch.png */; };
 		F135115B1624842500D346B6 /* nav_bar_btn_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13511591624842500D346B6 /* nav_bar_btn_switch@2x.png */; };
-		F15174E5161F1EB7002DDE4E /* ChannelHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */; };
-		F15174EB161F21B1002DDE4E /* ChannelHelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = F15174EA161F21B1002DDE4E /* ChannelHelpView.m */; };
-		F15174EE161F3490002DDE4E /* ChannelHelpTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */; };
+		F14E5B2116304690000D49BE /* widget_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1816304690000D49BE /* widget_background.png */; };
+		F14E5B2216304690000D49BE /* widget_bg_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1916304690000D49BE /* widget_bg_bottom.png */; };
+		F14E5B2316304690000D49BE /* widget_bg_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1A16304690000D49BE /* widget_bg_bottom@2x.png */; };
+		F14E5B2416304690000D49BE /* widget_bg_top.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1B16304690000D49BE /* widget_bg_top.png */; };
+		F14E5B2516304690000D49BE /* widget_bg_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1C16304690000D49BE /* widget_bg_top@2x.png */; };
+		F14E5B2616304690000D49BE /* widget_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1D16304690000D49BE /* widget_minus.png */; };
+		F14E5B2716304690000D49BE /* widget_minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1E16304690000D49BE /* widget_minus@2x.png */; };
+		F14E5B2816304690000D49BE /* widget_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B1F16304690000D49BE /* widget_plus.png */; };
+		F14E5B2916304690000D49BE /* widget_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14E5B2016304690000D49BE /* widget_plus@2x.png */; };
 		F1A4150A161D998E0045CFFE /* nav_bar_location_red_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41506161D998D0045CFFE /* nav_bar_location_red_on.png */; };
 		F1A4150C161D998E0045CFFE /* nav_bar_location_red_off.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41507161D998D0045CFFE /* nav_bar_location_red_off.png */; };
 		F1A4150E161D998E0045CFFE /* nav_bar_location_red_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1A41508161D998D0045CFFE /* nav_bar_location_red_off@2x.png */; };
@@ -1431,13 +1442,27 @@
 		F1147FE916230C15000D3A61 /* lochblech_bg_channel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_channel@2x.png"; sourceTree = "<group>"; };
 		F1147FF316234B3B000D3A61 /* nav_bar_btn_receive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_receive.png; sourceTree = "<group>"; };
 		F1147FF416234B3F000D3A61 /* nav_bar_btn_receive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_receive@2x.png"; sourceTree = "<group>"; };
+		F117AE4D16301D4C00330DF5 /* HCHistoryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHistoryTVC.h; sourceTree = "<group>"; };
+		F117AE4E16301D4C00330DF5 /* HCHistoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHistoryTVC.m; sourceTree = "<group>"; };
+		F117AE501630224700330DF5 /* HCDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCDataManager.h; path = Classes/HCDataManager.h; sourceTree = SOURCE_ROOT; };
+		F117AE511630224700330DF5 /* HCDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCDataManager.m; path = Classes/HCDataManager.m; sourceTree = SOURCE_ROOT; };
+		F117AE53163023B000330DF5 /* HCWidgetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWidgetCell.h; sourceTree = "<group>"; };
+		F117AE54163023B000330DF5 /* HCWidgetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCWidgetCell.m; sourceTree = "<group>"; };
+		F117AE5816302C0000330DF5 /* HCHistoryImageWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HCHistoryImageWidget.xib; path = Resources/Xibs/HCHistoryImageWidget.xib; sourceTree = SOURCE_ROOT; };
+		F117AE5A16302C6400330DF5 /* HCHistoryImageWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHistoryImageWidget.h; sourceTree = "<group>"; };
+		F117AE5B16302C6400330DF5 /* HCHistoryImageWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHistoryImageWidget.m; sourceTree = "<group>"; };
 		F13511581624842500D346B6 /* nav_bar_btn_switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_switch.png; sourceTree = "<group>"; };
 		F13511591624842500D346B6 /* nav_bar_btn_switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_switch@2x.png"; sourceTree = "<group>"; };
-		F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelHelpView.xib; sourceTree = "<group>"; };
-		F15174E9161F21B1002DDE4E /* ChannelHelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelHelpView.h; sourceTree = "<group>"; };
-		F15174EA161F21B1002DDE4E /* ChannelHelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelHelpView.m; sourceTree = "<group>"; };
-		F15174EC161F348F002DDE4E /* ChannelHelpTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelHelpTextField.h; sourceTree = "<group>"; };
-		F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelHelpTextField.m; sourceTree = "<group>"; };
+		F14E5B1816304690000D49BE /* widget_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = widget_background.png; path = Resources/assets/new_history/widget_background.png; sourceTree = "<group>"; };
+		F14E5B1916304690000D49BE /* widget_bg_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = widget_bg_bottom.png; path = Resources/assets/new_history/widget_bg_bottom.png; sourceTree = "<group>"; };
+		F14E5B1A16304690000D49BE /* widget_bg_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "widget_bg_bottom@2x.png"; path = "Resources/assets/new_history/widget_bg_bottom@2x.png"; sourceTree = "<group>"; };
+		F14E5B1B16304690000D49BE /* widget_bg_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = widget_bg_top.png; path = Resources/assets/new_history/widget_bg_top.png; sourceTree = "<group>"; };
+		F14E5B1C16304690000D49BE /* widget_bg_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "widget_bg_top@2x.png"; path = "Resources/assets/new_history/widget_bg_top@2x.png"; sourceTree = "<group>"; };
+		F14E5B1D16304690000D49BE /* widget_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = widget_minus.png; path = Resources/assets/new_history/widget_minus.png; sourceTree = "<group>"; };
+		F14E5B1E16304690000D49BE /* widget_minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "widget_minus@2x.png"; path = "Resources/assets/new_history/widget_minus@2x.png"; sourceTree = "<group>"; };
+		F14E5B1F16304690000D49BE /* widget_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = widget_plus.png; path = Resources/assets/new_history/widget_plus.png; sourceTree = "<group>"; };
+		F14E5B2016304690000D49BE /* widget_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "widget_plus@2x.png"; path = "Resources/assets/new_history/widget_plus@2x.png"; sourceTree = "<group>"; };
+		F14E5B2A16304BB5000D49BE /* HCWidgetCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCWidgetCellDelegate.h; sourceTree = "<group>"; };
 		F1A41506161D998D0045CFFE /* nav_bar_location_red_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_location_red_on.png; sourceTree = "<group>"; };
 		F1A41507161D998D0045CFFE /* nav_bar_location_red_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_location_red_off.png; sourceTree = "<group>"; };
 		F1A41508161D998D0045CFFE /* nav_bar_location_red_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_location_red_off@2x.png"; sourceTree = "<group>"; };
@@ -1541,6 +1566,7 @@
 				22638C1811B51E880024AA7E /* ViewController */,
 				22638BE911B51E5C0024AA7E /* Content */,
 				22638BDF11B51E040024AA7E /* History */,
+				F117AE4B1630180800330DF5 /* NewHistory */,
 				22638BD211B51DF00024AA7E /* Debug */,
 				22638B9E11B51DC50024AA7E /* View */,
 				22638B8D11B51D2E0024AA7E /* Helper */,
@@ -1572,6 +1598,7 @@
 		2219BF261185D54E007AB243 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F14E5B1416304324000D49BE /* NewHistory */,
 				B4938216158F7222000391B5 /* hudinfo */,
 				B49381FD158F37D9000391B5 /* startanimation */,
 				B471462915F7691900AD7937 /* tabbar */,
@@ -1890,7 +1917,6 @@
 				B49381F9158F35C0000391B5 /* StartAnimationiPhoneViewController.xib */,
 				B471464C15F7AAE800AD7937 /* TextInputViewController-iPad.xib */,
 				F1DC4B4A161DF2D1003A8D8C /* ChannelViewController.xib */,
-				F15174E4161F1EB7002DDE4E /* ChannelHelpView.xib */,
 			);
 			name = Xibs;
 			path = Resources/Xibs;
@@ -1935,10 +1961,6 @@
 				B44A907215F5FC57002E47E6 /* TextInputViewControllerDelegate.h */,
 				F1DC4B47161DEC57003A8D8C /* ChannelViewController.h */,
 				F1DC4B48161DEC57003A8D8C /* ChannelViewController.m */,
-				F15174E9161F21B1002DDE4E /* ChannelHelpView.h */,
-				F15174EA161F21B1002DDE4E /* ChannelHelpView.m */,
-				F15174EC161F348F002DDE4E /* ChannelHelpTextField.h */,
-				F15174ED161F348F002DDE4E /* ChannelHelpTextField.m */,
 			);
 			name = "Auxiliary Views";
 			sourceTree = "<group>";
@@ -2413,7 +2435,6 @@
 				22762D17105E4408003BF968 /* Tests */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				B47D28621461A8AE0028AE03 /* iPad */,
-				22B1CBE01159160700EFD709 /* Resources-iPad */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -2601,6 +2622,7 @@
 		B47D28621461A8AE0028AE03 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				22B1CBE01159160700EFD709 /* Resources-iPad */,
 				B47D28631461A8B00028AE03 /* MainWindow-iPad.xib */,
 				B4A502E01462BC29007205B9 /* HoccerViewControlleriPad.xib */,
 			);
@@ -2864,6 +2886,40 @@
 				E6B9FC0E12AFC09000A7E313 /* TransferController.m */,
 			);
 			name = DownloadController;
+			sourceTree = "<group>";
+		};
+		F117AE4B1630180800330DF5 /* NewHistory */ = {
+			isa = PBXGroup;
+			children = (
+				F117AE4D16301D4C00330DF5 /* HCHistoryTVC.h */,
+				F117AE4E16301D4C00330DF5 /* HCHistoryTVC.m */,
+				F117AE501630224700330DF5 /* HCDataManager.h */,
+				F117AE511630224700330DF5 /* HCDataManager.m */,
+				F117AE53163023B000330DF5 /* HCWidgetCell.h */,
+				F117AE54163023B000330DF5 /* HCWidgetCell.m */,
+				F14E5B2A16304BB5000D49BE /* HCWidgetCellDelegate.h */,
+				F117AE5A16302C6400330DF5 /* HCHistoryImageWidget.h */,
+				F117AE5B16302C6400330DF5 /* HCHistoryImageWidget.m */,
+				F117AE5816302C0000330DF5 /* HCHistoryImageWidget.xib */,
+			);
+			name = NewHistory;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F14E5B1416304324000D49BE /* NewHistory */ = {
+			isa = PBXGroup;
+			children = (
+				F14E5B1816304690000D49BE /* widget_background.png */,
+				F14E5B1916304690000D49BE /* widget_bg_bottom.png */,
+				F14E5B1A16304690000D49BE /* widget_bg_bottom@2x.png */,
+				F14E5B1B16304690000D49BE /* widget_bg_top.png */,
+				F14E5B1C16304690000D49BE /* widget_bg_top@2x.png */,
+				F14E5B1D16304690000D49BE /* widget_minus.png */,
+				F14E5B1E16304690000D49BE /* widget_minus@2x.png */,
+				F14E5B1F16304690000D49BE /* widget_plus.png */,
+				F14E5B2016304690000D49BE /* widget_plus@2x.png */,
+			);
+			name = NewHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3304,7 +3360,6 @@
 				F1DC4B4D161E0F3F003A8D8C /* lochblech_bg_alone_channel-568h@2x.png in Resources */,
 				F1DC4B50161E0F4D003A8D8C /* lochblech_bg_alone_channel.png in Resources */,
 				F1DC4B51161E0F4D003A8D8C /* lochblech_bg_alone_channel@2x.png in Resources */,
-				F15174E5161F1EB7002DDE4E /* ChannelHelpView.xib in Resources */,
 				F1D4866D1622EDA000EDA6F1 /* nav_bar_channel_off.png in Resources */,
 				F1D4866E1622EDA000EDA6F1 /* nav_bar_channel_off@2x.png in Resources */,
 				F1D4866F1622EDA000EDA6F1 /* nav_bar_channel_on.png in Resources */,
@@ -3325,6 +3380,16 @@
 				F1E8372D1625A20900D9FC42 /* nav_bar_btn_switch_in@2x.png in Resources */,
 				F1E8372E1625A20900D9FC42 /* nav_bar_btn_switch_out.png in Resources */,
 				F1E8372F1625A20900D9FC42 /* nav_bar_btn_switch_out@2x.png in Resources */,
+				F117AE5916302C0000330DF5 /* HCHistoryImageWidget.xib in Resources */,
+				F14E5B2116304690000D49BE /* widget_background.png in Resources */,
+				F14E5B2216304690000D49BE /* widget_bg_bottom.png in Resources */,
+				F14E5B2316304690000D49BE /* widget_bg_bottom@2x.png in Resources */,
+				F14E5B2416304690000D49BE /* widget_bg_top.png in Resources */,
+				F14E5B2516304690000D49BE /* widget_bg_top@2x.png in Resources */,
+				F14E5B2616304690000D49BE /* widget_minus.png in Resources */,
+				F14E5B2716304690000D49BE /* widget_minus@2x.png in Resources */,
+				F14E5B2816304690000D49BE /* widget_plus.png in Resources */,
+				F14E5B2916304690000D49BE /* widget_plus@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3626,8 +3691,10 @@
 				B4455FE715B6EFD00082763A /* UIBarButtonItem+CustomImageButton.m in Sources */,
 				B44A906F15F5F9EA002E47E6 /* TextInputViewController.m in Sources */,
 				F1DC4B49161DEC58003A8D8C /* ChannelViewController.m in Sources */,
-				F15174EB161F21B1002DDE4E /* ChannelHelpView.m in Sources */,
-				F15174EE161F3490002DDE4E /* ChannelHelpTextField.m in Sources */,
+				F117AE4F16301D4C00330DF5 /* HCHistoryTVC.m in Sources */,
+				F117AE521630224700330DF5 /* HCDataManager.m in Sources */,
+				F117AE55163023B000330DF5 /* HCWidgetCell.m in Sources */,
+				F117AE5C16302C6400330DF5 /* HCHistoryImageWidget.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

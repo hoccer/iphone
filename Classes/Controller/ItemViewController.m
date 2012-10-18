@@ -84,7 +84,7 @@
 		Preview *preview = [content desktopItemView];
 		if (preview != nil) {
 			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
-            NSLog(@"2");
+            NSLog(@"2 contentView");
 		}
 	}
 	
