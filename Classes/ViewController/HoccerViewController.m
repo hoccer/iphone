@@ -287,17 +287,26 @@ typedef enum {
     [contactChooser release];
 }
 
--(IBAction)selectContact:(id)sender {
+- (IBAction)selectContact:(id)sender {
     ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
     controller.delegate = self;
     [self presentContentSelectViewController:controller];
     [controller release];
 }
 
--(IBAction)selectMyContact:(id)sender {
-    
+- (void)selectChannelContact
+{
+//    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
+//    controller.delegate = self;
+//    
+//    [self presentContentSelectViewController:controller];
+//    [controller release];
+}
+
+- (IBAction)selectMyContact:(id)sender
+{
     ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
-    if (ownContact == 0){
+    if (ownContact == 0) {
         UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
         [contactAlert show];
         [contactAlert release];
@@ -313,22 +322,23 @@ typedef enum {
         [controller choosePersonByID:ownContact];
         [controller release];
     }
-
-    
 }
-- (IBAction)selectImage: (id)sender {
+- (IBAction)selectImage: (id)sender
+{
     ImageSelectViewController *controller = [[ImageSelectViewController alloc] init];
     controller.delegate = self;
     [self presentContentSelectViewController:controller];
 	[controller release];
 }
 
-- (IBAction)selectText: (id)sender {    
+- (IBAction)selectText: (id)sender
+{
 	HoccerContent* content = [[[HoccerText alloc] init] autorelease];
 	[self setContentPreview: content];
 }
 
-- (IBAction)selectCamera: (id)sender {
+- (IBAction)selectCamera: (id)sender
+{
     ImageSelectViewController *controller = [[ImageSelectViewController alloc] initWithSourceType:UIImagePickerControllerSourceTypeCamera];
     controller.delegate = self;
     [self presentContentSelectViewController:controller];
@@ -533,6 +543,7 @@ typedef enum {
 - (ChannelViewController *)channelViewController {
 	if (channelViewController == nil) {
 		channelViewController = [[ChannelViewController alloc] initWithNibName:@"ChannelViewController" bundle:nil];
+        channelViewController.delegate = self;
 	}
 	
 	return channelViewController;

@@ -118,6 +118,8 @@
 	}
 	[cell viewWithTag:6].hidden = YES;
 
+    BOOL isItemAnImage = NO;
+    
 	NSInteger row = [indexPath row];
 	if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
@@ -156,6 +158,7 @@
             //((UIImageView *)[cell viewWithTag:4]).image = hoccerImage.thumb;
 
             if ([item.mimeType startsWith:@"image/"]) {
+                isItemAnImage = YES;
                 NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
                 NSString *ext = [[item.filepath lastPathComponent] pathExtension];
                 NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
@@ -173,10 +176,26 @@
             }
         }
 		
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;		
+		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle =  UITableViewCellSelectionStyleGray;
-		
-		cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg.png"]] autorelease];
+
+        if (row%2) {
+            ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"history_rowbg_image-even.png"];
+        }
+        else {
+            ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"history_rowbg_image-odd.png"];
+        }
+        
+        // brauchen wir nicht mehr, oder?
+//        if (row%2) {
+//            ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"history_rowbg-even.png"];
+//        }
+//        else {
+//            ((UIImageView *)[cell viewWithTag:7]).image = [UIImage imageNamed:@"history_rowbg-odd.png"];
+//        }
+        //cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"history_rowbg-odd.png"]] autorelease];
+        
         
         
 	} else {	

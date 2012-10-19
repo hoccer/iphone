@@ -20,6 +20,7 @@
 
 @synthesize parentNavigationController;
 @synthesize tableView;
+@synthesize delegate;
 
 - (void)viewDidLoad
 {
@@ -48,8 +49,15 @@
 	[sections addObject:[NSArray arrayWithObject:channelAction]];
 
 	SettingsAction *channelHelpAction = [SettingsAction actionWithDescription:@"Channel-Help" selector:nil type:HCTextField];
-    channelHelpAction.defaultValue = @"Channel Help - hwoto - example\n Channel Help - hwoto - example\n";
+    channelHelpAction.defaultValue = @"Set or delete the name of the channel";
 	[sections addObject:[NSArray arrayWithObject:channelHelpAction]];
+
+    SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Contact over Channel" selector:@selector(showChannelContact) type:HCContinueSetting];
+	[sections addObject:[NSArray arrayWithObject:channelContactAction]];
+
+    SettingsAction *channelHelp2Action = [SettingsAction actionWithDescription:@"Channel-Help2" selector:nil type:HCTextField];
+    channelHelp2Action.defaultValue = @"Send to a contact over the channel";
+	[sections addObject:[NSArray arrayWithObject:channelHelp2Action]];
 
 }
 
@@ -107,10 +115,9 @@
         }
     }
     
-    if (section == 0) {
+    SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 
-        SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
-        
+    if (section == 0) {
         UITextField *textField = [[[UITextField alloc] init] autorelease];
         CGRect cellBounds = cell.bounds;
         CGFloat textFieldBorder = 31.f;
@@ -132,34 +139,52 @@
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.textAlignment = UITextAlignmentLeft;
-        
         [textField addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
         
         [cell.contentView addSubview:textField];
     }
     else if (section == 1) {
-        
-//        SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
-        
         UITextField *textView = [[[UITextField alloc] init] autorelease];
         CGRect cellBounds = cell.bounds;
         CGFloat textFieldBorder = 31.f;
         CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
         textView.frame = aRect;
-
-        //UITextView *textView = [[[UITextView alloc] initWithFrame:CGRectMake(0, 0, 290, 240)] autorelease];
-        textView.text = @"Set or delete the name of the channel";
+        //textView.text = @"Set or delete the name of the channel";
+        textView.text = action.defaultValue;
         textView.textAlignment = UITextAlignmentLeft;
         textView.backgroundColor = [UIColor clearColor];
         [textView setEnabled:NO];
         textView.textColor = [UIColor whiteColor];
-        //textView.font = [UIFont boldSystemFontOfSize:14];
         
         [cell.contentView addSubview:textView];
-        
         cell.backgroundColor = [UIColor clearColor];
     }
-    
+    else if (section == 2) {
+        cell.textLabel.text = action.description;
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        
+        if (action.type == HCContinueSetting) {
+            cell.accessoryView = nil;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+    }
+    else if (section == 3) {
+        UITextField *textView = [[[UITextField alloc] init] autorelease];
+        CGRect cellBounds = cell.bounds;
+        CGFloat textFieldBorder = 31.f;
+        CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
+        textView.frame = aRect;
+        //textView.text = @"Set or delete the name of the channel";
+        textView.text = action.defaultValue;
+        textView.textAlignment = UITextAlignmentLeft;
+        textView.backgroundColor = [UIColor clearColor];
+        [textView setEnabled:NO];
+        textView.textColor = [UIColor whiteColor];
+        
+        [cell.contentView addSubview:textView];
+        cell.backgroundColor = [UIColor clearColor];
+    }
+
     return cell;
 }
 
@@ -180,6 +205,9 @@
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         [cell.accessoryView becomeFirstResponder];
     }
+    else if (action.type != HCSwitchSetting) {
+		[self performSelector:action.selector];
+	}
 }
 
 #pragma mark -
@@ -240,6 +268,13 @@
 //        else {
 //            textField.text = @"";
 //        }
+    }
+}
+
+- (void)showChannelContact
+{
+    if ([delegate respondsToSelector:@selector(selectChannelContact)]) {
+        [delegate selectChannelContact];
     }
 }
 

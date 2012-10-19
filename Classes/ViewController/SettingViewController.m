@@ -58,7 +58,7 @@
 	self.tableView.backgroundColor = [UIColor clearColor];
 
 	[[NSBundle mainBundle] loadNibNamed:@"HoccerSettingsLogo" owner:self options:nil];
-    NSString *versionString = [NSString stringWithFormat:@"Verion: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
+    NSString *versionString = [NSString stringWithFormat:@"Version: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
     self.versionLabel.text = versionString;
 	self.tableView.tableHeaderView = self.hoccerSettingsLogo;
 	self.hoccerSettingsLogo = nil;
@@ -81,11 +81,8 @@
 	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
     SettingsAction *abookAction = [SettingsAction actionWithDescription:@"Delete My Contact reference" selector:@selector(deleteContactReference) type: HCInplaceSetting];
 
-	
 	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, bookmarkletAction, abookAction, nil];
 	[sections addObject:section1];
-		
-    
     
     NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:3];
     
@@ -118,14 +115,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-        
     [tableView reloadData];
-
 }
 
 - (CGSize)contentSizeForViewInPopover {
     return CGSizeMake(320, 367);
 }
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -155,7 +151,8 @@
 	if (action.type == HCContinueSetting) {
 		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	} else if (action.type == HCSwitchSetting && ![action.description isEqualToString:@"Encryption (TLS)"]) {
+	}
+    else if (action.type == HCSwitchSetting && ![action.description isEqualToString:@"Encryption (TLS)"]) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
 		[switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
@@ -163,7 +160,8 @@
 		[switchView release];
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
-    } else if (action.type == HCSwitchSetting && [action.description isEqualToString:@"Encryption (TLS)"]) {
+    }
+    else if (action.type == HCSwitchSetting && [action.description isEqualToString:@"Encryption (TLS)"]) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         switchView.enabled = NO;
         [switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
@@ -171,7 +169,8 @@
 		[switchView release];
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
-    } else if (action.type == HCTextField) {    
+    }
+    else if (action.type == HCTextField) {
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 170, 20)];
 		[field addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
         field.text            = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
@@ -183,7 +182,8 @@
         [field release];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	} else {
+	}
+    else {
 		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
@@ -194,7 +194,8 @@
 #pragma mark -
 #pragma mark Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {	
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self.view endEditing:YES];
     
 	NSInteger section = indexPath.section;
@@ -206,7 +207,8 @@
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         [cell.accessoryView becomeFirstResponder];
         
-    } else if (action.type != HCSwitchSetting) {
+    }
+    else if (action.type != HCSwitchSetting) {
 		[self performSelector:action.selector];	
 	}
 }
@@ -237,36 +239,16 @@
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-#pragma mark -
-#pragma mark 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];    
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    activeField = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {    
-    NSIndexPath *path = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview];
-    
-    SettingsAction *action = [[sections objectAtIndex:path.section] objectAtIndex:path.row];
-    if ([self respondsToSelector:action.selector]) {
-        [self performSelector:action.selector withObject:textField];
-    }
-    
-    activeField = nil;
-}
-
-- (void)showTutorial {
+- (void)showTutorial
+{
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
 	helpView.navigationItem.title = @"Tutorial";
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
 }
 
-- (void)changedName: (UITextField *)textField {
+- (void)changedName: (UITextField *)textField
+{
     NSString *oldClientName = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientName"];
     if (![oldClientName isEqualToString:textField.text]) {
         [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"clientName"];
@@ -323,7 +305,7 @@
   }
 
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {      
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {      
    	switch (alertView.tag) {
         case 0:
             if (buttonIndex == 1) {
@@ -352,8 +334,8 @@
 	
 }
 
--(void)deleteContactReference {
-    
+- (void)deleteContactReference
+{
     int deleted = 0;
     [[NSUserDefaults standardUserDefaults] setInteger:deleted forKey:@"uservCardRef"];
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Deleted" message:@"The reference was deleted" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
@@ -372,7 +354,30 @@
 	[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://touch.facebook.com/hoccer"]];
 }
 
-// Call this method somewhere in your view controller setup code.
+#pragma mark -
+#pragma mark Text Field and Keyboard
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    activeField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSIndexPath *path = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview];
+    
+    SettingsAction *action = [[sections objectAtIndex:path.section] objectAtIndex:path.row];
+    if ([self respondsToSelector:action.selector]) {
+        [self performSelector:action.selector withObject:textField];
+    }
+    
+    activeField = nil;
+}
+
 - (void)registerForKeyboardNotifications
 { 
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad){
@@ -382,8 +387,8 @@
     }
 }
 
-- (void) keyboardDidAppear:(NSNotification*) n {
-    
+- (void)keyboardDidAppear:(NSNotification*)n
+{
     CGRect bounds = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     bounds = [self.view convertRect:bounds fromView:nil];
     
@@ -402,7 +407,7 @@
   
 }
 
-- (void) shrinkDidEnd:(NSString*) ident finished:(BOOL) finished contextInfo:(void*) nothing {
+- (void)shrinkDidEnd:(NSString*) ident finished:(BOOL) finished contextInfo:(void*) nothing {
     NSIndexPath* sel = [tableView indexPathForSelectedRow];
     
     if (![[tableView indexPathsForVisibleRows] containsObject:sel])
@@ -411,7 +416,7 @@
     }
 }
 
-- (void) keyboardWillDisappear:(NSNotification*) n {
+- (void)keyboardWillDisappear:(NSNotification*) n {
     CGRect bounds = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     bounds = [self.view convertRect:bounds fromView:nil];
     

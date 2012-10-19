@@ -55,7 +55,7 @@
     
     [[NSBundle mainBundle] loadNibNamed:@"EncryptionSettingsHeader" owner:self options:nil];
     
-    NSString *versionString = [NSString stringWithFormat:@"Verion: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
+    NSString *versionString = [NSString stringWithFormat:@"Version: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
     self.versionLabel.text = versionString;
     
 	self.tableView.tableHeaderView = self.encryptionSettingsHeader;

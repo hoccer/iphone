@@ -11,7 +11,6 @@
 #import <MapKit/MapKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-
 #import "HoccerContent.h"
 #import "GesturesInterpreterDelegate.h"
 #import "ItemViewControllerDelegate.h"
@@ -26,6 +25,7 @@
 #import "ContentSelectController.h"
 #import "ErrorViewController.h"
 #import "TextPreview.h"
+#import "ChannelViewController.h"
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -42,21 +42,20 @@
 @class HoccerHistoryController;
 @class HCHistoryTVC;
 @class SettingViewController;
-@class ChannelViewController;
 @class GroupStatusViewController;
 
 @class HCLinccer;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, TransferControllerDelegate, ConnectionStatusViewControllerDelegate,ContentSelectViewControllerDelegate,UIActionSheetDelegate,MPMediaPickerControllerDelegate,UIDocumentInteractionControllerDelegate,MBProgressHUDDelegate>
+						HCLinccerDelegate, TransferControllerDelegate, ChannelViewControllerDelegate,  ConnectionStatusViewControllerDelegate, ContentSelectViewControllerDelegate,UIActionSheetDelegate, MPMediaPickerControllerDelegate, UIDocumentInteractionControllerDelegate, MBProgressHUDDelegate>
 {
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
 		
 	SettingViewController *helpViewController;
-	ChannelViewController *channelViewController;
+	//ChannelViewController *channelViewController;
 	HistoryData *historyData;
 
 	DesktopDataSource *desktopData;

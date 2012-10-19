@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">768</int>
 		<string key="IBDocument.SystemVersion">12C54</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">1929</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -60,8 +60,8 @@ Y3RlZCBjb250ZW50IHRocm91Z2ggdGhlIGFpciBhbmQgbGV0IHJlY2lwaWVudHMgCiJjYXRjaCIgaXQu
 IE9yIGRyYWcgaXQgZnJvbSBvbmUgc2NyZWVuIHRvIGFub3RoZXIgcGhvbmUncyBzY3JlZW4uCgpUaGVy
 ZSBpcyBubyBuZWVkIGZvciBwcmlvciBleGNoYW5nZSBvZiBjb250YWN0IGRldGFpbHMuIFBsZWFzZSBh
 bHNvIGNoZWNrIGhvY2Nlci5jb20gZm9yIGZ1cnRoZXIgaW5mb3JtYXRpb24sIHZpZGVvcyBhbmQgYSB3
-ZWIgYmFzZWQgdmVyc2lvbi4KCkNvbnRyaWJ1dGVyczoKaVBob25lIERldmVsb3BtZW50OgpQaGlsaXAg
-QnJlY2hsZXIsIFJhbHBoIFrDvGhsc2RvcmYsIFJvYmVydCBQYWxtZXIsIEZhYmlhbiBCw7x0em93CgpT
+ZWIgYmFzZWQgdmVyc2lvbi4KCkNvbnRyaWJ1dGVyczoKaVBob25lIERldmVsb3BtZW50OgpSYWxwaCBa
+w7xobHNkb3JmLCBQaGlsaXAgQnJlY2hsZXIsIFJvYmVydCBQYWxtZXIsIEZhYmlhbiBCw7x0em93CgpT
 ZXJ2ZXIgRGV2ZWxvcG1lbnQ6CkluZ28gQWxicmVjaHQsIFBhdmVsIE1leWVyLCBEci4gU2ltb24gV2Vp
 w58sIE1hcnRpbiBEZWxpdXMsIFBoaWxpcCBCcmVjaGxlciwgSm9obi1QYXVsIEJhZGVyLCBSb2JlcnQg
 UGFsbWVyLCBEYXZpZCBTaWVnZWwgYW5kIFJvZGphIFRyYXBwZQoKRGVzaWduOgpQZXRlciBBbWVuZGUs
@@ -71,8 +71,7 @@ SnVsaWEgU2NoaWxsZXIsIEV2YSBPZmZlbmJlcmcsIERhbmllbCBGbMO8Z2VsLCBOaWNhIEdpdWxpYW5p
 LCBGZWxpeCBCZWNrIGFuZCBKb25hcyBKw6RnZXIKCk9yZ2FuaXphdGlvbiBhbmQgQmFja2JvbmU6ClBh
 dmVsIE1heWVyLCBNb3JpdHogU2Nocm9lZGVyLCBSYWxwaCBaw7xobHNkb3JmLCBBbmRyZWFzIFRyZXRv
 dywgRGlyayBMw7xzZWJyaW5rIGFuZCBEYXZpZCBTaWVnZWwKClZpZGVvIEFjdHM6Ck5vc2xpdyBhbmQg
-UmViZWNjYSBMaW5hCgpJZGVhIGFuZCBUZWFtIExlYWQ6IApQYXZlbCBNYXllcgoKU29tZSBpY29ucyBi
-eQpKb3NlcGggV2FpbiAvIGdseXBoaXNoLmNvbQ</bytes>
+UmViZWNjYSBMaW5hCgpJZGVhIGFuZCBUZWFtIExlYWQ6IApQYXZlbCBNYXllcg</bytes>
 						</object>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
@@ -227,6 +226,6 @@ eQpKb3NlcGggV2FpbiAvIGdseXBoaXNoLmNvbQ</bytes>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>
 </archive>

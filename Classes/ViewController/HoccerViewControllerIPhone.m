@@ -36,11 +36,11 @@
 @property (retain, nonatomic) id <ContentSelectController> activeContentSelectController;
 
            
-- (void)showPopOver: (UIViewController *)popOverView;
+- (void)showPopOver:(UIViewController *)popOverView;
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 
 - (void)showSelectContentView;
-- (void)showHelpView;
+- (void)showSettingView;
 - (void)showHistoryView;
 - (void)removePopOverFromSuperview;
 - (void)hidePopOverAnimated: (BOOL) animate;
@@ -65,14 +65,12 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
-
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPhone alloc] init];
 	isPopUpDisplayed = FALSE;
 	
 	navigationItem = [[navigationController visibleViewController].navigationItem retain];
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar"]] autorelease];
     
-       
 	navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - tabBar.frame.size.height);
 	[self.view addSubview:navigationController.view];
     
@@ -100,7 +98,7 @@
         [self setDesktopBackgroundImage:others];
     }
     
-    if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]){
+    if ([tabBar respondsToSelector:@selector(setSelectedImageTintColor:)]) {
         [tabBar setSelectedImageTintColor:[UIColor lightGrayColor]];
         [tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tab_bar_active"]];
         NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:4];
@@ -182,7 +180,7 @@
     self.tabBar.selectedItem = nil;
     self.activeContentSelectController = controller;
 
-    [self hidePopOverAnimated:  NO];
+    [self hidePopOverAnimated:NO];
     [self presentModalViewController:controller.viewController animated:YES];    
 }
 
@@ -212,9 +210,9 @@
 }
 - (IBAction)toggleHelp: (id)sender {
 	if (!isPopUpDisplayed) {			
-		[self showHelpView];
+		[self showSettingView];
 	} else if (auxiliaryView != self.helpViewController) {
-		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHelpView)];
+		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSettingView)];
 		[self hidePopOverAnimated: YES];
 	} else {
 		[self hidePopOverAnimated: YES];
@@ -236,29 +234,34 @@
 
 - (IBAction)toggleHistory: (id)sender
 {
-//	if (!isPopUpDisplayed) {
-//		[self showHistoryView];
-//	}
-//    else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
-//		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showHistoryView)];
-//		[self hidePopOverAnimated: YES];
-//	}
-//    else {
-//		[self hidePopOverAnimated: YES];
-//		tabBar.selectedItem = nil;
-//	}
-
-    if (!isPopUpDisplayed) {
-		[self showNewHistoryView];
+	if (!isPopUpDisplayed) {
+		[self showHistoryView];
 	}
-    else if (![auxiliaryView isKindOfClass:[HCHistoryTVC class]]) {
-		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showNewHistoryView)];
+    else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
+		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showHistoryView)];
 		[self hidePopOverAnimated: YES];
 	}
     else {
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
+
+    //new stuff with flip history
+    BOOL useFlipHistory = NO;
+    
+    if (useFlipHistory) {
+        if (!isPopUpDisplayed) {
+            [self showNewHistoryView];
+        }
+        else if (![auxiliaryView isKindOfClass:[HCHistoryTVC class]]) {
+            self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showNewHistoryView)];
+            [self hidePopOverAnimated: YES];
+        }
+        else {
+            [self hidePopOverAnimated: YES];
+            tabBar.selectedItem = nil;
+        }        
+    }
 }
 
 - (IBAction)toggleChannel: (id)sender
@@ -274,7 +277,7 @@
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
-    [self updateChannelButton];
+    //[self updateChannelButton];
 }
 
 - (void)showDesktop
@@ -288,11 +291,11 @@
 	SelectContentController *selectContentViewController = [[SelectContentController alloc] init];
 	selectContentViewController.delegate = self;
 	
-	[self showPopOver: selectContentViewController];
+	[self showPopOver:selectContentViewController];
 	[selectContentViewController release];
 }
 
-- (void)showHelpView
+- (void)showSettingView
 {
 	self.helpViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.helpViewController];
@@ -305,7 +308,8 @@
     navigationItem.leftBarButtonItem = nil;
 }
 
-- (void)showHistoryView {
+- (void)showHistoryView
+{
 	[self showPopOver:self.hoccerHistoryController];
 	
 	navigationItem.title = NSLocalizedString(@"History", nil);
@@ -318,13 +322,12 @@
     [self.navigationItem setLeftBarButtonItem:editButton];
     [editButton release];
     
-    
 	navigationItem.titleView = nil;
 }
 
-- (void)showNewHistoryView {
+- (void)showNewHistoryView
+{
 	[self showPopOver:self.historyTVC];
-	
     
 	navigationItem.title = NSLocalizedString(@"History", nil);
 	
@@ -335,7 +338,8 @@
 	navigationItem.titleView = nil;
 }
 
-- (void)showChannelView {
+- (void)showChannelView
+{
 	self.channelViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.channelViewController];
 	
@@ -346,9 +350,11 @@
 	navigationItem.titleView = nil;
     navigationItem.leftBarButtonItem = nil;
 
+    self.channelViewController.delegate = self;
 }
 
-- (void)showPopOver: (UIViewController *)popOverView  {
+- (void)showPopOver:(UIViewController *)popOverView
+{
 	[popOverView viewWillAppear:YES];
 	
 	gestureInterpreter.delegate = nil;

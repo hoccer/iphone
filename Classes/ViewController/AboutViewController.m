@@ -34,7 +34,6 @@
     return CGSizeMake(320, 367);
 }
 
-
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

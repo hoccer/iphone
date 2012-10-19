@@ -22,10 +22,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_bar.png"]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
-
 }
-
 
 - (void)calculateHightForText: (NSString *)text {
     NSInteger rows = [self tableView:self.tableView numberOfRowsInSection:0];
@@ -140,7 +137,16 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg.png"]] autorelease];
+    
+    if (indexPath.row%2) {
+        cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg-even.png"]] autorelease];
+
+    }
+    else {
+        cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg-odd.png"]] autorelease];
+    }
+
+    //cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
     
@@ -149,7 +155,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 44.0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
