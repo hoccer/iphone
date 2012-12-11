@@ -13,11 +13,12 @@
 #import "HocletSelectViewController.h"
 #import "ActionElement.h"
 #import "HCHistoryTVC.h"
+#import "CustomPullToRefresh.h"
 
 @class ActionElement;
 
 @interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate, 
-                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
+                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate, CustomPullToRefreshDelegate, UITableViewDelegate>
 {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
@@ -36,6 +37,12 @@
     UIButton *encryptionButton;
     
     id <ContentSelectController> activeContentSelectController;
+
+    
+    // ### new pulltorefresh
+    CustomPullToRefresh *_ptr;
+    UIScrollView *_refreshScrollView;
+    UITableView *_table;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
@@ -43,9 +50,15 @@
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 @property (nonatomic, retain) HCHistoryTVC *historyTVC;
 @property (nonatomic, retain) UINavigationItem *navigationItem;
+//@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
+
+@property (retain, nonatomic) IBOutlet UIScrollView *refreshScrollView;
+@property (retain, nonatomic) IBOutlet UITableView *table;
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
 - (void)pressedToggleAutoReceive:(id)sender;
+- (void)pressedLeaveChannelMode:(id)sender;
+- (void)cancelPopOver;
 
 @end

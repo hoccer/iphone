@@ -26,6 +26,8 @@
 #import "ErrorViewController.h"
 #import "TextPreview.h"
 #import "ChannelViewController.h"
+#import <AddressBookUI/AddressBookUI.h>
+#import <MessageUI/MessageUI.h>
 
 @class HoccerAppDelegate;
 @class Preview;
@@ -46,9 +48,9 @@
 
 @class HCLinccer;
 
-@interface HoccerViewController : UIViewController <UIApplicationDelegate, 
+@interface HoccerViewController : UIViewController <UIApplicationDelegate, MFMessageComposeViewControllerDelegate, 
 						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
-						HCLinccerDelegate, TransferControllerDelegate, ChannelViewControllerDelegate,  ConnectionStatusViewControllerDelegate, ContentSelectViewControllerDelegate,UIActionSheetDelegate, MPMediaPickerControllerDelegate, UIDocumentInteractionControllerDelegate, MBProgressHUDDelegate>
+						HCLinccerDelegate, TransferControllerDelegate, ChannelViewControllerDelegate,  ConnectionStatusViewControllerDelegate, ContentSelectViewControllerDelegate,UIActionSheetDelegate, MPMediaPickerControllerDelegate, UIDocumentInteractionControllerDelegate, MBProgressHUDDelegate, ABPeoplePickerNavigationControllerDelegate>
 {
 
 	IBOutlet DesktopView *desktopView;
@@ -151,6 +153,9 @@
 
 - (void)channelSwitchAutoReceiveMode:(BOOL)on;
 - (void)toggleChannelAutoReceiveMode;
+- (void)showChannelContactPicker;
+
+- (void)cancelPopOver;
 
 @end
 

@@ -115,6 +115,12 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]){
         
         if ([[[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"hoccer"]) {
+            //NSLog(@"AppDelegate application: didFinishLaunchingWithOptions: url= #%@#", [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]);
+            return [self handleHoccerURL:[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
+        }
+        
+        if ([[[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"hoccerchannel"]) {
+            //NSLog(@"AppDelegate application: didFinishLaunchingWithOptions: url= #%@#", [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]);
             return [self handleHoccerURL:[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
         }
         
@@ -148,8 +154,14 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if (!url) {
 		return NO;
 	}
-    
     if ([[url scheme] isEqualToString:@"hoccer"]) {
+        //NSLog(@"AppDelegate application: handleOpenURL: url= #%@#", url);
+
+        return [self handleHoccerURL:url];
+    }
+    if ([[url scheme] isEqualToString:@"hoccerchannel"]) {
+        //NSLog(@"AppDelegate application: handleOpenURL: url= #%@#", url);
+
         return [self handleHoccerURL:url];
     }
     
@@ -164,9 +176,32 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     NSString *urlString = [url absoluteString];
 	NSRange colon = [urlString rangeOfString:@":"];
 	NSString *content = [urlString substringFromIndex:(colon.location + 1)];
-    HoccerText *contentView = [[[HoccerText alloc] initWithData:[content dataUsingEncoding: NSUTF8StringEncoding]] autorelease];
-	[viewController setContentPreview: contentView];
     
+    //NSLog(@"AppDelegate url scheme - url: #%@#", urlString);
+    //NSLog(@"AppDelegate url scheme - content: #%@#", content);
+    if ([content startsWith:@"//channel/"]) {
+        
+        NSString *channelName = [content substringFromIndex:(10)];
+
+        if ((channelName != nil) && (channelName.length > 0)) {
+            //NSLog(@"AppDelegate url scheme - use channelName: #%@#", channelName);
+        }
+        else {
+            //NSLog(@"AppDelegate no channel parsed - channelName: #%@#", channelName);
+            channelName = @"3xF4rY2lKj";
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:channelName forKey:@"channel"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+    else {
+        //NSLog(@"AppDelegate url scheme - no channel: #%@#", content);
+
+        HoccerText *contentView = [[[HoccerText alloc] initWithData:[content dataUsingEncoding: NSUTF8StringEncoding]] autorelease];
+        [viewController setContentPreview: contentView];
+    }
     return YES;
 }
 

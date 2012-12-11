@@ -51,6 +51,6 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
-
+- (void)cancelPopOver;
 
 @end

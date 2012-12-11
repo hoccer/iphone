@@ -13,6 +13,7 @@
 #import "StatusViewController.h"
 #import "GroupStatusViewController.h"
 #import "SelectContentController.h"
+#import "PullToReceiveViewController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
 #import "HCHistoryTVC.h"
@@ -28,6 +29,7 @@
 #import "ConnectionStatusViewController.h"
 #import "UIBarButtonItem+CustomImageButton.h"
 #import "HoccerAppDelegate.h"
+//#import <QuartzCore/QuartzCore.h>
 
 
 @interface HoccerViewControllerIPhone ()
@@ -61,6 +63,9 @@
 @synthesize tabBar;
 @synthesize activeContentSelectController;
 @synthesize navigationItem;
+//@synthesize scrollView;
+@synthesize refreshScrollView = _refreshScrollView;
+@synthesize table = _table;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -122,7 +127,8 @@
         [settings release];
         [tabBar setItems:styledItems];
     }
-    
+
+    [self showPullDown];
 
 	[desktopView insertSubview:statusViewController.view atIndex:2];
     CGRect statusRect = statusViewController.view.frame;
@@ -134,7 +140,6 @@
     errorRect.origin.y = desktopView.frame.origin.y-19;
 	errorViewController.view.frame = errorRect;
 
-	
 	[desktopView insertSubview:infoViewController.view atIndex:0];
 	infoViewController.view.frame = statusRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
@@ -152,6 +157,22 @@
     
     tabBar.userInteractionEnabled = YES;
     [self.view bringSubviewToFront:tabBar];
+    
+    //############### Pull ########
+//    [desktopView insertSubview:self.scrollView atIndex:1];
+//
+//    self.pull = [[PullToRefreshView alloc] initWithScrollView:self.scrollView atBottom:NO];
+//    [pull setDelegate:self];
+//    [self.scrollView addSubview:pull];
+}
+
+- (void)customPullToRefreshShouldRefresh:(CustomPullToRefresh *)ptr
+{
+}
+
+- (void)viewDidUnload
+{
+//    [pull containingViewDidUnload];
 }
 
 - (void) dealloc {
@@ -166,6 +187,7 @@
     [groupSizeButton release];
     [channelSizeButton release];
     [activeContentSelectController release];
+//    [scrollView release];
 	
 	[super dealloc];
 }
@@ -345,6 +367,9 @@
 	
 	navigationItem.title = NSLocalizedString(@"Channel", nil);
 	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    
+    
+    
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
 	navigationItem.titleView = nil;
@@ -352,6 +377,76 @@
 
     self.channelViewController.delegate = self;
 }
+
+//############################################### TEST PullDown Refresh #####################
+
+- (void)showPullDown
+{
+//    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
+//	pullToReceiveViewController.delegate = self;
+//	
+//    [pullToReceiveViewController viewWillAppear:YES];
+//	
+//	gestureInterpreter.delegate = nil;
+//	self.auxiliaryView = pullToReceiveViewController;
+//	
+//	CGRect popOverFrame = pullToReceiveViewController.view.frame;
+//	popOverFrame.size = desktopView.frame.size;
+//	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+//	pullToReceiveViewController.view.frame = popOverFrame;
+//	
+//	[desktopView insertSubview:pullToReceiveViewController.view atIndex:6];
+//    
+//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+//	[UIView setAnimationDuration:0.3];
+//	
+//	popOverFrame.origin = CGPointMake(0, 0);
+//	pullToReceiveViewController.view.frame = popOverFrame;
+//	[UIView commitAnimations];
+//	
+//	isPopUpDisplayed = TRUE;
+//	
+//    [infoViewController hideStatus];
+//	[pullToReceiveViewController viewDidAppear:YES];
+//
+//    
+//	[pullToReceiveViewController release];
+    
+    //#### old
+//    
+//    //[self.pull viewWillAppear:YES];
+//	
+//	gestureInterpreter.delegate = nil;
+//	//self.auxiliaryView = self.pull;
+//	
+//	CGRect popOverFrame = self.pull.frame;
+//	popOverFrame.size = desktopView.frame.size;
+//	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+//	self.pull.frame = popOverFrame;
+//	
+//	[desktopView insertSubview:self.pull atIndex:1];
+//    
+//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+//	[UIView setAnimationDuration:0.3];
+//	
+//	popOverFrame.origin = CGPointMake(0, 0);
+//	self.pull.frame = popOverFrame;
+//	[UIView commitAnimations];
+//	
+//	isPopUpDisplayed = TRUE;
+//	
+//    [infoViewController hideStatus];
+//	//[self.pull viewDidAppear:YES];
+//
+//	navigationItem.title = NSLocalizedString(@"Pull", nil);
+//	
+//    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+//    [self.navigationItem setRightBarButtonItem:doneButton];
+//    [doneButton release];
+//    
+//	navigationItem.titleView = nil;
+}
+
 
 - (void)showPopOver:(UIViewController *)popOverView
 {
@@ -380,8 +475,11 @@
 	[popOverView viewDidAppear:YES];
 }
 
-- (void)showTextInputVC:(NSNotification *)notification {
+- (void)showTextInputVC:(NSNotification *)notification
+{
     TextInputViewController *inputVC = (TextInputViewController *)notification.object;
+    [inputVC setHoccerViewController:self];
+
     [self showPopOver:inputVC];
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:inputVC action:@selector(doneButtonTapped:)];
     UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelPopOver)];
@@ -392,7 +490,7 @@
     navigationItem.titleView = nil;
     navigationItem.title = @"";
 }
-- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context{
+- (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 	[self removePopOverFromSuperview];
 }
 
@@ -407,7 +505,8 @@
 	self.delayedAction = nil;
 }
 
-- (void)hidePopOverAnimated: (BOOL) animate {
+- (void)hidePopOverAnimated: (BOOL) animate
+{
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
@@ -425,7 +524,6 @@
 			[self removePopOverFromSuperview];
 		}
 	}
-	
 	self.gestureInterpreter.delegate = self;
 	
 	[navigationController popToRootViewControllerAnimated:YES];
@@ -440,8 +538,8 @@
 
 #pragma mark -
 #pragma mark Linccer Delegate Methods
-- (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
-    
+- (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group
+{
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
     for (NSDictionary *dict in group) {
         if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
@@ -455,8 +553,8 @@
     [self updateChannelButton];
 }
 
-- (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data {
-    
+- (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
+{
     [super linccer:linncer didReceiveData:data];
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
@@ -468,7 +566,6 @@
         [self updateChannelButton];
     }
 }
-
 
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
 {
@@ -525,7 +622,8 @@
     }
 }
 
-- (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients {
+- (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients
+{
     NSMutableArray *clientIds = [NSMutableArray array];
     for (NSDictionary *dict in clients) {
         [clientIds addObject:[dict objectForKey:@"id"]];
@@ -578,7 +676,10 @@
 
 #pragma mark -
 #pragma mark User Actions
-- (IBAction)cancelPopOver {
+- (void)cancelPopOver
+{
+    [self.channelViewController.channelTextField resignFirstResponder];
+    
 	tabBar.selectedItem = nil;
     if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
         [[UIDevice currentDevice] performSelector:NSSelectorFromString(@"setOrientation:") withObject:(id)UIInterfaceOrientationPortrait];
@@ -648,7 +749,7 @@
         clientSelected = NO;
     }
     
-    [groupSizeButton setTitle: text forState:UIControlStateNormal];
+    [groupSizeButton setTitle:text forState:UIControlStateNormal];
     if (clientSelected) {
         if (isChannelMode) {
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_on"] forState:UIControlStateNormal];
@@ -700,6 +801,14 @@
 //    }
 }
 
+- (void)startChannelAutoReceiveMode:(NSNotification *)notification
+{
+//    NSLog(@"startChannelAutoReceiveMode 2");
+
+    [self channelSwitchAutoReceiveMode:YES];
+
+}
+
 - (void)updateChannelButton
 {
 //    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
@@ -716,16 +825,19 @@
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
-        [channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
+        //[channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
+        [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
     }
+  
+    [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
 
     
-    if (self.channelAutoReceiveMode) {
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
-    }
-    else {
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
-    }    
+//    if (self.channelAutoReceiveMode) {
+//        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
+//    }
+//    else {
+//        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
+//    }    
     [self showChannelButton];
 }
 
@@ -747,10 +859,15 @@
     if (channelSizeButton == nil) {
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
+        
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
+        
+        [channelSizeButton setTitle:@"Leave" forState:UIControlStateNormal];
+
         channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
 
-        [channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
+        //[channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
+        [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
     }
 
 	UIBarButtonItem *channelBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:channelSizeButton];
@@ -776,7 +893,6 @@
             encryptionButton.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
             [encryptionButton setImage:buttonImage forState:UIControlStateNormal];
         }
-
     }
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
@@ -844,9 +960,21 @@
 	}
 }
 
+- (void)pressedLeaveChannelMode:(id)sender
+{
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"channel"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+}
+
 - (void)pressedToggleAutoReceive:(id)sender
 {
-    [self toggleChannelAutoReceiveMode];
+    //[self toggleChannelAutoReceiveMode];
     [self updateChannelButton];
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];

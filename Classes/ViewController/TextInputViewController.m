@@ -11,11 +11,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "HoccerAppDelegate.h"
+#import "HoccerViewControllerIPhone.h"
 
 @implementation TextInputViewController
 @synthesize textView;
 @synthesize theNavItem;
 @synthesize delegate;
+@synthesize hoccerViewController;
 
 - (void)viewDidLoad
 {
@@ -109,10 +111,12 @@
     [textView resignFirstResponder];
     [self.delegate textInputViewController:self didFinishedWithString:textView.text];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
-        HoccerViewController *hcVC = (HoccerViewController *)appDelegate.viewController;
-        [hcVC cancelPopOver];
-    }else {
+//        HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
+//        HoccerViewController *hcVC = (HoccerViewController *)appDelegate.viewController;
+//        [hcVC cancelPopOver];
+        [(HoccerViewControllerIPhone *)self.hoccerViewController cancelPopOver];
+    }
+    else {
         [self dismissModalViewControllerAnimated:YES];
     }
 }
@@ -122,10 +126,10 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)setInitialText:(NSString *)text andDelegate:(id)theDelegate{
+- (void)setInitialText:(NSString *)text andDelegate:(id)theDelegate
+{
     self.delegate = theDelegate;
     initialText = text;
 }
-
 
 @end

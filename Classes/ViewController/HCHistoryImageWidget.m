@@ -7,7 +7,7 @@
 //
 
 #import "HCHistoryImageWidget.h"
-#import "HCDataManager.h"
+#import "DataManager.h"
 
 @implementation HCHistoryImageWidget
 
@@ -34,7 +34,7 @@
         [self.toggelImage setImage:[UIImage imageNamed:@"widget_minus.png"]];
         self.widgetIsOpen = YES;
     }
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
     
     NSLog(@"########## self.delegate respondsToSelector:@selector(toggleButtonPressed");
     [dm.historyTVC toggleButtonPressed:self];

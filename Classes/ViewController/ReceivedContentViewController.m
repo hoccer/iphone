@@ -55,7 +55,8 @@
 }
 
 
-- (void)showActionSheet {
+- (void)showActionSheet
+{
     HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
     
     if (hoccerContent.descriptionOfSaveButton != nil){

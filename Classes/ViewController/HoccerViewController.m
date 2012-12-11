@@ -66,6 +66,9 @@
 #import "StartAnimationiPhoneViewController.h"
 
 
+#import "DataManager.h"
+#import "NSData+CommonCrypto.h"
+
 
 @interface HoccerViewController ()
 @property (retain, nonatomic) ItemViewController *sendingItem;
@@ -73,8 +76,9 @@
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
 
-- (void)clientNameChanged: (NSNotification *)notification;
-- (void)clientChannelChanged: (NSNotification *)notification;
+- (void)clientNameChanged:(NSNotification *)notification;
+- (void)clientChannelChanged:(NSNotification *)notification;
+- (void)startChannelAutoReceiveMode:(NSNotification *)notification;
 - (id <Cryptor>)currentCryptor;
 
 @end
@@ -167,6 +171,11 @@ typedef enum {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(clientChannelChanged:)
                                                  name:@"clientChannelChanged"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(startChannelAutoReceiveMode:)
+                                                 name:@"startChannelAutoReceiveMode"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -294,15 +303,6 @@ typedef enum {
     [controller release];
 }
 
-- (void)selectChannelContact
-{
-//    ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
-//    controller.delegate = self;
-//    
-//    [self presentContentSelectViewController:controller];
-//    [controller release];
-}
-
 - (IBAction)selectMyContact:(id)sender
 {
     ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
@@ -361,15 +361,16 @@ typedef enum {
     [mediaChooser release];
 }
 
-- (IBAction)selectMusic:(id)sender {
-    
+- (IBAction)selectMusic:(id)sender
+{    
     UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
     musicAlert.tag = 2;
     [musicAlert show];
     [musicAlert release];
 }
 
-- (IBAction)selectHoclet: (id)sender {
+- (IBAction)selectHoclet: (id)sender
+{
     HocletSelectViewController *controller = [[HocletSelectViewController alloc] initWithNibName:@"HocletSelectViewController" bundle:nil];
     controller.delegate = self;
     
@@ -377,8 +378,8 @@ typedef enum {
     [controller release];
 }
 
-- (IBAction)selectPasteboard: (id)sender {
-
+- (IBAction)selectPasteboard: (id)sender
+{
     HoccerPasteboard* content = [[[HoccerPasteboard alloc] init] autorelease];
     if (content != nil){
         [self setContentPreview: [content returnPastedContent]];
@@ -399,10 +400,70 @@ typedef enum {
 - (IBAction)toggleChannel: (id)sender {}
 - (IBAction)toggleHelp: (id)sender {}
 
+- (void)showSMSPicker:(NSString *)phone
+{
+    //	The MFMessageComposeViewController class is only available in iPhone OS 4.0 or later.
+    //	So, we must verify the existence of the above class and log an error message for devices
+    //		running earlier versions of the iPhone OS. Set feedbackMsg if device doesn't support
+    //		MFMessageComposeViewController API.
+    
+    if ((phone == nil) || (phone.length <= 0)) {
+        return;
+    }
+	Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
+	
+	if (messageClass != nil) {
+		// Check whether the current device is configured for sending SMS messages
+		if ([messageClass canSendText]) {
+            MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+            picker.messageComposeDelegate = self;
+            
+            //[picker setBody:@"Hallo, bitte oeffne diesen link. Ich möchte dir ein File schicken: hoccer://hallo"];
+            NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+
+            NSString *content = [NSString stringWithFormat:@"Hallo, ich habe ein File für dich per Hoccer - bitte hier clicken: hoccerchannel://channel/%@", channel];
+            [picker setBody:content];
+
+            [picker setRecipients:[[NSArray alloc] initWithObjects:phone, nil]];
+            
+            [self presentModalViewController:picker animated:YES];
+            [picker release];
+		}
+		else {
+			NSLog(@"Device not configured to send SMS - 1.");
+		}
+	}
+	else {
+        NSLog(@"Device not configured to send SMS - 2.");
+	}
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	// Notifies users about errors associated with the interface
+	switch (result)
+	{
+		case MessageComposeResultCancelled:
+            //NSLog(@"Result: SMS sending canceled");
+			break;
+		case MessageComposeResultSent:
+            //NSLog(@"Result: SMS sent");
+			break;
+		case MessageComposeResultFailed:
+            //NSLog(@"Result: SMS sending failed");
+			break;
+		default:
+            //NSLog(@"Result: SMS not sent");
+			break;
+	}
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)showDesktop {}
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (actionSheet.tag == 1){
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 1) {
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             switch (buttonIndex) {
                 case 0: {
@@ -545,7 +606,6 @@ typedef enum {
 		channelViewController = [[ChannelViewController alloc] initWithNibName:@"ChannelViewController" bundle:nil];
         channelViewController.delegate = self;
 	}
-	
 	return channelViewController;
 }
 
@@ -606,7 +666,7 @@ typedef enum {
 	animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
 	animation.duration = 0.2;
 	
-	[desktopView insertView:item.contentView atPoint: item.viewOrigin withAnimation:animation];
+	[desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
 
 	[self willStartDownload:item];
 	[linccer receiveWithMode:HCTransferModeOneToMany];
@@ -653,7 +713,7 @@ typedef enum {
 	animation.removedOnCompletion = NO;
 	animation.fillMode = kCAFillModeForwards;
 	
-	[desktopView animateView: [desktopData viewAtIndex:0] withAnimation: animation];	
+	[desktopView animateView:[desktopData viewAtIndex:0] withAnimation:animation];
     
     hoccerStatus = HOCCER_SENDING_THROW;
     
@@ -834,8 +894,6 @@ typedef enum {
 	return YES;
 }
 
-
-
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
 - (void) connectionStatusViewControllerDidCancel:(ConnectionStatusViewController *)controller
@@ -897,6 +955,100 @@ typedef enum {
 }
 
 #pragma mark -
+#pragma mark Channel Contact Picker
+
+- (void)showChannelContactPicker
+{
+    ABPeoplePickerNavigationController *peoplePicker = [[ABPeoplePickerNavigationController alloc] init];
+    peoplePicker.peoplePickerDelegate = self;
+    
+    [self presentModalViewController:peoplePicker animated:YES];
+}
+
+#pragma mark -
+#pragma mark ABPeoplePickerNavigationController Delegate
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    //dismiss
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    //dismiss
+    [self dismissModalViewControllerAnimated:NO];
+
+    NSString* name = (NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    
+    NSString* phone = nil;
+    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    
+    if (ABMultiValueGetCount(phoneNumbers) > 0) {
+        //NSLog(@"number of phoneNumbers = %ld", ABMultiValueGetCount(phoneNumbers));
+        phone = (NSString*)ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+        //for (int i=0; i > ABMultiValueGetCount(phoneNumbers); i++) {
+            //NSString *phoneTmp = (NSString*)ABMultiValueCopyValueAtIndex(phoneNumbers, i);
+            //NSLog(@"Multi Phone %d = %@", i, phoneTmp);
+        //}
+    }
+    else {
+        phone = @"[None]";
+    }
+    //NSLog(@"name = %@", name);
+    //NSLog(@"phone = %@", phone);
+    
+    DataManager *dm = [DataManager sharedDataManager];
+    NSString *channelNameToUse = [dm generateRandomString:12];
+    NSLog(@"randomChannelString  =  %@", channelNameToUse);
+    
+    //NSString *channelNameToUse = @"";
+    if ((name != nil) && (name.length > 0)) {
+//        const char *cKey  = [@"18aXprM!" cStringUsingEncoding:NSASCIIStringEncoding];
+//        //const char *cData = [name cStringUsingEncoding:NSASCIIStringEncoding];
+//        const char *cData = [randomChannelString cStringUsingEncoding:NSASCIIStringEncoding];
+//        unsigned char cHMAC[9];
+//        CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+//        NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
+//        channelNameToUse = [HMAC asBase64EncodedString];
+    }
+    else {
+//        channelNameToUse = @"3xF4rY2lKj";
+    }
+//    NSLog(@"channelNameToUse     =  %@", channelNameToUse);
+    
+    //[[NSUserDefaults standardUserDefaults] setObject:phone forKey:@"channel"];
+    
+    NSString *oldchannel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+    if (![oldchannel isEqualToString:channelNameToUse]) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:channelNameToUse forKey:@"channel"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        //NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
+        //[[NSNotificationCenter defaultCenter] postNotification:notification];
+    }
+    //phone = @"00491777177737";
+    
+    if (phone) {
+        // 0049 zu anfang checken
+    }
+    
+    //DataManager *dm = [DataManager sharedDataManager];
+    
+    //[dm sendKSMS:@"hallo" toPhone:phone toName:name from:@"BauTicker"];
+    
+    [self showSMSPicker:phone];
+    
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    return NO;
+}
+
+#pragma mark -
 #pragma mark ItemViewController 
 
 - (void)willStartDownload: (ItemViewController *)item {
@@ -912,8 +1064,11 @@ typedef enum {
 	[desktopView reloadData];
 }
 
+// warum das???
+//- (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item; {
 
-- (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item; {
+- (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item
+{
 	[item.content whenReadyCallTarget:self selector:@selector(finishedSaving:) context: item];
 	if ([item.content needsWaiting]) {
 		[item.contentView showSpinner];
@@ -937,11 +1092,11 @@ typedef enum {
 	[item.contentView showSuccess];
 }
 
-
 #pragma mark -
 #pragma mark TransferController Delegate
 
-- (void)transferController:(TransferController *)controller didFinishTransfer:(id)object {
+- (void)transferController:(TransferController *)controller didFinishTransfer:(id)object
+{
     failcounter = 0;
     [self ensureViewIsHoccable];
     
@@ -968,7 +1123,8 @@ typedef enum {
     }
 }
 
-- (void)transferControllerDidFinishAllTransfers:(TransferController *)controller {
+- (void)transferControllerDidFinishAllTransfers:(TransferController *)controller
+{
 	[self ensureViewIsHoccable];
     
     fileUploaded = YES;
@@ -984,13 +1140,15 @@ typedef enum {
     }
 }
 
-- (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress {
+- (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress
+{
 	if (connectionEstablished) {
 		[statusViewController setProgressUpdate: [progress floatValue]];
 	}
 }
 
-- (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object {
+- (void) transferController:(TransferController *)controller didFailWithError:(NSError *)error forTransfer:(id)object
+{
 //    if (failcounter < 3){
 //        [self retryLastAction];
 //        failcounter++;
@@ -1141,10 +1299,21 @@ typedef enum {
     linccer.userInfo = userInfo;
 }
 
-- (void)clientChannelChanged:(NSNotification *)notification {}
+- (void)clientChannelChanged:(NSNotification *)notification
+{
+    NSLog(@"HoccerViewController - clientChannelChanged - notification: %@", notification);
+}
 
-- (void)encryptionError: (NSNotification *)notification {
+- (void)startChannelAutoReceiveMode:(NSNotification *)notification
+{
+    NSLog(@"HoccerViewController - startChannelAutoReceiveMode - notification: %@", notification);
+
+    //[self channelSwitchAutoReceiveMode:YES];
     
+}
+
+- (void)encryptionError: (NSNotification *)notification
+{
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
                                                    message:NSLocalizedString(@"Could not decrypt data. Something went horribly wrong.", nil)
                                                   delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles: nil];
@@ -1153,8 +1322,8 @@ typedef enum {
     
 }
 
-- (void)encryptionNotEnabled: (NSNotification *)notification {
-    
+- (void)encryptionNotEnabled: (NSNotification *)notification
+{    
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enable encryption", nil) message:NSLocalizedString(@"You need to enable encryption to communicate with this sender", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [alertView show];
@@ -1162,8 +1331,8 @@ typedef enum {
     
 }
 
-- (void)noPublicKey: (NSNotification *)notification {
-    
+- (void)noPublicKey: (NSNotification *)notification
+{    
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not find public key", nil) forKey:NSLocalizedDescriptionKey];
     NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
     [self handleError:error];
@@ -1278,6 +1447,8 @@ typedef enum {
 		NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ErrorView" owner:self options:nil];
 		errorView = [[views objectAtIndex:0] retain];
         [errorView setFrame:desktopView.frame];
+        
+        //RALPH #### ACHTUNG aufpassen insertSubview !!!
 		[desktopView insertSubview:errorView atIndex:0];
 	}
 	
@@ -1437,8 +1608,9 @@ typedef enum {
 
 - (void)showTextInputVC:(NSNotification *)notification {
     if (USES_DEBUG_MESSAGES) { NSLog(@"showTextInputVC:(NSNotification *)notification"); }
-
 }
+
+- (void)cancelPopOver {}
 
 - (void)dealloc {
 	[hoccabilityInfo release];

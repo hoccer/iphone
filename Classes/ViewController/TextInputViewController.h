@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TextInputViewControllerDelegate.h"
 
+@class HoccerViewController;
+
 @interface TextInputViewController : UIViewController {
     IBOutlet UITextView *textView;
     IBOutlet UINavigationItem *theNavItem;
@@ -18,6 +20,7 @@
 @property (retain, nonatomic) IBOutlet UITextView *textView;
 @property (retain, nonatomic) IBOutlet UINavigationItem *theNavItem;
 @property (assign) id <TextInputViewControllerDelegate> delegate;
+@property (nonatomic, assign) HoccerViewController *hoccerViewController;
 
 - (IBAction)doneButtonTapped:(id)sender;
 - (IBAction)cancelButtonTapped:(id)sender;

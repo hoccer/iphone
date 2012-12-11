@@ -7,7 +7,7 @@
 //
 
 #import "HCWidgetCell.h"
-#import "HCDataManager.h"
+#import "DataManager.h"
 
 @implementation HCWidgetCell
 

@@ -89,8 +89,8 @@
 }
 
 
-- (void)choosePersonByID:(ABRecordID)theid{
-    
+- (void)choosePersonByID:(ABRecordID)theid
+{
     ABRecordID contactId = theid;
     ABAddressBookRef addressBook = ABAddressBookCreate();
     ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);

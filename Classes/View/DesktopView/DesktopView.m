@@ -13,6 +13,7 @@
 #import "SweepInRecognizer.h"
 #import "SweepOutRecognizer.h"
 #import "TabRecognizer.h"
+#import "PullToReceiveViewController.h"
 
 
 @interface DesktopView ()
@@ -130,7 +131,8 @@
 
 #pragma mark -
 #pragma mark DataSource Methods
-- (void)reloadData {
+- (void)reloadData
+{
 	for (UIView *subview in volatileView) {
 		[subview removeFromSuperview];
 	}
@@ -141,18 +143,34 @@
 		UIView *view = [dataSource viewAtIndex:i];
 		[view.layer removeAllAnimations];
 
-		if ([view isKindOfClass: [ContentContainerView class]]) {
+		if ([view isKindOfClass:[ContentContainerView class]]) {
 			ContentContainerView *containerView = (ContentContainerView *)view;
 			containerView.delegate = self;
 			containerView.origin = [dataSource positionForViewAtIndex:i];
 		}
 		
-		[self insertSubview: view atIndex:0];
+		[self insertSubview:view atIndex:0];
 		[volatileView addObject: view];
 	}
+    [self initPullToReceive];
 }
 
-- (void)insertView: (UIView *)view atPoint:(CGPoint)point withAnimation: (CAAnimation *)animation {
+- (void)initPullToReceive
+{
+    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
+	pullToReceiveViewController.delegate = self;
+	
+    [pullToReceiveViewController viewWillAppear:YES];
+			
+	[self insertSubview:pullToReceiveViewController.view atIndex:0];
+	
+	[pullToReceiveViewController viewDidAppear:YES];
+
+	[pullToReceiveViewController release];
+}
+
+- (void)insertView:(UIView *)view atPoint:(CGPoint)point withAnimation:(CAAnimation *)animation
+{
  	ContentContainerView *containerView = (ContentContainerView *)view;
 	containerView.delegate = self;
 	containerView.origin = point;
@@ -162,7 +180,7 @@
 		[containerView.layer addAnimation:animation forKey:nil];
 	}
 
-	[volatileView addObject: containerView];
+	[volatileView addObject:containerView];
 }
 
 - (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation {
@@ -171,8 +189,9 @@
 
 #pragma mark -
 #pragma mark ContentContainerViewDelegate Methods
-- (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point {
-	[dataSource view: view didMoveToPoint:view.frame.origin];
+- (void)containerView:(ContentContainerView *)view didMoveToPosition:(CGPoint)point
+{
+	[dataSource view:view didMoveToPoint:view.frame.origin];
 }
 
 #pragma mark -
@@ -198,7 +217,7 @@
 		
 		view.layer.position = view.center = CGPointMake(view.superview.frame.size.width /2, view.center.y);
 		[view.layer addAnimation:animation forKey:nil];		
-		[dataSource view: view didMoveToPoint:CGPointMake(view.superview.frame.size.width /2 - view.frame.size.width / 2, view.center.y - view.frame.size.height / 2)];
+		[dataSource view:view didMoveToPoint:CGPointMake(view.superview.frame.size.width /2 - view.frame.size.width / 2, view.center.y - view.frame.size.height / 2)];
 	}
 	
 	[delegate desktopView: self didSweepInView: view];
@@ -223,7 +242,7 @@
 	
 	[view.layer addAnimation:animation forKey:nil];
 	
-	[dataSource removeView: view];
+	[dataSource removeView:view];
 	
 	sweepIn = NO; 
 }

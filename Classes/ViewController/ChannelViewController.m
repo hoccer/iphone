@@ -21,6 +21,8 @@
 @synthesize parentNavigationController;
 @synthesize tableView;
 @synthesize delegate;
+@synthesize contactChannelName;
+@synthesize channelTextField;
 
 - (void)viewDidLoad
 {
@@ -49,14 +51,14 @@
 	[sections addObject:[NSArray arrayWithObject:channelAction]];
 
 	SettingsAction *channelHelpAction = [SettingsAction actionWithDescription:@"Channel-Help" selector:nil type:HCTextField];
-    channelHelpAction.defaultValue = @"Set or delete the name of the channel";
+    channelHelpAction.defaultValue = @"Set the name of the channel";
 	[sections addObject:[NSArray arrayWithObject:channelHelpAction]];
 
-    SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Contact over Channel" selector:@selector(showChannelContact) type:HCContinueSetting];
+    SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Channel with Contact" selector:@selector(showChannelContact) type:HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:channelContactAction]];
 
     SettingsAction *channelHelp2Action = [SettingsAction actionWithDescription:@"Channel-Help2" selector:nil type:HCTextField];
-    channelHelp2Action.defaultValue = @"Send to a contact over the channel";
+    channelHelp2Action.defaultValue = @"Send content to a contact over a channel";
 	[sections addObject:[NSArray arrayWithObject:channelHelp2Action]];
 
 }
@@ -118,30 +120,31 @@
     SettingsAction *action = [[sections objectAtIndex:section] objectAtIndex:[indexPath indexAtPosition:1]];
 
     if (section == 0) {
-        UITextField *textField = [[[UITextField alloc] init] autorelease];
+        self.channelTextField = [[[UITextField alloc] init] autorelease];
         CGRect cellBounds = cell.bounds;
         CGFloat textFieldBorder = 31.f;
         CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
-        textField.frame = aRect;
-        [textField setDelegate:self];
-        textField.clearButtonMode = UITextFieldViewModeAlways;
+        self.channelTextField.frame = aRect;
+        [self.channelTextField setDelegate:self];
+        self.channelTextField.clearButtonMode = UITextFieldViewModeAlways;
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] length] > 0) {
-            textField.text = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
-            textField.placeholder = @"";
+            self.channelTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue];
+            self.channelTextField.placeholder = @"";
         }
         else {
-            textField.text = @"";
-            textField.placeholder = @"Channel-Name";
+            self.channelTextField.text = @"";
+            self.channelTextField.placeholder = @"Channel-Name";
         }
-        textField.returnKeyType = UIReturnKeyDone;
-        textField.keyboardType = UIKeyboardTypeDefault;
-        textField.enablesReturnKeyAutomatically = YES;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.textAlignment = UITextAlignmentLeft;
-        [textField addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
+        self.channelTextField.returnKeyType = UIReturnKeyDone;
+        self.channelTextField.keyboardType = UIKeyboardTypeDefault;
+        self.channelTextField.enablesReturnKeyAutomatically = YES;
+        self.channelTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.channelTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.channelTextField.textAlignment = UITextAlignmentLeft;
+        [self.channelTextField addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
         
-        [cell.contentView addSubview:textField];
+        [cell.contentView addSubview:self.channelTextField];
+        
     }
     else if (section == 1) {
         UITextField *textView = [[[UITextField alloc] init] autorelease];
@@ -149,7 +152,6 @@
         CGFloat textFieldBorder = 31.f;
         CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
         textView.frame = aRect;
-        //textView.text = @"Set or delete the name of the channel";
         textView.text = action.defaultValue;
         textView.textAlignment = UITextAlignmentLeft;
         textView.backgroundColor = [UIColor clearColor];
@@ -174,7 +176,6 @@
         CGFloat textFieldBorder = 31.f;
         CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
         textView.frame = aRect;
-        //textView.text = @"Set or delete the name of the channel";
         textView.text = action.defaultValue;
         textView.textAlignment = UITextAlignmentLeft;
         textView.backgroundColor = [UIColor clearColor];
@@ -187,7 +188,6 @@
 
     return cell;
 }
-
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -219,11 +219,6 @@
 }
 
 #pragma mark -
-#pragma mark User Actions
-
-
-
-#pragma mark -
 #pragma mark 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -237,7 +232,12 @@
     activeField = textField;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+//    if (textField.text.length < 3) {
+//        return;
+//    }
+    
     NSIndexPath *path = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview];
     
     SettingsAction *action = [[sections objectAtIndex:path.section] objectAtIndex:path.row];
@@ -257,24 +257,13 @@
         
         NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
-
-//        if (textField.text.length >= 4) {
-//            [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"channel"];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//            
-//            NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
-//            [[NSNotificationCenter defaultCenter] postNotification:notification];
-//        }
-//        else {
-//            textField.text = @"";
-//        }
     }
 }
 
 - (void)showChannelContact
 {
-    if ([delegate respondsToSelector:@selector(selectChannelContact)]) {
-        [delegate selectChannelContact];
+    if ([delegate respondsToSelector:@selector(showChannelContactPicker)]) {
+        [delegate showChannelContactPicker];
     }
 }
 

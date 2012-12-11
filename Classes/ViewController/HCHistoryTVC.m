@@ -7,7 +7,7 @@
 //
 
 #import "HCHistoryTVC.h"
-#import "HCDataManager.h"
+#import "DataManager.h"
 #import "HCHistoryImageWidget.h"
 
 @interface HCHistoryTVC ()
@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
     
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
     
     dm.historyTVC = self;
     
@@ -69,7 +69,7 @@
 {
     NSLog(@"########## HCHistoryTVC #######  toggleButtonPressed");
 
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
     
     UITableViewCell *cell = (UITableViewCell *)sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -114,14 +114,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
 
     return dm.historyObjectsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
     
     static NSString *CellIdentifier = @"HCHistoryImageWidget";
     //HCHistoryImageWidget *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -150,7 +150,7 @@
 
 - (BOOL)widgetIsOpen:(NSIndexPath *)indexPath
 {
-    HCDataManager *dm = [HCDataManager sharedHCDataManager];
+    DataManager *dm = [DataManager sharedDataManager];
     
     HCHistoryImageWidget *widget = [dm.historyObjectsArray objectAtIndex:indexPath.row];
     if (widget.widgetIsOpen) {

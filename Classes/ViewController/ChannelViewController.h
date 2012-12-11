@@ -10,7 +10,7 @@
 
 @protocol ChannelViewControllerDelegate <NSObject>
 @optional
-- (void)selectChannelContact;
+- (void)showChannelContactPicker;
 @end
 
 @interface ChannelViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
@@ -26,7 +26,9 @@
 
 @property (retain) UINavigationController *parentNavigationController;
 @property (retain) IBOutlet UITableView *tableView;
-@property (nonatomic,assign) id delegate;
+@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) NSString *contactChannelName;
+@property (nonatomic, assign) UITextField *channelTextField;
 
 - (void)showChannelContact;
 

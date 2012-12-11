@@ -513,7 +513,7 @@
 
 #pragma mark -
 #pragma mark User Actions
-- (IBAction)cancelPopOver {
+- (void)cancelPopOver {
 	tabBar.selectedItem = nil;
 	[self hidePopOverAnimated:YES];
 }
@@ -818,11 +818,12 @@
 
 }
 
-- (void)showTextInputVC:(NSNotification *)notification {
+- (void)showTextInputVC:(NSNotification *)notification
+{
     TextInputViewController *inputVC = (TextInputViewController *)notification.object;
+    [inputVC setHoccerViewController:self];
     [inputVC setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentModalViewController:inputVC animated:YES];
-    
 }
 
 - (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches {
