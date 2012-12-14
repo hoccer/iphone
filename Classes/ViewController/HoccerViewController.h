@@ -127,6 +127,8 @@
 - (IBAction)selectContact: (id)sender;
 - (IBAction)showHistory: (id)sender;
 
+- (IBAction)selectAutoReceive:(id)sender;
+
 - (void)showDesktop;
 - (void)willStartDownload:(ItemViewController *)item;
 

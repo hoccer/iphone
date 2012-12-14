@@ -70,7 +70,7 @@
 }
 
 
-- (IBAction)playVideo: (id)sender {
+- (IBAction)playVideo:(id)sender {
     /*
 	UIView *window = [[UIApplication sharedApplication] keyWindow];
 	
@@ -84,6 +84,7 @@
     player.view.frame = CGRectMake(78, 10, 160, 160);
     player.view.backgroundColor = [UIColor clearColor];
     player.controlStyle = MPMovieControlStyleNone;
+    [player prepareToPlay];
     imageView.hidden =TRUE;
     [self.view addSubview:player.view];
     [[NSNotificationCenter defaultCenter] addObserver:self 

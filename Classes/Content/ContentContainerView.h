@@ -10,6 +10,7 @@
 
 #import "ContentContainerViewDelegate.h"
 #import "MBProgressHUD.h"
+
 @class Preview;
 
 @interface ContentContainerView : UIView {

@@ -62,7 +62,6 @@
 	volatileView = [[NSMutableArray alloc] init];
 }
 
-
 - (void)dealloc {
 	[sweepRecognizers release];
 	[dataSource release];
@@ -81,16 +80,25 @@
 
 #pragma mark -
 #pragma mark TouchEvents
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	CGPoint initialTouchPoint = [[touches anyObject] locationInView: self]; 
-	
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	CGPoint initialTouchPoint = [[touches anyObject] locationInView:self];
 	self.currentlyTouchedViews = [self findTouchedViews:initialTouchPoint];
-    
     [self.delegate desktopView:self wasTouchedWithTouches:touches];
-    
-	for (SweepInRecognizer *recognizer in sweepRecognizers) {
-		[recognizer desktopView:self touchesBegan:touches withEvent:event];
-	}
+
+//    NSLog(@"____________________________________________________________");
+    if ((initialTouchPoint.x > kSweepInBorder) && (initialTouchPoint.x <  self.frame.size.width - kSweepInBorder)) {
+//        NSLog(@"1. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
+        
+//        NSLog(@"################# new tableview ###########");
+
+    }
+    else {
+//        NSLog(@"2. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
+        for (SweepInRecognizer *recognizer in sweepRecognizers) {
+            [recognizer desktopView:self touchesBegan:touches withEvent:event];
+        }
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
@@ -99,6 +107,9 @@
 	CGPoint prevLocation = [touch previousLocationInView: self];
 	CGPoint currentLocation = [touch locationInView: self];
 	
+//    NSLog(@"1.a. DesktopView - touchesMoved from %f - %f", prevLocation.x, prevLocation.y);
+//    NSLog(@"1.a. DesktopView - touchesMoved to   %f - %f", currentLocation.x, currentLocation.y);
+    
 	for (ContentContainerView *view in currentlyTouchedViews) {
 		[view moveBy:CGSizeMake(currentLocation.x - prevLocation.x, currentLocation.y - prevLocation.y)];
 	}
@@ -152,7 +163,7 @@
 		[self insertSubview:view atIndex:0];
 		[volatileView addObject: view];
 	}
-    [self initPullToReceive];
+    //[self initPullToReceive];
 }
 
 - (void)initPullToReceive
@@ -197,7 +208,10 @@
 #pragma mark -
 #pragma mark SweepInGesturesRecognizer Delegate
 
-- (void)sweepInRecognizerDidBeginSweeping: (SweepInRecognizer *)recognizer {
+- (void)sweepInRecognizerDidBeginSweeping: (SweepInRecognizer *)recognizer
+{
+    //NSLog(@"3. DesktopView - sweepInRecognizerDidBeginSweeping - touchPoint ........ = %f", recognizer.touchPoint.x);
+    
 	sweepIn = [delegate desktopView:self needsEmptyViewAtPoint:recognizer.touchPoint];
 	self.currentlyTouchedViews = [self findTouchedViews:recognizer.touchPoint];
 }

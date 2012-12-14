@@ -41,7 +41,7 @@
     
     // ### new pulltorefresh
     CustomPullToRefresh *_ptr;
-    UIScrollView *_refreshScrollView;
+//    UIScrollView *_refreshScrollView;
     UITableView *_table;
 }
 

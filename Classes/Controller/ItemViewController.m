@@ -84,16 +84,18 @@
 		Preview *preview = [content desktopItemView];
 		if (preview != nil) {
 			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
-            NSLog(@"2 contentView");
 		}
+        else {
+        }
 	}
 	
 	if (contentView == nil) {
+
 		[[NSBundle mainBundle] loadNibNamed:@"EmptyContent" owner:self options:nil];
 		Preview *preview = (Preview *)viewFromNib;
 		viewFromNib = nil;
-		preview.allowsOverlay = NO;
-		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
+		preview.allowsOverlay = YES;
+		contentView = [[ContentContainerView alloc] initWithView:preview actionButtons:[self actionButtons]];
 	}
 
 	return contentView;

@@ -10,9 +10,9 @@
 #import "SweepRecognizer.h"
 #import "SweepInRecognizerDelegate.h"
 
-#define kSweepDirectionLeftIn -1
-#define kNoSweeping 0
-#define kSweepDirectionRightIn 1
+//#define kSweepDirectionLeftIn -1
+//#define kNoSweeping 0
+//#define kSweepDirectionRightIn 1
 
 @class DesktopView;
 

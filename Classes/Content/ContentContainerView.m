@@ -12,7 +12,6 @@
 #import "NSObject+DelegateHelper.h"
 #import "Preview.h"
 
-#define kSweepBorder 50
 CGRect ACPositionedRect(CGRect rect, NSInteger x, NSInteger y);
 CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY);
 
@@ -32,7 +31,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 @synthesize buttonContainer;
 @synthesize containedView;
 
-- (id) initWithView: (UIView *)subview actionButtons: (NSArray *)buttons {
+- (id) initWithView: (UIView *)subview actionButtons:(NSArray *)buttons {
 	self = [super initWithFrame:subview.frame];
 	if (self != nil) {
 		containedView = (Preview *)[subview retain];

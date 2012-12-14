@@ -243,8 +243,10 @@
     self.fullscreenPlayer.view.frame = screenRect;
     
     self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;  
-    self.fullscreenPlayer.shouldAutoplay = NO;  
+    self.fullscreenPlayer.shouldAutoplay = NO;
 
+    [self.fullscreenPlayer prepareToPlay];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(pausePlayer) 

@@ -9,8 +9,6 @@
 #import "SweepInRecognizer.h"
 #import "DesktopView.h"
 
-#define kSweepInBorder 50
-#define kSweepAcceptanceDistance 20
 
 @implementation SweepInRecognizer
 
@@ -18,15 +16,18 @@
 @synthesize sweepDirection;
 @synthesize touchPoint;
 
-- (void)desktopView: (DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	self.touchPoint = [[touches anyObject] locationInView: view]; 
+- (void)desktopView:(DesktopView*)view touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	self.touchPoint = [[touches anyObject] locationInView:view];
 
 	if (touchPoint.x < kSweepInBorder) {
 		sweepDirection = kSweepDirectionLeftIn;
-	} else if (touchPoint.x > view.frame.size.width - kSweepInBorder){
+	}
+    else if (touchPoint.x > view.frame.size.width - kSweepInBorder) {
 		sweepDirection = kSweepDirectionRightIn;
 	}
-	
+	else {
+        //NSLog(@"2. SweepInRecognizer - desktopView touchesBegan - touchPoint not sweepin = %f", touchPoint.x);
+    }
 	isSweeping = NO;
 }
 

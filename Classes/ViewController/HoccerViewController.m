@@ -394,6 +394,11 @@ typedef enum {
 
 }
 
+- (IBAction)selectAutoReceive:(id)sender
+{
+    NSLog(@"HoccerViewController selectAutoReceive");
+}
+
 - (IBAction)showHistory: (id)sender {}
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}
@@ -725,7 +730,7 @@ typedef enum {
 - (void)channelSwitchAutoReceiveMode:(BOOL)on
 {
     if (on) {
-        if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  ON ####"); }
+        if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
 
         [infoViewController hideViewAnimated:YES];
         
@@ -747,7 +752,7 @@ typedef enum {
         [linccer pollWithMode:HCTransferModeOneToMany];
         
         [statusViewController setState:[ConnectionState state]];
-        [statusViewController setUpdate:NSLocalizedString(@"Receiving from Channel..", nil)];
+        [statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
         
         hoccerStatus = HOCCER_RECEIVING_THROW;
         
@@ -1262,7 +1267,11 @@ typedef enum {
             CGPoint location = [gestureRecognizer locationInView:desktopView ];
             UIMenuController *menuController = [UIMenuController sharedMenuController];
             UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
-            [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
+            //before autoReceive [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
+
+            UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"AutoReceive", nil) action:@selector(selectAutoReceive:)];
+            [menuController setMenuItems:[NSArray arrayWithObjects:pasteMenuItem, autoReceiveMenuItem, nil]];
+            
             [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];
             [menuController setMenuVisible:YES animated:YES];
             [pasteMenuItem release];

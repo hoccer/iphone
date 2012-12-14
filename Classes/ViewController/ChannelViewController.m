@@ -157,7 +157,8 @@
         textView.backgroundColor = [UIColor clearColor];
         [textView setEnabled:NO];
         textView.textColor = [UIColor whiteColor];
-        
+        textView.font = [UIFont systemFontOfSize:14];
+
         [cell.contentView addSubview:textView];
         cell.backgroundColor = [UIColor clearColor];
     }
@@ -179,6 +180,7 @@
         textView.text = action.defaultValue;
         textView.textAlignment = UITextAlignmentLeft;
         textView.backgroundColor = [UIColor clearColor];
+        textView.font = [UIFont systemFontOfSize:14];
         [textView setEnabled:NO];
         textView.textColor = [UIColor whiteColor];
         

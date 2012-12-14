@@ -64,7 +64,7 @@
 @synthesize activeContentSelectController;
 @synthesize navigationItem;
 //@synthesize scrollView;
-@synthesize refreshScrollView = _refreshScrollView;
+//@synthesize refreshScrollView = _refreshScrollView;
 @synthesize table = _table;
 
 - (void)viewDidLoad {
@@ -218,12 +218,25 @@
     [super selectText:sender];
 }
 
-- (IBAction)selectPasteboard: (id)sender {    
+- (IBAction)selectPasteboard:(id)sender {
     self.tabBar.selectedItem = nil;
     
     [super selectPasteboard:sender];
     [self hidePopOverAnimated:  NO];
 }
+
+- (IBAction)selectAutoReceive:(id)sender
+{
+    NSLog(@"#### HoccerViewControllerIPhone selectAutoReceive ####");
+    
+    NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+
+    self.tabBar.selectedItem = nil;
+    
+    [self hidePopOverAnimated:NO];
+}
+
 
 - (IBAction)selectMyContact:(id)sender {
     [super selectMyContact:sender];
@@ -821,17 +834,8 @@
 //        [channelSizeButton setTitle:@"" forState:UIControlStateNormal];
 //    }
 
-    if (channelSizeButton == nil) {
-        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-        channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
-        //[channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
-        [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
-    }
-  
-    [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
+    //UIImage *defaultButton = [[UIImage imageNamed:@"nav_bar_btn_default"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 6, 0, 6)];
 
-    
 //    if (self.channelAutoReceiveMode) {
 //        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_in"] forState:UIControlStateNormal];
 //    }
@@ -858,13 +862,12 @@
 
     if (channelSizeButton == nil) {
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-        
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_switch_out"] forState:UIControlStateNormal];
-        
-        [channelSizeButton setTitle:@"Leave" forState:UIControlStateNormal];
-
-        channelSizeButton.frame = CGRectMake(-10, 0, 56, 44);
+        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_auto_receive_off"] forState:UIControlStateNormal];
+        channelSizeButton.frame = CGRectMake(0, 0, 56, 44);
+        [channelSizeButton setTitle:@"# Leave" forState:UIControlStateNormal];
+        channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+        channelSizeButton.titleLabel.textAlignment = UITextAlignmentLeft;
 
         //[channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
         [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
