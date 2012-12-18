@@ -212,7 +212,11 @@
 - (NSString *)thumbFilename {
 	NSString *ext = [self.filename pathExtension];
 	NSString *tmpPath = [self.filename stringByDeletingPathExtension];
-    
+
+    if ((ext == nil) || (ext.length <= 0)) {
+        ext = @"";
+        //NSLog(@"empty ext 2");
+    }
 	return [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
 }
 

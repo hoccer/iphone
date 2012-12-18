@@ -109,7 +109,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 - (void)hideSpinner {
 	if ([[self subviews] count] > 1) {
 		for (id view in [self subviews])
-            if ([view isKindOfClass:[UIActivityIndicatorView class]]){
+            if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
                 [view removeFromSuperview];
             }
 	}

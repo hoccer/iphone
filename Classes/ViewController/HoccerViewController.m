@@ -809,7 +809,7 @@ typedef enum {
 	if ([transferController hasTransfers]) {
 		[transferController cancelDownloads];	
 	}
-    else{
+    else {
 		[desktopData removeHoccerController:item];
 	}
 }
@@ -837,7 +837,7 @@ typedef enum {
     self.sendingItem = nil;
 }
 
-- (void)desktopView: (DesktopView *)desktopView didSweepOutView: (UIView *)view
+- (void)desktopView:(DesktopView *)desktopView didSweepOutView:(UIView *)view
 {
 	if ([linccer isLinccing]) {
 		return;
@@ -1458,7 +1458,7 @@ typedef enum {
         [errorView setFrame:desktopView.frame];
         
         //RALPH #### ACHTUNG aufpassen insertSubview !!!
-		[desktopView insertSubview:errorView atIndex:0];
+		[desktopView insertSubview:errorView atIndex:1];
 	}
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
@@ -1631,6 +1631,7 @@ typedef enum {
 	[hoccingRules release];
 	[transferController release];
 	[hud release];
+    [infoViewController release];
     
     [httpClient release];
 	

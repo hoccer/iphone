@@ -161,6 +161,10 @@
                 isItemAnImage = YES;
                 NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
                 NSString *ext = [[item.filepath lastPathComponent] pathExtension];
+                if ((ext == nil) || (ext.length <= 0)) {
+                    ext = @"";
+                    //NSLog(@"empty ext 1");
+                }
                 NSString *tmpPath = [[item.filepath lastPathComponent] stringByDeletingPathExtension];
                 NSString *thumbPath = [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:ext];
 

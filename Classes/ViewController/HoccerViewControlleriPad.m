@@ -27,6 +27,7 @@
 
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
+#import "PullToReceiveViewController.h"
 
 @interface HoccerViewControlleriPad ()
 
@@ -57,7 +58,8 @@
 @synthesize activeContentSelectController;
 @synthesize navigationItem;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
 	[super viewDidLoad];
     
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPad alloc] init];
@@ -104,8 +106,6 @@
         desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
         
     }
-
-    
     
 	[desktopView insertSubview:statusViewController.view atIndex:0];
     CGRect statusRect = statusViewController.view.frame;
@@ -154,8 +154,6 @@
         NSArray *newItems = [[NSArray alloc] initWithArray:modifyMe];
         [tabBar setItems:newItems animated:NO];
     }
-    
-        
 }
 
 - (void) dealloc {
@@ -395,9 +393,17 @@
 	[self removePopOverFromSuperview];
 }
 
-- (void)removePopOverFromSuperview {
-    
-	[auxiliaryView.view removeFromSuperview];	 
+- (void)removePopOverFromSuperview
+{
+    if ([auxiliaryView isKindOfClass:[PullToReceiveViewController class]]) {
+        NSLog(@"#### dont removeFromSuperview PullToReceiveViewController");
+    }
+    else {
+        NSLog(@"----  removeFromSuperview PullToReceiveViewController");
+
+        [auxiliaryView.view removeFromSuperview];
+    }
+
 	self.auxiliaryView = nil;
 	
 	isPopUpDisplayed = NO;
@@ -446,8 +452,7 @@
         }
     }
     
-    [infoViewController setGroup: others];
-    
+    [infoViewController setGroup:others];
     
     [self updateGroupButton];
 }
@@ -567,13 +572,15 @@
     [self showGroupAndEncryption];
 }
 
-- (void)showGroupButton {
+- (void)showGroupButton
+{
 	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
 	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
     [hoccabilityBarButtonItem release];    
 }
 
-- (void)updateEncryptionIndicator{
+- (void)updateEncryptionIndicator
+{
     if (navigationItem.titleView == nil) {
 		return;
 	}
@@ -608,29 +615,30 @@
     [self showGroupAndEncryption];
 }
 
-- (void)showEncryption{
+- (void)showEncryption
+{
     UIBarButtonItem *encryptionBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:encryptionButton];
     navigationItem.rightBarButtonItem = encryptionBarButtomItem;
     [encryptionBarButtomItem release];
-    
 }
-- (void)showGroupAndEncryption {
-    
-    
+
+- (void)showGroupAndEncryption
+{
     UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44,44)];
     //[containerView addSubview:encryptionButton];
     [containerView addSubview:groupSizeButton];
-    UIBarButtonItem *encryptionGroupButton = [[UIBarButtonItem alloc]initWithCustomView:containerView];
+    UIBarButtonItem *encryptionGroupButton = [[UIBarButtonItem alloc] initWithCustomView:containerView];
     self.navigationItem.rightBarButtonItem = encryptionGroupButton;
     [encryptionGroupButton release];
     [containerView release];
 }
-- (void)encryptionChanged: (NSNotification *)notification {
+
+- (void)encryptionChanged: (NSNotification *)notification
+{
     BOOL encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     encryptionEnabled = encrypting;
     if (navigationItem.titleView != nil){
         //[self updateEncryptionIndicator];
-        
     }
     
     if (encrypting){
@@ -640,48 +648,47 @@
         }
         else {
             desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_landscape.png"]];
-
         }
     }
     else {
         desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
-        
     }
-    
 }
 
-
-
-
-- (void)pressedButton: (id)sender {	
+- (void)pressedButton: (id)sender
+{
     [statusViewController hideStatus];
-    if (!groupSelectPopOverController){
-        groupSelectPopOverController = [[UIPopoverController alloc]initWithContentViewController:infoViewController];
+    if (!groupSelectPopOverController) {
+        groupSelectPopOverController = [[UIPopoverController alloc] initWithContentViewController:infoViewController];
         groupSelectPopOverController.popoverContentSize = CGSizeMake(320, 400);
         if ([groupSelectPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
             [groupSelectPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
         }
         [groupSelectPopOverController setContentViewController:infoViewController];
     }
-    if (!infoViewController){
+    if (!infoViewController) {
         infoViewController = [[GroupStatusViewController alloc] init];
         infoViewController.view.frame = CGRectMake(0, 0, 320, 400);
         infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
         [infoViewController setState:[LocationState state]];
         infoViewController.delegate = self;
     }
-    if ([groupSelectPopOverController isPopoverVisible]){
+    if ([groupSelectPopOverController isPopoverVisible]) {
         [groupSelectPopOverController dismissPopoverAnimated:YES];
     }
     else {
         int groupsize = infoViewController.group.count;
-        if (groupsize > 0){
-            if (groupsize > 1){
+        if (groupsize > 0) {
+            if (groupsize > 1) {
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupsize * 44)+20))];
             }
             else {
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
             }
+            
+            NSLog(@"presentPopoverFromBarButtonItem");
+            [infoViewController.tableView reloadData];
+            
             [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         }
         else {
@@ -691,9 +698,9 @@
     }
 }
 
-- (void)toggleEncryption: (id)sender {
-    
-    if (desktopData.count == 0){
+- (void)toggleEncryption:(id)sender
+{    
+    if (desktopData.count == 0) {
         [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"] forKey:@"encryption"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
@@ -702,7 +709,8 @@
     }
 }
 
-- (void) showNetworkError:(NSError *)error {
+- (void) showNetworkError:(NSError *)error
+{
 	[super showNetworkError:error];
 	[self updateGroupButton];
 }
@@ -714,14 +722,16 @@
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
 }
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
     CGFloat tabBarHeight = self.tabBar.bounds.size.height;
     CGRect rect;
     BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
     if (!isPortrait){
         switch (self.tabBar.selectedItem.tag) {
             case 2: {
-                if ([self.tabBar.items count] == 7){
+                if ([self.tabBar.items count] == 7) {
                     rect = CGRectMake(264, 0, tabBarHeight, tabBarHeight);
                 }
                 else {
@@ -730,7 +740,7 @@
                 break;
             }
             case 5: {
-                if ([self.tabBar.items count] == 7){
+                if ([self.tabBar.items count] == 7) {
                     rect = CGRectMake(595, 0, tabBarHeight, tabBarHeight);
                 }
                 else {

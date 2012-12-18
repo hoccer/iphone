@@ -24,7 +24,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
-- (void)calculateHightForText: (NSString *)text {
+- (void)calculateHightForText:(NSString *)text {
     NSInteger rows = [self tableView:self.tableView numberOfRowsInSection:0];
     
     CGFloat height = 0;
@@ -45,13 +45,14 @@
     
 }
 
-- (void)setGroup: (NSArray *)newGroup {
+- (void)setGroup:(NSArray *)newGroup
+{
     if (group != newGroup) {
         [group release];
         group = [newGroup retain];
         [self.tableView reloadData];
 
-        [self calculateHightForText: nil];
+        [self calculateHightForText:nil];
         
         BOOL selectionChanged = NO;
         
@@ -88,7 +89,8 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if (self.group.count > 0)
         return [self.group count];
     else {
@@ -149,8 +151,6 @@
     //cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     
-    
-
     return cell;
 }
 
@@ -162,7 +162,8 @@
     return NSLocalizedString(@"Restrict transfer to:", nil);
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (self.group.count > 0){
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         NSDictionary *client = [group objectAtIndex:indexPath.row];
@@ -222,9 +223,6 @@
     }
 }
 
-
-
-
 - (CGFloat)tableView:(UITableView *)theTableView heightForHeaderInSection:(NSInteger)section {
     if ([self tableView:theTableView titleForHeaderInSection:section] != nil) {
         return 22;
@@ -234,7 +232,6 @@
         return 0;
     }
 }
-
 
 - (UIView *)tableView:(UITableView *)theTableView viewForHeaderInSection:(NSInteger)section {
     NSString *sectionTitle = [self tableView:theTableView titleForHeaderInSection:section];
@@ -262,7 +259,8 @@
     return view;
 }
 
-- (CGSize)contentSizeForViewInPopover {
+- (CGSize)contentSizeForViewInPopover
+{
     if (self.group.count > 0){
         return CGSizeMake(320, (self.group.count * 44) + 20);
     }
@@ -271,12 +269,14 @@
     }
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setTableView:nil];
     [super viewDidUnload];
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [group release];
     [tableView release];
     [selectedClients release];

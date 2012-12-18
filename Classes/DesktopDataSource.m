@@ -102,7 +102,8 @@
 	item.viewOrigin = point;
 }
 
-- (void)removeView: (UIView *)view {
+- (void)removeView: (UIView *)view
+{
 	ItemViewController *item = [self hoccerControllerDataForView:view];
 	
 	[self removeHoccerController:item];

@@ -67,6 +67,11 @@
 //@synthesize refreshScrollView = _refreshScrollView;
 @synthesize table = _table;
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"-------  HoccerViewControllerIPhone - viewDidAppear");
+}
+    
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
@@ -128,19 +133,18 @@
         [tabBar setItems:styledItems];
     }
 
-    [self showPullDown];
 
-	[desktopView insertSubview:statusViewController.view atIndex:2];
+	[desktopView insertSubview:statusViewController.view atIndex:3];
     CGRect statusRect = statusViewController.view.frame;
 	statusRect.origin.y = desktopView.frame.origin.y-19;
 	statusViewController.view.frame = statusRect;
     
-    [desktopView insertSubview:errorViewController.view atIndex:1];
+    [desktopView insertSubview:errorViewController.view atIndex:2];
     CGRect errorRect = errorViewController.view.frame;
     errorRect.origin.y = desktopView.frame.origin.y-19;
 	errorViewController.view.frame = errorRect;
 
-	[desktopView insertSubview:infoViewController.view atIndex:0];
+	[desktopView insertSubview:infoViewController.view atIndex:1];
 	infoViewController.view.frame = statusRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
 	[infoViewController setState:[LocationState state]];
@@ -149,6 +153,8 @@
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
+    
+    [self showPullDown];
 	
 	[self showHud];
     [self updateGroupButton];
@@ -237,25 +243,30 @@
     [self hidePopOverAnimated:NO];
 }
 
-
-- (IBAction)selectMyContact:(id)sender {
+- (IBAction)selectMyContact:(id)sender
+{
     [super selectMyContact:sender];
     self.tabBar.selectedItem = nil;
     [self hidePopOverAnimated:NO];
 }
-- (IBAction)toggleHelp: (id)sender {
-	if (!isPopUpDisplayed) {			
+
+- (IBAction)toggleHelp:(id)sender
+{
+	if (!isPopUpDisplayed) {
 		[self showSettingView];
-	} else if (auxiliaryView != self.helpViewController) {
-		self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showSettingView)];
-		[self hidePopOverAnimated: YES];
-	} else {
-		[self hidePopOverAnimated: YES];
+	}
+    else if (auxiliaryView != self.helpViewController) {
+		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showSettingView)];
+		[self hidePopOverAnimated:YES];
+	}
+    else {
+		[self hidePopOverAnimated:YES];
 		tabBar.selectedItem = nil;
 	}
 }
 
-- (IBAction)toggleSelectContent: (id)sender {
+- (IBAction)toggleSelectContent:(id)sender
+{
 	if (!isPopUpDisplayed) {			
 		[self showSelectContentView];
 	} else if (![auxiliaryView isKindOfClass:[SelectContentController class]]) {
@@ -267,7 +278,7 @@
 	}
 }
 
-- (IBAction)toggleHistory: (id)sender
+- (IBAction)toggleHistory:(id)sender
 {
 	if (!isPopUpDisplayed) {
 		[self showHistoryView];
@@ -299,7 +310,7 @@
     }
 }
 
-- (IBAction)toggleChannel: (id)sender
+- (IBAction)toggleChannel:(id)sender
 {
 	if (!isPopUpDisplayed) {
 		[self showChannelView];
@@ -395,35 +406,35 @@
 
 - (void)showPullDown
 {
-//    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
-//	pullToReceiveViewController.delegate = self;
-//	
-//    [pullToReceiveViewController viewWillAppear:YES];
-//	
-//	gestureInterpreter.delegate = nil;
-//	self.auxiliaryView = pullToReceiveViewController;
-//	
-//	CGRect popOverFrame = pullToReceiveViewController.view.frame;
+    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
+	pullToReceiveViewController.delegate = self;
+	
+    [pullToReceiveViewController viewWillAppear:YES];
+	
+	gestureInterpreter.delegate = nil;
+	self.auxiliaryView = pullToReceiveViewController;
+	
+	CGRect popOverFrame = pullToReceiveViewController.view.frame;
 //	popOverFrame.size = desktopView.frame.size;
 //	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
 //	pullToReceiveViewController.view.frame = popOverFrame;
-//	
-//	[desktopView insertSubview:pullToReceiveViewController.view atIndex:6];
-//    
-//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-//	[UIView setAnimationDuration:0.3];
-//	
-//	popOverFrame.origin = CGPointMake(0, 0);
-//	pullToReceiveViewController.view.frame = popOverFrame;
-//	[UIView commitAnimations];
-//	
-//	isPopUpDisplayed = TRUE;
-//	
-//    [infoViewController hideStatus];
-//	[pullToReceiveViewController viewDidAppear:YES];
-//
-//    
-//	[pullToReceiveViewController release];
+	
+	[desktopView insertSubview:pullToReceiveViewController.view atIndex:0];
+    
+	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+	[UIView setAnimationDuration:0.3];
+	
+	popOverFrame.origin = CGPointMake(0, 0);
+	pullToReceiveViewController.view.frame = popOverFrame;
+	[UIView commitAnimations];
+	
+	isPopUpDisplayed = TRUE;
+	
+    [infoViewController hideStatus];
+	[pullToReceiveViewController viewDidAppear:YES];
+
+    
+	[pullToReceiveViewController release];
     
     //#### old
 //    
@@ -473,7 +484,7 @@
 	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = popOverFrame;	
 	
-	[desktopView insertSubview:popOverView.view atIndex:1];
+	[desktopView insertSubview:popOverView.view atIndex:2];
 
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
@@ -507,9 +518,9 @@
 	[self removePopOverFromSuperview];
 }
 
-- (void)removePopOverFromSuperview {
-
-	[auxiliaryView.view removeFromSuperview];	 
+- (void)removePopOverFromSuperview
+{
+	[auxiliaryView.view removeFromSuperview];
 	self.auxiliaryView = nil;
 	
 	isPopUpDisplayed = NO;
@@ -518,7 +529,7 @@
 	self.delayedAction = nil;
 }
 
-- (void)hidePopOverAnimated: (BOOL) animate
+- (void)hidePopOverAnimated:(BOOL) animate
 {
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
@@ -532,7 +543,8 @@
 			self.auxiliaryView.view.frame = selectContentFrame;
 			
 			[UIView commitAnimations];
-		} else {
+		}
+        else {
 			self.auxiliaryView.view.frame = selectContentFrame;
 			[self removePopOverFromSuperview];
 		}

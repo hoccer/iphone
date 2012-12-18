@@ -145,7 +145,7 @@
 - (void)reloadData
 {
 	for (UIView *subview in volatileView) {
-		[subview removeFromSuperview];
+        [subview removeFromSuperview];
 	}
 	
 	[volatileView removeAllObjects];
@@ -160,7 +160,7 @@
 			containerView.origin = [dataSource positionForViewAtIndex:i];
 		}
 		
-		[self insertSubview:view atIndex:0];
+		[self insertSubview:view atIndex:3];
 		[volatileView addObject: view];
 	}
     //[self initPullToReceive];
@@ -186,7 +186,7 @@
 	containerView.delegate = self;
 	containerView.origin = point;
 	
-	[self insertSubview: containerView atIndex:0];
+	[self insertSubview: containerView atIndex:1];
 	if (animation != nil) {
 		[containerView.layer addAnimation:animation forKey:nil];
 	}
@@ -194,7 +194,7 @@
 	[volatileView addObject:containerView];
 }
 
-- (void)removeView: (UIView *)view withAnimation: (CAAnimation *)animation {
+- (void)removeView:(UIView *)view withAnimation:(CAAnimation *)animation {
 	[self doesNotRecognizeSelector: _cmd];
 }
 

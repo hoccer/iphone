@@ -125,13 +125,14 @@
 	[delegate checkAndPerformSelector:@selector(receiveContentController:wantsToResendContent:) withObject:self withObject:hoccerContent];
 }
 
-- (void)setHoccerContent: (HoccerContent*) content {	
+- (void)setHoccerContent:(HoccerContent*) content {	
 	if (hoccerContent != content) {
 		[hoccerContent release];
 		hoccerContent = [content retain];
 	}
-	
-	[self.view insertSubview: content.fullscreenView atIndex:0];
+	[self.view insertSubview:content.fullscreenView atIndex:0];
+    NSLog(@"setHoccerContent - insertSubview");
+    
 	self.view.multipleTouchEnabled = YES;
 	
 	[self.view setNeedsDisplay];

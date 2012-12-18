@@ -73,8 +73,8 @@
     
 }
 
-- (void)removeObject:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-    
+- (void)removeObject:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
     [UIView animateWithDuration:0.5
                           delay:0.8
                         options: UIViewAnimationCurveEaseInOut

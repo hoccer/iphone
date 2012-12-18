@@ -47,7 +47,8 @@
 }
 
 
-- (void)setBackgroundImage:(UIImage *)aImage {
+- (void)setBackgroundImage:(UIImage *)aImage
+{
     [backgroundImage removeFromSuperview];
     [backgroundImage release]; backgroundImage = nil;
 
@@ -59,8 +60,8 @@
 
 }
 
-- (void)setContentIdentifier:(UIImage *)aImage {
-
+- (void)setContentIdentifier:(UIImage *)aImage
+{
     [contentIdentifier removeFromSuperview];
     [contentIdentifier release]; contentIdentifier = nil;
     
