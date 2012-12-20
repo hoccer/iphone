@@ -670,11 +670,11 @@ typedef enum {
 //###########
 - (void)playPlayer
 {
-    NSLog(@"hoccerviewcontroller playPlayer");
+    //NSLog(@"hoccerviewcontroller playPlayer");
     
     ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
     if (item != nil) {
-        NSLog(@"  --- hoccerviewcontroller playPlayer");
+        //NSLog(@"  --- hoccerviewcontroller playPlayer");
         [item playPlayer];
     }
 }
@@ -1232,7 +1232,7 @@ typedef enum {
     if (self.channelAutoReceiveMode) {
         if (error.code == 504) {
             // retry
-            NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
+            //NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
             
             [linccer pollWithMode:HCTransferModeOneToMany];
             
@@ -1255,8 +1255,6 @@ typedef enum {
 {
     if (USES_DEBUG_MESSAGES) { NSLog(@"  1 linccer:   didReceiveData:"); }
 
-    NSLog(@"   1 linccer:   didReceiveData  debugralph");
-    
     failcounter = 0;
 	[self ensureViewIsHoccable];
 	

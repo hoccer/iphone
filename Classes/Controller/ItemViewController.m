@@ -216,7 +216,7 @@
 
 - (void)playPlayer
 {
-    NSLog(@"really start play");
+    //NSLog(@"really start play");
     
     [self.contentView insertSubview:content.smallView atIndex:8];
 }

@@ -249,10 +249,10 @@
 {
     CGRect screenRect;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        screenRect = CGRectMake(10, 0, 280, 30);
+        screenRect = CGRectMake(15, 15, 272, 32);
     }
     else {
-        screenRect = CGRectMake(10, 0, 280, 30);
+        screenRect = CGRectMake(15, 15, 272, 32);
     }
    
     self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL:self.fileUrl];
