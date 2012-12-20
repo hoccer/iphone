@@ -45,7 +45,7 @@
 - (void)showSettingView;
 - (void)showHistoryView;
 - (void)removePopOverFromSuperview;
-- (void)hidePopOverAnimated: (BOOL) animate;
+- (void)hidePopOverAnimated:(BOOL) animate;
 - (void)updateGroupButton;
 - (void)updateChannelButton;
 - (void)showGroupButton;
@@ -66,12 +66,8 @@
 //@synthesize scrollView;
 //@synthesize refreshScrollView = _refreshScrollView;
 @synthesize table = _table;
+@synthesize pullDownFlag;
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"-------  HoccerViewControllerIPhone - viewDidAppear");
-}
-    
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
@@ -133,15 +129,14 @@
         [tabBar setItems:styledItems];
     }
 
-
 	[desktopView insertSubview:statusViewController.view atIndex:3];
     CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = desktopView.frame.origin.y-19;
+	statusRect.origin.y = desktopView.frame.origin.y-32;
 	statusViewController.view.frame = statusRect;
     
     [desktopView insertSubview:errorViewController.view atIndex:2];
     CGRect errorRect = errorViewController.view.frame;
-    errorRect.origin.y = desktopView.frame.origin.y-19;
+    errorRect.origin.y = desktopView.frame.origin.y-32;
 	errorViewController.view.frame = errorRect;
 
 	[desktopView insertSubview:infoViewController.view atIndex:1];
@@ -154,7 +149,11 @@
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
     
-    [self showPullDown];
+    //[self showPullDown];
+    
+    self.pullDownView.desktopView = desktopView;
+    
+    isPullDown = NO;
 	
 	[self showHud];
     [self updateGroupButton];
@@ -178,6 +177,9 @@
 
 - (void)viewDidUnload
 {
+    [self setActivityIndi:nil];
+    [self setPullDownAnimationImage:nil];
+    [self setPullDownView:nil];
 //    [pull containingViewDidUnload];
 }
 
@@ -195,6 +197,9 @@
     [activeContentSelectController release];
 //    [scrollView release];
 	
+    [_pullDownView release];
+    [_pullDownAnimationImage release];
+    [_activityIndi release];
 	[super dealloc];
 }
 
@@ -219,7 +224,7 @@
 
 - (IBAction)selectText: (id)sender {    
     self.tabBar.selectedItem = nil;
-    [self hidePopOverAnimated:  NO];
+    [self hidePopOverAnimated:NO];
 
     [super selectText:sender];
 }
@@ -228,7 +233,7 @@
     self.tabBar.selectedItem = nil;
     
     [super selectPasteboard:sender];
-    [self hidePopOverAnimated:  NO];
+    [self hidePopOverAnimated:NO];
 }
 
 - (IBAction)selectAutoReceive:(id)sender
@@ -406,35 +411,35 @@
 
 - (void)showPullDown
 {
-    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
-	pullToReceiveViewController.delegate = self;
-	
-    [pullToReceiveViewController viewWillAppear:YES];
-	
-	gestureInterpreter.delegate = nil;
-	self.auxiliaryView = pullToReceiveViewController;
-	
-	CGRect popOverFrame = pullToReceiveViewController.view.frame;
-//	popOverFrame.size = desktopView.frame.size;
-//	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+//    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
+//	pullToReceiveViewController.delegate = self;
+//	
+//    [pullToReceiveViewController viewWillAppear:YES];
+//	
+//	gestureInterpreter.delegate = nil;
+//	self.auxiliaryView = pullToReceiveViewController;
+//	
+//	CGRect popOverFrame = pullToReceiveViewController.view.frame;
+////	popOverFrame.size = desktopView.frame.size;
+////	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
+////	pullToReceiveViewController.view.frame = popOverFrame;
+//	
+//	[desktopView insertSubview:pullToReceiveViewController.view atIndex:0];
+//    
+//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
+//	[UIView setAnimationDuration:0.3];
+//	
+//	popOverFrame.origin = CGPointMake(0, 0);
 //	pullToReceiveViewController.view.frame = popOverFrame;
-	
-	[desktopView insertSubview:pullToReceiveViewController.view atIndex:0];
-    
-	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-	[UIView setAnimationDuration:0.3];
-	
-	popOverFrame.origin = CGPointMake(0, 0);
-	pullToReceiveViewController.view.frame = popOverFrame;
-	[UIView commitAnimations];
-	
-	isPopUpDisplayed = TRUE;
-	
-    [infoViewController hideStatus];
-	[pullToReceiveViewController viewDidAppear:YES];
-
-    
-	[pullToReceiveViewController release];
+//	[UIView commitAnimations];
+//	
+//	isPopUpDisplayed = TRUE;
+//	
+//    [infoViewController hideStatus];
+//	[pullToReceiveViewController viewDidAppear:YES];
+//
+//    
+//	[pullToReceiveViewController release];
     
     //#### old
 //    
@@ -471,9 +476,10 @@
 //	navigationItem.titleView = nil;
 }
 
-
 - (void)showPopOver:(UIViewController *)popOverView
 {
+    [self movePullDownToHidePosition];
+
 	[popOverView viewWillAppear:YES];
 	
 	gestureInterpreter.delegate = nil;
@@ -514,6 +520,7 @@
     navigationItem.titleView = nil;
     navigationItem.title = @"";
 }
+
 - (void)hideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 	[self removePopOverFromSuperview];
 }
@@ -531,6 +538,10 @@
 
 - (void)hidePopOverAnimated:(BOOL) animate
 {
+    if (animate) {
+        [self movePullDownToNormalPosition];
+    }
+    
 	if (self.auxiliaryView != nil) {		
 		CGRect selectContentFrame = self.auxiliaryView.view.frame;
 		selectContentFrame.origin = CGPointMake(0, self.view.frame.size.height);
@@ -582,14 +593,22 @@
 {
     [super linccer:linncer didReceiveData:data];
     
+    NSLog(@"linccer didreceive data : %@", data);
+
+    if (closeAutoReceive) {
+        NSLog(@"close auto receive");
+        [self willFinishAutoReceive];
+    }
+    
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (isChannelMode) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController linccer:(HCLinccer *)linncer didReceiveData ---- isChannelMode"); }
         
-        //self.channelAutoReceiveMode = NO;
-        
         [self updateChannelButton];
     }
+
+    //self.channelAutoReceiveMode = NO;
+
 }
 
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
@@ -667,6 +686,161 @@
 }
 
 #pragma mark -
+#pragma mark PullDownViewDelegate
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //NSLog(@"pull.......");
+    
+	UITouch* touch = [touches anyObject];
+    
+	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+	   
+    CGRect desktopViewRect = desktopView.frame;
+    CGRect myRect = self.pullDownView.frame;
+    float minPosition = 33.0;
+    float maxPosition = 100.0;
+    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
+    float movePoints = 0.0;
+    BOOL moveDown = NO;
+    
+    // calc the move:
+    movePoints = currentLocation.y - prevLocation.y;
+    
+    // check up or down
+    if (movePoints < 0) {
+        moveDown = NO;
+        //NSLog(@"   DesktopView - move UP    %f", movePoints);
+    }
+    else {
+        moveDown = YES;
+        //NSLog(@"   DesktopView - move DOWN    %f", movePoints);
+    }
+
+    //check absolut min max position
+    if (((desktopViewRect.origin.y + (movePoints)) < minPosition) || ((desktopViewRect.origin.y + (movePoints)) > maxPosition)) {
+        //NSLog(@"   DesktopView - desktopViewRect.origin.y - BEFORE TOP  %f", desktopViewRect.origin.y);
+        movePoints = 0.0;
+    }
+
+    // move to position
+    myRect.origin.y += movePoints;
+    self.pullDownView.frame = myRect;
+    
+    desktopViewRect.origin.y += movePoints;
+    desktopView.frame = desktopViewRect;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    CGRect desktopViewRect = desktopView.frame;
+    float minPosition = 33.0;
+    float maxPosition = 100.0;
+    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
+    float movePoints = 0.0;
+
+    if (desktopViewRect.origin.y > swapPosition) {
+        [self movePullDownToMaxDownPosition];
+        if (self.channelAutoReceiveMode) {
+//            NSLog(@"not again switch to on ......................");
+        }
+        else {
+            [self selectAutoReceive:self];
+
+            [self.activityIndi startAnimating];
+        }
+    }
+    else {
+        [self movePullDownToNormalPosition];
+        if (self.channelAutoReceiveMode) {
+            [self.activityIndi stopAnimating];
+            [self channelSwitchAutoReceiveMode:NO];
+        }
+        else {
+//            NSLog(@"not again switch to OFF......................");
+        }
+    }
+}
+- (void)movePullDownToHidePosition
+{
+    CGRect pullDownViewRect = self.pullDownView.frame;
+	pullDownViewRect.origin.y = - 100.0;
+	self.pullDownView.frame = pullDownViewRect;
+    
+    CGRect desktopViewRect = desktopView.frame;
+	desktopViewRect.origin.y =  0.0;
+	desktopView.frame = desktopViewRect;
+}
+
+- (void)movePullDownToNormalPosition
+{
+    if (pullDownFlag) {
+        //NSLog(@"movePullDownToNormalPosition - pullDownFlag = YES");
+
+        CGRect pullDownViewRect = self.pullDownView.frame;
+        pullDownViewRect.origin.y = -67.0;
+        self.pullDownView.frame = pullDownViewRect;
+        
+        CGRect desktopViewRect = desktopView.frame;
+        desktopViewRect.origin.y =  33.0;
+        desktopView.frame = desktopViewRect;
+    }
+    else {
+//        NSLog(@"movePullDownToNormalPosition - pullDownFlag = NO");
+        CGRect pullDownViewRect = self.pullDownView.frame;
+        pullDownViewRect.origin.y = 26.0;
+        self.pullDownView.frame = pullDownViewRect;
+        
+        CGRect desktopViewRect = desktopView.frame;
+        desktopViewRect.origin.y =  33.0;
+        desktopView.frame = desktopViewRect;
+        pullDownFlag = YES;
+    }
+}
+
+- (void)movePullDownToMaxDownPosition
+{
+    CGRect pullDownViewRect = self.pullDownView.frame;
+	pullDownViewRect.origin.y = 0.0;
+	self.pullDownView.frame = pullDownViewRect;
+    
+    CGRect desktopViewRect = desktopView.frame;
+	desktopViewRect.origin.y =  100.0;
+	desktopView.frame = desktopViewRect;
+}
+
+- (void)movePullDownToYPosition:(NSNumber *)yNumber
+{
+//    NSLog(@"movePullDownToNormalPosition - pullDown To y = %f", [yNumber floatValue]);
+//    
+//    float pullDownTotalHeight = 88.00;
+//    float pullDownNormalPosition = 24.0;
+//    
+//    CGRect pullDownViewRect = self.pullDownView.frame;
+//    pullDownViewRect.origin.y = 30.0;
+//    self.pullDownView.frame = pullDownViewRect;
+//    
+//    CGRect desktopViewRect = desktopView.frame;
+//    desktopViewRect.origin.y =  24.0;
+//    desktopView.frame = desktopViewRect;
+}
+
+- (void)willFinishAutoReceive
+{
+    //close pullDown
+    [self.activityIndi stopAnimating];
+    
+    [self movePullDownToNormalPosition];
+    
+    self.channelAutoReceiveMode = NO;
+    
+    //autoreceive morde = NO
+    //self.channelAutoReceiveMode = NO;
+}
+
+
+#pragma mark -
 #pragma mark TapBar delegate Methods
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -703,7 +877,10 @@
 #pragma mark User Actions
 - (void)cancelPopOver
 {
-    [self.channelViewController.channelTextField resignFirstResponder];
+    if (self.channelViewController.channelTextField.text.length >= 6) {
+        NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
+        [self.channelViewController.channelTextField resignFirstResponder];
+    }
     
 	tabBar.selectedItem = nil;
     if (self.interfaceOrientation != UIInterfaceOrientationPortrait) {
@@ -734,6 +911,31 @@
 //    if (isChannelMode) {
 //        [self channelSwitchAutoReceiveMode];
 //    }
+}
+
+- (IBAction)pullDownAction:(id)sender
+{
+    //NSLog(@"pull Action ...................");
+    
+    if (isPullDown) {
+        //NSLog(@"pull UP ...................");
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.8];
+        self.pullDownView.transform = CGAffineTransformMakeTranslation(0, 0);
+        desktopView.transform = CGAffineTransformMakeTranslation(0, 0);
+        [UIView commitAnimations];
+    }
+    else {
+        //NSLog(@"pull DOWN ...................");
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.8];
+        self.pullDownView.transform = CGAffineTransformMakeTranslation(0, 20);
+        desktopView.transform = CGAffineTransformMakeTranslation(0, 20);
+        [UIView commitAnimations];
+    }
+    isPullDown = !isPullDown;
 }
 
 
@@ -818,7 +1020,9 @@
         [self dismissModalViewControllerAnimated:YES];
     }
     
-    self.channelAutoReceiveMode = NO;
+    
+    
+    //self.channelAutoReceiveMode = NO;
     
 //    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
 //    if (isChannelMode) {
@@ -873,11 +1077,16 @@
     }
 
     if (channelSizeButton == nil) {
+        
+        
+        UIImage *backButtonImage = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
+//        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        [channelSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_btn_auto_receive_off"] forState:UIControlStateNormal];
-        channelSizeButton.frame = CGRectMake(0, 0, 56, 44);
-        [channelSizeButton setTitle:@"# Leave" forState:UIControlStateNormal];
+        [channelSizeButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+        channelSizeButton.frame = CGRectMake(0, 0, 64, 31);
+        [channelSizeButton setTitle:@" Leave" forState:UIControlStateNormal];
         channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         channelSizeButton.titleLabel.textAlignment = UITextAlignmentLeft;
 
@@ -968,10 +1177,14 @@
 - (void)pressedButton:(id)sender
 {
     [statusViewController hideStatus];
+    
 	if (infoViewController.view.hidden == NO) {
 		[infoViewController setLocationHint:nil];
-	} else {
-		[infoViewController setLocationHint: [HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
+        //[self movePullDownToNormalPosition];
+	}
+    else {
+		[infoViewController setLocationHint:[HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
+        //[self movePullDownToHidePosition];
 	}
 }
 
@@ -990,15 +1203,18 @@
 - (void)pressedToggleAutoReceive:(id)sender
 {
     //[self toggleChannelAutoReceiveMode];
+    NSLog(@"    pressedToggleAutoReceive  ");
     [self updateChannelButton];
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (isChannelMode) {
         if (self.channelAutoReceiveMode) {
             [self channelSwitchAutoReceiveMode:YES];
+            NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
         }
         else {
             [self channelSwitchAutoReceiveMode:NO];
+            NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
         }
     }
 }

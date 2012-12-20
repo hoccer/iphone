@@ -59,11 +59,8 @@
         }
         canBeCiphered = NO;
 	}
-	
 	return self;
 }
-
-
 
 
 - (id)initWithMediaItem: (MPMediaItem *)aMediaItem{

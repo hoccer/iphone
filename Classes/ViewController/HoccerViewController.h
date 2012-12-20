@@ -15,6 +15,7 @@
 #import "GesturesInterpreterDelegate.h"
 #import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
+#import "PullDownViewDelegate.h"
 #import "TransferController.h"
 #import "MBProgressHUD.h"
 
@@ -49,7 +50,7 @@
 @class HCLinccer;
 
 @interface HoccerViewController : UIViewController <UIApplicationDelegate, MFMessageComposeViewControllerDelegate, 
-						GesturesInterpreterDelegate, DesktopViewDelegate, ItemViewControllerDelegate, 
+						GesturesInterpreterDelegate, DesktopViewDelegate, PullDownViewDelegate, ItemViewControllerDelegate,
 						HCLinccerDelegate, TransferControllerDelegate, ChannelViewControllerDelegate,  ConnectionStatusViewControllerDelegate, ContentSelectViewControllerDelegate,UIActionSheetDelegate, MPMediaPickerControllerDelegate, UIDocumentInteractionControllerDelegate, MBProgressHUDDelegate, ABPeoplePickerNavigationControllerDelegate>
 {
 
@@ -90,6 +91,8 @@
 	UIView *errorView;
     ItemViewController *sendingItem;
     HoccerContent *currentContent;
+    
+    BOOL closeAutoReceive;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;

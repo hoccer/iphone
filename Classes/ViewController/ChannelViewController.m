@@ -11,11 +11,6 @@
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
 
-@interface ChannelViewController ()
-
-
-@end
-
 @implementation ChannelViewController
 
 @synthesize parentNavigationController;
@@ -32,7 +27,8 @@
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
-        parentFrame.size.height = parentFrame.size.height - 48;
+        //parentFrame.size.height = parentFrame.size.height - 48;
+        parentFrame.size.height = parentFrame.size.height - 210;
         [self.view setFrame:parentFrame];
         [self.tableView setFrame:parentFrame];
     }
@@ -50,16 +46,16 @@
     channelAction.defaultValue = @"channel";
 	[sections addObject:[NSArray arrayWithObject:channelAction]];
 
-	SettingsAction *channelHelpAction = [SettingsAction actionWithDescription:@"Channel-Help" selector:nil type:HCTextField];
-    channelHelpAction.defaultValue = @"Set the name of the channel";
-	[sections addObject:[NSArray arrayWithObject:channelHelpAction]];
+//	SettingsAction *channelHelpAction = [SettingsAction actionWithDescription:@"Channel-Help" selector:nil type:HCTextField];
+//    channelHelpAction.defaultValue = @"Set the name of the channel";
+//	[sections addObject:[NSArray arrayWithObject:channelHelpAction]];
 
     SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Channel with Contact" selector:@selector(showChannelContact) type:HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:channelContactAction]];
 
-    SettingsAction *channelHelp2Action = [SettingsAction actionWithDescription:@"Channel-Help2" selector:nil type:HCTextField];
-    channelHelp2Action.defaultValue = @"Send content to a contact over a channel";
-	[sections addObject:[NSArray arrayWithObject:channelHelp2Action]];
+//    SettingsAction *channelHelp2Action = [SettingsAction actionWithDescription:@"Channel-Help2" selector:nil type:HCTextField];
+//    channelHelp2Action.defaultValue = @"Send content to a contact over a channel";
+//	[sections addObject:[NSArray arrayWithObject:channelHelp2Action]];
 
 }
 
@@ -133,7 +129,7 @@
         }
         else {
             self.channelTextField.text = @"";
-            self.channelTextField.placeholder = @"Channel-Name";
+            self.channelTextField.placeholder = @"Channel Name";
         }
         self.channelTextField.returnKeyType = UIReturnKeyDone;
         self.channelTextField.keyboardType = UIKeyboardTypeDefault;
@@ -146,23 +142,23 @@
         [cell.contentView addSubview:self.channelTextField];
         
     }
+//    else if (section == 1) {
+//        UITextField *textView = [[[UITextField alloc] init] autorelease];
+//        CGRect cellBounds = cell.bounds;
+//        CGFloat textFieldBorder = 31.f;
+//        CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
+//        textView.frame = aRect;
+//        textView.text = action.defaultValue;
+//        textView.textAlignment = UITextAlignmentLeft;
+//        textView.backgroundColor = [UIColor clearColor];
+//        [textView setEnabled:NO];
+//        textView.textColor = [UIColor whiteColor];
+//        textView.font = [UIFont systemFontOfSize:14];
+//
+//        [cell.contentView addSubview:textView];
+//        cell.backgroundColor = [UIColor clearColor];
+//    }
     else if (section == 1) {
-        UITextField *textView = [[[UITextField alloc] init] autorelease];
-        CGRect cellBounds = cell.bounds;
-        CGFloat textFieldBorder = 31.f;
-        CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
-        textView.frame = aRect;
-        textView.text = action.defaultValue;
-        textView.textAlignment = UITextAlignmentLeft;
-        textView.backgroundColor = [UIColor clearColor];
-        [textView setEnabled:NO];
-        textView.textColor = [UIColor whiteColor];
-        textView.font = [UIFont systemFontOfSize:14];
-
-        [cell.contentView addSubview:textView];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    else if (section == 2) {
         cell.textLabel.text = action.description;
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         
@@ -171,22 +167,22 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
-    else if (section == 3) {
-        UITextField *textView = [[[UITextField alloc] init] autorelease];
-        CGRect cellBounds = cell.bounds;
-        CGFloat textFieldBorder = 31.f;
-        CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
-        textView.frame = aRect;
-        textView.text = action.defaultValue;
-        textView.textAlignment = UITextAlignmentLeft;
-        textView.backgroundColor = [UIColor clearColor];
-        textView.font = [UIFont systemFontOfSize:14];
-        [textView setEnabled:NO];
-        textView.textColor = [UIColor whiteColor];
-        
-        [cell.contentView addSubview:textView];
-        cell.backgroundColor = [UIColor clearColor];
-    }
+//    else if (section == 3) {
+//        UITextField *textView = [[[UITextField alloc] init] autorelease];
+//        CGRect cellBounds = cell.bounds;
+//        CGFloat textFieldBorder = 31.f;
+//        CGRect aRect = CGRectMake(9.f, 9.f, CGRectGetWidth(cellBounds)-(textFieldBorder), 31.f );
+//        textView.frame = aRect;
+//        textView.text = action.defaultValue;
+//        textView.textAlignment = UITextAlignmentLeft;
+//        textView.backgroundColor = [UIColor clearColor];
+//        textView.font = [UIFont systemFontOfSize:14];
+//        [textView setEnabled:NO];
+//        textView.textColor = [UIColor whiteColor];
+//        
+//        [cell.contentView addSubview:textView];
+//        cell.backgroundColor = [UIColor clearColor];
+//    }
 
     return cell;
 }
@@ -224,11 +220,56 @@
 #pragma mark 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-
-    return YES;
+    if (textField.text.length >= 6) {
+        [textField resignFirstResponder];
+        return YES;
+    }
+    return NO;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSCharacterSet *numberSet = nil;
+    numberSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    
+    if (numberSet != nil) {
+        NSString *trimmed = [string stringByTrimmingCharactersInSet:numberSet];
+        if (string.length > 0) {
+            if ([trimmed length] > 0) {
+                //Non-numeric character detected
+//                NSLog(@"1 textfieldetxt  = #%@#", textField.text);
+//                NSLog(@"1 trimmed string = #%@#", trimmed);
+                return NO;
+            }
+            else {
+//                NSScanner *scanner = [NSScanner scannerWithString:textField.text];
+//                NSInteger numberOfDots = 0;
+//                while ([scanner isAtEnd] == NO)
+//                {
+//                    if ([scanner scanUpToString:@"." intoString:NULL]) {
+//                        numberOfDots++;
+//                    } else {
+//                        break;
+//                    }
+//                }
+//                
+//                if (numberOfDots <= 1) {
+//                    return YES;
+//                } else {
+//                    return NO;
+//                }
+            }
+        }
+        else {
+//            NSLog(@"2 textfieldetxt  = #%@#", textField.text);
+//            NSLog(@"2 trimmed string = #%@#", trimmed);
+            return YES;
+        }
+    }
+//    NSLog(@"3 textfieldetxt  = #%@#", textField.text);
+//    NSLog(@"3 replace string = #%@#", string);
+    return YES;
+}
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     activeField = textField;

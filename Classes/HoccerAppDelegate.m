@@ -112,7 +112,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
 //[TestFlight takeOff:@"67055e64e1b65aed68c6fa79120286a3_OTg4NjIwMTItMDMtMDcgMDU6MDk6NDYuOTM5Mzc0"];
 
-    if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]){
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
         
         if ([[[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] scheme] isEqualToString:@"hoccer"]) {
             //NSLog(@"AppDelegate application: didFinishLaunchingWithOptions: url= #%@#", [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]);

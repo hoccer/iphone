@@ -90,6 +90,7 @@ typedef enum {
     HOCCER_SENDING_THROW,
     HOCCER_RECEIVING_SWIPE,
     HOCCER_RECEIVING_THROW,
+    HOCCER_AUTO_RECEIVING_THROW,
     HOCCER_LOADING_FROM_FILECACHE,
     HOCCER_IDLING
 } HOCCER_STATUS;
@@ -129,6 +130,7 @@ typedef enum {
 {
 	[super viewDidLoad];
     channelAutoReceiveMode = NO;
+    closeAutoReceive = NO;
     
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
 
@@ -225,7 +227,9 @@ typedef enum {
 	[httpClient getURI:@"/iphone/status2.json" success:@selector(httpConnection:didReceiveStatus:)];
 }
 
-- (void)httpConnection: (HttpConnection *)connection didReceiveStatus: (NSData *)data
+#pragma mark -
+#pragma mark httpconnection delegate
+- (void)httpConnection:(HttpConnection *)connection didReceiveStatus: (NSData *)data
 {
 	linccer.latency = connection.roundTripTime;
 	[linccer updateEnvironment];
@@ -254,6 +258,12 @@ typedef enum {
 	}
     
     [httpClient release]; httpClient = nil;
+}
+
+- (void)httpConnection:(HttpConnection *)connection didReceiveData:(NSData *)data
+{
+    // nicht genutzt
+    //NSLog(@"richtig");
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -663,7 +673,7 @@ typedef enum {
 	[FeedbackProvider playCatchFeedback];
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.delegate = self;
-	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
+	item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 90);
 	
 	[desktopData addhoccerController:item];
 	
@@ -731,19 +741,21 @@ typedef enum {
 {
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
-
+        
+        NSLog(@"#### SwitchAutoReceiveMode  ON ####");
+        
         [infoViewController hideViewAnimated:YES];
         
         //[FeedbackProvider playCatchFeedback];
         ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
         item.delegate = self;
-        item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 110);
+        item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 830);
         
         [desktopData addhoccerController:item];
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 0)];
-        animation.duration = 0.2;
+        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 820)];
+        animation.duration = 0.1;
         
         [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
         
@@ -751,16 +763,19 @@ typedef enum {
         
         [linccer pollWithMode:HCTransferModeOneToMany];
         
-        [statusViewController setState:[ConnectionState state]];
-        [statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
+//        [statusViewController setState:[ConnectionState state]];
+//        [statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
         
-        hoccerStatus = HOCCER_RECEIVING_THROW;
+        hoccerStatus = HOCCER_AUTO_RECEIVING_THROW;
+        self.channelAutoReceiveMode = YES;
         
         self.sendingItem = nil;
     }
     else {
         if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  OFF ----"); }
-     
+        
+        NSLog(@"#### SwitchAutoReceiveMode  OFF ####");
+        
         if ([transferController hasTransfers]) {
             [transferController cancelDownloads];
         }
@@ -774,11 +789,12 @@ typedef enum {
         [linccer cancelAllRequest];
         
         hoccerStatus = HOCCER_IDLING;
+        self.channelAutoReceiveMode = NO;
 
         [desktopView reloadData];
 
-        [statusViewController setState:[ConnectionState state]];
-        [statusViewController showMessage:NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 2];
+//        [statusViewController setState:[ConnectionState state]];
+//        [statusViewController showMessage:NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 2];
     }
 }
 
@@ -807,12 +823,13 @@ typedef enum {
 {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([transferController hasTransfers]) {
-		[transferController cancelDownloads];	
+		[transferController cancelDownloads];
 	}
     else {
 		[desktopData removeHoccerController:item];
 	}
 }
+
 
 - (void)desktopView: (DesktopView *)desktopView didSweepInView: (UIView *)view
 {
@@ -1104,11 +1121,11 @@ typedef enum {
 {
     failcounter = 0;
     [self ensureViewIsHoccable];
-    
-	if ([desktopData count] == 0) {
 
+	if ([desktopData count] == 0) {
 		return;
 	}
+    NSLog(@"HoccerViewController transferController: didFinishTransfer:");
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
@@ -1120,12 +1137,20 @@ typedef enum {
     if (isChannelMode) {
         //[self ];
         if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController transferController:(TransferController *)controller didFinishTransfer"); }
-        
-        if (self.channelAutoReceiveMode) {
-            [self removeAllItemsFromDesktop];
-            [desktopView reloadData];
-        }
     }
+    
+    
+//    if (self.channelAutoReceiveMode) {
+//        NSLog(@"HoccerViewController transferController: didFinishTransfer:  ----- self.channelAutoReceiveMode == YES");
+//        
+//        [self removeAllItemsFromDesktop];
+//        [desktopView reloadData];
+//    }
+//    else {
+//        NSLog(@"HoccerViewController transferController: didFinishTransfer:  ----- self.channelAutoReceiveMode == NO");
+//        
+//    }
+
 }
 
 - (void)transferControllerDidFinishAllTransfers:(TransferController *)controller
@@ -1194,20 +1219,34 @@ typedef enum {
 
 - (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error
 {
+    
+    if (self.channelAutoReceiveMode) {
+        if (error.code == 504) {
+            // retry
+            NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
+            
+            [linccer pollWithMode:HCTransferModeOneToMany];
+            
+            return;
+        }
+    }
+    
     if (failcounter < 3 && error.code != 409){
         [self retryLastAction];
         failcounter ++;
     }
     else {
-	connectionEstablished = NO;
+        connectionEstablished = NO;
         [self handleError:error];
         failcounter = 0;
     }
 }
 
-- (void) linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
+- (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
 {
     if (USES_DEBUG_MESSAGES) { NSLog(@"  1 linccer:   didReceiveData:"); }
+
+    NSLog(@"  1 linccer:   didReceiveData:");
     
     failcounter = 0;
 	[self ensureViewIsHoccable];
@@ -1218,6 +1257,9 @@ typedef enum {
 	NSArray *content = [firstPayload objectForKey:@"data"];
 	
     if ([desktopData count] > 0) {
+        
+        closeAutoReceive = YES;
+        
         HoccerContent *hoccerContent = [[HoccerContentFactory sharedHoccerContentFactory] createContentFromDict:[content objectAtIndex:0]];
         ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
         item.content = hoccerContent;
@@ -1231,6 +1273,7 @@ typedef enum {
         }
         else {
             [self showSuccess:item];
+            item.viewOrigin = self.defaultOrigin;
         }
         [desktopView reloadData];
         if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }        
@@ -1315,7 +1358,7 @@ typedef enum {
 
 - (void)startChannelAutoReceiveMode:(NSNotification *)notification
 {
-    NSLog(@"HoccerViewController - startChannelAutoReceiveMode - notification: %@", notification);
+//    NSLog(@"HoccerViewController - startChannelAutoReceiveMode - notification: %@", notification);
 
     //[self channelSwitchAutoReceiveMode:YES];
     
@@ -1421,7 +1464,7 @@ typedef enum {
 	[desktopView reloadData];	
 }
 
-- (void)showSuccess: (ItemViewController *)item {
+- (void)showSuccess:(ItemViewController *)item {
     [historyData addContentToHistory:item];		
     
 	if (self.sendingItem) {
@@ -1430,9 +1473,10 @@ typedef enum {
 	} else {
 		[item updateView];
 	}
-	[statusViewController setState:[SuccessState state]];
-	[statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds: 10];
-    if (hoccerStatus <= 1){
+    [statusViewController setState:[SuccessState state]];
+    [statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds:5];
+
+    if (hoccerStatus <= 1) {
         if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
             if (!infoHud.isHidden){
                 @try {

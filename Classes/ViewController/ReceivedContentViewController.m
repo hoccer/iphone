@@ -131,7 +131,7 @@
 		hoccerContent = [content retain];
 	}
 	[self.view insertSubview:content.fullscreenView atIndex:0];
-    NSLog(@"setHoccerContent - insertSubview");
+    //NSLog(@"setHoccerContent - insertSubview");
     
 	self.view.multipleTouchEnabled = YES;
 	
