@@ -40,11 +40,10 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    
+- (void)viewWillDisappear:(BOOL)animated
+{    
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 	[notificationCenter postNotificationName:@"PausePlayer" object:nil];
-    
 }
 
 - (void)dealloc {

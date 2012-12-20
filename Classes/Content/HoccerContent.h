@@ -56,6 +56,7 @@
 - (BOOL)saveDataToContentStorage;
 
 - (UIView *)fullscreenView;
+- (UIView *)smallView;
 - (Preview *)desktopItemView;
 
 - (NSString *)defaultFilename;

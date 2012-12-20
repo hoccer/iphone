@@ -15,16 +15,16 @@
 #import "SweepOutRecognizerDelegate.h"
 #import "TabRecognizerDelegate.h"
 
-#define kSweepInBorder 50
-#define kSweepAcceptanceDistance 20
-#define kSweepOutBorder 30
-
-#define kSweepDirectionLeftIn -1
-#define kNoSweeping 0
-#define kSweepDirectionRightIn 1
-
-#define kSweepDirectionLeftOut -1
-#define kSweepDirectionRightOut 1
+//#define kSweepInBorder 50
+//#define kSweepAcceptanceDistance 20
+//#define kSweepOutBorder 30
+//
+//#define kSweepDirectionLeftIn -1
+//#define kNoSweeping 0
+//#define kSweepDirectionRightIn 1
+//
+//#define kSweepDirectionLeftOut -1
+//#define kSweepDirectionRightOut 1
 
 
 //#define kSweepBorder 50

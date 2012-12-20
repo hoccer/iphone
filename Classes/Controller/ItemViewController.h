@@ -43,5 +43,6 @@
 
 - (void)removeFromFileSystem;
 - (void)updateView;
+- (void)playPlayer;
 
 @end

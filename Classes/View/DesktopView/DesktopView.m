@@ -13,7 +13,7 @@
 #import "SweepInRecognizer.h"
 #import "SweepOutRecognizer.h"
 #import "TabRecognizer.h"
-#import "PullToReceiveViewController.h"
+//#import "PullToReceiveViewController.h"
 
 
 @interface DesktopView ()
@@ -86,19 +86,16 @@
 	self.currentlyTouchedViews = [self findTouchedViews:initialTouchPoint];
     [self.delegate desktopView:self wasTouchedWithTouches:touches];
 
-//    NSLog(@"____________________________________________________________");
-    if ((initialTouchPoint.x > kSweepInBorder) && (initialTouchPoint.x <  self.frame.size.width - kSweepInBorder)) {
-//        NSLog(@"1. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
-        
-//        NSLog(@"################# new tableview ###########");
-
+//    if ((initialTouchPoint.x > kSweepInBorder) && (initialTouchPoint.x <  self.frame.size.width - kSweepInBorder)) {
+////        NSLog(@"1. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
+//    }
+//    else {
+////        NSLog(@"2. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
+    
+    for (SweepInRecognizer *recognizer in sweepRecognizers) {
+        [recognizer desktopView:self touchesBegan:touches withEvent:event];
     }
-    else {
-//        NSLog(@"2. DesktopView - touchesBegan - touchPoint  = %0.f - %0.f ", initialTouchPoint.x, initialTouchPoint.y);
-        for (SweepInRecognizer *recognizer in sweepRecognizers) {
-            [recognizer desktopView:self touchesBegan:touches withEvent:event];
-        }
-    }
+    
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
@@ -166,19 +163,19 @@
     //[self initPullToReceive];
 }
 
-- (void)initPullToReceive
-{
-    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
-	pullToReceiveViewController.delegate = self;
-	
-    [pullToReceiveViewController viewWillAppear:YES];
-			
-	[self insertSubview:pullToReceiveViewController.view atIndex:0];
-	
-	[pullToReceiveViewController viewDidAppear:YES];
-
-	[pullToReceiveViewController release];
-}
+//- (void)initPullToReceive
+//{
+//    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
+//	pullToReceiveViewController.delegate = self;
+//	
+//    [pullToReceiveViewController viewWillAppear:YES];
+//			
+//	[self insertSubview:pullToReceiveViewController.view atIndex:0];
+//	
+//	[pullToReceiveViewController viewDidAppear:YES];
+//
+//	[pullToReceiveViewController release];
+//}
 
 - (void)insertView:(UIView *)view atPoint:(CGPoint)point withAnimation:(CAAnimation *)animation
 {

@@ -80,7 +80,7 @@
 #pragma mark -
 #pragma mark Managing Hoccability / Location Hints
 
-- (void)setLocationHint: (NSError *)hint {
+- (void)setLocationHint:(NSError *)hint {
 	self.badLocationHint = hint;
 	
 	if (hint != nil) {

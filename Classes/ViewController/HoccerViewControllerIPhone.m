@@ -238,7 +238,7 @@
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    NSLog(@"#### HoccerViewControllerIPhone selectAutoReceive ####");
+    //NSLog(@"#### HoccerViewControllerIPhone selectAutoReceive ####");
     
     NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
@@ -478,7 +478,8 @@
 
 - (void)showPopOver:(UIViewController *)popOverView
 {
-    [self movePullDownToHidePosition];
+//    [self movePullDownToHidePosition];
+    [self stopAutoReceiveAndPullDownHide];
 
 	[popOverView viewWillAppear:YES];
 	
@@ -490,7 +491,7 @@
 	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
 	popOverView.view.frame = popOverFrame;	
 	
-	[desktopView insertSubview:popOverView.view atIndex:2];
+	[desktopView insertSubview:popOverView.view atIndex:8];
 
 	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
 	[UIView setAnimationDuration:0.3];
@@ -596,7 +597,6 @@
 //    NSLog(@"linccer didreceive data : %@", data);
 
     if (closeAutoReceive) {
-        NSLog(@"close auto receive");
         [self willFinishAutoReceive];
     }
     
@@ -606,9 +606,6 @@
         
         [self updateChannelButton];
     }
-
-    //self.channelAutoReceiveMode = NO;
-
 }
 
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
@@ -747,7 +744,6 @@
         }
         else {
             [self selectAutoReceive:self];
-
             [self.activityIndi startAnimating];
         }
     }
@@ -1171,7 +1167,11 @@
 
 - (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches
 {
-    [infoViewController hideViewAnimated:YES];
+    [infoViewController hideViewAnimated:NO];
+    
+    if (!self.channelAutoReceiveMode) {
+        [self movePullDownToNormalPosition];
+    }
 }
 
 - (void)pressedButton:(id)sender
@@ -1179,13 +1179,28 @@
     [statusViewController hideStatus];
     
 	if (infoViewController.view.hidden == NO) {
-		[infoViewController setLocationHint:nil];
-        //[self movePullDownToNormalPosition];
+		//[infoViewController setLocationHint:nil];
+        [infoViewController hideViewAnimated:NO];
+
+        [self movePullDownToNormalPosition];
 	}
     else {
 		[infoViewController setLocationHint:[HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
-        //[self movePullDownToHidePosition];
+        [self stopAutoReceiveAndPullDownHide];
 	}
+}
+
+- (void)stopAutoReceiveAndPullDownHide
+{
+    if (self.channelAutoReceiveMode) {
+        [self.activityIndi stopAnimating];
+        [self movePullDownToHidePosition];
+        [self channelSwitchAutoReceiveMode:NO];
+    }
+    else {
+        [self.activityIndi stopAnimating];
+        [self movePullDownToHidePosition];
+    }
 }
 
 - (void)pressedLeaveChannelMode:(id)sender

@@ -12,12 +12,14 @@
 #import "ContentContainerView.h"
 #import "Preview.h"
 #import "HoccerAppDelegate.h"
+#import "HoccerMusic.h"
 
 #import "HCButton.h"
 
 @interface ItemViewController ()
 
 - (NSArray *)actionButtons;
+
 
 @end
 
@@ -36,6 +38,7 @@
 @synthesize status;
 
 @synthesize viewFromNib;
+
 
 
 #pragma mark NSCoding Delegate Methods
@@ -130,23 +133,55 @@
 		
 		return buttons;
 	}
-    else {
+    else if ([content isKindOfClass:[HoccerMusic class]]) {
         //NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
-		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
 		[button setTextLabelOffset:1];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
-		[button2 addTarget:self action: @selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+		[button2 addTarget:self action:@selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
 		[button2 setTextLabelOffset:2];
 		[button2 setFrame: CGRectMake(0, 0, 43, 40)];
 		
-		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil]; 
+//		HCButton *button3 = [HCButton buttonWithType:UIButtonTypeCustom];
+//		[button3 setBackgroundImage:[UIImage imageNamed:@"container_btn_double-safari.png"] forState:UIControlStateNormal];
+//		[button3 addTarget:self action:@selector(playAudioButton:) forControlEvents:UIControlEventTouchUpInside];
+//		//[button3 setTitle:NSLocalizedString(@"Play", nil) forState:UIControlStateNormal];
+//		//[button3 setTextLabelOffset:1];
+//		[button3 setFrame: CGRectMake(0, 0, 42, 40)];
+//		
+//		NSArray *buttons = [NSArray arrayWithObjects:button, button2, button3, nil];
+        
+		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil];
+        
+        //[[NSNotificationCenter defaultCenter] removeObserver:self name:@"playPlayer" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
+        
+		return buttons;
+	}
+    else {
+        //NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
+		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
+		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
+		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
+		[button setTextLabelOffset:1];
+		[button setFrame: CGRectMake(0, 0, 42, 40)];
+		
+		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
+		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
+		[button2 addTarget:self action:@selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
+		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
+		[button2 setTextLabelOffset:2];
+		[button2 setFrame: CGRectMake(0, 0, 43, 40)];
+		
+		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil];
 		
 		return buttons;
 	}
@@ -154,9 +189,13 @@
 
 #pragma mark -
 #pragma mark User Actions
-- (IBAction)closeView: (id)sender {
+- (IBAction)closeView: (id)sender
+{
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+	[notificationCenter postNotificationName:@"PausePlayer2" object:nil];
+
 	if ([delegate respondsToSelector:@selector(itemViewControllerWasClosed:)]) {
-		[delegate itemViewControllerWasClosed: self];
+		[delegate itemViewControllerWasClosed:self];
 	} 
 }
 
@@ -164,6 +203,22 @@
 	if ([delegate respondsToSelector:@selector(itemViewControllerSaveButtonWasClicked:)]) {
 		[delegate itemViewControllerSaveButtonWasClicked: self];
 	}
+}
+
+- (IBAction)playAudioButton:(id)sender
+{
+    NSLog(@"start play old");
+
+    //[self.contentView insertSubview:content.smallView atIndex:8];
+
+//    [self.contentView.containedView audioPlayButtonPressed:self];
+}
+
+- (void)playPlayer
+{
+    NSLog(@"really start play");
+    
+    [self.contentView insertSubview:content.smallView atIndex:8];
 }
 
 @end

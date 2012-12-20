@@ -12,10 +12,19 @@
 
 @synthesize coverImage, songLabel;
 
+
 - (void)dealloc {
     [coverImage release];
     [songLabel release];
+    [_audioPlayButton release];
     [super dealloc];
+}
+
+- (IBAction)audioPlayButtonPressed:(id)sender
+{
+    NSNotification *notification = [NSNotification notificationWithName:@"playPlayer" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    NSLog(@"playPlayer in audioPreview notify");
 }
 
 @end

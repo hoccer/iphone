@@ -28,7 +28,7 @@
 
 - (IBAction)toggleEditMode: (id)sender {
 	if (textView.editable) {
-		[delegate checkAndPerformSelector:@selector(textPreviewDidEndEditing:)];
+		[delegate checkAndPerfotermSelector:@selector(textPreviewDidEndEditing:)];
 		[self setStaticMode];
 	} else {
 		[self setEditMode];
@@ -36,7 +36,7 @@
 }
 
 - (IBAction)showTextInputView:(id)sender; {
-    if (!editing){
+    if (!editing) {
         TextInputViewController *textInputViewController;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){

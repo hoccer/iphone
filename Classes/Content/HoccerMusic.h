@@ -33,7 +33,7 @@
 }
 
 @property (nonatomic, readonly) MPMediaItem* song;
-@property (nonatomic, readonly) AVAsset* recievedSong;
+@property (nonatomic, readonly) AVAsset* receivedSong;
 @property (nonatomic, readonly) UIImage* thumb;
 @property (retain) IBOutlet AudioPreview *view;
 @property (retain) MPMoviePlayerController *fullscreenPlayer;

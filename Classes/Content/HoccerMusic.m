@@ -20,8 +20,6 @@
 
 #import "NSFileManager+FileHelper.h"
 
-
-
 @interface HoccerMusic ()
 
 - (void)createThumb;
@@ -29,7 +27,7 @@
 @end
 
 @implementation HoccerMusic
-@synthesize song,recievedSong;
+@synthesize song,receivedSong;
 @synthesize thumb;
 @synthesize view,fullscreenPlayer;
 
@@ -41,8 +39,6 @@
 	
 	return self;	
 }
-
-
 
 - (id) initWithDictionary:(NSDictionary *)dict {
 	self = [super initWithDictionary:dict];
@@ -61,7 +57,6 @@
 	}
 	return self;
 }
-
 
 - (id)initWithMediaItem: (MPMediaItem *)aMediaItem{
 	self = [super init];
@@ -122,8 +117,6 @@
         }
     }];
     
-    
-	
 	[pool drain];
 }
 
@@ -160,7 +153,7 @@
             self.view.songLabel.text = [NSString stringWithFormat:@"%@ - %@",[song valueForProperty:MPMediaItemPropertyArtist],[song valueForProperty:MPMediaItemPropertyTitle]];
         }
         else {
-            self.view.songLabel.text = @"Recieved Song";
+            self.view.songLabel.text = @"Received Song";
         }
     }
 }
@@ -225,8 +218,8 @@
 }
 
 
-- (UIView *)fullscreenView {
-    
+- (UIView *)fullscreenView
+{
     CGRect screenRect;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         screenRect = [[UIScreen mainScreen] bounds];
@@ -239,22 +232,43 @@
     self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
     self.fullscreenPlayer.view.frame = screenRect;
     
-    self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;  
+    self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
     self.fullscreenPlayer.shouldAutoplay = NO;
-
+    
     [self.fullscreenPlayer prepareToPlay];
     
     
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(pausePlayer) 
-                                                 name:@"PausePlayer" 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pausePlayer)
+                                                 name:@"PausePlayer"
                                                object:nil];
-    
-    
     return self.fullscreenPlayer.view;
-
 }
 
+- (UIView *)smallView
+{
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        screenRect = CGRectMake(10, 0, 280, 30);
+    }
+    else {
+        screenRect = CGRectMake(10, 0, 280, 30);
+    }
+   
+    self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL:self.fileUrl];
+    self.fullscreenPlayer.view.frame = screenRect;
+    
+    self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
+    self.fullscreenPlayer.shouldAutoplay = YES;
+    
+    [self.fullscreenPlayer prepareToPlay];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pausePlayer2)
+                                                 name:@"PausePlayer2"
+                                               object:nil];
+    return self.fullscreenPlayer.view;
+}
 
 #pragma -
 #pragma Thumbnail
@@ -263,7 +277,6 @@
     
 	return [[NSString stringWithFormat:@"%@_thumb", tmpPath] stringByAppendingPathExtension:@"jpg"];
 }
-
 
 - (void)createThumb {
 
@@ -290,8 +303,18 @@
 - (void)pausePlayer {
     [self.fullscreenPlayer pause];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+    
 }
+
+- (void)pausePlayer2 {
+    [self.fullscreenPlayer pause];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+//- (void)playPlayer {
+//    [self.fullscreenPlayer play];
+//}
+
 #pragma -
 #pragma Hooks
 - (void)viewDidLoad {
@@ -313,12 +336,11 @@
     
     [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
-    
 }
 
 - (void) dealloc {
 	[song release];
-    [recievedSong release];
+    [receivedSong release];
     [view release];
 	[thumb release];
     [thumbURL release];

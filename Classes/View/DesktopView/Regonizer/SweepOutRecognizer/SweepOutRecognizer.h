@@ -10,9 +10,9 @@
 #import "SweepRecognizer.h"
 #import "SweepOutRecognizerDelegate.h"
 
-//#define kSweepDirectionLeftOut -1
-//#define kNoSweeping 0
-//#define kSweepDirectionRightOut 1
+#define kSweepDirectionLeftOut -1
+#define kNoSweeping 0
+#define kSweepDirectionRightOut 1
 
 @interface SweepOutRecognizer : SweepRecognizer {
 	BOOL detecting;

@@ -9,6 +9,8 @@
 #import "SweepOutRecognizer.h"
 #import "DesktopView.h"
 
+#define kSweepBorder 30
+
 @implementation SweepOutRecognizer
 
 @synthesize delegate;
@@ -26,7 +28,10 @@
 	self.lastTouch = [touches anyObject];
 	CGPoint currentLocation = [lastTouch locationInView:view];
 
-	if ([view.currentlyTouchedViews count] > 0 && (kSweepOutBorder < currentLocation.x && currentLocation.x < view.frame.size.width - kSweepOutBorder)) {
+//    NSLog(@"4. SweepOutRecognizer - desktopView touchesBegan  x = %f", currentLocation.x);
+
+    
+	if ([view.currentlyTouchedViews count] > 0 && (kSweepBorder < currentLocation.x && currentLocation.x < view.frame.size.width - kSweepBorder)) {
 		detecting = YES;
 	}
     else {
@@ -47,7 +52,7 @@
 	
 	if (!gestureDetected) {
 		CGFloat width = view.frame.size.width; 
-		if (currentLocation.x < kSweepOutBorder) {
+		if (currentLocation.x < kSweepBorder) {
 			self.sweepDirection = kSweepDirectionLeftOut;
 			gestureDetected = YES;	
 			
@@ -55,7 +60,7 @@
 				[delegate sweepOutRecognizerDidRecognizeSweepOut:self];
 			}
 		}
-        else if (currentLocation.x > width - kSweepOutBorder ) {
+        else if (currentLocation.x > width - kSweepBorder ) {
 			self.sweepDirection = kSweepDirectionRightOut;
 			gestureDetected = YES;	
 			

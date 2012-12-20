@@ -639,10 +639,18 @@ typedef enum {
 		[self showHudWithMessage:NSLocalizedString(@"Preparing Content...",nil)];
 	}
 	
+    
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
 	item.delegate = self;
+    
+    
+    // hier : #####
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
+    
+    //######
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		item.isUpload = YES;
@@ -658,6 +666,20 @@ typedef enum {
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
 }
+
+//###########
+- (void)playPlayer
+{
+    NSLog(@"hoccerviewcontroller playPlayer");
+    
+    ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+    if (item != nil) {
+        NSLog(@"  --- hoccerviewcontroller playPlayer");
+        [item playPlayer];
+    }
+}
+
+//##########
 
 #pragma mark -
 #pragma mark GesturesInterpreter Delegate Methods
@@ -744,7 +766,7 @@ typedef enum {
         
         NSLog(@"#### SwitchAutoReceiveMode  ON ####");
         
-        [infoViewController hideViewAnimated:YES];
+        [infoViewController hideViewAnimated:NO];
         
         //[FeedbackProvider playCatchFeedback];
         ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
@@ -1125,7 +1147,7 @@ typedef enum {
 	if ([desktopData count] == 0) {
 		return;
 	}
-    NSLog(@"HoccerViewController transferController: didFinishTransfer:");
+    //NSLog(@"HoccerViewController transferController: didFinishTransfer:");
     
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
 	
@@ -1138,19 +1160,6 @@ typedef enum {
         //[self ];
         if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController transferController:(TransferController *)controller didFinishTransfer"); }
     }
-    
-    
-//    if (self.channelAutoReceiveMode) {
-//        NSLog(@"HoccerViewController transferController: didFinishTransfer:  ----- self.channelAutoReceiveMode == YES");
-//        
-//        [self removeAllItemsFromDesktop];
-//        [desktopView reloadData];
-//    }
-//    else {
-//        NSLog(@"HoccerViewController transferController: didFinishTransfer:  ----- self.channelAutoReceiveMode == NO");
-//        
-//    }
-
 }
 
 - (void)transferControllerDidFinishAllTransfers:(TransferController *)controller

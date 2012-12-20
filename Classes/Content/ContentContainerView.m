@@ -40,7 +40,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		[self addSubview:subview];
 		
 
-        buttonContainer = [[UIView alloc] initWithFrame: CGRectMake(18, 165, 90, 41)];
+        buttonContainer = [[UIView alloc] initWithFrame:CGRectMake(18, 165, 130, 41)];
 		NSInteger xpos = 0;
 		for (UIView *button in buttons) {
 			button.frame = ACPositionedRect(button.frame, xpos, 0);
