@@ -149,7 +149,7 @@ typedef enum {
 	desktopView.dataSource = desktopData;
 	
 	historyData = [[HistoryData alloc] init];
-	self.defaultOrigin = CGPointMake(7, 22);
+	self.defaultOrigin = CGPointMake(7, 55);
 
 	transferController = [[TransferController alloc] init];
 	transferController.delegate = self;
@@ -899,7 +899,7 @@ typedef enum {
     [desktopData removeHoccerController:self.sendingItem];
 }
 
-- (BOOL)desktopView: (DesktopView *)aDesktopView needsEmptyViewAtPoint: (CGPoint)point
+- (BOOL)desktopView:(DesktopView *)aDesktopView needsEmptyViewAtPoint:(CGPoint)point
 {
 	if (![hoccingRules hoccerViewControllerMaySweepIn:self]) {
 		return NO;
@@ -1246,7 +1246,7 @@ typedef enum {
 {
     if (USES_DEBUG_MESSAGES) { NSLog(@"  1 linccer:   didReceiveData:"); }
 
-    NSLog(@"  1 linccer:   didReceiveData:");
+    NSLog(@"   1 linccer:   didReceiveData  debugralph");
     
     failcounter = 0;
 	[self ensureViewIsHoccable];
@@ -1273,10 +1273,15 @@ typedef enum {
         }
         else {
             [self showSuccess:item];
-            item.viewOrigin = self.defaultOrigin;
+//            item.viewOrigin = self.defaultOrigin;
+
+            item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 80);
+
         }
         [desktopView reloadData];
-        if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }        
+        //item.viewOrigin = CGPointMake(0, 0);
+        
+        if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }
     }
 }
 
@@ -1312,8 +1317,8 @@ typedef enum {
             UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
             //before autoReceive [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
 
-            UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"AutoReceive", nil) action:@selector(selectAutoReceive:)];
-            [menuController setMenuItems:[NSArray arrayWithObjects:pasteMenuItem, autoReceiveMenuItem, nil]];
+            //UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"AutoReceive", nil) action:@selector(selectAutoReceive:)];
+            [menuController setMenuItems:[NSArray arrayWithObjects:pasteMenuItem, nil]];
             
             [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];
             [menuController setMenuVisible:YES animated:YES];

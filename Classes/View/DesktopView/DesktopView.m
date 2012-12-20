@@ -185,7 +185,7 @@
  	ContentContainerView *containerView = (ContentContainerView *)view;
 	containerView.delegate = self;
 	containerView.origin = point;
-	
+	    
 	[self insertSubview: containerView atIndex:1];
 	if (animation != nil) {
 		[containerView.layer addAnimation:animation forKey:nil];

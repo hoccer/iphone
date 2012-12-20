@@ -89,7 +89,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	self.frame = frame;
 }
 
-- (void)moveBy: (CGSize) distance {
+- (void)moveBy:(CGSize) distance {
 	CGRect myRect = self.frame;
 	myRect.origin.x += distance.width; 
 	myRect.origin.y += distance.height; 
@@ -135,8 +135,6 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 - (void)updateFrame {
     self.frame = containedView.frame;
     [buttonContainer setFrame:CGRectMake(18, 165, 90, 41)];
-
-    
 }
 
 

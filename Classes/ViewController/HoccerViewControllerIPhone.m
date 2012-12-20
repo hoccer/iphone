@@ -593,7 +593,7 @@
 {
     [super linccer:linncer didReceiveData:data];
     
-    NSLog(@"linccer didreceive data : %@", data);
+//    NSLog(@"linccer didreceive data : %@", data);
 
     if (closeAutoReceive) {
         NSLog(@"close auto receive");

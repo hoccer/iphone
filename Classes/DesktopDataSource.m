@@ -97,7 +97,7 @@
 	return [self hoccerControllerDataForView:view].viewOrigin;
 }
 
-- (void)view: (UIView *)view didMoveToPoint: (CGPoint)point {
+- (void)view: (UIView *)view didMoveToPoint:(CGPoint)point {
 	ItemViewController *item = [self hoccerControllerDataForView:view];
 	item.viewOrigin = point;
 }
