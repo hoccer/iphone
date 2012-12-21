@@ -28,7 +28,7 @@
 
 - (IBAction)toggleEditMode: (id)sender {
 	if (textView.editable) {
-		[delegate checkAndPerfotermSelector:@selector(textPreviewDidEndEditing:)];
+		[delegate checkAndPerformSelector:@selector(textPreviewDidEndEditing:)];
 		[self setStaticMode];
 	} else {
 		[self setEditMode];

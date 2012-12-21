@@ -24,6 +24,13 @@
 @synthesize mimeType;
 
 @synthesize cryptor;
+@synthesize extension;
+@synthesize filepath;
+@synthesize fileUrl;
+@synthesize interactionController;
+@synthesize readyForSending;
+
+
 
 #pragma mark NSCoding Delegate Methods
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -350,5 +357,13 @@
 
 - (void)viewDidLoad {}
 
+//######################################
+
+
+
+//- (UIView *)smallView
+//{
+//    return nil;
+//}
 
 @end

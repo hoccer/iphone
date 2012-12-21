@@ -1226,15 +1226,14 @@ typedef enum {
 	[self ensureViewIsHoccable];
 }
 
-- (void)linccer:(HCLinccer *)linccer didFailWithError:(NSError *)error
+- (void)linccer:(HCLinccer *)aLinccer didFailWithError:(NSError *)error
 {
-    
     if (self.channelAutoReceiveMode) {
         if (error.code == 504) {
             // retry
-            //NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
+            NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
             
-            [linccer pollWithMode:HCTransferModeOneToMany];
+            [aLinccer pollWithMode:HCTransferModeOneToMany];
             
             return;
         }

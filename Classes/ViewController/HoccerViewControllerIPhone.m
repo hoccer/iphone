@@ -485,13 +485,15 @@
 {
 //    [self movePullDownToHidePosition];
     
-    if ([popOverView isKindOfClass:[SelectContentController class]]) {
-        NSLog(@"SelectContentController");
-        
-    }
-    else {
+    // hier noch alt weil versuch aber das darunter funktioniert doch
+//    if ([popOverView isKindOfClass:[SelectContentController class]]) {
+//        NSLog(@"SelectContentController");
+//    }
+//    else {
 //        [self stopAutoReceiveAndPullDownHide];
-    }
+//    }
+
+    // das geht doch so
     [self stopAutoReceiveAndPullDownHide];
 
 	[popOverView viewWillAppear:YES];
@@ -711,7 +713,7 @@
     CGRect myRect = self.pullDownView.frame;
     float minPosition = 33.0;
     float maxPosition = 100.0;
-    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
+//    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
     float movePoints = 0.0;
     BOOL moveDown = NO;
     
@@ -748,7 +750,7 @@
     float minPosition = 33.0;
     float maxPosition = 100.0;
     float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
-    float movePoints = 0.0;
+//    float movePoints = 0.0;
 
     if (desktopViewRect.origin.y > swapPosition) {
         [self movePullDownToMaxDownPosition];
