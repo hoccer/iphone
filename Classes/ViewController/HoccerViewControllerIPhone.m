@@ -89,6 +89,13 @@
 	self.historyTVC.parentNavigationController = navigationController;
 	self.historyTVC.hoccerViewController = self;
    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    desktopViewHeight = 341.0;
+    if (screenHeight > 480){
+        desktopViewHeight += 91.0;
+    }
+    
     NSArray *group = infoViewController.group;
     if (group != nil) {
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
@@ -397,8 +404,6 @@
 	navigationItem.title = NSLocalizedString(@"Channel", nil);
 	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     
-    
-    
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
 	navigationItem.titleView = nil;
@@ -479,6 +484,14 @@
 - (void)showPopOver:(UIViewController *)popOverView
 {
 //    [self movePullDownToHidePosition];
+    
+    if ([popOverView isKindOfClass:[SelectContentController class]]) {
+        NSLog(@"SelectContentController");
+        
+    }
+    else {
+//        [self stopAutoReceiveAndPullDownHide];
+    }
     [self stopAutoReceiveAndPullDownHide];
 
 	[popOverView viewWillAppear:YES];
@@ -766,6 +779,7 @@
     
     CGRect desktopViewRect = desktopView.frame;
 	desktopViewRect.origin.y =  0.0;
+    desktopViewRect.size.height = desktopViewHeight + 26.0;
 	desktopView.frame = desktopViewRect;
 }
 
@@ -780,6 +794,7 @@
         
         CGRect desktopViewRect = desktopView.frame;
         desktopViewRect.origin.y =  33.0;
+        desktopViewRect.size.height = desktopViewHeight;
         desktopView.frame = desktopViewRect;
     }
     else {
@@ -873,9 +888,29 @@
 #pragma mark User Actions
 - (void)cancelPopOver
 {
-    if (self.channelViewController.channelTextField.text.length >= 6) {
-        NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
-        [self.channelViewController.channelTextField resignFirstResponder];
+    if (self.channelViewController != nil) {
+        if (self.channelViewController.channelTextField != nil) {
+            if (self.channelViewController.channelTextField.text.length > 0) {
+                if ((self.channelViewController.channelTextField.text.length < 6) || (self.channelViewController.channelTextField.text.length > 32)) {
+                    
+                    NSLog(@"   self.channelViewController.channelTextField.text.length < 6");
+                    //[self.channelViewController.channelTextField resignFirstResponder];
+                    
+                    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Malformened Channel Name"
+                                                                   message:@"The channel name must have at least 6 and max 32 characters."
+                                                                  delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                    view.tag = 8;
+                    [view show];
+                    [view release];
+                    
+                    return;
+                }
+                else {
+                    NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
+                    
+                }
+            }
+        }
     }
     
 	tabBar.selectedItem = nil;
@@ -901,12 +936,6 @@
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:0];
         [self setDesktopBackgroundImage:others];
     }
-    
-    
-//    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
-//    if (isChannelMode) {
-//        [self channelSwitchAutoReceiveMode];
-//    }
 }
 
 - (IBAction)pullDownAction:(id)sender

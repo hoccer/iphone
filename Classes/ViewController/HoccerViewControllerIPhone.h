@@ -46,6 +46,7 @@
     UITableView *_table;
     
     BOOL isPullDown;
+    CGFloat desktopViewHeight;
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;

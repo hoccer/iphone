@@ -267,7 +267,7 @@ typedef enum {
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 1){
+    if (alertView.tag == 1) {
         NSURL *appStoreUrl = [NSURL URLWithString:@"http://itunes.apple.com/us/app/hoccer/id340180776?mt=8"];
         [[UIApplication sharedApplication] openURL: appStoreUrl];
     }
@@ -1365,7 +1365,7 @@ typedef enum {
 
 - (void)clientChannelChanged:(NSNotification *)notification
 {
-    NSLog(@"HoccerViewController - clientChannelChanged - notification: %@", notification);
+//    NSLog(@"HoccerViewController - clientChannelChanged - notification: %@", notification);
 }
 
 - (void)startChannelAutoReceiveMode:(NSNotification *)notification

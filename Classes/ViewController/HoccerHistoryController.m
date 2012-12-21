@@ -74,9 +74,9 @@
     }
 }
 
-- (CGSize)contentSizeForViewInPopover {
-    return CGSizeMake(320, 367);
-}
+//- (CGSize)contentSizeForViewInPopover {
+//    return CGSizeMake(320, 367);
+//}
 
 #pragma mark -
 #pragma mark Table view data source

@@ -24,7 +24,7 @@
 {
     NSNotification *notification = [NSNotification notificationWithName:@"playPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
-    NSLog(@"playPlayer in audioPreview notify");
+//    NSLog(@"playPlayer in audioPreview notify");
 }
 
 @end

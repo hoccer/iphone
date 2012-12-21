@@ -686,7 +686,7 @@
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
             }
             
-            NSLog(@"presentPopoverFromBarButtonItem");
+//            NSLog(@"presentPopoverFromBarButtonItem");
             [infoViewController.tableView reloadData];
             
             [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];

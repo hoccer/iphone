@@ -39,7 +39,7 @@
 					<object class="IBUITableView" id="982215007">
 						<reference key="NSNextResponder" ref="135460184"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 150}</string>
+						<string key="NSFrameSize">{320, 132}</string>
 						<reference key="NSSuperview" ref="135460184"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="829679039"/>
@@ -64,10 +64,9 @@
 					<object class="IBUILabel" id="829679039">
 						<reference key="NSNextResponder" ref="135460184"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 150}, {280, 189}}</string>
+						<string key="NSFrame">{{20, 102}, {280, 189}}</string>
 						<reference key="NSSuperview" ref="135460184"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -101,7 +100,7 @@ cnMuIFVzZSB0aHJvdyBhbmQgYXV0byByZWNlaXZlIHRvIGV4Y2hhbmdlIGRhdGEuA</string>
 						<double key="preferredMaxLayoutWidth">280</double>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 368}</string>
+				<string key="NSFrameSize">{320, 640}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="982215007"/>

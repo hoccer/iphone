@@ -28,7 +28,7 @@
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
         //parentFrame.size.height = parentFrame.size.height - 48;
-        parentFrame.size.height = parentFrame.size.height - 210;
+        //parentFrame.size.height = parentFrame.size.height - 210;
         [self.view setFrame:parentFrame];
         [self.tableView setFrame:parentFrame];
     }
@@ -50,8 +50,8 @@
 //    channelHelpAction.defaultValue = @"Set the name of the channel";
 //	[sections addObject:[NSArray arrayWithObject:channelHelpAction]];
 
-    SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Channel with Contact" selector:@selector(showChannelContact) type:HCContinueSetting];
-	[sections addObject:[NSArray arrayWithObject:channelContactAction]];
+//    SettingsAction *channelContactAction = [SettingsAction actionWithDescription:@"Channel with Contact" selector:@selector(showChannelContact) type:HCContinueSetting];
+//	[sections addObject:[NSArray arrayWithObject:channelContactAction]];
 
 //    SettingsAction *channelHelp2Action = [SettingsAction actionWithDescription:@"Channel-Help2" selector:nil type:HCTextField];
 //    channelHelp2Action.defaultValue = @"Send content to a contact over a channel";
@@ -64,10 +64,10 @@
     [tableView reloadData];
 }
 
-- (CGSize)contentSizeForViewInPopover
-{
-    return CGSizeMake(320, 367);
-}
+//- (CGSize)contentSizeForViewInPopover
+//{
+//    return CGSizeMake(320, 367);
+//}
 #pragma mark -
 #pragma mark Table view data source
 
@@ -158,15 +158,15 @@
 //        [cell.contentView addSubview:textView];
 //        cell.backgroundColor = [UIColor clearColor];
 //    }
-    else if (section == 1) {
-        cell.textLabel.text = action.description;
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        
-        if (action.type == HCContinueSetting) {
-            cell.accessoryView = nil;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-    }
+//    else if (section == 1) {
+//        cell.textLabel.text = action.description;
+//        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+//        
+//        if (action.type == HCContinueSetting) {
+//            cell.accessoryView = nil;
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        }
+//    }
 //    else if (section == 3) {
 //        UITextField *textView = [[[UITextField alloc] init] autorelease];
 //        CGRect cellBounds = cell.bounds;
@@ -220,15 +220,28 @@
 #pragma mark 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField.text.length >= 6) {
+    if ((textField.text.length < 6) || (textField.text.length > 32)) {
+        
+        NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length < 6");
+        
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Malformened Channel Name"
+													   message:@"The channel name must have at least 6 and max 32 characters."
+													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        view.tag = 1;
+		[view show];
+		[view release];
+    }
+    else {
+        //        NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length >= 6");
+        
         [textField resignFirstResponder];
         return YES;
     }
     return NO;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     NSCharacterSet *numberSet = nil;
     numberSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];
     
@@ -236,38 +249,23 @@
         NSString *trimmed = [string stringByTrimmingCharactersInSet:numberSet];
         if (string.length > 0) {
             if ([trimmed length] > 0) {
-                //Non-numeric character detected
-//                NSLog(@"1 textfieldetxt  = #%@#", textField.text);
-//                NSLog(@"1 trimmed string = #%@#", trimmed);
+                //                NSLog(@"1 textfieldetxt  = #%@#", textField.text);
+                //                NSLog(@"1 trimmed string = #%@#", trimmed);
                 return NO;
             }
             else {
-//                NSScanner *scanner = [NSScanner scannerWithString:textField.text];
-//                NSInteger numberOfDots = 0;
-//                while ([scanner isAtEnd] == NO)
-//                {
-//                    if ([scanner scanUpToString:@"." intoString:NULL]) {
-//                        numberOfDots++;
-//                    } else {
-//                        break;
-//                    }
-//                }
-//                
-//                if (numberOfDots <= 1) {
-//                    return YES;
-//                } else {
-//                    return NO;
-//                }
+                //                NSLog(@"2 textfieldetxt  = #%@#", textField.text);
+                //                NSLog(@"2 trimmed string = #%@#", trimmed);
             }
         }
         else {
-//            NSLog(@"2 textfieldetxt  = #%@#", textField.text);
-//            NSLog(@"2 trimmed string = #%@#", trimmed);
+            //            NSLog(@"3 textfieldetxt  = #%@#", textField.text);
+            //            NSLog(@"3 trimmed string = #%@#", trimmed);
             return YES;
         }
     }
-//    NSLog(@"3 textfieldetxt  = #%@#", textField.text);
-//    NSLog(@"3 replace string = #%@#", string);
+//    NSLog(@"4 textfieldetxt  = #%@#", textField.text);
+//    NSLog(@"4 replace string = #%@#", string);
     return YES;
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField

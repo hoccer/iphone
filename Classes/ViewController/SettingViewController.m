@@ -45,7 +45,7 @@
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
-        parentFrame.size.height = parentFrame.size.height - 48;
+        //parentFrame.size.height = parentFrame.size.height - 48;
         [self.view setFrame:parentFrame];
         [self.tableView setFrame:parentFrame];
     }
