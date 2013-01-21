@@ -562,11 +562,13 @@
         
     }
     
-    if (groupSelectPopOverController && groupCount > 0){
-        if (groupCount > 1)
+    if (groupSelectPopOverController && groupCount > 0) {
+        if (groupCount > 1) {
             [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, (groupCount * 44)+20) animated:YES];
-        else
+        }
+        else {
             [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 63) animated:YES];
+        }
     }
     
     [self showGroupAndEncryption];
@@ -657,6 +659,7 @@
 
 - (void)pressedButton: (id)sender
 {
+    //debug ralph
     [statusViewController hideStatus];
     if (!groupSelectPopOverController) {
         groupSelectPopOverController = [[UIPopoverController alloc] initWithContentViewController:infoViewController];
@@ -685,16 +688,17 @@
             else {
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
             }
-            
 //            NSLog(@"presentPopoverFromBarButtonItem");
             [infoViewController.tableView reloadData];
-            
-            [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         }
         else {
             [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
-            [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         }
+        [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+
+//        CGFloat tabBarHeight = self.tabBar.bounds.size.height;
+//        CGRect rect = CGRectMake(0, 0, tabBarHeight, tabBarHeight);
+//        [groupSelectPopOverController presentPopoverFromRect:rect inView:tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:NO];
     }
 }
 

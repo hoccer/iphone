@@ -200,6 +200,8 @@ typedef enum {
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTextInputVC:) name:@"showTextInputVC" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
+
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
     [desktopView addGestureRecognizer:longPress];
@@ -624,7 +626,8 @@ typedef enum {
 	return channelViewController;
 }
 
-- (void)setContentPreview: (HoccerContent *)content {
+- (void)setContentPreview: (HoccerContent *)content
+{
     [statusViewController hideViewAnimated:NO];
     connectionEstablished = NO;
     content.cryptor = [self currentCryptor];
@@ -648,7 +651,7 @@ typedef enum {
     
     // hier : #####
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
     
     //######
 	
