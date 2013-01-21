@@ -123,7 +123,7 @@
     self.fullscreenPlayer.view.frame = screenRect;
     
     self.fullscreenPlayer.moviePlayer.controlStyle = MPMovieControlStyleDefault;  
-    self.fullscreenPlayer.moviePlayer.shouldAutoplay = NO;  
+    //self.fullscreenPlayer.moviePlayer.shouldAutoplay = NO;
     [self.fullscreenPlayer.moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
     self.fullscreenPlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.fullscreenPlayer.moviePlayer prepareToPlay];
@@ -165,16 +165,24 @@
 
 - (BOOL)saveDataToContentStorage {
    
-    if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath))
-    {
+    if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath)) {
         UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
+    else {
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error saving video"
+                                                       message:@"Video with this format cannot be saved in album."
+                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        view.tag = 20;
+        [view show];
+        [view release];
+        return NO;
+    }
     return YES;
-
 }
 
--(void) video: (NSString *)videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
-	[self sendSaveSuccessEvent];
+-(void) video: (NSString *)videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    [self sendSaveSuccessEvent];
 }
 
 - (UIImage *)imageForSaveButton {

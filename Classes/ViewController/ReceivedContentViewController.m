@@ -87,7 +87,7 @@
             break;
     }
 }
-- (IBAction)save: (id)sender	{
+- (IBAction)save:(id)sender	{
 	[hoccerContent whenReadyCallTarget:self selector:@selector(setReady) context: nil];
 	if ([hoccerContent needsWaiting]) {
 		[self setWaiting];

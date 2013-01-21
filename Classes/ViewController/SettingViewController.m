@@ -310,7 +310,7 @@
         case 0:
             if (buttonIndex == 1) {
                 [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];	
-            }
+            }	
             break;
         case 1:
             if (buttonIndex == 1) {

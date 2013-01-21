@@ -1132,6 +1132,7 @@ typedef enum {
 		[alertView show];
 		[alertView release];
 	}
+    [item.contentView hideSpinner];
 }
 
 - (void)finishedSaving: (ItemViewController *)item {

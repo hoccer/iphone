@@ -233,7 +233,7 @@
     self.fullscreenPlayer.view.frame = screenRect;
     
     self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
-    self.fullscreenPlayer.shouldAutoplay = NO;
+    //self.fullscreenPlayer.shouldAutoplay = NO;
     
     [self.fullscreenPlayer prepareToPlay];
     
@@ -259,7 +259,7 @@
     self.fullscreenPlayer.view.frame = screenRect;
     
     self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
-    self.fullscreenPlayer.shouldAutoplay = YES;
+    //self.fullscreenPlayer.shouldAutoplay = YES;
     
     [self.fullscreenPlayer prepareToPlay];
     
