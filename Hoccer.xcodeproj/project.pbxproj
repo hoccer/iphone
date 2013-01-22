@@ -4074,9 +4074,9 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4089,7 +4089,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4099,8 +4099,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "EF48297B-789E-41BA-ADE0-30CC64937D35";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EF48297B-789E-41BA-ADE0-30CC64937D35";
+				PROVISIONING_PROFILE = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -4113,9 +4114,9 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4126,7 +4127,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4136,8 +4137,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "EF48297B-789E-41BA-ADE0-30CC64937D35";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EF48297B-789E-41BA-ADE0-30CC64937D35";
+				PROVISIONING_PROFILE = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -4152,7 +4154,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -4171,9 +4173,9 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ralph Zuehlsdorf (C3B38255L2)";
-				COPY_PHASE_STRIP = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: ART COM Technologies GmbH";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ART COM Technologies GmbH";
+				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4184,7 +4186,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -4194,8 +4196,9 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "EF48297B-789E-41BA-ADE0-30CC64937D35";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EF48297B-789E-41BA-ADE0-30CC64937D35";
+				PROVISIONING_PROFILE = "23910205-CEA4-4430-BBEB-F850DF683D02";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23910205-CEA4-4430-BBEB-F850DF683D02";
+				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4372,7 +4375,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -4393,7 +4396,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/lib";
 				OTHER_LDFLAGS = (
 					"-ObjC",

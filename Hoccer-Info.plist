@@ -79,7 +79,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2498</string>
+	<string>2515</string>
 	<key>HCCodeName</key>
 	<string>Heimcomputer</string>
 	<key>HCVideoLink</key>
@@ -118,7 +118,7 @@
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedExternalAccessoryProtocols</key>
 	<array>
-		<string></string>
+		<string>none</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -137,8 +137,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIUpgradeOtherBundleIdentifier</key>
-	<string></string>
 	<key>UIViewEdgeAntialiasing</key>
 	<false/>
 	<key>UIViewGroupOpacity</key>
