@@ -4074,8 +4074,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4099,8 +4099,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4114,8 +4114,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pavel Mayer (4R5VRQ2MAS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4137,8 +4137,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3C43F473-10EA-4CBC-A601-602B2CDB35AF";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -4173,8 +4173,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ART COM Technologies GmbH";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ART COM Technologies GmbH";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4196,8 +4196,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "23910205-CEA4-4430-BBEB-F850DF683D02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23910205-CEA4-4430-BBEB-F850DF683D02";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
