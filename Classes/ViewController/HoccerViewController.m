@@ -1567,13 +1567,13 @@ typedef enum {
     [infoHud setAllowsCancelation:YES];
     [infoHud setDelegate:self];
 	
-    if (mode == HCTransferModeOneToOne){
+    if ([mode isEqual: HCTransferModeOneToOne]){
         infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_swipe-in"]] autorelease];
         infoHud.mode = MBProgressHUDModeCustomView;
         infoHud.labelText = @"Swipe on the\nother phone!";
         [infoHud show:YES];
     }
-    else if (mode == HCTransferModeOneToMany){
+    else if ([mode isEqual: HCTransferModeOneToMany]){
         infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_catch"]] autorelease];
         infoHud.mode = MBProgressHUDModeCustomView;
         infoHud.labelText = @"Catch with the other phones!";
