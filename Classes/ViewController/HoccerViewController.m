@@ -1545,7 +1545,7 @@ typedef enum {
 }
 
 - (void)showHud {
-	[self showHudWithMessage:NSLocalizedString(@"Preparing..", nil)];
+	[self showHudWithMessage:NSLocalizedString(@"Preparing...", nil)];
 }
 
 - (void)showHudWithMessage: (NSString *)message {
