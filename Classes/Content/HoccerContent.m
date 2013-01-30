@@ -359,11 +359,10 @@
 
 //######################################
 
-
-
-//- (UIView *)smallView
-//{
-//    return nil;
-//}
+// avoid a compiler warning
+- (UIView *)smallView {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
 
 @end
