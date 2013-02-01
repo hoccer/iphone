@@ -87,17 +87,13 @@
         return [self initWithData:theData];
         	
     } else {
-		return [super init];
+		return [self init];
 	}
 }
 
 - (id) initWithData: (NSData *)theData {
 	self = [super init];
 	if (self != nil) {
-		NSString *theFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
-		
-		filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: theFilename 
-                                                                  inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 		data = [theData retain];
         
 		[self saveDataToDocumentDirectory];
@@ -105,15 +101,16 @@
         canBeCiphered = YES;
 	}
 	
-	return self;
+	return [self init];
 }
 
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		NSString *newFilename = [NSString stringWithFormat:@"%@.%@", [self defaultFilename], self.extension];
-		filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename 
-                                                                 inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
+
+        NSString *newFilename = [[self defaultFilename] stringByAppendingPathExtension: self.extension];
+        filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename
+                                                                  inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 	}
 	
 	return self;
