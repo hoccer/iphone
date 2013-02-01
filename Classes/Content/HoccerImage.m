@@ -44,7 +44,7 @@
         if (previews && [previews count] > 0) {
             if ([[previews objectAtIndex:0] objectForKey:@"uri"]){
                 thumbURL = [[[previews objectAtIndex:0] objectForKey:@"uri"] copy];
-                thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename:nil];
+                thumbDownloader = [[FileDownloader alloc] initWithURL:thumbURL filename: self.thumbFilename];
                 thumbDownloader.cryptor = self.cryptor;
             
             [transferables addObject:thumbDownloader];

@@ -15,7 +15,8 @@
 - (id)initWithURL: (NSString *)aUrl filename: (NSString *)aFilename {
 	self = [super init];
 	if (self != nil) {
-		super.url = [aUrl retain];
+		super.url = aUrl;
+        self.filename = aFilename;
 	}
 	
 	return self;
@@ -35,10 +36,6 @@
 #pragma mark FileCache Delegate Methods
 - (void)fileCache: (HCFileCache *)fileCache didReceiveResponse: (NSHTTPURLResponse *)response withDownloadedData: (NSData *)data forURI: (NSString *)uri {
 	NSString *directory = [[NSFileManager defaultManager] contentDirectory];
-	NSString *tmpFilename = [response suggestedFilename];
-	self.filename = [[NSFileManager defaultManager] uniqueFilenameForFilename: tmpFilename 
-																  inDirectory: directory];
-	
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
     NSData* decrypted = [self.cryptor decrypt:data];
     
