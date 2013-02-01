@@ -70,7 +70,6 @@
 		canBeCiphered = YES;
 		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
 	}
-	
 	return self;
 }
 
@@ -164,7 +163,6 @@
 }
 
 - (BOOL)saveDataToContentStorage {
-   
     if ( UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.filepath)) {
         UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
