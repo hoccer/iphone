@@ -48,19 +48,18 @@
         transferables = [[NSMutableArray alloc] init];
         
         mimeType = [[dict objectForKey:@"type"] retain];
-		if ([dict objectForKey:@"uri"]){
+		if ([dict objectForKey:@"uri"]) {
             NSString *downloadURL = [dict objectForKey:@"uri"];
         
-        NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: @""];
-        transferable.cryptor = self.cryptor;
-        //NSLog(@"cryptor %@", self.cryptor);
+            NSObject <Transferable> *transferable = [[FileDownloader alloc] initWithURL:downloadURL filename: self.filename];
+            transferable.cryptor = self.cryptor;
+            //NSLog(@"cryptor %@", self.cryptor);
         
-        [transferables addObject: transferable];
-        [transferable release];
+            [transferables addObject: transferable];
+            [transferable release];
             
             canBeCiphered = NO;
-        }
-        else {
+        } else {
             return nil;
         }
 	}
