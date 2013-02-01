@@ -182,6 +182,9 @@
 
 -(void) video: (NSString *)videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
+    if (error) {
+        NSLog(@"Error while saving video: %@", error);
+    }
     [self sendSaveSuccessEvent];
 }
 
