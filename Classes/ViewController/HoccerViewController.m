@@ -811,7 +811,7 @@ typedef enum {
             [desktopData removeHoccerController:item];
         }
 
-        [linccer cancelAllRequest];
+        [linccer cancelAllRequestsKeepPeek];
         
         hoccerStatus = HOCCER_IDLING;
         self.channelAutoReceiveMode = NO;
@@ -959,7 +959,7 @@ typedef enum {
         return;
     }
     
-	[linccer cancelAllRequest];
+	[linccer cancelAllRequestsKeepPeek];
     if (![infoHud isHidden])
         [infoHud hide:YES];
 	
