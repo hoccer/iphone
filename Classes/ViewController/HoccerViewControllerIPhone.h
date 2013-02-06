@@ -13,13 +13,13 @@
 #import "HocletSelectViewController.h"
 #import "ActionElement.h"
 #import "HCHistoryTVC.h"
-#import "CustomPullToRefresh.h"
+// #import "CustomPullToRefresh.h"
 #import "PullDownView.h"
 
 @class ActionElement;
 
 @interface HoccerViewControllerIPhone : HoccerViewController <UINavigationControllerDelegate, 
-                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate, CustomPullToRefreshDelegate, UITableViewDelegate>
+                        GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate, UITableViewDelegate>
 {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
@@ -41,7 +41,7 @@
 
     
     // ### new pulltorefresh
-    CustomPullToRefresh *_ptr;
+//    CustomPullToRefresh *_ptr;
 //    UIScrollView *_refreshScrollView;
     UITableView *_table;
     

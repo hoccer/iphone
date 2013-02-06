@@ -511,7 +511,7 @@
     [super handleError:error];
     
     if (error != nil && [[error domain] isEqual:NSURLErrorDomain]) {
-        [groupSizeButton setTitle: @"--" forState:UIControlStateNormal];
+        [groupSizeButton setTitle: @"X  " forState:UIControlStateNormal];
         [infoViewController setGroup:nil];
     }
 }

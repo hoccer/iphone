@@ -13,7 +13,7 @@
 #import "StatusViewController.h"
 #import "GroupStatusViewController.h"
 #import "SelectContentController.h"
-#import "PullToReceiveViewController.h"
+// #import "PullToReceiveViewController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
 #import "HCHistoryTVC.h"
@@ -178,9 +178,9 @@
 //    [self.scrollView addSubview:pull];
 }
 
-- (void)customPullToRefreshShouldRefresh:(CustomPullToRefresh *)ptr
-{
-}
+//- (void)customPullToRefreshShouldRefresh:(CustomPullToRefresh *)ptr
+//{
+//}
 
 - (void)viewDidUnload
 {
@@ -754,7 +754,7 @@
 
     if (desktopViewRect.origin.y > swapPosition) {
         [self movePullDownToMaxDownPosition];
-        if (self.channelAutoReceiveMode) {
+        if (self.autoReceiveMode) {
 //            NSLog(@"not again switch to on ......................");
         }
         else {
@@ -764,9 +764,9 @@
     }
     else {
         [self movePullDownToNormalPosition];
-        if (self.channelAutoReceiveMode) {
+        if (self.autoReceiveMode) {
             [self.activityIndi stopAnimating];
-            [self channelSwitchAutoReceiveMode:NO];
+            [self switchAutoReceiveMode:NO];
         }
         else {
 //            NSLog(@"not again switch to OFF......................");
@@ -846,7 +846,7 @@
     
     [self movePullDownToNormalPosition];
     
-    self.channelAutoReceiveMode = NO;
+    self.autoReceiveMode = NO;
     
     //autoreceive morde = NO
     //self.channelAutoReceiveMode = NO;
@@ -881,7 +881,7 @@
     [super handleError:error];
     
     if (error != nil && [[error domain] isEqual:NSURLErrorDomain]) {
-        [groupSizeButton setTitle: @"--" forState:UIControlStateNormal];
+        [groupSizeButton setTitle: @"X  " forState:UIControlStateNormal];
         [infoViewController setGroup:nil];
     }
 }
@@ -1061,7 +1061,7 @@
 {
 //    NSLog(@"startChannelAutoReceiveMode 2");
 
-    [self channelSwitchAutoReceiveMode:YES];
+    [self switchAutoReceiveMode:YES];
 
 }
 
@@ -1200,7 +1200,7 @@
 {
     [infoViewController hideViewAnimated:NO];
     
-    if (!self.channelAutoReceiveMode) {
+    if (!self.autoReceiveMode) {
         [self movePullDownToNormalPosition];
     }
 }
@@ -1223,10 +1223,10 @@
 
 - (void)stopAutoReceiveAndPullDownHide
 {
-    if (self.channelAutoReceiveMode) {
+    if (self.autoReceiveMode) {
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
-        [self channelSwitchAutoReceiveMode:NO];
+        [self switchAutoReceiveMode:NO];
     }
     else {
         [self.activityIndi stopAnimating];
@@ -1254,12 +1254,12 @@
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (isChannelMode) {
-        if (self.channelAutoReceiveMode) {
-            [self channelSwitchAutoReceiveMode:YES];
+        if (self.autoReceiveMode) {
+            [self switchAutoReceiveMode:YES];
             NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
         }
         else {
-            [self channelSwitchAutoReceiveMode:NO];
+            [self switchAutoReceiveMode:NO];
             NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
         }
     }

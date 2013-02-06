@@ -110,7 +110,7 @@
 @property (nonatomic, retain) DesktopDataSource *desktopData;
 @property (assign) CGPoint defaultOrigin;
 @property (readonly) HCLinccer *linccer;
-@property (nonatomic, assign) BOOL channelAutoReceiveMode;
+@property (nonatomic, assign) BOOL autoReceiveMode;
 
 - (void)setContentPreview: (HoccerContent *)content;
 
@@ -156,8 +156,8 @@
 
 - (void)retryLastAction;
 
-- (void)channelSwitchAutoReceiveMode:(BOOL)on;
-- (void)toggleChannelAutoReceiveMode;
+- (void)switchAutoReceiveMode:(BOOL)on;
+- (void)toggleAutoReceiveMode;
 - (void)showChannelContactPicker;
 
 - (void)cancelPopOver;

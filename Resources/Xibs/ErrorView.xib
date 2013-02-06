@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11E53</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<int key="IBDocument.SystemTarget">1552</int>
+		<string key="IBDocument.SystemVersion">11G63b</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1138.51</string>
 		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>IBProxyObject</string>
-			<string>IBUIView</string>
 			<string>IBUILabel</string>
+			<string>IBUIView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -36,15 +36,16 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">274</int>
+				<int key="NSvFlags">282</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUILabel" id="668572913">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">298</int>
-						<string key="NSFrame">{{11, 210}, {298, 42}}</string>
+						<string key="NSFrame">{{11, 142}, {298, 42}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="500626610"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -85,8 +86,8 @@
 					</object>
 					<object class="IBUILabel" id="500626610">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">282</int>
-						<string key="NSFrame">{{0, 254}, {320, 56}}</string>
+						<int key="NSvFlags">314</int>
+						<string key="NSFrame">{{0, 209}, {320, 70}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -98,7 +99,8 @@
 						<string key="IBUIText">You must connect to a Wi-Fi or cellular data network to use Hoccer.</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC42IDAuNiAwLjYgMC42AA</bytes>
+							<bytes key="NSRGB">MSAxIDEgMC42AA</bytes>
+							<string key="IBUIColorCocoaTouchKeyPath">lightTextColor</string>
 						</object>
 						<reference key="IBUIHighlightedColor" ref="82686211"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -116,11 +118,13 @@
 							<double key="NSSize">13</double>
 							<int key="NSfFlags">16</int>
 						</object>
+						<double key="preferredMaxLayoutWidth">320</double>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 387}</string>
+				<string key="NSFrameSize">{320, 640}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="668572913"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MC4xNDExMjkwMzIzAA</bytes>
@@ -216,7 +220,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
+			<real value="1552" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -224,6 +228,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

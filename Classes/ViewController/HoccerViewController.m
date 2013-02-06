@@ -108,7 +108,7 @@ typedef enum {
 @synthesize linccer;
 @synthesize sendingItem;
 @synthesize errorViewController;
-@synthesize channelAutoReceiveMode;
+@synthesize autoReceiveMode;
 
 + (void) initialize
 {
@@ -129,7 +129,7 @@ typedef enum {
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-    channelAutoReceiveMode = NO;
+    autoReceiveMode = NO;
     closeAutoReceive = NO;
     
 	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fetchStatusUpdate) userInfo:nil repeats:NO];
@@ -762,7 +762,7 @@ typedef enum {
     [desktopData removeHoccerController:item];
 }
 
-- (void)channelSwitchAutoReceiveMode:(BOOL)on
+- (void)switchAutoReceiveMode:(BOOL)on
 {
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
@@ -792,7 +792,7 @@ typedef enum {
 //        [statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
         
         hoccerStatus = HOCCER_AUTO_RECEIVING_THROW;
-        self.channelAutoReceiveMode = YES;
+        self.autoReceiveMode = YES;
         
         self.sendingItem = nil;
     }
@@ -814,7 +814,7 @@ typedef enum {
         [linccer cancelAllRequestsKeepPeek];
         
         hoccerStatus = HOCCER_IDLING;
-        self.channelAutoReceiveMode = NO;
+        self.autoReceiveMode = NO;
 
         [desktopView reloadData];
 
@@ -991,13 +991,13 @@ typedef enum {
 	[desktopView reloadData];
 }
 
-- (void)toggleChannelAutoReceiveMode
+- (void)toggleAutoReceiveMode
 {
-    if (channelAutoReceiveMode) {
-        channelAutoReceiveMode = NO;
+    if (autoReceiveMode) {
+        autoReceiveMode = NO;
     }
     else {
-        channelAutoReceiveMode = YES;
+        autoReceiveMode = YES;
     }
 }
 
@@ -1232,7 +1232,7 @@ typedef enum {
 
 - (void)linccer:(HCLinccer *)aLinccer didFailWithError:(NSError *)error
 {
-    if (self.channelAutoReceiveMode) {
+    if (self.autoReceiveMode) {
         if (error.code == 504) {
             // retry
             NSLog(@" ### found error code  504 and repoll waiting = true  : %d", error.code);
@@ -1517,14 +1517,17 @@ typedef enum {
         [errorView setFrame:desktopView.frame];
         
         //RALPH #### ACHTUNG aufpassen insertSubview !!!
-		[desktopView insertSubview:errorView atIndex:1];
+		[desktopView insertSubview:errorView atIndex:0];
+        CGRect errorRect = errorView.frame;
+        errorRect.origin.y = desktopView.frame.origin.y-32;
+        errorView.frame = errorRect;
 	}
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
 	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"NO Internet connection. Please connect to a Wi-Fi or another network.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"No Internet connection. Please connect to a Wi-Fi or another network.", nil);
 	} else {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"Bugger: The HOCCER service is kaputt. Our monkeys are informed. Please try again later.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"The HOCCER service can not be reached. Please check your network connection or try again later.", nil);
 	}
     [self sizeLabel:((UILabel *)[errorView viewWithTag:1]) toRect:((UILabel *)[errorView viewWithTag:1]).frame];
 	[self sizeLabel:((UILabel *)[errorView viewWithTag:2]) toRect:((UILabel *)[errorView viewWithTag:2]).frame];
