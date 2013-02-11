@@ -65,7 +65,7 @@
 //@synthesize scrollView;
 //@synthesize refreshScrollView = _refreshScrollView;
 @synthesize table = _table;
-@synthesize pullDownFlag;
+@synthesize pullDownActionInProgress;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -159,7 +159,7 @@
     
     self.pullDownView.desktopView = desktopView;
     
-    isPullDown = NO;
+    //isPullDown = NO;
 	
 	[self showHud];
     [self updateGroupButton];
@@ -167,6 +167,8 @@
     //[self updateEncryptionIndicator];
     
     [self showTabBar:YES];
+    [self movePullDownToNormalPosition];
+
     //tabBar.userInteractionEnabled = YES;
     //[self.view bringSubviewToFront:tabBar];
     
@@ -623,59 +625,76 @@
     }
 }
 
+
 - (void)setDesktopBackgroundImage:(NSMutableArray *)others
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    
+    
+    CGRect desktopViewRect = desktopView.frame;
+    desktopViewRect.origin.y =  0;
+    
+    if (screenHeight > 480) {
+        desktopViewRect.size.height = 455;
+    } else {
+        desktopViewRect.size.height = 367;
+    }
+    desktopView.frame = desktopViewRect;
 
+    
+    NSString* bgImage = nil;
+    
     if (others.count == 0) {
         if (screenHeight > 480){
             if (isChannelMode) {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel_alone-568h"]];
+                bgImage = @"lochblech_bg_channel_alone-568h";
             }
             else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone-568h"]];
+                bgImage =  @"lochblech_bg_alone-568h";
             }
         }
         else {
             if (isChannelMode) {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel_alone"]];
+                bgImage = @"lochblech_bg_channel_alone";
             }
             else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_alone"]];
+                bgImage = @"lochblech_bg_alone";
             }
         }
     }
     else {
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
             if (screenHeight > 480){
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted-568h"]];
+                bgImage = @"lochblech_bg_encrypted-568h";
             }
             else {
-                desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_encrypted"]];
+                bgImage = @"lochblech_bg_encrypted";
             }
         }
         else {
             if (screenHeight > 480){
                 if (isChannelMode) {
-                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel-568h"]];
+                    bgImage = @"lochblech_bg_channel-568h";
                 }
                 else {
-                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg-568h"]];
+                    bgImage = @"lochblech_bg-568h";
                 }
             }
             else {
                 if (isChannelMode) {
-                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg_channel"]];
+                    bgImage = @"lochblech_bg_channel";
                 }
                 else {
-                    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg"]];
+                    bgImage = @"lochblech_bg";
                 }
             }
         }
     }
+    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:bgImage]];
+    NSLog(@"Desktop image set to %@", bgImage);
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients
@@ -700,7 +719,8 @@
 #pragma mark -
 #pragma mark PullDownViewDelegate
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     //NSLog(@"pull.......");
     
@@ -709,9 +729,34 @@
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
 	CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
-    CGRect desktopViewRect = desktopView.frame;
     CGRect myRect = self.pullDownView.frame;
- 
+    
+    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+    
+    // return if not on pulldown view
+    if (prevLocation.y < 0 || (prevLocation.y > myRect.size.height + 50)) {
+        NSLog(@" touchesBegan: not in pulldown handle");
+        self.pullDownActionInProgress = NO;
+    } else {
+        NSLog(@" touchesBegan: in pulldown handle");
+        self.pullDownActionInProgress = YES;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (self.pullDownActionInProgress == NO) {
+        return;
+    }
+    
+	UITouch* touch = [touches anyObject];
+    
+	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+    
+    CGRect myRect = self.pullDownView.frame;
     
     NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
     NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
@@ -720,68 +765,54 @@
     // return if not on pulldown view
     if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
         NSLog(@" touchesMoved: not in pulldown handle");
-        return;
+        //return;
     }
     
-    float minPosition = 33.0;
-    float maxPosition = 100.0;
-//    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
-    float movePoints = 0.0;
-    BOOL moveDown = NO;
+    float minPosition = -67;
+    float maxPosition = 0;
     
     // calc the move:
-    movePoints = currentLocation.y - prevLocation.y;
+    float movePoints = currentLocation.y - prevLocation.y;
     
-    // check up or down
-    if (movePoints < 0) {
-        moveDown = NO;
-        //NSLog(@"   DesktopView - move UP    %f", movePoints);
-    }
-    else {
-        moveDown = YES;
-        //NSLog(@"   DesktopView - move DOWN    %f", movePoints);
-    }
-
-    //check absolut min max position
-    if (((desktopViewRect.origin.y + (movePoints)) < minPosition) || ((desktopViewRect.origin.y + (movePoints)) > maxPosition)) {
-        //NSLog(@"   DesktopView - desktopViewRect.origin.y - BEFORE TOP  %f", desktopViewRect.origin.y);
-        movePoints = 0.0;
-    }
-
     // move to position
     myRect.origin.y += movePoints;
+    if (myRect.origin.y > maxPosition) {
+        myRect.origin.y = maxPosition;
+    } else if (myRect.origin.y < minPosition) {
+        myRect.origin.y = minPosition;
+    }
     self.pullDownView.frame = myRect;
-    
-    desktopViewRect.origin.y += movePoints;
-    desktopView.frame = desktopViewRect;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	UITouch* touch = [touches anyObject];
+    if (self.pullDownActionInProgress == NO) {
+        return;
+    }
+	
+    UITouch* touch = [touches anyObject];
     
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
 	CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
-    CGRect desktopViewRect = desktopView.frame;
     CGRect myRect = self.pullDownView.frame;
     
     NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
     NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
     NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
         
-    float minPosition = 33.0;
-    float maxPosition = 100.0;
-    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
-//    float movePoints = 0.0;
+    float minPosition = -67;
+    float maxPosition = 0;
+    float swapPosition = (maxPosition + minPosition)/2;
 
-    if (desktopViewRect.origin.y > swapPosition) {
+    if (myRect.origin.y > swapPosition) {
         [self movePullDownToMaxDownPosition];
         if (self.autoReceiveMode) {
-//            NSLog(@"not again switch to on ......................");
+            NSLog(@"not again switch to on ......................");
         }
         else {
             [self selectAutoReceive:self];
+            NSLog(@"touchesEnded startAnimating");
             [self.activityIndi startAnimating];
         }
     }
@@ -789,25 +820,26 @@
         // return if not on pulldown view
         if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
             NSLog(@" touchesEnded: not in pulldown handle");
-            return;
+            //return;
         }
         [self movePullDownToNormalPosition];
         if (self.autoReceiveMode) {
+             NSLog(@"touchesEnded stopAnimating");
             [self.activityIndi stopAnimating];
             [self switchAutoReceiveMode:NO];
         }
         else {
-//            NSLog(@"not again switch to OFF......................");
+           NSLog(@"not again switch to OFF......................");
         }
     }
 }
 - (void)movePullDownToHidePosition
 {
     CGRect pullDownViewRect = self.pullDownView.frame;
-	// pullDownViewRect.origin.y = - 100.0;
-     //pullDownViewRect.size.height = 0;
+	 pullDownViewRect.origin.y = - 100.0;
+     pullDownViewRect.size.height = 0;
 
-	 //self.pullDownView.frame = pullDownViewRect;
+	 self.pullDownView.frame = pullDownViewRect;
     
     NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
 
@@ -816,39 +848,21 @@
     CGRect desktopViewRect = desktopView.frame;
 	desktopViewRect.origin.y =  0.0;
     desktopViewRect.size.height = desktopViewHeight + 26.0;
-	desktopView.frame = desktopViewRect;
+	//desktopView.frame = desktopViewRect;
     
 }
 
 - (void)movePullDownToNormalPosition
 {
     self.pullDownView.hidden = NO;
-    //self.pullDownView.alpha = 1.0;
-    if (pullDownFlag) {
-        //NSLog(@"movePullDownToNormalPosition - pullDownFlag = YES");
 
-        CGRect pullDownViewRect = self.pullDownView.frame;
-        pullDownViewRect.origin.y = -67.0;
-        pullDownViewRect.size.height = 100;
-        self.pullDownView.frame = pullDownViewRect;
-        
-        CGRect desktopViewRect = desktopView.frame;
-        desktopViewRect.origin.y =  33.0;
-        desktopViewRect.size.height = desktopViewHeight;
-        desktopView.frame = desktopViewRect;
-    }
-    else {
-//        NSLog(@"movePullDownToNormalPosition - pullDownFlag = NO");
-        CGRect pullDownViewRect = self.pullDownView.frame;
-        pullDownViewRect.origin.y = 26.0;
-        pullDownViewRect.size.height = 100;
-        self.pullDownView.frame = pullDownViewRect;
-        
-        CGRect desktopViewRect = desktopView.frame;
-        desktopViewRect.origin.y =  33.0;
-        desktopView.frame = desktopViewRect;
-        pullDownFlag = YES;
-    }
+    NSLog(@"movePullDownToNormalPosition");
+    
+    CGRect pullDownViewRect = self.pullDownView.frame;
+    pullDownViewRect.origin.y = -67.0;
+    pullDownViewRect.size.height = 100;
+    self.pullDownView.frame = pullDownViewRect;
+    
 }
 
 - (void)movePullDownToMaxDownPosition
@@ -857,10 +871,6 @@
 	pullDownViewRect.origin.y = 0.0;
     pullDownViewRect.size.height = 100;
 	self.pullDownView.frame = pullDownViewRect;
-    
-    CGRect desktopViewRect = desktopView.frame;
-	desktopViewRect.origin.y =  100.0;
-	desktopView.frame = desktopViewRect;
 }
 
 - (void)movePullDownToYPosition:(NSNumber *)yNumber
@@ -882,6 +892,7 @@
 - (void)willFinishAutoReceive
 {
     //close pullDown
+    NSLog(@"willFinishAutoReceive stopAnimating");
     [self.activityIndi stopAnimating];
     
     [self movePullDownToNormalPosition];
@@ -1264,11 +1275,13 @@
 - (void)stopAutoReceiveAndPullDownHide
 {
     if (self.autoReceiveMode) {
+        NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
         [self switchAutoReceiveMode:NO];
     }
     else {
+        NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
     }

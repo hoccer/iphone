@@ -55,7 +55,7 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *refreshScrollView;
 @property (retain, nonatomic) IBOutlet UITableView *table;
 @property (retain, nonatomic) IBOutlet PullDownView *pullDownView;
-@property (nonatomic, assign) BOOL pullDownFlag;
+@property (nonatomic, assign) BOOL pullDownActionInProgress;
 @property (retain, nonatomic) IBOutlet UIImageView *pullDownAnimationImage;
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndi;
 

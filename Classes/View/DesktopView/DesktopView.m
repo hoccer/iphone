@@ -95,7 +95,7 @@
     for (SweepInRecognizer *recognizer in sweepRecognizers) {
         [recognizer desktopView:self touchesBegan:touches withEvent:event];
     }
-    
+    [super touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {		
@@ -114,6 +114,7 @@
 	for (SweepInRecognizer *recognizer in sweepRecognizers) {
 		[recognizer desktopView:self touchesMoved:touches withEvent:event];
 	}
+    [super touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{	
@@ -127,6 +128,8 @@
 	}
 	
 	self.currentlyTouchedViews = nil;
+    [super touchesEnded:touches withEvent:event];
+
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -135,6 +138,8 @@
 	}
 	
 	self.currentlyTouchedViews = nil;
+    [super touchesCancelled:touches withEvent:event];
+
 }
 
 #pragma mark -
