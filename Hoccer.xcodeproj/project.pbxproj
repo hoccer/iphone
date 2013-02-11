@@ -4173,8 +4173,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ART COM Technologies GmbH";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ART COM Technologies GmbH";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4196,8 +4196,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Hoccer;
-				PROVISIONING_PROFILE = "23910205-CEA4-4430-BBEB-F850DF683D02";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23910205-CEA4-4430-BBEB-F850DF683D02";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -4216,7 +4216,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
@@ -4238,7 +4238,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
@@ -4256,17 +4256,19 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"ARCHS[sdk=iphoneos*]" = armv7;
 				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hoccer_Prefix.pch;
 				INFOPLIST_FILE = "Hoccer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Downloads/libGHUnitIPhone3_0-0\"",
 					"\"$(SRCROOT)/../../../Desktop/AdMob SDKs/admob_iphone_sdk/AdMob\"",
 				);
 				PRODUCT_NAME = "Hoccer-iPad";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

@@ -23,10 +23,7 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 	HoccerHistoryController *hoccerHistoryController;
 	
 	BOOL isPopUpDisplayed;
-	
-	UITabBar *tabBar;
-	
-	IBOutlet UINavigationController *navigationController;
+		
     UINavigationController *settingsPopOverNavigationController;
     UINavigationController *historyPopOverNavigationController;
     UISegmentedControl *historySettings;
@@ -45,7 +42,6 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
-@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 @property (nonatomic, retain) UINavigationItem *navigationItem;
 

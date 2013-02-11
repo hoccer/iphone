@@ -26,10 +26,7 @@
 	HoccerHistoryController *hoccerHistoryController;
     
 	BOOL isPopUpDisplayed;
-	
-	UITabBar *tabBar;
-	
-	IBOutlet UINavigationController *navigationController;
+		
 	UINavigationItem *navigationItem;
 	
     HelpController *helpController;
@@ -50,7 +47,6 @@
 }
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
-@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
 @property (nonatomic, retain) HCHistoryTVC *historyTVC;
 @property (nonatomic, retain) UINavigationItem *navigationItem;

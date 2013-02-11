@@ -60,7 +60,6 @@
 @synthesize historyTVC;
 @synthesize delayedAction;
 @synthesize auxiliaryView;
-@synthesize tabBar;
 @synthesize activeContentSelectController;
 @synthesize navigationItem;
 //@synthesize scrollView;
@@ -167,8 +166,9 @@
     [self updateChannelButton];
     //[self updateEncryptionIndicator];
     
-    tabBar.userInteractionEnabled = YES;
-    [self.view bringSubviewToFront:tabBar];
+    [self showTabBar:YES];
+    //tabBar.userInteractionEnabled = YES;
+    //[self.view bringSubviewToFront:tabBar];
     
     //############### Pull ########
 //    [desktopView insertSubview:self.scrollView atIndex:1];
@@ -708,9 +708,21 @@
     
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
 	CGPoint currentLocation = [touch locationInView:self.pullDownView];
-	   
+    
     CGRect desktopViewRect = desktopView.frame;
     CGRect myRect = self.pullDownView.frame;
+ 
+    
+    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+
+    // return if not on pulldown view
+    if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
+        NSLog(@" touchesMoved: not in pulldown handle");
+        return;
+    }
+    
     float minPosition = 33.0;
     float maxPosition = 100.0;
 //    float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
@@ -746,7 +758,18 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	UITouch* touch = [touches anyObject];
+    
+	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+    
     CGRect desktopViewRect = desktopView.frame;
+    CGRect myRect = self.pullDownView.frame;
+    
+    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+        
     float minPosition = 33.0;
     float maxPosition = 100.0;
     float swapPosition = 53.0 + ((maxPosition - minPosition)/2);
@@ -763,6 +786,11 @@
         }
     }
     else {
+        // return if not on pulldown view
+        if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
+            NSLog(@" touchesEnded: not in pulldown handle");
+            return;
+        }
         [self movePullDownToNormalPosition];
         if (self.autoReceiveMode) {
             [self.activityIndi stopAnimating];
@@ -776,22 +804,32 @@
 - (void)movePullDownToHidePosition
 {
     CGRect pullDownViewRect = self.pullDownView.frame;
-	pullDownViewRect.origin.y = - 100.0;
-	self.pullDownView.frame = pullDownViewRect;
+	// pullDownViewRect.origin.y = - 100.0;
+     //pullDownViewRect.size.height = 0;
+
+	 //self.pullDownView.frame = pullDownViewRect;
+    
+    NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
+
+    self.pullDownView.hidden = YES;
     
     CGRect desktopViewRect = desktopView.frame;
 	desktopViewRect.origin.y =  0.0;
     desktopViewRect.size.height = desktopViewHeight + 26.0;
 	desktopView.frame = desktopViewRect;
+    
 }
 
 - (void)movePullDownToNormalPosition
 {
+    self.pullDownView.hidden = NO;
+    //self.pullDownView.alpha = 1.0;
     if (pullDownFlag) {
         //NSLog(@"movePullDownToNormalPosition - pullDownFlag = YES");
 
         CGRect pullDownViewRect = self.pullDownView.frame;
         pullDownViewRect.origin.y = -67.0;
+        pullDownViewRect.size.height = 100;
         self.pullDownView.frame = pullDownViewRect;
         
         CGRect desktopViewRect = desktopView.frame;
@@ -803,6 +841,7 @@
 //        NSLog(@"movePullDownToNormalPosition - pullDownFlag = NO");
         CGRect pullDownViewRect = self.pullDownView.frame;
         pullDownViewRect.origin.y = 26.0;
+        pullDownViewRect.size.height = 100;
         self.pullDownView.frame = pullDownViewRect;
         
         CGRect desktopViewRect = desktopView.frame;
@@ -816,6 +855,7 @@
 {
     CGRect pullDownViewRect = self.pullDownView.frame;
 	pullDownViewRect.origin.y = 0.0;
+    pullDownViewRect.size.height = 100;
 	self.pullDownView.frame = pullDownViewRect;
     
     CGRect desktopViewRect = desktopView.frame;
@@ -1277,6 +1317,7 @@
 }
 
 - (void) showNetworkError:(NSError *)error {
+    [self stopAutoReceiveAndPullDownHide];
 	[super showNetworkError:error];
 	[self updateGroupButton];
 }

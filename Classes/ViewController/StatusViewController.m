@@ -174,6 +174,7 @@
 	}
 
 	self.view.hidden = NO;
+    NSLog(@"StatusViewController showViewAnimated");
 	
 	if (animation) {
 		CGFloat currentYPos = self.view.center.y;
@@ -187,24 +188,31 @@
 
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    NSLog(@"StatusViewController hideViewAnimated");
 	
-        if (animation) {
-            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-            animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
-            animation.fillMode = kCAFillModeBoth;
-            animation.removedOnCompletion = NO;
-            animation.duration = 0.2;
-            animation.delegate = self;
-            
-            [self.view.layer addAnimation:animation forKey:@"slideUp"];		
-        } else {
-            self.view.hidden = YES;
-        }
+    if (animation) {
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
+        animation.fillMode = kCAFillModeBoth;
+        animation.removedOnCompletion = NO;
+        animation.duration = 0.2;
+        animation.delegate = self;
+        
+        [self.view.layer addAnimation:animation forKey:@"slideUp"];
+    } else {
+        self.view.hidden = YES;
+    }
+    
+    // pavel
+//    CGRect frame = self.view.frame;
+//	frame.size.height = 0;
+//    self.view.frame = frame;
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 	self.view.hidden = YES;
 	[self.view.layer removeAllAnimations];
+    NSLog(@"StatusViewController animationDidStop");
 }
 
 #pragma mark -

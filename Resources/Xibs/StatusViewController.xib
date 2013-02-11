@@ -134,6 +134,7 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{127, 9}, {187, 9}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<float key="IBUIProgress">0.5</float>

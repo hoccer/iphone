@@ -93,6 +93,10 @@
     HoccerContent *currentContent;
     
     BOOL closeAutoReceive;
+    
+    UITabBar *tabBar;
+    IBOutlet UINavigationController *navigationController;
+
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -111,6 +115,7 @@
 @property (assign) CGPoint defaultOrigin;
 @property (readonly) HCLinccer *linccer;
 @property (nonatomic, assign) BOOL autoReceiveMode;
+@property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
 - (void)setContentPreview: (HoccerContent *)content;
 
@@ -146,6 +151,8 @@
 
 - (void)showNetworkError: (NSError *)error;
 - (void)ensureViewIsHoccable;
+
+- (void)showTabBar:(BOOL) visible;
 
 - (void)handleError: (NSError *)error;
 

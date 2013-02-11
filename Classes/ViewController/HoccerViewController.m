@@ -109,6 +109,7 @@ typedef enum {
 @synthesize sendingItem;
 @synthesize errorViewController;
 @synthesize autoReceiveMode;
+@synthesize tabBar;
 
 + (void) initialize
 {
@@ -1512,20 +1513,22 @@ typedef enum {
 	linccer.environmentUpdateInterval = 5;
 	
 	if (errorView == nil) {
+        [self showTabBar:NO];
+        
 		NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ErrorView" owner:self options:nil];
 		errorView = [[views objectAtIndex:0] retain];
-        [errorView setFrame:desktopView.frame];
         
-        //RALPH #### ACHTUNG aufpassen insertSubview !!!
+        [errorView setFrame:desktopView.frame];
 		[desktopView insertSubview:errorView atIndex:0];
+        
         CGRect errorRect = errorView.frame;
-        errorRect.origin.y = desktopView.frame.origin.y-32;
         errorView.frame = errorRect;
+        
 	}
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
 	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"No Internet connection. Please connect to a Wi-Fi or another network.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"No Internet connection. Please check your network settings and try to connect to the internet.", nil);
 	} else {
 		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"The HOCCER service can not be reached. Please check your network connection or try again later.", nil);
 	}
@@ -1545,6 +1548,27 @@ typedef enum {
 		[errorView release]; 
 		errorView = nil;
 	}
+    [self showTabBar:YES];
+}
+
+- (void)showTabBar:(BOOL)visible
+{
+    if (visible) {
+        tabBar.userInteractionEnabled = YES;
+        [self.view bringSubviewToFront:tabBar];
+        tabBar.hidden = NO;
+        tabBar.alpha = 1;
+        tabBar.opaque = YES;
+        navigationController.navigationBar.alpha = 1;
+        navigationController.view.alpha = 1;
+    } else {
+        tabBar.userInteractionEnabled = NO;
+        [self.view sendSubviewToBack:tabBar];
+        //tabBar.hidden = YES;
+        tabBar.opaque = NO;
+        tabBar.alpha = 0.3;
+        navigationController.navigationBar.alpha = 0.3;
+    }
 }
 
 - (void)showHud {

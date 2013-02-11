@@ -54,7 +54,6 @@
 @synthesize hoccerHistoryController;
 @synthesize delayedAction;
 @synthesize auxiliaryView;
-@synthesize tabBar;
 @synthesize activeContentSelectController;
 @synthesize navigationItem;
 

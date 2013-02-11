@@ -12,6 +12,8 @@
 
 @synthesize objectImageView,overlayImageView,backgroundImageView,upperBarImageView,lowerBarImageView, desolveBackgroundImageView;
 
+const float speedfactor = 0.5;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,8 +47,8 @@
 
 - (void)appear:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     
-    [UIView animateWithDuration:0.5
-                          delay:0.1
+    [UIView animateWithDuration:0.5*speedfactor
+                          delay:0.1*speedfactor
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
                          [self.objectImageView setAlpha:1.0];
@@ -61,8 +63,8 @@
     CGRect newObjectFrame = self.objectImageView.frame;
     newObjectFrame.origin.x = 180;
     
-    [UIView animateWithDuration:0.5
-                          delay:0.1
+    [UIView animateWithDuration:0.5*speedfactor
+                          delay:0.1*speedfactor
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
                          self.objectImageView.frame = newObjectFrame;
@@ -75,8 +77,8 @@
 
 - (void)removeObject:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
-    [UIView animateWithDuration:0.5
-                          delay:0.8
+    [UIView animateWithDuration:0.5*speedfactor
+                          delay:0.8*speedfactor
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
                          [self.objectImageView setAlpha:0];
@@ -93,8 +95,8 @@
     CGRect lowerBarFrame = self.lowerBarImageView.frame;
     lowerBarFrame.origin.y = lowerBarFrame.origin.y-62;
     
-    [UIView animateWithDuration:0.5
-                          delay:0.8
+    [UIView animateWithDuration:0.5*speedfactor
+                          delay:0.8*speedfactor
                         options: UIViewAnimationCurveEaseInOut
                      animations:^{
                          [self.overlayImageView setAlpha:0];
