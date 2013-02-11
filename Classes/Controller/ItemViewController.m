@@ -207,7 +207,7 @@
 
 - (IBAction)playAudioButton:(id)sender
 {
-    NSLog(@"start play old");
+    // NSLog(@"start play old");
 
     //[self.contentView insertSubview:content.smallView atIndex:8];
 

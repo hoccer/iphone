@@ -67,7 +67,7 @@
 
 - (void)toggleButtonPressed:(id)sender
 {
-    NSLog(@"########## HCHistoryTVC #######  toggleButtonPressed");
+    // NSLog(@"########## HCHistoryTVC #######  toggleButtonPressed");
 
     DataManager *dm = [DataManager sharedDataManager];
     

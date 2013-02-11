@@ -767,9 +767,7 @@ typedef enum {
 {
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
-        
-        NSLog(@"#### SwitchAutoReceiveMode  ON ####");
-        
+                
         [infoViewController hideViewAnimated:NO];
         
         //[FeedbackProvider playCatchFeedback];
@@ -798,9 +796,7 @@ typedef enum {
         self.sendingItem = nil;
     }
     else {
-        if (USES_DEBUG_MESSAGES) { NSLog(@"channelSwitchAutoReceiveMode  OFF ----"); }
-        
-        NSLog(@"#### SwitchAutoReceiveMode  OFF ####");
+        if (USES_DEBUG_MESSAGES) { NSLog(@"SwitchAutoReceiveMode  OFF ----"); }
         
         if ([transferController hasTransfers]) {
             [transferController cancelDownloads];
@@ -1451,8 +1447,6 @@ typedef enum {
         [statusViewController hideStatus];
 		[errorViewController showError:error forSeconds:10];
 	}
-	
-
     
 	if (self.sendingItem) {
 		self.sendingItem.viewOrigin = self.defaultOrigin;

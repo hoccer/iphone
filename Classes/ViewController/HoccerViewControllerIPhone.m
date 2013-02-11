@@ -136,17 +136,19 @@
     }
 
 	[desktopView insertSubview:statusViewController.view atIndex:3];
-    CGRect statusRect = statusViewController.view.frame;
-	statusRect.origin.y = desktopView.frame.origin.y-32;
-	statusViewController.view.frame = statusRect;
+//  CGRect statusRect = statusViewController.view.frame;
+//	statusRect.origin.y = desktopView.frame.origin.y;
+//	statusViewController.view.frame = statusRect;
     
     [desktopView insertSubview:errorViewController.view atIndex:2];
-    CGRect errorRect = errorViewController.view.frame;
-    errorRect.origin.y = desktopView.frame.origin.y-32;
-	errorViewController.view.frame = errorRect;
+//    CGRect errorRect = errorViewController.view.frame;
+//    errorRect.origin.y = desktopView.frame.origin.y;
+//	errorViewController.view.frame = errorRect;
 
 	[desktopView insertSubview:infoViewController.view atIndex:1];
-	infoViewController.view.frame = statusRect;
+//    CGRect infoRect = infoViewController.view.frame;
+//	infoRect.origin.y = desktopView.frame.origin.y;
+//	infoViewController.view.frame = infoRect;
 	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
 	[infoViewController setState:[LocationState state]];
 	[infoViewController hideViewAnimated: NO];
@@ -485,17 +487,6 @@
 
 - (void)showPopOver:(UIViewController *)popOverView
 {
-//    [self movePullDownToHidePosition];
-    
-    // hier noch alt weil versuch aber das darunter funktioniert doch
-//    if ([popOverView isKindOfClass:[SelectContentController class]]) {
-//        NSLog(@"SelectContentController");
-//    }
-//    else {
-//        [self stopAutoReceiveAndPullDownHide];
-//    }
-
-    // das geht doch so
     [self stopAutoReceiveAndPullDownHide];
 
 	[popOverView viewWillAppear:YES];
@@ -694,7 +685,7 @@
         }
     }
     desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:bgImage]];
-    NSLog(@"Desktop image set to %@", bgImage);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"Desktop image set to %@", bgImage); }
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients
@@ -721,27 +712,26 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    //NSLog(@"pull.......");
-    
+{    
 	UITouch* touch = [touches anyObject];
     
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
-	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+//	CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
     CGRect myRect = self.pullDownView.frame;
     
-    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+//    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
     
     // return if not on pulldown view
     if (prevLocation.y < 0 || (prevLocation.y > myRect.size.height + 50)) {
-        NSLog(@" touchesBegan: not in pulldown handle");
+        // NSLog(@" touchesBegan: not in pulldown handle");
         self.pullDownActionInProgress = NO;
     } else {
-        NSLog(@" touchesBegan: in pulldown handle");
+        // NSLog(@" touchesBegan: in pulldown handle");
         self.pullDownActionInProgress = YES;
+        self.pullDownDragged = NO;
     }
 }
 
@@ -758,15 +748,9 @@
     
     CGRect myRect = self.pullDownView.frame;
     
-    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
-
-    // return if not on pulldown view
-    if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
-        NSLog(@" touchesMoved: not in pulldown handle");
-        //return;
-    }
+//    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
     
     float minPosition = -67;
     float maxPosition = 0;
@@ -782,6 +766,8 @@
         myRect.origin.y = minPosition;
     }
     self.pullDownView.frame = myRect;
+    
+    self.pullDownDragged = YES;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -790,46 +776,59 @@
         return;
     }
 	
-    UITouch* touch = [touches anyObject];
+//    UITouch* touch = [touches anyObject];
     
-	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
-	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+//	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+//	CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
     CGRect myRect = self.pullDownView.frame;
     
-    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
-        
+//    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+    
     float minPosition = -67;
     float maxPosition = 0;
     float swapPosition = (maxPosition + minPosition)/2;
+    
+    enum Target {
+        NO_POSITION,
+        GOTO_MIN_POSITION,
+        GOTO_MAX_POSITION
+    };
+    
+    enum Target gotoPosition = NO_POSITION;
+    
+    if (self.pullDownDragged == NO) {
+        // Set Up Toggle mode
+        if (myRect.origin.y > swapPosition) {
+            gotoPosition = GOTO_MIN_POSITION;
+        } else {
+            gotoPosition = GOTO_MAX_POSITION;
 
-    if (myRect.origin.y > swapPosition) {
+        }
+    }
+    
+    if ((myRect.origin.y > swapPosition && gotoPosition == NO_POSITION) || gotoPosition == GOTO_MAX_POSITION) {
         [self movePullDownToMaxDownPosition];
         if (self.autoReceiveMode) {
-            NSLog(@"not again switch to on ......................");
+            // NSLog(@"not again switch to on ......................");
         }
         else {
             [self selectAutoReceive:self];
-            NSLog(@"touchesEnded startAnimating");
+            // NSLog(@"touchesEnded startAnimating");
             [self.activityIndi startAnimating];
         }
     }
     else {
-        // return if not on pulldown view
-        if (prevLocation.y < 0 || prevLocation.y > myRect.size.height) {
-            NSLog(@" touchesEnded: not in pulldown handle");
-            //return;
-        }
         [self movePullDownToNormalPosition];
         if (self.autoReceiveMode) {
-             NSLog(@"touchesEnded stopAnimating");
+            // NSLog(@"touchesEnded stopAnimating");
             [self.activityIndi stopAnimating];
             [self switchAutoReceiveMode:NO];
         }
         else {
-           NSLog(@"not again switch to OFF......................");
+           // NSLog(@"not again switch to OFF......................");
         }
     }
 }
@@ -841,22 +840,16 @@
 
 	 self.pullDownView.frame = pullDownViewRect;
     
-    NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
+    // NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
 
     self.pullDownView.hidden = YES;
-    
-    CGRect desktopViewRect = desktopView.frame;
-	desktopViewRect.origin.y =  0.0;
-    desktopViewRect.size.height = desktopViewHeight + 26.0;
-	//desktopView.frame = desktopViewRect;
-    
 }
 
 - (void)movePullDownToNormalPosition
 {
     self.pullDownView.hidden = NO;
 
-    NSLog(@"movePullDownToNormalPosition");
+    // NSLog(@"movePullDownToNormalPosition");
     
     CGRect pullDownViewRect = self.pullDownView.frame;
     pullDownViewRect.origin.y = -67.0;
@@ -873,34 +866,16 @@
 	self.pullDownView.frame = pullDownViewRect;
 }
 
-- (void)movePullDownToYPosition:(NSNumber *)yNumber
-{
-//    NSLog(@"movePullDownToNormalPosition - pullDown To y = %f", [yNumber floatValue]);
-//    
-//    float pullDownTotalHeight = 88.00;
-//    float pullDownNormalPosition = 24.0;
-//    
-//    CGRect pullDownViewRect = self.pullDownView.frame;
-//    pullDownViewRect.origin.y = 30.0;
-//    self.pullDownView.frame = pullDownViewRect;
-//    
-//    CGRect desktopViewRect = desktopView.frame;
-//    desktopViewRect.origin.y =  24.0;
-//    desktopView.frame = desktopViewRect;
-}
 
 - (void)willFinishAutoReceive
 {
     //close pullDown
-    NSLog(@"willFinishAutoReceive stopAnimating");
+    // NSLog(@"willFinishAutoReceive stopAnimating");
     [self.activityIndi stopAnimating];
     
     [self movePullDownToNormalPosition];
     
     self.autoReceiveMode = NO;
-    
-    //autoreceive morde = NO
-    //self.channelAutoReceiveMode = NO;
 }
 
 
@@ -946,8 +921,7 @@
             if (self.channelViewController.channelTextField.text.length > 0) {
                 if ((self.channelViewController.channelTextField.text.length < 6) || (self.channelViewController.channelTextField.text.length > 32)) {
                     
-                    NSLog(@"   self.channelViewController.channelTextField.text.length < 6");
-                    //[self.channelViewController.channelTextField resignFirstResponder];
+                    // NSLog(@"   self.channelViewController.channelTextField.text.length < 6");
                     
                     UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Malformened Channel Name"
                                                                    message:@"The channel name must have at least 6 and max 32 characters."
@@ -959,8 +933,7 @@
                     return;
                 }
                 else {
-                    NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
-                    
+                    // NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
                 }
             }
         }
@@ -1275,13 +1248,13 @@
 - (void)stopAutoReceiveAndPullDownHide
 {
     if (self.autoReceiveMode) {
-        NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
+        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
         [self switchAutoReceiveMode:NO];
     }
     else {
-        NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
+        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
     }
@@ -1302,18 +1275,18 @@
 - (void)pressedToggleAutoReceive:(id)sender
 {
     //[self toggleChannelAutoReceiveMode];
-    NSLog(@"    pressedToggleAutoReceive  ");
+   //  NSLog(@"    pressedToggleAutoReceive  ");
     [self updateChannelButton];
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (isChannelMode) {
         if (self.autoReceiveMode) {
             [self switchAutoReceiveMode:YES];
-            NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
+            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
         }
         else {
             [self switchAutoReceiveMode:NO];
-            NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
+            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
         }
     }
 }
@@ -1368,6 +1341,12 @@
             }
         }
     }
+}
+
+- (void)ensureViewIsHoccable
+{
+    [super ensureViewIsHoccable];
+    [self movePullDownToNormalPosition];
 }
 
 @end

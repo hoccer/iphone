@@ -174,7 +174,7 @@
 	}
 
 	self.view.hidden = NO;
-    NSLog(@"StatusViewController showViewAnimated");
+    // NSLog(@"StatusViewController showViewAnimated");
 	
 	if (animation) {
 		CGFloat currentYPos = self.view.center.y;
@@ -188,7 +188,7 @@
 
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    NSLog(@"StatusViewController hideViewAnimated");
+    // NSLog(@"StatusViewController hideViewAnimated");
 	
     if (animation) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -202,17 +202,12 @@
     } else {
         self.view.hidden = YES;
     }
-    
-    // pavel
-//    CGRect frame = self.view.frame;
-//	frame.size.height = 0;
-//    self.view.frame = frame;
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 	self.view.hidden = YES;
 	[self.view.layer removeAllAnimations];
-    NSLog(@"StatusViewController animationDidStop");
+    // NSLog(@"StatusViewController animationDidStop");
 }
 
 #pragma mark -

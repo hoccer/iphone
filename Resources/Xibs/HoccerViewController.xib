@@ -49,6 +49,7 @@
 						<string key="NSFrame">{{0, 499}, {320, 49}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="762199063">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -166,7 +167,7 @@
 											<array class="NSMutableArray" key="NSSubviews">
 												<object class="IBUIImageView" id="368441185">
 													<reference key="NSNextResponder" ref="138603932"/>
-													<int key="NSvFlags">268</int>
+													<int key="NSvFlags">292</int>
 													<string key="NSFrameSize">{320, 100}</string>
 													<reference key="NSSuperview" ref="138603932"/>
 													<reference key="NSWindow"/>
@@ -235,7 +236,7 @@
 												<object class="IBUIImageView" id="403723230">
 													<reference key="NSNextResponder" ref="138603932"/>
 													<int key="NSvFlags">292</int>
-													<string key="NSFrame">{{0, 65}, {320, 15}}</string>
+													<string key="NSFrame">{{0, 100}, {320, 15}}</string>
 													<reference key="NSSuperview" ref="138603932"/>
 													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="284235471"/>
@@ -249,7 +250,7 @@
 													</object>
 												</object>
 											</array>
-											<string key="NSFrame">{{0, -67}, {320, 100}}</string>
+											<string key="NSFrame">{{0, -67}, {320, 115}}</string>
 											<reference key="NSSuperview" ref="978414107"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="368441185"/>
@@ -293,6 +294,7 @@
 											<string key="NSFrame">{{0, 387}, {320, 13}}</string>
 											<reference key="NSSuperview" ref="978414107"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
 											<float key="IBUIAlpha">0.5</float>
 											<bool key="IBUIUserInteractionEnabled">NO</bool>
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -583,8 +585,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="148650262"/>
 							<reference ref="971566033"/>
-							<reference ref="368441185"/>
 							<reference ref="403723230"/>
+							<reference ref="368441185"/>
 						</array>
 						<reference key="parent" ref="978414107"/>
 					</object>
