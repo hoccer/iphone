@@ -521,10 +521,10 @@
 
     [self showPopOver:inputVC];
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:inputVC action:@selector(doneButtonTapped:)];
-    UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelPopOver)];
+    UIBarButtonItem *cancelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
-    [self.navigationItem setLeftBarButtonItem:canelButton];
-    [canelButton release];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
+    [cancelButton release];
     [doneButton release];
     navigationItem.titleView = nil;
     navigationItem.title = @"";
@@ -591,11 +591,14 @@
             [others addObject:dict];            
         }
     }
-    [self setDesktopBackgroundImage:others];
     
-    [infoViewController setGroup: others];
-    [self updateGroupButton];
-    [self updateChannelButton];
+    if (self.tabBar.selectedItem == nil) { // only update when main screen in front
+        [self setDesktopBackgroundImage:others];
+        
+        [infoViewController setGroup: others];
+        [self updateGroupButton];
+        [self updateChannelButton];
+    }
 }
 
 - (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data

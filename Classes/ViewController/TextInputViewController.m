@@ -26,9 +26,9 @@
     
     [textView becomeFirstResponder];
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:self action:@selector(doneButtonTapped:)];
-    UIBarButtonItem *canelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelButtonTapped:)];
+    UIBarButtonItem *cancelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelButtonTapped:)];
     [self.theNavItem setRightBarButtonItem:doneButton];
-    [self.theNavItem setLeftBarButtonItem:canelButton];
+    [self.theNavItem setLeftBarButtonItem:cancelButton];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         UIGraphicsBeginImageContextWithOptions(self.presentingViewController.view.bounds.size, YES, self.presentingViewController.view.window.screen.scale);
         
@@ -40,7 +40,7 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage:ret];
     }
     [doneButton release];
-    [canelButton release];
+    [cancelButton release];
 }
 
 
