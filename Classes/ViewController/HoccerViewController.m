@@ -100,7 +100,7 @@ typedef enum {
 @synthesize channelViewController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
-@synthesize infoViewController;
+@synthesize groupViewController;
 @synthesize desktopData;
 @synthesize defaultOrigin;
 @synthesize hoccabilityLabel;
@@ -694,7 +694,7 @@ typedef enum {
 		return;
 	}
 
-	[infoViewController hideViewAnimated:YES];
+	[groupViewController hideViewAnimated:YES];
 
 	[FeedbackProvider playCatchFeedback];
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
@@ -736,7 +736,7 @@ typedef enum {
         
     }
 	
-	[infoViewController hideViewAnimated:YES];
+	[groupViewController hideViewAnimated:NO];
 	
 	[FeedbackProvider playThrowFeedback];
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
@@ -768,7 +768,7 @@ typedef enum {
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
                 
-        [infoViewController hideViewAnimated:NO];
+        [groupViewController hideViewAnimated:NO];
         
         //[FeedbackProvider playCatchFeedback];
         ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
@@ -860,7 +860,7 @@ typedef enum {
 	}
 	
 	[FeedbackProvider playSweepIn];
-	[infoViewController hideViewAnimated:YES];
+	[groupViewController hideViewAnimated:YES];
 	
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
@@ -893,7 +893,7 @@ typedef enum {
     
 	[FeedbackProvider playSweepOut];
 	
-	[infoViewController hideViewAnimated:YES];
+	[groupViewController hideViewAnimated:YES];
 	[statusViewController setState:[SendingState state]];
 	[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
     
@@ -1711,7 +1711,7 @@ typedef enum {
 	[hoccingRules release];
 	[transferController release];
 	[hud release];
-    [infoViewController release];
+    [groupViewController release];
     
     [httpClient release];
 	

@@ -65,7 +65,7 @@
 	GesturesInterpreter *gestureInterpreter;
 	
 	ConnectionStatusViewController *statusViewController;
-	GroupStatusViewController *infoViewController;
+	GroupStatusViewController *groupViewController;
     ErrorViewController *errorViewController;
 
 	HttpClient *httpClient;
@@ -104,7 +104,7 @@
 
 @property (nonatomic, retain) SettingViewController *helpViewController;
 @property (nonatomic, retain) ChannelViewController *channelViewController;
-@property (nonatomic, retain) IBOutlet GroupStatusViewController *infoViewController;
+@property (nonatomic, retain) IBOutlet GroupStatusViewController *groupViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
 @property (nonatomic, retain) IBOutlet ErrorViewController *errorViewController;

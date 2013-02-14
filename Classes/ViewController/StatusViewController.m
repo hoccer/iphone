@@ -170,7 +170,7 @@
 
 - (void)showViewAnimated: (BOOL)animation {
 	if (!self.view.hidden ) {
-		return;
+		 return;
 	}
 
 	self.view.hidden = NO;

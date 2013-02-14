@@ -95,7 +95,7 @@
         desktopViewHeight += 91.0;
     }
     
-    NSArray *group = infoViewController.group;
+    NSArray *group = groupViewController.group;
     if (group != nil) {
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
         for (NSDictionary *dict in group) {
@@ -136,23 +136,14 @@
     }
 
 	[desktopView insertSubview:statusViewController.view atIndex:3];
-//  CGRect statusRect = statusViewController.view.frame;
-//	statusRect.origin.y = desktopView.frame.origin.y;
-//	statusViewController.view.frame = statusRect;
     
     [desktopView insertSubview:errorViewController.view atIndex:2];
-//    CGRect errorRect = errorViewController.view.frame;
-//    errorRect.origin.y = desktopView.frame.origin.y;
-//	errorViewController.view.frame = errorRect;
 
-	[desktopView insertSubview:infoViewController.view atIndex:1];
-//    CGRect infoRect = infoViewController.view.frame;
-//	infoRect.origin.y = desktopView.frame.origin.y;
-//	infoViewController.view.frame = infoRect;
-	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
-	[infoViewController setState:[LocationState state]];
-	[infoViewController hideViewAnimated: NO];
-    infoViewController.delegate = self;
+	[desktopView insertSubview:groupViewController.view atIndex:1];
+	groupViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
+	[groupViewController setState:[LocationState state]];
+	[groupViewController hideViewAnimated: NO];
+    groupViewController.delegate = self;
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
@@ -170,21 +161,7 @@
     
     [self showTabBar:YES];
     [self movePullDownToNormalPosition];
-
-    //tabBar.userInteractionEnabled = YES;
-    //[self.view bringSubviewToFront:tabBar];
-    
-    //############### Pull ########
-//    [desktopView insertSubview:self.scrollView atIndex:1];
-//
-//    self.pull = [[PullToRefreshView alloc] initWithScrollView:self.scrollView atBottom:NO];
-//    [pull setDelegate:self];
-//    [self.scrollView addSubview:pull];
 }
-
-//- (void)customPullToRefreshShouldRefresh:(CustomPullToRefresh *)ptr
-//{
-//}
 
 - (void)viewDidUnload
 {
@@ -416,74 +393,7 @@
     self.channelViewController.delegate = self;
 }
 
-//############################################### TEST PullDown Refresh #####################
 
-- (void)showPullDown
-{
-//    PullToReceiveViewController *pullToReceiveViewController = [[PullToReceiveViewController alloc] init];
-//	pullToReceiveViewController.delegate = self;
-//	
-//    [pullToReceiveViewController viewWillAppear:YES];
-//	
-//	gestureInterpreter.delegate = nil;
-//	self.auxiliaryView = pullToReceiveViewController;
-//	
-//	CGRect popOverFrame = pullToReceiveViewController.view.frame;
-////	popOverFrame.size = desktopView.frame.size;
-////	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
-////	pullToReceiveViewController.view.frame = popOverFrame;
-//	
-//	[desktopView insertSubview:pullToReceiveViewController.view atIndex:0];
-//    
-//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-//	[UIView setAnimationDuration:0.3];
-//	
-//	popOverFrame.origin = CGPointMake(0, 0);
-//	pullToReceiveViewController.view.frame = popOverFrame;
-//	[UIView commitAnimations];
-//	
-//	isPopUpDisplayed = TRUE;
-//	
-//    [infoViewController hideStatus];
-//	[pullToReceiveViewController viewDidAppear:YES];
-//
-//    
-//	[pullToReceiveViewController release];
-    
-    //#### old
-//    
-//    //[self.pull viewWillAppear:YES];
-//	
-//	gestureInterpreter.delegate = nil;
-//	//self.auxiliaryView = self.pull;
-//	
-//	CGRect popOverFrame = self.pull.frame;
-//	popOverFrame.size = desktopView.frame.size;
-//	popOverFrame.origin= CGPointMake(0, self.view.frame.size.height);
-//	self.pull.frame = popOverFrame;
-//	
-//	[desktopView insertSubview:self.pull atIndex:1];
-//    
-//	[UIView beginAnimations:@"myFlyInAnimation" context:NULL];
-//	[UIView setAnimationDuration:0.3];
-//	
-//	popOverFrame.origin = CGPointMake(0, 0);
-//	self.pull.frame = popOverFrame;
-//	[UIView commitAnimations];
-//	
-//	isPopUpDisplayed = TRUE;
-//	
-//    [infoViewController hideStatus];
-//	//[self.pull viewDidAppear:YES];
-//
-//	navigationItem.title = NSLocalizedString(@"Pull", nil);
-//	
-//    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
-//    [self.navigationItem setRightBarButtonItem:doneButton];
-//    [doneButton release];
-//    
-//	navigationItem.titleView = nil;
-}
 
 - (void)showPopOver:(UIViewController *)popOverView
 {
@@ -510,7 +420,7 @@
 	
 	isPopUpDisplayed = TRUE;
 	
-    [infoViewController hideStatus];
+    [groupViewController hideStatus];
 	[popOverView viewDidAppear:YES];
 }
 
@@ -595,7 +505,7 @@
     if (self.tabBar.selectedItem == nil) { // only update when main screen in front
         [self setDesktopBackgroundImage:others];
         
-        [infoViewController setGroup: others];
+        [groupViewController setGroup: others];
         [self updateGroupButton];
         [self updateChannelButton];
     }
@@ -910,8 +820,8 @@
     [super handleError:error];
     
     if (error != nil && [[error domain] isEqual:NSURLErrorDomain]) {
+        [groupViewController setGroup:nil];
         [groupSizeButton setTitle: @"X  " forState:UIControlStateNormal];
-        [infoViewController setGroup:nil];
     }
 }
 
@@ -951,7 +861,7 @@
     [self updateGroupButton];
     [self updateChannelButton];
 
-    NSArray *group = infoViewController.group;
+    NSArray *group = groupViewController.group;
     if (group != nil) {
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
         for (NSDictionary *dict in group) {
@@ -1017,7 +927,7 @@
         groupSizeButton.frame = CGRectMake(0, 0, 56, 44);
     }
     
-    NSInteger groupCount = [[infoViewController group] count];
+    NSInteger groupCount = [[groupViewController group] count];
     NSString *text = nil;
     if (groupCount < 1) {
         text = @"0   ";
@@ -1117,9 +1027,9 @@
 
 - (void)showGroupButton
 {
-	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
-	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-    [hoccabilityBarButtonItem release];
+	UIBarButtonItem *mainBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
+	navigationItem.rightBarButtonItem = mainBarButtonItem;
+    [mainBarButtonItem release];
 }
 
 - (void)showChannelButton
@@ -1203,7 +1113,7 @@
     }
     [desktopView reloadData];
     
-    NSArray *group = infoViewController.group;
+    NSArray *group = groupViewController.group;
     if (group != nil) {
         NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
         for (NSDictionary *dict in group) {
@@ -1225,7 +1135,7 @@
 
 - (void)desktopView:(DesktopView *)desktopView wasTouchedWithTouches:(NSSet *)touches
 {
-    [infoViewController hideViewAnimated:NO];
+    [groupViewController hideViewAnimated:NO];
     
     if (!self.autoReceiveMode) {
         [self movePullDownToNormalPosition];
@@ -1236,15 +1146,16 @@
 {
     [statusViewController hideStatus];
     
-	if (infoViewController.view.hidden == NO) {
-		//[infoViewController setLocationHint:nil];
-        [infoViewController hideViewAnimated:NO];
+	if (groupViewController.view.hidden == NO) {
+		//[groupViewController setLocationHint:nil];
+        [groupViewController hideViewAnimated:NO];
 
         [self movePullDownToNormalPosition];
 	}
     else {
-		[infoViewController setLocationHint:[HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
+		[groupViewController setLocationHint:[HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
         [self stopAutoReceiveAndPullDownHide];
+        // [groupViewController showViewAnimated:NO];
 	}
 }
 

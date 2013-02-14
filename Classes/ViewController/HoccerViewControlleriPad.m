@@ -117,11 +117,22 @@
 	errorViewController.view.frame = errorRect;
     
     CGRect infoRect = CGRectMake(0, 0, 320, 400);
-    infoViewController = [[GroupStatusViewController alloc] init];
-	infoViewController.view.frame = infoRect;
-	infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
-	[infoViewController setState:[LocationState state]];
-    infoViewController.delegate = self;
+    groupViewController = [[GroupStatusViewController alloc] init];
+	groupViewController.view.frame = infoRect;
+	groupViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
+	[groupViewController setState:[LocationState state]];
+    groupViewController.delegate = self;
+    
+    // Fix different autosizing behavior of tableview required for use in popover on iPad
+    NSArray* subviews = groupViewController.view.subviews;
+    for (UIView *subview in subviews) {
+        // NSLog(@"%@", subview);
+        subview.autoresizingMask = 0;
+        // NSLog(@"%@", subview);
+    }
+    if ([subviews count] != 1) {
+        NSLog(@"WARNING, groupViewController should have only one subview, found %i",[subviews count]);
+    }
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
@@ -384,7 +395,7 @@
 	
 	isPopUpDisplayed = TRUE;
 	
-    [infoViewController hideStatus];
+    [groupViewController hideStatus];
 	[popOverView viewDidAppear:YES];
 }
 
@@ -444,6 +455,7 @@
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
     
+    // NSLog(@"didUpdateGroup");
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
     for (NSDictionary *dict in group) {
         if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
@@ -451,7 +463,7 @@
         }
     }
     
-    [infoViewController setGroup:others];
+    [groupViewController setGroup:others];
     
     [self updateGroupButton];
 }
@@ -511,7 +523,7 @@
     
     if (error != nil && [[error domain] isEqual:NSURLErrorDomain]) {
         [groupSizeButton setTitle: @"X  " forState:UIControlStateNormal];
-        [infoViewController setGroup:nil];
+        [groupViewController setGroup:nil];
     }
 }
 
@@ -526,11 +538,16 @@
 #pragma mark -
 #pragma mark Private Methods
 - (void)updateGroupButton {
+    
+    // NSLog(@"updateGroupButton");
+    
 	if (navigationItem.titleView == nil) {
+        // NSLog(@"updateGroupButton: titleView is nil, returning");
 		return;
 	}
 	
     if (groupSizeButton == nil) {
+        // NSLog(@"updateGroupButton: groupSizeButton is nil, creating");
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -538,7 +555,7 @@
         groupSizeButton.frame = CGRectMake(-10, 0, 56, 44);
     }
     
-    NSInteger groupCount = [[infoViewController group] count];
+    NSInteger groupCount = [[groupViewController group] count];
     NSString *text = nil;
     if (groupCount < 1) {
         text = @"0   ";
@@ -563,21 +580,24 @@
     
     if (groupSelectPopOverController && groupCount > 0) {
         if (groupCount > 1) {
+            // NSLog(@"updateGroupButton: setting groupSelectPopOverController size to 320, %i",(groupCount * 44)+20);
             [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, (groupCount * 44)+20) animated:YES];
         }
         else {
-            [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 63) animated:YES];
+            // NSLog(@"updateGroupButton: setting groupSelectPopOverController size to fixed 320,64");
+            [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64) animated:YES];
         }
     }
+    // NSLog(@"updateGroupButton: calling showGroupAndEncryption");
     
     [self showGroupAndEncryption];
 }
 
 - (void)showGroupButton
 {
-	UIBarButtonItem *hoccabilityBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
-	navigationItem.rightBarButtonItem = hoccabilityBarButtonItem;
-    [hoccabilityBarButtonItem release];    
+	UIBarButtonItem *mainBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:groupSizeButton];
+	navigationItem.rightBarButtonItem = mainBarButtonItem;
+    [mainBarButtonItem release];    
 }
 
 - (void)updateEncryptionIndicator
@@ -625,6 +645,7 @@
 
 - (void)showGroupAndEncryption
 {
+    // NSLog(@"showGroupAndEncryption");
     UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44,44)];
     //[containerView addSubview:encryptionButton];
     [containerView addSubview:groupSizeButton];
@@ -658,28 +679,26 @@
 
 - (void)pressedButton: (id)sender
 {
-    //debug ralph
+    // NSLog(@"pressedButton");
+
     [statusViewController hideStatus];
+    
     if (!groupSelectPopOverController) {
-        groupSelectPopOverController = [[UIPopoverController alloc] initWithContentViewController:infoViewController];
+        groupSelectPopOverController = [[UIPopoverController alloc] initWithContentViewController:groupViewController];
         groupSelectPopOverController.popoverContentSize = CGSizeMake(320, 400);
         if ([groupSelectPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
             [groupSelectPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
         }
-        [groupSelectPopOverController setContentViewController:infoViewController];
+        [groupSelectPopOverController setContentViewController:groupViewController];
     }
-    if (!infoViewController) {
-        infoViewController = [[GroupStatusViewController alloc] init];
-        infoViewController.view.frame = CGRectMake(0, 0, 320, 400);
-        infoViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
-        [infoViewController setState:[LocationState state]];
-        infoViewController.delegate = self;
-    }
+    
+
     if ([groupSelectPopOverController isPopoverVisible]) {
         [groupSelectPopOverController dismissPopoverAnimated:YES];
     }
     else {
-        int groupsize = infoViewController.group.count;
+        int groupsize = groupViewController.group.count;
+        // NSLog(@"pressedButton groupsize = %i", groupsize);
         if (groupsize > 0) {
             if (groupsize > 1) {
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, ((groupsize * 44)+20))];
@@ -688,12 +707,13 @@
                 [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
             }
 //            NSLog(@"presentPopoverFromBarButtonItem");
-            [infoViewController.tableView reloadData];
+            [groupViewController.tableView reloadData];
         }
         else {
             [groupSelectPopOverController setPopoverContentSize:CGSizeMake(320, 64)];
         }
         [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [groupViewController showViewAnimated:NO];
 
 //        CGFloat tabBarHeight = self.tabBar.bounds.size.height;
 //        CGRect rect = CGRectMake(0, 0, tabBarHeight, tabBarHeight);

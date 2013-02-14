@@ -8,6 +8,8 @@
 
 #import "GroupStatusViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #define HCGroupListHeight 367
 
 @implementation GroupStatusViewController
@@ -47,9 +49,18 @@
 
 - (void)setGroup:(NSArray *)newGroup
 {
+    
+    // NSLog(@"setGroup %@", newGroup);
+    
     if (group != newGroup) {
+        // NSLog(@"setGroup group != newGroup");
+
+        
         [group release];
         group = [newGroup retain];
+        
+        // NSLog(@"setGroup group set to newGroup, size = %i", [group count]);
+
         [self.tableView reloadData];
 
         [self calculateHightForText:nil];
@@ -62,10 +73,6 @@
                 selectionChanged = YES;
             }
         }
-        
-        //NSDictionary *dummyClient = [NSDictionary dictionaryWithObjectsAndKeys:@"dummy",@"name",@"dummy",@"id", nil];
-        //[selectedClients addObject:dummyClient];
-        //selectionChanged = YES;
          
         if (selectionChanged) {            
             if (selectedClients.count != 0){
@@ -99,14 +106,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CellGTV";
+    
+    // NSLog(@"tableView: cellForRowAtIndexPath %i", indexPath.row);
     
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        // NSLog(@"tableView: not reusing");
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     if (self.group.count > 0) {
+        // NSLog(@"tableView: creating cell");
         
         cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
         NSDictionary *client = [group objectAtIndex:indexPath.row];
@@ -148,9 +159,8 @@
         cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg-odd.png"]] autorelease];
     }
 
-    //cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"group_rowbg.png"]] autorelease];
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    
+        
     return cell;
 }
 
@@ -268,6 +278,28 @@
         return CGSizeMake(320, 62);
     }
 }
+//
+//- (void)hideViewAnimated: (BOOL)animation {
+//    // NSLog(@"GroupStatusViewController hideViewAnimated");
+//    if (animation) {
+//        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+//        animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, -self.view.center.y)];
+//        animation.fillMode = kCAFillModeBoth;
+//        animation.removedOnCompletion = NO;
+//        animation.duration = 0.2;
+//        animation.delegate = self;
+//        
+//        [self.view.layer addAnimation:animation forKey:@"slideUp"];
+//    } else {
+//        self.view.hidden = YES;
+//    }
+//}
+//
+//- (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+//	self.view.hidden = YES;
+//	[self.view.layer removeAllAnimations];
+//    NSLog(@"GroupStatusViewController animationDidStop");
+//}
 
 - (void)viewDidUnload
 {
