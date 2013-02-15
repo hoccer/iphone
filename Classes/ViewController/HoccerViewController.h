@@ -57,7 +57,7 @@
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
 		
-	SettingViewController *helpViewController;
+	SettingViewController *settingViewController;
 	//ChannelViewController *channelViewController;
 	HistoryData *historyData;
 
@@ -102,7 +102,7 @@
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
 @property (nonatomic, retain) NSDictionary *hoccabilityInfo;
 
-@property (nonatomic, retain) SettingViewController *helpViewController;
+@property (nonatomic, retain) SettingViewController *settingViewController;
 @property (nonatomic, retain) ChannelViewController *channelViewController;
 @property (nonatomic, retain) IBOutlet GroupStatusViewController *groupViewController;
 @property (nonatomic, retain) IBOutlet GesturesInterpreter *gestureInterpreter;
@@ -120,7 +120,7 @@
 - (void)setContentPreview: (HoccerContent *)content;
 
 - (IBAction)toggleSelectContent: (id)sender;
-- (IBAction)toggleHelp: (id)sender;
+- (IBAction)toggleSettings: (id)sender;
 - (IBAction)toggleHistory: (id)sender;
 - (IBAction)toggleChannel: (id)sender;
 
@@ -133,6 +133,7 @@
 - (IBAction)selectMusic: (id)sender;
 - (IBAction)selectMyContact: (id)sender;
 - (IBAction)selectContact: (id)sender;
+
 - (IBAction)showHistory: (id)sender;
 
 - (IBAction)selectAutoReceive:(id)sender;

@@ -722,6 +722,8 @@
 		E686C81A12B28164006B5037 /* DelayedFileUploaded.m in Sources */ = {isa = PBXBuildFile; fileRef = E686C81812B28164006B5037 /* DelayedFileUploaded.m */; };
 		E6B9FC0F12AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
 		E6B9FC1012AFC09000A7E313 /* TransferController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9FC0E12AFC09000A7E313 /* TransferController.m */; };
+		E92EBA7816CE63C10023E71C /* navbar_btn_channel_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E92EBA7616CE63C00023E71C /* navbar_btn_channel_ipad.png */; };
+		E92EBA7916CE63C10023E71C /* navbar_btn_channel_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92EBA7716CE63C10023E71C /* navbar_btn_channel_ipad@2x.png */; };
 		F1133F631663F5870091C0FE /* receive-down.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F531663F5870091C0FE /* receive-down.png */; };
 		F1133F641663F5870091C0FE /* receive-up.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F541663F5870091C0FE /* receive-up.png */; };
 		F1133F651663F5870091C0FE /* receive-step-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F551663F5870091C0FE /* receive-step-2.png */; };
@@ -906,15 +908,15 @@
 		22638C0011B51E5C0024AA7E /* HoccerVcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerVcard.h; sourceTree = "<group>"; };
 		22638C0111B51E5C0024AA7E /* HoccerVcard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerVcard.m; sourceTree = "<group>"; };
 		22638C1911B51E880024AA7E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		22638C1A11B51E880024AA7E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		22638C1A11B51E880024AA7E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AboutViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22638C1C11B51E880024AA7E /* HelpScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScrollView.h; sourceTree = "<group>"; };
-		22638C1D11B51E880024AA7E /* HelpScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScrollView.m; sourceTree = "<group>"; };
+		22638C1D11B51E880024AA7E /* HelpScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HelpScrollView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22638C1F11B51E880024AA7E /* HoccerHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoccerHistoryController.h; sourceTree = "<group>"; };
 		22638C2011B51E880024AA7E /* HoccerHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoccerHistoryController.m; sourceTree = "<group>"; };
 		22638C2111B51E880024AA7E /* HoccerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerViewController.h; path = ViewController/HoccerViewController.h; sourceTree = "<group>"; };
 		22638C2211B51E880024AA7E /* HoccerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HoccerViewController.m; path = ViewController/HoccerViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		22638C2311B51E880024AA7E /* HoccerViewControlleriPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerViewControlleriPad.h; path = ViewController/HoccerViewControlleriPad.h; sourceTree = "<group>"; };
-		22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoccerViewControlleriPad.m; path = ViewController/HoccerViewControlleriPad.m; sourceTree = "<group>"; };
+		22638C2311B51E880024AA7E /* HoccerViewControlleriPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = HoccerViewControlleriPad.h; path = ViewController/HoccerViewControlleriPad.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		22638C2411B51E880024AA7E /* HoccerViewControlleriPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HoccerViewControlleriPad.m; path = ViewController/HoccerViewControlleriPad.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22638C2511B51E880024AA7E /* HoccerViewControllerIPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoccerViewControllerIPhone.h; path = ViewController/HoccerViewControllerIPhone.h; sourceTree = "<group>"; };
 		22638C2611B51E880024AA7E /* HoccerViewControllerIPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = HoccerViewControllerIPhone.m; path = ViewController/HoccerViewControllerIPhone.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		22638C2911B51E880024AA7E /* ReceivedContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceivedContentViewController.h; sourceTree = "<group>"; };
@@ -1368,7 +1370,7 @@
 		B4AFE69013E6BF4500E8D096 /* Icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57.png; sourceTree = "<group>"; };
 		B4AFE69113E6BF4500E8D096 /* Icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon114.png; sourceTree = "<group>"; };
 		B4AFE6AC13E6F91C00E8D096 /* EncryptionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionSettingsViewController.h; sourceTree = "<group>"; };
-		B4AFE6AD13E6F91C00E8D096 /* EncryptionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionSettingsViewController.m; sourceTree = "<group>"; };
+		B4AFE6AD13E6F91C00E8D096 /* EncryptionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EncryptionSettingsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B4AFE6AE13E6F91C00E8D096 /* EncryptionSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EncryptionSettingsViewController.xib; path = ../../Classes/ViewController/EncryptionSettingsViewController.xib; sourceTree = "<group>"; };
 		B4AFE6BA13E7038E00E8D096 /* audio_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audio_default.png; sourceTree = "<group>"; };
 		B4AFE6BB13E7038E00E8D096 /* audio_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_default@2x.png"; sourceTree = "<group>"; };
@@ -1473,6 +1475,8 @@
 		E686C81812B28164006B5037 /* DelayedFileUploaded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedFileUploaded.m; sourceTree = "<group>"; };
 		E6B9FC0D12AFC09000A7E313 /* TransferController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferController.h; path = DownloadController/TransferController.h; sourceTree = "<group>"; };
 		E6B9FC0E12AFC09000A7E313 /* TransferController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferController.m; path = DownloadController/TransferController.m; sourceTree = "<group>"; };
+		E92EBA7616CE63C00023E71C /* navbar_btn_channel_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_btn_channel_ipad.png; sourceTree = "<group>"; };
+		E92EBA7716CE63C10023E71C /* navbar_btn_channel_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_btn_channel_ipad@2x.png"; sourceTree = "<group>"; };
 		F1133F531663F5870091C0FE /* receive-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-down.png"; path = "Resources/assets/pull-to-refresh/receive-down.png"; sourceTree = "<group>"; };
 		F1133F541663F5870091C0FE /* receive-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-up.png"; path = "Resources/assets/pull-to-refresh/receive-up.png"; sourceTree = "<group>"; };
 		F1133F551663F5870091C0FE /* receive-step-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-step-2.png"; path = "Resources/assets/pull-to-refresh/receive-step-2.png"; sourceTree = "<group>"; };
@@ -2629,6 +2633,8 @@
 		B45148351462CBD600927495 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				E92EBA7616CE63C00023E71C /* navbar_btn_channel_ipad.png */,
+				E92EBA7716CE63C10023E71C /* navbar_btn_channel_ipad@2x.png */,
 				B47668CE153C37A900EE5574 /* popover-black-bcg-image.png */,
 				B47668CF153C37A900EE5574 /* popover-black-bottom-arrow-image.png */,
 				B47668D0153C37A900EE5574 /* popover-black-left-arrow-image.png */,
@@ -3648,6 +3654,8 @@
 				F1D4C8C21680F2D20015851A /* receive-bg@2x.png in Resources */,
 				F1C0D3C81683AAFD000E9506 /* container_btn_single-play.png in Resources */,
 				F1C0D3C91683AAFD000E9506 /* container_btn_single-play@2x.png in Resources */,
+				E92EBA7816CE63C10023E71C /* navbar_btn_channel_ipad.png in Resources */,
+				E92EBA7916CE63C10023E71C /* navbar_btn_channel_ipad@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

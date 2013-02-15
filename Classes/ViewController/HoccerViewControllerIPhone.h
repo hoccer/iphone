@@ -65,6 +65,6 @@
 - (void)pressedToggleAutoReceive:(id)sender;
 - (void)pressedLeaveChannelMode:(id)sender;
 - (void)cancelPopOver;
-- (IBAction)pullDownAction:(id)sender;
+// - (IBAction)pullDownAction:(id)sender;
 
 @end

@@ -27,8 +27,6 @@
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
-        //parentFrame.size.height = parentFrame.size.height - 48;
-        //parentFrame.size.height = parentFrame.size.height - 210;
         [self.view setFrame:parentFrame];
         [self.tableView setFrame:parentFrame];
     }
@@ -64,10 +62,7 @@
     [tableView reloadData];
 }
 
-//- (CGSize)contentSizeForViewInPopover
-//{
-//    return CGSizeMake(320, 367);
-//}
+
 #pragma mark -
 #pragma mark Table view data source
 
@@ -92,20 +87,6 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-
-//    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"ChannelHelpView" owner:self options:nil];
-//    ChannelHelpView *channelHelpView = nil;
-//    
-//    for (UIView *view in nibContents) {
-//        if ([view isKindOfClass:[channelHelpView class]]) {
-//            channelHelpView = (ChannelHelpView *)view;
-//            break;
-//        }
-//    }
-//    if (channelHelpView != nil) {
-//        [cell.contentView addSubview:channelHelpView];
-//    }
 
     if ([cell.contentView subviews]){
         for (UIView *subview in [cell.contentView subviews]) {
@@ -133,7 +114,8 @@
         }
         self.channelTextField.returnKeyType = UIReturnKeyDone;
         self.channelTextField.keyboardType = UIKeyboardTypeDefault;
-        self.channelTextField.enablesReturnKeyAutomatically = YES;
+        self.channelTextField.enablesReturnKeyAutomatically = NO;
+
         self.channelTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.channelTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         self.channelTextField.textAlignment = UITextAlignmentLeft;
@@ -220,20 +202,17 @@
 #pragma mark 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ((textField.text.length < 6) || (textField.text.length > 32)) {
+    if ((textField.text.length > 0) && ((textField.text.length < 6) || (textField.text.length > 32))) {
         
-        NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length < 6");
+        // NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length < 6");
         
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Malformened Channel Name"
-													   message:@"The channel name must have at least 6 and max 32 characters."
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Channel Name not accepted"
+													   message:@"The channel name must have at least 6 and max 32 characters or can be empty for location mode."
 													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        view.tag = 1;
 		[view show];
 		[view release];
     }
     else {
-        //        NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length >= 6");
-        
         [textField resignFirstResponder];
         return YES;
     }
@@ -275,10 +254,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-//    if (textField.text.length < 3) {
-//        return;
-//    }
-    
     NSIndexPath *path = [self.tableView indexPathForCell:(UITableViewCell*)textField.superview];
     
     SettingsAction *action = [[sections objectAtIndex:path.section] objectAtIndex:path.row];
@@ -290,14 +265,17 @@
 
 - (void)changedChannel:(UITextField *)textField
 {
-    NSString *oldchannel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
-    if (![oldchannel isEqualToString:textField.text]) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"channel"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    if ([self textFieldShouldReturn:textField]) {
+        NSString *oldchannel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
+        if (![oldchannel isEqualToString:textField.text]) {
+            
+            NSLog(@"Channel set to:%@",textField.text);
+            [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"channel"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            NSNotification *notification = [NSNotification notificationWithName:@"clientChannelChanged" object:self];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        }
     }
 }
 

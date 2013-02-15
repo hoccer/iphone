@@ -243,12 +243,12 @@
     [self hidePopOverAnimated:NO];
 }
 
-- (IBAction)toggleHelp:(id)sender
+- (IBAction)toggleSettings:(id)sender
 {
 	if (!isPopUpDisplayed) {
 		[self showSettingView];
 	}
-    else if (auxiliaryView != self.helpViewController) {
+    else if (auxiliaryView != self.settingViewController) {
 		self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showSettingView)];
 		[self hidePopOverAnimated:YES];
 	}
@@ -336,8 +336,8 @@
 
 - (void)showSettingView
 {
-	self.helpViewController.parentNavigationController = navigationController;
-	[self showPopOver:self.helpViewController];
+	self.settingViewController.parentNavigationController = navigationController;
+	[self showPopOver:self.settingViewController];
 	
 	navigationItem.title = NSLocalizedString(@"Settings", nil);
 	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
@@ -536,7 +536,6 @@
     CGFloat screenHeight = screenRect.size.height;
     
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
-    
     
     CGRect desktopViewRect = desktopView.frame;
     desktopViewRect.origin.y =  0;
@@ -808,7 +807,7 @@
 			[self toggleChannel:self];
 			break;
 		case 4:
-			[self toggleHelp:self];
+			[self toggleSettings:self];
 			break;
 		default:
 			//NSLog(@"this should not happen");
@@ -832,21 +831,8 @@
     if (self.channelViewController != nil) {
         if (self.channelViewController.channelTextField != nil) {
             if (self.channelViewController.channelTextField.text.length > 0) {
-                if ((self.channelViewController.channelTextField.text.length < 6) || (self.channelViewController.channelTextField.text.length > 32)) {
-                    
-                    // NSLog(@"   self.channelViewController.channelTextField.text.length < 6");
-                    
-                    UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Malformened Channel Name"
-                                                                   message:@"The channel name must have at least 6 and max 32 characters."
-                                                                  delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-                    view.tag = 8;
-                    [view show];
-                    [view release];
-                    
+                if ([self.channelViewController textFieldShouldReturn: self.channelViewController.channelTextField] == NO) {
                     return;
-                }
-                else {
-                    // NSLog(@"   self.channelViewController.channelTextField.text.length >= 6");
                 }
             }
         }
@@ -876,32 +862,6 @@
         [self setDesktopBackgroundImage:others];
     }
 }
-
-- (IBAction)pullDownAction:(id)sender
-{
-    //NSLog(@"pull Action ...................");
-    
-    if (isPullDown) {
-        //NSLog(@"pull UP ...................");
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        [UIView setAnimationDuration:0.8];
-        self.pullDownView.transform = CGAffineTransformMakeTranslation(0, 0);
-        desktopView.transform = CGAffineTransformMakeTranslation(0, 0);
-        [UIView commitAnimations];
-    }
-    else {
-        //NSLog(@"pull DOWN ...................");
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-        [UIView setAnimationDuration:0.8];
-        self.pullDownView.transform = CGAffineTransformMakeTranslation(0, 20);
-        desktopView.transform = CGAffineTransformMakeTranslation(0, 20);
-        [UIView commitAnimations];
-    }
-    isPullDown = !isPullDown;
-}
-
 
 #pragma mark -
 #pragma mark Private Methods
@@ -962,16 +922,7 @@
 }
 
 - (void)clientChannelChanged:(NSNotification *)notification
-{
-    //NSMutableDictionary *channel = [[[NSMutableDictionary alloc] init] autorelease];
-    //if (channel == nil) {
-    //    channel = [NSMutableDictionary dictionaryWithCapacity:1];
-    //}
-    //
-    //[channel setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"channel"] forKey:@"_channel"];
-    //
-    //linccer.userInfo = channel;
-    
+{    
     [self updateGroupButton];
     [self updateChannelButton];
     
@@ -983,15 +934,6 @@
     else {
         [self dismissModalViewControllerAnimated:YES];
     }
-    
-    
-    
-    //self.channelAutoReceiveMode = NO;
-    
-//    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
-//    if (isChannelMode) {
-//        [self channelSwitchAutoReceiveMode];
-//    }
 }
 
 - (void)startChannelAutoReceiveMode:(NSNotification *)notification

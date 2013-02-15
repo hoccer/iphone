@@ -96,7 +96,7 @@ typedef enum {
 } HOCCER_STATUS;
 
 @synthesize delegate; 
-@synthesize helpViewController;
+@synthesize settingViewController;
 @synthesize channelViewController;
 @synthesize gestureInterpreter;
 @synthesize statusViewController;
@@ -124,7 +124,7 @@ typedef enum {
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-	self.helpViewController = nil;
+	self.settingViewController = nil;
 }
 
 - (void)viewDidLoad
@@ -359,6 +359,7 @@ typedef enum {
 	[controller release];
 }
 
+
 - (IBAction)selectMedia: (id)sender {
     
     UIActionSheet *mediaChooser;
@@ -416,7 +417,7 @@ typedef enum {
 - (IBAction)toggleSelectContent: (id)sender {}
 - (IBAction)toggleHistory: (id)sender {}
 - (IBAction)toggleChannel: (id)sender {}
-- (IBAction)toggleHelp: (id)sender {}
+- (IBAction)toggleSettings: (id)sender {}
 
 - (void)showSMSPicker:(NSString *)phone
 {
@@ -611,12 +612,12 @@ typedef enum {
 #pragma mark -
 #pragma mark View Manipulation
 
-- (SettingViewController *)helpViewController {
-	if (helpViewController == nil) {
-		helpViewController = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
+- (SettingViewController *)settingViewController {
+	if (settingViewController == nil) {
+		settingViewController = [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil];
 	}
 	
-	return helpViewController;
+	return settingViewController;
 }
 
 - (ChannelViewController *)channelViewController {
@@ -1706,7 +1707,7 @@ typedef enum {
 	[desktopView release];	
 	[desktopData release];
 	[gestureInterpreter release];
-	[helpViewController release];
+	[settingViewController release];
 	[statusViewController release];
 	[hoccingRules release];
 	[transferController release];

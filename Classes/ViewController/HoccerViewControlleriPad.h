@@ -26,7 +26,8 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
 		
     UINavigationController *settingsPopOverNavigationController;
     UINavigationController *historyPopOverNavigationController;
-    UISegmentedControl *historySettings;
+    UINavigationController *channelPopOverNavigationController;
+    UISegmentedControl *leftNavButtons;
     
     
 	UINavigationItem *navigationItem;
@@ -37,6 +38,7 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
     UIPopoverController *contentPopOverController;
     UIPopoverController *settingsPopOverController;
     UIPopoverController *historyPopOverController;
+    UIPopoverController *channelPopOverController;
     UIPopoverController *groupSelectPopOverController;
     id <ContentSelectController> activeContentSelectController;
 }

@@ -28,6 +28,7 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 #import "PullToReceiveViewController.h"
+#import "HoccerAppDelegate.h"
 
 @interface HoccerViewControlleriPad ()
 
@@ -141,21 +142,21 @@
     [self updateGroupButton];
     //[self updateEncryptionIndicator];
     
-    CGRect historySettingsRect = CGRectMake(0, 0, 150, 35);
-    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
-    historySettings = [[UISegmentedControl alloc]initWithItems:histSetItems];
-    historySettings.segmentedControlStyle = UISegmentedControlStyleBar;
-    historySettings.tintColor = [UIColor clearColor];
-    historySettings.momentary = YES;
-    historySettings.backgroundColor = [UIColor clearColor];
-    [historySettings addTarget:self action:@selector(historySettingsAction:) forControlEvents:UIControlEventValueChanged];
-    [historySettings setFrame:historySettingsRect];
+    CGRect leftNavButtonsRect = CGRectMake(0, 0, 240, 35);
+    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_channel_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
+    leftNavButtons = [[UISegmentedControl alloc]initWithItems:histSetItems];
+    leftNavButtons.segmentedControlStyle = UISegmentedControlStyleBar;
+    leftNavButtons.tintColor = [UIColor clearColor];
+    leftNavButtons.momentary = YES;
+    leftNavButtons.backgroundColor = [UIColor clearColor];
+    [leftNavButtons addTarget:self action:@selector(leftNavButtonsAction:) forControlEvents:UIControlEventValueChanged];
+    [leftNavButtons setFrame:leftNavButtonsRect];
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:historySettings];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:leftNavButtons];
     
     self.navigationItem.leftBarButtonItem = leftButton;
     
-    [historySettings release];
+    [leftNavButtons release];
     [leftButton release];
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
@@ -179,6 +180,7 @@
     [contentPopOverController release];
     [settingsPopOverController release];
     [historyPopOverController release];
+    [channelPopOverController release];
 	
 	[super dealloc];
 }
@@ -261,15 +263,15 @@
     self.tabBar.selectedItem = nil;
 }
 
-- (IBAction)toggleHelp: (id)sender {
+- (IBAction)toggleSettings: (id)sender {
     if (!settingsPopOverNavigationController) {
-        settingsPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.helpViewController];
-        self.helpViewController.parentNavigationController = settingsPopOverNavigationController;
+        settingsPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.settingViewController];
+        self.settingViewController.parentNavigationController = settingsPopOverNavigationController;
         [settingsPopOverNavigationController setTitle:@"Settings"];
     }
     if (!settingsPopOverController) {
         settingsPopOverController = [[UIPopoverController alloc]initWithContentViewController:settingsPopOverNavigationController];
-        [settingsPopOverController setPopoverContentSize:CGSizeMake(320, 400)];
+        [settingsPopOverController setPopoverContentSize:CGSizeMake(320, 600)];
         if ([settingsPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
             [settingsPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
         }
@@ -278,10 +280,35 @@
         [settingsPopOverController dismissPopoverAnimated:YES];
     }
     else {
-        [settingsPopOverController presentPopoverFromRect:CGRectMake(97, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];        
+        [settingsPopOverController presentPopoverFromRect:CGRectMake(180, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         [historyPopOverController dismissPopoverAnimated:NO];
+        [channelPopOverController dismissPopoverAnimated:NO];
     }
 }
+
+- (IBAction)toggleChannel: (id)sender {
+    if (!channelPopOverNavigationController) {
+        channelPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.channelViewController];
+        self.channelViewController.parentNavigationController = channelPopOverNavigationController;
+        [channelPopOverNavigationController setTitle:@"Channel"];
+    }
+    if (!channelPopOverController) {
+        channelPopOverController = [[UIPopoverController alloc]initWithContentViewController:channelPopOverNavigationController];
+        [channelPopOverController setPopoverContentSize:CGSizeMake(320, 600)];
+        if ([channelPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
+            [channelPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
+        }
+    }
+    if ([channelPopOverController isPopoverVisible]){
+        [channelPopOverController dismissPopoverAnimated:YES];
+    }
+    else {
+        [channelPopOverController presentPopoverFromRect:CGRectMake(100, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        [historyPopOverController dismissPopoverAnimated:NO];
+        [settingsPopOverController dismissPopoverAnimated:NO];
+    }
+}
+
 
 - (IBAction)toggleHistory: (id)sender {
 	
@@ -295,7 +322,7 @@
         if ([historyPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
             [historyPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
         }
-        [historyPopOverController setPopoverContentSize:CGSizeMake(320, 400)];
+        [historyPopOverController setPopoverContentSize:CGSizeMake(320, 600)];
     }
     if ([historyPopOverController isPopoverVisible]){
         [historyPopOverController dismissPopoverAnimated:YES];
@@ -303,20 +330,9 @@
     else {
         [historyPopOverController presentPopoverFromRect:CGRectMake(20, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];        
         [settingsPopOverController dismissPopoverAnimated:NO];
+        [channelPopOverController dismissPopoverAnimated:NO];
 
     }
-}
-
-- (IBAction)toggleChannel: (id)sender {
-	if (!isPopUpDisplayed) {
-		[self showChannelView];
-        //} else if (![auxiliaryView isKindOfClass:[HoccerHistoryController class]]) {
-        //	self.delayedAction = [ActionElement actionElementWithTarget: self selector:@selector(showHistoryView)];
-        //	[self hidePopOverAnimated: YES];
-	} else {
-		[self hidePopOverAnimated: YES];
-		tabBar.selectedItem = nil;
-	}
 }
 
 
@@ -338,16 +354,20 @@
     tabBar.selectedItem = nil;
 }
 
-- (IBAction)historySettingsAction:(id)sender{
+
+- (IBAction)leftNavButtonsAction:(id)sender{
     
-    int selectedIndex = [historySettings selectedSegmentIndex];
-    
+    int selectedIndex = [leftNavButtons selectedSegmentIndex];
+    // NSLog(@"leftNavButtonsAction index=%i", selectedIndex);
     switch (selectedIndex) {
         case 0:
             [self toggleHistory:nil];
             break;
         case 1:
-            [self toggleHelp:nil];
+            [self toggleChannel:nil];
+            break;
+        case 2:
+            [self toggleSettings:nil];
             break;
         default:
             break;
@@ -534,6 +554,14 @@
 	[self hidePopOverAnimated:YES];
 }
 
+- (void)clientChannelChanged:(NSNotification *)notification
+{
+    // NSLog(@"clientChannelChanged");
+
+    [self updateGroupButton];
+    
+    [linccer updateEnvironment];
+}
 
 #pragma mark -
 #pragma mark Private Methods
@@ -570,13 +598,23 @@
     
     [groupSizeButton setTitle: text forState:UIControlStateNormal];   
     
-    if (clientSelected){
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
+    BOOL inChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (inChannelMode) {
+        if (clientSelected){
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_on"] forState:UIControlStateNormal];
+        }
+        else {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_off"] forState:UIControlStateNormal];
+        }
+    } else {
+        if (clientSelected){
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_on"] forState:UIControlStateNormal];
+        }
+        else {
+            [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
+        }
     }
-    else {
-        [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
-        
-    }
+
     
     if (groupSelectPopOverController && groupCount > 0) {
         if (groupCount > 1) {
