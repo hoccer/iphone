@@ -110,6 +110,8 @@ typedef enum {
 @synthesize errorViewController;
 @synthesize autoReceiveMode;
 @synthesize tabBar;
+@synthesize pullDownActionInProgress;
+@synthesize pullDownBackgroundImage;
 
 + (void) initialize
 {
@@ -411,6 +413,8 @@ typedef enum {
 - (IBAction)selectAutoReceive:(id)sender
 {
     NSLog(@"HoccerViewController selectAutoReceive");
+    NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 - (IBAction)showHistory: (id)sender {}
@@ -774,12 +778,12 @@ typedef enum {
         //[FeedbackProvider playCatchFeedback];
         ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
         item.delegate = self;
-        item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 830);
+        item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, -500); // add outside view
         
         [desktopData addhoccerController:item];
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, 820)];
+        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, -500)];
         animation.duration = 0.1;
         
         [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
@@ -937,6 +941,196 @@ typedef enum {
 	[desktopView reloadData];
 	
 	return YES;
+}
+
+- (void)updateChannelButton
+{
+    // by default and on iPad Group Button and Channel Button are the same
+    [self updateGroupButton];
+}
+
+- (void)updateGroupButton
+{
+    // should be overloaded and never be called
+    NSLog(@"HoccerViewController updateGroupButton should be overiden and never be called");
+}
+
+#pragma mark -
+#pragma mark PullDownViewDelegate
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UITouch* touch = [touches anyObject];
+    
+	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+    //	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+    
+    CGRect myRect = self.pullDownView.frame;
+    
+    //    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    //    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    //    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+    
+    // return if not on pulldown view
+    if (prevLocation.y < 0 || (prevLocation.y > myRect.size.height + 50)) {
+        // NSLog(@" touchesBegan: not in pulldown handle");
+        self.pullDownActionInProgress = NO;
+    } else {
+        // NSLog(@" touchesBegan: in pulldown handle");
+        self.pullDownActionInProgress = YES;
+        self.pullDownDragged = NO;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (self.pullDownActionInProgress == NO) {
+        return;
+    }
+    
+	UITouch* touch = [touches anyObject];
+    
+	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+    
+    CGRect myRect = self.pullDownView.frame;
+    
+    //    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    //    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    //    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+    
+    float minPosition = -67;
+    float maxPosition = 0;
+    
+    // calc the move:
+    float movePoints = currentLocation.y - prevLocation.y;
+    
+    // move to position
+    myRect.origin.y += movePoints;
+    if (myRect.origin.y > maxPosition) {
+        myRect.origin.y = maxPosition;
+    } else if (myRect.origin.y < minPosition) {
+        myRect.origin.y = minPosition;
+    }
+    self.pullDownView.frame = myRect;
+    
+    self.pullDownDragged = YES;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (self.pullDownActionInProgress == NO) {
+        return;
+    }
+	
+    //    UITouch* touch = [touches anyObject];
+    
+    //	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+    //	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+    
+    CGRect myRect = self.pullDownView.frame;
+    
+    //    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+    //    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+    //    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+    
+    float minPosition = -67;
+    float maxPosition = 0;
+    float swapPosition = (maxPosition + minPosition)/2;
+    
+    enum Target {
+        NO_POSITION,
+        GOTO_MIN_POSITION,
+        GOTO_MAX_POSITION
+    };
+    
+    enum Target gotoPosition = NO_POSITION;
+    
+    if (self.pullDownDragged == NO) {
+        // Set Up Toggle mode
+        if (myRect.origin.y > swapPosition) {
+            gotoPosition = GOTO_MIN_POSITION;
+        } else {
+            gotoPosition = GOTO_MAX_POSITION;
+            
+        }
+    }
+    
+    if ((myRect.origin.y > swapPosition && gotoPosition == NO_POSITION) || gotoPosition == GOTO_MAX_POSITION) {
+        [self movePullDownToMaxDownPosition];
+        if (self.autoReceiveMode) {
+            // NSLog(@"not again switch to on ......................");
+        }
+        else {
+            [self selectAutoReceive:self];
+            // NSLog(@"touchesEnded startAnimating");
+            [self.activityIndi startAnimating];
+        }
+    }
+    else {
+        [self movePullDownToNormalPosition];
+        if (self.autoReceiveMode) {
+            // NSLog(@"touchesEnded stopAnimating");
+            [self.activityIndi stopAnimating];
+            [self switchAutoReceiveMode:NO];
+        }
+        else {
+            // NSLog(@"not again switch to OFF......................");
+        }
+    }
+}
+- (void)movePullDownToHidePosition
+{
+    CGRect pullDownViewRect = self.pullDownView.frame;
+    pullDownViewRect.origin.y = - 100.0;
+    pullDownViewRect.size.height = 0;
+    
+    self.pullDownView.frame = pullDownViewRect;
+    
+    // NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
+    
+    self.pullDownView.hidden = YES;
+}
+
+- (void)movePullDownToNormalPosition
+{
+    self.pullDownView.hidden = NO;
+    
+    // NSLog(@"movePullDownToNormalPosition");
+    
+    CGRect pullDownViewRect = self.pullDownView.frame;
+    pullDownViewRect.origin.y = -67.0;
+    pullDownViewRect.size.height = 100;
+    self.pullDownView.frame = pullDownViewRect;
+    
+}
+
+- (void)movePullDownToMaxDownPosition
+{
+    CGRect pullDownViewRect = self.pullDownView.frame;
+	pullDownViewRect.origin.y = 0.0;
+    pullDownViewRect.size.height = 100;
+	self.pullDownView.frame = pullDownViewRect;
+}
+
+- (void)pressedToggleAutoReceive:(id)sender
+{
+    //[self toggleChannelAutoReceiveMode];
+    //  NSLog(@"    pressedToggleAutoReceive  ");
+    [self updateChannelButton];
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        if (self.autoReceiveMode) {
+            [self switchAutoReceiveMode:YES];
+            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
+        }
+        else {
+            [self switchAutoReceiveMode:NO];
+            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
+        }
+    }
 }
 
 #pragma mark -
@@ -1252,6 +1446,17 @@ typedef enum {
     }
 }
 
+- (void)willFinishAutoReceive
+{
+    //close pullDown
+    // NSLog(@"willFinishAutoReceive stopAnimating");
+    [self.activityIndi stopAnimating];
+    
+    [self movePullDownToNormalPosition];
+    
+    self.autoReceiveMode = NO;
+}
+
 - (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
 {
     if (USES_DEBUG_MESSAGES) { NSLog(@"  1 linccer:   didReceiveData:"); }
@@ -1290,6 +1495,16 @@ typedef enum {
         //item.viewOrigin = CGPointMake(0, 0);
         
         if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }
+    }
+    if (closeAutoReceive) {
+        [self willFinishAutoReceive];
+    }
+    
+    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
+    if (isChannelMode) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"HoccerViewController linccer:(HCLinccer *)linncer didReceiveData ---- isChannelMode"); }
+        
+        [self updateChannelButton];
     }
 }
 
@@ -1373,7 +1588,7 @@ typedef enum {
 {
 //    NSLog(@"HoccerViewController - startChannelAutoReceiveMode - notification: %@", notification);
 
-    //[self channelSwitchAutoReceiveMode:YES];
+    [self switchAutoReceiveMode:YES];
     
 }
 
@@ -1715,7 +1930,10 @@ typedef enum {
     [groupViewController release];
     
     [httpClient release];
-	
+    [_pullDownView release];
+    // [_pullDownAnimationImage release];
+    [_activityIndi release];
+    
 	[super dealloc];
 }
 

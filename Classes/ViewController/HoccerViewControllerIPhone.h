@@ -14,7 +14,6 @@
 #import "ActionElement.h"
 #import "HCHistoryTVC.h"
 // #import "CustomPullToRefresh.h"
-#import "PullDownView.h"
 
 @class ActionElement;
 
@@ -42,7 +41,6 @@
 //    UIScrollView *_refreshScrollView;
     UITableView *_table;
     
-    BOOL isPullDown;
     CGFloat desktopViewHeight;
 }
 
@@ -54,15 +52,10 @@
 
 @property (retain, nonatomic) IBOutlet UIScrollView *refreshScrollView;
 @property (retain, nonatomic) IBOutlet UITableView *table;
-@property (retain, nonatomic) IBOutlet PullDownView *pullDownView;
-@property (nonatomic, assign) BOOL pullDownActionInProgress;
-@property (nonatomic, assign) BOOL pullDownDragged;
-@property (retain, nonatomic) IBOutlet UIImageView *pullDownAnimationImage;
-@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndi;
+
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
-- (void)pressedToggleAutoReceive:(id)sender;
 - (void)pressedLeaveChannelMode:(id)sender;
 - (void)cancelPopOver;
 // - (IBAction)pullDownAction:(id)sender;

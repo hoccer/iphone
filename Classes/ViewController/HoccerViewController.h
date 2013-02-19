@@ -15,6 +15,9 @@
 #import "GesturesInterpreterDelegate.h"
 #import "ItemViewControllerDelegate.h"
 #import "DesktopViewDelegate.h"
+
+#import "PullDownView.h"
+
 #import "PullDownViewDelegate.h"
 #import "TransferController.h"
 #import "MBProgressHUD.h"
@@ -56,7 +59,8 @@
 
 	IBOutlet DesktopView *desktopView;
 	IBOutlet HoccerAppDelegate* delegate;
-		
+    IBOutlet UIImageView* pullDownBackgroundImage;
+
 	SettingViewController *settingViewController;
 	//ChannelViewController *channelViewController;
 	HistoryData *historyData;
@@ -97,6 +101,7 @@
     UITabBar *tabBar;
     IBOutlet UINavigationController *navigationController;
 
+    BOOL isPullDown;
 }
 
 @property (nonatomic, assign) HoccerAppDelegate* delegate;
@@ -116,6 +121,13 @@
 @property (readonly) HCLinccer *linccer;
 @property (nonatomic, assign) BOOL autoReceiveMode;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
+
+@property (retain, nonatomic) IBOutlet PullDownView *pullDownView;
+@property (nonatomic, assign) BOOL pullDownActionInProgress;
+@property (nonatomic, assign) BOOL pullDownDragged;
+@property (retain, nonatomic) IBOutlet UIImageView *pullDownBackgroundImage;
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndi;
+
 
 - (void)setContentPreview: (HoccerContent *)content;
 
@@ -167,8 +179,16 @@
 - (void)switchAutoReceiveMode:(BOOL)on;
 - (void)toggleAutoReceiveMode;
 - (void)showChannelContactPicker;
+- (void)pressedToggleAutoReceive:(id)sender;
 
 - (void)cancelPopOver;
+
+- (void)movePullDownToHidePosition;
+- (void)movePullDownToNormalPosition;
+- (void)movePullDownToMaxDownPosition;
+
+- (void)updateGroupButton;
+- (void)updateChannelButton;
 
 @end
 

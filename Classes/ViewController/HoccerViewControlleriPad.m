@@ -137,6 +137,9 @@
 	
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
+    
+    self.pullDownView.desktopView = desktopView;
+    [self movePullDownToNormalPosition];
 	
 	[self showHud];
     [self updateGroupButton];
@@ -261,6 +264,7 @@
     self.activeContentSelectController = nil;
     [contentPopOverController dismissPopoverAnimated:YES];
     self.tabBar.selectedItem = nil;
+    [self movePullDownToNormalPosition];
 }
 
 - (IBAction)toggleSettings: (id)sender {
@@ -471,6 +475,15 @@
     [self updateEncryptionIndicator];
 }
 
+- (IBAction)selectAutoReceive:(id)sender
+{
+    NSLog(@"#### HoccerViewControllerIPad selectAutoReceive ####");
+    
+    [super selectAutoReceive:sender];
+    
+    self.tabBar.selectedItem = nil;
+}
+
 #pragma mark -
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
@@ -510,6 +523,10 @@
 #pragma mark TapBar delegate Methods
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSLog(@"tabBar didSelectItem %@", item);
+    
+    [self stopAutoReceiveAndHidePullDown];
+
 	switch (item.tag) {
 		case 1:
 			[self selectCamera:nil];
@@ -717,7 +734,7 @@
 
 - (void)pressedButton: (id)sender
 {
-    // NSLog(@"pressedButton");
+    NSLog(@"pressedButton");
 
     [statusViewController hideStatus];
     
@@ -733,6 +750,7 @@
 
     if ([groupSelectPopOverController isPopoverVisible]) {
         [groupSelectPopOverController dismissPopoverAnimated:YES];
+        // [self movePullDownToNormalPosition];
     }
     else {
         int groupsize = groupViewController.group.count;
@@ -752,12 +770,30 @@
         }
         [groupSelectPopOverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         [groupViewController showViewAnimated:NO];
+        
+        // [self stopAutoReceiveAndHidePullDown];
 
 //        CGFloat tabBarHeight = self.tabBar.bounds.size.height;
 //        CGRect rect = CGRectMake(0, 0, tabBarHeight, tabBarHeight);
 //        [groupSelectPopOverController presentPopoverFromRect:rect inView:tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:NO];
     }
 }
+
+- (void)stopAutoReceiveAndHidePullDown
+{
+    if (self.autoReceiveMode) {
+        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
+        [self.activityIndi stopAnimating];
+        [self movePullDownToHidePosition];
+        [self switchAutoReceiveMode:NO];
+    }
+    else {
+        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
+        [self.activityIndi stopAnimating];
+        [self movePullDownToHidePosition];
+    }
+}
+
 
 - (void)toggleEncryption:(id)sender
 {    
@@ -886,6 +922,25 @@
         }
     }
 
+    NSString * myPullDownBg = nil;
+    if (isPortrait){
+        myPullDownBg = @"receive-bg-ipad-portrait";
+    }
+    else {
+        myPullDownBg = @"receive-bg-ipad-landscape";
+    }
+
+    NSString * myRetinaExt = nil;
+
+    bool isRetina = ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0));
+    if (isRetina) {
+        myRetinaExt = @"@2x";
+    } else {
+        myRetinaExt = @"";
+    }
+    NSString* myPullDownBgName = [NSString stringWithFormat:@"%@%@%@", myPullDownBg, myRetinaExt, @".png"];
+    NSLog(@"setting pulldownbg to %@", myPullDownBgName);
+    self.pullDownBackgroundImage.image = [UIImage imageNamed:myPullDownBgName];
 
 }
 
