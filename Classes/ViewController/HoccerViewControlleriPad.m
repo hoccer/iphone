@@ -47,6 +47,8 @@
 - (void)updateEncryptionIndicator;
 - (void)showEncryption;
 - (void)showGroupAndEncryption;
+- (void)setProperPullDownBackgroundImage: (BOOL) isPortrait;
+
 
 
 @end
@@ -104,10 +106,11 @@
     }
     else {
         desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
-        
     }
+    [self setProperPullDownBackgroundImage: isPortrait];
+ 
     
-	[desktopView insertSubview:statusViewController.view atIndex:0];
+	[desktopView insertSubview:statusViewController.view atIndex:2];
     CGRect statusRect = statusViewController.view.frame;
 	statusRect = CGRectMake(0, 0, 768, 38);
 	statusViewController.view.frame = statusRect;
@@ -257,6 +260,7 @@
         }
 
     }
+
     [contentPopOverController presentPopoverFromRect:rect inView:self.tabBar permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 }
 
@@ -922,6 +926,10 @@
         }
     }
 
+    [self setProperPullDownBackgroundImage:isPortrait];
+}
+
+- (void)setProperPullDownBackgroundImage:(BOOL) isPortrait {
     NSString * myPullDownBg = nil;
     if (isPortrait){
         myPullDownBg = @"receive-bg-ipad-portrait";
@@ -929,19 +937,18 @@
     else {
         myPullDownBg = @"receive-bg-ipad-landscape";
     }
-
-    NSString * myRetinaExt = nil;
-
-    bool isRetina = ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0));
-    if (isRetina) {
-        myRetinaExt = @"@2x";
-    } else {
-        myRetinaExt = @"";
-    }
+    
+    NSString * myRetinaExt = @"";
+    
+//    bool isRetina = ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0));
+//    if (isRetina) {
+//        myRetinaExt = @"@2x";
+//    }
+    
     NSString* myPullDownBgName = [NSString stringWithFormat:@"%@%@%@", myPullDownBg, myRetinaExt, @".png"];
     NSLog(@"setting pulldownbg to %@", myPullDownBgName);
     self.pullDownBackgroundImage.image = [UIImage imageNamed:myPullDownBgName];
-
+    
 }
 
 - (void)showTextInputVC:(NSNotification *)notification
