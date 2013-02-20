@@ -412,7 +412,7 @@ typedef enum {
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    NSLog(@"HoccerViewController selectAutoReceive");
+    // NSLog(@"HoccerViewController selectAutoReceive");
     NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }

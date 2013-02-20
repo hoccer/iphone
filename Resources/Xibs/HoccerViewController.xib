@@ -152,11 +152,11 @@
 					<object class="IBUIViewController" id="424575191">
 						<object class="IBUIView" key="IBUIView" id="264601323">
 							<reference key="NSNextResponder"/>
-							<int key="NSvFlags">308</int>
+							<int key="NSvFlags">304</int>
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="IBUIView" id="978414107">
 									<reference key="NSNextResponder" ref="264601323"/>
-									<int key="NSvFlags">260</int>
+									<int key="NSvFlags">258</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="IBUIView" id="138603932">
 											<reference key="NSNextResponder" ref="978414107"/>

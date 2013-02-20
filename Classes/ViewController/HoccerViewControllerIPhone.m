@@ -134,8 +134,10 @@
     }
 
 	[desktopView insertSubview:statusViewController.view atIndex:3];
+    [statusViewController.view setNeedsLayout];
     
     [desktopView insertSubview:errorViewController.view atIndex:2];
+    [errorViewController.view setNeedsLayout];
 
 	[desktopView insertSubview:groupViewController.view atIndex:1];
 	groupViewController.largeBackground = [UIImage imageNamed:@"statusbar_small.png"];
@@ -164,7 +166,7 @@
 - (void)viewDidUnload
 {
     [self setActivityIndi:nil];
-    [self setPullDownAnimationImage:nil];
+    [self setPullDownBackgroundImage:nil];
     [self setPullDownView:nil];
 //    [pull containingViewDidUnload];
 }

@@ -48,6 +48,7 @@
 - (void)showEncryption;
 - (void)showGroupAndEncryption;
 - (void)setProperPullDownBackgroundImage: (BOOL) isPortrait;
+- (void)setProperSubViewSizes: (BOOL) isPortrait;
 
 
 
@@ -111,14 +112,11 @@
  
     
 	[desktopView insertSubview:statusViewController.view atIndex:2];
-    CGRect statusRect = statusViewController.view.frame;
-	statusRect = CGRectMake(0, 0, 768, 38);
-	statusViewController.view.frame = statusRect;
 	
     [desktopView insertSubview:errorViewController.view atIndex:1];
-    CGRect errorRect = errorViewController.view.frame;
-	errorRect = CGRectMake(0, 0, 768, 134);
-	errorViewController.view.frame = errorRect;
+    
+    [self setProperSubViewSizes:isPortrait];
+
     
     CGRect infoRect = CGRectMake(0, 0, 320, 400);
     groupViewController = [[GroupStatusViewController alloc] init];
@@ -481,7 +479,7 @@
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    NSLog(@"#### HoccerViewControllerIPad selectAutoReceive ####");
+    // NSLog(@"#### HoccerViewControllerIPad selectAutoReceive ####");
     
     [super selectAutoReceive:sender];
     
@@ -529,7 +527,7 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSLog(@"tabBar didSelectItem %@", item);
     
-    [self stopAutoReceiveAndHidePullDown];
+    // [self stopAutoReceiveAndHidePullDown];
 
 	switch (item.tag) {
 		case 1:
@@ -927,6 +925,7 @@
     }
 
     [self setProperPullDownBackgroundImage:isPortrait];
+    [self setProperSubViewSizes:isPortrait];
 }
 
 - (void)setProperPullDownBackgroundImage:(BOOL) isPortrait {
@@ -946,9 +945,25 @@
 //    }
     
     NSString* myPullDownBgName = [NSString stringWithFormat:@"%@%@%@", myPullDownBg, myRetinaExt, @".png"];
-    NSLog(@"setting pulldownbg to %@", myPullDownBgName);
+    // NSLog(@"setting pulldownbg to %@", myPullDownBgName);
     self.pullDownBackgroundImage.image = [UIImage imageNamed:myPullDownBgName];
     
+}
+
+- (void)setProperSubViewSizes:(BOOL) isPortrait {
+
+    CGRect statusRect = statusViewController.view.frame;
+    CGRect errorRect = errorViewController.view.frame;
+    if (isPortrait){
+        statusRect.size.width = 768;
+        errorRect.size.width = 768;
+    }
+    else {
+        statusRect.size.width = 1024;
+        errorRect.size.width = 1024;
+    }
+    statusViewController.view.frame = statusRect;
+    errorViewController.view.frame = errorRect;
 }
 
 - (void)showTextInputVC:(NSNotification *)notification
