@@ -1114,22 +1114,11 @@ typedef enum {
 	self.pullDownView.frame = pullDownViewRect;
 }
 
-- (void)pressedToggleAutoReceive:(id)sender
-{
-    //[self toggleChannelAutoReceiveMode];
-    //  NSLog(@"    pressedToggleAutoReceive  ");
-    [self updateChannelButton];
-    
-    BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
-    if (isChannelMode) {
-        if (self.autoReceiveMode) {
-            [self switchAutoReceiveMode:YES];
-            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == YES  ");
-        }
-        else {
-            [self switchAutoReceiveMode:NO];
-            // NSLog(@"  ################################    if (self.channelAutoReceiveMode == NO  ");
-        }
+- (void)ensurePullDownPosition {
+    if (self.autoReceiveMode) {
+        [self movePullDownToMaxDownPosition];
+    } else {
+        [self movePullDownToNormalPosition];
     }
 }
 

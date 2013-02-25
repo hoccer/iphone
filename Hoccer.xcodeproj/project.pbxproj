@@ -731,8 +731,6 @@
 		E99A953D16D7CEFA002C6590 /* HCError.m in Sources */ = {isa = PBXBuildFile; fileRef = E99A953C16D7CEF9002C6590 /* HCError.m */; };
 		F1133F711663F5870091C0FE /* big_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F611663F5870091C0FE /* big_arrow.png */; };
 		F1133F721663F5870091C0FE /* big_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F621663F5870091C0FE /* big_arrow@2x.png */; };
-		F1133F7E1663F62F0091C0FE /* CustomPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F1133F7B1663F62F0091C0FE /* CustomPullToRefresh.m */; };
-		F1133F7F1663F62F0091C0FE /* MSPullToRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1133F7D1663F62F0091C0FE /* MSPullToRefreshController.m */; };
 		F1147FEA16230C15000D3A61 /* lochblech_bg_channel_alone-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FE216230C15000D3A61 /* lochblech_bg_channel_alone-568h.png */; };
 		F1147FEB16230C15000D3A61 /* lochblech_bg_channel_alone-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FE316230C15000D3A61 /* lochblech_bg_channel_alone-568h@2x.png */; };
 		F1147FEC16230C15000D3A61 /* lochblech_bg_channel_alone.png in Resources */ = {isa = PBXBuildFile; fileRef = F1147FE416230C15000D3A61 /* lochblech_bg_channel_alone.png */; };
@@ -793,10 +791,8 @@
 		F1DC4B4D161E0F3F003A8D8C /* lochblech_bg_alone_channel-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4B4C161E0F3A003A8D8C /* lochblech_bg_alone_channel-568h@2x.png */; };
 		F1DC4B50161E0F4D003A8D8C /* lochblech_bg_alone_channel.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4B4E161E0F45003A8D8C /* lochblech_bg_alone_channel.png */; };
 		F1DC4B51161E0F4D003A8D8C /* lochblech_bg_alone_channel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4B4F161E0F49003A8D8C /* lochblech_bg_alone_channel@2x.png */; };
-		F1E4ED18166631D5000CC046 /* PullToReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1E4ED17166631D5000CC046 /* PullToReceiveViewController.m */; };
 		F1E4ED1D16663CAC000CC046 /* lochblech_bg_pull.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E4ED1B16663CAC000CC046 /* lochblech_bg_pull.png */; };
 		F1E4ED1E16663CAC000CC046 /* lochblech_bg_pull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E4ED1C16663CAC000CC046 /* lochblech_bg_pull@2x.png */; };
-		F1E4ED2016663D42000CC046 /* PullToReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1E4ED1F16663D42000CC046 /* PullToReceiveViewController.xib */; };
 		F1E8372C1625A20900D9FC42 /* nav_bar_btn_switch_in.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E837281625A20900D9FC42 /* nav_bar_btn_switch_in.png */; };
 		F1E8372D1625A20900D9FC42 /* nav_bar_btn_switch_in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E837291625A20900D9FC42 /* nav_bar_btn_switch_in@2x.png */; };
 		F1E8372E1625A20900D9FC42 /* nav_bar_btn_switch_out.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E8372A1625A20900D9FC42 /* nav_bar_btn_switch_out.png */; };
@@ -1476,10 +1472,6 @@
 		E99A953C16D7CEF9002C6590 /* HCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCError.m; sourceTree = "<group>"; };
 		F1133F611663F5870091C0FE /* big_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_arrow.png; path = "Resources/assets/pull-to-refresh/big_arrow.png"; sourceTree = "<group>"; };
 		F1133F621663F5870091C0FE /* big_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_arrow@2x.png"; path = "Resources/assets/pull-to-refresh/big_arrow@2x.png"; sourceTree = "<group>"; };
-		F1133F7A1663F62F0091C0FE /* CustomPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullToRefresh.h; path = MSPullToRefresh/CustomPullToRefresh.h; sourceTree = "<group>"; };
-		F1133F7B1663F62F0091C0FE /* CustomPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomPullToRefresh.m; path = MSPullToRefresh/CustomPullToRefresh.m; sourceTree = "<group>"; };
-		F1133F7C1663F62F0091C0FE /* MSPullToRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSPullToRefreshController.h; path = MSPullToRefresh/MSPullToRefreshController.h; sourceTree = "<group>"; };
-		F1133F7D1663F62F0091C0FE /* MSPullToRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSPullToRefreshController.m; path = MSPullToRefresh/MSPullToRefreshController.m; sourceTree = "<group>"; };
 		F1147FE216230C15000D3A61 /* lochblech_bg_channel_alone-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_channel_alone-568h.png"; sourceTree = "<group>"; };
 		F1147FE316230C15000D3A61 /* lochblech_bg_channel_alone-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_channel_alone-568h@2x.png"; sourceTree = "<group>"; };
 		F1147FE416230C15000D3A61 /* lochblech_bg_channel_alone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lochblech_bg_channel_alone.png; sourceTree = "<group>"; };
@@ -1548,11 +1540,8 @@
 		F1DC4B4C161E0F3A003A8D8C /* lochblech_bg_alone_channel-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_alone_channel-568h@2x.png"; sourceTree = "<group>"; };
 		F1DC4B4E161E0F45003A8D8C /* lochblech_bg_alone_channel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lochblech_bg_alone_channel.png; sourceTree = "<group>"; };
 		F1DC4B4F161E0F49003A8D8C /* lochblech_bg_alone_channel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_alone_channel@2x.png"; sourceTree = "<group>"; };
-		F1E4ED16166631D5000CC046 /* PullToReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullToReceiveViewController.h; path = ViewController/PullToReceiveViewController.h; sourceTree = "<group>"; };
-		F1E4ED17166631D5000CC046 /* PullToReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullToReceiveViewController.m; path = ViewController/PullToReceiveViewController.m; sourceTree = "<group>"; };
 		F1E4ED1B16663CAC000CC046 /* lochblech_bg_pull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lochblech_bg_pull.png; sourceTree = "<group>"; };
 		F1E4ED1C16663CAC000CC046 /* lochblech_bg_pull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg_pull@2x.png"; sourceTree = "<group>"; };
-		F1E4ED1F16663D42000CC046 /* PullToReceiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PullToReceiveViewController.xib; path = Resources/Xibs/PullToReceiveViewController.xib; sourceTree = SOURCE_ROOT; };
 		F1E837281625A20900D9FC42 /* nav_bar_btn_switch_in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_switch_in.png; sourceTree = "<group>"; };
 		F1E837291625A20900D9FC42 /* nav_bar_btn_switch_in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_switch_in@2x.png"; sourceTree = "<group>"; };
 		F1E8372A1625A20900D9FC42 /* nav_bar_btn_switch_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_switch_out.png; sourceTree = "<group>"; };
@@ -1637,7 +1626,6 @@
 				F1A8D1F2164BEBA300A3A556 /* HoccerAppDelegate */,
 				F12FAB671633F9CF00F9FFD2 /* HoccerViewController */,
 				F1B676441637ECF700CF9810 /* DataManagment */,
-				F1133F731663F5B70091C0FE /* MSPullToRefresh */,
 				F12FAB691633F9F200F9FFD2 /* ChannelViewController */,
 				F117AE4B1630180800330DF5 /* NewHistory */,
 				E1A9DBD6139E5F2A0059905D /* ContentPickerViews */,
@@ -2983,20 +2971,6 @@
 			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
-		F1133F731663F5B70091C0FE /* MSPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				F1133F7C1663F62F0091C0FE /* MSPullToRefreshController.h */,
-				F1133F7D1663F62F0091C0FE /* MSPullToRefreshController.m */,
-				F1133F7A1663F62F0091C0FE /* CustomPullToRefresh.h */,
-				F1133F7B1663F62F0091C0FE /* CustomPullToRefresh.m */,
-				F1E4ED16166631D5000CC046 /* PullToReceiveViewController.h */,
-				F1E4ED17166631D5000CC046 /* PullToReceiveViewController.m */,
-				F1E4ED1F16663D42000CC046 /* PullToReceiveViewController.xib */,
-			);
-			name = MSPullToRefresh;
-			sourceTree = "<group>";
-		};
 		F117AE4B1630180800330DF5 /* NewHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -3608,7 +3582,6 @@
 				F1133F721663F5870091C0FE /* big_arrow@2x.png in Resources */,
 				F1E4ED1D16663CAC000CC046 /* lochblech_bg_pull.png in Resources */,
 				F1E4ED1E16663CAC000CC046 /* lochblech_bg_pull@2x.png in Resources */,
-				F1E4ED2016663D42000CC046 /* PullToReceiveViewController.xib in Resources */,
 				F1FFD6BA167B77FC0082E6D3 /* nav_bar_btn_auto_receive_off.png in Resources */,
 				F1FFD6BB167B77FC0082E6D3 /* nav_bar_btn_auto_receive_off@2x.png in Resources */,
 				F1D4C8C11680F2D20015851A /* receive-bg.png in Resources */,
@@ -3926,9 +3899,6 @@
 				F117AE55163023B000330DF5 /* HCWidgetCell.m in Sources */,
 				F117AE5C16302C6400330DF5 /* HCHistoryImageWidget.m in Sources */,
 				F1B6764F1637F81800CF9810 /* DataManager.m in Sources */,
-				F1133F7E1663F62F0091C0FE /* CustomPullToRefresh.m in Sources */,
-				F1133F7F1663F62F0091C0FE /* MSPullToRefreshController.m in Sources */,
-				F1E4ED18166631D5000CC046 /* PullToReceiveViewController.m in Sources */,
 				F1D4C8BB1680E2E70015851A /* PullDownView.m in Sources */,
 				E99A953D16D7CEFA002C6590 /* HCError.m in Sources */,
 			);

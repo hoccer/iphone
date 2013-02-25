@@ -27,7 +27,6 @@
 
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
-#import "PullToReceiveViewController.h"
 #import "HoccerAppDelegate.h"
 
 @interface HoccerViewControlleriPad ()
@@ -431,14 +430,8 @@
 
 - (void)removePopOverFromSuperview
 {
-    if ([auxiliaryView isKindOfClass:[PullToReceiveViewController class]]) {
-        NSLog(@"#### dont removeFromSuperview PullToReceiveViewController");
-    }
-    else {
-        NSLog(@"----  removeFromSuperview PullToReceiveViewController");
 
-        [auxiliaryView.view removeFromSuperview];
-    }
+    [auxiliaryView.view removeFromSuperview];
 
 	self.auxiliaryView = nil;
 	

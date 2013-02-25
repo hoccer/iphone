@@ -810,7 +810,6 @@
         channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         channelSizeButton.titleLabel.textAlignment = UITextAlignmentLeft;
 
-        //[channelSizeButton addTarget:self action:@selector(pressedToggleAutoReceive:) forControlEvents:UIControlEventTouchUpInside];
         [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
     }
 
@@ -998,7 +997,7 @@
 - (void)ensureViewIsHoccable
 {
     [super ensureViewIsHoccable];
-    [self movePullDownToNormalPosition];
+    [self ensurePullDownPosition];
 }
 
 @end

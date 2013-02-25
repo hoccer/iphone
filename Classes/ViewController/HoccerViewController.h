@@ -179,13 +179,13 @@
 - (void)switchAutoReceiveMode:(BOOL)on;
 - (void)toggleAutoReceiveMode;
 - (void)showChannelContactPicker;
-- (void)pressedToggleAutoReceive:(id)sender;
 
 - (void)cancelPopOver;
 
 - (void)movePullDownToHidePosition;
 - (void)movePullDownToNormalPosition;
 - (void)movePullDownToMaxDownPosition;
+- (void)ensurePullDownPosition;
 
 - (void)updateGroupButton;
 - (void)updateChannelButton;
