@@ -30,7 +30,7 @@
 @synthesize totalProgress;
 
 - (id)init {
-    NSLog(@"TransferController: init");
+    if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: init");}
 	self = [super init];
 	if (self != nil) {
 		transferQueue = [[NSMutableArray alloc] init];
@@ -42,13 +42,13 @@
 }
 
 - (void)addContentToTransferQueue:(id <Transferable>)transferable {
-    NSLog(@"TransferController: addContentToTransferQueue %@", transferable);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"TransferController: addContentToTransferQueue %@", transferable);}
 	[transferQueue addObject:transferable];
 	[self startTransfer];
 }
 
 - (void)cancelTransfers {
-    NSLog(@"TransferController: cancelTransfers");
+    if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: cancelTransfers");}
 	for (id <Transferable> transfer in activeTransfers) {
 		[self removeObservers:transfer];
 		[transfer cancelTransfer];
@@ -63,7 +63,7 @@
 }
 
 - (void)startTransfer {
-    NSLog(@"TransferController: startTransfer");
+    if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: startTransfer");}
 	if ([activeTransfers count] < CONCURRENT_TRANSFERS && [transferQueue count] > 0) {
 		NSObject <Transferable> *nextObject = [transferQueue objectAtIndex:0];
 		
@@ -76,18 +76,18 @@
 }
 
 - (void)finalizeTransfer: (NSObject <Transferable> *)object {
-    NSLog(@"TransferController: finalizeTransfer %@, progress = %@", object, totalProgress);
+    if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: finalizeTransfer %@, progress = %@", object, totalProgress);}
 	[self removeObservers:object];
 	[activeTransfers removeObject:object];
     
     if ([activeTransfers count] == 0 && [transferQueue count] == 0) {
         if ([totalProgress completed]) {
-            NSLog(@"TransferController: finalizeTransfer %@, progress completed = %@", object, totalProgress);
+            if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: finalizeTransfer %@, progress completed = %@", object, totalProgress);}
             if ([delegate respondsToSelector:@selector(transferControllerDidFinishAllTransfers:)]) {
                 [delegate transferControllerDidFinishAllTransfers:self];
             }
         } else {
-            NSLog(@"TransferController: finalizeTransfer %@, progress incomplete = %@", object, totalProgress);
+            if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: finalizeTransfer %@, progress incomplete = %@", object, totalProgress);}
             if ([delegate respondsToSelector:@selector(transferController:didFailWithError:forTransfer:)]) {
                 HCError * myError = [[HCError alloc] initWithErrorCode:1001 errorText:@"Transfer was incomplete"];
                 [delegate transferController:self didFailWithError:myError forTransfer:object];
@@ -177,7 +177,7 @@
     NSInteger transfered = 0;
     
     for (id <Transferable> t in activeTransfers) {
-        NSLog(@"updateTotalProgress: transferable %@, progress = %@", t, t.progress);
+        // NSLog(@"updateTotalProgress: transferable %@, progress = %@", t, t.progress);
         total += t.progress.total;
         transfered += t.progress.done;
     }

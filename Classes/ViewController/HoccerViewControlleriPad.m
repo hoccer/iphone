@@ -520,7 +520,7 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSLog(@"tabBar didSelectItem %@", item);
     
-    // [self stopAutoReceiveAndHidePullDown];
+    [self stopAutoReceiveAndHidePullDown];
 
 	switch (item.tag) {
 		case 1:
@@ -562,6 +562,7 @@
 #pragma mark -
 #pragma mark User Actions
 - (void)cancelPopOver {
+    NSLog(@"cancelPopOver");
 	tabBar.selectedItem = nil;
 	[self hidePopOverAnimated:YES];
 }
@@ -972,6 +973,8 @@
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    NSLog(@"popoverControllerDidDismissPopover");
+    [self movePullDownToNormalPosition];
     self.tabBar.selectedItem = nil;
 }
 @end

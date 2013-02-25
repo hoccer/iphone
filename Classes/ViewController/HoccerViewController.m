@@ -782,22 +782,14 @@ typedef enum {
         
         [desktopData addhoccerController:item];
         
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-        animation.fromValue = [NSValue valueWithCGPoint: CGPointMake(desktopView.frame.size.width / 2, -500)];
-        animation.duration = 0.1;
-        
-        [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:animation];
+        [desktopView insertView:item.contentView atPoint:item.viewOrigin withAnimation:nil];
         
         [self willStartDownload:item];
         
         [linccer pollWithMode:HCTransferModeOneToMany];
-        
-//        [statusViewController setState:[ConnectionState state]];
-//        [statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
-        
+                
         hoccerStatus = HOCCER_AUTO_RECEIVING_THROW;
         self.autoReceiveMode = YES;
-        
         self.sendingItem = nil;
     }
     else {
@@ -819,9 +811,6 @@ typedef enum {
         self.autoReceiveMode = NO;
 
         [desktopView reloadData];
-
-//        [statusViewController setState:[ConnectionState state]];
-//        [statusViewController showMessage:NSLocalizedString(@"Stop Receiving from Channel..", nil) forSeconds: 2];
     }
 }
 
@@ -1465,6 +1454,7 @@ typedef enum {
         item.content = hoccerContent;
         item.content.persist = YES;
         currentContent = hoccerContent;
+
         if ([hoccerContent transferer]) {
             for (id transferer in [hoccerContent transferers]) {
                 hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
@@ -1473,13 +1463,14 @@ typedef enum {
         }
         else {
             [self showSuccess:item];
-//            item.viewOrigin = self.defaultOrigin;
-
-            item.viewOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2, 80);
-
+            
         }
+        CGPoint myOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2,
+                                       desktopView.frame.size.height / 2 - item.contentView.frame.size.height / 2);
+        
+        //NSLog(@"myOrigin = %f %f", myOrigin.x, myOrigin.y);
+        item.viewOrigin = myOrigin;
         [desktopView reloadData];
-        //item.viewOrigin = CGPointMake(0, 0);
         
         if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }
     }
