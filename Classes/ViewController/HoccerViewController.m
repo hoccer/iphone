@@ -804,7 +804,7 @@ typedef enum {
         if (USES_DEBUG_MESSAGES) { NSLog(@"SwitchAutoReceiveMode  OFF ----"); }
         
         if ([transferController hasTransfers]) {
-            [transferController cancelDownloads];
+            [transferController cancelTransfers];
         }
         [self removeAllItemsFromDesktop];
 
@@ -850,7 +850,7 @@ typedef enum {
 {
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([transferController hasTransfers]) {
-		[transferController cancelDownloads];
+		[transferController cancelTransfers];
 	}
     else {
 		[desktopData removeHoccerController:item];
@@ -1167,14 +1167,14 @@ typedef enum {
             if (item) {
                 [desktopData removeHoccerController:item];
             }
-            [transferController cancelDownloads];
+            [transferController cancelTransfers];
         }
         else {
             for (int i=0;i<[desktopData count];i++){
                 ItemViewController *item = [desktopData hoccerControllerDataAtIndex:i];
                 if (item.content == nil){
                     [desktopData removeHoccerController:item];
-                    [transferController cancelDownloads];
+                    [transferController cancelTransfers];
                 }
             }
         }
@@ -1297,14 +1297,11 @@ typedef enum {
 - (void)itemViewControllerWasClosed:(ItemViewController *)item
 {
     if (USES_DEBUG_MESSAGES) { NSLog(@"itemViewControllerWasClosed:"); }
-	[transferController cancelDownloads];
+	[transferController cancelTransfers];
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
 }
-
-// warum das???
-//- (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item; {
 
 - (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item
 {
@@ -1375,10 +1372,11 @@ typedef enum {
     }
 }
 
-- (void) transferController:(TransferController *)controller didUpdateTotalProgress:(NSNumber *)progress
+- (void) transferController:(TransferController *)controller didUpdateTotalProgress:(TransferProgress *)progress
 {
+    // NSLog(@"HoccerViewController transferController: didUpdateTotalProgress %@", progress);
 	if (connectionEstablished) {
-		[statusViewController setProgressUpdate: [progress floatValue]];
+		[statusViewController setProgressUpdate: [progress percentDone]];
 	}
 }
 

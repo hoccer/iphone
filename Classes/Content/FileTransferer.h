@@ -17,17 +17,16 @@
 	NSString *url;
 	NSString *filename;
 	
-	NSNumber *progress;
+	TransferProgress * progress;
+
 	NSError *error;
-	TransferableState state;	
-	
+	TransferableState state;
 }
 
-
-@property (nonatomic, retain) NSNumber* progress;
+@property (nonatomic, retain) TransferProgress* progress;
 @property (nonatomic, retain) NSError* error;
 @property (nonatomic, assign) TransferableState state;
-@property (nonatomic, readonly) NSInteger size;
+// @property (nonatomic, readonly) NSInteger transfersize;
 
 @property (nonatomic, retain) NSString *filename;
 @property (nonatomic, retain) NSString *url;

@@ -728,6 +728,7 @@
 		E999F25216D3F802001D1D97 /* receive-bg-ipad-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E999F25116D3F800001D1D97 /* receive-bg-ipad-portrait.png */; };
 		E999F25516D405C1001D1D97 /* receive-bg-ipad-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = E999F25316D405BE001D1D97 /* receive-bg-ipad-landscape.png */; };
 		E999F25616D405C1001D1D97 /* receive-bg-ipad-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E999F25416D405BF001D1D97 /* receive-bg-ipad-landscape@2x.png */; };
+		E99A953D16D7CEFA002C6590 /* HCError.m in Sources */ = {isa = PBXBuildFile; fileRef = E99A953C16D7CEF9002C6590 /* HCError.m */; };
 		F1133F711663F5870091C0FE /* big_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F611663F5870091C0FE /* big_arrow.png */; };
 		F1133F721663F5870091C0FE /* big_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1133F621663F5870091C0FE /* big_arrow@2x.png */; };
 		F1133F7E1663F62F0091C0FE /* CustomPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F1133F7B1663F62F0091C0FE /* CustomPullToRefresh.m */; };
@@ -1471,6 +1472,8 @@
 		E999F25116D3F800001D1D97 /* receive-bg-ipad-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-bg-ipad-portrait.png"; path = "Resources/assets/pull-to-refresh/receive-bg-ipad-portrait.png"; sourceTree = "<group>"; };
 		E999F25316D405BE001D1D97 /* receive-bg-ipad-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-bg-ipad-landscape.png"; path = "Resources/assets/pull-to-refresh/receive-bg-ipad-landscape.png"; sourceTree = "<group>"; };
 		E999F25416D405BF001D1D97 /* receive-bg-ipad-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receive-bg-ipad-landscape@2x.png"; path = "Resources/assets/pull-to-refresh/receive-bg-ipad-landscape@2x.png"; sourceTree = "<group>"; };
+		E99A953B16D7CEF8002C6590 /* HCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCError.h; sourceTree = "<group>"; };
+		E99A953C16D7CEF9002C6590 /* HCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCError.m; sourceTree = "<group>"; };
 		F1133F611663F5870091C0FE /* big_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = big_arrow.png; path = "Resources/assets/pull-to-refresh/big_arrow.png"; sourceTree = "<group>"; };
 		F1133F621663F5870091C0FE /* big_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_arrow@2x.png"; path = "Resources/assets/pull-to-refresh/big_arrow@2x.png"; sourceTree = "<group>"; };
 		F1133F7A1663F62F0091C0FE /* CustomPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomPullToRefresh.h; path = MSPullToRefresh/CustomPullToRefresh.h; sourceTree = "<group>"; };
@@ -2743,6 +2746,8 @@
 				B488C769149FA17E0071194B /* NSString+StringWithData.m */,
 				B488C76A149FA17E0071194B /* NSString+URLHelper.h */,
 				B488C76B149FA17E0071194B /* NSString+URLHelper.m */,
+				E99A953B16D7CEF8002C6590 /* HCError.h */,
+				E99A953C16D7CEF9002C6590 /* HCError.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -3925,6 +3930,7 @@
 				F1133F7F1663F62F0091C0FE /* MSPullToRefreshController.m in Sources */,
 				F1E4ED18166631D5000CC046 /* PullToReceiveViewController.m in Sources */,
 				F1D4C8BB1680E2E70015851A /* PullDownView.m in Sources */,
+				E99A953D16D7CEFA002C6590 /* HCError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

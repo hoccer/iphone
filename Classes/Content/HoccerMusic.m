@@ -64,13 +64,13 @@
 		song = [aMediaItem retain];
 		isFromContentSource = YES;
 		canBeCiphered = YES;
-		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
+		[self performSelectorInBackground:@selector(createDataRepresentation:) withObject:self];
 	}
 	
 	return self;
 }
 
-- (void)createDataRepresentaion: (HoccerMusic *)content {
+- (void)createDataRepresentation: (HoccerMusic *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];

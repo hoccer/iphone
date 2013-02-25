@@ -68,12 +68,12 @@
 		videoURL = [aURL retain];
 		isFromContentSource = YES;
 		canBeCiphered = YES;
-		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
+		[self performSelectorInBackground:@selector(createDataRepresentation:) withObject:self];
 	}
 	return self;
 }
 
-- (void)createDataRepresentaion: (HoccerVideo *)content {
+- (void)createDataRepresentation: (HoccerVideo *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	content.data = [NSData dataWithContentsOfURL:content.videoURL];

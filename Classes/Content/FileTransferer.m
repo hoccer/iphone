@@ -19,8 +19,13 @@
 @synthesize url;
 @synthesize cryptor;
 
-- (void) fileCache:(HCFileCache *)fileCache didUpdateProgress:(NSNumber *)theProgress forURI:(NSString *)uri {
-	self.progress = theProgress;
+- (void) fileCache:(HCFileCache *)fileCache didUpdateTransferProgress:(TransferProgress*)transferProgress {
+    // NSLog(@"fileCache didUpdateTransferProgress %@", transferProgress);
+    if (self.progress == nil || transferProgress.total >= self.progress.total) {
+        self.progress = transferProgress;
+    } else {
+        NSLog(@"fileCache: didUpdateTransferProgress: total has become smaller, upload corrupted");
+    }
 }
 
 - (void) fileCache:(HCFileCache *)fileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
@@ -35,7 +40,7 @@
 	[self doesNotRecognizeSelector:_cmd];
 }
 
-- (NSInteger)size {
+- (NSInteger)transfersize {
     NSString *directory = [[NSFileManager defaultManager] contentDirectory];
     NSString *aFilename = [directory stringByAppendingPathComponent:self.filename];
     

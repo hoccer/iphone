@@ -23,6 +23,7 @@
 }
 
 - (void) startTransfer {
+    NSLog(@"FileDownloader: startTransfer %@", self.url);
 	self.state = TransferableStateTransferring;
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
@@ -32,10 +33,16 @@
 	idString = [[fileCache load: self.url] copy];		
 }
 
+- (NSInteger)transfersize {
+    return self.progress.total;
+}
+
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void)fileCache: (HCFileCache *)fileCache didReceiveResponse: (NSHTTPURLResponse *)response withDownloadedData: (NSData *)data forURI: (NSString *)uri {
-	NSString *directory = [[NSFileManager defaultManager] contentDirectory];
+    NSLog(@"FileDownloader: didReceiveResponse uri = %@", uri);
+
+    NSString *directory = [[NSFileManager defaultManager] contentDirectory];
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];
     NSData* decrypted = [self.cryptor decrypt:data];
     
@@ -46,12 +53,14 @@
 
 - (void) fileCache:(HCFileCache *)theFileCache didFailWithError:(NSError *)theError forURI:(NSString *)uri {
 	
-	if ([theError code] == 404 && retryCount < 4) {
-		[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
+    NSLog(@"FileDownloader: didFailWithError code = %@", theError);
+	if ([theError code] == 404 && retryCount <= 4) {
+        NSLog(@"FileDownloader: didFailWithError retrying, retryCount = %i", retryCount);
 		retryCount += 1;
-	}
-	
-	[super fileCache:theFileCache didFailWithError:theError forURI:uri];
+		[NSTimer scheduledTimerWithTimeInterval:2*retryCount target:self selector:@selector(startTransfer) userInfo:nil repeats:NO];
+	} else {
+        [super fileCache:theFileCache didFailWithError:theError forURI:uri];
+    }
 }
 
 

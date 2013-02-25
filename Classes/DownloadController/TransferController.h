@@ -27,9 +27,9 @@ typedef enum _TransferableState TransferableState;
 - (NSString *)url;
 
 - (TransferableState)state;
-- (NSNumber *)progress;
+- (TransferProgress *)progress;
 - (NSError *)error;
-- (NSInteger)size;
+- (NSInteger)transfersize;
 
 @end
 
@@ -38,26 +38,28 @@ typedef enum _TransferableState TransferableState;
 @optional
 - (void)transferController: (TransferController *)controller didFinishTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didFailWithError: (NSError *)error forTransfer: (id)object;
-- (void)transferController: (TransferController *)controller didUpdateProgress: (NSNumber *)progress forTransfer: (id)object;
+- (void)transferController: (TransferController *)controller didUpdateProgress: (TransferProgress *)progress forTransfer: (id)object;
 - (void)transferController: (TransferController *)controller didPrepareContent: (id)object;
 
-- (void)transferController: (TransferController *)controller didUpdateTotalProgress: (NSNumber *)progress;
+- (void)transferController: (TransferController *)controller didUpdateTotalProgress: (TransferProgress *)progress;
 - (void)transferControllerDidFinishAllTransfers: (TransferController *)controller;
 
 @end
 
 @interface TransferController: NSObject {
-	NSMutableArray *downloadQueue;
-	NSMutableArray *activeDownloads;
-	
+	NSMutableArray *transferQueue;
+	NSMutableArray *activeTransfers;
+    TransferProgress* totalProgress;
+
 	id <TransferControllerDelegate> delegate;
 }
 
 @property (assign, nonatomic) id <TransferControllerDelegate> delegate;
+@property (assign) TransferProgress* totalProgress;
 
 - (BOOL)hasTransfers;
 - (void)addContentToTransferQueue: (id <Transferable>) downloadable;
-- (void)cancelDownloads;
+- (void)cancelTransfers;
 
 
 @end

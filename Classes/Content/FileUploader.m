@@ -24,6 +24,7 @@
 }
 
 - (void)startTransfer {
+    NSLog(@"FileUploader: startTransfer %@", self.filename);
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 		fileCache.delegate = self;		
@@ -34,7 +35,7 @@
 	
 	NSData *data = [NSData dataWithContentsOfFile:filepath];
     NSData *crypted = [cryptor encrypt:data];
-	self.url = [fileCache cacheData: crypted withFilename:self.filename forTimeInterval:180*60];
+	self.url = [fileCache cacheData: crypted withFilename:self.filename forTimeInterval:180*60 withSize: [self transfersize]];
 	self.state = TransferableStateTransferring;
 	
 	idString = [self.url copy];
@@ -43,6 +44,7 @@
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
+    NSLog(@"FileUploader: didUploadFileToURI %@", path);
 	self.state = TransferableStateTransferred;
 }
 

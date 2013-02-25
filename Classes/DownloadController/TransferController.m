@@ -7,12 +7,13 @@
 //
 
 #import "TransferController.h"
+#import "HCError.h"
 
-#define CONCURENT_TRANSFERES 3
+#define CONCURRENT_TRANSFERS 3
 
 @interface TransferController ()
 
-- (void)startDownload;
+- (void)startTransfer;
 - (void)monitorContent: (NSObject <Transferable> *)theContent;
 - (void)removeObservers: (NSObject <Transferable> *)theContent;
 
@@ -26,59 +27,75 @@
 
 @implementation TransferController
 @synthesize delegate;
+@synthesize totalProgress;
 
 - (id)init {
+    NSLog(@"TransferController: init");
 	self = [super init];
 	if (self != nil) {
-		downloadQueue = [[NSMutableArray alloc] init];
-		activeDownloads = [[NSMutableArray alloc] init];
+		transferQueue = [[NSMutableArray alloc] init];
+		activeTransfers = [[NSMutableArray alloc] init];
+        totalProgress = [[TransferProgress alloc] init];
 	}
 	
 	return self;
 }
 
-- (void)addContentToTransferQueue:(id <Transferable>)downloadable {
-	[downloadQueue addObject:downloadable];
-	[self startDownload];
+- (void)addContentToTransferQueue:(id <Transferable>)transferable {
+    NSLog(@"TransferController: addContentToTransferQueue %@", transferable);
+	[transferQueue addObject:transferable];
+	[self startTransfer];
 }
 
-- (void)cancelDownloads {
-	for (id <Transferable> download in activeDownloads) {
-		[self removeObservers:download];
-		[download cancelTransfer];
+- (void)cancelTransfers {
+    NSLog(@"TransferController: cancelTransfers");
+	for (id <Transferable> transfer in activeTransfers) {
+		[self removeObservers:transfer];
+		[transfer cancelTransfer];
 	}
 	
-	[activeDownloads removeAllObjects];
-	[downloadQueue removeAllObjects];
+	[activeTransfers removeAllObjects];
+	[transferQueue removeAllObjects];
 }
 
 - (BOOL)hasTransfers {	
-	return ([activeDownloads count] > 0 || [downloadQueue count] > 0);
+	return ([activeTransfers count] > 0 || [transferQueue count] > 0);
 }
 
-- (void)startDownload {
-	if ([activeDownloads count] < CONCURENT_TRANSFERES && [downloadQueue count] > 0) {
-		NSObject <Transferable> *nextObject = [downloadQueue objectAtIndex:0];
+- (void)startTransfer {
+    NSLog(@"TransferController: startTransfer");
+	if ([activeTransfers count] < CONCURRENT_TRANSFERS && [transferQueue count] > 0) {
+		NSObject <Transferable> *nextObject = [transferQueue objectAtIndex:0];
 		
 		[nextObject startTransfer];
 		[self monitorContent:nextObject];
-		[activeDownloads addObject:nextObject];
+		[activeTransfers addObject:nextObject];
 		
-		[downloadQueue removeObjectAtIndex:0];
+		[transferQueue removeObjectAtIndex:0];
     }
 }
 
-- (void)finalizeDownload: (NSObject <Transferable> *)object {
+- (void)finalizeTransfer: (NSObject <Transferable> *)object {
+    NSLog(@"TransferController: finalizeTransfer %@, progress = %@", object, totalProgress);
 	[self removeObservers:object];
-	[activeDownloads removeObject:object];
+	[activeTransfers removeObject:object];
     
-    if ([activeDownloads count] == 0 && [downloadQueue count] == 0) {
-        if ([delegate respondsToSelector:@selector(transferControllerDidFinishAllTransfers:)]) {
-            [delegate transferControllerDidFinishAllTransfers:self];
+    if ([activeTransfers count] == 0 && [transferQueue count] == 0) {
+        if ([totalProgress completed]) {
+            NSLog(@"TransferController: finalizeTransfer %@, progress completed = %@", object, totalProgress);
+            if ([delegate respondsToSelector:@selector(transferControllerDidFinishAllTransfers:)]) {
+                [delegate transferControllerDidFinishAllTransfers:self];
+            }
+        } else {
+            NSLog(@"TransferController: finalizeTransfer %@, progress incomplete = %@", object, totalProgress);
+            if ([delegate respondsToSelector:@selector(transferController:didFailWithError:forTransfer:)]) {
+                HCError * myError = [[HCError alloc] initWithErrorCode:1001 errorText:@"Transfer was incomplete"];
+                [delegate transferController:self didFailWithError:myError forTransfer:object];
+            }
         }
     }
     
-	[self startDownload];
+	[self startTransfer];
 }
 
 - (void)monitorContent: (NSObject <Transferable> *)theContent {
@@ -114,7 +131,7 @@
 - (void)error: (NSError *)error forTransfer: (id)object {
 	[object retain];
 	
-	[self finalizeDownload:object];
+	[self finalizeTransfer:object];
 	
 	if ([delegate respondsToSelector:@selector(transferController:didFailWithError:forTransfer:)]) {
 		[delegate transferController:self didFailWithError:error forTransfer:object];
@@ -123,8 +140,10 @@
 	[object release];
 }
 
-- (void)progress: (NSNumber *)progress forTransfer: (id)object {	
+- (void)progress: (TransferProgress *)progress forTransfer: (id)object {
+    //NSLog(@"TransferController: progress forTransfer %@", object);
 	if ([delegate respondsToSelector:@selector(transferController:didUpdateProgress:forTransfer:)]) {
+        // NSLog(@"TransferController: delegate didUpdateProgress forTransfer %@", object);
 		[delegate transferController:self didUpdateProgress:progress forTransfer:object];
 	}
     
@@ -135,7 +154,7 @@
 	[object retain];
 	switch (state) {
 		case TransferableStateTransferred:
-			[self finalizeDownload:object];
+			[self finalizeTransfer:object];
 			if ([delegate respondsToSelector:@selector(transferController:didFinishTransfer:)]) {
 				[delegate transferController:self didFinishTransfer:object];
 			}
@@ -157,21 +176,25 @@
     NSInteger total = 0;
     NSInteger transfered = 0;
     
-    for (id <Transferable>t in activeDownloads) {
-        total += t.size;
-        transfered += t.size * [t.progress floatValue];
+    for (id <Transferable> t in activeTransfers) {
+        NSLog(@"updateTotalProgress: transferable %@, progress = %@", t, t.progress);
+        total += t.progress.total;
+        transfered += t.progress.done;
     }
+
+    self.totalProgress = [[TransferProgress alloc] initWithTotal:total done:transfered uri:@"total"];
     
+    // NSLog(@"updateTotalProgress: total = %i, transfered = %i, percent = %@",total, transfered, [NSNumber numberWithFloat:transfered/(float)total]);
     if ([delegate respondsToSelector:@selector(transferController:didUpdateTotalProgress:)]){
-        [delegate transferController:self didUpdateTotalProgress:[NSNumber numberWithFloat:transfered/(float)total]];
+        // NSLog(@"updateTotalProgress: calling didUpdateTotalProgress");
+        [delegate transferController:self didUpdateTotalProgress:totalProgress];
     }
-    
 }
 
 
 - (void) dealloc {
-	[downloadQueue release];
-	[activeDownloads release];
+	[transferQueue release];
+	[activeTransfers release];
 	
 	[super dealloc];
 }

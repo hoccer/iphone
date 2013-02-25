@@ -63,13 +63,13 @@
 		isFromContentSource = YES;
         canBeCiphered = YES;
 		
-		[self performSelectorInBackground:@selector(createDataRepresentaion:) withObject:self];
+		[self performSelectorInBackground:@selector(createDataRepresentation:) withObject:self];
 	}
 	
 	return self;
 }
 
-- (void)createDataRepresentaion: (HoccerImage *)content {
+- (void)createDataRepresentation: (HoccerImage *)content {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	content.data = UIImageJPEGRepresentation(content.image, 0.8);
