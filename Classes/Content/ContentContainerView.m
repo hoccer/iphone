@@ -133,7 +133,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)updateFrame {
-    //self.frame = containedView.frame;
+    // self.frame = containedView.frame;
     [buttonContainer setFrame:CGRectMake(18, 165, 90, 41)];
 }
 

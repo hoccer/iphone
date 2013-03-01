@@ -920,6 +920,15 @@
 
     [self setProperPullDownBackgroundImage:isPortrait];
     [self setProperSubViewSizes:isPortrait];
+    
+    // TODO: set proper item position after rotation
+//    ItemViewController *item = [desktopData hoccerControllerDataAtIndex:0];
+//
+//    CGPoint myOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2,
+//                                   desktopView.frame.size.height / 2 - item.contentView.frame.size.height / 2);
+//    
+//    item.viewOrigin = myOrigin;    
+//
 }
 
 - (void)setProperPullDownBackgroundImage:(BOOL) isPortrait {

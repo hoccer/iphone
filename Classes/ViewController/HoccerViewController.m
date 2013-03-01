@@ -1776,7 +1776,7 @@ typedef enum {
 	hud.labelText = message;
     // NSLog(@"showHUD: message = %@", message);
     [self.view layoutIfNeeded];
-	[hud show:YES];
+	[hud show:NO];
     [self.view layoutIfNeeded];
 }
 
