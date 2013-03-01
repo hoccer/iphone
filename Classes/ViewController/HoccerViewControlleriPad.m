@@ -363,7 +363,7 @@
 - (IBAction)leftNavButtonsAction:(id)sender{
     
     int selectedIndex = [leftNavButtons selectedSegmentIndex];
-    // NSLog(@"leftNavButtonsAction index=%i", selectedIndex);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"leftNavButtonsAction index=%i", selectedIndex);}
     switch (selectedIndex) {
         case 0:
             [self toggleHistory:nil];
@@ -472,7 +472,7 @@
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    // NSLog(@"#### HoccerViewControllerIPad selectAutoReceive ####");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"#### HoccerViewControllerIPad selectAutoReceive ####");}
     
     [super selectAutoReceive:sender];
     
@@ -483,7 +483,7 @@
 #pragma mark Linccer Delegate Methods
 - (void)linccer:(HCLinccer *)linccer didUpdateGroup:(NSArray *)group {
     
-    // NSLog(@"didUpdateGroup");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"didUpdateGroup");}
     NSMutableArray *others = [NSMutableArray arrayWithCapacity:[group count]];
     for (NSDictionary *dict in group) {
         if (![[dict objectForKey:@"id"] isEqual:[self.linccer uuid]]) {
@@ -518,7 +518,7 @@
 #pragma mark TapBar delegate Methods
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    NSLog(@"tabBar didSelectItem %@", item);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"tabBar didSelectItem %@", item);}
     
     [self stopAutoReceiveAndHidePullDown];
 
@@ -562,14 +562,14 @@
 #pragma mark -
 #pragma mark User Actions
 - (void)cancelPopOver {
-    NSLog(@"cancelPopOver");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"cancelPopOver");}
 	tabBar.selectedItem = nil;
 	[self hidePopOverAnimated:YES];
 }
 
 - (void)clientChannelChanged:(NSNotification *)notification
 {
-    // NSLog(@"clientChannelChanged");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"clientChannelChanged");}
 
     [self updateGroupButton];
     
@@ -580,7 +580,7 @@
 #pragma mark Private Methods
 - (void)updateGroupButton {
     
-    // NSLog(@"updateGroupButton");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"updateGroupButton");}
     
 	if (navigationItem.titleView == nil) {
         // NSLog(@"updateGroupButton: titleView is nil, returning");
@@ -696,7 +696,7 @@
 
 - (void)showGroupAndEncryption
 {
-    // NSLog(@"showGroupAndEncryption");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"showGroupAndEncryption");}
     UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44,44)];
     //[containerView addSubview:encryptionButton];
     [containerView addSubview:groupSizeButton];
@@ -730,7 +730,7 @@
 
 - (void)pressedButton: (id)sender
 {
-    NSLog(@"pressedButton");
+    // NSLog(@"pressedButton");
 
     [statusViewController hideStatus];
     
@@ -778,13 +778,13 @@
 - (void)stopAutoReceiveAndHidePullDown
 {
     if (self.autoReceiveMode) {
-        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
+        if (USES_DEBUG_MESSAGES) {  NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");}
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
         [self switchAutoReceiveMode:NO];
     }
     else {
-        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
+        if (USES_DEBUG_MESSAGES) {  NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");}
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
     }
@@ -939,7 +939,7 @@
 //    }
     
     NSString* myPullDownBgName = [NSString stringWithFormat:@"%@%@%@", myPullDownBg, myRetinaExt, @".png"];
-    // NSLog(@"setting pulldownbg to %@", myPullDownBgName);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"setting pulldownbg to %@", myPullDownBgName);}
     self.pullDownBackgroundImage.image = [UIImage imageNamed:myPullDownBgName];
     
 }
@@ -973,7 +973,7 @@
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-    NSLog(@"popoverControllerDidDismissPopover");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"popoverControllerDidDismissPopover");}
     [self movePullDownToNormalPosition];
     self.tabBar.selectedItem = nil;
 }

@@ -212,6 +212,7 @@
 #pragma mark Class methods
 
 + (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
+    // NSLog(@"HUD: showHUDAddedTo: %@", view);
 	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
 	[view addSubview:hud];
 	[hud show:animated];
@@ -219,6 +220,7 @@
 }
 
 + (BOOL)hideHUDForView:(UIView *)view animated:(BOOL)animated {
+    // NSLog(@"HUD: hideHUDForView: %@", view);
 	UIView *viewToRemove = nil;
 	for (UIView *v in [view subviews]) {
 		if ([v isKindOfClass:[MBProgressHUD class]]) {
@@ -240,10 +242,12 @@
 #pragma mark Lifecycle methods
 
 - (id)initWithWindow:(UIWindow *)window {
+    // NSLog(@"HUD: initWithWindow: %@", window);
     return [self initWithView:window];
 }
 
 - (id)initWithView:(UIView *)view {
+    // NSLog(@"HUD: initWithView: %@", view);
 	// Let's check if the view is nil (this is a common error when using the windw initializer above)
 	if (!view) {
 		[NSException raise:@"MBProgressHUDViewIsNillException" 
@@ -261,6 +265,7 @@
 }
 
 - (id)initWithFrame:(CGRect)frame {
+    // NSLog(@"HUD: initWithFrame: frame = %f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
     if ((self = [super initWithFrame:frame])) {
         // Set default values for properties
         self.animationType = MBProgressHUDAnimationFade;
@@ -341,6 +346,7 @@
 	}
 	
     CGRect frame = self.bounds;
+    // NSLog(@"HUD: layoutSubviews: frame = %f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 	
     // Compute HUD dimensions based on indicator size (add margin to HUD border)
     CGRect indFrame = indicator.bounds;
@@ -488,12 +494,14 @@
 #pragma mark Background Adding
 - (void)didMoveToSuperview
 {
+    // NSLog(@"MBProgressHUD: didMoveToSuperview");
 	if(!self._backgroundDimmingView.superview)
 		[self.superview insertSubview:self._backgroundDimmingView belowSubview:self];		
 }
 
 - (void)removeFromSuperview
 {
+    // NSLog(@"MBProgressHUD: removeFromSuperview");
 	[self._backgroundDimmingView removeFromSuperview];
 	[super removeFromSuperview];
 }
@@ -517,7 +525,8 @@
 	
 	// If the grace time is set postpone the HUD display
 	if (self.graceTime > 0.0) {
-		self.graceTimer = [NSTimer scheduledTimerWithTimeInterval:self.graceTime 
+        // NSLog(@"HUD show graceTime = %f", self.graceTime);
+		self.graceTimer = [NSTimer scheduledTimerWithTimeInterval:self.graceTime
 														   target:self 
 														 selector:@selector(handleGraceTimer:) 
 														 userInfo:nil 
@@ -528,9 +537,14 @@
 		[self setNeedsDisplay];
 		[self showUsingAnimation:useAnimation];
 	}
+    if (USES_DEBUG_MESSAGES) {
+        NSLog(@"HUD show self debug = %@", self.debugDescription);
+        NSLog(@"HUD show superview debug = %@", self.superview.debugDescription);
+    }
 }
 
 - (void)hide:(BOOL)animated {
+    if (USES_DEBUG_MESSAGES) { NSLog(@"MBProgressHUD: hide");}
 	useAnimation = animated;
 	
 	// If the minShow time is set, calculate how long the hud was shown,

@@ -23,7 +23,7 @@
 }
 
 - (void) startTransfer {
-    NSLog(@"FileDownloader: startTransfer %@", self.url);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"FileDownloader: startTransfer %@", self.url);}
 	self.state = TransferableStateTransferring;
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
@@ -40,7 +40,7 @@
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void)fileCache: (HCFileCache *)fileCache didReceiveResponse: (NSHTTPURLResponse *)response withDownloadedData: (NSData *)data forURI: (NSString *)uri {
-    NSLog(@"FileDownloader: didReceiveResponse uri = %@", uri);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"FileDownloader: didReceiveResponse uri = %@", uri);}
 
     NSString *directory = [[NSFileManager defaultManager] contentDirectory];
 	NSString *filepath = [directory stringByAppendingPathComponent: self.filename];

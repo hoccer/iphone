@@ -29,7 +29,7 @@
 }
 
 - (void)setProgressUpdate: (CGFloat) percentage {
-    // NSLog(@"ConnectionStatusViewController setProgressUpdate %f", percentage);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"ConnectionStatusViewController setProgressUpdate %f", percentage);}
 
 	progressView.progress = percentage;
 	statusLabel.text = @"Transferring";

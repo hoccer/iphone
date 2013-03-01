@@ -24,7 +24,7 @@
 }
 
 - (void)startTransfer {
-    NSLog(@"FileUploader: startTransfer %@", self.filename);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"FileUploader: startTransfer %@", self.filename);}
 	if (fileCache == nil) {
 		fileCache = [[HCFileCache alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 		fileCache.delegate = self;		
@@ -44,7 +44,7 @@
 #pragma mark -
 #pragma mark FileCache Delegate Methods
 - (void)fileCache:(HCFileCache *)fileCache didUploadFileToURI:(NSString *)path {	
-    NSLog(@"FileUploader: didUploadFileToURI %@", path);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"FileUploader: didUploadFileToURI %@", path);}
 	self.state = TransferableStateTransferred;
 }
 

@@ -269,7 +269,7 @@
         NSString *oldchannel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
         if (![oldchannel isEqualToString:textField.text]) {
             
-            NSLog(@"Channel set to:%@",textField.text);
+            if (USES_DEBUG_MESSAGES) { NSLog(@"Channel set to:%@",textField.text);}
             [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"channel"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             

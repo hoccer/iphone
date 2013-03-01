@@ -154,13 +154,13 @@
     
     //isPullDown = NO;
 	
-	[self showHud];
     [self updateGroupButton];
     [self updateChannelButton];
     //[self updateEncryptionIndicator];
     
     [self showTabBar:YES];
     [self movePullDownToNormalPosition];
+	[self showHud];
 }
 
 - (void)viewDidUnload
@@ -222,7 +222,7 @@
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    NSLog(@"#### HoccerViewControllerIPhone selectAutoReceive ####");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"#### HoccerViewControllerIPhone selectAutoReceive ####");}
     
     [super selectAutoReceive:sender];
 
@@ -917,13 +917,13 @@
 - (void)stopAutoReceiveAndHidePullDown
 {
     if (self.autoReceiveMode) {
-        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");
+        if (USES_DEBUG_MESSAGES) {  NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating");}
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
         [self switchAutoReceiveMode:NO];
     }
     else {
-        // NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");
+        if (USES_DEBUG_MESSAGES) {  NSLog(@"stopAutoReceiveAndPullDownHide stopAnimating 2");}
         [self.activityIndi stopAnimating];
         [self movePullDownToHidePosition];
     }

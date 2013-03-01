@@ -20,7 +20,7 @@
 @synthesize cryptor;
 
 - (void) fileCache:(HCFileCache *)fileCache didUpdateTransferProgress:(TransferProgress*)transferProgress {
-    // NSLog(@"fileCache didUpdateTransferProgress %@", transferProgress);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"fileCache didUpdateTransferProgress %@", transferProgress);}
     if (self.progress == nil || transferProgress.total >= self.progress.total) {
         self.progress = transferProgress;
     } else {

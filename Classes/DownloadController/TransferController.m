@@ -141,7 +141,7 @@
 }
 
 - (void)progress: (TransferProgress *)progress forTransfer: (id)object {
-    //NSLog(@"TransferController: progress forTransfer %@", object);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"TransferController: progress forTransfer %@", object);}
 	if ([delegate respondsToSelector:@selector(transferController:didUpdateProgress:forTransfer:)]) {
         // NSLog(@"TransferController: delegate didUpdateProgress forTransfer %@", object);
 		[delegate transferController:self didUpdateProgress:progress forTransfer:object];

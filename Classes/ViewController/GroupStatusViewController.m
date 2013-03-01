@@ -50,7 +50,7 @@
 - (void)setGroup:(NSArray *)newGroup
 {
     
-    // NSLog(@"setGroup %@", newGroup);
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"setGroup %@", newGroup); }
     
     if (group != newGroup) {
         // NSLog(@"setGroup group != newGroup");

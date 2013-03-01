@@ -36,7 +36,7 @@
     }
     DataManager *dm = [DataManager sharedDataManager];
     
-    NSLog(@"########## self.delegate respondsToSelector:@selector(toggleButtonPressed");
+    // NSLog(@"########## self.delegate respondsToSelector:@selector(toggleButtonPressed");
     [dm.historyTVC toggleButtonPressed:self];
 }
 

@@ -117,22 +117,22 @@ static DataManager* _sharedDataManager = nil;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"didReceiveData: %@", data);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"DataManager: didReceiveData: %@", data);}
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
+    if (USES_DEBUG_MESSAGES) { NSLog(@"DataManager: connectionDidFinishLoading");}
 }
 
 - (void)didFinishWithData:(NSData*)data;
 {
-    NSLog(@"didFinishWithData : %@", data);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"DataManager: didFinishWithData : %@", data);}
 }
 
 - (void)didFailWithError:(NSError*)error
 {
-    NSLog(@"didFailWithError %@", error);
+    if (USES_DEBUG_MESSAGES) { NSLog(@"DataManager: didFailWithError %@", error);}
 }
 
 - (NSString *)generateRandomString:(int)length

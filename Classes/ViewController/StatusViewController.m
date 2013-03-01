@@ -174,7 +174,7 @@
 	}
 
 	self.view.hidden = NO;
-    // NSLog(@"StatusViewController showViewAnimated");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"StatusViewController showViewAnimated %d", animation);}
 	
 	if (animation) {
 		CGFloat currentYPos = self.view.center.y;
@@ -188,7 +188,7 @@
 
 - (void)hideViewAnimated: (BOOL)animation {	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    // NSLog(@"StatusViewController hideViewAnimated");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"StatusViewController hideViewAnimated %d", animation);}
 	
     if (animation) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];

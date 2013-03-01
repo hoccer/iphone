@@ -212,7 +212,7 @@ typedef enum {
     
     cipherNeeded = YES;
     encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -412,7 +412,7 @@ typedef enum {
 
 - (IBAction)selectAutoReceive:(id)sender
 {
-    // NSLog(@"HoccerViewController selectAutoReceive");
+    if (USES_DEBUG_MESSAGES) {  NSLog(@"HoccerViewController selectAutoReceive");}
     NSNotification *notification = [NSNotification notificationWithName:@"startChannelAutoReceiveMode" object:self];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
@@ -648,7 +648,6 @@ typedef enum {
 		[self showHudWithMessage:NSLocalizedString(@"Preparing Content...",nil)];
 	}
 	
-    
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
 	item.viewOrigin = self.defaultOrigin;
 	item.content = content;
@@ -1468,10 +1467,10 @@ typedef enum {
         CGPoint myOrigin = CGPointMake(desktopView.frame.size.width / 2 - item.contentView.frame.size.width / 2,
                                        desktopView.frame.size.height / 2 - item.contentView.frame.size.height / 2);
         
-        //NSLog(@"myOrigin = %f %f", myOrigin.x, myOrigin.y);
+        // NSLog(@"myOrigin = %f %f", myOrigin.x, myOrigin.y);
         item.viewOrigin = myOrigin;
         [desktopView reloadData];
-        
+
         if (USES_DEBUG_MESSAGES) { NSLog(@"  2 linccer:   didReceiveData:"); }
     }
     if (closeAutoReceive) {
@@ -1767,12 +1766,18 @@ typedef enum {
 	if (hud == nil) {
 		hud = [[MBProgressHUD alloc] initWithView:self.view];
 		[self.view addSubview:hud];
-	}
+	} else {
+        if (hud.superview == nil) {
+            [self.view addSubview:hud];
+        }
+    }
 	
 	hud.mode = MBProgressHUDModeIndeterminate;
 	hud.labelText = message;
-
+    // NSLog(@"showHUD: message = %@", message);
+    [self.view layoutIfNeeded];
 	[hud show:YES];
+    [self.view layoutIfNeeded];
 }
 
 
