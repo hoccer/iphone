@@ -25,6 +25,8 @@
         self.progress = transferProgress;
     } else {
         NSLog(@"fileCache: didUpdateTransferProgress: total has become smaller, upload corrupted");
+        NSLog(@"fileCache: didUpdateTransferProgress: old = %@", self.progress);
+        NSLog(@"fileCache: didUpdateTransferProgress: new = %@", transferProgress);
     }
 }
 
