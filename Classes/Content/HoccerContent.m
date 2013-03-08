@@ -315,7 +315,9 @@
 }
 
 - (BOOL) readyForSending {
-	return ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing || [self isDataReady];
+    BOOL isReady = ![self transferer] || ((id <Transferable>)[self transferer]).state != TransferableStatePreparing || [self isDataReady];
+    // NSLog(@"transferer = %@, state = %u, isDataReady = %i, isReady=%d", [self transferer], ((id <Transferable>)[self transferer]).state, [self isDataReady], isReady);
+	return isReady;
 }
 
 - (BOOL)presentOpenInViewController: (UIViewController *)controller {

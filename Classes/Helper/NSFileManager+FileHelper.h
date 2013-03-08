@@ -11,6 +11,8 @@
 
 @interface NSFileManager (FileHelper)
 
+- (NSString *)sanitizeFileNameString:(NSString *)fileName;
+- (NSString *)quoteFileNameStringSlashes:(NSString *)fileName;
 - (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory;
 - (NSString *)contentDirectory;
 

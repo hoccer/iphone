@@ -1763,21 +1763,18 @@ typedef enum {
 }
 
 - (void)showHudWithMessage: (NSString *)message {
-	if (hud == nil) {
-		hud = [[MBProgressHUD alloc] initWithView:self.view];
-		[self.view addSubview:hud];
-	} else {
-        if (hud.superview == nil) {
-            [self.view addSubview:hud];
-        }
-    }
+	if (hud != nil) {
+        [hud release];
+	}
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
 	
 	hud.mode = MBProgressHUDModeIndeterminate;
 	hud.labelText = message;
-    // NSLog(@"showHUD: message = %@", message);
-    [self.view layoutIfNeeded];
-	[hud show:NO];
-    [self.view layoutIfNeeded];
+    NSLog(@"showHUD: message = %@", message);
+    // self.view layoutIfNeeded];
+	[hud show:YES];
+    // [self.view layoutIfNeeded];
 }
 
 

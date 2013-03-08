@@ -87,8 +87,11 @@
 }
 
 - (NSString *)filename {
-    if ([transferables count] > 0) {
-        return [[transferables objectAtIndex:0] filename];
+    
+    if (filename == nil || [filename length] == 0) {
+        if ([transferables count] > 0) {
+            return [[transferables objectAtIndex:0] filename];
+        }
     }
     
     return filename;

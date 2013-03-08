@@ -11,7 +11,19 @@
 
 @implementation NSFileManager (FileHelper)
 
+
+- (NSString *)sanitizeFileNameString:(NSString *)fileName {
+    NSCharacterSet* illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString:@"/\\?%*|\"<>"];
+    return [[fileName componentsSeparatedByCharactersInSet:illegalFileNameCharacters] componentsJoinedByString:@"_"];
+}
+
+- (NSString *)quoteFileNameStringSlashes:(NSString *)fileName {
+    return [fileName stringByReplacingOccurrencesOfString: @"/" withString: @"%2F"];
+}
+
+
 - (NSString *)uniqueFilenameForFilename: (NSString *)theFilename inDirectory: (NSString *)directory {
+        
 	if (![[NSFileManager defaultManager] fileExistsAtPath: [directory stringByAppendingPathComponent:theFilename]]) {
 		return theFilename;
 	};

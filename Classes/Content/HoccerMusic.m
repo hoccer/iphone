@@ -64,6 +64,14 @@
 		song = [aMediaItem retain];
 		isFromContentSource = YES;
 		canBeCiphered = YES;
+        
+        NSString * newName = [NSString stringWithFormat:@"%@ - %@",[song valueForProperty:MPMediaItemPropertyArtist],[song valueForProperty:MPMediaItemPropertyTitle]];
+        newName = [[[NSFileManager defaultManager] sanitizeFileNameString:newName] stringByAppendingPathExtension: [self extension]];
+        [self setFilename:newName];
+        // NSLog(@"newName = %@", newName);
+        // NSLog(@"self.filename = %@", self.filename);
+        // NSLog(@"filename = %@", filename);
+        
 		[self performSelectorInBackground:@selector(createDataRepresentation:) withObject:self];
 	}
 	
@@ -74,14 +82,17 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
-
+ 
     AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:assetURL options:nil];
     
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
                                       initWithAsset: songAsset
                                       presetName: AVAssetExportPresetAppleM4A];
     
-    NSString *exportFile = [[[NSFileManager defaultManager]contentDirectory] stringByAppendingPathComponent: [[NSFileManager defaultManager]uniqueFilenameForFilename: self.filename inDirectory:[[NSFileManager defaultManager]contentDirectory]]]; 
+    NSString *exportFile = [[[NSFileManager defaultManager]contentDirectory] stringByAppendingPathComponent: [[NSFileManager defaultManager]uniqueFilenameForFilename: self.filename inDirectory:[[NSFileManager defaultManager]contentDirectory]]];
+    
+    
+    NSLog(@"exportFile = %@", exportFile);
     
     exporter.outputURL = [[NSURL fileURLWithPath:exportFile] retain];
     exporter.outputFileType = AVFileTypeAppleM4A;
@@ -133,26 +144,33 @@
     
 }
 - (void)updateImage {    
+    // NSLog(@"updateImage");
     if (view == nil){
         [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
     }
     self.view.songLabel.text = @"Untitled Song";
     
     if (thumbDownloader.state == TransferableStateTransferred) {
+        // NSLog(@"updateImage 2");
         NSData *thumbData = [NSData dataWithContentsOfFile: [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:thumbDownloader.filename]];
         thumb = [[UIImage imageWithData:thumbData] retain];
     }
     
     if (self.song != nil && (thumb == nil || thumbDownloader.state == TransferableStateTransferred)) {
+        // NSLog(@"updateImage 3");
         [self createThumb];
     }
+    // NSLog(@"updateImage: thumb=%@", thumb);
     
     if (thumb != nil) {
-        self.view.coverImage.image = self.thumb;
+        // NSLog(@"updateImage 4");
+        self.view.coverImage.image = [self.thumb retain];
         if (song != nil){
+            // NSLog(@"updateImage 4a");
             self.view.songLabel.text = [NSString stringWithFormat:@"%@ - %@",[song valueForProperty:MPMediaItemPropertyArtist],[song valueForProperty:MPMediaItemPropertyTitle]];
         }
         else {
+            // NSLog(@"updateImage 4b");
             self.view.songLabel.text = @"Received Song";
         }
     }
@@ -279,15 +297,20 @@
 }
 
 - (void)createThumb {
-
-    if ([song valueForProperty:MPMediaItemPropertyArtwork] != nil){
-        thumb = [[[song valueForProperty:MPMediaItemPropertyArtwork]imageWithSize:CGSizeMake(400, 400)]retain];
+    
+    MPMediaItemArtwork * artwork = [song valueForProperty:MPMediaItemPropertyArtwork];
+    // NSLog(@"createThumb1: artwork=%@", artwork);
+    UIImage * artworkImage = [artwork imageWithSize:CGSizeMake(400,400)];
+    
+    if (artworkImage != nil){
+        thumb = artworkImage;
+        // NSLog(@"createThumb1: thumb=%@", thumb);
     }
     else {
         thumb = [UIImage imageNamed:@"audio_leer.png"];
+        // NSLog(@"createThumb2: thumb=%@", thumb);
     }
     
-        
     NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
 	[thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
 }
@@ -324,9 +347,10 @@
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
     audioFileReady = NO;
-    if (self.data) {
-        [(DelayedFileUploaded *)transferable setFileReady: YES];
-    }
+    
+    // if (self.data) {
+    //    [(DelayedFileUploaded *)transferable setFileReady: YES];
+    // }
     
     [self createThumb];
     

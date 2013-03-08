@@ -627,7 +627,6 @@
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_location_off"] forState:UIControlStateNormal];
         }
     }
-
     
     if (groupSelectPopOverController && groupCount > 0) {
         if (groupCount > 1) {
