@@ -59,14 +59,14 @@
     HoccerAppDelegate *appDelegate = (HoccerAppDelegate *)[UIApplication sharedApplication].delegate;
     
     if (hoccerContent.descriptionOfSaveButton != nil){
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil),hoccerContent.descriptionOfSaveButton, nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_HoccAgain",nil), hoccerContent.descriptionOfSaveButton, nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
 
         [actionSheet showInView:appDelegate.viewController.view];
         [actionSheet release];
     }
     else {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Hocc again",nil), nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_HoccAgain", nil), nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [actionSheet showInView:appDelegate.viewController.view];
         [actionSheet release];
@@ -99,24 +99,25 @@
 	
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectMake(320, 40, 10, 10) inView:self.view.superview animated:YES]) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
-                                                                message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
-                                                               delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
-            [alertView show];
-            [alertView release];
             
+            [self handleCannotHandleContent];
         }
     }
     else {
         if (![hoccerContent.interactionController presentOpenInMenuFromRect:CGRectNull inView:self.view.superview animated:YES]) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
-                                                                message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
-                                                               delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
-            [alertView show];
-            [alertView release];
             
+            [self handleCannotHandleContent];
         }
     }
+}
+
+- (void)handleCannotHandleContent {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_CannotHandleContent", nil)
+                                                        message:NSLocalizedString(@"Message_CannotHandleContent", nil)
+                                                       delegate:nil cancelButtonTitle:NSLocalizedString(@"Button_OK", nil) otherButtonTitles:nil];
+    [alertView show];
+    [alertView release];  
 }
 
 - (IBAction)resend: (id)sender {

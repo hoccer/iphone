@@ -114,19 +114,19 @@
         NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:4];
         
         //UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
-        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Content" image:nil tag:1];
+        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Content", nil) image:nil tag:1];
         [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];
         [styledItems addObject:content];
         [content release];
-        UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:@"History" image:nil tag:2];
+        UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"History", nil) image:nil tag:2];
         [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
         [styledItems addObject:history];
         [history release];
-        UITabBarItem *channelBarItem = [[UITabBarItem alloc] initWithTitle:@"Channel" image:nil tag:3];
+        UITabBarItem *channelBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Channel", nil) image:nil tag:3];
         [channelBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"]];
         [styledItems addObject:channelBarItem];
         [channelBarItem release];
-        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:@"Settings" image:nil tag:4];
+        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Settings", nil) image:nil tag:4];
         [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
         [styledItems addObject:settings];
         [settings release];
@@ -806,7 +806,10 @@
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
         [channelSizeButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
         channelSizeButton.frame = CGRectMake(0, 0, 64, 31);
-        [channelSizeButton setTitle:@" Leave" forState:UIControlStateNormal];
+        
+        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Leave", @"Button title for leaving mode (e.g. Channel)")];
+        [channelSizeButton setTitle:buttonTitle forState:UIControlStateNormal];
+        
         channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         channelSizeButton.titleLabel.textAlignment = UITextAlignmentLeft;
 

@@ -103,7 +103,7 @@
         switch (exportStatus) {
             case AVAssetExportSessionStatusFailed: {
                 // log error to text view
-                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Message_ErrorLoadingSong", nil) forKey:NSLocalizedDescriptionKey];
                 NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
                 [self audioExporterFailed:error];
                 break;
@@ -148,7 +148,7 @@
     if (view == nil){
         [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
     }
-    self.view.songLabel.text = @"Untitled Song";
+    self.view.songLabel.text = NSLocalizedString(@"Title_UntitledSong", nil);
     
     if (thumbDownloader.state == TransferableStateTransferred) {
         // NSLog(@"updateImage 2");
@@ -171,7 +171,7 @@
         }
         else {
             // NSLog(@"updateImage 4b");
-            self.view.songLabel.text = @"Received Song";
+            self.view.songLabel.text = NSLocalizedString(@"Title_ReceivedSong", nil); 
         }
     }
 }
@@ -184,7 +184,7 @@
 
 - (NSString *)defaultFilename {
     
-    return @"Song";
+    return NSLocalizedString(@"DefaultFilename_Music", nil);
 }
 
 - (NSString *)extension {

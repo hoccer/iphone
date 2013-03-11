@@ -124,7 +124,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 
 	HUD.mode = MBProgressHUDModeCustomView;
 
-	HUD.labelText = @"Saved";
+	HUD.labelText = NSLocalizedString(@"Status_Saved", nil);
 	HUD.minShowTime = 1;
 
     [HUD show:YES];

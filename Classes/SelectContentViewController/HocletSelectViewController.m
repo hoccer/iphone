@@ -132,6 +132,7 @@
 }
 
 - (UIViewController *)viewController {
+    
     self.navigationItem.title = NSLocalizedString(@"Hoclet", nil);
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 

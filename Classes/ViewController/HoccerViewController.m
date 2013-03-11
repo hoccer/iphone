@@ -304,7 +304,7 @@ typedef enum {
 #pragma mark User Action
 
 - (IBAction)selectContacts: (id)sender {
-    UIActionSheet *contactChooser = [[UIActionSheet alloc]initWithTitle:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Choose Contact", nil),NSLocalizedString(@"My Contact", nil), nil];
+    UIActionSheet *contactChooser = [[UIActionSheet alloc]initWithTitle:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Choose Contact", nil), NSLocalizedString(@"My Contact", nil), nil];
     contactChooser.tag = 2;
     contactChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [contactChooser showInView:self.view];
@@ -322,7 +322,7 @@ typedef enum {
 {
     ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
     if (ownContact == 0) {
-        UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+        UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
         [contactAlert show];
         [contactAlert release];
         ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
@@ -366,10 +366,10 @@ typedef enum {
     
     UIActionSheet *mediaChooser;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), NSLocalizedString(@"Take Photo/Video", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), NSLocalizedString(@"Take Photo/Video", nil), nil];
     }
     else {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
     }
     mediaChooser.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     mediaChooser.tag = 1;
@@ -379,7 +379,7 @@ typedef enum {
 
 - (IBAction)selectMusic:(id)sender
 {    
-    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
     musicAlert.tag = 2;
     [musicAlert show];
     [musicAlert release];
@@ -444,7 +444,9 @@ typedef enum {
             //[picker setBody:@"Hallo, bitte oeffne diesen link. Ich möchte dir ein File schicken: hoccer://hallo"];
             NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
 
-            NSString *content = [NSString stringWithFormat:@"Hallo, ich habe ein File für dich per Hoccer - bitte hier clicken: hoccerchannel://channel/%@", channel];
+            NSString *contentTemplate = NSLocalizedString(@"Message_FileSharingText", nil);
+            NSString *channelLink = [@"hoccerchannel://channel/" stringByAppendingString:channel];
+            NSString *content = [NSString stringWithFormat:contentTemplate, channelLink];
             [picker setBody:content];
 
             [picker setRecipients:[[NSArray alloc] initWithObjects:phone, nil]];
@@ -530,7 +532,7 @@ typedef enum {
             case 1: {
                 ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
                 if (ownContact == 0){
-                    UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                    UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
                     [contactAlert show];
                     [contactAlert release];
                     ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
@@ -1294,7 +1296,7 @@ typedef enum {
 	if (![item.content presentOpenInViewController:self]) {
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
 															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
-														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil];
+														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Button_OK", nil) otherButtonTitles:nil];
 		[alertView show];
 		[alertView release];
 	}
@@ -1500,7 +1502,11 @@ typedef enum {
 
 - (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client
 {
-    UIAlertView *keyAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Public key changed", nil) message:[NSString stringWithFormat:NSLocalizedString(@"SECURITY PROBLEM: Public key changed. The name or the public key of %@ has changed, please make sure you trust this person. If you are not sure please stop transaction.",nil),client] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *keyAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_PublicKeyChanged", nil)
+                                                       message:[NSString stringWithFormat:NSLocalizedString(@"Message_PublicKeyChanged", nil), client]
+                                                      delegate:nil
+                                             cancelButtonTitle:@"Button_OK"
+                                             otherButtonTitles:nil, nil];
     [keyAlert show];
     [keyAlert release];
 }
@@ -1514,7 +1520,7 @@ typedef enum {
         if([hoccingRules hoccerViewControllerMayAddAnotherView:self]){
             CGPoint location = [gestureRecognizer locationInView:desktopView ];
             UIMenuController *menuController = [UIMenuController sharedMenuController];
-            UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Paste", nil) action:@selector(selectPasteboard:)];
+            UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Button_Paste", nil) action:@selector(selectPasteboard:)];
             //before autoReceive [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
 
             //UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"AutoReceive", nil) action:@selector(selectAutoReceive:)];
@@ -1573,7 +1579,7 @@ typedef enum {
 {
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
                                                    message:NSLocalizedString(@"Could not decrypt data. Something went horribly wrong.", nil)
-                                                  delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles: nil];
+                                                  delegate:nil cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) otherButtonTitles: nil];
     [view show];
     [view release];
     
@@ -1581,7 +1587,7 @@ typedef enum {
 
 - (void)encryptionNotEnabled: (NSNotification *)notification
 {    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enable encryption", nil) message:NSLocalizedString(@"You need to enable encryption to communicate with this sender", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enable encryption", nil) message:NSLocalizedString(@"You need to enable encryption to communicate with this sender", nil) delegate:nil cancelButtonTitle:@"Button_OK" otherButtonTitles:nil, nil];
     
     [alertView show];
     [alertView release];
@@ -1620,7 +1626,7 @@ typedef enum {
 		[statusViewController hideStatus];
 		return;
 	}
-    
+   
    	if (infoHud && [infoHud isKindOfClass:[MBProgressHUD class]]) {
         
         if (!infoHud.isHidden){

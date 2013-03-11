@@ -290,7 +290,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton{
-	return NSLocalizedString(@"Open", nil);
+	return NSLocalizedString(@"Button_Open", nil);
 }
 
 - (UIImage *)imageForSaveButton {
@@ -306,7 +306,7 @@
 }
 
 - (NSString *)defaultFilename {
-	return @"File";
+	return NSLocalizedString(@"DefaultFilename_Other", nil);
 }
 
 

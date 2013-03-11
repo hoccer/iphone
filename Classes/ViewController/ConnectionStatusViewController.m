@@ -32,7 +32,7 @@
     if (USES_DEBUG_MESSAGES) { NSLog(@"ConnectionStatusViewController setProgressUpdate %f", percentage);}
 
 	progressView.progress = percentage;
-	statusLabel.text = @"Transferring";
+	statusLabel.text = NSLocalizedString(@"Status_Transferring", nil);
 	[self setState:[TransferState state]];		 
 }
 

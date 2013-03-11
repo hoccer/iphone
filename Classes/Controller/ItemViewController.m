@@ -122,7 +122,7 @@
 
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
-		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
+		[button setTitle:NSLocalizedString(@"ButtonClose", nil) forState:UIControlStateNormal];
 
 		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -138,7 +138,7 @@
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
+		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
 		[button setTextLabelOffset:1];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
@@ -170,7 +170,7 @@
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
-		[button setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
+		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
 		[button setTextLabelOffset:1];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		

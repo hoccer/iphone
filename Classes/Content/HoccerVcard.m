@@ -192,7 +192,7 @@
 }
 
 - (NSString *)descriptionOfSaveButton {
-	return @"Save";
+	return NSLocalizedString(@"Button_Save", nil);
 }
 
 - (NSString *)extension {
@@ -200,7 +200,7 @@
 }
 
 - (NSString *)defaultFilename {
-	return @"Contact";
+	return NSLocalizedString(@"DefaultFilename_VCard", nil);
 }
 
 - (void) dealloc {

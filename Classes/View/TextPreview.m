@@ -22,7 +22,7 @@
 }
 
 - (void)viewDidLoad {
-    [editButton setTitle:NSLocalizedString(@"Edit", nil) forState:UIControlStateNormal];
+    [editButton setTitle:NSLocalizedString(@"Button_Edit", nil) forState:UIControlStateNormal];
 
 }
 

@@ -87,7 +87,10 @@ static DataManager* _sharedDataManager = nil;
     NSString *to = [NSString stringWithFormat:@"&empfaenger=%@", toPhone];
     //NSString *textURL = @"&text=" + URLEncoder.encode(content, "ISO-8859-1");
     
-    content = [NSString stringWithFormat:@"Hallo, ich habe eine Datei für dich per Hoccer - bitte hier clicken: hoccerchannel://channel/%@", toName];
+    NSString *contentTemplate = NSLocalizedString(@"Message_FileSharingText", nil);
+    NSString *channelLink = [@"hoccerchannel://channel/" stringByAppendingString:toName];
+    content = [NSString stringWithFormat:contentTemplate, channelLink];
+    
     NSString *text = [NSString stringWithFormat:@"&text=%@", [content urlEncodeValue]];
     
     NSString *absender = [NSString stringWithFormat:@"&absender=%@", from];
@@ -109,8 +112,12 @@ static DataManager* _sharedDataManager = nil;
         NSLog(@"#%@#", theConnection);
     }
 	else {
-        NSString *message = [NSString stringWithFormat:@"Fehler in der Netz-Verbindung."];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achtung" message:message delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"Ok",nil];
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_ConnectionError", nil)
+                                                        message:NSLocalizedString(@"Message_ConnectionError", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
         [alert show];
     }
 }

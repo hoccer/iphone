@@ -143,7 +143,7 @@
 }
 
 - (NSString *)defaultFilename {
-	return @"Video";
+	return NSLocalizedString(@"DefaultFilename_Video", nil);
 }
 
 - (NSString *)extension {
@@ -155,7 +155,7 @@
 }    
 
 - (NSString *)descriptionOfSaveButton {
-	return NSLocalizedString(@"Save", nil);
+	return NSLocalizedString(@"Button_Save", nil);
 }
 
 - (BOOL)isDataReady {
@@ -167,9 +167,9 @@
         UISaveVideoAtPathToSavedPhotosAlbum(self.filepath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
     else {
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Error saving video"
-                                                       message:@"Video with this format cannot be saved in album."
-                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_ErrorSavingVideo", nil)
+                                                       message:NSLocalizedString(@"Message_ErrorSavingVideo", nil)
+                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"Button_OK", nil];
         view.tag = 20;
         [view show];
         [view release];

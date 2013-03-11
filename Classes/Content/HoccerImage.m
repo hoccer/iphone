@@ -142,7 +142,7 @@
 }
 
 - (NSString *)defaultFilename {
-	return @"Image";
+	return NSLocalizedString(@"DefaultFilename_Image", nil);
 }
 
 - (NSString *)extension {
@@ -154,7 +154,7 @@
 }    
 
 - (NSString *)descriptionOfSaveButton {
-	return NSLocalizedString(@"Save", nil);
+	return NSLocalizedString(@"Button_Save", nil);
 }
 
 - (BOOL)isDataReady {

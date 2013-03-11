@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-        [parentNavigationController setTitle:@"Settings"];
+        [parentNavigationController setTitle:NSLocalizedString(@"Settings", nil)];
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
@@ -65,49 +65,51 @@
 		
 	sections = [[NSMutableArray alloc] init];
 	
-	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:@"Tutorial" selector:@selector(showTutorial) type: HCContinueSetting];
+    
+    
+	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_Tutorial", nil) selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 
-	SettingsAction *nameAction = [SettingsAction actionWithDescription:@"Name" selector:@selector(changedName:) type: HCTextField];
+	SettingsAction *nameAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_Name", nil) selector:@selector(changedName:) type: HCTextField];
     nameAction.defaultValue = @"clientName";
 	[sections addObject:[NSArray arrayWithObject:nameAction]];
 
-	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:@"Sound-Effects" selector:@selector(switchSound:) type: HCSwitchSetting];
+	SettingsAction *playSoundAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_SoundEffects", nil) selector:@selector(switchSound:) type: HCSwitchSetting];
 	playSoundAction.defaultValue = @"playSound";
     
-    SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:@"Auto-Save" selector:@selector(switchAutoSave:) type:HCSwitchSetting];
+    SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_AutoSave", nil) selector:@selector(switchAutoSave:) type:HCSwitchSetting];
     autoSaveAction.defaultValue = @"autoSave";
 	
-	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:@"Install Safari Bookmarklet" selector:@selector(showBookmarklet) type: HCInplaceSetting];
-    SettingsAction *abookAction = [SettingsAction actionWithDescription:@"Delete My Contact reference" selector:@selector(deleteContactReference) type: HCInplaceSetting];
+	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_InstallSafariBookmarklet", nil) selector:@selector(showBookmarklet) type: HCInplaceSetting];
+    SettingsAction *abookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_DeleteContactReference", nil) selector:@selector(deleteContactReference) type: HCInplaceSetting];
 
 	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, bookmarkletAction, abookAction, nil];
 	[sections addObject:section1];
     
     NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:3];
     
-    SettingsAction *enableTLS = [SettingsAction actionWithDescription:@"Encryption (TLS)" selector:nil type:HCSwitchSetting];
+    SettingsAction *enableTLS = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_EncryptionTLS", nil) selector:nil type:HCSwitchSetting];
     enableTLS.defaultValue = @"enableTLS";
     [encryptGroup addObject:enableTLS];
     
-    SettingsAction *encrypt = [SettingsAction actionWithDescription:@"Encryption (AES E2E)" selector:@selector(encrypt:) type:HCSwitchSetting];
+    SettingsAction *encrypt = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_EncryptionAES_E2E", nil) selector:@selector(encrypt:) type:HCSwitchSetting];
     encrypt.defaultValue = @"encryption";
     encrypting = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     [encryptGroup addObject:encrypt];
     
-    SettingsAction *encryptOptions = [SettingsAction actionWithDescription:@"Expert Settings"selector:@selector(showEncryptionSettings) type:HCContinueSetting];
+    SettingsAction *encryptOptions = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ExpertSettings", nil) selector:@selector(showEncryptionSettings) type:HCContinueSetting];
     [encryptGroup addObject:encryptOptions];
     
     [sections addObject:encryptGroup];
     
-	SettingsAction *websiteAction = [SettingsAction actionWithDescription:@"Visit the Hoccer Website" selector:@selector(showHoccerWebsite) type: HCContinueSetting];
-	SettingsAction *twitterAction = [SettingsAction actionWithDescription:@"Follow Hoccer on Twitter" selector:@selector(showTwitter) type: HCContinueSetting];
-	SettingsAction *facebookAction = [SettingsAction actionWithDescription:@"Become a Fan on Facebook" selector:@selector(showFacebook) type: HCContinueSetting]; 
+	SettingsAction *websiteAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_VisitHoccerWebsite", nil) selector:@selector(showHoccerWebsite) type: HCContinueSetting];
+	SettingsAction *twitterAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_FollowOnTwitter", nil) selector:@selector(showTwitter) type: HCContinueSetting];
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_FollowOnFacebook", nil) selector:@selector(showFacebook) type: HCContinueSetting];
 
 	NSArray *section3 = [NSArray arrayWithObjects: websiteAction, facebookAction, twitterAction, nil];
 	[sections addObject:section3];
 	
-	SettingsAction *aboutAction = [SettingsAction actionWithDescription:@"About Hoccer" selector:@selector(showAbout) type: HCContinueSetting];
+	SettingsAction *aboutAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_AboutHoccer", nil) selector:@selector(showAbout) type: HCContinueSetting];
 	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
 	[sections addObject:section4];
     
@@ -152,7 +154,7 @@
 		cell.accessoryView = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
-    else if (action.type == HCSwitchSetting && ![action.description isEqualToString:@"Encryption (TLS)"]) {
+    else if (action.type == HCSwitchSetting && ![action.description isEqualToString:NSLocalizedString(@"SettingsActionDescription_EncryptionTLS", nil)]) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 		[switchView addTarget:self action:action.selector forControlEvents:UIControlEventValueChanged];
 		[switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
@@ -161,7 +163,7 @@
 		
 		cell.selectionStyle = UITableViewCellSelectionStyleNone; 
     }
-    else if (action.type == HCSwitchSetting && [action.description isEqualToString:@"Encryption (TLS)"]) {
+    else if (action.type == HCSwitchSetting && [action.description isEqualToString:NSLocalizedString(@"SettingsActionDescription_EncryptionTLS", nil)]) {
 		UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         switchView.enabled = NO;
         [switchView setOn: [[[NSUserDefaults standardUserDefaults] objectForKey:action.defaultValue] boolValue]];
@@ -242,7 +244,7 @@
 - (void)showTutorial
 {
 	HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
-	helpView.navigationItem.title = @"Tutorial";
+	helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
 	[parentNavigationController pushViewController:helpView animated:YES];
 	[helpView release];
 }
@@ -261,23 +263,23 @@
 
 - (void)showAbout {
 	AboutViewController *aboutView = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
-	aboutView.navigationItem.title = @"About Hoccer";
+	aboutView.navigationItem.title = NSLocalizedString(@"SettingsActionDescription_AboutHoccer", nil);
 	[parentNavigationController pushViewController:aboutView animated:YES];
 	[aboutView release];
 }
 
 - (void)showEncryptionSettings {
 	EncryptionSettingsViewController *viewController = [[EncryptionSettingsViewController alloc] initWithNibName:@"EncryptionSettingsViewController" bundle:nil];
-	viewController.navigationItem.title = @"Encryption";
+	viewController.navigationItem.title = NSLocalizedString(@"Title_Encryption", nil);
 	[parentNavigationController pushViewController:viewController animated:YES];
 	[viewController release];
 }
 
 - (void)showBookmarklet {
-	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Install Bookmarklet", nil) 
-													 message:NSLocalizedString(@"Safari will be opened now to complete the bookmarklet installation.", nil) 
-													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-										   otherButtonTitles:NSLocalizedString(@"Install", nil), nil];
+	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_InstallSafariBookmarklet", nil)
+													 message:NSLocalizedString(@"Message_InstallSafariBookmarklet", nil)
+													delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil)
+										   otherButtonTitles:NSLocalizedString(@"Button_Install", nil), nil];
     prompt.tag = 0;
 	[prompt show];
 	[prompt release];
@@ -286,10 +288,10 @@
 - (void)encrypt: (UISwitch *)sender {
     encrypting = sender.on;
     if (sender.on){
-    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption", nil) 
-													 message:NSLocalizedString(@"If you enable end-to-end encryption the current desktop object will be removed and you must choose one or more receivers for your transactions", nil) 
-													delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-										   otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_EncryptionSetting", nil) 
+													 message:NSLocalizedString(@"Message_EncryptionSetting", nil) 
+													delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil)
+										   otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
     prompt.tag = 1;
 	[prompt show];
 	[prompt release];
@@ -338,7 +340,11 @@
 {
     int deleted = 0;
     [[NSUserDefaults standardUserDefaults] setInteger:deleted forKey:@"uservCardRef"];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Deleted" message:@"The reference was deleted" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_DeleteContactReference", nil)
+                                                    message:NSLocalizedString(@"Message_DeleteContactReference", nil)
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
     [alert show];
     [alert release];
 }

@@ -64,24 +64,36 @@
     
     sections = [[NSMutableArray alloc] init];
 
-    SettingsAction *autoKeyAction = [SettingsAction actionWithDescription:@"Public Key Distribution" selector:@selector(switchAutoKey:) type: HCSwitchSetting];
+    SettingsAction *autoKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_PublicKeyDistribution", nil)
+                                                                 selector:@selector(switchAutoKey:)
+                                                                     type: HCSwitchSetting];
 	autoKeyAction.defaultValue = @"autoKey";
     
-    SettingsAction *autoPasswordAction = [SettingsAction actionWithDescription:@"Auto Keyphrase" selector:@selector(switchAutoPassword:) type:HCSwitchSetting];
+    SettingsAction *autoPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_AutoKeyphrase", nil)
+                                                                      selector:@selector(switchAutoPassword:)
+                                                                          type:HCSwitchSetting];
     autoPasswordAction.defaultValue = @"autoPassword";
     
-    SettingsAction *sendPasswordAction = [SettingsAction actionWithDescription:@"Transmit Keyphrase" selector:@selector(switchPasswordAction:) type:HCSwitchSetting];
+    SettingsAction *sendPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_TransmitKeyphrase", nil)
+                                                                      selector:@selector(switchPasswordAction:)
+                                                                          type:HCSwitchSetting];
     sendPasswordAction.defaultValue = @"sendPassword";
     
-    SettingsAction *privateKeyAction = [SettingsAction actionWithDescription:@"Show private key" selector:@selector(showPrivateKey) type:HCContinueSetting];
+    SettingsAction *privateKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ShowPrivateKey", nil)
+                                                                    selector:@selector(showPrivateKey)
+                                                                        type:HCContinueSetting];
     
-    SettingsAction *publicKeyAction = [SettingsAction actionWithDescription:@"Show public key" selector:@selector(showPublicKey) type:HCContinueSetting];
+    SettingsAction *publicKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ShowPublicKey", nil)
+                                                                   selector:@selector(showPublicKey)
+                                                                       type:HCContinueSetting];
 
-    SettingsAction *keyViewerAction = [SettingsAction actionWithDescription:@"Manage Public Keys" selector:@selector(showKeyViewer) type:HCContinueSetting];
-
+    SettingsAction *keyViewerAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ManagePublicKeys", nil)
+                                                                   selector:@selector(showKeyViewer)
+                                                                       type:HCContinueSetting];
     
-    SettingsAction *encryptionKey = [SettingsAction actionWithDescription:@"Shared Keyphrase" selector:@selector(showSharedKey) type:HCContinueSetting];
-
+    SettingsAction *encryptionKey = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_SharedKeyphrase", nil)
+                                                                 selector:@selector(showSharedKey)
+                                                                     type:HCContinueSetting];
     
     NSMutableArray *section1 = [NSMutableArray arrayWithObjects:autoKeyAction,autoPasswordAction,sendPasswordAction,privateKeyAction,publicKeyAction,keyViewerAction,encryptionKey, nil];
 
@@ -90,13 +102,13 @@
     
     [sections addObject:section1];
     
-    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:@"New id on startup" 
+    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_RenewUUIDOnStart", nil)
                                                                     selector:@selector(renewUUID:) 
                                                                         type:HCSwitchSetting];
     renewUUIDOnStart.defaultValue = @"renewUUID";
     
     
-    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:@"New public key at start" 
+    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_RenewPublicKeyOnStart", nil)
                                                                          selector:@selector(renewPubKey:) 
                                                                              type:HCSwitchSetting];
     renewPublicKeyOnStart.defaultValue = @"renewPubKey";
@@ -261,7 +273,7 @@
 
 - (void)showPrivateKey {
 	RSAKeyViewController *viewController = [[RSAKeyViewController alloc] initWithNibName:@"RSAKeyViewController" bundle:nil];
-	viewController.navigationItem.title = @"Private Key";
+	viewController.navigationItem.title = NSLocalizedString(@"Title_PrivateKey", nil);
     viewController.key = @"private";
     viewController.keyText.editable = NO;
 	[self.navigationController pushViewController:viewController animated:YES];
@@ -270,7 +282,7 @@
 
 - (void)showPublicKey {
 	RSAKeyViewController *viewController = [[RSAKeyViewController alloc] initWithNibName:@"RSAKeyViewController" bundle:nil];
-	viewController.navigationItem.title = @"Public Key";
+	viewController.navigationItem.title = NSLocalizedString(@"Title_PublicKey", nil);
     viewController.key = @"public";
     viewController.keyText.editable = NO;
 	[self.navigationController pushViewController:viewController animated:YES];
@@ -279,14 +291,14 @@
 
 - (void)showKeyViewer {
 	KnownKeysViewController *viewController = [[KnownKeysViewController alloc] initWithNibName:@"KnownKeysViewController" bundle:nil];
-	viewController.navigationItem.title = @"Known Keys";
+	viewController.navigationItem.title = NSLocalizedString(@"Title_KnownKeys", nil);;
 	[self.navigationController pushViewController:viewController animated:YES];
 	[viewController release];
 }
 
 - (void)showSharedKey {
 	RSAKeyViewController *viewController = [[RSAKeyViewController alloc] initWithNibName:@"RSAKeyViewController" bundle:nil];
-	viewController.navigationItem.title = @"Shared Key";
+	viewController.navigationItem.title = NSLocalizedString(@"Title_SharedKey", nil);
     viewController.key = @"shared";
 	[self.navigationController pushViewController:viewController animated:YES];
 	[viewController release];

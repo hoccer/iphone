@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [parentNavigationController setTitle:@"Channel"];
+        [parentNavigationController setTitle:NSLocalizedString(@"Channel", nil)];
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
@@ -39,8 +39,8 @@
 	self.tableView.backgroundColor = [UIColor clearColor];
     
 	sections = [[NSMutableArray alloc] init];
-	   
-	SettingsAction *channelAction = [SettingsAction actionWithDescription:@"Channel" selector:@selector(changedChannel:) type:HCTextField];
+
+	SettingsAction *channelAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Channel", nil) selector:@selector(changedChannel:) type:HCTextField];
     channelAction.defaultValue = @"channel";
 	[sections addObject:[NSArray arrayWithObject:channelAction]];
 
@@ -110,7 +110,7 @@
         }
         else {
             self.channelTextField.text = @"";
-            self.channelTextField.placeholder = @"Channel Name";
+            self.channelTextField.placeholder = NSLocalizedString(@"Channel Name", nil);
         }
         self.channelTextField.returnKeyType = UIReturnKeyDone;
         self.channelTextField.keyboardType = UIKeyboardTypeDefault;
@@ -205,10 +205,9 @@
     if ((textField.text.length > 0) && ((textField.text.length < 6) || (textField.text.length > 32))) {
         
         // NSLog(@"  ### textFieldShouldReturn: in channelViewController textField.text.length < 6");
-        
-        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Channel Name not accepted"
-													   message:@"The channel name must have at least 6 and max 32 characters or can be empty for location mode."
-													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_ChannelNameNotAccepted", nil)
+													   message:NSLocalizedString(@"Message_ChannelNameNotAccepted", nil)
+													  delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
 		[view show];
 		[view release];
     }

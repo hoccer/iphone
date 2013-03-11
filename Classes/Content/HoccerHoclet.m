@@ -71,11 +71,11 @@
 }
 
 - (NSString *)defaultFilename {
-	return @"Hoclet";
+	return NSLocalizedString(@"DefaultFilename_Hoclet", nil);
 }
 
 - (NSString *)descriptionOfSaveButton {
-    return NSLocalizedString(@"Show", nil);
+    return NSLocalizedString(@"Button_Show", nil);
 }
 
 - (BOOL)saveDataToContentStorage {

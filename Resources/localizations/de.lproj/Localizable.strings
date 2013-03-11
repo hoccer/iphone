@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Hoccer
+
+  Created by patrick on 11.03.13.
+  Copyright (c) 2013 Hoccer GmbH. All rights reserved.
+*/
+
+
+// Navigation bar at the bottom and titles of respective sections
+"Content" = "ContentD";
+"History" = "HistoryD";
+"Channel" = "ChannelD";
+"Settings" = "SettingsD";
+
+// Channel View
+"Leave" = "Verlassen";         // Button title top left to leave the channel view

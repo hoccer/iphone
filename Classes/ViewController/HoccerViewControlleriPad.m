@@ -272,7 +272,7 @@
     if (!settingsPopOverNavigationController) {
         settingsPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.settingViewController];
         self.settingViewController.parentNavigationController = settingsPopOverNavigationController;
-        [settingsPopOverNavigationController setTitle:@"Settings"];
+        [settingsPopOverNavigationController setTitle:NSLocalizedString(@"Settings", nil)]; 
     }
     if (!settingsPopOverController) {
         settingsPopOverController = [[UIPopoverController alloc]initWithContentViewController:settingsPopOverNavigationController];
@@ -295,7 +295,7 @@
     if (!channelPopOverNavigationController) {
         channelPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.channelViewController];
         self.channelViewController.parentNavigationController = channelPopOverNavigationController;
-        [channelPopOverNavigationController setTitle:@"Channel"];
+        [channelPopOverNavigationController setTitle:NSLocalizedString(@"Channel", nil)];
     }
     if (!channelPopOverController) {
         channelPopOverController = [[UIPopoverController alloc]initWithContentViewController:channelPopOverNavigationController];
@@ -320,7 +320,7 @@
     if (!historyPopOverNavigationController) {
         historyPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.hoccerHistoryController];
         self.hoccerHistoryController.parentNavigationController = historyPopOverNavigationController;
-        [historyPopOverNavigationController setTitle:@"History"];
+        [historyPopOverNavigationController setTitle:NSLocalizedString(@"History", nil)];
     }
     if (!historyPopOverController) {
         historyPopOverController = [[UIPopoverController alloc]initWithContentViewController:historyPopOverNavigationController];

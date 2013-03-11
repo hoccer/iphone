@@ -74,14 +74,14 @@
 
 - (NSString *)defaultFilename {
    
-	return @"Message";
+	return NSLocalizedString(@"DefaultFilename_Text", nil);
 }
 
 - (NSString *)descriptionOfSaveButton {
 	if ([HoccerText isDataAUrl: self.data]) {
 		return NSLocalizedString(@"Safari", nil);
 	} else {
-		return NSLocalizedString(@"Copy", nil);
+		return NSLocalizedString(@"Button_Copy", nil);
 	}
 }
 
