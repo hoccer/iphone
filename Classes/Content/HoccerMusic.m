@@ -171,7 +171,8 @@
         }
         else {
             // NSLog(@"updateImage 4b");
-            self.view.songLabel.text = @"Received Song";
+            // self.view.songLabel.text = @"Received Song";
+            self.view.songLabel.text = self.filename;
         }
     }
 }
@@ -218,6 +219,12 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
+
+    
+    NSString *crypted = [self.transferer.cryptor encryptString:self.filename];
+    NSLog(@"filename = %@, crypted = %@", self.filename, crypted);
+    [dict setObject:crypted forKey:@"name"];
+    
     NSInteger count = 0;
     
     while ([self.transferer url] == nil && count < 10) {
@@ -231,6 +238,8 @@
     
     [self.transferer.cryptor appendInfoToDictionary:dict];
     [dict setObject:[NSArray arrayWithObject: previewDict] forKey:@"preview"];
+
+    NSLog(@"dataDesctiption = %@", dict);
     
 	return dict;
 }
