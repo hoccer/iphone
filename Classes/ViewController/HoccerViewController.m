@@ -567,7 +567,7 @@ typedef enum {
         [self presentModalViewController:mediaPicker animated:YES];
     }   
     else {
-        musicPopOverController = [[UIPopoverController alloc]initWithContentViewController:mediaPicker];
+        musicPopOverController = [[UIPopoverController alloc] initWithContentViewController:mediaPicker];
         BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
             if (isPortrait) {
@@ -592,6 +592,7 @@ typedef enum {
 }
 
 -(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+    if (musicPopOverController && musicPopOverController.isPopoverVisible) [musicPopOverController dismissPopoverAnimated:YES];
     [self dismissModalViewControllerAnimated:YES];
 }
 
