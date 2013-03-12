@@ -313,6 +313,7 @@
 - (void)receiveContentController: (ReceivedContentViewController *)controller wantsToResendContent: (HoccerContent *)content {
 	[hoccerViewController setContentPreview: content];
 	[hoccerViewController showDesktop];
+	[hoccerViewController hideHUD];
 }
 
 

@@ -206,6 +206,10 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	
 	[dict setObject:self.mimeType forKey:@"type"];
+    
+    NSString *crypted = [self.cryptor encryptString:self.filename];
+    [dict setObject:crypted forKey:@"name"];
+    
     NSInteger count = 0;
     
     while ([self.transferer url] == nil && count < 10) {

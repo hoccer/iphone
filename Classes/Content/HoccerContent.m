@@ -57,7 +57,7 @@
 
 - (id) initWithDictionary: (NSDictionary *)dict {
     
-    //NSLog(@"received %@", dict);
+    // NSLog(@"received %@", dict);
     
     NSDictionary *encryption = nil;
     if ((encryption = [dict objectForKey:@"encryption"])) {
@@ -79,6 +79,14 @@
             NSNotification *notification = [NSNotification notificationWithName:@"encryptionError" object:self];
             [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
+    }
+    
+    if ([dict objectForKey:@"name"]) {
+        //NSLog(@"initWithDictionary: name=%@",[dict objectForKey:@"name"]);
+		NSString *name = [self.cryptor decryptString:[dict objectForKey:@"name"]];
+        //NSLog(@"initWithDictionary: decrypted name=%@",name);
+        filename = [name copy];
+        //NSLog(@"initWithDictionary: filename=%@",filename);
     }
     
     if ([dict objectForKey:@"content"]) {
@@ -108,7 +116,12 @@
 	self = [super init];
 	if (self != nil) {
 
-        NSString *newFilename = [[self defaultFilename] stringByAppendingPathExtension: self.extension];
+        NSString *newFilename;
+        if (filename == nil) {
+            newFilename = [[self defaultFilename] stringByAppendingPathExtension: self.extension];
+        } else {
+            newFilename = filename;
+        }
         filename = [[[NSFileManager defaultManager] uniqueFilenameForFilename: newFilename
                                                                   inDirectory: [[NSFileManager defaultManager] contentDirectory]] copy];
 	}
@@ -117,7 +130,7 @@
 }
 
 - (void)cryptorWithType: (NSString *)type salt: (NSString *)salt password:(NSString *)password{
-    //NSLog(@"generating cryptor with %@", type);
+    // NSLog(@"generating cryptor with type %@, salt=%@, password=%@", type, salt, password);
     
     if ([type isEqualToString:@"AES"]) {
         

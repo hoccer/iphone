@@ -1777,7 +1777,7 @@ typedef enum {
 	
 	hud.mode = MBProgressHUDModeIndeterminate;
 	hud.labelText = message;
-    NSLog(@"showHUD: message = %@", message);
+    // NSLog(@"showHUD: message = %@", message);
     // self.view layoutIfNeeded];
 	[hud show:YES];
     // [self.view layoutIfNeeded];
