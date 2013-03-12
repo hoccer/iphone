@@ -114,19 +114,19 @@
         NSMutableArray *styledItems = [NSMutableArray arrayWithCapacity:4];
         
         //UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:@"Select Content" image:nil tag:1];
-        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Content", nil) image:nil tag:1];
+        UITabBarItem *content = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Button_Content", nil) image:nil tag:1];
         [content setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_content_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_content_btn"]];
         [styledItems addObject:content];
         [content release];
-        UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"History", nil) image:nil tag:2];
+        UITabBarItem *history = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Button_History", nil) image:nil tag:2];
         [history setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_history_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_history_btn"]];
         [styledItems addObject:history];
         [history release];
-        UITabBarItem *channelBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Channel", nil) image:nil tag:3];
+        UITabBarItem *channelBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Button_Channel", nil) image:nil tag:3];
         [channelBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_channel_btn"]];
         [styledItems addObject:channelBarItem];
         [channelBarItem release];
-        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Settings", nil) image:nil tag:4];
+        UITabBarItem *settings = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Button_Settings", nil) image:nil tag:4];
         [settings setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_settings_btn"]];
         [styledItems addObject:settings];
         [settings release];
@@ -334,7 +334,7 @@
 	self.settingViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.settingViewController];
 	
-	navigationItem.title = NSLocalizedString(@"Settings", nil);
+	navigationItem.title = NSLocalizedString(@"Title_Settings", nil);
 	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
@@ -346,7 +346,7 @@
 {
 	[self showPopOver:self.hoccerHistoryController];
 	
-	navigationItem.title = NSLocalizedString(@"History", nil);
+	navigationItem.title = NSLocalizedString(@"Title_History", nil);
 	
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
@@ -363,7 +363,7 @@
 {
 	[self showPopOver:self.historyTVC];
     
-	navigationItem.title = NSLocalizedString(@"History", nil);
+	navigationItem.title = NSLocalizedString(@"Title_History", nil);
 	
     UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
@@ -377,7 +377,7 @@
 	self.channelViewController.parentNavigationController = navigationController;
 	[self showPopOver:self.channelViewController];
 	
-	navigationItem.title = NSLocalizedString(@"Channel", nil);
+	navigationItem.title = NSLocalizedString(@"Title_Channel", nil);
 	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
     
     [self.navigationItem setRightBarButtonItem:doneButton];

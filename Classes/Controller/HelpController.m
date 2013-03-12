@@ -61,7 +61,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
 		HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
-		helpView.navigationItem.title = @"Tutorial";
+		helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
         CGRect screenRect;
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
             screenRect = [[UIScreen mainScreen] bounds];

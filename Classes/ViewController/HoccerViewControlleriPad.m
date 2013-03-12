@@ -64,6 +64,14 @@
 {
 	[super viewDidLoad];
     
+    // Titles of UITabBarItems are keys defined in Localizable.strings, translate them if possible
+    for (UITabBarItem *item in self.tabBar.items) {
+        
+        NSString *localizedTitle = NSLocalizedString(item.title, nil);
+        if ([localizedTitle isEqualToString:item.title]) localizedTitle = @"";
+        item.title = localizedTitle;
+    }
+    
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPad alloc] init];
 	isPopUpDisplayed = FALSE;
 	
@@ -272,7 +280,7 @@
     if (!settingsPopOverNavigationController) {
         settingsPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.settingViewController];
         self.settingViewController.parentNavigationController = settingsPopOverNavigationController;
-        [settingsPopOverNavigationController setTitle:NSLocalizedString(@"Settings", nil)]; 
+        [settingsPopOverNavigationController setTitle:NSLocalizedString(@"Title_Settings", nil)]; 
     }
     if (!settingsPopOverController) {
         settingsPopOverController = [[UIPopoverController alloc]initWithContentViewController:settingsPopOverNavigationController];
@@ -295,7 +303,7 @@
     if (!channelPopOverNavigationController) {
         channelPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.channelViewController];
         self.channelViewController.parentNavigationController = channelPopOverNavigationController;
-        [channelPopOverNavigationController setTitle:NSLocalizedString(@"Channel", nil)];
+        [channelPopOverNavigationController setTitle:NSLocalizedString(@"Title_Channel", nil)];
     }
     if (!channelPopOverController) {
         channelPopOverController = [[UIPopoverController alloc]initWithContentViewController:channelPopOverNavigationController];
@@ -320,7 +328,7 @@
     if (!historyPopOverNavigationController) {
         historyPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.hoccerHistoryController];
         self.hoccerHistoryController.parentNavigationController = historyPopOverNavigationController;
-        [historyPopOverNavigationController setTitle:NSLocalizedString(@"History", nil)];
+        [historyPopOverNavigationController setTitle:NSLocalizedString(@"Title_History", nil)];
     }
     if (!historyPopOverController) {
         historyPopOverController = [[UIPopoverController alloc]initWithContentViewController:historyPopOverNavigationController];

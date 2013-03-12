@@ -10,13 +10,17 @@
 
 @implementation AudioPreview
 
-@synthesize coverImage, songLabel;
+@synthesize coverImage, songLabel, audioPlayButton;
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    audioPlayButton.titleLabel.text = NSLocalizedString(@"Button_Play", nil);
+}
 
 - (void)dealloc {
     [coverImage release];
     [songLabel release];
-    [_audioPlayButton release];
+    [audioPlayButton release];
     [super dealloc];
 }
 
@@ -24,7 +28,6 @@
 {
     NSNotification *notification = [NSNotification notificationWithName:@"playPlayer" object:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
-//    NSLog(@"playPlayer in audioPreview notify");
 }
 
 @end

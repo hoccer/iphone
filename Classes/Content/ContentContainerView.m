@@ -38,18 +38,19 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 		
 		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
 		[self addSubview:subview];
-		
-
+		        
         buttonContainer = [[UIView alloc] initWithFrame:CGRectMake(18, 165, 130, 41)];
 		NSInteger xpos = 0;
 		for (UIView *button in buttons) {
+            
 			button.frame = ACPositionedRect(button.frame, xpos, 0);
 			[buttonContainer addSubview:button];
 			
 			xpos += button.frame.size.width;
 		}
-        buttonContainer.hidden = ![containedView allowsOverlay];
-		[self addSubview:buttonContainer];
+        
+        buttonContainer.hidden = ![containedView allowsOverlay];		
+        [self addSubview:buttonContainer];
 	}
 	return self;
 }

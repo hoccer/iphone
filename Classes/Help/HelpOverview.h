@@ -13,4 +13,6 @@
 
 }
 
+@property (nonatomic, retain) IBOutlet UITextView *textView;
+
 @end

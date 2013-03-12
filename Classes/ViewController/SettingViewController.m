@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-        [parentNavigationController setTitle:NSLocalizedString(@"Settings", nil)];
+        [parentNavigationController setTitle:NSLocalizedString(@"Title_Settings", nil)];
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;

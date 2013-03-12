@@ -29,6 +29,7 @@
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) NSString *contactChannelName;
 @property (nonatomic, assign) UITextField *channelTextField;
+@property (nonatomic, retain) IBOutlet UILabel *helpLabel;
 
 - (void)showChannelContact;
 

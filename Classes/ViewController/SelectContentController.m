@@ -136,18 +136,18 @@
 
 - (void)initButtons {
 
-    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Button_Media", nil) image:[UIImage imageNamed: @"select_btn_camera.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(media:) label: NSLocalizedString(@"Button_Camera", nil) image:[UIImage imageNamed: @"select_btn_camera.png"]]];
     
 	[buttons addObject: [Action actionWithAction:@selector(text:) label: NSLocalizedString(@"Button_Text", nil) image:[UIImage imageNamed: @"select_btn_text.png"]]];
 
-    [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(contact:) label: NSLocalizedString(@"Button_Contact", nil) image:[UIImage imageNamed: @"select_btn_contact.png"]]];
     
     //[buttons addObject: [Action actionWithAction:@selector(hoclet:) label: NSLocalizedString(@"Hoclet", nil) image:[UIImage imageNamed: @"select_btn_hocclet.png"]]];
     [buttons addObject: [Action actionWithAction:@selector(audio:) label: NSLocalizedString(@"Button_Audio", nil) image:[UIImage imageNamed: @"select_btn_audio.png"]]];
     
     [buttons addObject: [Action actionWithAction:@selector(pasteboard:) label: NSLocalizedString(@"Button_Paste", nil) image:[UIImage imageNamed: @"select_btn_paste.png"]]];
     
-    [buttons addObject: [Action actionWithAction:@selector(mycontact:) label: NSLocalizedString(@"My Contact", nil) image:[UIImage imageNamed: @"select_btn_mycontact.png"]]];
+    [buttons addObject: [Action actionWithAction:@selector(mycontact:) label: NSLocalizedString(@"Button_MyContact", nil) image:[UIImage imageNamed: @"select_btn_mycontact.png"]]];
 
 	for (int i = 0; i < [buttons count]; i++) {
 		Action *action = [buttons objectAtIndex: i];
@@ -158,8 +158,11 @@
 		frame.origin = CGPointMake(frame.origin.x, button.frame.size.height / 2 - frame.size.height / 2);
 		imageView.frame = frame;
 		
+        button.fontSize = 8.5f;
+        button.verticalTextOffset = 24.0f;
+        
 		[button addSubview: imageView];
-		//[button setTitle:action.label forState:UIControlStateNormal];
+		[button setTitle:action.label forState:UIControlStateNormal];
 		[button addTarget:self action:action.action forControlEvents:UIControlEventTouchUpInside];
         button.enabled = YES;
 	}

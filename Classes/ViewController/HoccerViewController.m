@@ -601,7 +601,7 @@ typedef enum {
         
         MPMediaItem *song = [mediaItemCollection firstMediaItem];
         
-        HoccerContent *content = [[[HoccerMusic alloc]initWithMediaItem:song]autorelease];
+        HoccerContent *content = [[[HoccerMusic alloc] initWithMediaItem:song] autorelease];
         [self setContentPreview:content];
         
     }
@@ -660,7 +660,7 @@ typedef enum {
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
     
-    //######
+    // ######
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		item.isUpload = YES;

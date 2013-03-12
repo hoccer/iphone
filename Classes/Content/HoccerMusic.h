@@ -18,7 +18,8 @@
 #import "AudioPreview.h"
 
 @interface HoccerMusic : HoccerFileContent <HCFileCacheDelegate,AVAudioPlayerDelegate> {
-	MPMediaItem *song;	
+	
+    MPMediaItem *song;
 	UIImage *thumb;
     
     FileUploader *thumbUploader;
