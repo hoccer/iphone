@@ -304,7 +304,11 @@ typedef enum {
 #pragma mark User Action
 
 - (IBAction)selectContacts: (id)sender {
-    UIActionSheet *contactChooser = [[UIActionSheet alloc]initWithTitle:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Choose Contact", nil), NSLocalizedString(@"My Contact", nil), nil];
+    UIActionSheet *contactChooser = [[UIActionSheet alloc] initWithTitle:@""
+                                                                delegate:self
+                                                       cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil)
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:NSLocalizedString(@"Button_ChooseContact", nil), NSLocalizedString(@"Button_MyContact", nil), nil];
     contactChooser.tag = 2;
     contactChooser.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [contactChooser showInView:self.view];
@@ -322,7 +326,11 @@ typedef enum {
 {
     ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
     if (ownContact == 0) {
-        UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
+        UIAlertView *contactAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TipTitle_SelectYourOwnContact", nil)
+                                                               message:NSLocalizedString(@"TipMessage_SelectYourOwnContact", nil)
+                                                              delegate:nil
+                                                     cancelButtonTitle:nil
+                                                     otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
         [contactAlert show];
         [contactAlert release];
         ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
@@ -366,10 +374,10 @@ typedef enum {
     
     UIActionSheet *mediaChooser;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), NSLocalizedString(@"Take Photo/Video", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Button_ChoosePhotoVideo", nil), NSLocalizedString(@"Button_TakePhotoVideo", nil), nil];
     }
     else {
-        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Choose Photo/Video", nil), nil];
+        mediaChooser = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) destructiveButtonTitle:nil otherButtonTitles: NSLocalizedString(@"Button_ChoosePhotoVideo", nil), nil];
     }
     mediaChooser.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     mediaChooser.tag = 1;
@@ -379,7 +387,11 @@ typedef enum {
 
 - (IBAction)selectMusic:(id)sender
 {    
-    UIAlertView *musicAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Warning", nil) message:NSLocalizedString(@"Converting songs can take several minutes, please be patient", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
+    UIAlertView *musicAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TipTitle_MusicContent", nil)
+                                                         message:NSLocalizedString(@"TipMessage_MusicContent", nil)
+                                                        delegate:self
+                                               cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil)
+                                               otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
     musicAlert.tag = 2;
     [musicAlert show];
     [musicAlert release];
@@ -402,7 +414,7 @@ typedef enum {
     }
     else {
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Copy&Paste did not work. Please try again.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_CopyPasteFailed", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Pasteboard failed" code:666 userInfo:userInfo];
         [self handleError:error];
 
@@ -532,7 +544,11 @@ typedef enum {
             case 1: {
                 ABRecordID ownContact = [[NSUserDefaults standardUserDefaults] integerForKey:@"uservCardRef"];
                 if (ownContact == 0){
-                    UIAlertView *contactAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please set contact", nil) message:NSLocalizedString(@"Please select your own contact.", nil) delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
+                    UIAlertView *contactAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TipTitle_SelectYourOwnContact", nil)
+                                                                           message:NSLocalizedString(@"TipMessage_SelectYourOwnContact", nil)
+                                                                          delegate:nil
+                                                                 cancelButtonTitle:nil
+                                                                 otherButtonTitles:NSLocalizedString(@"Button_OK", nil), nil];
                     [contactAlert show];
                     [contactAlert release];
                     ContactSelectViewController *controller = [[ContactSelectViewController alloc] init];
@@ -648,7 +664,7 @@ typedef enum {
 	}
 	
 	if (!content.readyForSending) {
-		[self showHudWithMessage:NSLocalizedString(@"Preparing Content...",nil)];
+		[self showHudWithMessage:NSLocalizedString(@"Status_PreparingContent",nil)];
 	}
 	
 	ItemViewController *item = [[[ItemViewController alloc] init] autorelease];
@@ -720,7 +736,7 @@ typedef enum {
 	[linccer receiveWithMode:HCTransferModeOneToMany];
 	
 	[statusViewController setState:[ConnectionState state]];
-	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
+	[statusViewController setUpdate:NSLocalizedString(@"Status_Connecting", nil)];
     
     hoccerStatus = HOCCER_RECEIVING_THROW;
     
@@ -736,7 +752,7 @@ typedef enum {
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
         
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Nobody selected. Please select one or more users for secure HOCCER transfer.n", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_NobodySelected", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [errorViewController showError:error forSeconds:10];
         return;
@@ -752,7 +768,7 @@ typedef enum {
    	[linccer send:[self dictionaryToSend:item] withMode:HCTransferModeOneToMany];
 	
 	[statusViewController setState:[SendingState state]];
-		[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
+		[statusViewController setUpdateSending:NSLocalizedString(@"Status_Connecting", nil)];
     
 	UIView *view = [desktopData viewAtIndex:0];
 	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -859,7 +875,7 @@ typedef enum {
 	[groupViewController hideViewAnimated:YES];
 	
 	[statusViewController setState:[ConnectionState state]];
-	[statusViewController setUpdate:NSLocalizedString(@"Connecting..", nil)];
+	[statusViewController setUpdate:NSLocalizedString(@"Status_Connecting", nil)];
 	
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
 	
@@ -880,7 +896,7 @@ typedef enum {
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
 
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Nobody selected. Please select one or more users for secure HOCCER transfer.", nil) forKey:NSLocalizedDescriptionKey];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_NobodySelected", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [errorViewController showError:error forSeconds:10];
         [self->desktopView reloadData];
@@ -891,7 +907,7 @@ typedef enum {
 	
 	[groupViewController hideViewAnimated:YES];
 	[statusViewController setState:[SendingState state]];
-	[statusViewController setUpdateSending:NSLocalizedString(@"Connecting..", nil)];
+	[statusViewController setUpdateSending:NSLocalizedString(@"Status_Connecting", nil)];
     
 	ItemViewController *item = [desktopData hoccerControllerDataForView: view];
     self.sendingItem = item;
@@ -1295,8 +1311,8 @@ typedef enum {
 	}
 	
 	if (![item.content presentOpenInViewController:self]) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cannot handle content", nil) 
-															message:NSLocalizedString(@"No installed program can handle this content type.", nil) 
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_CannotHandleContent", nil) 
+															message:NSLocalizedString(@"Message_CannotHandleContent", nil) 
 														   delegate:nil cancelButtonTitle:NSLocalizedString(@"Button_OK", nil) otherButtonTitles:nil];
 		[alertView show];
 		[alertView release];
@@ -1380,7 +1396,7 @@ typedef enum {
     if ([object isKindOfClass:[HoccerMusic class]]){
         HoccerMusic *tempMusic = (HoccerMusic *)object;
         if (tempMusic.thumb && tempMusic.data ==nil){
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"The loading of the song failed. Please make sure that the song is NOT copyright protected (DRM).", nil) forKey:NSLocalizedDescriptionKey];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_LoadingSongFailed", nil) forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
             [self handleError:error];
         }
@@ -1393,7 +1409,7 @@ typedef enum {
 
 - (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality
 {
-    if(![hud.labelText isEqualToString:NSLocalizedString(@"Preparing Content...",nil)]){
+    if(![hud.labelText isEqualToString:NSLocalizedString(@"Status_PreparingContent",nil)]){
         [self hideHUD];
     }
 
@@ -1578,8 +1594,8 @@ typedef enum {
 
 - (void)encryptionError: (NSNotification *)notification
 {
-    UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Error", nil)
-                                                   message:NSLocalizedString(@"Could not decrypt data. Something went horribly wrong.", nil)
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ErrorTitle_DecryptionFailed", nil)
+                                                   message:NSLocalizedString(@"ErrorMessage_DecryptionFailed", nil)
                                                   delegate:nil cancelButtonTitle:NSLocalizedString(@"Button_Cancel", nil) otherButtonTitles: nil];
     [view show];
     [view release];
@@ -1588,7 +1604,8 @@ typedef enum {
 
 - (void)encryptionNotEnabled: (NSNotification *)notification
 {    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enable encryption", nil) message:NSLocalizedString(@"You need to enable encryption to communicate with this sender", nil) delegate:nil cancelButtonTitle:@"Button_OK" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Title_NeedToEnableEncryption", nil)
+                                                        message:NSLocalizedString(@"Message_NeedToEnableEncryption", nil) delegate:nil cancelButtonTitle:@"Button_OK" otherButtonTitles:nil, nil];
     
     [alertView show];
     [alertView release];
@@ -1597,7 +1614,7 @@ typedef enum {
 
 - (void)noPublicKey: (NSNotification *)notification
 {    
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Could not find public key", nil) forKey:NSLocalizedDescriptionKey];
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_MissingPublicKey", nil) forKey:NSLocalizedDescriptionKey];
     NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
     [self handleError:error];
 
@@ -1684,7 +1701,7 @@ typedef enum {
 		[item updateView];
 	}
     [statusViewController setState:[SuccessState state]];
-    [statusViewController showMessage: NSLocalizedString(@"Success", nil) forSeconds:5];
+    [statusViewController showMessage: NSLocalizedString(@"Status_Success", nil) forSeconds:5];
 
     if (hoccerStatus <= 1) {
         if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
@@ -1722,9 +1739,9 @@ typedef enum {
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
 	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"No Internet connection. Please check your network settings and try to connect to the internet.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"ErrorMessage_NoInternet", nil);
 	} else {
-		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"The HOCCER service can not be reached. Please check your network connection or try again later.", nil);
+		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"ErrorMessage_HoccerServiceNotReachable", nil);
 	}
     [self sizeLabel:((UILabel *)[errorView viewWithTag:1]) toRect:((UILabel *)[errorView viewWithTag:1]).frame];
 	[self sizeLabel:((UILabel *)[errorView viewWithTag:2]) toRect:((UILabel *)[errorView viewWithTag:2]).frame];
@@ -1766,7 +1783,7 @@ typedef enum {
 }
 
 - (void)showHud {
-	[self showHudWithMessage:NSLocalizedString(@"Preparing...", nil)];
+	[self showHudWithMessage:NSLocalizedString(@"Status_Preparing", nil)];
 }
 
 - (void)showHudWithMessage: (NSString *)message {

@@ -29,10 +29,10 @@
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] ){
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Encryption Added", nil)
-                                                        message:NSLocalizedString(@"We added secure end to end encryption to Hoccer. Would you like to know more about it?", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TipTitle_EncryptionAdded", nil)
+                                                        message:NSLocalizedString(@"TipMessage_EncryptionAdded", nil)
                                                        delegate:self 
-                                              cancelButtonTitle:@"Continue" otherButtonTitles:@"Show Tutorial", nil];
+                                              cancelButtonTitle:@"Button_Continue" otherButtonTitles:@"Button_ShowTutorial", nil];
         [alert show];	
         [alert release];
         
@@ -43,10 +43,10 @@
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"]){
 	
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Welcome to Hoccer", nil)
-                                                        message:NSLocalizedString(@"Do you want to see the tutorial to learn how hoccer works?", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TipTitle_FirstRun", nil)
+                                                        message:NSLocalizedString(@"TipMessage_FirstRun", nil)
                                                        delegate:self 
-                                                        cancelButtonTitle:NSLocalizedString(@"Continue", nil) otherButtonTitles:NSLocalizedString(@"Show Tutorial", nil), nil];
+                                                        cancelButtonTitle:NSLocalizedString(@"Button_Continue", nil) otherButtonTitles:NSLocalizedString(@"Button_ShowTutorial", nil), nil];
         [alert show];	
         [alert release];
 	

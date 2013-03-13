@@ -79,7 +79,7 @@
 
 - (NSString *)descriptionOfSaveButton {
 	if ([HoccerText isDataAUrl: self.data]) {
-		return NSLocalizedString(@"Safari", nil);
+		return NSLocalizedString(@"Button_Safari", nil);
 	} else {
 		return NSLocalizedString(@"Button_Copy", nil);
 	}

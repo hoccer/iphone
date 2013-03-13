@@ -66,34 +66,34 @@
     
     sections = [[NSMutableArray alloc] init];
 
-    SettingsAction *autoKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_PublicKeyDistribution", nil)
+    SettingsAction *autoKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_PublicKeyDistribution", nil)
                                                                  selector:@selector(switchAutoKey:)
                                                                      type: HCSwitchSetting];
 	autoKeyAction.defaultValue = @"autoKey";
     
-    SettingsAction *autoPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_AutoKeyphrase", nil)
+    SettingsAction *autoPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_AutoKeyphrase", nil)
                                                                       selector:@selector(switchAutoPassword:)
                                                                           type:HCSwitchSetting];
     autoPasswordAction.defaultValue = @"autoPassword";
     
-    SettingsAction *sendPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_TransmitKeyphrase", nil)
+    SettingsAction *sendPasswordAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_TransmitKeyphrase", nil)
                                                                       selector:@selector(switchPasswordAction:)
                                                                           type:HCSwitchSetting];
     sendPasswordAction.defaultValue = @"sendPassword";
     
-    SettingsAction *privateKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ShowPrivateKey", nil)
+    SettingsAction *privateKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_ShowPrivateKey", nil)
                                                                     selector:@selector(showPrivateKey)
                                                                         type:HCContinueSetting];
     
-    SettingsAction *publicKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ShowPublicKey", nil)
+    SettingsAction *publicKeyAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_ShowPublicKey", nil)
                                                                    selector:@selector(showPublicKey)
                                                                        type:HCContinueSetting];
 
-    SettingsAction *keyViewerAction = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_ManagePublicKeys", nil)
+    SettingsAction *keyViewerAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_ManagePublicKeys", nil)
                                                                    selector:@selector(showKeyViewer)
                                                                        type:HCContinueSetting];
     
-    SettingsAction *encryptionKey = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_SharedKeyphrase", nil)
+    SettingsAction *encryptionKey = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_SharedKeyphrase", nil)
                                                                  selector:@selector(showSharedKey)
                                                                      type:HCContinueSetting];
     
@@ -104,13 +104,13 @@
     
     [sections addObject:section1];
     
-    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_RenewUUIDOnStart", nil)
+    SettingsAction *renewUUIDOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_RenewUUIDOnStart", nil)
                                                                     selector:@selector(renewUUID:) 
                                                                         type:HCSwitchSetting];
     renewUUIDOnStart.defaultValue = @"renewUUID";
     
     
-    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"SettingsActionDescription_RenewPublicKeyOnStart", nil)
+    SettingsAction *renewPublicKeyOnStart = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_RenewPublicKeyOnStart", nil)
                                                                          selector:@selector(renewPubKey:) 
                                                                              type:HCSwitchSetting];
     renewPublicKeyOnStart.defaultValue = @"renewPubKey";

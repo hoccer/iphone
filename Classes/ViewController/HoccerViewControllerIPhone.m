@@ -807,7 +807,7 @@
         [channelSizeButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
         channelSizeButton.frame = CGRectMake(0, 0, 64, 31);
         
-        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Leave", @"Button title for leaving mode (e.g. Channel)")];
+        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Button_Leave", nil)];
         [channelSizeButton setTitle:buttonTitle forState:UIControlStateNormal];
         
         channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];

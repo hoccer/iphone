@@ -144,7 +144,7 @@
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.text = NSLocalizedString(@"No other devices nearby", nil);
+        cell.textLabel.text = NSLocalizedString(@"Status_NoOtherDevicesNearby", nil);
         cell.textLabel.textColor = [UIColor colorWithWhite:0.391 alpha:1.000];
     }
     
@@ -169,7 +169,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return NSLocalizedString(@"Restrict transfer to:", nil);
+    return NSLocalizedString(@"Title_RestrictTransferTo", nil);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

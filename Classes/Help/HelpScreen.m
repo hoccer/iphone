@@ -46,7 +46,7 @@
     
     videoButton.hidden = self.content.videoPath == nil;
     if (!videoButton.hidden) {
-        [videoButton setTitle:NSLocalizedString(@"HelpScreen_PlayVideo", nil) forState:UIControlStateNormal];
+        [videoButton setTitle:NSLocalizedString(@"Button_PlayVideo", nil) forState:UIControlStateNormal];
     }
 }
 
