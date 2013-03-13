@@ -18,6 +18,8 @@
 
 @synthesize encryptionSettingsHeader;
 @synthesize versionLabel;
+@synthesize warningLabel;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,7 +48,7 @@
 {
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
-
+        
     UIView *tbBgView = [[[UIView alloc]init]autorelease];
     tbBgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
     tbBgView.opaque = YES;
@@ -57,10 +59,10 @@
     
     NSString *versionString = [NSString stringWithFormat:@"Version: %@ - %@\n%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"],[[NSBundle mainBundle] objectForInfoDictionaryKey:@"HCCodeName"] ];
     self.versionLabel.text = versionString;
+    self.warningLabel.text = NSLocalizedString(@"Warning_ExpertsOnly", nil);
     
 	self.tableView.tableHeaderView = self.encryptionSettingsHeader;
 	self.encryptionSettingsHeader = nil;
-
     
     sections = [[NSMutableArray alloc] init];
 

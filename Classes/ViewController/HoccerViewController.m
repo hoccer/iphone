@@ -587,16 +587,16 @@ typedef enum {
             
         }
     }
+    
     [mediaPicker release];
-
 }
 
--(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
     if (musicPopOverController && musicPopOverController.isPopoverVisible) [musicPopOverController dismissPopoverAnimated:YES];
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
     
     if (mediaItemCollection) {
         
@@ -614,8 +614,8 @@ typedef enum {
         [musicPopOverController dismissPopoverAnimated:YES];
         [self showDesktop];
     }
-
 }
+
 #pragma mark -
 #pragma mark View Manipulation
 
