@@ -36,6 +36,7 @@
 @property (nonatomic, retain) NSMutableArray *selectedArray;
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
+@property (nonatomic, retain) IBOutlet UILabel *headerLabel;
 
 - (void)updateHistoryList;
 - (void)populateSelectedArray;

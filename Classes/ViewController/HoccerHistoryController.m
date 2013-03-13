@@ -115,6 +115,7 @@
 		[[NSBundle mainBundle] loadNibNamed:@"HistoryView" owner:self options:nil];
         cell = self.historyCell;
 		self.historyCell = nil;
+        self.headerLabel.text = NSLocalizedString(@"TipTitle_HistoryList", nil);
 	}
 	[cell viewWithTag:6].hidden = YES;
 
