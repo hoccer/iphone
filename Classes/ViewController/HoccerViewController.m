@@ -456,7 +456,7 @@ typedef enum {
             //[picker setBody:@"Hallo, bitte oeffne diesen link. Ich möchte dir ein File schicken: hoccer://hallo"];
             NSString *channel = [[NSUserDefaults standardUserDefaults] objectForKey:@"channel"];
 
-            NSString *contentTemplate = NSLocalizedString(@"Message_FileSharingText", nil);
+            NSString *contentTemplate = NSLocalizedString(@"Default_FileSharingText", nil);
             NSString *channelLink = [@"hoccerchannel://channel/" stringByAppendingString:channel];
             NSString *content = [NSString stringWithFormat:contentTemplate, channelLink];
             [picker setBody:content];
