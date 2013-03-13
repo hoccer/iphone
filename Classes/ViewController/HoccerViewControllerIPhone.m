@@ -29,7 +29,7 @@
 #import "ConnectionStatusViewController.h"
 #import "UIBarButtonItem+CustomImageButton.h"
 #import "HoccerAppDelegate.h"
-//#import <QuartzCore/QuartzCore.h>
+#import "HCBarButtonFactory.h"
 
 
 @interface HoccerViewControllerIPhone ()
@@ -335,24 +335,36 @@
 	[self showPopOver:self.settingViewController];
 	
 	navigationItem.title = NSLocalizedString(@"Title_Settings", nil);
-	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self
+                                                                action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
-	navigationItem.titleView = nil;
+
+    navigationItem.titleView = nil;
     navigationItem.leftBarButtonItem = nil;
 }
+
 
 - (void)showHistoryView
 {
 	[self showPopOver:self.hoccerHistoryController];
 	
 	navigationItem.title = NSLocalizedString(@"Title_History", nil);
-	
-    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self
+                                                                action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
-    
-    UIBarButtonItem *editButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_edit"] target:self.hoccerHistoryController action:@selector(enterCustomEditMode:)];
+
+    UIBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self.hoccerHistoryController
+                                                                action:@selector(enterCustomEditMode:)];
     [self.navigationItem setLeftBarButtonItem:editButton];
     [editButton release];
     
@@ -362,10 +374,13 @@
 - (void)showNewHistoryView
 {
 	[self showPopOver:self.historyTVC];
-    
-	navigationItem.title = NSLocalizedString(@"Title_History", nil);
+    	
+    navigationItem.title = NSLocalizedString(@"Title_History", nil);
 	
-    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self
+                                                                action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
     
@@ -375,13 +390,17 @@
 - (void)showChannelView
 {
 	self.channelViewController.parentNavigationController = navigationController;
-	[self showPopOver:self.channelViewController];
-	
-	navigationItem.title = NSLocalizedString(@"Title_Channel", nil);
-	UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:self action:@selector(cancelPopOver)];
+	[self showPopOver:self.channelViewController];    
     
+	navigationItem.title = NSLocalizedString(@"Title_Channel", nil);
+	
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self
+                                                                action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
-    [doneButton release];
+    [doneButton release];    
+    
 	navigationItem.titleView = nil;
     navigationItem.leftBarButtonItem = nil;
 
@@ -425,8 +444,18 @@
     [inputVC setHoccerViewController:self];
 
     [self showPopOver:inputVC];
-    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:inputVC action:@selector(doneButtonTapped:)];
-    UIBarButtonItem *cancelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelPopOver)];
+        
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                   style:HCBarButtonBlue
+                                                                  target:inputVC
+                                                                  action:@selector(doneButtonTapped:)];
+
+    
+    UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+                                                                   style:HCBarButtonBlack
+                                                                  target:self
+                                                                  action:@selector(cancelPopOver)];
+    
     [self.navigationItem setRightBarButtonItem:doneButton];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
     [cancelButton release];
@@ -798,20 +827,22 @@
 
     if (channelSizeButton == nil) {
         
-        
         UIImage *backButtonImage = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
 //        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
         channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
         [channelSizeButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
-        channelSizeButton.frame = CGRectMake(0, 0, 64, 31);
         
-        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Button_Leave", nil)];
+        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Button_LeaveChannel", nil)];
+        UIFont *buttonFont = [UIFont boldSystemFontOfSize:12];
+        CGSize requiredSize = [buttonTitle sizeWithFont:buttonFont];
+        requiredSize.width += 15.0f;    // Padding in front of and after text        
+        channelSizeButton.frame = CGRectMake(0, 0, MAX(20.0f, requiredSize.width), 31);
+        
         [channelSizeButton setTitle:buttonTitle forState:UIControlStateNormal];
-        
-        channelSizeButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-        channelSizeButton.titleLabel.textAlignment = UITextAlignmentLeft;
+        channelSizeButton.titleLabel.font = buttonFont;
+        channelSizeButton.titleLabel.textAlignment = UITextAlignmentCenter;
 
         [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
     }
