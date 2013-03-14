@@ -686,6 +686,7 @@
 		CDC7328816F1E0440084A77F /* nav_bar_btn_red_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC7328616F1E0440084A77F /* nav_bar_btn_red_background@2x.png */; };
 		CDC7328B16F1F1770084A77F /* nav_bar_btn_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676316F0D9C3008AA236 /* nav_bar_btn_background.png */; };
 		CDC7328E16F2008B0084A77F /* HCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC7328D16F2008B0084A77F /* HCBarButtonItem.m */; };
+		CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
 		E12748B3135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -1422,6 +1423,8 @@
 		CDC7328616F1E0440084A77F /* nav_bar_btn_red_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_red_background@2x.png"; sourceTree = "<group>"; };
 		CDC7328C16F2008A0084A77F /* HCBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBarButtonItem.h; sourceTree = "<group>"; };
 		CDC7328D16F2008B0084A77F /* HCBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBarButtonItem.m; sourceTree = "<group>"; };
+		CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectUtils.h; sourceTree = "<group>"; };
+		CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectUtils.m; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupStatusViewController.xib; sourceTree = "<group>"; };
 		E12748B4135DE75800AA1829 /* GroupStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatusViewController.h; sourceTree = "<group>"; };
@@ -1757,6 +1760,8 @@
 				B421D30713E2D09200F4DC25 /* MPMediaItemCollection-Utils.m */,
 				B4A502E31462C968007205B9 /* ActionElement.h */,
 				B4A502E41462C968007205B9 /* ActionElement.m */,
+				CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */,
+				CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -3911,6 +3916,7 @@
 				E99A953D16D7CEFA002C6590 /* HCError.m in Sources */,
 				CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */,
 				CDC7328E16F2008B0084A77F /* HCBarButtonItem.m in Sources */,
+				CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,6 @@
 @protocol TextInputViewControllerDelegate <NSObject>
 
 - (void)textInputViewController:(TextInputViewController *)controller didFinishedWithString:(NSString *)string;
-- (void)textInputViewControllerdidCancel;
+- (void)textInputViewControllerDidCancel;
 
 @end

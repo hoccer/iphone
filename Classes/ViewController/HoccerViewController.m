@@ -1540,7 +1540,7 @@ typedef enum {
             UIMenuItem *pasteMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"Button_Paste", nil) action:@selector(selectPasteboard:)];
             //before autoReceive [menuController setMenuItems:[NSArray arrayWithObject:pasteMenuItem]];
 
-            //UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:NSLocalizedString(@"AutoReceive", nil) action:@selector(selectAutoReceive:)];
+            //UIMenuItem *autoReceiveMenuItem = [[UIMenuItem alloc] initWithTitle:@"AutoReceive" action:@selector(selectAutoReceive:)];
             [menuController setMenuItems:[NSArray arrayWithObjects:pasteMenuItem, nil]];
             
             [menuController setTargetRect:CGRectMake(location.x, location.y, 0.0f, 0.0f) inView:desktopView];

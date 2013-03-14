@@ -131,7 +131,7 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
-    [self.delegate textInputViewControllerdidCancel];
+    [self.delegate textInputViewControllerDidCancel];
     [self dismissModalViewControllerAnimated:YES];
 }
 
