@@ -255,7 +255,7 @@ typedef enum {
 		
 		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
 													   message:[message objectForKey:@"message"]
-													  delegate:self cancelButtonTitle:nil otherButtonTitles:@"Update", nil];
+													  delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_Update", nil), nil];
         
         view.tag = 1;
 		[view show];
