@@ -19,14 +19,15 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"errorbar_bg"]];
 	self.view.hidden = YES;
     
-    self.titleLabel.text = NSLocalizedString(@"ErrorWindow_Title", nil);
-    [self.titleLabel sizeToFit];
 }
 
 - (void)showError:(NSError *)error forSeconds:(NSTimeInterval)time {
     
     NSString *ourText = error.localizedDescription;
     
+    self.titleLabel.text = NSLocalizedString(@"ErrorWindow_Title", nil);
+    [self.titleLabel sizeToFit];
+
     self.messageLabel.text = ourText;
     [self.messageLabel sizeToFit];
     
