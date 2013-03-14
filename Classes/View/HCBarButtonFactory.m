@@ -2,7 +2,7 @@
 //  HCBarButtonFactory.m
 //  Hoccer
 //
-//  Created by patrick on 13.03.13.
+//  Created by Patrick Juchli on 13.03.13.
 //  Copyright (c) 2013 Hoccer GmbH. All rights reserved.
 //
 
@@ -12,16 +12,19 @@
 @implementation HCBarButtonFactory
 
 
-+ (UIBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
++ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
     
-    float textPadding = 10.0f;
     UIImage *backgroundImage = [self _resizableImageForStyle:style];
-
-    return [self newItemWithTitle:title target:target action:selector resizableBackgroundImage:backgroundImage textPadding:textPadding];
+    
+    return [self newItemWithTitle:title
+                           target:target
+                           action:selector
+         resizableBackgroundImage:backgroundImage
+                      textPadding:10.0f];
 }
 
 
-+ (UIBarButtonItem *)newItemWithTitle:(NSString *)title
++ (HCBarButtonItem *)newItemWithTitle:(NSString *)title
                                target:(id)target
                                      action:(SEL)selector
                         resizableBackgroundImage:(UIImage *)backgroundImage
@@ -40,7 +43,7 @@
     button.titleLabel.textAlignment = UITextAlignmentCenter;
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    HCBarButtonItem *barButtonItem = [[HCBarButtonItem alloc] initWithCustomView:button];
     return barButtonItem;
 }
 

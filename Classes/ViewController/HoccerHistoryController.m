@@ -21,7 +21,6 @@
 #import "UIBarButtonItem+CustomImageButton.h"
 #import "HCBarButtonFactory.h"
 
-
 @interface HoccerHistoryController ()
 
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
@@ -264,13 +263,16 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
     
     if (inMassEditMode)
     {
-        BOOL selected = [[selectedArray objectAtIndex:[indexPath row]] boolValue];
-        [selectedArray replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:!selected]];
-        [self updateHistoryList];
+        if ([self hasEntries]) {
+            BOOL selected = [[selectedArray objectAtIndex:[indexPath row]] boolValue];
+            [selectedArray replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:!selected]];
+            [self updateHistoryList];
+        }
     }
     else {
         
@@ -357,7 +359,11 @@
         [array addObject:[NSNumber numberWithBool:NO]];
     self.selectedArray = array;
     [array release]; 
-} 
+}
+
+- (BOOL)hasEntries {
+    return [historyData count] > 0;
+}
 
 - (IBAction)enterCustomEditMode:(id)sender {
     inMassEditMode = !inMassEditMode;
@@ -397,6 +403,8 @@
         [hoccerViewController.navigationItem setLeftBarButtonItem:editButton];
         [editButton release];
         [doneButton release];
+
+        editButton.enabled = [self hasEntries];
     }
     
     [self updateHistoryList];

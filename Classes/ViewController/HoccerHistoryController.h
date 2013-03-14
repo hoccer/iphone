@@ -40,6 +40,7 @@
 
 - (void)updateHistoryList;
 - (void)populateSelectedArray;
+- (BOOL)hasEntries;
 
 - (IBAction)enterCustomEditMode:(id)sender;
 - (IBAction)deleteSelection:(id)sender;

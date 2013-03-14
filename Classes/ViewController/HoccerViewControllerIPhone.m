@@ -359,13 +359,15 @@
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
 
-    UIBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
+    HCBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self.hoccerHistoryController
                                                                 action:@selector(enterCustomEditMode:)];
+    
     [self.navigationItem setLeftBarButtonItem:editButton];
     [editButton release];
-    
+
+    editButton.enabled = [self.hoccerHistoryController hasEntries];
 	navigationItem.titleView = nil;
 }
 

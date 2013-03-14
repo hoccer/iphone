@@ -2,11 +2,12 @@
 //  HCBarButtonFactory.h
 //  Hoccer
 //
-//  Created by patrick on 13.03.13.
+//  Created by Patrick Juchli on 13.03.13.
 //  Copyright (c) 2013 Hoccer GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "HCBarButtonItem.h"
 
 
 typedef enum {
@@ -19,6 +20,6 @@ typedef enum {
 
 @interface HCBarButtonFactory : NSObject
 
-+ (UIBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector;
++ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector;
 
 @end
