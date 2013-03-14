@@ -14,30 +14,25 @@
 
 + (UIBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
     
-    return [self newItemWithTitle:title
-                           target:target
-                           action:selector
-              backgroundImageName:[HCBarButtonFactory _backgroundImageNameForStyle:style]
-                      textPadding:10.0f];
-}
+    float textPadding = 10.0f;
+    UIImage *backgroundImage = [self _resizableImageForStyle:style];
 
+    return [self newItemWithTitle:title target:target action:selector resizableBackgroundImage:backgroundImage textPadding:textPadding];
+}
 
 
 + (UIBarButtonItem *)newItemWithTitle:(NSString *)title
                                target:(id)target
                                      action:(SEL)selector
-                        backgroundImageName:(NSString *)backgroundImageName
+                        resizableBackgroundImage:(UIImage *)backgroundImage
                                 textPadding:(float)textPadding {
     
-    // Resizable image background
-    UIImage *buttonImage = [[UIImage imageNamed:backgroundImageName] resizableImageWithCapInsets:UIEdgeInsetsMake(15, 6, 15, 6)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     
-    // Resize button to fit text + padding
     UIFont *buttonFont = [UIFont boldSystemFontOfSize:12];
     CGSize requiredSize = [title sizeWithFont:buttonFont];
-    requiredSize.width += roundf(textPadding * 2.0f);    // Padding in front of and after text
+    requiredSize.width += roundf(textPadding * 2.0f);
     button.frame = CGRectMake(0, 0, MAX(20.0f, requiredSize.width), 32);
     
     [button setTitle:title forState:UIControlStateNormal];
@@ -49,16 +44,37 @@
     return barButtonItem;
 }
 
-+ (NSString *)_backgroundImageNameForStyle:(HCBarButtonStyle)style {
+
++ (UIImage *)_resizableImageForStyle:(HCBarButtonStyle)style {
+    
+    NSString *backgroundImageName;
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 6, 0, 6);
     
     switch (style) {
         case HCBarButtonBlue:
-            return @"nav_bar_btn_blue_background";
+            backgroundImageName = @"nav_bar_btn_blue_background";
+            break;
+            
+        case HCBarButtonRed:
+            backgroundImageName = @"nav_bar_btn_red_background";
+            break;
+        
+        case HCBarButtonBlackPointingLeft:
+            edgeInsets = UIEdgeInsetsMake(0, 14, 0, 6);
+            backgroundImageName = @"nav_bar_btn_back";
+            break;
             
         case HCBarButtonBlack:
         default:
-            return @"nav_bar_btn_background";            
+            backgroundImageName = @"nav_bar_btn_background";
+            break;
     }
+    
+    UIImage *image = [UIImage imageNamed:backgroundImageName];
+    CGFloat topInset = floorf(image.size.height / 2.0f);
+    edgeInsets.top = edgeInsets.bottom = topInset;
+    
+    return [image resizableImageWithCapInsets:edgeInsets];
 }
 
 

@@ -181,7 +181,6 @@
 	[delayedAction release];
 	[helpController release];
     [groupSizeButton release];
-    [channelSizeButton release];
     [activeContentSelectController release];
 	
 	[super dealloc];
@@ -190,7 +189,6 @@
 - (void)setContentPreview: (HoccerContent *)content {
 	[super setContentPreview:content];
     groupSizeButton.hidden = NO;
-    channelSizeButton.hidden = NO;
 }
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller {
@@ -538,10 +536,6 @@
 - (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
 {
     [super linccer:linncer didReceiveData:data];
-    
-//    NSLog(@"linccer didreceive data : %@", data);
-
-
 }
 
 
@@ -824,32 +818,14 @@
         navigationItem.leftBarButtonItem = nil;
         return;
     }
+    
+    UIBarButtonItem *channelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_LeaveChannel", nil)
+                                                                    style:HCBarButtonBlackPointingLeft
+                                                                   target:self
+                                                                   action:@selector(pressedLeaveChannelMode:)];
 
-    if (channelSizeButton == nil) {
-        
-        UIImage *backButtonImage = [[UIImage imageNamed:@"nav_bar_btn_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 6)];
-//        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-
-        channelSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
-        [channelSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-        [channelSizeButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
-        
-        NSString *buttonTitle = [@" " stringByAppendingString:NSLocalizedString(@"Button_LeaveChannel", nil)];
-        UIFont *buttonFont = [UIFont boldSystemFontOfSize:12];
-        CGSize requiredSize = [buttonTitle sizeWithFont:buttonFont];
-        requiredSize.width += 15.0f;    // Padding in front of and after text        
-        channelSizeButton.frame = CGRectMake(0, 0, MAX(20.0f, requiredSize.width), 31);
-        
-        [channelSizeButton setTitle:buttonTitle forState:UIControlStateNormal];
-        channelSizeButton.titleLabel.font = buttonFont;
-        channelSizeButton.titleLabel.textAlignment = UITextAlignmentCenter;
-
-        [channelSizeButton addTarget:self action:@selector(pressedLeaveChannelMode:) forControlEvents:UIControlEventTouchUpInside];
-    }
-
-	UIBarButtonItem *channelBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:channelSizeButton];
-	navigationItem.leftBarButtonItem = channelBarButtonItem;
-    [channelBarButtonItem release];
+	navigationItem.leftBarButtonItem = channelButton;
+    [channelButton release];
 }
 
 - (void)updateEncryptionIndicator{
