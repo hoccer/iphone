@@ -158,18 +158,18 @@
 }
 
 -  (void)setWaiting {
+    
 	HUD.mode = MBProgressHUDModeIndeterminate;
-	HUD.labelText = @"Saving";
-	
+	HUD.labelText = NSLocalizedString(@"HudMessage_Saving", nil);
 	[HUD show:YES];
 }
 
 - (void)setReady {
+    
 	HUD.mode = MBProgressHUDModeCustomView;
 	HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
-	HUD.labelText = @"Saved";
+	HUD.labelText = NSLocalizedString(@"HudMessage_Saved", nil);
 	[NSTimer scheduledTimerWithTimeInterval:1 target: self selector:@selector(hideHUD) userInfo:nil repeats:NO];
-	
 }
 
 - (void)hideHUD {
