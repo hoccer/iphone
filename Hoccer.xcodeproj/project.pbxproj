@@ -681,6 +681,7 @@
 		CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */; };
 		CD23676F16F0F650008AA236 /* nav_bar_btn_blue_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */; };
 		CD23677016F0F650008AA236 /* nav_bar_btn_blue_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */; };
+		CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */; };
 		CDBE247F16EDED5C00E5FD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDBE248116EDED5C00E5FD8C /* Localizable.strings */; };
 		CDC7328716F1E0440084A77F /* nav_bar_btn_red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC7328516F1E0440084A77F /* nav_bar_btn_red_background.png */; };
 		CDC7328816F1E0440084A77F /* nav_bar_btn_red_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC7328616F1E0440084A77F /* nav_bar_btn_red_background@2x.png */; };
@@ -1417,6 +1418,9 @@
 		CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBarButtonFactory.m; sourceTree = "<group>"; };
 		CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_blue_background.png; sourceTree = "<group>"; };
 		CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_blue_background@2x.png"; sourceTree = "<group>"; };
+		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLocalizationHelper.h; sourceTree = "<group>"; };
+		CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLocalizationHelper.m; sourceTree = "<group>"; };
 		CDBE248016EDED5C00E5FD8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDC7328516F1E0440084A77F /* nav_bar_btn_red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_red_background.png; sourceTree = "<group>"; };
 		CDC7328616F1E0440084A77F /* nav_bar_btn_red_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_red_background@2x.png"; sourceTree = "<group>"; };
@@ -1761,6 +1765,8 @@
 				B4A502E41462C968007205B9 /* ActionElement.m */,
 				CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */,
 				CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */,
+				CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */,
+				CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -3916,6 +3922,7 @@
 				CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */,
 				CDC7328E16F2008B0084A77F /* HCBarButtonItem.m in Sources */,
 				CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */,
+				CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4029,6 +4036,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CDBE248016EDED5C00E5FD8C /* en */,
+				CDB843AC16F72F530049A07B /* de */,
 			);
 			name = Localizable.strings;
 			path = Resources/localizations;

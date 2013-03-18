@@ -20,7 +20,7 @@
                            target:target
                            action:selector
          resizableBackgroundImage:backgroundImage
-                      textPadding:10.0f];
+                      textPadding:7.0f];
 }
 
 
