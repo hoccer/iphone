@@ -31,6 +31,10 @@
 	
     [self.textView setText:NSLocalizedString(@"AboutText", nil)];
     
+    CGRect textFrame = self.textView.frame;
+    textFrame.size.height = self.view.bounds.size.height - textFrame.origin.y * 2.0f - 20.0f;
+    self.textView.frame = textFrame;
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
 }
 

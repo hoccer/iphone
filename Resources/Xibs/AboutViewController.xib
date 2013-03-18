@@ -42,7 +42,7 @@
 					<object class="IBUITextView" id="711883592">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {280, 314}}</string>
+						<string key="NSFrame">{{13, 14}, {287, 199}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -94,7 +94,7 @@ UmViZWNjYSBMaW5hCgpJZGVhIGFuZCBUZWFtIExlYWQ6IApQYXZlbCBNYXllcg</bytes>
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 400}</string>
+				<string key="NSFrameSize">{320, 465}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="711883592"/>
