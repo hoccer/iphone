@@ -22,9 +22,9 @@ Sämtliche Texte in der Hoccer-App werden (seit neuem) dynamisch gesetzt. Für e
 
 Einige wichtige Punkte:
 
-- In allen Localizable.strings-Dateien müssen alle Keys abgedeckt sein. Wenn man in den Projekteinstellungen (siehe oben Punkt 1) angegeben hat, z.B. Spanisch zu unterstützen, dann aber die entsprechende Localizable.strings-Datei nicht komplett ausfüllt, wird die App bei Usern mit spanischer Sprache bei den fehlenden Übersetzungen die Keys und nicht eine Übersetzung oder gar die englische Version anzeigen.
+- In allen Localizable.strings-Dateien müssen alle Keys abgedeckt sein. Wenn man in den Projekteinstellungen (siehe oben Punkt 1) angegeben hat, z.B. Spanisch zu unterstützen, dann aber die entsprechende Localizable.strings-Datei nicht komplett ausfüllt, wird die App bei Usern mit spanischer Sprache bei den fehlenden Übersetzungen die Namen der Keys selber anzeigen und nicht etwa auf die englische Sprache zurückfallen. Auch hier wieder: Programme wie Linguan bieten eine Validation an, die alle Sprachdatensätze auf solche Fehler hin überprüft.
 
-- Sollten neue Texte eingeführt werden, so müssen deren Keys in allen Localizable.strings aufgeführt sein.
+- Sollten neue Texte eingeführt werden, so müssen natürlich auch hier deren Keys in allen Localizable.strings aufgeführt sein.
 
 
 

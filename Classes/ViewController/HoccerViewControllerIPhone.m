@@ -453,8 +453,8 @@
     
     UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
                                                                    style:HCBarButtonBlack
-                                                                  target:self
-                                                                  action:@selector(cancelPopOver)];
+                                                                  target:inputVC
+                                                                  action:@selector(cancelButtonTapped:)];
     
     [self.navigationItem setRightBarButtonItem:doneButton];
     [self.navigationItem setLeftBarButtonItem:cancelButton];

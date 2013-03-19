@@ -116,7 +116,7 @@
     [super dealloc];
 }
 
-- (IBAction)doneButtonTapped:(id)sender {
+- (void)doneButtonTapped:(id)sender {
     [textView resignFirstResponder];
     [self.delegate textInputViewController:self didFinishedWithString:textView.text];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
@@ -130,7 +130,7 @@
     }
 }
 
-- (IBAction)cancelButtonTapped:(id)sender {
+- (void)cancelButtonTapped:(id)sender {
     [self.delegate textInputViewControllerDidCancel];
     [self dismissModalViewControllerAnimated:YES];
 }
