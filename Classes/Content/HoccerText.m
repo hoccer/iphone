@@ -50,8 +50,8 @@
 
 
 - (Preview *)desktopItemView {
-	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
     
+	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
     self.editButton.titleLabel.text = NSLocalizedString(@"Button_Edit", nil);
     
 	self.view.delegate = self;	
