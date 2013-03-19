@@ -27,7 +27,7 @@
             screenRect.size.height = screenRect.size.height - (20+44+48);
         }
         else {
-            screenRect = CGRectMake(0, 0, 320, 367);
+            screenRect = CGRectMake(0, 0, 320, 467);
         }
         self.view.frame = screenRect;
 	}

@@ -153,9 +153,7 @@
     self.pullDownView.desktopView = desktopView;
     
     //isPullDown = NO;
-    
-    self.statusLabel.text = NSLocalizedString(@"PullDown_WaitingForThrownData", nil);
-	
+    	
     [self updateGroupButton];
     [self updateChannelButton];
     //[self updateEncryptionIndicator];

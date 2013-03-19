@@ -52,8 +52,6 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *refreshScrollView;
 @property (retain, nonatomic) IBOutlet UITableView *table;
 
-@property (retain, nonatomic) IBOutlet UILabel *statusLabel;
-
 
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
