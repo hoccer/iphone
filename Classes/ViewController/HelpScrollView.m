@@ -43,17 +43,9 @@
 	scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.scrollsToTop = NO;
-    
-    
-    
 	scrollView.contentSize = CGSizeMake(scrollViewSize.width * [pages count], scrollViewSize.height);
     
-    NSLog(@" height %f", scrollView.frame.size.height);
-    
-    
-    
     pageControl.numberOfPages = [pages count];
-
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         CGRect screenRect = [[UIScreen mainScreen] bounds];
