@@ -679,6 +679,7 @@
 		CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */; };
 		CD23676F16F0F650008AA236 /* nav_bar_btn_blue_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */; };
 		CD23677016F0F650008AA236 /* nav_bar_btn_blue_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */; };
+		CD7065D816F8C92400CE0B6A /* HOW TO LOCALIZE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */; };
 		CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */; };
 		CDBE247F16EDED5C00E5FD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDBE248116EDED5C00E5FD8C /* Localizable.strings */; };
 		CDC7328716F1E0440084A77F /* nav_bar_btn_red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC7328516F1E0440084A77F /* nav_bar_btn_red_background.png */; };
@@ -1418,6 +1419,7 @@
 		CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBarButtonFactory.m; sourceTree = "<group>"; };
 		CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_blue_background.png; sourceTree = "<group>"; };
 		CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_blue_background@2x.png"; sourceTree = "<group>"; };
+		CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HOW TO LOCALIZE.txt"; sourceTree = "<group>"; };
 		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLocalizationHelper.h; sourceTree = "<group>"; };
 		CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLocalizationHelper.m; sourceTree = "<group>"; };
@@ -1432,7 +1434,6 @@
 		CDD7BABD16F888AC006D0019 /* nav_bar_btn_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_history@2x.png"; sourceTree = "<group>"; };
 		CDD7BABE16F888AC006D0019 /* nav_bar_btn_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_settings.png; sourceTree = "<group>"; };
 		CDD7BABF16F888AC006D0019 /* nav_bar_btn_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_settings@2x.png"; sourceTree = "<group>"; };
-		CDD7BAC616F8A63C006D0019 /* HOW TO LOCALIZE.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "HOW TO LOCALIZE.rtf"; sourceTree = "<group>"; };
 		CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectUtils.h; sourceTree = "<group>"; };
 		CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectUtils.m; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -2504,7 +2505,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				CDD7BAC616F8A63C006D0019 /* HOW TO LOCALIZE.rtf */,
+				CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */,
 				B48000851603656E007A5F51 /* Default-568h@2x.png */,
 				B415A6E015485E8D00AA1328 /* Default-Portrait@2x~ipad.png */,
 				B415A6DE15485E7A00AA1328 /* Default-Landscape@2x~ipad.png */,
@@ -3622,6 +3623,7 @@
 				CDD7BAC316F888AC006D0019 /* nav_bar_btn_history@2x.png in Resources */,
 				CDD7BAC416F888AC006D0019 /* nav_bar_btn_settings.png in Resources */,
 				CDD7BAC516F888AC006D0019 /* nav_bar_btn_settings@2x.png in Resources */,
+				CD7065D816F8C92400CE0B6A /* HOW TO LOCALIZE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

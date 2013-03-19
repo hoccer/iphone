@@ -1,0 +1,32 @@
+
+
+Wie füge ich zur Hoccer-App eine neue Sprache hinzu?
+--------------------------------------------------------------------------
+
+
+Sämtliche Texte in der Hoccer-App werden (seit neuem) dynamisch gesetzt. Für eine neue Sprache muss nur eine einzige Datei, nämlich "Localizable.strings", angepasst werden. Also beispielsweise keine einzelnen XIBs. Dies sollte möglichst beibehalten werden.
+
+1. Im Projektnavigator unter XCode ganz oben das Projekt anwählen, dann unter "Info" bzw. "Localizations" die gewünschte Sprache hinzufügen.
+
+2. Im Projektnavigator die Datei "Localizable.strings" anwählen und anschliessend im "Utility"-Fenster (an der rechten Seite) unter "Localization" die Checkbox mit der neuen Sprache anwählen. Nun wird von Localizable.strings auch eine in der neuen Sprache lokalisierte Version erzeugt.
+
+3. Localizable.strings kann im Projektnavigator ähnlich wie ein Folder geöffnet werden. Darin werden dann die einzelnen Lokalisationen aufgeführt.
+
+4. Es ist nun am besten, wenn man gleich sofort alle Einträge von der englischen Version in die neue Version hinüberkopiert.
+
+5. Und jetzt übersetzen! Es kann hilfreich sein, beim Übersetzen die englische oder sogar deutsche Version zum Vergleich hinzuziehen zu können. Programme von Drittanbietern wie zum Beispiel Linguan können dies erleichtern.
+
+6. Natürlich ist es so auch möglich seine eigenen Scripts für Export und Import der Sprachdatensätze zu schreiben. Dazu bitte nicht vergessen: Localizable.strings-Dateien sind in UTF-16.
+
+
+
+Einige wichtige Punkte:
+
+- In allen Localizable.strings-Dateien müssen alle Keys abgedeckt sein. Wenn man in den Projekteinstellungen (siehe oben Punkt 1) angegeben hat, z.B. Spanisch zu unterstützen, dann aber die entsprechende Localizable.strings-Datei nicht komplett ausfüllt, wird die App bei Usern mit spanischer Sprache bei den fehlenden Übersetzungen die Keys und nicht eine Übersetzung oder gar die englische Version anzeigen.
+
+- Sollten neue Texte eingeführt werden, so müssen deren Keys in allen Localizable.strings aufgeführt sein.
+
+
+
+März, 2013
+patrickjuchli@gmail.com
