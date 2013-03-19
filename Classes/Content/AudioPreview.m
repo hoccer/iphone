@@ -14,7 +14,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    audioPlayButton.titleLabel.text = NSLocalizedString(@"Button_Play", nil);
+    
+    [audioPlayButton setTitle:NSLocalizedString(@"Button_Play", nil) forState:UIControlStateNormal];
 }
 
 - (void)dealloc {
