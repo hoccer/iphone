@@ -154,7 +154,10 @@
     //[self updateEncryptionIndicator];
     
     CGRect leftNavButtonsRect = CGRectMake(0, 0, 240, 35);
-    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_channel_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
+    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"nav_bar_btn_history.png"],
+                             [UIImage imageNamed:@"nav_bar_btn_channel.png"],
+                             [UIImage imageNamed:@"nav_bar_btn_settings.png"],
+                             nil];
     leftNavButtons = [[UISegmentedControl alloc]initWithItems:histSetItems];
     leftNavButtons.segmentedControlStyle = UISegmentedControlStyleBar;
     leftNavButtons.tintColor = [UIColor clearColor];
