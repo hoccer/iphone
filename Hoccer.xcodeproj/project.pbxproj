@@ -1432,6 +1432,7 @@
 		CDD7BABD16F888AC006D0019 /* nav_bar_btn_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_history@2x.png"; sourceTree = "<group>"; };
 		CDD7BABE16F888AC006D0019 /* nav_bar_btn_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_settings.png; sourceTree = "<group>"; };
 		CDD7BABF16F888AC006D0019 /* nav_bar_btn_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_settings@2x.png"; sourceTree = "<group>"; };
+		CDD7BAC616F8A63C006D0019 /* HOW TO LOCALIZE.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "HOW TO LOCALIZE.rtf"; sourceTree = "<group>"; };
 		CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectUtils.h; sourceTree = "<group>"; };
 		CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectUtils.m; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -2503,6 +2504,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				CDD7BAC616F8A63C006D0019 /* HOW TO LOCALIZE.rtf */,
 				B48000851603656E007A5F51 /* Default-568h@2x.png */,
 				B415A6E015485E8D00AA1328 /* Default-Portrait@2x~ipad.png */,
 				B415A6DE15485E7A00AA1328 /* Default-Landscape@2x~ipad.png */,
