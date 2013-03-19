@@ -26,7 +26,10 @@
 	return YES;
 }
 
+
+
 - (UIView *)fullscreenView {
+    
     CGRect screenRect;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         screenRect = [[UIScreen mainScreen] bounds];
@@ -48,6 +51,9 @@
 
 - (Preview *)desktopItemView {
 	[[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
+    
+    self.editButton.titleLabel.text = NSLocalizedString(@"Button_Edit", nil);
+    
 	self.view.delegate = self;	
 	if (!self.data || [self.data length] == 0) {
 		[self.view showTextInputView:nil];

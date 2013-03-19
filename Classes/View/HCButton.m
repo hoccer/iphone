@@ -35,13 +35,13 @@
 - (void)layoutSubviews  {
     
  	[super layoutSubviews];
-	
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont boldSystemFontOfSize:self.fontSize];
 	self.titleLabel.textColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1];
-	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x + self.horizontalTextOffset,
+	self.titleLabel.frame = CGRectMake(self.horizontalTextOffset,
                                        self.frame.size.height - self.verticalTextOffset,
-									   self.titleLabel.frame.size.width,
-                                       self.titleLabel.frame.size.height);	
+									   CGRectGetWidth(self.bounds),
+                                       self.titleLabel.frame.size.height);
 }
 
 - (void)setVerticalTextOffset:(CGFloat)verticalTextOffset {
