@@ -222,7 +222,7 @@
     
     NSString *crypted = [self.transferer.cryptor encryptString:self.filename];
     NSLog(@"filename = %@, crypted = %@", self.filename, crypted);
-    [dict setObject:crypted forKey:@"name"];
+    [dict setObject:crypted forKey:@"filename"];
     
     NSInteger count = 0;
     
