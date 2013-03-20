@@ -105,18 +105,12 @@
 	self.hoccerHistoryController.historyData = historyData;
 	
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
-        if (isPortrait){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_portrait.png"]];
-        }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_landscape.png"]];
-            
-        }
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
     }
     else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
-    }
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+    }    
+    
     [self setProperPullDownBackgroundImage: isPortrait];
  
     
@@ -719,17 +713,11 @@
         //[self updateEncryptionIndicator];
     }
     
-    if (encrypting){
-        BOOL isPortrait = UIDeviceOrientationIsPortrait(self.interfaceOrientation);
-        if (isPortrait){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_portrait.png"]];
-        }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_landscape.png"]];
-        }
+    if (encrypting) {
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
     }
     else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
     }
 }
 
@@ -818,7 +806,7 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad.png"]];
+    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -913,14 +901,12 @@
         self.defaultOrigin = CGPointMake(350, 100);
     }  
     
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        if (isPortrait){
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_portrait.png"]];
-        }
-        else {
-            desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"desktop_ipad_encrypted_landscape.png"]];
-            
-        }
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
+    }
+    else {
+        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
     }
 
     [self setProperPullDownBackgroundImage:isPortrait];
