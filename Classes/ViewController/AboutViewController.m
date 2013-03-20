@@ -12,6 +12,7 @@
 @implementation AboutViewController
 
 @synthesize delegate;
+@synthesize textView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -25,8 +26,16 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
+	
+    [self.textView setText:NSLocalizedString(@"AboutText", nil)];
+    
+    CGRect textFrame = self.textView.frame;
+    textFrame.size.height = self.view.bounds.size.height - textFrame.origin.y * 2.0f - 20.0f;
+    self.textView.frame = textFrame;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
 }
 
 - (CGSize)contentSizeForViewInPopover {

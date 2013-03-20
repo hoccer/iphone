@@ -84,6 +84,7 @@
 - (ContentContainerView *)contentView
 {
 	if (contentView == nil) {
+
 		Preview *preview = [content desktopItemView];
 		if (preview != nil) {
 			contentView = [[ContentContainerView alloc] initWithView:preview actionButtons: [self actionButtons]];
@@ -117,14 +118,14 @@
 
 - (NSArray *)actionButtons
 {
+    
 	if (content.isFromContentSource) {
         //NSLog(@"actionButtons  ---- content.isFromContentSource ----");
 
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_single-close.png"] forState:UIControlStateNormal];
-		[button setTitle:NSLocalizedString(@"ButtonClose", nil) forState:UIControlStateNormal];
-
-		[button addTarget: self action: @selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
+		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
+		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
         
 		[button setFrame: CGRectMake(0, 0, 45, 40)];
 		
@@ -139,20 +140,20 @@
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
-		[button setTextLabelOffset:1];
+		[button setHorizontalTextOffset:1.0f];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget:self action:@selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
-		[button2 setTextLabelOffset:2];
+		[button setHorizontalTextOffset:2.0f];
 		[button2 setFrame: CGRectMake(0, 0, 43, 40)];
 		
 //		HCButton *button3 = [HCButton buttonWithType:UIButtonTypeCustom];
 //		[button3 setBackgroundImage:[UIImage imageNamed:@"container_btn_double-safari.png"] forState:UIControlStateNormal];
 //		[button3 addTarget:self action:@selector(playAudioButton:) forControlEvents:UIControlEventTouchUpInside];
-//		//[button3 setTitle:NSLocalizedString(@"Play", nil) forState:UIControlStateNormal];
+//		//[button3 setTitle:NSLocalizedString(@"Button_Play", nil) forState:UIControlStateNormal];
 //		//[button3 setTextLabelOffset:1];
 //		[button3 setFrame: CGRectMake(0, 0, 42, 40)];
 //		
@@ -171,14 +172,14 @@
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
-		[button setTextLabelOffset:1];
+		[button setHorizontalTextOffset:1.0f];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button2 setBackgroundImage:[content imageForSaveButton] forState:UIControlStateNormal];
 		[button2 addTarget:self action:@selector(saveButton:) forControlEvents:UIControlEventTouchUpInside];
 		[button2 setTitle: [content descriptionOfSaveButton] forState:UIControlStateNormal];
-		[button2 setTextLabelOffset:2];
+		[button setHorizontalTextOffset:2.0f];
 		[button2 setFrame: CGRectMake(0, 0, 43, 40)];
 		
 		NSArray *buttons = [NSArray arrayWithObjects:button, button2, nil];

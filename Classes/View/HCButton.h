@@ -10,9 +10,21 @@
 
 
 @interface HCButton : UIButton {
-	CGFloat textLabelOffset;
+    
+	CGFloat     _textLabelOffset;
+    CGFloat     _verticalTextOffset;
+    CGFloat     _horizontalTextOffset;
 }
 
-- (void)setTextLabelOffset: (CGFloat)newOffset;
+@property (nonatomic, assign) CGFloat fontSize;
+
+// Vertical offset from bottom edge of button frame
+@property (nonatomic, assign) CGFloat verticalTextOffset;
+
+// Horiztonal offset relative to center
+@property (nonatomic, assign) CGFloat horizontalTextOffset;
+
+
+
 
 @end

@@ -28,6 +28,8 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 #import "HoccerAppDelegate.h"
+#import "HCBarButtonFactory.h"
+
 
 @interface HoccerViewControlleriPad ()
 
@@ -63,6 +65,14 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+    
+    // Titles of UITabBarItems are keys defined in Localizable.strings, translate them if possible
+    for (UITabBarItem *item in self.tabBar.items) {
+        
+        NSString *localizedTitle = NSLocalizedString(item.title, nil);
+        if ([localizedTitle isEqualToString:item.title]) localizedTitle = @"";
+        item.title = localizedTitle;
+    }
     
 	hoccingRules = (HoccingRules *)[[HoccingRulesIPad alloc] init];
 	isPopUpDisplayed = FALSE;
@@ -145,22 +155,18 @@
     [self updateGroupButton];
     //[self updateEncryptionIndicator];
     
-    CGRect leftNavButtonsRect = CGRectMake(0, 0, 240, 35);
-    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"navbar_btn_history_ipad"],[UIImage imageNamed:@"navbar_btn_channel_ipad"],[UIImage imageNamed:@"navbar_btn_settings_ipad"],nil];
-    leftNavButtons = [[UISegmentedControl alloc]initWithItems:histSetItems];
-    leftNavButtons.segmentedControlStyle = UISegmentedControlStyleBar;
-    leftNavButtons.tintColor = [UIColor clearColor];
-    leftNavButtons.momentary = YES;
-    leftNavButtons.backgroundColor = [UIColor clearColor];
-    [leftNavButtons addTarget:self action:@selector(leftNavButtonsAction:) forControlEvents:UIControlEventValueChanged];
-    [leftNavButtons setFrame:leftNavButtonsRect];
+    // Pseudo-segmented control at top left
+    NSArray *leftNavImages = @[[UIImage imageNamed:@"nav_bar_btn_history.png"],
+                               [UIImage imageNamed:@"nav_bar_btn_channel.png"],
+                               [UIImage imageNamed:@"nav_bar_btn_settings.png"]];
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:leftNavButtons];
+    HCBarButtonItem *leftNavItem = [HCBarButtonFactory newSegmentedControlWithImages:leftNavImages
+                                                                           target:self
+                                                                           action:@selector(didSelectLeftNavButton:)];
     
-    self.navigationItem.leftBarButtonItem = leftButton;
-    
+    self.navigationItem.leftBarButtonItem = leftNavItem;
+    [leftNavItem release];
     [leftNavButtons release];
-    [leftButton release];
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         NSMutableArray *modifyMe = [[tabBar items] mutableCopy];
@@ -170,7 +176,9 @@
     }
 }
 
+
 - (void) dealloc {
+    
 	[hoccerHistoryController release];
 	[navigationController release];
 	[navigationItem release];
@@ -272,7 +280,7 @@
     if (!settingsPopOverNavigationController) {
         settingsPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.settingViewController];
         self.settingViewController.parentNavigationController = settingsPopOverNavigationController;
-        [settingsPopOverNavigationController setTitle:NSLocalizedString(@"Settings", nil)]; 
+        [settingsPopOverNavigationController setTitle:NSLocalizedString(@"Title_Settings", nil)]; 
     }
     if (!settingsPopOverController) {
         settingsPopOverController = [[UIPopoverController alloc]initWithContentViewController:settingsPopOverNavigationController];
@@ -295,7 +303,7 @@
     if (!channelPopOverNavigationController) {
         channelPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.channelViewController];
         self.channelViewController.parentNavigationController = channelPopOverNavigationController;
-        [channelPopOverNavigationController setTitle:NSLocalizedString(@"Channel", nil)];
+        [channelPopOverNavigationController setTitle:NSLocalizedString(@"Title_Channel", nil)];
     }
     if (!channelPopOverController) {
         channelPopOverController = [[UIPopoverController alloc]initWithContentViewController:channelPopOverNavigationController];
@@ -320,7 +328,7 @@
     if (!historyPopOverNavigationController) {
         historyPopOverNavigationController = [[UINavigationController alloc]initWithRootViewController:self.hoccerHistoryController];
         self.hoccerHistoryController.parentNavigationController = historyPopOverNavigationController;
-        [historyPopOverNavigationController setTitle:NSLocalizedString(@"History", nil)];
+        [historyPopOverNavigationController setTitle:NSLocalizedString(@"Title_History", nil)];
     }
     if (!historyPopOverController) {
         historyPopOverController = [[UIPopoverController alloc]initWithContentViewController:historyPopOverNavigationController];
@@ -360,11 +368,10 @@
 }
 
 
-- (IBAction)leftNavButtonsAction:(id)sender{
+- (void)didSelectLeftNavButton:(id)sender {
     
-    int selectedIndex = [leftNavButtons selectedSegmentIndex];
-    if (USES_DEBUG_MESSAGES) {  NSLog(@"leftNavButtonsAction index=%i", selectedIndex);}
-    switch (selectedIndex) {
+    UIButton *button = (UIButton *)sender;
+    switch (button.tag) {
         case 0:
             [self toggleHistory:nil];
             break;
@@ -377,7 +384,6 @@
         default:
             break;
     }
-    
 }
 
 - (void)showDesktop {

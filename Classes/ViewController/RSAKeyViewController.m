@@ -21,6 +21,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg.png"]];
 
+    self.warningLabel.text = NSLocalizedString(@"Warning_ExpertsOnly", nil);
+    
     if ([key isEqualToString:@"public"]){
         NSData *publicKey = [[RSA sharedInstance] getPublicKeyBits];
         keyText.text = [publicKey asBase64EncodedString];

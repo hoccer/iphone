@@ -87,7 +87,7 @@ static DataManager* _sharedDataManager = nil;
     NSString *to = [NSString stringWithFormat:@"&empfaenger=%@", toPhone];
     //NSString *textURL = @"&text=" + URLEncoder.encode(content, "ISO-8859-1");
     
-    NSString *contentTemplate = NSLocalizedString(@"Message_FileSharingText", nil);
+    NSString *contentTemplate = NSLocalizedString(@"Default_FileSharingText", nil);
     NSString *channelLink = [@"hoccerchannel://channel/" stringByAppendingString:toName];
     content = [NSString stringWithFormat:contentTemplate, channelLink];
     

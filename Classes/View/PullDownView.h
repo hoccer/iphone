@@ -13,4 +13,6 @@
 
 @property (nonatomic, retain) DesktopView *desktopView;
 
+@property (nonatomic, retain) IBOutlet UILabel *statusLabel;
+
 @end

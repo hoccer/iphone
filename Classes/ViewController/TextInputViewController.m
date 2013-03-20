@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "HoccerAppDelegate.h"
 #import "HoccerViewControllerIPhone.h"
+#import "HCBarButtonFactory.h"
 
 @implementation TextInputViewController
 @synthesize textView;
@@ -23,12 +24,23 @@
 {
     [super viewDidLoad];
     [self.textView setText:initialText];
-    
     [textView becomeFirstResponder];
-    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done_blue"] target:self action:@selector(doneButtonTapped:)];
-    UIBarButtonItem *cancelButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(cancelButtonTapped:)];
+    
+    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                 style:HCBarButtonBlue
+                                                                target:self
+                                                                action:@selector(doneButtonTapped:)];
+
+    UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+                                                                 style:HCBarButtonBlack
+                                                                target:self
+                                                                action:@selector(cancelButtonTapped:)];
+    
     [self.theNavItem setRightBarButtonItem:doneButton];
     [self.theNavItem setLeftBarButtonItem:cancelButton];
+    [doneButton release];
+    [cancelButton release];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         UIGraphicsBeginImageContextWithOptions(self.presentingViewController.view.bounds.size, YES, self.presentingViewController.view.window.screen.scale);
         
@@ -39,10 +51,7 @@
         UIGraphicsEndImageContext();
         self.view.backgroundColor = [UIColor colorWithPatternImage:ret];
     }
-    [doneButton release];
-    [cancelButton release];
 }
-
 
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -107,7 +116,7 @@
     [super dealloc];
 }
 
-- (IBAction)doneButtonTapped:(id)sender {
+- (void)doneButtonTapped:(id)sender {
     [textView resignFirstResponder];
     [self.delegate textInputViewController:self didFinishedWithString:textView.text];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
@@ -121,8 +130,8 @@
     }
 }
 
-- (IBAction)cancelButtonTapped:(id)sender {
-    [self.delegate textInputViewControllerdidCancel];
+- (void)cancelButtonTapped:(id)sender {
+    [self.delegate textInputViewControllerDidCancel];
     [self dismissModalViewControllerAnimated:YES];
 }
 

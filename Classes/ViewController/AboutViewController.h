@@ -10,10 +10,11 @@
 
 
 @interface AboutViewController : UIViewController {
-	id delegate;
+	id              delegate;
 }
 
 @property (nonatomic, retain) id delegate;
+@property (nonatomic, retain) IBOutlet UITextView *textView;
 
 - (IBAction)hideView: (id)sender;
 

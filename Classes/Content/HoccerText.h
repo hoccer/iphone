@@ -18,6 +18,7 @@
 @property (nonatomic, readonly) NSString *content;
 @property (retain) IBOutlet TextPreview *view;
 @property (retain) IBOutlet UITextView *textView;
+@property (nonatomic, retain) IBOutlet HCButton *editButton;
 
 + (BOOL)isDataAUrl: (NSData *)data;
 

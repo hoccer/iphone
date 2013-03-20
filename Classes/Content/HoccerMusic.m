@@ -103,7 +103,7 @@
         switch (exportStatus) {
             case AVAssetExportSessionStatusFailed: {
                 // log error to text view
-                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Message_ErrorLoadingSong", nil) forKey:NSLocalizedDescriptionKey];
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_LoadingSongFailed", nil) forKey:NSLocalizedDescriptionKey];
                 NSError *error = [NSError errorWithDomain:@"Song failed" code:796 userInfo:userInfo];
                 [self audioExporterFailed:error];
                 break;

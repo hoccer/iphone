@@ -8,32 +8,55 @@
 
 #import "HCButton.h"
 
-
 @implementation HCButton
 
-
-- (id)initWithFrame:(CGRect)frame {
-    if ((self = [super initWithFrame:frame])) {
-		textLabelOffset = 0;
+- (id)initWithFrame:(CGRect)frame {    
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self _initDefault];
     }
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self _initDefault];
+    }
+    return self;
+}
+
+- (void)_initDefault {
+    self.fontSize = 8.0f;
+    self.verticalTextOffset = 14.0f;
+    self.horizontalTextOffset = 0.0f;
+}
+
 - (void)layoutSubviews  {
-	[super layoutSubviews];
-	self.titleLabel.font = [UIFont boldSystemFontOfSize:8];
+    
+ 	[super layoutSubviews];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:self.fontSize];
 	self.titleLabel.textColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1];
-	self.titleLabel.frame = CGRectMake(self.titleLabel.frame.origin.x + textLabelOffset, self.frame.size.height - 14,
-									   self.titleLabel.frame.size.width, self.titleLabel.frame.size.height); 
-	textLabelOffset = 0;
+	self.titleLabel.frame = CGRectMake(self.horizontalTextOffset,
+                                       self.frame.size.height - self.verticalTextOffset,
+									   CGRectGetWidth(self.bounds),
+                                       self.titleLabel.frame.size.height);
 }
 
-- (void)setTextLabelOffset: (CGFloat)newOffset {
-	textLabelOffset = newOffset;
+- (void)setVerticalTextOffset:(CGFloat)verticalTextOffset {
+    _verticalTextOffset = verticalTextOffset;
+    [self setNeedsLayout];
 }
 
-- (void)dealloc {
-    [super dealloc];
+- (void)setHorizontalTextOffset:(CGFloat)horizontalTextOffset {
+    _horizontalTextOffset = horizontalTextOffset;
+    [self setNeedsLayout];
+}
+
+- (void)setFontSize:(CGFloat)fontSize {
+    _fontSize = fontSize;
+    [self setNeedsLayout];
 }
 
 @end

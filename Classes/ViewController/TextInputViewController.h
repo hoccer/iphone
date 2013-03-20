@@ -22,8 +22,8 @@
 @property (assign) id <TextInputViewControllerDelegate> delegate;
 @property (nonatomic, assign) HoccerViewController *hoccerViewController;
 
-- (IBAction)doneButtonTapped:(id)sender;
-- (IBAction)cancelButtonTapped:(id)sender;
+- (void)doneButtonTapped:(id)sender;
+- (void)cancelButtonTapped:(id)sender;
 
 - (void)setInitialText:(NSString *)text andDelegate:(id)delegate;
 @end

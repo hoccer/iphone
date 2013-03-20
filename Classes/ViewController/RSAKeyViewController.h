@@ -14,5 +14,7 @@
 }
 
 @property (nonatomic,retain) IBOutlet UITextView *keyText;
+@property (nonatomic,retain) IBOutlet UILabel *warningLabel;
+
 @property (nonatomic,retain) NSString *key;
 @end

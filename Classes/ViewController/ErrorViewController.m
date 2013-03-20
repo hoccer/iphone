@@ -8,22 +8,37 @@
 
 #import "ErrorViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CGRectUtils.h"
 
 @implementation ErrorViewController
 
 @synthesize titleLabel,messageLabel;
 
 - (void)viewDidLoad {
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"errorbar_bg"]];
-	self.view.hidden = YES;	
+	self.view.hidden = YES;
+    
 }
 
 - (void)showError:(NSError *)error forSeconds:(NSTimeInterval)time {
+    
     NSString *ourText = error.localizedDescription;
     
+    self.titleLabel.text = NSLocalizedString(@"ErrorWindow_Title", nil);
+    [self.titleLabel sizeToFit];
+
     self.messageLabel.text = ourText;
+    [self.messageLabel sizeToFit];
     
-     
+    // Message directly below title and both centered vertically
+    float beautyOffset = -6.0f;
+    float textHeight = CGRectGetHeight(self.titleLabel.frame) + CGRectGetHeight(self.messageLabel.frame);
+    float top = roundf((CGRectGetHeight(self.view.bounds) - textHeight) / 2.0f) + beautyOffset;
+    self.titleLabel.frame = CGRectSetOriginY(self.titleLabel.frame, top);
+    self.messageLabel.frame = CGRectSetOriginY(self.messageLabel.frame, top + CGRectGetHeight(self.titleLabel.frame));
+    
+    
     [self showViewAnimated:YES];
     if (timer != nil) {
 		[timer invalidate];

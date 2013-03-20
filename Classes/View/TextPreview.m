@@ -87,7 +87,7 @@
 	return YES;
 }
 
-- (void)textInputViewControllerdidCancel {
+- (void)textInputViewControllerDidCancel {
     NSNotification *notification = [NSNotification notificationWithName:@"textInputVCDidCancel" object:nil];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }

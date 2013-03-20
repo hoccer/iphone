@@ -19,6 +19,7 @@
 #import "NSFileManager+FileHelper.h"
 #import "NSString+StringWithData.h"
 #import "UIBarButtonItem+CustomImageButton.h"
+#import "HCBarButtonFactory.h"
 
 @interface HoccerHistoryController ()
 
@@ -115,6 +116,7 @@
 		[[NSBundle mainBundle] loadNibNamed:@"HistoryView" owner:self options:nil];
         cell = self.historyCell;
 		self.historyCell = nil;
+        self.headerLabel.text = NSLocalizedString(@"TipTitle_HistoryList", nil);
 	}
 	[cell viewWithTag:6].hidden = YES;
 
@@ -261,13 +263,16 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 	[tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:NO];
     
     if (inMassEditMode)
     {
-        BOOL selected = [[selectedArray objectAtIndex:[indexPath row]] boolValue];
-        [selectedArray replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:!selected]];
-        [self updateHistoryList];
+        if ([self hasEntries]) {
+            BOOL selected = [[selectedArray objectAtIndex:[indexPath row]] boolValue];
+            [selectedArray replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:!selected]];
+            [self updateHistoryList];
+        }
     }
     else {
         
@@ -354,7 +359,11 @@
         [array addObject:[NSNumber numberWithBool:NO]];
     self.selectedArray = array;
     [array release]; 
-} 
+}
+
+- (BOOL)hasEntries {
+    return [historyData count] > 0;
+}
 
 - (IBAction)enterCustomEditMode:(id)sender {
     inMassEditMode = !inMassEditMode;
@@ -362,22 +371,40 @@
     [self populateSelectedArray];
     
     if (inMassEditMode){
-        UIBarButtonItem *delete = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_delete"] target:self action:@selector(deleteSelection:)];
-        UIBarButtonItem *cancel =  [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_cancel"] target:self action:@selector(enterCustomEditMode:)];
-
-        [hoccerViewController.navigationItem setRightBarButtonItem:delete];
-        [hoccerViewController.navigationItem setLeftBarButtonItem:cancel];
-
-        [cancel release];
-        [delete release];
+        
+        UIBarButtonItem *deleteButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
+                                                                       style:HCBarButtonRed
+                                                                      target:self
+                                                                      action:@selector(deleteSelection:)];
+        
+        UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+                                                                       style:HCBarButtonBlack
+                                                                      target:self
+                                                                      action:@selector(enterCustomEditMode:)];
+        
+        [hoccerViewController.navigationItem setRightBarButtonItem:deleteButton];
+        [hoccerViewController.navigationItem setLeftBarButtonItem:cancelButton];
+        [cancelButton release];
+        [deleteButton release];
     }
     else {
-        UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:hoccerViewController action:@selector(cancelPopOver)];
-        UIBarButtonItem *editButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_edit"] target:self action:@selector(enterCustomEditMode:)];
+                
+        UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+                                                                       style:HCBarButtonBlack
+                                                                      target:hoccerViewController
+                                                                      action:@selector(cancelPopOver)];
+
+        UIBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
+                                                                     style:HCBarButtonBlack
+                                                                    target:self
+                                                                    action:@selector(enterCustomEditMode:)];
+        
         [hoccerViewController.navigationItem setRightBarButtonItem:doneButton];
         [hoccerViewController.navigationItem setLeftBarButtonItem:editButton];
         [editButton release];
         [doneButton release];
+
+        editButton.enabled = [self hasEntries];
     }
     
     [self updateHistoryList];
@@ -400,22 +427,13 @@
         index++;
     }
     
-    for (HoccerHistoryItem *value in rowsToBeDeleted)
-    {
+    for (HoccerHistoryItem *value in rowsToBeDeleted) {
         [historyData removeItem:value];
     }
     
-    
-    inMassEditMode = NO;
-    
-    UIBarButtonItem *doneButton = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_done"] target:hoccerViewController action:@selector(cancelPopOver)];
-    [hoccerViewController.navigationItem setRightBarButtonItem:doneButton];
-    [doneButton release];
     [self cleanUp];
-    [self updateHistoryList];
-    [self populateSelectedArray];
 
-
+    [self enterCustomEditMode:nil];
 }
 
 

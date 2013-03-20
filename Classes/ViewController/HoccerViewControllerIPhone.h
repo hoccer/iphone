@@ -30,7 +30,6 @@
 	
     HelpController *helpController;
     UIButton *groupSizeButton;
-    UIButton *channelSizeButton;
     UIButton *encryptionButton;
     
     id <ContentSelectController> activeContentSelectController;
@@ -52,6 +51,7 @@
 
 @property (retain, nonatomic) IBOutlet UIScrollView *refreshScrollView;
 @property (retain, nonatomic) IBOutlet UITableView *table;
+
 
 
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;

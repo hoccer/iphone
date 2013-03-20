@@ -22,8 +22,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.helpLabel.text = NSLocalizedString(@"Help_Channel", nil);
+    [self.helpLabel sizeToFit];
+    CGRect helpFrame = self.helpLabel.frame;
+    self.helpLabel.frame = CGRectMake(helpFrame.origin.x, 80.0f, helpFrame.size.width, helpFrame.size.height);
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [parentNavigationController setTitle:NSLocalizedString(@"Channel", nil)];
+        [parentNavigationController setTitle:NSLocalizedString(@"Title_Channel", nil)];
     }
     else {
         CGRect parentFrame = parentNavigationController.view.frame;
@@ -40,7 +46,7 @@
     
 	sections = [[NSMutableArray alloc] init];
 
-	SettingsAction *channelAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Channel", nil) selector:@selector(changedChannel:) type:HCTextField];
+	SettingsAction *channelAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Button_Channel", nil) selector:@selector(changedChannel:) type:HCTextField];
     channelAction.defaultValue = @"channel";
 	[sections addObject:[NSArray arrayWithObject:channelAction]];
 
@@ -59,7 +65,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [tableView reloadData];
+    [tableView reloadData];    
 }
 
 
@@ -110,7 +116,7 @@
         }
         else {
             self.channelTextField.text = @"";
-            self.channelTextField.placeholder = NSLocalizedString(@"Channel Name", nil);
+            self.channelTextField.placeholder = NSLocalizedString(@"Placeholder_ChannelName", nil);
         }
         self.channelTextField.returnKeyType = UIReturnKeyDone;
         self.channelTextField.keyboardType = UIKeyboardTypeDefault;
