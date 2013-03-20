@@ -48,6 +48,34 @@
 }
 
 
++ (HCBarButtonItem *)newSegmentedControlWithImages:(NSArray *)images target:(id)target action:(SEL)selector {    
+    
+    CGRect containingRect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIView *buttonContainer = [[UIView alloc] initWithFrame:containingRect];
+    
+    NSUInteger currentTag = 0;
+    for (UIImage *image in images) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [button setTag:currentTag];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+        button.frame = CGRectMake(CGRectGetMaxX(containingRect), 0.0f, image.size.width, image.size.height);
+        
+        ++currentTag;
+        [buttonContainer addSubview:button];
+        containingRect = CGRectUnion(containingRect, button.frame);
+    }
+
+    buttonContainer.frame = containingRect;
+    HCBarButtonItem *segmentedControlItem = [[HCBarButtonItem alloc] initWithCustomView:buttonContainer];
+    [buttonContainer release];
+    
+    return segmentedControlItem;
+}
+
+
 + (UIImage *)_resizableImageForStyle:(HCBarButtonStyle)style {
     
     NSString *backgroundImageName;

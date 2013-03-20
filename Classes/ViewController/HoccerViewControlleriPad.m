@@ -28,6 +28,8 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 #import "HoccerAppDelegate.h"
+#import "HCBarButtonFactory.h"
+
 
 @interface HoccerViewControlleriPad ()
 
@@ -153,25 +155,18 @@
     [self updateGroupButton];
     //[self updateEncryptionIndicator];
     
-    CGRect leftNavButtonsRect = CGRectMake(0, 0, 240, 35);
-    NSArray *histSetItems = [NSArray arrayWithObjects:[UIImage imageNamed:@"nav_bar_btn_history.png"],
-                             [UIImage imageNamed:@"nav_bar_btn_channel.png"],
-                             [UIImage imageNamed:@"nav_bar_btn_settings.png"],
-                             nil];
-    leftNavButtons = [[UISegmentedControl alloc]initWithItems:histSetItems];
-    leftNavButtons.segmentedControlStyle = UISegmentedControlStyleBar;
-    leftNavButtons.tintColor = [UIColor clearColor];
-    leftNavButtons.momentary = YES;
-    leftNavButtons.backgroundColor = [UIColor clearColor];
-    [leftNavButtons addTarget:self action:@selector(leftNavButtonsAction:) forControlEvents:UIControlEventValueChanged];
-    [leftNavButtons setFrame:leftNavButtonsRect];
+    // Pseudo-segmented control at top left
+    NSArray *leftNavImages = @[[UIImage imageNamed:@"nav_bar_btn_history.png"],
+                               [UIImage imageNamed:@"nav_bar_btn_channel.png"],
+                               [UIImage imageNamed:@"nav_bar_btn_settings.png"]];
     
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithCustomView:leftNavButtons];
+    HCBarButtonItem *leftNavItem = [HCBarButtonFactory newSegmentedControlWithImages:leftNavImages
+                                                                           target:self
+                                                                           action:@selector(didSelectLeftNavButton:)];
     
-    self.navigationItem.leftBarButtonItem = leftButton;
-    
+    self.navigationItem.leftBarButtonItem = leftNavItem;
+    [leftNavItem release];
     [leftNavButtons release];
-    [leftButton release];
     
     if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         NSMutableArray *modifyMe = [[tabBar items] mutableCopy];
@@ -181,7 +176,9 @@
     }
 }
 
+
 - (void) dealloc {
+    
 	[hoccerHistoryController release];
 	[navigationController release];
 	[navigationItem release];
@@ -371,11 +368,10 @@
 }
 
 
-- (IBAction)leftNavButtonsAction:(id)sender{
+- (void)didSelectLeftNavButton:(id)sender {
     
-    int selectedIndex = [leftNavButtons selectedSegmentIndex];
-    if (USES_DEBUG_MESSAGES) {  NSLog(@"leftNavButtonsAction index=%i", selectedIndex);}
-    switch (selectedIndex) {
+    UIButton *button = (UIButton *)sender;
+    switch (button.tag) {
         case 0:
             [self toggleHistory:nil];
             break;
@@ -388,7 +384,6 @@
         default:
             break;
     }
-    
 }
 
 - (void)showDesktop {
