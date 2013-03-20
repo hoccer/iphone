@@ -208,7 +208,7 @@
 	[dict setObject:self.mimeType forKey:@"type"];
     
     NSString *crypted = [self.cryptor encryptString:self.filename];
-    [dict setObject:crypted forKey:@"name"];
+    [dict setObject:crypted forKey:@"filename"];
     
     NSInteger count = 0;
     

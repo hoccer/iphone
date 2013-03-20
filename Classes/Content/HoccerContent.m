@@ -81,10 +81,10 @@
         }
     }
     
-    if ([dict objectForKey:@"name"]) {
-        //NSLog(@"initWithDictionary: name=%@",[dict objectForKey:@"name"]);
-		NSString *name = [self.cryptor decryptString:[dict objectForKey:@"name"]];
-        //NSLog(@"initWithDictionary: decrypted name=%@",name);
+    if ([dict objectForKey:@"filename"]) {
+        //NSLog(@"initWithDictionary: filename=%@",[dict objectForKey:@"filename"]);
+		NSString *name = [self.cryptor decryptString:[dict objectForKey:@"filename"]];
+        //NSLog(@"initWithDictionary: decrypted filename=%@",name);
         filename = [name copy];
         //NSLog(@"initWithDictionary: filename=%@",filename);
     }
