@@ -80,12 +80,22 @@
     SettingsAction *autoSaveAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_AutoSave", nil) selector:@selector(switchAutoSave:) type:HCSwitchSetting];
     autoSaveAction.defaultValue = @"autoSave";
 	
-	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_InstallSafariBookmarklet", nil) selector:@selector(showBookmarklet) type: HCInplaceSetting];
+//	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_InstallSafariBookmarklet", nil) selector:@selector(showBookmarklet) type: HCInplaceSetting];
     SettingsAction *abookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_DeleteContactReference", nil) selector:@selector(deleteContactReference) type: HCInplaceSetting];
 
-	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, bookmarkletAction, abookAction, nil];
+	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, abookAction, nil];
 	[sections addObject:section1];
     
+    
+    SettingsAction *aboutAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_AboutHoccer", nil) selector:@selector(showAbout) type: HCContinueSetting];
+	SettingsAction *websiteAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_VisitHoccerWebsite", nil) selector:@selector(showHoccerWebsite) type: HCContinueSetting];
+	SettingsAction *twitterAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnTwitter", nil) selector:@selector(showTwitter) type: HCContinueSetting];
+	SettingsAction *facebookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnFacebook", nil) selector:@selector(showFacebook) type: HCContinueSetting];
+    
+	NSArray *section3 = [NSArray arrayWithObjects: aboutAction, websiteAction, facebookAction, twitterAction, nil];
+	[sections addObject:section3];
+    
+        
     NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:3];
     
     SettingsAction *enableTLS = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_EncryptionTLS", nil) selector:nil type:HCSwitchSetting];
@@ -102,16 +112,6 @@
     
     [sections addObject:encryptGroup];
     
-	SettingsAction *websiteAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_VisitHoccerWebsite", nil) selector:@selector(showHoccerWebsite) type: HCContinueSetting];
-	SettingsAction *twitterAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnTwitter", nil) selector:@selector(showTwitter) type: HCContinueSetting];
-	SettingsAction *facebookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnFacebook", nil) selector:@selector(showFacebook) type: HCContinueSetting];
-
-	NSArray *section3 = [NSArray arrayWithObjects: websiteAction, facebookAction, twitterAction, nil];
-	[sections addObject:section3];
-	
-	SettingsAction *aboutAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_AboutHoccer", nil) selector:@selector(showAbout) type: HCContinueSetting];
-	NSArray *section4 = [NSArray arrayWithObjects:aboutAction, nil]; 
-	[sections addObject:section4];
     
     [self registerForKeyboardNotifications];
 }
