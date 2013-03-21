@@ -49,6 +49,14 @@
                              videoPath:nil];
 }
 
++ (HelpContent *)channelHelp {
+    
+    return [self helpContentWithTitle:NSLocalizedString(@"HelpTitle_Channel",nil)
+                          description:NSLocalizedString(@"HelpMessage_Channel",nil)
+                            imagePath:nil
+                            videoPath:nil];
+}
+
 
 + (HelpContent *)catchHelp {
 	HelpContent *content = [[HelpContent alloc] init];

@@ -28,6 +28,8 @@
 + (HelpContent *)keyHelp;
 + (HelpContent *)encryptionHelp;
 + (HelpContent *)autoReceiveHelp;
++ (HelpContent *)channelHelp;
+
 
 
 @end

@@ -33,6 +33,7 @@
 			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent throwHelp]] autorelease],
 			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent catchHelp]] autorelease],
 			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent autoReceiveHelp]] autorelease],
+			  [[[HelpScreen alloc] initWithHelpContent: [HelpContent channelHelp]] autorelease],
               //[[[HelpScreen alloc] initWithHelpContent: [HelpContent encryptionHelp]] autorelease],
               [[[HelpScreen alloc] initWithHelpContent: [HelpContent keyHelp]] autorelease],
 			  nil] retain];
