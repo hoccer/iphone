@@ -1369,7 +1369,6 @@ typedef enum {
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(TransferProgress *)progress
 {
-    // NSLog(@"HoccerViewController transferController: didUpdateTotalProgress %@", progress);
 	if (connectionEstablished) {
 		[statusViewController setProgressUpdate: [progress percentDone]];
 	}

@@ -27,6 +27,7 @@
 + (HelpContent *)sweepHelp;
 + (HelpContent *)keyHelp;
 + (HelpContent *)encryptionHelp;
++ (HelpContent *)autoReceiveHelp;
 
 
 @end

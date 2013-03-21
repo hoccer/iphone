@@ -16,15 +16,37 @@
 @synthesize imagePath;
 @synthesize videoPath;
 
+
++ (HelpContent *)helpContentWithTitle:(NSString *)title description:(NSString *)description imagePath:(NSString *)imagePath videoPath:(NSString *)videoPath {
+    
+    HelpContent *content = [[HelpContent alloc] init];
+    content.name = title;
+    content.description = description;
+    content.imagePath = imagePath;
+    content.videoPath = videoPath;
+    
+    return [content autorelease];
+}
+
++ (NSString *)pathForResource:(NSString *)name ofType:(NSString *)extension {
+    
+    return [[NSBundle mainBundle] pathForResource:name ofType:extension];
+}
+
 + (HelpContent *)sweepHelp {
-	HelpContent *content = [[HelpContent alloc] init];
-	
-	content.name = NSLocalizedString(@"HelpTitle_Sweep",nil);
-	content.description = NSLocalizedString(@"HelpMessage_Sweep",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"help_sweep_icon" ofType:@"png"];
-	content.videoPath = nil;
-	
-	return [content autorelease];
+    
+    return [self helpContentWithTitle:NSLocalizedString(@"HelpTitle_Sweep",nil)
+                           description:NSLocalizedString(@"HelpMessage_Sweep",nil)
+                             imagePath:[self pathForResource:@"help_sweep_icon" ofType:@"png"]
+                             videoPath:nil];
+}
+
++ (HelpContent *)autoReceiveHelp {
+    
+    return [self helpContentWithTitle:NSLocalizedString(@"HelpTitle_AutoReceive",nil)
+                           description:NSLocalizedString(@"HelpMessage_AutoReceive",nil)
+                             imagePath:nil
+                             videoPath:nil];
 }
 
 
