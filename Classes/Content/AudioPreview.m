@@ -7,6 +7,8 @@
 //
 
 #import "AudioPreview.h"
+#import "CGRectUtils.h"
+
 
 @implementation AudioPreview
 
@@ -16,6 +18,7 @@
     [super awakeFromNib];
     
     [audioPlayButton setTitle:NSLocalizedString(@"Button_Play", nil) forState:UIControlStateNormal];
+    audioPlayButton.center = CGPointRound(audioPlayButton.center);
 }
 
 - (void)dealloc {

@@ -135,12 +135,12 @@
 		return buttons;
 	}
     else if ([content isKindOfClass:[HoccerMusic class]]) {
-        //NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
+        NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
-		[button setHorizontalTextOffset:1.0f];
+		//[button setHorizontalTextOffset:1.0f];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];
@@ -167,12 +167,13 @@
 		return buttons;
 	}
     else {
+        //NSLog(@"3");
         //NSLog(@"actionButtons  #### NOT content.isFromContentSource ####");
 		HCButton *button = [HCButton buttonWithType:UIButtonTypeCustom];
 		[button setBackgroundImage:[UIImage imageNamed:@"container_btn_double-close.png"] forState:UIControlStateNormal];
 		[button addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
 		[button setTitle:NSLocalizedString(@"Button_Close", nil) forState:UIControlStateNormal];
-		[button setHorizontalTextOffset:1.0f];
+		//[button setHorizontalTextOffset:1.0f];
 		[button setFrame: CGRectMake(0, 0, 42, 40)];
 		
 		HCButton *button2 = [HCButton buttonWithType:UIButtonTypeCustom];

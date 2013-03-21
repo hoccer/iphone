@@ -8,8 +8,14 @@
 
 #import "CGRectUtils.h"
 
+
 CGRect CGRectSetOriginY(CGRect existingRect, float newOriginY) {
-    CGRect newRect = existingRect;
-    newRect.origin.y = newOriginY;
-    return newRect;
+    existingRect.origin.y = newOriginY;
+    return existingRect;
+}
+
+CGPoint CGPointRound(CGPoint existingPoint) {
+    existingPoint.x = roundf(existingPoint.x);
+    existingPoint.y = roundf(existingPoint.y);
+    return existingPoint;
 }

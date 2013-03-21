@@ -8,6 +8,7 @@
 
 #import "TextPreview.h"
 #import "NSObject+DelegateHelper.h"
+#import "CGRectUtils.h"
 
 @implementation TextPreview
 
@@ -23,7 +24,6 @@
 
 - (void)viewDidLoad {
     [editButton setTitle:NSLocalizedString(@"Button_Edit", nil) forState:UIControlStateNormal];
-
 }
 
 - (IBAction)toggleEditMode: (id)sender {

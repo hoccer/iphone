@@ -9,3 +9,5 @@
 #import <Foundation/Foundation.h>
 
 CGRect CGRectSetOriginY(CGRect existingRect, float newOriginY);
+
+CGPoint CGPointRound(CGPoint existingPoint);

@@ -36,7 +36,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 	if (self != nil) {
 		containedView = (Preview *)[subview retain];
 		
-		subview.center = CGPointMake(subview.frame.size.width / 2, subview.frame.size.height / 2);
+		subview.center = CGPointMake(roundf(subview.frame.size.width / 2.0f), roundf(subview.frame.size.height / 2.0f));
 		[self addSubview:subview];
 		        
         buttonContainer = [[UIView alloc] initWithFrame:CGRectMake(18, 165, 130, 41)];
@@ -46,7 +46,7 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 			button.frame = ACPositionedRect(button.frame, xpos, 0);
 			[buttonContainer addSubview:button];
 			
-			xpos += button.frame.size.width;
+			xpos += roundf(button.frame.size.width);
 		}
         
         buttonContainer.hidden = ![containedView allowsOverlay];		
@@ -85,16 +85,19 @@ CGRect ACRectShrinked(CGRect rect, NSInteger paddingX, NSInteger paddingY) {
 }
 
 - (void)setOrigin:(CGPoint)newOrigin {
+    
+    newOrigin.x = roundf(newOrigin.x);
+    newOrigin.y = roundf(newOrigin.y);
 	CGRect frame = self.frame;
 	frame.origin = newOrigin;
 	self.frame = frame;
 }
 
 - (void)moveBy:(CGSize) distance {
+    
 	CGRect myRect = self.frame;
-	myRect.origin.x += distance.width; 
-	myRect.origin.y += distance.height; 
-	
+    myRect.origin.x += roundf(distance.width);
+	myRect.origin.y += roundf(distance.height);
 	self.frame = myRect;
 }
 

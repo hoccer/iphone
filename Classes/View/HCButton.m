@@ -7,6 +7,8 @@
 //
 
 #import "HCButton.h"
+#import "CGRectUtils.h"
+
 
 @implementation HCButton
 
@@ -38,10 +40,12 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont boldSystemFontOfSize:self.fontSize];
 	self.titleLabel.textColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.78 alpha:1];
-	self.titleLabel.frame = CGRectMake(self.horizontalTextOffset,
-                                       self.frame.size.height - self.verticalTextOffset,
-									   CGRectGetWidth(self.bounds),
-                                       self.titleLabel.frame.size.height);
+	self.titleLabel.frame = CGRectMake(roundf(self.horizontalTextOffset),
+                                       roundf(self.frame.size.height - self.verticalTextOffset),
+									   floorf(CGRectGetWidth(self.bounds)),
+                                       roundf(self.titleLabel.frame.size.height));
+    
+    
 }
 
 - (void)setVerticalTextOffset:(CGFloat)verticalTextOffset {
