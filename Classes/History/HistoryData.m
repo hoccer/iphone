@@ -18,6 +18,7 @@
 - (id) init {
 	self = [super init];
 	if (self != nil) {
+        
 		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"HoccerHistoryItem" inManagedObjectContext:self.managedObjectContext];
 		[request setEntity:entity];
@@ -140,6 +141,7 @@
 }
 
 - (void)addContentToHistory: (ItemViewController *) hoccerController {
+    
 	HoccerHistoryItem *historyItem =  (HoccerHistoryItem *)[NSEntityDescription insertNewObjectForEntityForName:@"HoccerHistoryItem" inManagedObjectContext:managedObjectContext];
 	
 	historyItem.filepath = hoccerController.content.filename;
