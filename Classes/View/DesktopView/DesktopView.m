@@ -32,6 +32,7 @@
 	self = [super initWithFrame:frame];
 	if (self != nil) {
 		[self setUpRecognizer];
+        self.backgroundType = HCDesktopBackgroundTypePerforated;
 	}
 	return self;
 }
@@ -40,6 +41,7 @@
 	self = [super initWithCoder:aDecoder];
 	if (self != nil) {
 		[self setUpRecognizer];
+        self.backgroundType = HCDesktopBackgroundTypePerforated;
 	}
 	return self;
 }
@@ -316,6 +318,45 @@
 //	}
 }
 
+
+#pragma mark - Drawing
+
+
+- (void)setBackgroundType:(HCDesktopBackgroundType)backgroundType {
+    
+    _backgroundType = backgroundType;
+    [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect {
+    
+    UIImage *patternImage;
+    CGSize phase = CGSizeMake(5.5f, 12.5f);
+    
+    switch (self.backgroundType) {
+            
+        case HCDesktopBackgroundTypeLock:
+            patternImage = [UIImage imageNamed:@"lochblech_encrypted-bg.png"];
+            break;
+        
+        case HCDesktopBackgroundTypePerforated:
+        default:
+            patternImage = [UIImage imageNamed:@"lochblech_bg.png"];
+            break;
+    }
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    CGColorRef color = [UIColor colorWithPatternImage:patternImage].CGColor;
+    CGContextSetFillColorWithColor(context, color);
+    CGContextSetPatternPhase(context, phase);
+    CGContextFillRect(context, self.bounds);
+    
+    [super drawRect:rect];
+}
+
+
+
 #pragma mark -
 #pragma mark Private Methods
 
@@ -331,5 +372,7 @@
 	
 	return [touchedViews autorelease];
 }
+
+
 
 @end

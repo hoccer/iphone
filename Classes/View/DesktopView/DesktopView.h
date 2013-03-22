@@ -29,6 +29,13 @@
 
 //#define kSweepBorder 50
 
+
+typedef enum {
+	HCDesktopBackgroundTypePerforated,
+	HCDesktopBackgroundTypeLock
+} HCDesktopBackgroundType;
+
+
 @class SweepRecognizer;
 
 @interface DesktopView : UIView <ContentContainerViewDelegate, SweepInRecognizerDelegate, SweepOutRecognizerDelegate, TabRecognizerDelegate> {
@@ -47,6 +54,7 @@
 @property (retain) id dataSource;
 @property (retain) NSArray *currentlyTouchedViews;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
+@property (nonatomic, assign) HCDesktopBackgroundType backgroundType;
 
 - (void)addSweepRecognizer: (SweepRecognizer *)recognizer;
 - (void)reloadData;

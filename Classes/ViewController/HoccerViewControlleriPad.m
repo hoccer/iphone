@@ -104,12 +104,10 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
 	
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
-    }
-    else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
-    }    
+    
+    BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
+
     
     [self setProperPullDownBackgroundImage: isPortrait];
  
@@ -712,13 +710,8 @@
     if (navigationItem.titleView != nil){
         //[self updateEncryptionIndicator];
     }
-    
-    if (encrypting) {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
-    }
-    else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
-    }
+
+    desktopView.backgroundType = encrypting ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
 }
 
 - (void)pressedButton: (id)sender
@@ -806,7 +799,9 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
+    
+    // DesktopView needs to redraw its background
+    [desktopView setNeedsDisplay];    
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -901,13 +896,8 @@
         self.defaultOrigin = CGPointMake(350, 100);
     }  
     
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_encrypted-bg.png"]];
-    }
-    else {
-        desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lochblech_bg.png"]];
-    }
+    BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
 
     [self setProperPullDownBackgroundImage:isPortrait];
     [self setProperSubViewSizes:isPortrait];

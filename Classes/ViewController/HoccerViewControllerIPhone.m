@@ -558,63 +558,8 @@
     }
     desktopView.frame = desktopViewRect;
 
-    
-    NSString* bgImage = @"lochblech_bg.png";
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]) {
-        
-        bgImage = @"lochblech_encrypted-bg.png";
-    }
-    
-//    if (others.count == 0) {
-//        if (screenHeight > 480){
-//            if (isChannelMode) {
-//                bgImage = @"lochblech_bg_channel_alone-568h";
-//            }
-//            else {
-//                bgImage =  @"lochblech_bg_alone-568h";
-//            }
-//        }
-//        else {
-//            if (isChannelMode) {
-//                bgImage = @"lochblech_bg_channel_alone";
-//            }
-//            else {
-//                bgImage = @"lochblech_bg_alone";
-//            }
-//        }
-//    }
-//    else {
-//        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"]){
-//            if (screenHeight > 480){
-//                bgImage = @"lochblech_bg_encrypted-568h";
-//            }
-//            else {
-//                bgImage = @"lochblech_bg_encrypted";
-//            }
-//        }
-//        else {
-//            if (screenHeight > 480){
-//                if (isChannelMode) {
-//                    bgImage = @"lochblech_bg_channel-568h";
-//                }
-//                else {
-//                    bgImage = @"lochblech_bg-568h";
-//                }
-//            }
-//            else {
-//                if (isChannelMode) {
-//                    bgImage = @"lochblech_bg_channel";
-//                }
-//                else {
-//                    bgImage = @"lochblech_bg";
-//                }
-//            }
-//        }
-//    }
-    
-    desktopView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:bgImage]];
-    
-    if (USES_DEBUG_MESSAGES) { NSLog(@"Desktop image set to %@", bgImage); }
+    BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
+    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients
