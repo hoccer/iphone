@@ -44,6 +44,9 @@
 	description.text = self.content.description;
 	imageView.image = [UIImage imageWithContentsOfFile: self.content.imagePath];
     
+    description.userInteractionEnabled = NO;
+    [description sizeToFit];
+    
     videoButton.hidden = self.content.videoPath == nil;
     if (!videoButton.hidden) {
         [videoButton setTitle:NSLocalizedString(@"Button_PlayVideo", nil) forState:UIControlStateNormal];
