@@ -1737,12 +1737,14 @@ typedef enum {
 	
 	BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
 	if ([[error domain] isEqual:NSURLErrorDomain] && !reachable) {
+		((UILabel *)[errorView viewWithTag:1]).text = NSLocalizedString(@"ErrorMessage_NoConnection", nil);
 		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"ErrorMessage_NoInternet", nil);
 	} else {
+		((UILabel *)[errorView viewWithTag:1]).text = NSLocalizedString(@"ErrorMessage_NoConnection", nil);
 		((UILabel *)[errorView viewWithTag:2]).text = NSLocalizedString(@"ErrorMessage_HoccerServiceNotReachable", nil);
 	}
-    [self sizeLabel:((UILabel *)[errorView viewWithTag:1]) toRect:((UILabel *)[errorView viewWithTag:1]).frame];
-	[self sizeLabel:((UILabel *)[errorView viewWithTag:2]) toRect:((UILabel *)[errorView viewWithTag:2]).frame];
+    // [self sizeLabel:((UILabel *)[errorView viewWithTag:1]) toRect:((UILabel *)[errorView viewWithTag:1]).frame];
+	// [self sizeLabel:((UILabel *)[errorView viewWithTag:2]) toRect:((UILabel *)[errorView viewWithTag:2]).frame];
     
 	[self hideHUD];
 }
@@ -1857,29 +1859,29 @@ typedef enum {
     }
 }
 
-- (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect  {
-    
-    label.frame = labelRect;
-    
-    int fontSize = 300;
-    int minFontSize = 5;
-    
-    CGSize constraintSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
-    
-    do {
-        label.font = [UIFont boldSystemFontOfSize:fontSize];
-        
-        CGSize labelSize = [[label text] sizeWithFont:label.font
-                                    constrainedToSize:constraintSize
-                                        lineBreakMode:UILineBreakModeWordWrap];
-        
-        if( labelSize.height <= label.frame.size.height )
-            break;
-        
-        fontSize -= 2;
-        
-    } while (fontSize > minFontSize);
-}
+//- (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect  {
+//    
+//    label.frame = labelRect;
+//    
+//    int fontSize = 300;
+//    int minFontSize = 5;
+//    
+//    CGSize constraintSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
+//    
+//    do {
+//        label.font = [UIFont boldSystemFontOfSize:fontSize];
+//        
+//        CGSize labelSize = [[label text] sizeWithFont:label.font
+//                                    constrainedToSize:constraintSize
+//                                        lineBreakMode:UILineBreakModeWordWrap];
+//        
+//        if( labelSize.height <= label.frame.size.height )
+//            break;
+//        
+//        fontSize -= 2;
+//        
+//    } while (fontSize > minFontSize);
+//}
 
 - (void) retryLastAction {
     switch (hoccerStatus) {
