@@ -41,6 +41,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *headerLabel;
 
 @property (nonatomic, retain) HCFilterButtonController *filterController;
+@property (nonatomic, assign) BOOL useEditingButtons;
 
 - (void)updateHistoryList;
 - (void)populateSelectedArray;
