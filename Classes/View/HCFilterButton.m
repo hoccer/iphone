@@ -10,22 +10,36 @@
 
 @implementation HCFilterButton
 
-- (id)initWithFrame:(CGRect)frame
+
+- (id)initWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(0.0f, 0.0f, 100.0f, 30.0f)];
     if (self) {
-        // Initialization code
+        
+        self.title = title;
+        self.target = target;
+        self.action = action;
+        self.opaque = NO;
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+
+- (void)drawRect:(CGRect)rect {
+
+    CGRect buttonRect = CGRectMake(0.0f, 0.0f, 100.0f, 30.0f);
+    UIColor *backgroundColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+    UIColor *labelColor = [UIColor colorWithWhite:0.0f alpha:1.0f];
+    
+    UIBezierPath *backgroundPath = [UIBezierPath bezierPathWithRoundedRect:buttonRect cornerRadius:buttonRect.size.height / 2.0f];
+    [backgroundColor setFill];
+    [backgroundPath fill];
+    
+    [labelColor setFill];
+    [self.title drawInRect:CGRectInset(buttonRect, 0, 6)
+                  withFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]
+             lineBreakMode:NSLineBreakByWordWrapping
+                 alignment:NSTextAlignmentCenter];
 }
-*/
 
 @end

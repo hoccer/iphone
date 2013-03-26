@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HCFilterButton : UIButton
+@interface HCFilterButton : UIView
+
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) id target;
+@property (nonatomic, assign) SEL action;
+
+- (id)initWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 
 @end

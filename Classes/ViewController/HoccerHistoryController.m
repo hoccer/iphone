@@ -21,6 +21,7 @@
 #import "UIBarButtonItem+CustomImageButton.h"
 #import "HCButtonFactory.h"
 #import "CGRectUtils.h"
+#import "HCFilterButton.h"
 
 
 @interface HoccerHistoryController ()
@@ -92,20 +93,25 @@
 //    [test addSubview:testButton];
 //    testButton.frame = CGRectSetOrigin(testButton.frame, 5.0f, 5.0f);
     
-    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [testButton setTitle:@"All" forState:UIControlStateNormal];
-    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [testButton setFrame:CGRectMake(5.0f, 15.0f, 45.0f, 30.0f)];
-    [test addSubview:testButton];
+    HCFilterButton *button = [[HCFilterButton alloc] initWithTitle:@"All" target:self action:nil];
     
-    UIFont *buttonFont = [UIFont boldSystemFontOfSize:14.0f];
-    testButton.titleLabel.font = buttonFont;
-    testButton.titleLabel.textColor = [UIColor blackColor];
-//    button.titleLabel.textAlignment = UITextAlignmentCenter;
-//    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    [test addSubview:button];
     
-    testButton.layer.backgroundColor = [UIColor colorWithWhite:0.6f alpha:1.0f].CGColor;
-    testButton.layer.cornerRadius = 15.0f;
+    
+//    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [testButton setTitle:@"All" forState:UIControlStateNormal];
+//    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [testButton setFrame:CGRectMake(5.0f, 15.0f, 45.0f, 30.0f)];
+//    [test addSubview:testButton];
+//    
+//    UIFont *buttonFont = [UIFont boldSystemFontOfSize:14.0f];
+//    testButton.titleLabel.font = buttonFont;
+//    testButton.titleLabel.textColor = [UIColor blackColor];
+////    button.titleLabel.textAlignment = UITextAlignmentCenter;
+////    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+//    
+//    testButton.layer.backgroundColor = [UIColor colorWithWhite:0.6f alpha:1.0f].CGColor;
+//    testButton.layer.cornerRadius = 15.0f;
     
     self.tableView.contentInset = UIEdgeInsetsMake(filterFrame.size.height, 0.0f, 0.0f, 0.0f);
     
