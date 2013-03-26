@@ -110,11 +110,7 @@
 }
 
 - (void)didChangeFilter:(id)sender {
-    
-    // The way the history controller works now, you can't switch filters and
-    // safely continue editing.
-    if (inMassEditMode) return;
-    
+        
     // Fetch new data
     NSUInteger selectedFilterIndex = [self.filterController selectedIndex];
     NSString *predicateExpression = self.filterPredicates[selectedFilterIndex];
