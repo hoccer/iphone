@@ -29,7 +29,7 @@
 #import "ConnectionStatusViewController.h"
 #import "UIBarButtonItem+CustomImageButton.h"
 #import "HoccerAppDelegate.h"
-#import "HCBarButtonFactory.h"
+#import "HCButtonFactory.h"
 
 
 @interface HoccerViewControllerIPhone ()
@@ -334,7 +334,7 @@
 	
 	navigationItem.title = NSLocalizedString(@"Title_Settings", nil);
     
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
@@ -352,14 +352,14 @@
 	
 	navigationItem.title = NSLocalizedString(@"Title_History", nil);
     
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
     [doneButton release];
 
-    HCBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
+    HCBarButtonItem *editButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self.hoccerHistoryController
                                                                 action:@selector(enterCustomEditMode:)];
@@ -377,7 +377,7 @@
     	
     navigationItem.title = NSLocalizedString(@"Title_History", nil);
 	
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
@@ -394,7 +394,7 @@
     
 	navigationItem.title = NSLocalizedString(@"Title_Channel", nil);
 	
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
@@ -445,13 +445,13 @@
 
     [self showPopOver:inputVC];
         
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                    style:HCBarButtonBlue
                                                                   target:inputVC
                                                                   action:@selector(doneButtonTapped:)];
 
     
-    UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+    UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
                                                                    style:HCBarButtonBlack
                                                                   target:self
                                                                   action:@selector(cancelPopOver)];
@@ -559,7 +559,7 @@
     desktopView.frame = desktopViewRect;
 
     BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
+    desktopView.backgroundStyle = hasEncryption ? HCDesktopBackgroundStyleLock : HCDesktopBackgroundStylePerforated;
 }
 
 - (void)groupStatusViewController:(GroupStatusViewController *)controller didUpdateSelection:(NSArray *)clients
@@ -772,7 +772,7 @@
         return;
     }
     
-    UIBarButtonItem *channelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_LeaveChannel", nil)
+    UIBarButtonItem *channelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_LeaveChannel", nil)
                                                                     style:HCBarButtonBlackPointingLeft
                                                                    target:self
                                                                    action:@selector(pressedLeaveChannelMode:)];

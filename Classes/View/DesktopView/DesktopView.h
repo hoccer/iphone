@@ -31,9 +31,9 @@
 
 
 typedef enum {
-	HCDesktopBackgroundTypePerforated,
-	HCDesktopBackgroundTypeLock
-} HCDesktopBackgroundType;
+	HCDesktopBackgroundStylePerforated,
+	HCDesktopBackgroundStyleLock
+} HCDesktopBackgroundStyle;
 
 
 @class SweepRecognizer;
@@ -54,7 +54,7 @@ typedef enum {
 @property (retain) id dataSource;
 @property (retain) NSArray *currentlyTouchedViews;
 @property (assign) BOOL shouldSnapToCenterOnTouchUp;
-@property (nonatomic, assign) HCDesktopBackgroundType backgroundType;
+@property (nonatomic, assign) HCDesktopBackgroundStyle backgroundStyle;
 
 - (void)addSweepRecognizer: (SweepRecognizer *)recognizer;
 - (void)reloadData;

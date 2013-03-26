@@ -32,7 +32,7 @@
 	self = [super initWithFrame:frame];
 	if (self != nil) {
 		[self setUpRecognizer];
-        self.backgroundType = HCDesktopBackgroundTypePerforated;
+        self.backgroundStyle = HCDesktopBackgroundStylePerforated;
 	}
 	return self;
 }
@@ -41,7 +41,7 @@
 	self = [super initWithCoder:aDecoder];
 	if (self != nil) {
 		[self setUpRecognizer];
-        self.backgroundType = HCDesktopBackgroundTypePerforated;
+        self.backgroundStyle = HCDesktopBackgroundStylePerforated;
 	}
 	return self;
 }
@@ -322,9 +322,9 @@
 #pragma mark - Drawing
 
 
-- (void)setBackgroundType:(HCDesktopBackgroundType)backgroundType {
+- (void)setBackgroundStyle:(HCDesktopBackgroundStyle)backgroundStyle {
     
-    _backgroundType = backgroundType;
+    _backgroundStyle = backgroundStyle;
     [self setNeedsDisplay];
 }
 
@@ -333,13 +333,13 @@
     UIImage *patternImage;
     CGSize phase = CGSizeMake(5.5f, 12.5f);
     
-    switch (self.backgroundType) {
+    switch (self.backgroundStyle) {
             
-        case HCDesktopBackgroundTypeLock:
+        case HCDesktopBackgroundStyleLock:
             patternImage = [UIImage imageNamed:@"lochblech_encrypted-bg.png"];
             break;
         
-        case HCDesktopBackgroundTypePerforated:
+        case HCDesktopBackgroundStylePerforated:
         default:
             patternImage = [UIImage imageNamed:@"lochblech_bg.png"];
             break;

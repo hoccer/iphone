@@ -16,27 +16,11 @@
 @synthesize hoccerHistoryItemArray;
 
 - (id) init {
+    
 	self = [super init];
 	if (self != nil) {
         
-		NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"HoccerHistoryItem" inManagedObjectContext:self.managedObjectContext];
-		[request setEntity:entity];
-		
-		// Order the events by creation date, most recent first.
-		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO];
-		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-		[request setSortDescriptors:sortDescriptors];
-		[sortDescriptor release];
-		[sortDescriptors release];
-		
-		// Execute the fetch -- create a mutable copy of the result.
-		NSError *error = nil;
-		hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-
-		if (hoccerHistoryItemArray == nil) {
-			//NSLog(@"error!");
-		}
+        [self fetchAll];
 	}
 	return self;
 }
@@ -122,6 +106,40 @@
 
 #pragma mark -
 #pragma mark Data Manipulation Methods
+
+
+- (void)fetchWithPredicate:(NSPredicate *)predicate {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"HoccerHistoryItem" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    [request setPredicate:predicate];
+    
+    // Order the events by creation date, most recent first.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    [sortDescriptor release];
+    [sortDescriptors release];
+    
+    // Execute the fetch -- create a mutable copy of the result.
+    NSError *error = nil;
+    hoccerHistoryItemArray = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    [request release];
+}
+
+- (void)fetchAll {
+    [self fetchWithPredicate:nil];
+}
+
+- (void)fetchMusic {
+    
+    // TODO mimeType can also be different than just audio/mp4 (mp3? ask for "audio" only?)
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mimeType like[c] %@)", @"audio/mp4"];
+    [self fetchWithPredicate:predicate];
+}
+
 
 - (NSInteger)count {
 	return [hoccerHistoryItemArray count];

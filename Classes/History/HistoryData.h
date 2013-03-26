@@ -27,6 +27,10 @@
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
 - (NSString *)applicationDocumentsDirectory;
 
+- (void)fetchAll;
+- (void)fetchMusic;
+- (void)fetchWithPredicate:(NSPredicate *)predicate;
+
 - (NSInteger)count;
 - (id)itemAtIndex: (NSInteger)index;
 - (void)addContentToHistory: (ItemViewController *) hoccerController;

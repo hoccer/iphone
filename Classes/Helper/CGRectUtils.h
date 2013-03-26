@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+CGRect CGRectSetOrigin(CGRect existingRect, float x, float y);
 CGRect CGRectSetOriginY(CGRect existingRect, float newOriginY);
 
 CGPoint CGPointRound(CGPoint existingPoint);

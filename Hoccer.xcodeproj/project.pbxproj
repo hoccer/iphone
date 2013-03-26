@@ -604,8 +604,9 @@
 		B4FC442015FA0C0F00DF6263 /* container_btn_single-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FC441E15FA0C0F00DF6263 /* container_btn_single-edit.png */; };
 		B4FC442115FA0C0F00DF6263 /* container_btn_single-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FC441F15FA0C0F00DF6263 /* container_btn_single-edit@2x.png */; };
 		B4FDD6AE140E358600EED06C /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FDD6AD140E358600EED06C /* delete.png */; };
+		CD16AFE416FCD16800B306BD /* HCFilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CD16AFE316FCD16800B306BD /* HCFilterButton.m */; };
 		CD23676616F0D9C3008AA236 /* nav_bar_btn_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676416F0D9C3008AA236 /* nav_bar_btn_background@2x.png */; };
-		CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */; };
+		CD23676C16F0EB66008AA236 /* HCButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23676B16F0EB65008AA236 /* HCButtonFactory.m */; };
 		CD23676F16F0F650008AA236 /* nav_bar_btn_blue_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */; };
 		CD23677016F0F650008AA236 /* nav_bar_btn_blue_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */; };
 		CD7065D816F8C92400CE0B6A /* HOW TO LOCALIZE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */; };
@@ -1282,10 +1283,12 @@
 		B4FC441E15FA0C0F00DF6263 /* container_btn_single-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_single-edit.png"; sourceTree = "<group>"; };
 		B4FC441F15FA0C0F00DF6263 /* container_btn_single-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_single-edit@2x.png"; sourceTree = "<group>"; };
 		B4FDD6AD140E358600EED06C /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		CD16AFE216FCD16800B306BD /* HCFilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFilterButton.h; sourceTree = "<group>"; };
+		CD16AFE316FCD16800B306BD /* HCFilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFilterButton.m; sourceTree = "<group>"; };
 		CD23676316F0D9C3008AA236 /* nav_bar_btn_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_background.png; sourceTree = "<group>"; };
 		CD23676416F0D9C3008AA236 /* nav_bar_btn_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_background@2x.png"; sourceTree = "<group>"; };
-		CD23676A16F0EB65008AA236 /* HCBarButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBarButtonFactory.h; sourceTree = "<group>"; };
-		CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBarButtonFactory.m; sourceTree = "<group>"; };
+		CD23676A16F0EB65008AA236 /* HCButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCButtonFactory.h; sourceTree = "<group>"; };
+		CD23676B16F0EB65008AA236 /* HCButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCButtonFactory.m; sourceTree = "<group>"; };
 		CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_blue_background.png; sourceTree = "<group>"; };
 		CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_blue_background@2x.png"; sourceTree = "<group>"; };
 		CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HOW TO LOCALIZE.txt"; sourceTree = "<group>"; };
@@ -1647,10 +1650,12 @@
 				229B92A11208660000120752 /* HCButton.m */,
 				B4201E96158A3B6300DD9F72 /* CustomProgressView.h */,
 				B4201E97158A3B6300DD9F72 /* CustomProgressView.m */,
-				CD23676A16F0EB65008AA236 /* HCBarButtonFactory.h */,
-				CD23676B16F0EB65008AA236 /* HCBarButtonFactory.m */,
+				CD23676A16F0EB65008AA236 /* HCButtonFactory.h */,
+				CD23676B16F0EB65008AA236 /* HCButtonFactory.m */,
 				CDC7328C16F2008A0084A77F /* HCBarButtonItem.h */,
 				CDC7328D16F2008B0084A77F /* HCBarButtonItem.m */,
+				CD16AFE216FCD16800B306BD /* HCFilterButton.h */,
+				CD16AFE316FCD16800B306BD /* HCFilterButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1743,6 +1748,7 @@
 		22638BDF11B51E040024AA7E /* History */ = {
 			isa = PBXGroup;
 			children = (
+				CD16AFE516FCD65600B306BD /* View */,
 				22638BE011B51E040024AA7E /* HistoryData.h */,
 				22638BE111B51E040024AA7E /* HistoryData.m */,
 				22638BE211B51E040024AA7E /* HoccerHistoryItem.h */,
@@ -2656,6 +2662,13 @@
 			);
 			name = content_music;
 			path = Resources/assets/content_music;
+			sourceTree = "<group>";
+		};
+		CD16AFE516FCD65600B306BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		CDBE247C16EDECAB00E5FD8C /* Localizations */ = {
@@ -3625,10 +3638,11 @@
 				F1B6764F1637F81800CF9810 /* DataManager.m in Sources */,
 				F1D4C8BB1680E2E70015851A /* PullDownView.m in Sources */,
 				E99A953D16D7CEFA002C6590 /* HCError.m in Sources */,
-				CD23676C16F0EB66008AA236 /* HCBarButtonFactory.m in Sources */,
+				CD23676C16F0EB66008AA236 /* HCButtonFactory.m in Sources */,
 				CDC7328E16F2008B0084A77F /* HCBarButtonItem.m in Sources */,
 				CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */,
 				CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */,
+				CD16AFE416FCD16800B306BD /* HCFilterButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,9 @@
 #import "NSFileManager+FileHelper.h"
 #import "NSString+StringWithData.h"
 #import "UIBarButtonItem+CustomImageButton.h"
-#import "HCBarButtonFactory.h"
+#import "HCButtonFactory.h"
+#import "CGRectUtils.h"
+
 
 @interface HoccerHistoryController ()
 
@@ -58,11 +60,60 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-	self.tableView.rowHeight = 62;
+	
+    self.tableView.rowHeight = 62;
 	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 1. Create HistoryFilterViewController
+    
+    // .... controller uses Buttons for filter switches and maintains their state
+    
+    // Setup filter bank background
+
+    // No, just create a group of rounded buttons
+    // when option changed, then action,selector
+    
+    // Add filter with title "All", predicate blabla
+    // auto position, auto count retrieval, auto option behaviour (=has to know the rest -> filter bank)
+    
+    // Here only setup and a delegate for changes, data requests, etc.
+    
+    CGRect filterFrame = self.tableView.bounds;
+    filterFrame.size.height = 60.0f;
+    filterFrame.origin.y = -filterFrame.size.height;
+    UIView *test = [[UIView alloc] initWithFrame:filterFrame];
+    test.backgroundColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
+    [self.tableView addSubview:test];
+    
+//    UIButton *testButton = [HCButtonFactory buttonWithTitle:@"Music only" style:HCBarButtonBlack target:self action:@selector(test)];
+//    [test addSubview:testButton];
+//    testButton.frame = CGRectSetOrigin(testButton.frame, 5.0f, 5.0f);
+    
+    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [testButton setTitle:@"All" forState:UIControlStateNormal];
+    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [testButton setFrame:CGRectMake(5.0f, 15.0f, 45.0f, 30.0f)];
+    [test addSubview:testButton];
+    
+    UIFont *buttonFont = [UIFont boldSystemFontOfSize:14.0f];
+    testButton.titleLabel.font = buttonFont;
+    testButton.titleLabel.textColor = [UIColor blackColor];
+//    button.titleLabel.textAlignment = UITextAlignmentCenter;
+//    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    
+    testButton.layer.backgroundColor = [UIColor colorWithWhite:0.6f alpha:1.0f].CGColor;
+    testButton.layer.cornerRadius = 15.0f;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(filterFrame.size.height, 0.0f, 0.0f, 0.0f);
+    
     [self populateSelectedArray];
+}
+
+- (void)test {
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -102,6 +153,7 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 	static NSString *CellIdentifier = @"Cell";
 	static NSDateFormatter *dateFormatter = nil;
 
@@ -123,9 +175,11 @@
     BOOL isItemAnImage = NO;
     
 	NSInteger row = [indexPath row];
+   
 	if (row < [historyData count]) {
 		HoccerHistoryItem *item = [historyData itemAtIndex: row];
-		
+		//NSLog(@"-->%@", item.mimeType);
+        
 		[cell viewWithTag:5].hidden = NO;
         
         NSString *shortString = [item.filepath lastPathComponent];
@@ -207,7 +261,7 @@
 	} else {	
 		[cell viewWithTag:5].hidden = YES;
 		cell.selectionStyle =  UITableViewCellSelectionStyleNone;
-
+        
 		if ((row == 0 && [historyData count] == 0)) {
 			[cell viewWithTag:6].hidden = NO;
 
@@ -372,12 +426,12 @@
     
     if (inMassEditMode){
         
-        UIBarButtonItem *deleteButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
+        UIBarButtonItem *deleteButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
                                                                        style:HCBarButtonRed
                                                                       target:self
                                                                       action:@selector(deleteSelection:)];
         
-        UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+        UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
                                                                        style:HCBarButtonBlack
                                                                       target:self
                                                                       action:@selector(enterCustomEditMode:)];
@@ -389,12 +443,12 @@
     }
     else {
                 
-        UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+        UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                        style:HCBarButtonBlack
                                                                       target:hoccerViewController
                                                                       action:@selector(cancelPopOver)];
 
-        UIBarButtonItem *editButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
+        UIBarButtonItem *editButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
                                                                      style:HCBarButtonBlack
                                                                     target:self
                                                                     action:@selector(enterCustomEditMode:)];

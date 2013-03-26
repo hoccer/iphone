@@ -28,7 +28,7 @@
 #import "StatusBarStates.h"
 #import "ConnectionStatusViewController.h"
 #import "HoccerAppDelegate.h"
-#import "HCBarButtonFactory.h"
+#import "HCButtonFactory.h"
 
 
 @interface HoccerViewControlleriPad ()
@@ -106,7 +106,7 @@
 	
     
     BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
+    desktopView.backgroundStyle = hasEncryption ? HCDesktopBackgroundStyleLock : HCDesktopBackgroundStylePerforated;
 
     
     [self setProperPullDownBackgroundImage: isPortrait];
@@ -152,7 +152,7 @@
                                [UIImage imageNamed:@"nav_bar_btn_channel.png"],
                                [UIImage imageNamed:@"nav_bar_btn_settings.png"]];
     
-    HCBarButtonItem *leftNavItem = [HCBarButtonFactory newSegmentedControlWithImages:leftNavImages
+    HCBarButtonItem *leftNavItem = [HCButtonFactory newSegmentedControlWithImages:leftNavImages
                                                                            target:self
                                                                            action:@selector(didSelectLeftNavButton:)];
     
@@ -711,7 +711,7 @@
         //[self updateEncryptionIndicator];
     }
 
-    desktopView.backgroundType = encrypting ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
+    desktopView.backgroundStyle = encrypting ? HCDesktopBackgroundStyleLock : HCDesktopBackgroundStylePerforated;
 }
 
 - (void)pressedButton: (id)sender
@@ -897,7 +897,7 @@
     }  
     
     BOOL hasEncryption = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    desktopView.backgroundType = hasEncryption ? HCDesktopBackgroundTypeLock : HCDesktopBackgroundTypePerforated;
+    desktopView.backgroundStyle = hasEncryption ? HCDesktopBackgroundStyleLock : HCDesktopBackgroundStylePerforated;
 
     [self setProperPullDownBackgroundImage:isPortrait];
     [self setProperSubViewSizes:isPortrait];

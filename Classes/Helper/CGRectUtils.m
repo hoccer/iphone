@@ -9,6 +9,12 @@
 #import "CGRectUtils.h"
 
 
+CGRect CGRectSetOrigin(CGRect existingRect, float x, float y) {
+    existingRect.origin.x = x;
+    existingRect.origin.y = y;
+    return existingRect;
+}
+
 CGRect CGRectSetOriginY(CGRect existingRect, float newOriginY) {
     existingRect.origin.y = newOriginY;
     return existingRect;

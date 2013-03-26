@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "HoccerAppDelegate.h"
 #import "HoccerViewControllerIPhone.h"
-#import "HCBarButtonFactory.h"
+#import "HCButtonFactory.h"
 
 @implementation TextInputViewController
 @synthesize textView;
@@ -26,12 +26,12 @@
     [self.textView setText:initialText];
     [textView becomeFirstResponder];
     
-    UIBarButtonItem *doneButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
+    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
                                                                  style:HCBarButtonBlue
                                                                 target:self
                                                                 action:@selector(doneButtonTapped:)];
 
-    UIBarButtonItem *cancelButton = [HCBarButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
+    UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
                                                                  style:HCBarButtonBlack
                                                                 target:self
                                                                 action:@selector(cancelButtonTapped:)];
