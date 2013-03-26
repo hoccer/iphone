@@ -15,6 +15,12 @@ CGRect CGRectSetOrigin(CGRect existingRect, float x, float y) {
     return existingRect;
 }
 
+CGRect CGRectSetSize(CGRect existingRect, float width, float height) {
+    existingRect.size.width = width;
+    existingRect.size.height = height;
+    return existingRect;
+}
+
 CGRect CGRectSetOriginY(CGRect existingRect, float newOriginY) {
     existingRect.origin.y = newOriginY;
     return existingRect;

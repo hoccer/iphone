@@ -26,6 +26,8 @@
 
 @interface HoccerHistoryController ()
 
+@property (nonatomic, retain) NSArray *filterPredicates;
+
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (void)cleanUp;
 
@@ -52,7 +54,9 @@
 	return self;
 }
 
-- (void) dealloc {
+- (void)dealloc {
+    
+    self.filterController = nil;
 	[historyData release];
 	[parentNavigationController release];
 	[historyCell release];
@@ -68,58 +72,52 @@
 	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    // 1. Create HistoryFilterViewController
-    
-    // .... controller uses Buttons for filter switches and maintains their state
-    
-    // Setup filter bank background
-
-    // No, just create a group of rounded buttons
-    // when option changed, then action,selector
-    
-    // Add filter with title "All", predicate blabla
-    // auto position, auto count retrieval, auto option behaviour (=has to know the rest -> filter bank)
-    
-    // Here only setup and a delegate for changes, data requests, etc.
-    
+    // TODO background view of filter buttons
     CGRect filterFrame = self.tableView.bounds;
-    filterFrame.size.height = 60.0f;
+    filterFrame.size.height = 300.0f;
     filterFrame.origin.y = -filterFrame.size.height;
     UIView *test = [[UIView alloc] initWithFrame:filterFrame];
     test.backgroundColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
     [self.tableView addSubview:test];
+    self.tableView.contentInset = UIEdgeInsetsMake(50.0f, 0.0f, 0.0f, 0.0f);
     
-//    UIButton *testButton = [HCButtonFactory buttonWithTitle:@"Music only" style:HCBarButtonBlack target:self action:@selector(test)];
-//    [test addSubview:testButton];
-//    testButton.frame = CGRectSetOrigin(testButton.frame, 5.0f, 5.0f);
+    // Note: When changing the titles, please make sure their corresponding filter is correctly reflected
+    // in the filterPredicates array.
+    NSArray *filterTitles = @[NSLocalizedString(@"HistoryFilter_All", nil),
+                              NSLocalizedString(@"HistoryFilter_Music", nil),
+                              NSLocalizedString(@"HistoryFilter_Images", nil)];
     
-    HCFilterButton *button = [[HCFilterButton alloc] initWithTitle:@"All" target:self action:nil];
+    self.filterPredicates = @[@"",
+                              @"(mimeType contains[c] 'audio')",
+                              @"(mimeType contains[c] 'image')"];
     
-    [test addSubview:button];
-    
-    
-//    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [testButton setTitle:@"All" forState:UIControlStateNormal];
-//    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [testButton setFrame:CGRectMake(5.0f, 15.0f, 45.0f, 30.0f)];
-//    [test addSubview:testButton];
-//    
-//    UIFont *buttonFont = [UIFont boldSystemFontOfSize:14.0f];
-//    testButton.titleLabel.font = buttonFont;
-//    testButton.titleLabel.textColor = [UIColor blackColor];
-////    button.titleLabel.textAlignment = UITextAlignmentCenter;
-////    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
-//    
-//    testButton.layer.backgroundColor = [UIColor colorWithWhite:0.6f alpha:1.0f].CGColor;
-//    testButton.layer.cornerRadius = 15.0f;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(filterFrame.size.height, 0.0f, 0.0f, 0.0f);
+    HCFilterButtonController *filterController = [[HCFilterButtonController alloc] initWithTitles:filterTitles
+                                                                                           target:self
+                                                                                           action:@selector(didChangeFilter:)];
+    self.filterController = filterController;
+    filterController.view.frame = CGRectSetOrigin(filterController.view.frame, 6.0, filterFrame.size.height - 40.0f);
+    [filterController release];
+    [test addSubview:filterController.view];
+
+    // Select default: All
+    [filterController buttonWithIndex:0 selected:YES];
     
     [self populateSelectedArray];
 }
 
-- (void)test {
+- (void)didChangeFilter:(id)sender {
     
+    NSUInteger selectedFilterIndex = [self.filterController selectedIndex];
+    NSString *predicateExpression = _filterPredicates[selectedFilterIndex];
+    if (predicateExpression && ![predicateExpression isEqualToString:@""]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateExpression];
+        [historyData fetchWithPredicate:predicate];
+    }
+    else {
+        [historyData fetchAll];
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

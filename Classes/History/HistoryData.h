@@ -28,7 +28,6 @@
 - (NSString *)applicationDocumentsDirectory;
 
 - (void)fetchAll;
-- (void)fetchMusic;
 - (void)fetchWithPredicate:(NSPredicate *)predicate;
 
 - (NSInteger)count;
