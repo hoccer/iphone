@@ -14,6 +14,7 @@
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL action;
 @property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL enabled;
 
 - (id)initWithTitle:(NSString *)title target:(id)target action:(SEL)action;
 

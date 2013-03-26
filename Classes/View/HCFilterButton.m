@@ -33,6 +33,7 @@
         self.multipleTouchEnabled = NO;
         self.state = UIControlStateNormal;
         self.selected = NO;
+        _enabled = YES;
         
         [self sizeToFitLabel];        
     } 
@@ -54,6 +55,12 @@
 - (void)setSelected:(BOOL)selected {
     _selected = selected;
     self.state = selected ? UIControlStateSelected : UIControlStateNormal;
+}
+
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    self.userInteractionEnabled = enabled;
+    [self setNeedsDisplay];
 }
 
 - (void)sizeToFitLabel {
@@ -93,7 +100,7 @@
         [backgroundPath fill];
     }
         
-    UIColor *labelColor = [UIColor colorWithWhite:0.0f alpha:1.0f];
+    UIColor *labelColor = _enabled ? [UIColor blackColor] : [UIColor colorWithWhite:0.4f alpha:1.0f];
     [labelColor setFill];
     CGSize labelSize = [self requiredLabelSize];
     [self.title drawInRect:CGRectInset(buttonRect, 0, floorf((kHCFilterButtonHeight - labelSize.height) / 2.0f))

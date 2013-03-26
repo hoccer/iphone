@@ -111,6 +111,11 @@
 
 - (void)didChangeFilter:(id)sender {
     
+    // The way the history controller works now, you can't switch filters and
+    // safely continue editing.
+    if (inMassEditMode) return;
+    
+    // Fetch new data
     NSUInteger selectedFilterIndex = [self.filterController selectedIndex];
     NSString *predicateExpression = self.filterPredicates[selectedFilterIndex];
     if (predicateExpression && ![predicateExpression isEqualToString:@""]) {
@@ -208,13 +213,19 @@
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
+        
         if (inMassEditMode){
-             NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
-            if ([selected boolValue]){
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
-            }
-            else {
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+            
+            NSInteger row = [indexPath row];
+            if (row < selectedArray.count) {
+            
+                NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
+                if ([selected boolValue]){
+                    ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
+                }
+                else {
+                    ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+                }
             }
         }
         else {
@@ -437,6 +448,7 @@
 }
 
 - (IBAction)enterCustomEditMode:(id)sender {
+    
     inMassEditMode = !inMassEditMode;
     
     [self populateSelectedArray];
@@ -449,7 +461,9 @@
     
     if (!self.useEditingButtons) return;
     
-    if (inMassEditMode){
+    self.filterController.enabled = !inMassEditMode;
+    
+    if (inMassEditMode) {
         
         UIBarButtonItem *deleteButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
                                                                     style:HCBarButtonRed

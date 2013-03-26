@@ -13,6 +13,7 @@
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL action;
 @property (nonatomic, retain) UIView *view;
+@property (nonatomic, assign) BOOL enabled;
 
 - (id)initWithTitles:(NSArray *)titles target:(id)target action:(SEL)action;
 - (void)buttonWithIndex:(NSUInteger)index selected:(BOOL)selected;

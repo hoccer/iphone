@@ -86,4 +86,11 @@
     [self buttonWithIndex:index selected:YES];
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    for (HCFilterButton *button in _buttons) {
+        button.enabled = enabled;
+    }    
+}
+
 @end
