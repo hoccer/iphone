@@ -19,6 +19,7 @@
 	statusLabel.text = update;
 	[self calculateHightForText:statusLabel.text];
 	[self setState:[[[ConnectionState alloc] init] autorelease]];
+    ETALabel.text = @"";    
 }
 
 - (void)setUpdateSending:(NSString *)update {
@@ -30,8 +31,32 @@
 
 - (void)setProgressUpdate: (CGFloat) percentage {
     if (USES_DEBUG_MESSAGES) { NSLog(@"ConnectionStatusViewController setProgressUpdate %f", percentage);}
+    
+    if (percentage < lastProgress) {
+        lastProgress = percentage;
+        lastProgressTime = [[NSDate alloc] init];
+    } else {
+        if (lastProgressTime != nil) {
+            NSDate *now = [[NSDate alloc] init];
+            NSTimeInterval progressTime = [now timeIntervalSinceDate: lastProgressTime];
+            // NSLog(@"progressTime = %f", progressTime);
+            CGFloat dprogress = percentage - lastProgress;
+            // NSLog(@"dprogress = %f", dprogress);
+            CGFloat todo = (1.0 - percentage);
+            // NSLog(@"todo = %f", todo);
+            NSInteger ETAsecs = todo * (progressTime / dprogress) + 0.99;
+            // NSLog(@"ETAsecs = %d", ETAsecs);
+            if (ETAsecs > 0) {
+                ETALabel.text = [[NSString alloc] initWithFormat:NSLocalizedString(@"ProgressSecondsTodoFormat_String", nil), ETAsecs];
+            } else {
+                ETALabel.text = @"";
+            }
+            [now dealloc];
+        }
+    }
 
-	progressView.progress = percentage;    
+    progressView.progress = percentage;
+    
     [self setStatusLabelText:NSLocalizedString(@"Status_Transferring", nil)];
 	[self setState:[TransferState state]];
 }
@@ -46,21 +71,21 @@
 
 - (void)setStatusLabelText:(NSString *)text {
     
-    float maxBarWidth = 200.0f;
-    float paddingBar = 10.0f;
+//    float maxBarWidth = 200.0f;
+//    float paddingBar = 10.0f;
     
     statusLabel.numberOfLines = 1;
     statusLabel.text = text;
     [statusLabel sizeToFit];
     
-    CGRect progressFrame = progressView.frame;
-    float leftBorder = CGRectGetMaxX(statusLabel.frame) + paddingBar;
-    float rightBorder = CGRectGetMaxX(progressFrame);
-    if (rightBorder - leftBorder > maxBarWidth) leftBorder = rightBorder - maxBarWidth;
-    
-    progressFrame.origin.x = leftBorder;
-    progressFrame.size.width = rightBorder - leftBorder;
-    progressView.frame = progressFrame;
+//    CGRect progressFrame = progressView.frame;
+//    float leftBorder = CGRectGetMaxX(statusLabel.frame) + paddingBar;
+//    float rightBorder = CGRectGetMaxX(progressFrame);
+//    if (rightBorder - leftBorder > maxBarWidth) leftBorder = rightBorder - maxBarWidth;
+//    
+//    progressFrame.origin.x = leftBorder;
+//    progressFrame.size.width = rightBorder - leftBorder;
+//    progressView.frame = progressFrame;
 }
 
 @end

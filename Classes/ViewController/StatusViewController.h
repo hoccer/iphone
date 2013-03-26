@@ -15,12 +15,15 @@
 @interface StatusViewController : UIViewController {
 	IBOutlet UIProgressView *progressView;	
 	IBOutlet UILabel *statusLabel;
+	IBOutlet UILabel *ETALabel;
 	IBOutlet UIButton *hintButton;
 	IBOutlet UIButton *cancelButton;
 	IBOutlet UIImageView *backgroundImage;
 		
 	NSInteger hoccabiliy;
 	NSError *badLocationHint;
+    NSDate *lastProgressTime;
+    CGFloat lastProgress;
 	
 	@private
 	UIImage *smallBackground;
@@ -32,7 +35,9 @@
 
 @property (retain, nonatomic) UIImage *smallBackground;
 @property (retain, nonatomic) UIImage *largeBackground;
+@property (retain) NSDate *lastProgressTime;
 @property (retain) IBOutlet UILabel *statusLabel;
+@property CGFloat lastProgress;
 
 
 - (void)setState: (StatusViewControllerState *)state;

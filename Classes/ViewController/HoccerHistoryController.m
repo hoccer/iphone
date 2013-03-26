@@ -373,6 +373,13 @@
 	[hoccerViewController setContentPreview: content];
 	[hoccerViewController showDesktop];
 	[hoccerViewController hideHUD];
+    
+    // trigger upload for content with delayesd file uploaders
+    if ([content isKindOfClass:[HoccerMusic class]]) {
+        [(HoccerMusic*)content didFinishDataRepresentation];
+    } else if ( [content isKindOfClass:[HoccerImage class]]) {
+        [(HoccerImage*)content didFinishDataRepresentation];
+    }
 }
 
 

@@ -172,7 +172,7 @@
 - (void)presentContentSelectViewController: (id <ContentSelectController>)controller;
 - (void)dismissContentSelectViewController;
 - (void)showMediaPicker;
-- (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
+// - (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 
 - (void)retryLastAction;
 
