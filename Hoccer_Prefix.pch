@@ -14,8 +14,8 @@
 
 // Sandbox API Keys
 
-//#define API_KEY @"e101e890ea97012d6b6f00163e001ab0"
-//#define SECRET  @"JofbFD6w6xtNYdaDgp4KOXf/k/s="
+// #define API_KEY @"e101e890ea97012d6b6f00163e001ab0"
+// #define SECRET  @"JofbFD6w6xtNYdaDgp4KOXf/k/s="
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>

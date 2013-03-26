@@ -413,5 +413,5 @@
 
 "PullDown_WaitingForThrownData" = "Automatic capture is active.\nWaiting for incoming thrown data...";
 
-"ProgressSecondsTodoFormat_String" = "%d s. remain";
+"ProgressSecondsTodoFormat_String" = "%@ remain";
 

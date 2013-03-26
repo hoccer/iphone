@@ -272,7 +272,7 @@
     thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     
-    [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
+    // [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
 }
 

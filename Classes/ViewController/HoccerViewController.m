@@ -1428,7 +1428,7 @@ typedef enum {
     }
     
     if (failcounter < 3 && error.code != 409){
-        [self retryLastAction];
+        // [self retryLastAction];
         failcounter ++;
     }
     else {
@@ -1719,7 +1719,7 @@ typedef enum {
 
 - (void)showNetworkError: (NSError *)error {	
 	desktopView.userInteractionEnabled = NO;
-	linccer.environmentUpdateInterval = 5;
+	[linccer setEnvironmentUpdateInterval:10];
 	
 	if (errorView == nil) {
         [self showTabBar:NO];
@@ -1752,7 +1752,7 @@ typedef enum {
 - (void)ensureViewIsHoccable
 {
 	desktopView.userInteractionEnabled = YES;
-	linccer.environmentUpdateInterval = 25;
+	[linccer setEnvironmentUpdateInterval:30];
 
 	if (errorView != nil) {
 		[errorView removeFromSuperview];
@@ -1903,10 +1903,11 @@ typedef enum {
             [linccer receiveWithMode:HCTransferModeOneToMany];
             break;
             
-        case HOCCER_LOADING_FROM_FILECACHE: {
+        case HOCCER_LOADING_FROM_FILECACHE:
+            if (currentContent != nil && [currentContent transferers] !=nil) {
                 for (id transferer in [currentContent transferers]) {
                     hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
-                    [transferController addContentToTransferQueue: transferer];		
+                    [transferController addContentToTransferQueue: transferer];
                 }
             }
             break;

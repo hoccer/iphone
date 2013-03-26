@@ -44,10 +44,19 @@
             // NSLog(@"dprogress = %f", dprogress);
             CGFloat todo = (1.0 - percentage);
             // NSLog(@"todo = %f", todo);
-            NSInteger ETAsecs = todo * (progressTime / dprogress) + 0.99;
+            NSInteger ETAsecsTotal = todo * (progressTime / dprogress) + 0.99;
             // NSLog(@"ETAsecs = %d", ETAsecs);
-            if (ETAsecs > 0) {
-                ETALabel.text = [[NSString alloc] initWithFormat:NSLocalizedString(@"ProgressSecondsTodoFormat_String", nil), ETAsecs];
+            if (ETAsecsTotal > 0) {
+                NSInteger ETAmin = ETAsecsTotal / 60;
+                NSInteger ETAsec = ETAsecsTotal % 60;
+                NSString * ETA;
+                if (ETAmin > 0) {
+                    ETA = [[NSString alloc] initWithFormat:@"%dm%ds", ETAmin,ETAsec];
+                } else {
+                    ETA = [[NSString alloc] initWithFormat:@"%ds", ETAsec];
+                }
+                ETALabel.text = [[NSString alloc] initWithFormat:NSLocalizedString(@"ProgressSecondsTodoFormat_String", nil), ETA];
+                [ETA dealloc];
             } else {
                 ETALabel.text = @"";
             }
