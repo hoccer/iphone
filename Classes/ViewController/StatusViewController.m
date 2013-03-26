@@ -28,12 +28,16 @@
 @synthesize largeBackground;
 
 @synthesize statusLabel;
+@synthesize lastProgressTime;
+@synthesize lastProgress;
 
 @synthesize badLocationHint;
 
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor clearColor];
-	self.view.layer.hidden = YES;	
+	self.view.layer.hidden = YES;
+    self.lastProgressTime = nil;
+    self.lastProgress = 1.0;
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -42,6 +46,7 @@
 
 - (void)dealloc {
 	[statusLabel release];
+	[ETALabel release];
 	[progressView release];
 	[hintButton release];
 	[cancelButton release];
@@ -155,9 +160,9 @@
 	
 	backgroundImage.hidden = YES;
 	
-    CGRect frame = self.view.frame;
-	frame.size.height = errorMessageSize.height + 8;
-    self.view.frame = frame;
+    // CGRect frame = self.view.frame;
+	// frame.size.height = errorMessageSize.height + 8;
+    // self.view.frame = frame;
 	
     self.view.backgroundColor = [UIColor colorWithPatternImage:self.largeBackground];	
 
