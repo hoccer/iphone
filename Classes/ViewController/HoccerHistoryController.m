@@ -26,6 +26,8 @@
 
 @interface HoccerHistoryController ()
 
+@property (nonatomic, retain) NSArray *filterPredicates;
+
 - (BOOL)rowIsValidListItem: (NSIndexPath *)path;
 - (void)cleanUp;
 
@@ -48,11 +50,14 @@
 		historyData = [[HistoryData alloc] init];
 		[self cleanUp];
         self.view.frame = self.parentNavigationController.view.frame;
+        self.useEditingButtons = NO;
 	}
 	return self;
 }
 
-- (void) dealloc {
+- (void)dealloc {
+    
+    self.filterController = nil;
 	[historyData release];
 	[parentNavigationController release];
 	[historyCell release];
@@ -68,61 +73,61 @@
 	self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"history_empty_rowbg.png"]];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    // 1. Create HistoryFilterViewController
-    
-    // .... controller uses Buttons for filter switches and maintains their state
-    
-    // Setup filter bank background
+    [self setupFilterController];
+    [self.filterController buttonWithIndex:0 selected:YES];
 
-    // No, just create a group of rounded buttons
-    // when option changed, then action,selector
-    
-    // Add filter with title "All", predicate blabla
-    // auto position, auto count retrieval, auto option behaviour (=has to know the rest -> filter bank)
-    
-    // Here only setup and a delegate for changes, data requests, etc.
-    
-    CGRect filterFrame = self.tableView.bounds;
-    filterFrame.size.height = 60.0f;
-    filterFrame.origin.y = -filterFrame.size.height;
-    UIView *test = [[UIView alloc] initWithFrame:filterFrame];
-    test.backgroundColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
-    [self.tableView addSubview:test];
-    
-//    UIButton *testButton = [HCButtonFactory buttonWithTitle:@"Music only" style:HCBarButtonBlack target:self action:@selector(test)];
-//    [test addSubview:testButton];
-//    testButton.frame = CGRectSetOrigin(testButton.frame, 5.0f, 5.0f);
-    
-    HCFilterButton *button = [[HCFilterButton alloc] initWithTitle:@"All" target:self action:nil];
-    
-    [test addSubview:button];
-    
-    
-//    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [testButton setTitle:@"All" forState:UIControlStateNormal];
-//    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [testButton setFrame:CGRectMake(5.0f, 15.0f, 45.0f, 30.0f)];
-//    [test addSubview:testButton];
-//    
-//    UIFont *buttonFont = [UIFont boldSystemFontOfSize:14.0f];
-//    testButton.titleLabel.font = buttonFont;
-//    testButton.titleLabel.textColor = [UIColor blackColor];
-////    button.titleLabel.textAlignment = UITextAlignmentCenter;
-////    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
-//    
-//    testButton.layer.backgroundColor = [UIColor colorWithWhite:0.6f alpha:1.0f].CGColor;
-//    testButton.layer.cornerRadius = 15.0f;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(filterFrame.size.height, 0.0f, 0.0f, 0.0f);
-    
     [self populateSelectedArray];
 }
 
-- (void)test {
+- (void)setupFilterController {
+        
+    // Note: When changing the titles, please make sure their corresponding filter is correctly reflected
+    // in the filterPredicates array.
+    NSArray *filterTitles = @[NSLocalizedString(@"HistoryFilter_All", nil),
+                              NSLocalizedString(@"HistoryFilter_Music", nil),
+                              NSLocalizedString(@"HistoryFilter_Images", nil)];
     
+    self.filterPredicates = @[@"",
+                              @"(mimeType contains[c] 'audio')",
+                              @"(mimeType contains[c] 'image')"];
+    
+    HCFilterButtonController *filterController = [[HCFilterButtonController alloc] initWithTitles:filterTitles
+                                                                                           target:self
+                                                                                           action:@selector(didChangeFilter:)];
+    self.filterController = filterController;
+    [filterController release];
+        
+    // Background view
+    CGRect filterFrame = self.tableView.bounds;
+    filterFrame.size.height = 400.0f;
+    filterFrame.origin.y = -filterFrame.size.height;
+    UIView *filterContainer = [[UIView alloc] initWithFrame:filterFrame];
+    filterContainer.backgroundColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
+    [self.tableView addSubview:filterContainer];
+    self.tableView.contentInset = UIEdgeInsetsMake(50.0f, 0.0f, 0.0f, 0.0f);
+    filterController.view.frame = CGRectSetOrigin(filterController.view.frame, 6.0, filterFrame.size.height - 40.0f);
+    [filterContainer addSubview:filterController.view];
+}
+
+- (void)didChangeFilter:(id)sender {
+        
+    // Fetch new data
+    NSUInteger selectedFilterIndex = [self.filterController selectedIndex];
+    NSString *predicateExpression = self.filterPredicates[selectedFilterIndex];
+    if (predicateExpression && ![predicateExpression isEqualToString:@""]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateExpression];
+        [historyData fetchWithPredicate:predicate];
+    }
+    else {
+        [historyData fetchAll];
+    }
+    
+    [self.tableView reloadData];
+    [self updateEditButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self updateEditButtons];
 	[self.tableView reloadData];
 }
 
@@ -204,13 +209,19 @@
 		
 		NSString *transferImageName = [item.upload boolValue] ? @"history_icon_upload.png" : @"history_icon_download.png";
 		((UIImageView *)[cell viewWithTag:3]).image = [UIImage imageNamed: transferImageName];
+        
         if (inMassEditMode){
-             NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
-            if ([selected boolValue]){
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
-            }
-            else {
-                ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+            
+            NSInteger row = [indexPath row];
+            if (row < selectedArray.count) {
+            
+                NSNumber *selected = [selectedArray objectAtIndex:[indexPath row]];
+                if ([selected boolValue]){
+                    ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_on"];
+                }
+                else {
+                    ((UIImageView *)[cell viewWithTag:4]).image = [UIImage imageNamed:@"check_off"];
+                }
             }
         }
         else {
@@ -433,21 +444,32 @@
 }
 
 - (IBAction)enterCustomEditMode:(id)sender {
+    
     inMassEditMode = !inMassEditMode;
     
     [self populateSelectedArray];
+    [self updateEditButtons];
+    [self updateHistoryList];
+
+}
+
+- (void)updateEditButtons {
     
-    if (inMassEditMode){
+    if (!self.useEditingButtons) return;
+    
+    self.filterController.enabled = !inMassEditMode;
+    
+    if (inMassEditMode) {
         
         UIBarButtonItem *deleteButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
-                                                                       style:HCBarButtonRed
-                                                                      target:self
-                                                                      action:@selector(deleteSelection:)];
+                                                                    style:HCBarButtonRed
+                                                                   target:self
+                                                                   action:@selector(deleteSelection:)];
         
         UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
-                                                                       style:HCBarButtonBlack
-                                                                      target:self
-                                                                      action:@selector(enterCustomEditMode:)];
+                                                                    style:HCBarButtonBlack
+                                                                   target:self
+                                                                   action:@selector(enterCustomEditMode:)];
         
         [hoccerViewController.navigationItem setRightBarButtonItem:deleteButton];
         [hoccerViewController.navigationItem setLeftBarButtonItem:cancelButton];
@@ -455,27 +477,24 @@
         [deleteButton release];
     }
     else {
-                
+        
         UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                       style:HCBarButtonBlack
-                                                                      target:hoccerViewController
-                                                                      action:@selector(cancelPopOver)];
-
+                                                                  style:HCBarButtonBlack
+                                                                 target:hoccerViewController
+                                                                 action:@selector(cancelPopOver)];
+        
         UIBarButtonItem *editButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
-                                                                     style:HCBarButtonBlack
-                                                                    target:self
-                                                                    action:@selector(enterCustomEditMode:)];
+                                                                  style:HCBarButtonBlack
+                                                                 target:self
+                                                                 action:@selector(enterCustomEditMode:)];
         
         [hoccerViewController.navigationItem setRightBarButtonItem:doneButton];
         [hoccerViewController.navigationItem setLeftBarButtonItem:editButton];
         [editButton release];
         [doneButton release];
-
-        editButton.enabled = [self hasEntries];
+        
+        [editButton setEnabled:[self hasEntries]];
     }
-    
-    [self updateHistoryList];
-
 }
 
 - (IBAction)deleteSelection:(id)sender {

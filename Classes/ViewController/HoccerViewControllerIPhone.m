@@ -81,6 +81,7 @@
 	self.hoccerHistoryController.parentNavigationController = navigationController;
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
+    self.hoccerHistoryController.useEditingButtons = YES;
 	
 	self.historyTVC = [[[HCHistoryTVC alloc] init] autorelease];
 	self.historyTVC.parentNavigationController = navigationController;
@@ -349,25 +350,7 @@
 - (void)showHistoryView
 {
 	[self showPopOver:self.hoccerHistoryController];
-	
 	navigationItem.title = NSLocalizedString(@"Title_History", nil);
-    
-    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                 style:HCBarButtonBlack
-                                                                target:self
-                                                                action:@selector(cancelPopOver)];
-    [self.navigationItem setRightBarButtonItem:doneButton];
-    [doneButton release];
-
-    HCBarButtonItem *editButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
-                                                                 style:HCBarButtonBlack
-                                                                target:self.hoccerHistoryController
-                                                                action:@selector(enterCustomEditMode:)];
-    
-    [self.navigationItem setLeftBarButtonItem:editButton];
-    [editButton release];
-
-    editButton.enabled = [self.hoccerHistoryController hasEntries];
 	navigationItem.titleView = nil;
 }
 

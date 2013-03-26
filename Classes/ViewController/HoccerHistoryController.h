@@ -10,6 +10,8 @@
 #import <iAd/iAd.h>
 #import <CoreData/CoreData.h>
 #import "HoccerHistoryItem.h"
+#import "HCFilterButtonController.h"
+
 
 @class HoccerViewController;
 
@@ -37,6 +39,9 @@
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
 @property (nonatomic, retain) IBOutlet UILabel *headerLabel;
+
+@property (nonatomic, retain) HCFilterButtonController *filterController;
+@property (nonatomic, assign) BOOL useEditingButtons;
 
 - (void)updateHistoryList;
 - (void)populateSelectedArray;

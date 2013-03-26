@@ -133,14 +133,6 @@
     [self fetchWithPredicate:nil];
 }
 
-- (void)fetchMusic {
-    
-    // TODO mimeType can also be different than just audio/mp4 (mp3? ask for "audio" only?)
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mimeType like[c] %@)", @"audio/mp4"];
-    [self fetchWithPredicate:predicate];
-}
-
-
 - (NSInteger)count {
 	return [hoccerHistoryItemArray count];
 }

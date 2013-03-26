@@ -626,6 +626,7 @@
 		CDE8508916FA1B58003B3408 /* lochblech_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE8508716FA1B58003B3408 /* lochblech_bg@2x.png */; };
 		CDE8508C16FA1EBA003B3408 /* lochblech_encrypted-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE8508A16FA1EBA003B3408 /* lochblech_encrypted-bg.png */; };
 		CDE8508D16FA1EBA003B3408 /* lochblech_encrypted-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE8508B16FA1EBA003B3408 /* lochblech_encrypted-bg@2x.png */; };
+		CDE9AEDB1701C80F00F9A5CA /* HCFilterButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE9AEDA1701C80F00F9A5CA /* HCFilterButtonController.m */; };
 		CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */; };
 		E10685AC1317F7FF009247CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10685AB1317F7FF009247CF /* SystemConfiguration.framework */; };
 		E12748B2135DE44200AA1829 /* GroupStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12748B1135DE44200AA1829 /* GroupStatusViewController.xib */; };
@@ -1310,6 +1311,8 @@
 		CDE8508716FA1B58003B3408 /* lochblech_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_bg@2x.png"; sourceTree = "<group>"; };
 		CDE8508A16FA1EBA003B3408 /* lochblech_encrypted-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_encrypted-bg.png"; sourceTree = "<group>"; };
 		CDE8508B16FA1EBA003B3408 /* lochblech_encrypted-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lochblech_encrypted-bg@2x.png"; sourceTree = "<group>"; };
+		CDE9AED91701C80F00F9A5CA /* HCFilterButtonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFilterButtonController.h; sourceTree = "<group>"; };
+		CDE9AEDA1701C80F00F9A5CA /* HCFilterButtonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFilterButtonController.m; sourceTree = "<group>"; };
 		CDF9B64D16F2266C002E2D93 /* CGRectUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRectUtils.h; sourceTree = "<group>"; };
 		CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRectUtils.m; sourceTree = "<group>"; };
 		E10685AB1317F7FF009247CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1656,6 +1659,8 @@
 				CDC7328D16F2008B0084A77F /* HCBarButtonItem.m */,
 				CD16AFE216FCD16800B306BD /* HCFilterButton.h */,
 				CD16AFE316FCD16800B306BD /* HCFilterButton.m */,
+				CDE9AED91701C80F00F9A5CA /* HCFilterButtonController.h */,
+				CDE9AEDA1701C80F00F9A5CA /* HCFilterButtonController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3643,6 +3648,7 @@
 				CDF9B64F16F2266C002E2D93 /* CGRectUtils.m in Sources */,
 				CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */,
 				CD16AFE416FCD16800B306BD /* HCFilterButton.m in Sources */,
+				CDE9AEDB1701C80F00F9A5CA /* HCFilterButtonController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
