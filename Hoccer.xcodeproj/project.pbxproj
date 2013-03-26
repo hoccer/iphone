@@ -1292,10 +1292,10 @@
 		CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_blue_background.png; sourceTree = "<group>"; };
 		CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_blue_background@2x.png"; sourceTree = "<group>"; };
 		CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HOW TO LOCALIZE.txt"; sourceTree = "<group>"; };
-		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLocalizationHelper.h; sourceTree = "<group>"; };
 		CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLocalizationHelper.m; sourceTree = "<group>"; };
-		CDBE248016EDED5C00E5FD8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CDBE248016EDED5C00E5FD8C /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDC7328516F1E0440084A77F /* nav_bar_btn_red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_red_background.png; sourceTree = "<group>"; };
 		CDC7328616F1E0440084A77F /* nav_bar_btn_red_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_red_background@2x.png"; sourceTree = "<group>"; };
 		CDC7328C16F2008A0084A77F /* HCBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBarButtonItem.h; sourceTree = "<group>"; };
@@ -3769,6 +3769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = YES;
 				ARCHS = (
 					armv6,
 					armv7,
@@ -3800,6 +3801,7 @@
 				PRODUCT_NAME = Hoccer;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3809,6 +3811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = YES;
 				ARCHS = (
 					armv6,
 					armv7,
@@ -3838,6 +3841,7 @@
 				PRODUCT_NAME = Hoccer;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3868,6 +3872,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLY_RULES_IN_COPY_FILES = YES;
 				ARCHS = (
 					armv6,
 					armv7,
@@ -3897,6 +3902,7 @@
 				PRODUCT_NAME = Hoccer;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-16";
 				STRIP_INSTALLED_PRODUCT = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
