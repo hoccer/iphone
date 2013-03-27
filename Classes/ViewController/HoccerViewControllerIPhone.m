@@ -428,8 +428,6 @@
 - (void)hidePopOverAnimated:(BOOL) animate
 {
     if (animate) {
-        NSLog(@"pj hidePopOverAnimated");
-
         [self movePullDownToNormalPosition];
     }
     
@@ -810,8 +808,6 @@
     [groupViewController hideViewAnimated:NO];
     
     if (!self.autoReceiveMode) {
-        NSLog(@"pj desktopView wasTouchedWithTouches, desk=%d", [desktopData numberOfItems]);
-
         [self movePullDownToNormalPosition];
     }
 }
@@ -824,7 +820,6 @@
 		//[groupViewController setLocationHint:nil];
         [groupViewController hideViewAnimated:NO];
 
-        NSLog(@"pj pressedButton");
        [self movePullDownToNormalPosition];
 	}
     else {

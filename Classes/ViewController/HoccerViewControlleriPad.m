@@ -966,7 +966,6 @@
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-    NSLog(@"pj popoverControllerDidDismissPopover");
 
     if (USES_DEBUG_MESSAGES) {  NSLog(@"popoverControllerDidDismissPopover");}
     [self movePullDownToNormalPosition];

@@ -722,8 +722,6 @@ typedef enum {
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
-    NSLog(@"CATCH");
-    
 	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
@@ -732,8 +730,6 @@ typedef enum {
         NSLog(@"You are auto-receiving and can't catch now");
         return;
     }
-    
-    
 
 	[groupViewController hideViewAnimated:YES];
 
@@ -1101,7 +1097,6 @@ typedef enum {
         }
     }
     else {
-        NSLog(@"pj touchesEnded");
         [self movePullDownToNormalPosition];
         if (self.autoReceiveMode) {
             // NSLog(@"touchesEnded stopAnimating");
@@ -1341,8 +1336,6 @@ typedef enum {
 
 - (void)itemViewControllerWasClosed:(ItemViewController *)item
 {
-    NSLog(@"pj itemViewControllerWasClosed");
-    
     if (USES_DEBUG_MESSAGES) { NSLog(@"itemViewControllerWasClosed:"); }
 	[transferController cancelTransfers];
 	
@@ -1496,7 +1489,6 @@ typedef enum {
 
 - (void)willFinishAutoReceive
 {
-    NSLog(@"pj willFinishAutoReceive");
     //close pullDown
     // NSLog(@"willFinishAutoReceive stopAnimating");
     [self.activityIndi stopAnimating];
