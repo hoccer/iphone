@@ -45,7 +45,7 @@
     
     return [self helpContentWithTitle:NSLocalizedString(@"HelpTitle_AutoReceive",nil)
                            description:NSLocalizedString(@"HelpMessage_AutoReceive",nil)
-                             imagePath:nil
+                             imagePath:[self pathForResource:@"tutorial_autoreceive" ofType:@"png"]
                              videoPath:nil];
 }
 
@@ -53,7 +53,7 @@
     
     return [self helpContentWithTitle:NSLocalizedString(@"HelpTitle_Channel",nil)
                           description:NSLocalizedString(@"HelpMessage_Channel",nil)
-                            imagePath:nil
+                            imagePath:[self pathForResource:@"tutorial_channel" ofType:@"png"]
                             videoPath:nil];
 }
 
