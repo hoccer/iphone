@@ -460,7 +460,7 @@ typedef enum {
             NSString *content = [NSString stringWithFormat:contentTemplate, channelLink];
             [picker setBody:content];
 
-            [picker setRecipients:[[NSArray alloc] initWithObjects:phone, nil]];
+            [picker setRecipients:@[phone]];
             
             [self presentModalViewController:picker animated:YES];
             [picker release];
@@ -1218,9 +1218,13 @@ typedef enum {
     NSString* phone = nil;
     ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
     
-    if (ABMultiValueGetCount(phoneNumbers) > 0) {
+    if (phoneNumbers != NULL && ABMultiValueGetCount(phoneNumbers) > 0) {
         //NSLog(@"number of phoneNumbers = %ld", ABMultiValueGetCount(phoneNumbers));
-        phone = (NSString*)ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+        
+        CFTypeRef phoneRef = ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+        phone = [((NSString *)phoneRef) copy];
+        if (phoneRef != NULL) CFRelease(phoneRef);
+        
         //for (int i=0; i > ABMultiValueGetCount(phoneNumbers); i++) {
             //NSString *phoneTmp = (NSString*)ABMultiValueCopyValueAtIndex(phoneNumbers, i);
             //NSLog(@"Multi Phone %d = %@", i, phoneTmp);
@@ -1229,6 +1233,9 @@ typedef enum {
     else {
         phone = @"[None]";
     }
+    
+    if (phoneNumbers != NULL) CFRelease(phoneNumbers);
+    
     //NSLog(@"name = %@", name);
     //NSLog(@"phone = %@", phone);
     
@@ -1273,6 +1280,8 @@ typedef enum {
     //[dm sendKSMS:@"hallo" toPhone:phone toName:name from:@"BauTicker"];
     
     [self showSMSPicker:phone];
+    [phone release];
+    [name release];
     
     return NO;
 }

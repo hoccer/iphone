@@ -597,8 +597,6 @@
 		B4F2D2AB1538603200138890 /* select_btn_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F2D28F1538603200138890 /* select_btn_video@2x.png */; };
 		B4F2D2AC1538603200138890 /* select_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F2D2901538603200138890 /* select_btn.png */; };
 		B4F2D2AD1538603200138890 /* select_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F2D2911538603200138890 /* select_btn@2x.png */; };
-		B4F3D0E8142CA1A10041D444 /* tutorial_encryption.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0E4142CA1A10041D444 /* tutorial_encryption.png */; };
-		B4F3D0E9142CA1A10041D444 /* tutorial_encryption@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0E5142CA1A10041D444 /* tutorial_encryption@2x.png */; };
 		B4F3D0EA142CA1A10041D444 /* tutorial_key_exchange.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0E6142CA1A10041D444 /* tutorial_key_exchange.png */; };
 		B4F3D0EB142CA1A10041D444 /* tutorial_key_exchange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F3D0E7142CA1A10041D444 /* tutorial_key_exchange@2x.png */; };
 		B4FC442015FA0C0F00DF6263 /* container_btn_single-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B4FC441E15FA0C0F00DF6263 /* container_btn_single-edit.png */; };
@@ -609,6 +607,10 @@
 		CD23676C16F0EB66008AA236 /* HCButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23676B16F0EB65008AA236 /* HCButtonFactory.m */; };
 		CD23676F16F0F650008AA236 /* nav_bar_btn_blue_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */; };
 		CD23677016F0F650008AA236 /* nav_bar_btn_blue_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */; };
+		CD3F838E17031C200037E696 /* tutorial_autoreceive.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838A17031C200037E696 /* tutorial_autoreceive.png */; };
+		CD3F838F17031C200037E696 /* tutorial_autoreceive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838B17031C200037E696 /* tutorial_autoreceive@2x.png */; };
+		CD3F839017031C200037E696 /* tutorial_channel.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838C17031C200037E696 /* tutorial_channel.png */; };
+		CD3F839117031C200037E696 /* tutorial_channel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838D17031C200037E696 /* tutorial_channel@2x.png */; };
 		CD7065D816F8C92400CE0B6A /* HOW TO LOCALIZE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */; };
 		CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */; };
 		CDBE247F16EDED5C00E5FD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDBE248116EDED5C00E5FD8C /* Localizable.strings */; };
@@ -1277,8 +1279,6 @@
 		B4F2D28F1538603200138890 /* select_btn_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn_video@2x.png"; sourceTree = "<group>"; };
 		B4F2D2901538603200138890 /* select_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_btn.png; sourceTree = "<group>"; };
 		B4F2D2911538603200138890 /* select_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select_btn@2x.png"; sourceTree = "<group>"; };
-		B4F3D0E4142CA1A10041D444 /* tutorial_encryption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_encryption.png; sourceTree = "<group>"; };
-		B4F3D0E5142CA1A10041D444 /* tutorial_encryption@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_encryption@2x.png"; sourceTree = "<group>"; };
 		B4F3D0E6142CA1A10041D444 /* tutorial_key_exchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_key_exchange.png; sourceTree = "<group>"; };
 		B4F3D0E7142CA1A10041D444 /* tutorial_key_exchange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_key_exchange@2x.png"; sourceTree = "<group>"; };
 		B4FC441E15FA0C0F00DF6263 /* container_btn_single-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "container_btn_single-edit.png"; sourceTree = "<group>"; };
@@ -1292,6 +1292,10 @@
 		CD23676B16F0EB65008AA236 /* HCButtonFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCButtonFactory.m; sourceTree = "<group>"; };
 		CD23676D16F0F650008AA236 /* nav_bar_btn_blue_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar_btn_blue_background.png; sourceTree = "<group>"; };
 		CD23676E16F0F650008AA236 /* nav_bar_btn_blue_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_btn_blue_background@2x.png"; sourceTree = "<group>"; };
+		CD3F838A17031C200037E696 /* tutorial_autoreceive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_autoreceive.png; sourceTree = "<group>"; };
+		CD3F838B17031C200037E696 /* tutorial_autoreceive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_autoreceive@2x.png"; sourceTree = "<group>"; };
+		CD3F838C17031C200037E696 /* tutorial_channel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_channel.png; sourceTree = "<group>"; };
+		CD3F838D17031C200037E696 /* tutorial_channel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_channel@2x.png"; sourceTree = "<group>"; };
 		CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HOW TO LOCALIZE.txt"; sourceTree = "<group>"; };
 		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLocalizationHelper.h; sourceTree = "<group>"; };
@@ -2132,8 +2136,10 @@
 		2299923B1191617F006DA5DD /* help */ = {
 			isa = PBXGroup;
 			children = (
-				B4F3D0E4142CA1A10041D444 /* tutorial_encryption.png */,
-				B4F3D0E5142CA1A10041D444 /* tutorial_encryption@2x.png */,
+				CD3F838A17031C200037E696 /* tutorial_autoreceive.png */,
+				CD3F838B17031C200037E696 /* tutorial_autoreceive@2x.png */,
+				CD3F838C17031C200037E696 /* tutorial_channel.png */,
+				CD3F838D17031C200037E696 /* tutorial_channel@2x.png */,
 				B4F3D0E6142CA1A10041D444 /* tutorial_key_exchange.png */,
 				B4F3D0E7142CA1A10041D444 /* tutorial_key_exchange@2x.png */,
 				2299923C1191617F006DA5DD /* help_sweep_icon.png */,
@@ -3162,8 +3168,6 @@
 				B4DEE31014053EF700AD1D7C /* video_icon.png in Resources */,
 				B4DEE31114053EF700AD1D7C /* video_icon@2x.png in Resources */,
 				B4FDD6AE140E358600EED06C /* delete.png in Resources */,
-				B4F3D0E8142CA1A10041D444 /* tutorial_encryption.png in Resources */,
-				B4F3D0E9142CA1A10041D444 /* tutorial_encryption@2x.png in Resources */,
 				B4F3D0EA142CA1A10041D444 /* tutorial_key_exchange.png in Resources */,
 				B4F3D0EB142CA1A10041D444 /* tutorial_key_exchange@2x.png in Resources */,
 				B47D28641461A8B00028AE03 /* MainWindow-iPad.xib in Resources */,
@@ -3360,6 +3364,10 @@
 				CDE8508916FA1B58003B3408 /* lochblech_bg@2x.png in Resources */,
 				CDE8508C16FA1EBA003B3408 /* lochblech_encrypted-bg.png in Resources */,
 				CDE8508D16FA1EBA003B3408 /* lochblech_encrypted-bg@2x.png in Resources */,
+				CD3F838E17031C200037E696 /* tutorial_autoreceive.png in Resources */,
+				CD3F838F17031C200037E696 /* tutorial_autoreceive@2x.png in Resources */,
+				CD3F839017031C200037E696 /* tutorial_channel.png in Resources */,
+				CD3F839117031C200037E696 /* tutorial_channel@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,6 +79,7 @@
 }
 
 - (void)createDataRepresentation: (HoccerMusic *)content {
+    
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSURL *assetURL = [song valueForProperty:MPMediaItemPropertyAssetURL];
@@ -94,7 +95,7 @@
     
     NSLog(@"exportFile = %@", exportFile);
     
-    exporter.outputURL = [[NSURL fileURLWithPath:exportFile] retain];
+    exporter.outputURL = [NSURL fileURLWithPath:exportFile];
     exporter.outputFileType = AVFileTypeAppleM4A;
     exporter.shouldOptimizeForNetworkUse = YES;
     
@@ -145,7 +146,7 @@
 }
 - (void)updateImage {    
     // NSLog(@"updateImage");
-    if (view == nil){
+    if (view == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:self options:nil];
     }
     self.view.songLabel.text = NSLocalizedString(@"Title_UntitledSong", nil);
@@ -163,8 +164,8 @@
     // NSLog(@"updateImage: thumb=%@", thumb);
     
     if (thumb != nil) {
-        // NSLog(@"updateImage 4");
-        self.view.coverImage.image = [self.thumb retain];
+         //NSLog(@"updateImage 4");
+        self.view.coverImage.image = [self.thumb retain];      // This is a leak but removing it causes a crash in Preview:dealloc... why?
         if (song != nil){
             // NSLog(@"updateImage 4a");
             self.view.songLabel.text = [NSString stringWithFormat:@"%@ - %@",[song valueForProperty:MPMediaItemPropertyArtist],[song valueForProperty:MPMediaItemPropertyTitle]];
@@ -255,14 +256,13 @@
         screenRect = CGRectMake(0, 0, 320, 367);
     }
     
-    self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL: self.fileUrl];
+    MPMoviePlayerController *moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.fileUrl];
+    self.fullscreenPlayer = moviePlayerController;
     self.fullscreenPlayer.view.frame = screenRect;
-    
     self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
     //self.fullscreenPlayer.shouldAutoplay = NO;
-    
     [self.fullscreenPlayer prepareToPlay];
-    
+    [moviePlayerController release];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pausePlayer)
@@ -281,13 +281,13 @@
         screenRect = CGRectMake(15, 15, 272, 32);
     }
    
-    self.fullscreenPlayer =[[MPMoviePlayerController alloc] initWithContentURL:self.fileUrl];
+    MPMoviePlayerController *moviePlayerController = [[MPMoviePlayerController alloc] initWithContentURL:self.fileUrl];
+    self.fullscreenPlayer = moviePlayerController;
     self.fullscreenPlayer.view.frame = screenRect;
-    
     self.fullscreenPlayer.controlStyle = MPMovieControlStyleDefault;
     //self.fullscreenPlayer.shouldAutoplay = YES;
-    
     [self.fullscreenPlayer prepareToPlay];
+    [moviePlayerController release];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pausePlayer2)
@@ -295,6 +295,7 @@
                                                object:nil];
     return self.fullscreenPlayer.view;
 }
+
 
 #pragma -
 #pragma Thumbnail

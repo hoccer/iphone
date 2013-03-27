@@ -37,8 +37,8 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	
     if (!settingOwnContact) {
-        ABRecordID contactId = ABRecordGetRecordID(person);
         ABAddressBookRef addressBook = ABAddressBookCreate();
+        ABRecordID contactId = ABRecordGetRecordID(person);
         ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
         if (fullPersonInfo != NULL){
             
@@ -46,24 +46,24 @@
             
             if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
                 [self.delegate contentSelectController:self didSelectContent:content];
-            }
-            
-            CFRelease(addressBook);
+            }            
         }
         else {
             if ([self.delegate respondsToSelector:@selector(contentSelectControllerDidCancel:)]) {
                 [self.delegate contentSelectControllerDidCancel:self];
             }
         }
+        CFRelease(addressBook);
+        
     }
     else {
         
+        ABAddressBookRef addressBook = ABAddressBookCreate();
         ABRecordID contactId = ABRecordGetRecordID(person);
-
+        
         [[NSUserDefaults standardUserDefaults] setInteger:contactId forKey:@"uservCardRef"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        ABAddressBookRef addressBook = ABAddressBookCreate();
         ABRecordRef fullPersonInfo = ABAddressBookGetPersonWithRecordID(addressBook, contactId);
         
         HoccerContent* content = [[[HoccerVcard alloc] initWitPerson:fullPersonInfo] autorelease];
@@ -71,8 +71,10 @@
         if ([self.delegate respondsToSelector:@selector(contentSelectController:didSelectContent:)]) {
             [self.delegate contentSelectController:self didSelectContent:content];
         }
+        
         CFRelease(addressBook);
     }
+    
     return NO;
 }
 

@@ -166,10 +166,12 @@
 
 - (void)setReady {
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
 	HUD.mode = MBProgressHUDModeCustomView;
-	HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
+	HUD.customView =  imageView;
 	HUD.labelText = NSLocalizedString(@"HudMessage_Saved", nil);
 	[NSTimer scheduledTimerWithTimeInterval:1 target: self selector:@selector(hideHUD) userInfo:nil repeats:NO];
+    [imageView release];
 }
 
 - (void)hideHUD {
