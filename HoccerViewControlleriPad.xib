@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">11G63b</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1138.51</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -194,7 +194,7 @@
 										<object class="IBUILabel" id="90072728">
 											<reference key="NSNextResponder" ref="721391781"/>
 											<int key="NSvFlags">293</int>
-											<string key="NSFrame">{{284, 20}, {231, 21}}</string>
+											<string key="NSFrame">{{111, 20}, {534, 34}}</string>
 											<reference key="NSSuperview" ref="721391781"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="286887730"/>
@@ -214,6 +214,8 @@
 											</object>
 											<nil key="IBUIHighlightedColor"/>
 											<int key="IBUIBaselineAdjustment">0</int>
+											<int key="IBUINumberOfLines">2</int>
+											<int key="IBUITextAlignment">1</int>
 											<object class="IBUIFontDescription" key="IBUIFontDescription">
 												<int key="type">1</int>
 												<double key="pointSize">14</double>
@@ -224,6 +226,7 @@
 												<int key="NSfFlags">16</int>
 											</object>
 											<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+											<double key="preferredMaxLayoutWidth">534</double>
 										</object>
 										<object class="IBUIActivityIndicatorView" id="168209911">
 											<reference key="NSNextResponder" ref="721391781"/>
@@ -955,45 +958,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">HoccerViewControlleriPad</string>
 					<string key="superclassName">HoccerViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="selectAutoReceive:">id</string>
-						<string key="selectMyContact:">id</string>
-						<string key="selectPasteboard:">id</string>
-						<string key="selectText:">id</string>
-						<string key="toggleChannel:">id</string>
-						<string key="toggleHistory:">id</string>
-						<string key="toggleSettings:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="selectAutoReceive:">
-							<string key="name">selectAutoReceive:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectMyContact:">
-							<string key="name">selectMyContact:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectPasteboard:">
-							<string key="name">selectPasteboard:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectText:">
-							<string key="name">selectText:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleChannel:">
-							<string key="name">toggleChannel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleHistory:">
-							<string key="name">toggleHistory:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleSettings:">
-							<string key="name">toggleSettings:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/HoccerViewControlleriPad.h</string>
@@ -1033,6 +997,7 @@
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="ETALabel">UILabel</string>
 						<string key="backgroundImage">UIImageView</string>
 						<string key="cancelButton">UIButton</string>
 						<string key="hintButton">UIButton</string>
@@ -1040,6 +1005,10 @@
 						<string key="statusLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="ETALabel">
+							<string key="name">ETALabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="backgroundImage">
 							<string key="name">backgroundImage</string>
 							<string key="candidateClassName">UIImageView</string>

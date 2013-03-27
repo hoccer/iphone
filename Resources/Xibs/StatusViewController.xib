@@ -36,12 +36,12 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">291</int>
+				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="14594712">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
-						<string key="NSFrameSize">{1024, 64}</string>
+						<string key="NSFrameSize">{320, 64}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="314914246"/>
@@ -53,7 +53,7 @@
 					</object>
 					<object class="IBUILabel" id="435518619">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">294</int>
+						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{33, 4}, {254, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -94,7 +94,7 @@
 					</object>
 					<object class="IBUILabel" id="578549330">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">294</int>
+						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{165, 4}, {144, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -161,7 +161,7 @@
 					</object>
 					<object class="IBUIProgressView" id="379727484">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">289</int>
+						<int key="NSvFlags">290</int>
 						<string key="NSFrame">{{15, 29}, {294, 9}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -262,9 +262,9 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="314914246"/>
 							<reference ref="14594712"/>
-							<reference ref="435518619"/>
 							<reference ref="379727484"/>
 							<reference ref="578549330"/>
+							<reference ref="435518619"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
