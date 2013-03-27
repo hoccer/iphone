@@ -65,7 +65,7 @@
     else {
         NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
         
-        content = [[HoccerVideo alloc] initWithURL:videoURL];
+        content = [[[HoccerVideo alloc] initWithURL:videoURL] autorelease];
         
         NSString *tempFilePath = [videoURL path];
 

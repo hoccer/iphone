@@ -149,15 +149,16 @@
 	CFStringRef label;
 	CFDictionaryRef address;
 	for (CFIndex i = 0; i < ABMultiValueGetCount(multi); i++) {
-		address = ABMultiValueCopyValueAtIndex(multi, i);
+		
+        address = ABMultiValueCopyValueAtIndex(multi, i);
 		label = ABMultiValueCopyLabelAtIndex(multi, i);
 		
 		[self createAddressLineFromDictonary: address];
 		[writer writeProperty: @"ADR" value: [self createAddressLineFromDictonary: address]
 					paramater:[[self propertiesFromLabel: label] arrayByAddingObject: @"POSTAL"]];
 		
-		CFRelease(label);
-		CFRelease(address);
+		if (label != NULL) CFRelease(label);
+		if (address != NULL) CFRelease(address);
 	}
 		
     CFRelease(multi);
