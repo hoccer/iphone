@@ -118,9 +118,11 @@
         screenRect = CGRectMake(0, 0, 320, 367);
     }
     
-    self.fullscreenPlayer =[[MPMoviePlayerViewController alloc] initWithContentURL: self.fileUrl];
-    self.fullscreenPlayer.view.frame = screenRect;
+    MPMoviePlayerViewController *moviePlayerViewController = [[MPMoviePlayerViewController alloc] initWithContentURL: self.fileUrl];
+    self.fullscreenPlayer = moviePlayerViewController;
+    [moviePlayerViewController release];
     
+    self.fullscreenPlayer.view.frame = screenRect;
     self.fullscreenPlayer.moviePlayer.controlStyle = MPMovieControlStyleDefault;  
     //self.fullscreenPlayer.moviePlayer.shouldAutoplay = NO;
     [self.fullscreenPlayer.moviePlayer setMovieSourceType:MPMovieSourceTypeFile];
@@ -136,8 +138,9 @@
 }
 
 - (void)pausePlayer {
+    
     [self.fullscreenPlayer.moviePlayer stop];
-    [self.fullscreenPlayer release];
+    self.fullscreenPlayer = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
 }
@@ -255,6 +258,8 @@
         if (result == AVAssetImageGeneratorSucceeded) {
             UIImage *thumbnail=[[UIImage imageWithCGImage:im] retain];
             thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
+            [thumbnail release];
+            thumbnail = nil;
             
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
             
@@ -265,7 +270,9 @@
         else {
             UIImage *thumbnail=[[UIImage imageNamed:@"video_dummy"] retain];
             thumb = [[thumbnail gtm_imageByResizingToSize:size preserveAspectRatio:YES trimToFit:NO] retain];
-        
+            [thumbnail release];
+            thumbnail = nil;
+            
             NSData *thumbData = UIImageJPEGRepresentation(thumb, 0.2);
         
             [thumbData writeToFile:  [[[NSFileManager defaultManager] contentDirectory] stringByAppendingPathComponent:self.thumbFilename] atomically: NO];
