@@ -48,12 +48,18 @@
 	[encoder encodeObject:contentOnDesktop forKey:@"desktopContent"];	
 }
 
+- (void)notifyContentChange {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NumberOfDesktopItemsChanged" object:nil];
+}
+
 - (void)addhoccerController: (ItemViewController *)hoccerController {
 	[contentOnDesktop addObject:hoccerController];
+    [self notifyContentChange];
 }
 
 - (void)removeHoccerController: (ItemViewController *)hoccerController {
 	[contentOnDesktop removeObject:hoccerController];
+    [self notifyContentChange];
 }
 
 - (ItemViewController *)hoccerControllerDataForView: (UIView *)view {
@@ -79,7 +85,7 @@
 #pragma mark -
 #pragma mark DataSource Methods
 
-- (NSInteger) numberOfItems {
+- (NSInteger)numberOfItems {
 	return [contentOnDesktop count];
 }
 

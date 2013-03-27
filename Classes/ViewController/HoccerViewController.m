@@ -204,6 +204,13 @@ typedef enum {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTextInputVC:) name:@"showTextInputVC" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(didChangeNumberOfDesktopItems)
+												 name:@"NumberOfDesktopItemsChanged"
+											   object:nil];
+
+    
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
@@ -214,6 +221,7 @@ typedef enum {
     encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
     
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [self becomeFirstResponder];
@@ -607,7 +615,9 @@ typedef enum {
 }
 
 - (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker {
-    if (musicPopOverController && musicPopOverController.isPopoverVisible) [musicPopOverController dismissPopoverAnimated:YES];
+    if (musicPopOverController && musicPopOverController.isPopoverVisible) {
+        [musicPopOverController dismissPopoverAnimated:YES];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -712,9 +722,18 @@ typedef enum {
 
 - (void)gesturesInterpreterDidDetectCatch: (GesturesInterpreter *)aGestureInterpreter
 {
+    NSLog(@"CATCH");
+    
 	if (![hoccingRules hoccerViewControllerMayCatch:self]) {
 		return;
 	}
+    
+    if (self.autoReceiveMode) {
+        NSLog(@"You are auto-receiving and can't catch now");
+        return;
+    }
+    
+    
 
 	[groupViewController hideViewAnimated:YES];
 
@@ -736,6 +755,7 @@ typedef enum {
 	
 	[statusViewController setState:[ConnectionState state]];
 	[statusViewController setUpdate:NSLocalizedString(@"Status_Connecting", nil)];
+    [self movePullDownToHidePosition];
     
     hoccerStatus = HOCCER_RECEIVING_THROW;
     
@@ -744,18 +764,18 @@ typedef enum {
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
 {
+    NSLog(@"THROW");
+    
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
 	}
     
     if (encryptionEnabled && !clientSelected && [[NSUserDefaults standardUserDefaults] boolForKey:@"sendPassword"]){
         
-        
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"ErrorMessage_NobodySelected", nil) forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"Encryption Error" code:700 userInfo:userInfo];
         [errorViewController showError:error forSeconds:10];
         return;
-        
     }
 	
 	[groupViewController hideViewAnimated:NO];
@@ -787,6 +807,8 @@ typedef enum {
 
 - (void)switchAutoReceiveMode:(BOOL)on
 {
+    NSLog(@"switchAutoReceiveMode: %d", on);
+    self.autoReceiveMode = on;
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
                 
@@ -806,7 +828,6 @@ typedef enum {
         [linccer pollWithMode:HCTransferModeOneToMany];
                 
         hoccerStatus = HOCCER_AUTO_RECEIVING_THROW;
-        self.autoReceiveMode = YES;
         self.sendingItem = nil;
     }
     else {
@@ -825,7 +846,6 @@ typedef enum {
         [linccer cancelAllRequestsKeepPeek];
         
         hoccerStatus = HOCCER_IDLING;
-        self.autoReceiveMode = NO;
 
         [desktopView reloadData];
     }
@@ -853,7 +873,7 @@ typedef enum {
 #pragma mark DesktopViewDelegate
 
 - (void)desktopView:(DesktopView *)desktopView didRemoveViewAtIndex:(NSInteger)index
-{
+{    
 	ItemViewController *item = [desktopData hoccerControllerDataAtIndex:index];
 	if ([transferController hasTransfers]) {
 		[transferController cancelTransfers];
@@ -945,6 +965,7 @@ typedef enum {
 	
 	[desktopData addhoccerController:item];
 	[desktopView reloadData];
+    [self movePullDownToHidePosition];
 	
 	return YES;
 }
@@ -967,6 +988,11 @@ typedef enum {
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // No pull-down interaction when status bar is visible
+    if ([statusViewController visible]) {
+        return;
+    }
+    
 	UITouch* touch = [touches anyObject];
     
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
@@ -1075,6 +1101,7 @@ typedef enum {
         }
     }
     else {
+        NSLog(@"pj touchesEnded");
         [self movePullDownToNormalPosition];
         if (self.autoReceiveMode) {
             // NSLog(@"touchesEnded stopAnimating");
@@ -1101,9 +1128,12 @@ typedef enum {
 
 - (void)movePullDownToNormalPosition
 {
-    self.pullDownView.hidden = NO;
+    if ([desktopData numberOfItems] > 0) {
+       //[self movePullDownToHidePosition];
+        return;
+    }
     
-    // NSLog(@"movePullDownToNormalPosition");
+    self.pullDownView.hidden = NO;
     
     CGRect pullDownViewRect = self.pullDownView.frame;
     pullDownViewRect.origin.y = -67.0;
@@ -1127,6 +1157,17 @@ typedef enum {
         [self movePullDownToNormalPosition];
     }
 }
+
+// Handler for notification with name "NumberOfDesktopItemsChanged"
+- (void)didChangeNumberOfDesktopItems {
+    
+    if (self.autoReceiveMode) return;
+    
+    if ([desktopData numberOfItems] > 0) [self movePullDownToHidePosition];
+    else [self movePullDownToNormalPosition];
+    //NSLog(@"change! %d", [desktopData numberOfItems]);
+}
+
 
 #pragma mark -
 #pragma mark Connection Status View Controller Delegates
@@ -1178,15 +1219,15 @@ typedef enum {
 	[desktopView reloadData];
 }
 
-- (void)toggleAutoReceiveMode
-{
-    if (autoReceiveMode) {
-        autoReceiveMode = NO;
-    }
-    else {
-        autoReceiveMode = YES;
-    }
-}
+//- (void)toggleAutoReceiveMode
+//{
+//    if (autoReceiveMode) {
+//        autoReceiveMode = NO;
+//    }
+//    else {
+//        autoReceiveMode = YES;
+//    }
+//}
 
 #pragma mark -
 #pragma mark Channel Contact Picker
@@ -1300,11 +1341,15 @@ typedef enum {
 
 - (void)itemViewControllerWasClosed:(ItemViewController *)item
 {
+    NSLog(@"pj itemViewControllerWasClosed");
+    
     if (USES_DEBUG_MESSAGES) { NSLog(@"itemViewControllerWasClosed:"); }
 	[transferController cancelTransfers];
 	
 	[desktopData removeHoccerController:item];
 	[desktopView reloadData];
+    
+    if ([desktopData numberOfItems] == 0) [self movePullDownToNormalPosition];
 }
 
 - (void)itemViewControllerSaveButtonWasClicked: (ItemViewController *)item
@@ -1451,6 +1496,7 @@ typedef enum {
 
 - (void)willFinishAutoReceive
 {
+    NSLog(@"pj willFinishAutoReceive");
     //close pullDown
     // NSLog(@"willFinishAutoReceive stopAnimating");
     [self.activityIndi stopAnimating];

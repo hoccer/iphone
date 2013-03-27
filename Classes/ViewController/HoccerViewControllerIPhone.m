@@ -194,6 +194,9 @@
 }
 
 - (void)dismissContentSelectViewController {
+    
+    if ([desktopData numberOfItems] == 0) [self movePullDownToNormalPosition];
+    
     self.activeContentSelectController = nil;
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -425,6 +428,8 @@
 - (void)hidePopOverAnimated:(BOOL) animate
 {
     if (animate) {
+        NSLog(@"pj hidePopOverAnimated");
+
         [self movePullDownToNormalPosition];
     }
     
@@ -669,6 +674,12 @@
     }
 }
 
+//- (void)didChangeNumberOfDesktopItems {
+//    
+//    if (!isPopUpDisplayed) [super didChangeNumberOfDesktopItems];
+//}
+
+
 - (void)startChannelAutoReceiveMode:(NSNotification *)notification
 {
 //    NSLog(@"startChannelAutoReceiveMode 2");
@@ -799,6 +810,8 @@
     [groupViewController hideViewAnimated:NO];
     
     if (!self.autoReceiveMode) {
+        NSLog(@"pj desktopView wasTouchedWithTouches, desk=%d", [desktopData numberOfItems]);
+
         [self movePullDownToNormalPosition];
     }
 }
@@ -811,7 +824,8 @@
 		//[groupViewController setLocationHint:nil];
         [groupViewController hideViewAnimated:NO];
 
-        [self movePullDownToNormalPosition];
+        NSLog(@"pj pressedButton");
+       [self movePullDownToNormalPosition];
 	}
     else {
 		[groupViewController setLocationHint:[HCEnvironmentManager messageForLocationInformation: hoccabilityInfo]];
