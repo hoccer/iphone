@@ -1365,6 +1365,7 @@ typedef enum {
             cipherNeeded = YES;
         }
     }
+    [linccer reactivate];
 }
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(TransferProgress *)progress
@@ -1386,6 +1387,7 @@ typedef enum {
         cipherNeeded = YES;
         failcounter = 0;
 //    }
+    [linccer reactivate];
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
@@ -1475,6 +1477,9 @@ typedef enum {
             for (id transferer in [hoccerContent transferers]) {
                 hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
                 [transferController addContentToTransferQueue:transferer];		
+            }
+            if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
+                [linccer disconnect];
             }
         }
         else {
@@ -1715,10 +1720,18 @@ typedef enum {
         }
     }
 	connectionEstablished = NO;
+    if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
+        hoccerStatus = HOCCER_IDLING;
+        [linccer reactivate];
+    }
 }
 
-- (void)showNetworkError: (NSError *)error {	
+- (void)showNetworkError: (NSError *)error {
 	desktopView.userInteractionEnabled = NO;
+    if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
+        hoccerStatus = HOCCER_IDLING;
+        [linccer reactivate];
+    }
 	[linccer setEnvironmentUpdateInterval:10];
 	
 	if (errorView == nil) {
