@@ -83,11 +83,16 @@
         _rightArrowImage = [UIImage imageNamed:@"popover-black-right-arrow-image.png"];
         
         UIImage *popoverBackgroundImage = [[UIImage imageNamed:@"popover-black-bcg-image.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(49, 46, 49, 45)];
-        self.popoverBackgroundImageView = [[UIImageView alloc] initWithImage:popoverBackgroundImage];
-        [self addSubview:self.popoverBackgroundImageView];
         
-        self.arrowImageView = [[UIImageView alloc] init];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:popoverBackgroundImage];
+        self.popoverBackgroundImageView = imageView;
+        [self addSubview:self.popoverBackgroundImageView];
+        [imageView release];
+        
+        imageView = [[UIImageView alloc] init];
+        self.arrowImageView = imageView;
         [self addSubview:self.arrowImageView];
+        [imageView release];
     }
     
     return self;

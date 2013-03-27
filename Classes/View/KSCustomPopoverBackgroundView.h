@@ -18,8 +18,8 @@
 
 @property (nonatomic, readwrite)            CGFloat                  arrowOffset;
 @property (nonatomic, readwrite)            UIPopoverArrowDirection  arrowDirection;
-@property (nonatomic, readwrite, strong)    UIImageView             *arrowImageView;
-@property (nonatomic, readwrite, strong)    UIImageView             *popoverBackgroundImageView;
+@property (nonatomic, readwrite, retain)    UIImageView             *arrowImageView;
+@property (nonatomic, readwrite, retain)    UIImageView             *popoverBackgroundImageView;
 
 + (CGFloat)arrowHeight;
 + (CGFloat)arrowBase;

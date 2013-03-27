@@ -15,7 +15,7 @@
 
 @interface DataManager : NSObject <NSURLConnectionDelegate>
 
-@property (nonatomic, strong) NSArray *historyObjectsArray;
+@property (nonatomic, retain) NSArray *historyObjectsArray;
 @property (nonatomic, assign) HCHistoryTVC *historyTVC;
 
 +(DataManager *)sharedDataManager;

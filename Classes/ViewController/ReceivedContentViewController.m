@@ -37,7 +37,7 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
 	[self.view addSubview:HUD];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settings_bg"]];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barItemWithImage:[UIImage imageNamed:@"nav_bar_btn_more"] target:self action:@selector(showActionSheet)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem newBarItemWithImage:[UIImage imageNamed:@"nav_bar_btn_more"] target:self action:@selector(showActionSheet)];
     
 }
 

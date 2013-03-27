@@ -160,11 +160,13 @@
     [leftNavItem release];
     [leftNavButtons release];
     
-    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSMutableArray *modifyMe = [[tabBar items] mutableCopy];
         [modifyMe removeObjectAtIndex:0];
         NSArray *newItems = [[NSArray alloc] initWithArray:modifyMe];
         [tabBar setItems:newItems animated:NO];
+        [newItems release];
+        [modifyMe release];
     }
 }
 

@@ -85,11 +85,13 @@
     // in the filterPredicates array.
     NSArray *filterTitles = @[NSLocalizedString(@"HistoryFilter_All", nil),
                               NSLocalizedString(@"HistoryFilter_Music", nil),
-                              NSLocalizedString(@"HistoryFilter_Images", nil)];
-    
+                              NSLocalizedString(@"HistoryFilter_Images", nil),
+                              NSLocalizedString(@"HistoryFilter_Contacts", nil)];
+
     self.filterPredicates = @[@"",
                               @"(mimeType contains[c] 'audio')",
-                              @"(mimeType contains[c] 'image')"];
+                              @"(mimeType contains[c] 'image')",
+                              @"(mimeType contains[c] 'text/x-vcard')"];
     
     HCFilterButtonController *filterController = [[HCFilterButtonController alloc] initWithTitles:filterTitles
                                                                                            target:self
