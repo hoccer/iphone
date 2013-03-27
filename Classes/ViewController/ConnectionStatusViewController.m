@@ -55,12 +55,13 @@
                 } else {
                     ETA = [[NSString alloc] initWithFormat:@"%ds", ETAsec];
                 }
-                ETALabel.text = [[NSString alloc] initWithFormat:NSLocalizedString(@"ProgressSecondsTodoFormat_String", nil), ETA];
-                [ETA dealloc];
+                
+                ETALabel.text = [NSString stringWithFormat:NSLocalizedString(@"ProgressSecondsTodoFormat_String", nil), ETA];
+                [ETA release];
             } else {
                 ETALabel.text = @"";
             }
-            [now dealloc];
+            [now release];
         }
     }
 
