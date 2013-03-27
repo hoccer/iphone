@@ -12,7 +12,6 @@
 
 #import "HoccerAppDelegate.h"
 #import "HoccerViewController.h"
-#import "TermOfUse.h"
 #import "StatusViewController.h"
 #import "HoccerText.h"
 #import "HoccerFileContent.h"
@@ -24,7 +23,6 @@
 #import "NSData_Base64Extensions.h"
 
 @interface HoccerAppDelegate ()
-- (void)userNeedToAgreeToTermsOfUse;
 - (BOOL)handleHoccerURL: (NSURL *)url;
 - (BOOL)handleFileURL: (NSURL *)url;
 @end
@@ -244,16 +242,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [viewController.linccer disconnect];
 }
 
-#pragma mark Terms Of Use Delegate Methods
-- (void)userNeedToAgreeToTermsOfUse
-{
-	TermOfUse *terms = [[TermOfUse alloc] init];
-	
-	terms.delegate = self;
-	[viewController presentModalViewController:terms animated:NO];
-	
-	[terms release];
-}
 
 - (void)userDidAgreeToTermsOfUse
 {

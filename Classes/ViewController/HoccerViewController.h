@@ -46,7 +46,6 @@
 @class HistoryData;
 @class HoccingRules;
 @class HoccerHistoryController;
-@class HCHistoryTVC;
 @class SettingViewController;
 @class GroupStatusViewController;
 

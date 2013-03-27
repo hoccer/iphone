@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HCHistoryTVC.h"
 
 #define kCellHeight 83.0
 #define kCellHeightMax 338.0
@@ -16,7 +15,6 @@
 @interface DataManager : NSObject <NSURLConnectionDelegate>
 
 @property (nonatomic, retain) NSArray *historyObjectsArray;
-@property (nonatomic, assign) HCHistoryTVC *historyTVC;
 
 +(DataManager *)sharedDataManager;
 

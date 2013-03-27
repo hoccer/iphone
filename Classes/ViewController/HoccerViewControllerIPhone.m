@@ -16,7 +16,6 @@
 // #import "PullToReceiveViewController.h"
 #import "HelpScrollView.h"
 #import "HoccerHistoryController.h"
-#import "HCHistoryTVC.h"
 #import "ItemViewController.h"
 #import "DesktopDataSource.h"
 #import "SettingViewController.h"
@@ -56,7 +55,6 @@
 
 @implementation HoccerViewControllerIPhone
 @synthesize hoccerHistoryController;
-@synthesize historyTVC;
 @synthesize delayedAction;
 @synthesize auxiliaryView;
 @synthesize activeContentSelectController;
@@ -82,11 +80,7 @@
 	self.hoccerHistoryController.hoccerViewController = self;
 	self.hoccerHistoryController.historyData = historyData;
     self.hoccerHistoryController.useEditingButtons = YES;
-	
-	self.historyTVC = [[[HCHistoryTVC alloc] init] autorelease];
-	self.historyTVC.parentNavigationController = navigationController;
-	self.historyTVC.hoccerViewController = self;
-   
+	   
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     desktopViewHeight = 341.0;
@@ -174,7 +168,6 @@
 
 - (void) dealloc {
 	[hoccerHistoryController release];
-	[historyTVC release];
 	[navigationController release];
 	[navigationItem release];
 	[tabBar release];
@@ -278,23 +271,6 @@
 		[self hidePopOverAnimated: YES];
 		tabBar.selectedItem = nil;
 	}
-
-    //new stuff with flip history
-    BOOL useFlipHistory = NO;
-    
-    if (useFlipHistory) {
-        if (!isPopUpDisplayed) {
-            [self showNewHistoryView];
-        }
-        else if (![auxiliaryView isKindOfClass:[HCHistoryTVC class]]) {
-            self.delayedAction = [ActionElement actionElementWithTarget:self selector:@selector(showNewHistoryView)];
-            [self hidePopOverAnimated: YES];
-        }
-        else {
-            [self hidePopOverAnimated: YES];
-            tabBar.selectedItem = nil;
-        }        
-    }
 }
 
 - (IBAction)toggleChannel:(id)sender
@@ -351,22 +327,6 @@
 {
 	[self showPopOver:self.hoccerHistoryController];
 	navigationItem.title = NSLocalizedString(@"Title_History", nil);
-	navigationItem.titleView = nil;
-}
-
-- (void)showNewHistoryView
-{
-	[self showPopOver:self.historyTVC];
-    	
-    navigationItem.title = NSLocalizedString(@"Title_History", nil);
-	
-    UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                 style:HCBarButtonBlack
-                                                                target:self
-                                                                action:@selector(cancelPopOver)];
-    [self.navigationItem setRightBarButtonItem:doneButton];
-    [doneButton release];
-    
 	navigationItem.titleView = nil;
 }
 

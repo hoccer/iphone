@@ -12,7 +12,6 @@
 #import "GroupStatusViewController.h"
 #import "HocletSelectViewController.h"
 #import "ActionElement.h"
-#import "HCHistoryTVC.h"
 // #import "CustomPullToRefresh.h"
 
 @class ActionElement;
@@ -45,7 +44,6 @@
 
 @property (nonatomic, retain) UIViewController *auxiliaryView;
 @property (nonatomic, retain) HoccerHistoryController *hoccerHistoryController;
-@property (nonatomic, retain) HCHistoryTVC *historyTVC;
 @property (nonatomic, retain) UINavigationItem *navigationItem;
 //@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 
