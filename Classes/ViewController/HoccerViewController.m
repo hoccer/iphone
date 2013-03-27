@@ -460,7 +460,7 @@ typedef enum {
             NSString *content = [NSString stringWithFormat:contentTemplate, channelLink];
             [picker setBody:content];
 
-            [picker setRecipients:[[NSArray alloc] initWithObjects:phone, nil]];
+            [picker setRecipients:@[phone]];
             
             [self presentModalViewController:picker animated:YES];
             [picker release];

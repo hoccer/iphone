@@ -183,8 +183,6 @@
         self.headerLabel.text = NSLocalizedString(@"TipTitle_HistoryList", nil);
 	}
 	[cell viewWithTag:6].hidden = YES;
-
-    BOOL isItemAnImage = NO;
     
 	NSInteger row = [indexPath row];
    
@@ -232,7 +230,7 @@
             //((UIImageView *)[cell viewWithTag:4]).image = hoccerImage.thumb;
 
             if ([item.mimeType startsWith:@"image/"]) {
-                isItemAnImage = YES;
+                
                 NSString *documentsDirectoryUrl = [[NSFileManager defaultManager] contentDirectory];
                 NSString *ext = [[item.filepath lastPathComponent] pathExtension];
                 if ((ext == nil) || (ext.length <= 0)) {
@@ -507,7 +505,7 @@
     {
         if ([rowSelected boolValue])
         {
-            HoccerHistoryItem *item = [[historyData itemAtIndex:index] autorelease];
+            HoccerHistoryItem *item = [historyData itemAtIndex:index];
             [rowsToBeDeleted addObject:item];
 
         }  
@@ -517,6 +515,8 @@
     for (HoccerHistoryItem *value in rowsToBeDeleted) {
         [historyData removeItem:value];
     }
+    
+    [rowsToBeDeleted release];
     
     [self cleanUp];
 
