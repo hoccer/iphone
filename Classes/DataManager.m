@@ -32,49 +32,51 @@ static DataManager* _sharedDataManager = nil;
 - (id)init
 {
     self = [super init];
+    if (self) {
 
-    HCHistoryImageWidget *widget1 = [[[HCHistoryImageWidget alloc] init] autorelease];
-    NSArray *topLevelObjects1 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
-    for (NSObject *object in topLevelObjects1) {
-        if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
-            widget1 = (HCHistoryImageWidget *)object;
-            break;
+        HCHistoryImageWidget *widget1 = [[[HCHistoryImageWidget alloc] init] autorelease];
+        NSArray *topLevelObjects1 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
+        for (NSObject *object in topLevelObjects1) {
+            if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
+                widget1 = (HCHistoryImageWidget *)object;
+                break;
+            }
         }
-    }
-    HCHistoryImageWidget *widget2 = [[[HCHistoryImageWidget alloc] init] autorelease];
-    NSArray *topLevelObjects2 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
-    for (NSObject *object in topLevelObjects2) {
-        if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
-            widget2 = (HCHistoryImageWidget *)object;
-            break;
+        HCHistoryImageWidget *widget2 = [[[HCHistoryImageWidget alloc] init] autorelease];
+        NSArray *topLevelObjects2 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
+        for (NSObject *object in topLevelObjects2) {
+            if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
+                widget2 = (HCHistoryImageWidget *)object;
+                break;
+            }
         }
-    }
-    HCHistoryImageWidget *widget3 = [[[HCHistoryImageWidget alloc] init] autorelease];
-    NSArray *topLevelObjects3 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
-    for (NSObject *object in topLevelObjects3) {
-        if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
-            widget3 = (HCHistoryImageWidget *)object;
-            break;
+        HCHistoryImageWidget *widget3 = [[[HCHistoryImageWidget alloc] init] autorelease];
+        NSArray *topLevelObjects3 = [[NSBundle mainBundle] loadNibNamed:@"HCHistoryImageWidget" owner:self options:nil];
+        for (NSObject *object in topLevelObjects3) {
+            if ([object isKindOfClass:[HCHistoryImageWidget class]]) {
+                widget3 = (HCHistoryImageWidget *)object;
+                break;
+            }
         }
+        
+        widget1.widgetIsOpen = NO;
+        widget2.widgetIsOpen = NO;
+        widget3.widgetIsOpen = NO;
+        
+        widget1.historyFileName.text = @"first picture";
+        widget2.historyFileName.text = @"second picture";
+        widget3.historyFileName.text = @"third picture";
+        
+        widget1.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        widget2.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        widget3.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        
+        widget1.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        widget2.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        widget3.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
+        
+        self.historyObjectsArray = [[NSArray alloc] initWithObjects:widget1, widget2, widget3, nil];
     }
-    
-    widget1.widgetIsOpen = NO;
-    widget2.widgetIsOpen = NO;
-    widget3.widgetIsOpen = NO;
-
-    widget1.historyFileName.text = @"first picture";
-    widget2.historyFileName.text = @"second picture";
-    widget3.historyFileName.text = @"third picture";
-    
-    widget1.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    widget2.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    widget3.historyImageSmall.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    
-    widget1.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    widget2.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    widget3.historyImageBig.image = [UIImage imageNamed:@"fail_kitten.jpg"];
-    
-    self.historyObjectsArray = [[NSArray alloc] initWithObjects:widget1, widget2, widget3, nil];
     
     return self;
 }
