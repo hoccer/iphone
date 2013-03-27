@@ -107,6 +107,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(50.0f, 0.0f, 0.0f, 0.0f);
     filterController.view.frame = CGRectSetOrigin(filterController.view.frame, 6.0, filterFrame.size.height - 40.0f);
     [filterContainer addSubview:filterController.view];
+    [filterContainer release];
 }
 
 - (void)didChangeFilter:(id)sender {
