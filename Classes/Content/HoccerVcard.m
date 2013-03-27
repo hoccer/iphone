@@ -96,56 +96,71 @@
 }
 
 - (Preview *)desktopItemView {
+    
 	[[NSBundle mainBundle] loadNibNamed:@"ContactsView" owner:self options:nil];
 	self.view.name.text = self.name;
-    self.view.company.text = (NSString *)ABRecordCopyValue(person, kABPersonOrganizationProperty);
-    self.view.image.image = [UIImage imageWithData:(NSData *)ABPersonCopyImageData(person)];
+    
+    CFTypeRef organizationName = ABRecordCopyValue(person, kABPersonOrganizationProperty);
+    self.view.company.text = (NSString *)organizationName;
+    if (organizationName != NULL) CFRelease(organizationName);
+    
+    CFTypeRef imageData = ABPersonCopyImageData(person);
+    if (imageData != NULL) {
+        self.view.image.image = [UIImage imageWithData:(NSData *)imageData];
+        CFRelease(imageData);
+    }
     
     NSMutableArray *telephone = [[NSMutableArray alloc] initWithCapacity:2];
     ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    if (phones != nil){
-        for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
-        {
-            CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
+    if (phones != nil) {
         
+        for(CFIndex i = 0; i < ABMultiValueGetCount(phones); i++) {
+            
+            CFStringRef locLabelRef = ABMultiValueCopyLabelAtIndex(phones, i);
             CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(phones, i);
-
-            NSString *phoneNumber = (NSString *)phoneNumberRef;
-            NSString *phoneLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+            CFTypeRef phoneLabelRef = ABAddressBookCopyLocalizedLabel(locLabelRef);
+            
+            NSString *phoneNumber = (NSString *)phoneNumberRef;    
+            NSString *phoneLabel = (NSString *)phoneLabelRef;
             
             if ([phoneLabel isEqualToString:@""]){
                 phoneLabel = @"phone";
             }
-            NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@",phoneLabel,phoneNumber];
+            
+            NSString *toPhoneArray = [NSString stringWithFormat:@"%@:  %@", phoneLabel, phoneNumber];
             [telephone addObject:toPhoneArray];
             
-            if (locLabel != NULL){
-                CFRelease(locLabel);
-            }
-            if (phoneNumberRef != NULL){
-                CFRelease(phoneNumberRef);
-            }
+            if (phoneLabelRef != NULL) CFRelease(phoneLabelRef);
+            if (locLabelRef != NULL) CFRelease(locLabelRef);
+            if (phoneNumberRef != NULL) CFRelease(phoneNumberRef);
         }
+
+        if (phones != NULL) CFRelease(phones);
     }
     
     NSMutableArray *emails = [[NSMutableArray alloc] initWithCapacity:2];
     ABMultiValueRef email = ABRecordCopyValue(person, kABPersonEmailProperty);
-    if (email != nil){
-        for(CFIndex i = 0; i < ABMultiValueGetCount(email); i++)
-        {
-            CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(email, i);
+    if (email != nil) {
+        
+        for(CFIndex i = 0; i < ABMultiValueGetCount(email); i++) {
             
+            CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(email, i);
             CFStringRef emailRef = ABMultiValueCopyValueAtIndex(email, i);
+            CFTypeRef emailLabelRef = ABAddressBookCopyLocalizedLabel(locLabel);
             
             NSString *emailAdress = (NSString *)emailRef;
-            NSString *emailLabel =(NSString*) ABAddressBookCopyLocalizedLabel(locLabel);
+            NSString *emailLabel = (NSString *)emailLabelRef;
+            
             if ([emailLabel isEqualToString:@""]) {
                 emailLabel = @"email";
             }
             
-            NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@",emailLabel,emailAdress];
+            NSString *toEmailArray = [NSString stringWithFormat:@"%@:  %@", emailLabel, emailAdress];
             [emails addObject:toEmailArray];
             
+            if (emailLabelRef != NULL) {
+                CFRelease(emailLabelRef);
+            }
             if (locLabel != NULL){
                 CFRelease(locLabel);
             }
@@ -153,12 +168,11 @@
                 CFRelease(emailRef);
             }
         }
+        
+        if (email != NULL) CFRelease(email);
     }
     
-    
-    
     NSString *otherInfo = @"";
-    
     for (NSString *number in telephone){
         otherInfo = [otherInfo stringByAppendingFormat:@"%@\n",number];
     }
