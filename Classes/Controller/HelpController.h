@@ -15,5 +15,6 @@
 
 - (id)initWithController: (UINavigationController *)viewController;
 - (void)viewDidLoad;
+- (void)showTutorial;
 
 @end

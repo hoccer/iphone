@@ -99,7 +99,6 @@
     CGRect newFrame = textView.frame;
     CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
     if (up) {
-        editHeight = newFrame.size.height;
         newFrame.size.height -= keyboardFrame.size.height;
     } else {
         newFrame.size.height = editHeight;

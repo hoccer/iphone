@@ -97,21 +97,27 @@
     } else {
         // Tutorial Handling
         if (buttonIndex == 1) {
-            HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
-            helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
-            CGRect screenRect;
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-                screenRect = [[UIScreen mainScreen] bounds];
-                screenRect.size.height = screenRect.size.height - (20+44+48);
-            }
-            else {
-                screenRect = CGRectMake(0, 0, 320, 367);
-            }
-            helpView.view.frame = screenRect;
-            [controller pushViewController:helpView animated:YES];
-            [helpView release];
+            [self showTutorial];
         }
     }
+}
+
+- (void)showTutorial {
+    
+    HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
+    helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
+    CGRect screenRect;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        screenRect = [[UIScreen mainScreen] bounds];
+        screenRect.size.height = screenRect.size.height - (20+44+48);
+    }
+    else {
+        screenRect = CGRectMake(0, 0, 320, 367);
+    }
+    helpView.view.frame = screenRect;
+    [controller pushViewController:helpView animated:YES];
+    [helpView release];
+
 }
 
 - (void) dealloc {
