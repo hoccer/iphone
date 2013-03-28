@@ -143,12 +143,8 @@
 	helpController = [[HelpController alloc] initWithController:navigationController];
 	[helpController viewDidLoad];
     
-    //[self showPullDown];
-    
     self.pullDownView.desktopView = desktopView;
     
-    //isPullDown = NO;
-    	
     [self updateGroupButton];
     [self updateChannelButton];
     //[self updateEncryptionIndicator];
@@ -178,6 +174,20 @@
     [activeContentSelectController release];
 	
 	[super dealloc];
+}
+
+- (void)showHelpButton {
+    
+    UIBarButtonItem *helpButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Help", nil)
+                                                              style:HCBarButtonBlack
+                                                             target:self
+                                                             action:@selector(showHelpScreen)];
+    self.navigationItem.leftBarButtonItem = helpButton;
+    [helpButton release];
+}
+
+- (void)showHelpScreen {
+    [helpController showTutorial];
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
@@ -452,8 +462,8 @@
 	self.gestureInterpreter.delegate = self;
 	
 	[navigationController popToRootViewControllerAnimated:YES];
-    navigationItem.leftBarButtonItem = nil;
-
+    
+    
 	navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hoccer_logo_bar.png"]] autorelease];
     
     [self showGroupButton];
@@ -720,7 +730,7 @@
 {
     BOOL isChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (!isChannelMode) {
-        navigationItem.leftBarButtonItem = nil;
+        [self showHelpButton];
         return;
     }
     

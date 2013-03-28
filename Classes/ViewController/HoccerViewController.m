@@ -198,10 +198,12 @@ typedef enum {
                                              selector:@selector(encryptionNotEnabled:) 
                                                  name:@"encryptionNotEnabled" 
                                                object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(noPublicKey:) 
                                                  name:@"noPublicKey"
                                                object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTextInputVC:) name:@"showTextInputVC" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playPlayer) name:@"playPlayer" object:nil];
@@ -210,8 +212,6 @@ typedef enum {
 											 selector:@selector(didChangeNumberOfDesktopItems)
 												 name:@"NumberOfDesktopItemsChanged"
 											   object:nil];
-
-    
 
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(desktopLongPressed:)];
 
