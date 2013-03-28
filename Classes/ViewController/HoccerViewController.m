@@ -68,6 +68,7 @@
 
 #import "DataManager.h"
 #import "NSData+CommonCrypto.h"
+#import "HCError.h"
 
 
 @interface HoccerViewController ()
@@ -1438,7 +1439,7 @@ typedef enum {
         }
     }
     
-    if (failcounter < 3 && error.code != 409){
+    if (failcounter < 3 && error.code != 409 && error.code != HoccerNoSenderError && error.code != HoccerNoReceiverError){
         // [self retryLastAction];
         failcounter ++;
     }
