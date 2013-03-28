@@ -49,6 +49,7 @@
 
 - (IBAction)cancelAction: (id) sender;
 
+- (BOOL)visible;
 
 - (void)hideViewAnimated: (BOOL)animation;
 - (void)showViewAnimated: (BOOL)animation;

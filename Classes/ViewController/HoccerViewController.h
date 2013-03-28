@@ -176,7 +176,7 @@
 - (void)retryLastAction;
 
 - (void)switchAutoReceiveMode:(BOOL)on;
-- (void)toggleAutoReceiveMode;
+//- (void)toggleAutoReceiveMode;
 - (void)showChannelContactPicker;
 
 - (void)cancelPopOver;
@@ -188,6 +188,8 @@
 
 - (void)updateGroupButton;
 - (void)updateChannelButton;
+
+- (void)didChangeNumberOfDesktopItems;
 
 @end
 

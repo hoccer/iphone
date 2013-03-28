@@ -264,6 +264,7 @@
 }
 
 - (void)dismissContentSelectViewController {
+    
     self.activeContentSelectController = nil;
     [contentPopOverController dismissPopoverAnimated:YES];
     self.tabBar.selectedItem = nil;
@@ -965,6 +966,7 @@
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+
     if (USES_DEBUG_MESSAGES) {  NSLog(@"popoverControllerDidDismissPopover");}
     [self movePullDownToNormalPosition];
     self.tabBar.selectedItem = nil;

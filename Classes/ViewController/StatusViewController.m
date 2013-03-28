@@ -173,6 +173,10 @@
 #pragma mark -
 #pragma mark Showing and Hiding StatusBar
 
+- (BOOL)visible {
+    return !self.view.hidden;
+}
+
 - (void)showViewAnimated: (BOOL)animation {
 	if (!self.view.hidden ) {
 		 return;
