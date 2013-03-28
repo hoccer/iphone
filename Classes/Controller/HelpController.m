@@ -101,8 +101,9 @@
     }
 }
 
-- (void)showTutorial {    
-    [self.delegate helpControllerRequestsTutorial];
+- (void)showTutorial {
+    if (self.delegate) [self.delegate helpControllerRequestsTutorial];
+    else NSLog(@"HelpController tried to notify delegate with helpControllerRequestsTutorial, but there is no delegate");
 }
 
 

@@ -463,12 +463,12 @@
     if (inMassEditMode) {
         
         UIBarButtonItem *deleteButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Delete", nil)
-                                                                    style:HCBarButtonRed
+                                                                    style:HCButtonStyleRed
                                                                    target:self
                                                                    action:@selector(deleteSelection:)];
         
         UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
-                                                                    style:HCBarButtonBlack
+                                                                    style:HCButtonStyleBlack
                                                                    target:self
                                                                    action:@selector(enterCustomEditMode:)];
         
@@ -480,12 +480,12 @@
     else {
         
         UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                  style:HCBarButtonBlack
+                                                                  style:HCButtonStyleBlack
                                                                  target:hoccerViewController
                                                                  action:@selector(cancelPopOver)];
         
         UIBarButtonItem *editButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Edit", nil)
-                                                                  style:HCBarButtonBlack
+                                                                  style:HCButtonStyleBlack
                                                                  target:self
                                                                  action:@selector(enterCustomEditMode:)];
         

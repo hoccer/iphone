@@ -15,7 +15,7 @@
 @implementation HCButtonFactory
 
 
-+ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
++ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCButtonStyle)style target:(id)target action:(SEL)selector {
     
     UIButton *button = [self buttonWithTitle:title style:style target:target action:selector];
     HCBarButtonItem *barButtonItem = [[HCBarButtonItem alloc] initWithCustomView:button];
@@ -23,7 +23,7 @@
 }
 
 
-+ (UIButton *)buttonWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
++ (UIButton *)buttonWithTitle:(NSString *)title style:(HCButtonStyle)style target:(id)target action:(SEL)selector {
 
     UIImage *backgroundImage = [self _resizableImageForStyle:style];
     
@@ -41,7 +41,7 @@
     button.titleLabel.font = buttonFont;
     button.titleLabel.textAlignment = UITextAlignmentCenter;
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
-    
+        
     return button;
 }
 
@@ -74,9 +74,9 @@
 }
 
 
-+ (float)_paddingForStyle:(HCBarButtonStyle)style {
++ (float)_paddingForStyle:(HCButtonStyle)style {
     switch (style) {
-        case HCBarButtonStyleBlackHelp:
+        case HCButtonStyleBlackLarge:
             return 11.0f;
             break;
             
@@ -86,10 +86,10 @@
     }
 }
 
-+ (UIFont *)_fontForStyle:(HCBarButtonStyle)style {
++ (UIFont *)_fontForStyle:(HCButtonStyle)style {
     
     switch (style) {
-        case HCBarButtonStyleBlackHelp:
+        case HCButtonStyleBlackLarge:
             return [UIFont systemFontOfSize:17];
             break;
             
@@ -100,26 +100,26 @@
 }
 
 
-+ (UIImage *)_resizableImageForStyle:(HCBarButtonStyle)style {
++ (UIImage *)_resizableImageForStyle:(HCButtonStyle)style {
     
     NSString *backgroundImageName;
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0, 6, 0, 6);
     
     switch (style) {
-        case HCBarButtonBlue:
+        case HCButtonStyleBlue:
             backgroundImageName = @"nav_bar_btn_blue_background";
             break;
             
-        case HCBarButtonRed:
+        case HCButtonStyleRed:
             backgroundImageName = @"nav_bar_btn_red_background";
             break;
         
-        case HCBarButtonBlackPointingLeft:
+        case HCButtonStyleBlackPointingLeft:
             edgeInsets = UIEdgeInsetsMake(0, 14, 0, 6);
             backgroundImageName = @"nav_bar_btn_back";
             break;
             
-        case HCBarButtonBlack:
+        case HCButtonStyleBlack:
         default:
             backgroundImageName = @"nav_bar_btn_background";
             break;

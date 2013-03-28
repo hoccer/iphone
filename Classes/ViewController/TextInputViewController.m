@@ -27,12 +27,12 @@
     [textView becomeFirstResponder];
     
     UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                 style:HCBarButtonBlue
+                                                                 style:HCButtonStyleBlue
                                                                 target:self
                                                                 action:@selector(doneButtonTapped:)];
 
     UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
-                                                                 style:HCBarButtonBlack
+                                                                 style:HCButtonStyleBlack
                                                                 target:self
                                                                 action:@selector(cancelButtonTapped:)];
     

@@ -190,12 +190,30 @@
 
 - (void)showHelpButton {
     
-    UIBarButtonItem *helpButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Help", nil)
-                                                              style:HCBarButtonBlack
-                                                             target:self
-                                                             action:@selector(showHelpScreen)];
-    self.navigationItem.leftBarButtonItem = helpButton;
-    [helpButton release];
+    UIButton *button = [HCButtonFactory buttonWithTitle:NSLocalizedString(@"Button_Help", nil)
+                                                  style:HCButtonStyleBlackLarge
+                                                 target:self
+                                                 action:@selector(showHelpScreen)];
+    
+    // Special case aka hack for HCButtonStyleBlackLarge:
+    // Adjust height of dynamic help button so it fits the height of the group button visually.
+    // Apparently, this is different for retina and non-retina displays.
+    
+    // NOTE: The values slightly differ from the same case used in HoccerViewControlleriPad!
+    if ([[UIScreen mainScreen] scale] == 1.0f) {
+        button.frame = CGRectMake(0.0f, 2.0f, CGRectGetWidth(button.frame), 32.0f);
+    }
+    else {
+        button.frame = CGRectMake(0.0f, 2.5f, CGRectGetWidth(button.frame), 31.0f);
+    }
+    
+    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(button.frame), CGRectGetMaxY(button.frame))];
+    [containerView addSubview:button];
+    
+    HCBarButtonItem *buttonItem = [[HCBarButtonItem alloc] initWithCustomView:containerView];
+    self.navigationItem.leftBarButtonItem = buttonItem;
+    [buttonItem release];
+    [containerView release];
 }
 
 - (void)showHelpScreen {
@@ -345,7 +363,7 @@
 	navigationItem.title = NSLocalizedString(@"Title_Settings", nil);
     
     UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                 style:HCBarButtonBlack
+                                                                 style:HCButtonStyleBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
@@ -371,7 +389,7 @@
 	navigationItem.title = NSLocalizedString(@"Title_Channel", nil);
 	
     UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                 style:HCBarButtonBlack
+                                                                 style:HCButtonStyleBlack
                                                                 target:self
                                                                 action:@selector(cancelPopOver)];
     [self.navigationItem setRightBarButtonItem:doneButton];
@@ -422,13 +440,13 @@
     [self showPopOver:inputVC];
         
     UIBarButtonItem *doneButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Done", nil)
-                                                                   style:HCBarButtonBlue
+                                                                   style:HCButtonStyleBlue
                                                                   target:inputVC
                                                                   action:@selector(doneButtonTapped:)];
 
     
     UIBarButtonItem *cancelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Cancel", nil)
-                                                                   style:HCBarButtonBlack
+                                                                   style:HCButtonStyleBlack
                                                                   target:self
                                                                   action:@selector(cancelPopOver)];
     
@@ -757,7 +775,7 @@
     }
     
     UIBarButtonItem *channelButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_LeaveChannel", nil)
-                                                                    style:HCBarButtonBlackPointingLeft
+                                                                    style:HCButtonStyleBlackPointingLeft
                                                                    target:self
                                                                    action:@selector(pressedLeaveChannelMode:)];
 

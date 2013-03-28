@@ -746,10 +746,10 @@
     if (USES_DEBUG_MESSAGES) {  NSLog(@"showGroupAndEncryption");}
     
     UIButton *helpButton = [HCButtonFactory buttonWithTitle:NSLocalizedString(@"Button_Help", nil)
-                                                      style:HCBarButtonStyleBlackHelp
+                                                      style:HCButtonStyleBlackLarge
                                                      target:self
                                                      action:@selector(showHelp)];
-    
+    // Special case aka hack for HCButtonStyleBlackLarge:
     // Adjust height of dynamic help button so it fits the height of the group button visually.
     // Apparently, this is different for retina and non-retina displays.
     if ([[UIScreen mainScreen] scale] == 1.0f) {
@@ -758,7 +758,7 @@
     else {
         helpButton.frame = CGRectMake(0.0f, 1.5f, CGRectGetWidth(helpButton.frame), 31.0f);
     }
-    
+   
     // Move the help button and the group button into the same container next to each other
     CGRect containerFrame = helpButton.frame;
     float groupButtonOffset = CGRectGetWidth(helpButton.frame) + 10.0f;     // Group button next to help button

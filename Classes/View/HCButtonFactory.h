@@ -11,18 +11,18 @@
 
 
 typedef enum {
-	HCBarButtonBlack,
-	HCBarButtonBlue,
-	HCBarButtonRed,
-    HCBarButtonBlackPointingLeft,
-    HCBarButtonStyleBlackHelp
-} HCBarButtonStyle;
+	HCButtonStyleBlack,
+	HCButtonStyleBlue,
+	HCButtonStyleRed,
+    HCButtonStyleBlackPointingLeft,
+    HCButtonStyleBlackLarge
+} HCButtonStyle;
 
 
 @interface HCButtonFactory : NSObject
 
-+ (UIButton *)buttonWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector;
-+ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector;
++ (UIButton *)buttonWithTitle:(NSString *)title style:(HCButtonStyle)style target:(id)target action:(SEL)selector;
++ (HCBarButtonItem *)newItemWithTitle:(NSString *)title style:(HCButtonStyle)style target:(id)target action:(SEL)selector;
 + (HCBarButtonItem *)newSegmentedControlWithImages:(NSArray *)images target:(id)target action:(SEL)selector;
 
 @end
