@@ -14,14 +14,6 @@
 
 @implementation HelpController
 
-- (id)initWithController: (UINavigationController *)viewController {
-	self = [super init];
-	if (self != nil) {
-		controller = [viewController retain];
-	}
-	
-	return self;
-}
 
 - (void)showTips {
     
@@ -111,11 +103,6 @@
 
 - (void)showTutorial {    
     [self.delegate helpControllerRequestsTutorial];
-}
-
-- (void) dealloc {
-	[controller release];
-	[super dealloc];
 }
 
 

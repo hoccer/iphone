@@ -14,14 +14,12 @@
 
 @interface HelpController : NSObject <UIAlertViewDelegate> {
 
-	UINavigationController *controller;
     UINavigationController *tutorialPopOverNavigationController;
     UIPopoverController *tutorialPopOverController;
 }
 
 @property (nonatomic, assign) id<HelpControllerDelegate> delegate;
 
-- (id)initWithController: (UINavigationController *)viewController;
 - (void)showTips;
 
 @end

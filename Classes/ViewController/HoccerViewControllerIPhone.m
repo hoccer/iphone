@@ -150,7 +150,7 @@
     [self movePullDownToNormalPosition];
 	[self showHud];
 
-	helpController = [[HelpController alloc] initWithController:navigationController];
+	helpController = [[HelpController alloc] init];
     helpController.delegate = self;
 }
 
