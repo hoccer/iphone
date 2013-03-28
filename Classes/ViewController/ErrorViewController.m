@@ -29,7 +29,7 @@
     [self.titleLabel sizeToFit];
 
     self.messageLabel.text = ourText;
-    [self.messageLabel sizeToFit];
+    // [self.messageLabel sizeToFit];
     
     // Message directly below title and both centered vertically
     float beautyOffset = -6.0f;

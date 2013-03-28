@@ -458,7 +458,7 @@
 - (void)hidePopOverAnimated:(BOOL) animate
 {
     if (animate) {
-        [self movePullDownToNormalPosition];
+        [self ensurePullDownPosition];
     }
     
 	if (self.auxiliaryView != nil) {		
@@ -839,9 +839,7 @@
 {
     [groupViewController hideViewAnimated:NO];
     
-    if (!self.autoReceiveMode) {
-        [self movePullDownToNormalPosition];
-    }
+    [self ensurePullDownPosition];
 }
 
 - (void)pressedButton:(id)sender

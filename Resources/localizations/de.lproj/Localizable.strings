@@ -293,7 +293,7 @@
 
 "RecoverySuggestion_PublicKeyMaybeInvalid" = "Deaktivieren Sie die Verschlüsselung und aktivieren Sie sie anschliessend wieder.";
 
-"Message_TooManyFilesFlyingAround" = "Im Augenblick fliegen zuviele Daten herum. Bitte stellen Sie sicher, dass nicht mehrere Personen gleichzeitig via Hoccer etwas senden.";
+"Message_TooManyFilesFlyingAround" = "An ihrem Ort werden zu viele Daten gleichzeitig gesendet. Versuchen sie es nacheinander oder wählen sie  Partner im Menu rechts oben aus.";
 
 "RecoverySuggestion_TooManyFilesFlyingAround" = "Versuchen Sie es noch einmal.";
 
@@ -371,7 +371,7 @@
 
 "Message_PublicKeyChanged" = "Ein Sicherheitsproblem ist aufgetreten: Der Name oder der öffentliche Schlüssel von %@ wurde geändert. Bitte stellen Sie sicher, dass Sie dieser Person vertrauen. Stoppen Sie die Übertragung, wenn Sie sich nicht sicher sind.";
 
-"Title_TransferIncomplete" = "Datenübertragung fehlerhaft";
+"Title_TransferIncomplete" = "Die Datenübertragung konnte nicht vollständig durchgeführt werden. Möglicherweise wurde die Netzwerkverbindung unterbrochen oder der Sender hat die Übertragung abgebrochen.";
 
 "Title_NeedToEnableEncryption" = "Verschlüsselung benötigt";
 

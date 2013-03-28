@@ -691,6 +691,7 @@ typedef enum {
 	
 	if ([[content transferer] isKindOfClass:[FileUploader class]]) {
 		item.isUpload = YES;
+        // NSLog(@"fileUploaded set to NO");
         fileUploaded = NO;
         
         for (id transferer in [content transferers]) {
@@ -698,6 +699,7 @@ typedef enum {
         }
 	} else {
         fileUploaded = YES;
+        // NSLog(@"fileUploaded set to YES");
     }
 		
 	[desktopData addhoccerController:item];
@@ -993,13 +995,13 @@ typedef enum {
 	UITouch* touch = [touches anyObject];
     
 	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
-    //	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+//    CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
     CGRect myRect = self.pullDownView.frame;
     
-    //    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    //    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    //    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+//    NSLog(@" touchesBegan: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesBegan: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesBegan: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
     
     // return if not on pulldown view
     if (prevLocation.y < 0 || (prevLocation.y > myRect.size.height + 50)) {
@@ -1025,9 +1027,9 @@ typedef enum {
     
     CGRect myRect = self.pullDownView.frame;
     
-    //    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    //    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    //    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+//    NSLog(@" touchesMoved: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesMoved: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesMoved: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
     
     float minPosition = -67;
     float maxPosition = 0;
@@ -1053,16 +1055,16 @@ typedef enum {
         return;
     }
 	
-    //    UITouch* touch = [touches anyObject];
-    
-    //	CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
-    //	CGPoint currentLocation = [touch locationInView:self.pullDownView];
+//    UITouch* touch = [touches anyObject];
+//    
+//    CGPoint prevLocation = [touch previousLocationInView:self.pullDownView];
+//    CGPoint currentLocation = [touch locationInView:self.pullDownView];
     
     CGRect myRect = self.pullDownView.frame;
     
-    //    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
-    //    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
-    //    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
+//    NSLog(@" touchesEnded: pullDownView top %f , bottom %f", myRect.origin.y, myRect.origin.y + myRect.size.height);
+//    NSLog(@" touchesEnded: pullDownView prevLocation %f %f", prevLocation.x, prevLocation.y);
+//    NSLog(@" touchesEnded: pullDownView currentLocation %f %f", currentLocation.x, currentLocation.y);
     
     float minPosition = -67;
     float maxPosition = 0;
@@ -1112,22 +1114,19 @@ typedef enum {
 - (void)movePullDownToHidePosition
 {
     CGRect pullDownViewRect = self.pullDownView.frame;
-    pullDownViewRect.origin.y = - 100.0;
+    pullDownViewRect.origin.y = -300.0;
     pullDownViewRect.size.height = 0;
     
     self.pullDownView.frame = pullDownViewRect;
     
-    // NSLog(@"movePullDownToHidePosition - pullDownView.size.height = %f", self.pullDownView.frame.size.height);
-    
+//    NSLog(@"movePullDownToHidePosition - pullDownView top = %f, height = %f",
+//          self.pullDownView.frame.origin.y, self.pullDownView.frame.size.height);
+//    
     self.pullDownView.hidden = YES;
 }
 
 - (void)movePullDownToNormalPosition
 {
-    if ([desktopData numberOfItems] > 0) {
-       //[self movePullDownToHidePosition];
-        return;
-    }
     
     self.pullDownView.hidden = NO;
     
@@ -1136,6 +1135,8 @@ typedef enum {
     pullDownViewRect.size.height = 100;
     self.pullDownView.frame = pullDownViewRect;
     
+//    NSLog(@"movePullDownToNormalPosition - pullDownView top = %f, height = %f",
+//          self.pullDownView.frame.origin.y, self.pullDownView.frame.size.height);
 }
 
 - (void)movePullDownToMaxDownPosition
@@ -1144,13 +1145,21 @@ typedef enum {
 	pullDownViewRect.origin.y = 0.0;
     pullDownViewRect.size.height = 100;
 	self.pullDownView.frame = pullDownViewRect;
+
+//    NSLog(@"movePullDownToMaxDownPosition - pullDownView top = %f, height = %f",
+//          self.pullDownView.frame.origin.y, self.pullDownView.frame.size.height);
+
 }
 
 - (void)ensurePullDownPosition {
     if (self.autoReceiveMode) {
         [self movePullDownToMaxDownPosition];
     } else {
-        [self movePullDownToNormalPosition];
+        if ([desktopData numberOfItems] > 0) {
+            [self movePullDownToHidePosition];
+        } else {
+            [self movePullDownToNormalPosition];
+        }    
     }
 }
 
@@ -1403,7 +1412,8 @@ typedef enum {
 	[self ensureViewIsHoccable];
     
     fileUploaded = YES;
-    
+    // NSLog(@"fileUploaded set to YES (transferControllerDidFinishAllTransfers)");
+
     if (connectionEstablished) {
         if (self.sendingItem) {
             [self showSuccess:self.sendingItem];
@@ -1494,9 +1504,8 @@ typedef enum {
     // NSLog(@"willFinishAutoReceive stopAnimating");
     [self.activityIndi stopAnimating];
     
-    [self movePullDownToNormalPosition];
-    
-    self.autoReceiveMode = NO;
+     self.autoReceiveMode = NO;
+    [self ensurePullDownPosition];
 }
 
 - (void)linccer:(HCLinccer *)linncer didReceiveData:(NSArray *)data
@@ -1564,8 +1573,12 @@ typedef enum {
 	connectionEstablished = YES;
 
     if (self.sendingItem && fileUploaded) {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: showsuccess"); }
         [self showSuccess:self.sendingItem];
+    } else {
+        if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: self.sendingItem = %@, fileUploaded = %d",self.sendingItem, fileUploaded); }
     }
+
 }
 
 - (void) linccer:(HCLinccer *)linccer keyHasChangedForClientName:(NSString *)client
@@ -1772,6 +1785,8 @@ typedef enum {
         hoccerStatus = HOCCER_IDLING;
         [linccer reactivate];
     }
+    // NSLog(@"fileUploaded set to YES (showSuccess)");
+    fileUploaded = YES;
 }
 
 - (void)showNetworkError: (NSError *)error {
