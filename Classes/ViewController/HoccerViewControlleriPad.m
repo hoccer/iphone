@@ -29,6 +29,8 @@
 #import "ConnectionStatusViewController.h"
 #import "HoccerAppDelegate.h"
 #import "HCButtonFactory.h"
+#import "CGRectUtils.h"
+#import "HCUtils.h"
 
 
 @interface HoccerViewControlleriPad ()
@@ -50,8 +52,6 @@
 - (void)showGroupAndEncryption;
 - (void)setProperPullDownBackgroundImage: (BOOL) isPortrait;
 - (void)setProperSubViewSizes: (BOOL) isPortrait;
-
-
 
 @end
 
@@ -137,8 +137,6 @@
         NSLog(@"WARNING, groupViewController should have only one subview, found %i",[subviews count]);
     }
 	
-	helpController = [[HelpController alloc] initWithController:navigationController];
-	[helpController viewDidLoad];
     
     self.pullDownView.desktopView = desktopView;
     [self movePullDownToNormalPosition];
@@ -168,8 +166,17 @@
         [newItems release];
         [modifyMe release];
     }
+    
+    helpController = [[HelpController alloc] initWithController:navigationController];
+    helpController.delegate = self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // HelpController should show tips after the view appeared because it might request to show the tutorial
+    // using a popover which can't be used if its view has no window.
+    [helpController showTips];    
+}
 
 - (void) dealloc {
     
@@ -188,6 +195,14 @@
     [channelPopOverController release];
 	
 	[super dealloc];
+}
+
+- (void)helpControllerRequestsTutorial {
+    [self showHelp];
+}
+
+- (void)showHelp {
+    [self toggleTutorial:nil];
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
@@ -336,12 +351,42 @@
         [historyPopOverController dismissPopoverAnimated:YES];
     }
     else {
-        [historyPopOverController presentPopoverFromRect:CGRectMake(20, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];        
+        [historyPopOverController presentPopoverFromRect:CGRectMake(20, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         [settingsPopOverController dismissPopoverAnimated:NO];
         [channelPopOverController dismissPopoverAnimated:NO];
-
     }
 }
+
+
+- (IBAction)toggleTutorial:(id)sender {
+	
+    if (!tutorialPopOverNavigationController) {
+        
+        HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
+        helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
+        CGRect screenRect = CGRectMake(0, 0, 320, 367);
+        helpView.view.frame = screenRect;
+        tutorialPopOverNavigationController = [[UINavigationController alloc] initWithRootViewController:helpView];
+        [helpView release];
+        
+        //self.hoccerHistoryController.parentNavigationController = tutorialPopOverNavigationController;
+        [tutorialPopOverNavigationController setTitle:NSLocalizedString(@"Title_Tutorial", nil)];
+    }
+    if (!tutorialPopOverController) {
+        tutorialPopOverController = [[UIPopoverController alloc] initWithContentViewController:tutorialPopOverNavigationController];
+        if ([tutorialPopOverController respondsToSelector:@selector(setPopoverBackgroundViewClass:)]){
+            [tutorialPopOverController setPopoverBackgroundViewClass:[KSCustomPopoverBackgroundView class]];
+        }
+        [tutorialPopOverController setPopoverContentSize:CGSizeMake(320, 600)];
+    }
+    if ([tutorialPopOverController isPopoverVisible]){
+        [tutorialPopOverController dismissPopoverAnimated:YES];
+    }
+    else {
+        [tutorialPopOverController presentPopoverFromRect:CGRectMake(CGRectGetWidth(self.view.bounds) - 130.0f, 0, 50, 44) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+}
+
 
 
 - (IBAction)selectMyContact:(id)sender {
@@ -589,7 +634,8 @@
 	}
 	
     if (groupSizeButton == nil) {
-        // NSLog(@"updateGroupButton: groupSizeButton is nil, creating");
+        
+        //NSLog(@"updateGroupButton: groupSizeButton is nil, creating");
         groupSizeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [groupSizeButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [groupSizeButton addTarget:self action:@selector(pressedButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -610,7 +656,8 @@
         clientSelected = NO;
     }
     
-    [groupSizeButton setTitle: text forState:UIControlStateNormal];   
+    [groupSizeButton setTitle:text forState:UIControlStateNormal];
+    [groupSizeButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
     
     BOOL inChannelMode = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate channelMode];
     if (inChannelMode) {
@@ -697,9 +744,32 @@
 - (void)showGroupAndEncryption
 {
     if (USES_DEBUG_MESSAGES) {  NSLog(@"showGroupAndEncryption");}
-    UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 44,44)];
-    //[containerView addSubview:encryptionButton];
+    
+    UIButton *helpButton = [HCButtonFactory buttonWithTitle:NSLocalizedString(@"Button_Help", nil)
+                                                      style:HCBarButtonStyleBlackHelp
+                                                     target:self
+                                                     action:@selector(showHelp)];
+    
+    // Adjust height of dynamic help button so it fits the height of the group button visually.
+    // Apparently, this is different for retina and non-retina displays.
+    if ([[UIScreen mainScreen] scale] == 1.0f) {
+        helpButton.frame = CGRectMake(0.0f, 1.0f, CGRectGetWidth(helpButton.frame), 32.0f);
+    }
+    else {
+        helpButton.frame = CGRectMake(0.0f, 1.5f, CGRectGetWidth(helpButton.frame), 31.0f);
+    }
+    
+    // Move the help button and the group button into the same container next to each other
+    CGRect containerFrame = helpButton.frame;
+    float groupButtonOffset = CGRectGetWidth(helpButton.frame) + 10.0f;     // Group button next to help button
+    containerFrame.size.width += groupButtonOffset;
+    UIView *containerView = [[UIView alloc] initWithFrame:containerFrame];  // Both buttons inside common container
+    
+    [containerView addSubview:helpButton];
+    groupSizeButton.frame = CGRectSetOrigin(groupSizeButton.frame, groupButtonOffset, -6.0f);
     [containerView addSubview:groupSizeButton];
+    
+    // Use the container view as a bar button item
     UIBarButtonItem *encryptionGroupButton = [[UIBarButtonItem alloc] initWithCustomView:containerView];
     self.navigationItem.rightBarButtonItem = encryptionGroupButton;
     [encryptionGroupButton release];
@@ -890,6 +960,15 @@
             [musicPopOverController presentPopoverFromRect:CGRectMake(325, 698, 49, 49) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:NO];
         }
         }
+    }
+    
+    if ([tutorialPopOverController isPopoverVisible]) {
+        
+        [tutorialPopOverController dismissPopoverAnimated:NO];
+        [tutorialPopOverController presentPopoverFromRect:CGRectMake(CGRectGetWidth(self.view.bounds) - 130.0f, 0, 50, 44)
+                                                   inView:self.view
+                                 permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                 animated:NO];
     }
     
     if (isPortrait){

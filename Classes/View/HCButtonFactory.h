@@ -14,7 +14,8 @@ typedef enum {
 	HCBarButtonBlack,
 	HCBarButtonBlue,
 	HCBarButtonRed,
-    HCBarButtonBlackPointingLeft
+    HCBarButtonBlackPointingLeft,
+    HCBarButtonStyleBlackHelp
 } HCBarButtonStyle;
 
 

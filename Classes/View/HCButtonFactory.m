@@ -9,8 +9,6 @@
 #import "HCButtonFactory.h"
 
 
-#define kHCButtonTitlePadding    9.0f      // Padding before and after text within button
-#define kHCButtonFontSize       12.0f
 #define kHCButtonHeight         32.0f
 
 
@@ -26,28 +24,16 @@
 
 
 + (UIButton *)buttonWithTitle:(NSString *)title style:(HCBarButtonStyle)style target:(id)target action:(SEL)selector {
-    
+
     UIImage *backgroundImage = [self _resizableImageForStyle:style];
-    UIButton *button = [self buttonWithTitle:title
-                                      target:target
-                                      action:selector
-                    resizableBackgroundImage:backgroundImage
-                                 textPadding:kHCButtonTitlePadding];
-    return button;
-}
-
-
-+ (UIButton *)buttonWithTitle:(NSString *)title
-                               target:(id)target
-                               action:(SEL)selector
-             resizableBackgroundImage:(UIImage *)backgroundImage
-                          textPadding:(float)textPadding {
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     
-    UIFont *buttonFont = [UIFont boldSystemFontOfSize:kHCButtonFontSize];
+    UIFont *buttonFont = [self _fontForStyle:style];
     CGSize requiredSize = [title sizeWithFont:buttonFont];
+    
+    float textPadding = [self _paddingForStyle:style];
     requiredSize.width += roundf(textPadding * 2.0f);
     button.frame = CGRectMake(0, 0, MAX(20.0f, requiredSize.width), kHCButtonHeight);
     
@@ -85,6 +71,32 @@
     [buttonContainer release];
     
     return segmentedControlItem;
+}
+
+
++ (float)_paddingForStyle:(HCBarButtonStyle)style {
+    switch (style) {
+        case HCBarButtonStyleBlackHelp:
+            return 11.0f;
+            break;
+            
+        default:
+            return 9.0f;
+            break;
+    }
+}
+
++ (UIFont *)_fontForStyle:(HCBarButtonStyle)style {
+    
+    switch (style) {
+        case HCBarButtonStyleBlackHelp:
+            return [UIFont systemFontOfSize:17];
+            break;
+            
+        default:
+            return [UIFont boldSystemFontOfSize:12];
+            break;
+    }
 }
 
 
