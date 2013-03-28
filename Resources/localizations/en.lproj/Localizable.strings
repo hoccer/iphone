@@ -294,9 +294,9 @@
 
 "RecoverySuggestion_PublicKeyMaybeInvalid" = "Disable encryption and enable it again.";
 
-"Message_TooManyFilesFlyingAround" = "Too many files are flying around. Make sure that only one person is SENDING via HOCCER at one time.";
+"Message_TooManyFilesFlyingAround" = "Too many files thrown here at the same time. You can restrict your partner(s) using the menu under the top right button.";
 
-"RecoverySuggestion_TooManyFilesFlyingAround" = "Try again.";
+"RecoverySuggestion_TooManyFilesFlyingAround" = "Try again. You can avoid conflicts if you restrict your partner(s) using the top right button.";
 
 "Message_NoReceiver" = "Apparently nobody wants your file. Please try SENDING again.";
 
@@ -372,7 +372,7 @@
 
 "Message_PublicKeyChanged" = "SECURITY PROBLEM: Public key changed. The name or the public key of %@ has changed, please make sure you trust this person. If you are not sure please stop transaction";
 
-"Title_TransferIncomplete" = "Transfer was incomplete";
+"Title_TransferIncomplete" = "The data transfer could not be completed. There may be network problems or the sender aborted the transmission.";
 
 "Title_NeedToEnableEncryption" = "Enable encryption";
 
