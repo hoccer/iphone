@@ -35,6 +35,8 @@
     if (percentage < lastProgress) {
         lastProgress = percentage;
         lastProgressTime = [[NSDate alloc] init];
+        ETALabel.text = @"---";
+        // NSLog(@"lastProgress set percentage = %f, time init=%@", lastProgress, lastProgressTime);
     } else {
         if (lastProgressTime != nil) {
             NSDate *now = [[NSDate alloc] init];
@@ -42,10 +44,13 @@
             // NSLog(@"progressTime = %f", progressTime);
             CGFloat dprogress = percentage - lastProgress;
             // NSLog(@"dprogress = %f", dprogress);
+            //CGFloat speed = dprogress / progressTime;
+            //NSLog(@"speed = %f per s.", speed);
             CGFloat todo = (1.0 - percentage);
             // NSLog(@"todo = %f", todo);
             NSInteger ETAsecsTotal = todo * (progressTime / dprogress) + 0.99;
-            // NSLog(@"ETAsecs = %d", ETAsecs);
+            // NSLog(@"ETAsecsTotal = %d", ETAsecsTotal);
+            
             if (ETAsecsTotal > 0) {
                 NSInteger ETAmin = ETAsecsTotal / 60;
                 NSInteger ETAsec = ETAsecsTotal % 60;

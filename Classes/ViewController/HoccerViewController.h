@@ -113,6 +113,9 @@
 @property (nonatomic, retain) IBOutlet ConnectionStatusViewController *statusViewController;
 @property (nonatomic, retain) IBOutlet ErrorViewController *errorViewController;
 
+@property (nonatomic, retain) MBProgressHUD *hud;
+@property (nonatomic, retain) MBProgressHUD *infoHud;
+
 @property (nonatomic, assign) IBOutlet UILabel *hoccabilityLabel;
 
 @property (nonatomic, retain) DesktopDataSource *desktopData;

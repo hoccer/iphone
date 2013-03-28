@@ -113,6 +113,9 @@ typedef enum {
 @synthesize tabBar;
 @synthesize pullDownActionInProgress;
 @synthesize pullDownBackgroundImage;
+@synthesize hud;
+@synthesize infoHud;
+
 
 + (void) initialize
 {
@@ -1879,7 +1882,7 @@ typedef enum {
 
 
 - (void)showInfoHudForMode:(NSString *)mode
-{		
+{
     infoHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [infoHud setAllowsCancelation:YES];
     [infoHud setDelegate:self];
@@ -1896,9 +1899,7 @@ typedef enum {
         infoHud.labelText = NSLocalizedString(@"HudMessage_CatchOnTheOtherPhones", nil);
         [infoHud show:YES];
     }
-
-
-    }
+}
 
 - (void)hudDidCancel {
     [statusViewController cancelAction:nil];
