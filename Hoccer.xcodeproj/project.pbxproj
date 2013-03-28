@@ -526,6 +526,7 @@
 		CD3F839017031C200037E696 /* tutorial_channel.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838C17031C200037E696 /* tutorial_channel.png */; };
 		CD3F839117031C200037E696 /* tutorial_channel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3F838D17031C200037E696 /* tutorial_channel@2x.png */; };
 		CD7065D816F8C92400CE0B6A /* HOW TO LOCALIZE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */; };
+		CD82D6E31704949800C15D30 /* HCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CD82D6E21704949800C15D30 /* HCUtils.m */; };
 		CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */; };
 		CDBE247F16EDED5C00E5FD8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDBE248116EDED5C00E5FD8C /* Localizable.strings */; };
 		CDC7328716F1E0440084A77F /* nav_bar_btn_red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC7328516F1E0440084A77F /* nav_bar_btn_red_background.png */; };
@@ -1176,6 +1177,8 @@
 		CD3F838C17031C200037E696 /* tutorial_channel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial_channel.png; sourceTree = "<group>"; };
 		CD3F838D17031C200037E696 /* tutorial_channel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tutorial_channel@2x.png"; sourceTree = "<group>"; };
 		CD7065D716F8C92400CE0B6A /* HOW TO LOCALIZE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HOW TO LOCALIZE.txt"; sourceTree = "<group>"; };
+		CD82D6E11704949800C15D30 /* HCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUtils.h; sourceTree = "<group>"; };
+		CD82D6E21704949800C15D30 /* HCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCUtils.m; sourceTree = "<group>"; };
 		CDB843AC16F72F530049A07B /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLocalizationHelper.h; sourceTree = "<group>"; };
 		CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLocalizationHelper.m; sourceTree = "<group>"; };
@@ -1477,6 +1480,8 @@
 				CDF9B64E16F2266C002E2D93 /* CGRectUtils.m */,
 				CDB843AD16F733FC0049A07B /* HCLocalizationHelper.h */,
 				CDB843AE16F733FC0049A07B /* HCLocalizationHelper.m */,
+				CD82D6E11704949800C15D30 /* HCUtils.h */,
+				CD82D6E21704949800C15D30 /* HCUtils.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -3350,6 +3355,7 @@
 				CDB843AF16F733FC0049A07B /* HCLocalizationHelper.m in Sources */,
 				CD16AFE416FCD16800B306BD /* HCFilterButton.m in Sources */,
 				CDE9AEDB1701C80F00F9A5CA /* HCFilterButtonController.m in Sources */,
+				CD82D6E31704949800C15D30 /* HCUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

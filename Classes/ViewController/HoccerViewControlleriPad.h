@@ -16,7 +16,7 @@
 @class ActionElement;
 
 @interface HoccerViewControlleriPad : HoccerViewController <UINavigationControllerDelegate, UIPopoverControllerDelegate,
-GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate> 
+GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate, HelpControllerDelegate>
 {
 	UIViewController *auxiliaryView;
 	ActionElement *delayedAction;
@@ -27,6 +27,7 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
     UINavigationController *settingsPopOverNavigationController;
     UINavigationController *historyPopOverNavigationController;
     UINavigationController *channelPopOverNavigationController;
+    UINavigationController *tutorialPopOverNavigationController;
     UISegmentedControl *leftNavButtons;
     
     
@@ -40,6 +41,7 @@ GroupStatusViewControllerDelegate, ContentSelectViewControllerDelegate>
     UIPopoverController *historyPopOverController;
     UIPopoverController *channelPopOverController;
     UIPopoverController *groupSelectPopOverController;
+    UIPopoverController *tutorialPopOverController;
     id <ContentSelectController> activeContentSelectController;
 }
 

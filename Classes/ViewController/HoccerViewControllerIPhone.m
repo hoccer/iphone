@@ -140,9 +140,6 @@
 	[groupViewController hideViewAnimated: NO];
     groupViewController.delegate = self;
 	
-	helpController = [[HelpController alloc] initWithController:navigationController];
-	[helpController viewDidLoad];
-    
     self.pullDownView.desktopView = desktopView;
     
     [self updateGroupButton];
@@ -152,7 +149,18 @@
     [self showTabBar:YES];
     [self movePullDownToNormalPosition];
 	[self showHud];
+
+	helpController = [[HelpController alloc] init];
+    helpController.delegate = self;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // HelpController should show tips after the view appeared because it might request to show the tutorial
+    // using a popover which can't be used if its view has no window.
+    [helpController showTips];
+}
+
 
 - (void)viewDidUnload
 {
@@ -176,6 +184,10 @@
 	[super dealloc];
 }
 
+- (void)helpControllerRequestsTutorial {
+    [self showHelpScreen];
+}
+
 - (void)showHelpButton {
     
     UIBarButtonItem *helpButton = [HCButtonFactory newItemWithTitle:NSLocalizedString(@"Button_Help", nil)
@@ -187,7 +199,15 @@
 }
 
 - (void)showHelpScreen {
-    [helpController showTutorial];
+    
+    HelpScrollView *helpView = [[HelpScrollView alloc] initWithNibName:@"HelpScrollView" bundle:nil];
+    helpView.navigationItem.title = NSLocalizedString(@"Title_Tutorial", nil);
+    CGRect screenRect;
+    screenRect = [[UIScreen mainScreen] bounds];
+    screenRect.size.height = screenRect.size.height - (20+44+48);
+    helpView.view.frame = screenRect;
+    [navigationController pushViewController:helpView animated:YES];
+    [helpView release];
 }
 
 - (void)setContentPreview: (HoccerContent *)content {
@@ -646,7 +666,9 @@
         clientSelected = NO;
     }
     
-    [groupSizeButton setTitle:text forState:UIControlStateNormal];
+    [groupSizeButton setTitle:text forState:UIControlStateNormal];    
+    [groupSizeButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
+
     if (clientSelected) {
         if (isChannelMode) {
             [groupSizeButton setBackgroundImage:[UIImage imageNamed:@"nav_bar_channel_on"] forState:UIControlStateNormal];

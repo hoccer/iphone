@@ -9,12 +9,22 @@
 #import <Foundation/Foundation.h>
 
 
+@protocol HelpControllerDelegate;
+
+
 @interface HelpController : NSObject <UIAlertViewDelegate> {
-	UINavigationController *controller;
+
+    UINavigationController *tutorialPopOverNavigationController;
+    UIPopoverController *tutorialPopOverController;
 }
 
-- (id)initWithController: (UINavigationController *)viewController;
-- (void)viewDidLoad;
-- (void)showTutorial;
+@property (nonatomic, assign) id<HelpControllerDelegate> delegate;
 
+- (void)showTips;
+
+@end
+
+
+@protocol HelpControllerDelegate <NSObject>
+- (void)helpControllerRequestsTutorial;
 @end
