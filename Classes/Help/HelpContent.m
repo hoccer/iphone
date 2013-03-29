@@ -107,7 +107,8 @@
 	
 	content.name = NSLocalizedString(@"HelpTitle_Encryption",nil);
 	content.description = NSLocalizedString(@"HelpMessage_Encryption",nil);
-	content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_encryption" ofType:@"png"];
+    content.imagePath = [[NSBundle mainBundle] pathForResource:@"tutorial_encryption" ofType:@"png"];
+	//content.imagePath = nil;
 	content.videoPath = nil;
 	
 	return [content autorelease];

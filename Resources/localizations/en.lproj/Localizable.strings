@@ -175,13 +175,14 @@
 
 "HelpMessage_Tab" = "To make sure your content is only receivable by ONE person, give both mobiles a gentle simultaneous tap.";
 
-"HelpTitle_Key" = "Key exchange";
+"HelpTitle_Key" = "Security";
 
-"HelpMessage_Key" = "To send your data encrypted select one or more clients to automatically exchange keys between your devices.";
+"HelpMessage_Key" = "You can restrict communication to one or more partners using the menu in the top right corner. Partners with active End-to-End encryption are marked with a key symbol. You must select partners if you want to send data using E2E-encryption.";
 
 "HelpTitle_Encryption" = "Encryption";
 
-"HelpMessage_Encryption" = "To enable end-to-end encryption tap the lock in the upper left corner of the screen. Devices capable of encryption are marked with a key in the client list.";
+"HelpMessage_Encryption" = "Hoccer always encrypts your data between your device and the server. You can activate additional End-to-End encryption in the Hoccer settings. In this case all partners must activate the End-to-End encryption.";
+
 
 "HelpTitle_AutoReceive" = "Auto-Receive";
 

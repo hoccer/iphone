@@ -176,11 +176,11 @@
 
 "HelpTitle_Key" = "Sicherheit";
 
-"HelpMessage_Key" = "Um Daten verschlüsselt zu versenden, wählen Sie einen oder mehrere Partner direkt aus.";
+"HelpMessage_Key" = "Sie können einen oder mehere Empfänger oder Sender im Menu oben rechts auswählen, um den Kreis der Kommunikationspartner einzuschränken. Teilnehmer mit aktivierter E2E-Verschlüsselung sind mit einem Schlüsselsymbol markiert. Wenn sie selbst Daten mit E2E-Verschlüsselung versenden wollen, müssen Sie aus Sicherheitsgründen mögliche Emfpänger im Menu auswählen.";
 
 "HelpTitle_Encryption" = "Verschlüsselung";
 
-"HelpMessage_Encryption" = "Um Ende-zu-Ende-Verschlüsselung (E2E) zu aktivieren, tappen Sie auf das Schlosssymbol oben links. Geräte, die in der Nähe sind und ebenfalls verschlüsseln können, werden dann mit einem kleinen Symbol entsprechend markiert.";
+"HelpMessage_Encryption" = "Hoccer verschlüsselt die Daten immer auf dem Übertragungsweg zum Server. Sie können sie in den Einstellungen zusätzlich eine Ende-zu-Ende-Verschlüsselung (E2E) aktivieren, so dass die Daten nur vom Empfänger entschlüsselt werden können. Hierfür müssen alle Teilnehmer die Ende-zu-Ende-Verschlüsselung aktivieren.";
 
 "HelpTitle_AutoReceive" = "Auto-Receive";
 
