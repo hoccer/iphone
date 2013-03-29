@@ -210,7 +210,8 @@
 	
 	[dict setObject:self.mimeType forKey:@"type"];
     
-    NSString *crypted = [self.cryptor encryptString:self.filename];
+    NSString *crypted = [self.transferer.cryptor encryptString:self.filename];
+    NSLog(@"filename = %@, crypted = %@", self.filename, crypted);
     [dict setObject:crypted forKey:@"filename"];
     
     NSInteger count = 0;
