@@ -809,7 +809,7 @@ typedef enum {
 
 - (void)switchAutoReceiveMode:(BOOL)on
 {
-    NSLog(@"switchAutoReceiveMode: %d", on);
+    if (USES_DEBUG_MESSAGES) {NSLog(@"switchAutoReceiveMode: %d", on);}
     self.autoReceiveMode = on;
     if (on) {
         if (USES_DEBUG_MESSAGES) { NSLog(@"#### SwitchAutoReceiveMode  ON ####"); }
