@@ -95,7 +95,7 @@
 
 "Placeholder_ChannelName" = "Name des Kanals";
 
-"Help_Channel" = "Verwenden Sie einen Kanal, um die Anzahl Ihrer Partner einzuschränken.\n\nJeder Teilnehmer muss dazu in das Feld oben denselben Namen eines Kanals eingeben. Welcher Name das sein soll, steht Ihnen frei. Bitte beachten Sie, dass der Name mindestens 6 Zeichen lang sein muss. Anschliessend können Sie die Daten mit der Wurfgeste oder über Auto-Receive austauschen.";
+"Help_Channel" = "Verwenden Sie einen Kanal, um sich mit Teilnehmern an einem anderen Ort z verbinden.\n\nJeder Teilnehmer muss dazu in das Feld oben denselben Namen eines Kanals eingeben. Welcher Name das sein soll, steht Ihnen frei. Bitte beachten Sie, dass der Name mindestens 6 Zeichen lang sein muss. Anschliessend können Sie die Daten mit der Wurfgeste bzw. über 'Automatisches Fangen' austauschen.";
 
 /* History Section */
 "Title_History" = "Verlauf";
@@ -156,19 +156,19 @@
 
 "Button_PlayVideo" = "Video zeigen";
 
-"HelpIntro" = "Hoccer vereinfacht den Datenaustausch zwischen Mobilgeräten. Mit Hoccer ziehen Sie Ihre Daten ganz einfach von Ihrem Bildschirm auf einen anderen, als wärs das selbe Gerät. Sie können Ihre Daten auch mit einer Wurfbewegung auf mehrere Geräte in der Nähe übertragen, ohne dass sich die Geräte vorher gegenseitig registrieren müssen.\n\nAuf den nachfolgenden Tafeln können Sie sehen, wie Sie all das mit Hoccer tun können.";
+"HelpIntro" = "Hoccer vereinfacht den Datenaustausch zwischen Mobilgeräten. Mit Hoccer ziehen Sie Ihre Daten ganz einfach von Ihrem Bildschirm auf einen anderen.\n\nSie können Ihre Daten auch mit einer Wurfbewegung auf mehrere Geräte in der Nähe übertragen, ohne dass sich die Geräte vorher gegenseitig registrieren müssen.\n\nAuf den nachfolgenden Tafeln können Sie sehen, wie Sie all das mit Hoccer tun können.";
 
-"HelpTitle_Sweep" = "Sweep";
+"HelpTitle_Sweep" = "Ziehen";
 
-"HelpMessage_Sweep" = "Um mit einer Person direkt Daten auszutauschen, legen Sie Ihre Mobilgeräte Kante an Kante nebeneinander hin und ziehen einfach den Inhalt vom Bildschirm des einen Geräts in den Bildschirm des anderen hinein.";
+"HelpMessage_Sweep" = "Um mit einer Person direkt Daten auszutauschen, legen Sie Ihre Mobilgeräte nebeneinander hin und ziehen einfach den Inhalt mit dem Finger vom Bildschirm des einen Geräts in den Bildschirm des anderen hinein. Achten sie darauf, den Finger jeweils über den Rand der Bildschirme zu bewegen.";
 
-"HelpTitle_Catch" = "Catch";
+"HelpTitle_Catch" = "Fangen";
 
-"HelpMessage_Catch" = "Wenn jemand seine Daten durch eine Wurfbewegung losgeschickt hat, müssen Sie diese mit einer Fangbewegung annehmen. Heben Sie dazu Ihr Mobilgerät kurz vertikal in die Höhe.";
+"HelpMessage_Catch" = "Wenn jemand Daten durch eine Wurf- bewegung gesendet hat, müssen Sie diese mit einer Fangbewegung annehmen. Bewegen Sie dazu Ihr Mobilgerät schnell von der Horizontalen in die Vertikale.";
 
-"HelpTitle_Throw" = "Throw";
+"HelpTitle_Throw" = "Werfen";
 
-"HelpMessage_Throw" = "Sie können mit einer einzigen Wurf-bewegung Daten an mehrere Empfänger übertragen. Dazu bewegen Sie Ihr Mobilgerät so, als würden Sie einen Frisbee werfen.";
+"HelpMessage_Throw" = "Sie können mit einer einzigen Wurf-bewegung Daten an mehrere Empfänger übertragen. Dazu bewegen Sie Ihr Mobil- gerät so, als würden Sie einen Frisbee werfen. Halten sie ihr Gerät dabei gut fest.";
 
 "HelpTitle_Tab" = "Tap";
 
@@ -176,19 +176,19 @@
 
 "HelpTitle_Key" = "Sicherheit";
 
-"HelpMessage_Key" = "Sie können einen oder mehere Empfänger oder Sender im Menu oben rechts auswählen, um den Kreis der Kommunikationspartner einzuschränken. Teilnehmer mit aktivierter E2E-Verschlüsselung sind mit einem Schlüsselsymbol markiert. Wenn sie selbst Daten mit E2E-Verschlüsselung versenden wollen, müssen Sie aus Sicherheitsgründen mögliche Emfpänger im Menu auswählen.";
+"HelpMessage_Key" = "Sie können Empfänger oder Sender im Menu oben rechts auswählen, um den Kreis der Kommunikationspartner einzu- schränken. Teilnehmer mit aktivierter E2E-Verschlüsselung sind mit einem Schlüssel- symbol markiert. Um Daten mit E2E-Verschlüsselung zu versenden, müssen Sie zuvor Emfpänger auswählen.";
 
 "HelpTitle_Encryption" = "Verschlüsselung";
 
-"HelpMessage_Encryption" = "Hoccer verschlüsselt die Daten immer auf dem Übertragungsweg zum Server. Sie können sie in den Einstellungen zusätzlich eine Ende-zu-Ende-Verschlüsselung (E2E) aktivieren, so dass die Daten nur vom Empfänger entschlüsselt werden können. Hierfür müssen alle Teilnehmer die Ende-zu-Ende-Verschlüsselung aktivieren.";
+"HelpMessage_Encryption" = "Hoccer verschlüsselt die Daten immer auf dem Übertragungsweg zum Server. Sie können in den Einstellungen zusätzlich eine Ende-zu-Ende-Verschlüsselung (E2E) aktivieren, so dass die Daten nur vom Empfänger entschlüsselt werden können. Auch die Empfänger müssen die Ende-zu-Ende-Verschlüsselung aktivieren.";
 
-"HelpTitle_AutoReceive" = "Auto-Receive";
+"HelpTitle_AutoReceive" = "Automatisches Fangen";
 
-"HelpMessage_AutoReceive" = "Zugeworfene Daten können Sie auch ohne Fangbewegung empfangen. Ziehen Sie auf der Hauptansicht von Hoccer die Lasche am oberen Rand nach unten. Nun werden automatisch alle zugeworfene Daten aufgefangen, bis sie die Lasche wieder schliessen.";
+"HelpMessage_AutoReceive" = "Zugeworfene Daten können Sie auch ohne Fangbewegung entgegennehmen. Ziehen Sie auf der Hauptansicht von Hoccer die Lasche am oberen Rand nach unten. Nun werden zugeworfene Daten automatisch empfangen.";
 
 "HelpTitle_Channel" = "Eigener Kanal";
 
-"HelpMessage_Channel" = "Um die Anzahl ihrer Partner einzuschränken, können Sie einen eigenen Kanal verwenden. Alle erwünschten Teilnehmer müssen dazu  den Kanal mit dem selben Namen wählen. Öffnen Sie die Kanalansicht und geben Sie den entsprechenden Namen ein.";
+"HelpMessage_Channel" = "Sie können Sie einen 'Kanal' nutzen, um sich mit Teilnehmern zu verbinden, die sich an einem anderen Ort befinden. Alle Teil- nehmer müssen dazu in der Kanalansicht den selben Kanalnamen wählen. Löschen sie den Namen, um sich wieder mit Benutzern in der Nähe zu gruppieren.";
 
 
 /* EncryptionSettingsViewController */

@@ -181,16 +181,16 @@
 
 "HelpTitle_Encryption" = "Encryption";
 
-"HelpMessage_Encryption" = "Hoccer always encrypts your data between your device and the server. You can activate additional End-to-End encryption in the Hoccer settings. In this case all partners must activate the End-to-End encryption.";
+"HelpMessage_Encryption" = "Hoccer always encrypts your data between your device and the server. However, you can activate additional End-to-End encryption in the Hoccer settings. In this case all partners must activate the End-to-End encryption.";
 
 
-"HelpTitle_AutoReceive" = "Auto-Receive";
+"HelpTitle_AutoReceive" = "Auto-Catch";
 
-"HelpMessage_AutoReceive" = "You can receive thrown data without explicitly catching it. To do so, pull down the Auto-Receiver handle below the Hoccer application title bar. Hoccer will now receive any thrown data as long as you stay in this mode.";
+"HelpMessage_AutoReceive" = "You can receive thrown data without explicitly catching it. To do so, pull down the handle below the Hoccer application title bar. Hoccer will now automatically 'catch' any thrown data as long as you stay in this mode.";
 
-"HelpTitle_Channel" = "Private Channels";
+"HelpTitle_Channel" = "Remote Channels";
 
-"HelpMessage_Channel" = "If you'd like to restrict data exchange to a number of people, Hoccer offers the use of private channels. In order to use such a channel, all users have to agree on a common channel name and enter this name in the channel view.";
+"HelpMessage_Channel" = "If want to exchange data with people not nearby, you can group with them using a named channel. In order to use such a channel, all users have to agree on a common channel name and enter this name in the channel view. The receiver(s) should use Auto-Catch mode.";
 
 
 /* EncryptionSettingsViewController */
