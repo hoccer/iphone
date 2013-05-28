@@ -90,7 +90,7 @@
     if (alertView != nil && [[alertView title] isEqualToString:NSLocalizedString(@"PromoTitle_HoccerTalk", nil)]) {
         if (buttonIndex == 1) {
             // clicked on promotion/goto appstore
-            NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/hoccer/id626263090"];
+            NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.com/apps/hoccerxo"];
             [[UIApplication sharedApplication] openURL:url];
         }
     } else {
