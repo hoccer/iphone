@@ -31,6 +31,7 @@
 @implementation HoccerAppDelegate
 
 @synthesize networkReachable;
+
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info)
 {
 	((HoccerAppDelegate *)info).networkReachable = (flags & kSCNetworkReachabilityFlagsReachable);
@@ -88,20 +89,20 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
         [window addSubview:startAnimation.view];
     }
 	//SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://wolke.hoccer.com" UTF8String]);
-	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"http://www.hoccer.com" UTF8String]);
+	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [@"linccer-production.hoccer.com" UTF8String]);
 	if (reachability == NULL) {
-		//NSLog(@"could not create reachability ref");
+		NSLog(@"#ERROR: reachability: could not create reachability ref");
 		return YES;
 	}
 	
 	SCNetworkReachabilityContext context = {0, self, NULL, NULL, NULL};
 	if (!SCNetworkReachabilitySetCallback(reachability, ReachabilityCallback, &context)) {
-		//NSLog(@"could not add callback");
+		NSLog(@"#ERROR: reachability: could not add callback");
 		return YES;
 	}
 	
 	if (!SCNetworkReachabilityScheduleWithRunLoop(reachability, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode)) {
-		//NSLog(@"could not add to run loop");
+		NSLog(@"#ERROR: reachability: could not add to run loop");
 		return YES;
 	}
     
@@ -234,7 +235,8 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [viewController.linccer reactivate];
+    [viewController clientNameChanged:nil];
+    //[viewController.linccer reactivate];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -21,6 +21,7 @@
 
 	NSError *error;
 	TransferableState state;
+	NSInteger retryCount;
 }
 
 @property (nonatomic, retain) TransferProgress* progress;

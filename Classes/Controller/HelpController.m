@@ -20,7 +20,7 @@
     //    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"firstRunTipShown"];
     //    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"encryptionTipShown"];
     //    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:NO] forKey:@"talkPromotionShown"];
-    
+#ifdef OLD_PROMO
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"talkPromotionShown"]){
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"PromoTitle_HoccerTalk", nil)
@@ -35,7 +35,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"talkPromotionShown"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-	
+#endif
     //    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRunTipShown"] && [[NSUserDefaults standardUserDefaults] boolForKey:@"encryptionTipShown"]){
     //		return;
     //	}
@@ -87,13 +87,16 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+#ifdef OLD_PROMO
     if (alertView != nil && [[alertView title] isEqualToString:NSLocalizedString(@"PromoTitle_HoccerTalk", nil)]) {
         if (buttonIndex == 1) {
             // clicked on promotion/goto appstore
             NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.com/apps/hoccerxo"];
             [[UIApplication sharedApplication] openURL:url];
         }
-    } else {
+    } else
+#endif
+    {
         // Tutorial Handling
         if (buttonIndex == 1) {
             [self showTutorial];

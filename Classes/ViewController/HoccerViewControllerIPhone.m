@@ -148,7 +148,9 @@
     
     [self showTabBar:YES];
     [self movePullDownToNormalPosition];
-	[self showHud];
+	if (!linccer.isRegistered) {
+        [self showHud];
+    }
 
 	helpController = [[HelpController alloc] init];
     helpController.delegate = self;

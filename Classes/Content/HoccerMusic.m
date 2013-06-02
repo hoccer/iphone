@@ -16,7 +16,7 @@
 #import "GTMUIImage+Resize.h"
 
 #import "FileDownloader.h"
-#import "DelayedFileUploaded.h"
+#import "DelayedFileUploader.h"
 
 #import "NSFileManager+FileHelper.h"
 
@@ -133,13 +133,13 @@
 }
 
 - (void)didFinishDataRepresentation {
-    for (DelayedFileUploaded *transferable in transferables) {
+    for (DelayedFileUploader *transferable in transferables) {
         [transferable setFileReady:YES];
     }
 }
 
 - (void)audioExporterFailed:(NSError *)error {
-    for (DelayedFileUploaded *transferable in transferables) {
+    for (DelayedFileUploader *transferable in transferables) {
         [transferable setError:error];
     }
     
@@ -232,8 +232,14 @@
         sleep(0.1);
     }
     
-    if ([self.transferer url]) {
-        [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+    if ([self.transferer isKindOfClass:[DelayedFileUploader class]]) {
+        DelayedFileUploader * myUploader = (DelayedFileUploader*)self.transferer;
+        dict[@"uri"] = myUploader.uploadURL;
+        
+    } else {
+        if ([self.transferer url]) {
+            [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+        }
     }
     
     [self.transferer.cryptor appendInfoToDictionary:dict];
@@ -329,7 +335,8 @@
         return thumbURL;
     }
     
-    return  [thumbUploader.url stringByRemovingQuery];
+    return  thumbUploader.uploadURL;
+    // return  [thumbUploader.url stringByRemovingQuery];
 }
 
 - (void)pausePlayer {
@@ -351,7 +358,7 @@
 #pragma Hooks
 - (void)viewDidLoad {
     //NSLog(@"upload song %@", self.filename);
-    NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
+    NSObject <Transferable> *transferable = [[[DelayedFileUploader alloc] initWithFilename:self.filename] autorelease];
     //NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
@@ -364,10 +371,10 @@
     [self createThumb];
     
     //NSLog(@"uploading thumb %@",[self thumbFilename]);
-    thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+    thumbUploader = [[[DelayedFileUploader alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     
-    [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
+    [(DelayedFileUploader *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
 }
 

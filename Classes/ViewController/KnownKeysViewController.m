@@ -171,12 +171,11 @@
     
     NSData *storedKey = [[RSA sharedInstance] getKeyBitsForPeerRef:theName];
     detailViewController.key = [storedKey asBase64EncodedString];
-    [storedKey release];
 
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
-    [aClient retain];
+    // [aClient retain];
 }
 
 @end

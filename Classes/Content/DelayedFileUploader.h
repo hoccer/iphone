@@ -10,11 +10,14 @@
 #import "FileUploader.h"
 
 
-@interface DelayedFileUploaded : FileUploader {
-	BOOL uploadShouldStart, fileReady;
+@interface DelayedFileUploader : FileUploader {
+	BOOL uploadShouldStart;
+    BOOL fileReady;
+    BOOL actionReady;
 }
 
 - (void)setFileReady: (BOOL)newReady;
+- (void)setActionReady: (BOOL)newReady;
 
 
 @end

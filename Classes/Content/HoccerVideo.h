@@ -10,7 +10,7 @@
 #import "Hoccer.h"
 #import "HoccerFileContent.h"
 #import "TransferController.h"
-#import "FileUploader.h"
+#import "DelayedFileUploader.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface HoccerVideo : HoccerFileContent <HCFileCacheDelegate> {
@@ -20,7 +20,7 @@
 	
 	Preview *preview;
     
-    FileUploader *thumbUploader;
+    DelayedFileUploader *thumbUploader;
     NSString *thumbURL;
     
     FileDownloader *thumbDownloader;

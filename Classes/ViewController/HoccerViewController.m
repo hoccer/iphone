@@ -52,6 +52,7 @@
 #import "ErrorViewController.h"
 
 #import "FileUploader.h"
+#import "DelayedFileUploader.h"
 #import "NSData_Base64Extensions.h"
 
 #import "ImageSelectViewController.h"
@@ -143,9 +144,7 @@ typedef enum {
 
 	linccer = [[HCLinccer alloc] initWithApiKey:API_KEY secret:SECRET sandboxed: USES_SANDBOX];
 	linccer.delegate = self;
-    [self clientNameChanged:nil];
-    [self clientChannelChanged:nil];
-    
+     
 	desktopView.delegate = self;
 	gestureInterpreter.delegate = self;
 
@@ -223,7 +222,7 @@ typedef enum {
     
     cipherNeeded = YES;
     encryptionEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"encryption"];
-    
+    //[self clientChannelChanged:nil];
 }
 
 
@@ -241,7 +240,7 @@ typedef enum {
 {
 	httpClient = [[HttpClient alloc] initWithURLString:@"http://api.hoccer.com"];
 	httpClient.target = self;
-	[httpClient getURI:@"/iphone/status2.json" success:@selector(httpConnection:didReceiveStatus:)];
+	[httpClient getURI:NSLocalizedString(@"/iphone/status.json","") success:@selector(httpConnection:didReceiveStatus:)];
 }
 
 #pragma mark -
@@ -263,16 +262,58 @@ typedef enum {
         else { NSLog(@"%@", e); }
     }
     
-	if ([[message objectForKey:@"status"] isEqualToString: @"update"]) {
+    NSDictionary * status = message[@"status"];
+	if ([[status objectForKey:@"cmd"] isEqualToString: @"update"]) {
 		
-		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[message objectForKey:@"title"] 
-													   message:[message objectForKey:@"message"]
+		UIAlertView *view = [[UIAlertView alloc] initWithTitle:[status objectForKey:@"title"] 
+													   message:[status objectForKey:@"message"]
 													  delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Button_Update", nil), nil];
         
         view.tag = 1;
 		[view show];
 		[view release];
 	}
+    
+    NSDictionary * promo = message[@"promo"];
+    if (promo != nil) {
+        NSString * id = promo[@"id"];
+        NSString * title = promo[@"title"];
+        NSString * promo_message = promo [@"message"];
+        NSString * promo_url = promo[@"url"];
+        NSString * promo_settingstitle = promo[@"settingstitle"];
+        NSString * key = [@"promotionShown-" stringByAppendingString:id];
+
+        NSString * cmd = promo[@"cmd"];
+
+        if (cmd != nil && [cmd isEqualToString:@"remove"]) {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"promo-id"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"promo-title"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"promo-message"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"promo-url"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"promo-settingstitle"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+        } else if (title != nil && promo_message != nil && id !=nil && ![[NSUserDefaults standardUserDefaults] boolForKey:key] ){
+            
+            [[NSUserDefaults standardUserDefaults] setObject:id forKey:@"promo-id"];
+            [[NSUserDefaults standardUserDefaults] setObject:title forKey:@"promo-title"];
+            [[NSUserDefaults standardUserDefaults] setObject:promo_message forKey:@"promo-message"];
+            [[NSUserDefaults standardUserDefaults] setObject:promo_url forKey:@"promo-url"];
+            [[NSUserDefaults standardUserDefaults] setObject:promo_settingstitle forKey:@"promo-settingstitle"];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                            message:promo_message
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Button_Continue",nil)
+                                                  otherButtonTitles:NSLocalizedString(@"Button_GotoAppstore",nil)
+                                  ,nil];
+            alert.tag = 3;
+            [alert show];
+            [alert release];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }
     
     [httpClient release]; httpClient = nil;
 }
@@ -291,6 +332,12 @@ typedef enum {
     else if(alertView.tag == 2){
         if (buttonIndex == 1){
             [self showMediaPicker];
+        }
+    }
+    else if (alertView.tag == 3) {
+        if (buttonIndex == 1) {
+            NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"promo-url"]];
+            [[UIApplication sharedApplication] openURL: url];
         }
     }
 }
@@ -766,7 +813,7 @@ typedef enum {
 
 - (void)gesturesInterpreterDidDetectThrow: (GesturesInterpreter *)aGestureInterpreter
 {
-    NSLog(@"THROW");
+    if (USES_DEBUG_MESSAGES) {NSLog(@"THROW");}
     
 	if (![hoccingRules hoccerViewControllerMayThrow:self]) {
 		return;
@@ -1196,8 +1243,8 @@ typedef enum {
     }
     
 	[linccer cancelAllRequestsKeepPeek];
-    if (![infoHud isHidden])
-        [infoHud hide:YES];
+    if (![self.infoHud isHidden])
+        [self.infoHud hide:YES];
 	
     if (self.sendingItem) {
 		self.sendingItem.viewOrigin = self.defaultOrigin;
@@ -1426,7 +1473,7 @@ typedef enum {
             cipherNeeded = YES;
         }
     }
-    [linccer reactivate];
+    // [linccer reactivate];
 }
 
 - (void) transferController:(TransferController *)controller didUpdateTotalProgress:(TransferProgress *)progress
@@ -1448,7 +1495,7 @@ typedef enum {
         cipherNeeded = YES;
         failcounter = 0;
 //    }
-    [linccer reactivate];
+    // [linccer reactivate];
 }
 
 - (void) transferController:(TransferController *)controller didPrepareContent: (id)object {
@@ -1470,7 +1517,7 @@ typedef enum {
 
 - (void)linccer:(HCLinccer *)linccer didUpdateEnvironment:(NSDictionary *)quality
 {
-    if(![hud.labelText isEqualToString:NSLocalizedString(@"Status_PreparingContent",nil)]){
+    if(hud != nil && !hud.hidden && ![hud.labelText isEqualToString:NSLocalizedString(@"Status_PreparingContent",nil)]){
         [self hideHUD];
     }
 
@@ -1538,9 +1585,9 @@ typedef enum {
                 hoccerStatus = HOCCER_LOADING_FROM_FILECACHE;
                 [transferController addContentToTransferQueue:transferer];		
             }
-            if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
-                [linccer disconnect];
-            }
+//            if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
+//                [linccer disconnect];
+//            }
         }
         else {
             [self showSuccess:item];
@@ -1569,15 +1616,29 @@ typedef enum {
 
 - (void) linccer:(HCLinccer *)linccer didSendData:(NSArray *)info
 {
-    if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData:"); }
+    if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: %@",info); }
 
     failcounter = 0;
 	[self ensureViewIsHoccable];
 	connectionEstablished = YES;
 
-    if (self.sendingItem && fileUploaded) {
-        if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: showsuccess"); }
-        [self showSuccess:self.sendingItem];
+    if (self.sendingItem) {
+        
+        if (fileUploaded) {
+            if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: showsuccess"); }
+            [self showSuccess:self.sendingItem];
+        } else {
+            if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: possibly start delayed uploads"); }
+            HoccerContent * theContent = self.sendingItem.content;
+            NSArray * transferers = [theContent transferers];
+            for (NSObject<Transferable> * t in transferers) {
+                if ([t isKindOfClass:[DelayedFileUploader class]]) {
+                    if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: startting delayed upload %@", t); }
+                    DelayedFileUploader * delayedUploader = (DelayedFileUploader*)t;
+                    [delayedUploader setActionReady:YES];
+                }
+            }
+        }
     } else {
         if (USES_DEBUG_MESSAGES) { NSLog(@"linccer:   didSendData: self.sendingItem = %@, fileUploaded = %d",self.sendingItem, fileUploaded); }
     }
@@ -1631,7 +1692,16 @@ typedef enum {
 #pragma mark -
 #pragma mark Notifications
 - (void)networkChanged: (NSNotification *)notification {
-	[linccer reactivate];
+    BOOL reachable = [(HoccerAppDelegate *)[UIApplication sharedApplication].delegate networkReachable];
+    if (reachable) {
+        if (!linccer.active) {
+            [linccer reactivate];
+        }
+    } else {
+        if (linccer.active) {
+            [linccer disconnect];
+        }
+    }
 }
 
 - (void)clientNameChanged: (NSNotification *)notification
@@ -1712,10 +1782,10 @@ typedef enum {
 		return;
 	}
    
-   	if (infoHud && [infoHud isKindOfClass:[MBProgressHUD class]]) {
+   	if (self.infoHud && [self.infoHud isKindOfClass:[MBProgressHUD class]]) {
         
-        if (!infoHud.isHidden){
-            [infoHud hide:YES];
+        if (!self.infoHud.isHidden){
+            [self.infoHud hide:YES];
         }
     }
 
@@ -1771,10 +1841,10 @@ typedef enum {
     [statusViewController showMessage: NSLocalizedString(@"Status_Success", nil) forSeconds:5];
 
     if (hoccerStatus <= 1) {
-        if (infoHud || [infoHud isKindOfClass:[MBProgressHUD class]]){
-            if (!infoHud.isHidden){
+        if (self.infoHud || [self.infoHud isKindOfClass:[MBProgressHUD class]]){
+            if (!self.infoHud.isHidden){
                 @try {
-                    [infoHud hide:YES];
+                    [self.infoHud hide:YES];
 
                 }
                 @catch (NSException *exception) {
@@ -1786,7 +1856,7 @@ typedef enum {
 	connectionEstablished = NO;
     if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
         hoccerStatus = HOCCER_IDLING;
-        [linccer reactivate];
+        // [linccer reactivate];
     }
     // NSLog(@"fileUploaded set to YES (showSuccess)");
     fileUploaded = YES;
@@ -1796,7 +1866,7 @@ typedef enum {
 	desktopView.userInteractionEnabled = NO;
     if (hoccerStatus == HOCCER_LOADING_FROM_FILECACHE) {
         hoccerStatus = HOCCER_IDLING;
-        [linccer reactivate];
+        // [linccer reactivate];
     }
 	[linccer setEnvironmentUpdateInterval:10];
 	
@@ -1883,21 +1953,21 @@ typedef enum {
 
 - (void)showInfoHudForMode:(NSString *)mode
 {
-    infoHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [infoHud setAllowsCancelation:YES];
-    [infoHud setDelegate:self];
+    self.infoHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.infoHud setAllowsCancelation:YES];
+    [self.infoHud setDelegate:self];
 	
     if ([mode isEqual: HCTransferModeOneToOne]){
-        infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_swipe-in"]] autorelease];
-        infoHud.mode = MBProgressHUDModeCustomView;
-        infoHud.labelText = NSLocalizedString(@"HudMessage_SwipeOnTheOtherPhone", nil);
-        [infoHud show:YES];
+        self.infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_swipe-in"]] autorelease];
+        self.infoHud.mode = MBProgressHUDModeCustomView;
+        self.infoHud.labelText = NSLocalizedString(@"HudMessage_SwipeOnTheOtherPhone", nil);
+        [self.infoHud show:YES];
     }
     else if ([mode isEqual: HCTransferModeOneToMany]){
-        infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_catch"]] autorelease];
-        infoHud.mode = MBProgressHUDModeCustomView;
-        infoHud.labelText = NSLocalizedString(@"HudMessage_CatchOnTheOtherPhones", nil);
-        [infoHud show:YES];
+        self.infoHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud_info_catch"]] autorelease];
+        self.infoHud.mode = MBProgressHUDModeCustomView;
+        self.infoHud.labelText = NSLocalizedString(@"HudMessage_CatchOnTheOtherPhones", nil);
+        [self.infoHud show:YES];
     }
 }
 

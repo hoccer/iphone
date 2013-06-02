@@ -79,7 +79,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4234</string>
+	<string>4400</string>
 	<key>HCCodeName</key>
 	<string>Autobahn</string>
 	<key>HCVideoLink</key>
@@ -112,6 +112,8 @@
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array/>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<false/>
 	<key>UIStatusBarStyle</key>

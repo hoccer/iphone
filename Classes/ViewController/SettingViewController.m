@@ -65,8 +65,6 @@
 		
 	sections = [[NSMutableArray alloc] init];
 	
-    
-    
 	SettingsAction *tutorialAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_Tutorial", nil) selector:@selector(showTutorial) type: HCContinueSetting];
 	[sections addObject:[NSArray arrayWithObject:tutorialAction]];
 
@@ -81,20 +79,27 @@
     autoSaveAction.defaultValue = @"autoSave";
 	
 //	SettingsAction *bookmarkletAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_InstallSafariBookmarklet", nil) selector:@selector(showBookmarklet) type: HCInplaceSetting];
+        
     SettingsAction *abookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_DeleteContactReference", nil) selector:@selector(deleteContactReference) type: HCInplaceSetting];
 
 	NSArray *section1 = [NSArray arrayWithObjects: playSoundAction, autoSaveAction, abookAction, nil];
 	[sections addObject:section1];
     
-    
+ 
     SettingsAction *aboutAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_AboutHoccer", nil) selector:@selector(showAbout) type: HCContinueSetting];
 	SettingsAction *websiteAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_VisitHoccerWebsite", nil) selector:@selector(showHoccerWebsite) type: HCContinueSetting];
 	SettingsAction *twitterAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnTwitter", nil) selector:@selector(showTwitter) type: HCContinueSetting];
 	SettingsAction *facebookAction = [SettingsAction actionWithDescription:NSLocalizedString(@"Settings_FollowOnFacebook", nil) selector:@selector(showFacebook) type: HCContinueSetting];
-    
-	NSArray *section3 = [NSArray arrayWithObjects: aboutAction, websiteAction, facebookAction, twitterAction, nil];
-	[sections addObject:section3];
-    
+
+    NSString * promoSettingsTitle = [[NSUserDefaults standardUserDefaults] stringForKey:@"promo-settingstitle"];
+    if (promoSettingsTitle != nil) {
+        SettingsAction *promoAction = [SettingsAction actionWithDescription:promoSettingsTitle selector:@selector(showPromoAlert) type: HCContinueSetting];
+        NSArray *section3 = [NSArray arrayWithObjects: aboutAction, websiteAction, promoAction, facebookAction, twitterAction, nil];
+        [sections addObject:section3];        
+    } else {
+        NSArray *section3 = [NSArray arrayWithObjects: aboutAction, websiteAction, facebookAction, twitterAction, nil];
+        [sections addObject:section3];        
+    }
         
     NSMutableArray *encryptGroup = [NSMutableArray arrayWithCapacity:3];
     
@@ -111,7 +116,6 @@
     [encryptGroup addObject:encryptOptions];
     
     [sections addObject:encryptGroup];
-    
     
     [self registerForKeyboardNotifications];
 }
@@ -306,12 +310,26 @@
         
   }
 
+- (void) showPromoAlert {
+    NSString * title = [[NSUserDefaults standardUserDefaults] stringForKey:@"promo-settingstitle"];
+    NSString * promo_message = [[NSUserDefaults standardUserDefaults] stringForKey:@"promo-message"];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:promo_message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Button_Continue",nil)
+                                          otherButtonTitles:NSLocalizedString(@"Button_GotoAppstore",nil)
+                          ,nil];
+    alert.tag = 2;
+    [alert show];
+    [alert release];
+}
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {      
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
    	switch (alertView.tag) {
         case 0:
             if (buttonIndex == 1) {
-                [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];	
+                [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"http://www.hoccer.com/___?javascript:window.location='hoccer:'+window.location"]];
             }	
             break;
         case 1:
@@ -330,10 +348,16 @@
 
             }
             [tableView reloadData];
+            break;
+        case 2:
+            if (buttonIndex == 1) {
+                NSURL *url = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"promo-url"]];
+                [[UIApplication sharedApplication] openURL: url];
+            }
+            break;
         default:
             break;
     }
-	
 }
 
 - (void)deleteContactReference

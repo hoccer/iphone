@@ -193,8 +193,11 @@
 #pragma mark User Actions
 - (IBAction)closeView: (id)sender
 {
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-	[notificationCenter postNotificationName:@"PausePlayer2" object:nil];
+    //NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+	//[notificationCenter postNotificationName:@"PausePlayer2" object:nil];
+	if ([delegate respondsToSelector:@selector(PausePlayer2)]) {
+		[((HoccerMusic*)delegate) pausePlayer2];
+	}
 
 	if ([delegate respondsToSelector:@selector(itemViewControllerWasClosed:)]) {
 		[delegate itemViewControllerWasClosed:self];

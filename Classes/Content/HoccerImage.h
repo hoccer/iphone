@@ -11,6 +11,7 @@
 #import "HoccerFileContent.h"
 #import "TransferController.h"
 #import "FileUploader.h"
+#import "DelayedFileUploader.h"
 
 @interface HoccerImage : HoccerFileContent <HCFileCacheDelegate, UIScrollViewDelegate> {
 	UIImage *image;	
@@ -19,7 +20,7 @@
 	
 	Preview *preview;
     
-    FileUploader *thumbUploader;
+    DelayedFileUploader *thumbUploader;
     NSString *thumbURL;
     
     FileDownloader *thumbDownloader;

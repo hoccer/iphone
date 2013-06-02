@@ -6,9 +6,9 @@
 //  Copyright 2010 Hoccer GmbH. All rights reserved.
 //
 
-#import "DelayedFileUploaded.h"
+#import "DelayedFileUploader.h"
 
-@interface DelayedFileUploaded ()
+@interface DelayedFileUploader ()
 
 - (void)upload;
 
@@ -16,7 +16,7 @@
 
 
 
-@implementation DelayedFileUploaded
+@implementation DelayedFileUploader
 
 - (id) initWithFilename:(NSString *)aFilename {
 	self = [super initWithFilename:aFilename];
@@ -28,7 +28,7 @@
 }
 
 - (void)upload {
-	if (uploadShouldStart && fileReady) {
+	if (uploadShouldStart && fileReady && actionReady) {
 		[super startTransfer];
 	}
 }
@@ -44,6 +44,11 @@
 		self.state = TransferableStateReady;
 	}
 	
+	[self upload];
+}
+
+- (void)setActionReady: (BOOL)newReady {
+	actionReady = newReady;	
 	[self upload];
 }
 

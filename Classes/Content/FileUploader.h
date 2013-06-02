@@ -14,6 +14,6 @@
 }
 
 - (id)initWithFilename: (NSString *)aFilename;
-
+@property (retain, nonatomic) NSString * uploadURL;
 
 @end

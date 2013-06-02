@@ -16,7 +16,7 @@
 #import "GTMUIImage+Resize.h"
 
 #import "FileDownloader.h"
-#import "DelayedFileUploaded.h"
+#import "DelayedFileUploader.h"
 
 #import "NSFileManager+FileHelper.h"
 
@@ -85,7 +85,7 @@
 }
 
 - (void)didFinishDataRepresentation {
-    for (DelayedFileUploaded *transferable in transferables) {
+    for (DelayedFileUploader *transferable in transferables) {
         [transferable setFileReady:YES];
     }
 }
@@ -221,8 +221,14 @@
         sleep(0.1);
     }
     
-    if ([self.transferer url]) {
-        [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+    if ([self.transferer isKindOfClass:[DelayedFileUploader class]]) {
+        DelayedFileUploader * myUploader = (DelayedFileUploader*)self.transferer;
+        dict[@"uri"] = myUploader.uploadURL;
+        
+    } else {
+        if ([self.transferer url]) {
+            [dict setObject:[[self.transferer url] stringByRemovingQuery] forKey:@"uri"];
+        }
     }
     
     [self.transferer.cryptor appendInfoToDictionary:dict];
@@ -294,7 +300,8 @@
         return thumbURL;
     }
     
-    return  [thumbUploader.url stringByRemovingQuery];
+    // return  [thumbUploader.url stringByRemovingQuery];
+    return  thumbUploader.uploadURL;
 }
 
 - (Preview *)preview {
@@ -314,23 +321,23 @@
 #pragma Hooks
 - (void)viewDidLoad {
     //NSLog(@"upload video %@", self.filename);
-    NSObject <Transferable> *transferable = [[[DelayedFileUploaded alloc] initWithFilename:self.filename] autorelease];
+    NSObject <Transferable> *transferable = [[[DelayedFileUploader alloc] initWithFilename:self.filename] autorelease];
     //NSLog(@"cryptor %@", self.cryptor);
     transferable.cryptor = self.cryptor;
     [transferables addObject: transferable];
     
     if (self.data) {
-        [(DelayedFileUploaded *)transferable setFileReady: YES];
+        [(DelayedFileUploader *)transferable setFileReady: YES];
     }
     
     [self createThumb];
     
     
     //NSLog(@"uploading thumb %@",[self thumbFilename]);
-    thumbUploader = [[[DelayedFileUploaded alloc] initWithFilename:[self thumbFilename]] autorelease];
+    thumbUploader = [[[DelayedFileUploader alloc] initWithFilename:[self thumbFilename]] autorelease];
     thumbUploader.cryptor = self.cryptor;
     
-    [(DelayedFileUploaded *)thumbUploader setFileReady: YES];
+    [(DelayedFileUploader *)thumbUploader setFileReady: YES];
     [transferables addObject: thumbUploader];
     
 }

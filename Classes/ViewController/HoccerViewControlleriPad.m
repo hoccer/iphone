@@ -141,7 +141,10 @@
     self.pullDownView.desktopView = desktopView;
     [self movePullDownToNormalPosition];
 	
-	[self showHud];
+	if (!linccer.isRegistered) {
+        [self showHud];
+    }
+    
     [self updateGroupButton];
     //[self updateEncryptionIndicator];
     

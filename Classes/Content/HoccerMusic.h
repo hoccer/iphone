@@ -12,7 +12,7 @@
 #import "Hoccer.h"
 #import "HoccerFileContent.h"
 #import "TransferController.h"
-#import "FileUploader.h"
+#import "DelayedFileUploader.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AudioPreview.h"
@@ -22,7 +22,7 @@
     MPMediaItem *song;
 	UIImage *thumb;
     
-    FileUploader *thumbUploader;
+    DelayedFileUploader *thumbUploader;
     NSString *thumbURL;
 
     FileDownloader *thumbDownloader;
@@ -43,6 +43,9 @@
 - (void)updateImage;
 - (void)didFinishDataRepresentation;
 - (void)audioExporterFailed:(NSError *)error;
+- (void)pausePlayer2;
+
+
 
 - (NSString *)thumbFilename;
 - (NSString *)thumbURL;

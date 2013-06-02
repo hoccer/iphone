@@ -193,6 +193,7 @@
 - (void)updateChannelButton;
 
 - (void)didChangeNumberOfDesktopItems;
+- (void)clientNameChanged: (NSNotification *)notification;
 
 @end
 

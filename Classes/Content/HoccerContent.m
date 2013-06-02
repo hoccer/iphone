@@ -132,16 +132,18 @@
 - (void)cryptorWithType: (NSString *)type salt: (NSString *)salt password:(NSString *)password{
     // NSLog(@"generating cryptor with type %@, salt=%@, password=%@", type, salt, password);
     
+    NSData * saltData = [[NSData dataWithBase64EncodedString:salt] autorelease];
     if ([type isEqualToString:@"AES"]) {
         
         SecKeyRef thePrivateKey = [[RSA sharedInstance] getPrivateKeyRef];
         
-        NSData *cipherData = [NSData dataWithBase64EncodedString:password];
+        NSData *cipherData = [[NSData dataWithBase64EncodedString:password] autorelease];
         
         NSData *keyData = [[RSA sharedInstance] decryptWithKey:thePrivateKey cipherData:cipherData];
         
         NSString *key  = [[[NSString alloc] initWithData:keyData encoding:NSUTF8StringEncoding] autorelease];
-                
+        
+        
         if (![key isEqualToString:@""]){
             [[NSUserDefaults standardUserDefaults] setObject:key forKey:@"encryptionKey"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -151,11 +153,11 @@
             [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
         
-        self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
+        self.cryptor = [[[AESCryptor alloc] initWithKey:key salt:saltData] autorelease];
 
     }
     if ([type isEqualToString:@"AESwoRSA"]) {
-        self.cryptor = [[[AESCryptor alloc] initWithKey:password salt:[NSData dataWithBase64EncodedString:salt]] autorelease];
+        self.cryptor = [[[AESCryptor alloc] initWithKey:password salt:saltData] autorelease];
     }
 
 }

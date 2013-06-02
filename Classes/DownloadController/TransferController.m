@@ -89,7 +89,7 @@
         } else {
             if (USES_DEBUG_MESSAGES) {NSLog(@"TransferController: finalizeTransfer %@, progress incomplete = %@", object, totalProgress);}
             if ([delegate respondsToSelector:@selector(transferController:didFailWithError:forTransfer:)]) {
-                HCError * myError = [[HCError alloc] initWithErrorCode:1001 errorText:NSLocalizedString(@"Title_TransferIncomplete", nil)];
+                HCError * myError = [[[HCError alloc] initWithErrorCode:1001 errorText:NSLocalizedString(@"Title_TransferIncomplete", nil)] autorelease];
                 [delegate transferController:self didFailWithError:myError forTransfer:object];
             }
         }
